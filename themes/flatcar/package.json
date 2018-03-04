@@ -1,0 +1,44 @@
+{
+    "name": "flatcar",
+    "description": "The flatcar website",
+    "version": "0.1.0",
+    "homepage": "https://flatcar-linux.org",
+    "author": "The Flatcar Linux team",
+    "contributors": [
+        "Chris Kuehl"
+    ],
+    "scripts": {
+        "bash": "bash",
+        "install-bootstrap-deps": "cp node_modules/jquery/dist/jquery.slim.min.js node_modules/jquery/dist/jquery.slim.min.map node_modules/bootstrap/dist/js/bootstrap.min.js static/js/",
+        "build-css": "npm-run-all css-lint css-compile css-prefix css-minify",
+        "css-lint": "true || scss-lint scss/flatcar.scss",
+        "css-compile": "node-sass --output-style expanded --source-map true --precision 6 --recursive --output static/css scss/flatcar.scss",
+        "css-prefix": "postcss static/css/*.css --use autoprefixer --replace",
+        "css-minify": "npm-run-all --parallel css-minify-*",
+        "css-minify-flatcar": "cleancss --level 1 --source-map --output static/css/flatcar.min.css static/css/flatcar.css",
+        "css-minify-font-awesome": "cleancss --level 1 --source-map --output static/css/font-awesome.min.css static/css/font-awesome.css",
+        "css-minify-glyphicons-halflings": "cleancss --level 1 --source-map --output static/css/glyphicons-halflings.min.css static/css/glyphicons-halflings.css",
+        "build-js": "npm-run-all js-lint js-compile js-minify",
+        "js-lint": "true || eslint js/",
+        "js-compile": "babel js/ --out-dir static/js --source-maps",
+        "js-minify": "uglifyjs --compress warnings=false --mangle --comments '/^!/' --output static/js/flatcar.min.js static/js/flatcar.js",
+        "dist": "npm-run-all --parallel build-css build-js"
+    },
+    "devDependencies": {
+        "autoprefixer": "^7.1.1",
+        "babel-cli": "^6.24.1",
+        "babel-eslint": "^7.2.3",
+        "babel-plugin-transform-es2015-modules-strip": "^0.1.1",
+        "babel-preset-es2015": "^6.24.1",
+        "bootstrap": "^4.0.0",
+        "clean-css-cli": "^4.1.3",
+        "eslint": "^3.19.0",
+        "eslint-plugin-react": "^7.1.0",
+        "htmllint-cli": "^0.0.6",
+        "jquery": "^3.2.1",
+        "node-sass": "^4.5.3",
+        "npm-run-all": "^4.0.2",
+        "postcss-cli": "^4.1.0",
+        "uglify-js": "^3.0.13"
+    }
+}

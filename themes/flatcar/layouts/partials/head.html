@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="{{ .Site.LanguageCode }}">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="{{ .Site.Params.Description }}">
+    <meta name="author" content="{{ .Site.Params.Author }}">
+
+    <title>{{ .Title }} | {{ .Site.Params.Author }}</title>
+
+    {{ if .RSSLink }}
+    <link href="{{ .RSSLink }}" rel="alternate" type="application/rss+xml" title="{{ .Site.Title }}" />
+    <link href="{{ .RSSLink }}" rel="feed" type="application/rss+xml" title="{{ .Site.Title }}" />
+    {{ end }}
+
+    <!-- Custom CSS -->
+    <link href="{{ .Site.BaseURL }}css/flatcar.min.css" rel="stylesheet">
+
+    <!-- Custom Fonts -->
+    <link href="{{ .Site.BaseURL }}css/font-awesome.min.css"    rel="stylesheet" type="text/css">
+    <link href='{{ .Site.BaseURL }}css/glyphicons-haflings.css' rel='stylesheet' type='text/css'>
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="{{ .Site.BaseURL }}js/html5shiv.min.js"></script>
+        <script src="{{ .Site.BaseURL }}js/respond.min.js"></script>
+    <![endif]-->
+</head>
+
+<body>
+

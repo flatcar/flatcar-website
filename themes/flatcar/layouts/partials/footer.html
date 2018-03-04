@@ -1,0 +1,46 @@
+    <!-- Footer -->
+    <footer id="footer">
+        <div class="container">
+            <div class="row justify-content-between">
+                <div class="col-md-6">
+                  <ul class="list-inline social">
+                    <li class="list-inline-item">
+                      <a href="mailto:{{ .Site.Params.Email }}">
+                        <span class="fa-stack fa-lg">
+                          <i class="fa fa-circle fa-stack-2x"></i>
+                          <i class="fa fa-envelope-o fa-stack-1x fa-inverse"></i>
+                        </span>
+                      </a>
+                    </li>
+                    {{ range .Site.Params.social }}
+                    <li class="list-inline-item">
+                      <a href="{{ .url }}">
+                        <span class="fa-stack fa-lg">
+                          <i class="fa fa-circle fa-stack-2x"></i>
+                          <i class="fa fa-{{ .title }} fa-stack-1x fa-inverse"></i>
+                        </span>
+                      </a>
+                    </li>
+                    {{ end }}
+                  </ul>
+                </div>
+                <div class="col-md-6" >
+                  <p class="copyright float-sm-right align-baseline">{{ .Site.Copyright }}</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- jQuery -->
+    <script src="{{ .Site.BaseURL }}js/jquery.slim.min.js"></script>
+    <!-- Bootstrap Core JavaScript -->
+    <script src="{{ .Site.BaseURL }}js/bootstrap.min.js"></script>
+
+    <!--Prism initialization-->
+    <script src="{{ .Site.BaseURL }}js/prism.min.js"></script>
+    <!-- Custom Theme JavaScript -->
+    <script src="{{ .Site.BaseURL }}js/flatcar.min.js"></script>
+
+  </body>
+
+</html>
