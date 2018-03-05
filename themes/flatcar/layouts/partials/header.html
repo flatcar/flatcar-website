@@ -1,10 +1,13 @@
 {{ partial "head.html" . }}
-
-    <!-- Page Header -->
+<div class="container">
+  {{ partial "navbar.html" }}
+</div>
+    <!-- Page Headder -->
     <header class="intro-header">
       <div id="jumbotron">
         <div class="container">
           <h1 class="title">{{ .Title }}</h1>
+          <h2 class=subtitle>{{ .Description }}</h2>
         </div>
       </div>
     </header>

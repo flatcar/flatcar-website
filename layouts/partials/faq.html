@@ -1,0 +1,13 @@
+<!-- FAQ -->
+{{ with .Site.GetPage "page" "faq.md" }}
+    <article>
+        <div class="container">
+            <div class="row">
+                <h1> {{ .Title }}</h1>
+                <div class="">
+                    {{ .Content }}
+                </div>
+            </div>
+        </div>
+    </article>
+{{ end }}
