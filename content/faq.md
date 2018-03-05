@@ -56,16 +56,16 @@ You can [register your interest to be a tester here]().
 
 ## How can I test Flatcar Linux images?
 
-We are currently asking those interested in testing to [register their interest here](TODO - Link).
+We are currently asking those interested in testing to [register their interest here](https://docs.google.com/forms/d/1zferjzZGXN5p0B5tqUy19ye2Igwrgm-sS7Dly8jhb18/).
 We will then reach out and provide further information to selected parties.
 
 In time, we will make Flatcar Linux generally available.
-You can [sign up for announcements here](TODO).
+You can [sign up for announcements here](https://docs.google.com/forms/d/1zferjzZGXN5p0B5tqUy19ye2Igwrgm-sS7Dly8jhb18/).
 
 ## When will Flatcar Linux be generally available?
 
 Once we feel that it has been tested and proven to be reliable by more outside testers, we will make it generally available.
-You can [sign up to be a tester](TODO), or just [sign up to get Flatcar announcements](TODO).
+You can [sign up to be a tester](https://docs.google.com/forms/d/1zferjzZGXN5p0B5tqUy19ye2Igwrgm-sS7Dly8jhb18/), or just [sign up to get Flatcar announcements](https://docs.google.com/forms/d/1zferjzZGXN5p0B5tqUy19ye2Igwrgm-sS7Dly8jhb18/).
 
 We are already a "production" user of Flatcar Linux, so hopefully not long. ;)
 
@@ -84,7 +84,7 @@ Whereas, some of the delivery mechanisms pioneered by Container Linux will be re
 
 ## How can I get commercial support for Flatcar Linux?
 Kinvolk will offer commercial support and custom engineering services once Flatcar Linux is generally available.
-To be notified when commercial support is available, [sign up to to get announcements](TODO - Link to form).
+To be notified when commercial support is available, [sign up to to get announcements](https://docs.google.com/forms/d/1zferjzZGXN5p0B5tqUy19ye2Igwrgm-sS7Dly8jhb18/).
 
 ## How is Flatcar Linux funded?
 All funding and engineering effort has been provided by [Kinvolk](https://kinvolk.io).
