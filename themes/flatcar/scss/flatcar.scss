@@ -48,6 +48,36 @@ header {
     margin-top: -180px
 }
 
+.nodeco-link {
+    &:hover,
+    &:active,
+    &:focus {
+        text-decoration: none;
+        color: inherit;
+        background: none;
+    }
+    color: inherit;
+    border: none;
+}
+
+.page-highlight {
+    font-size: 2.4rem;
+}
+
+a {
+    text-decoration:none;
+    border-bottom: 2px solid $color-green;
+    box-shadow: inset 0 -4px 0 $color-green;
+    color: inherit;
+    transition: background 0.1s cubic-bezier(.33,.66,.66,1);
+
+    &:hover {
+      text-decoration: none;
+      color: inherit;
+      background: $color-green;
+    }
+}
+
 #jumbotron {
     background-color: $color-blue;
     padding-bottom: 120px;
@@ -84,12 +114,45 @@ h6 {
     font-weight: 700;
 }
 
+.sections {
+    > div {
+        padding-bottom: 3rem;
+    }
+
+    h2 {
+        font-size: 1.4rem;
+    }
+
+    a.btn {
+        position: absolute;
+        bottom: 0;
+
+        box-shadow: 0 0 0 white;
+        background: $color-green;
+        color: $color-blue;
+    }
+}
+
 .article-content {
     width: 100%;
 }
 
-.navbar-brand img {
-    width: 100px;
+.navbar-brand {
+    box-shadow: 0 0 0 white;
+    border: none;
+
+    &:hover,
+    &:active,
+    &:focus {
+        text-decoration: none;
+        border: none;
+        box-shadow: 0 0 0 white;
+        background: inherit;
+    }
+
+    img {
+        width: 100px;
+    }
 }
 
 // Provide some space on the edges.
@@ -143,6 +206,12 @@ footer {
 
     .social a {
         color: $color-red;
+        box-shadow: 0 0 0 white;
+        border: none;
+        
+        &:hover {
+            background: none;
+        }
     }
 
     > .container {
