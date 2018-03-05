@@ -2,7 +2,7 @@
 title: FAQ
 description: Some answers to common questions
 author: Chris Kuehl
-date: 2018-03-5T15:07:28+01:00
+date: 2018-03-05T15:07:28+01:00
 draft: false
 ---
 
