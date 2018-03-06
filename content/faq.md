@@ -52,7 +52,7 @@ A [flatcar](https://en.wikipedia.org/wiki/Flatcar) is the flat, open railcar use
 Yes, and no.
 Images do exist and, in fact, we are running our build infrastructure on Flatcar Linux.
 But we are currently only making  images and updates available to select parties in this testing phase.
-You can [register your interest to be a tester here]().
+You can [register your interest to be a tester here](https://docs.google.com/forms/d/1zferjzZGXN5p0B5tqUy19ye2Igwrgm-sS7Dly8jhb18/).
 
 ## How can I test Flatcar Linux images?
 
@@ -77,10 +77,9 @@ Red Hat did make a statement that they would maintain the open source project, w
 We have no idea what kind of plans Red Hat has for Container Linux beyond that.
 But we also have no reason to suspect that Red Hat will not be good stewards of the project.
 
-We do take the following comment to mean that Red Hat will not be offering commercial support for Container Linux going forward.
+However, we do take the following comment to mean that Red Hat will not be offering commercial support for Container Linux going forward.
 "_Red Hat Enterprise Linux’s content, the foundation of our application ecosystem **will remain our only Linux offering**.
-Whereas, some of the delivery mechanisms pioneered by Container Linux will be reviewed by a joint integration team and reconciled with Atomic._"
-[⬈](https://www.redhat.com/en/blog/faq-red-hat-acquire-coreos)
+Whereas, some of the delivery mechanisms pioneered by Container Linux will be reviewed by a joint integration team and reconciled with Atomic._" [⬈](https://www.redhat.com/en/blog/faq-red-hat-acquire-coreos)
 
 ## How can I get commercial support for Flatcar Linux?
 Kinvolk will offer commercial support and custom engineering services once Flatcar Linux is generally available.
