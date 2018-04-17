@@ -1,0 +1,51 @@
+channel: beta
+github_release:
+  assets: []
+  assets_url: https://api.github.com/repos/flatcar-linux/manifest/releases/10715688/assets
+  author:
+    avatar_url: https://avatars0.githubusercontent.com/u/507354?v=4
+    events_url: https://api.github.com/users/iaguis/events{/privacy}
+    followers_url: https://api.github.com/users/iaguis/followers
+    following_url: https://api.github.com/users/iaguis/following{/other_user}
+    gists_url: https://api.github.com/users/iaguis/gists{/gist_id}
+    gravatar_id: ''
+    html_url: https://github.com/iaguis
+    id: 507354
+    login: iaguis
+    organizations_url: https://api.github.com/users/iaguis/orgs
+    received_events_url: https://api.github.com/users/iaguis/received_events
+    repos_url: https://api.github.com/users/iaguis/repos
+    site_admin: false
+    starred_url: https://api.github.com/users/iaguis/starred{/owner}{/repo}
+    subscriptions_url: https://api.github.com/users/iaguis/subscriptions
+    type: User
+    url: https://api.github.com/users/iaguis
+  body: "## Flatcar updates\r\n\r\nInitial Flatcar release.\r\n\r\nBug fixes:\r\n\
+    - Fix GRUB crash at boot ([#2284](https://github.com/coreos/bugs/issues/2284))\r\
+    \n- Fix [poweroff problems](https://groups.google.com/forum/#!topic/coreos-user/YcGkRHU9SvQ)\
+    \ ([#8080](https://github.com/systemd/systemd/pull/8080))\r\n\r\nNotes:\r\n- Previous\
+    \ test images have been removed from the release servers. This is due to a new\
+    \ update key being generated using our updated security policy which we [included](https://github.com/flatcar-linux/coreos-overlay/pull/6)\
+    \ in the first public image.\r\n\r\n## [Upstream Container Linux updates](https://github.com/coreos/manifest/releases/tag/v1722.2.0):\r\
+    \n\r\nBug fixes:\r\n- Fix kernel panic with vxlan ([#2382](https://github.com/coreos/bugs/issues/2382))"
+  created_at: '2018-04-20T12:29:11Z'
+  draft: false
+  html_url: https://github.com/flatcar-linux/manifest/releases/tag/v1722.2.0
+  id: 10715688
+  name: ''
+  prerelease: false
+  published_at: '2018-04-25T14:36:40Z'
+  tag_name: v1722.2.0
+  tarball_url: https://api.github.com/repos/flatcar-linux/manifest/tarball/v1722.2.0
+  target_commitish: master
+  upload_url: https://uploads.github.com/repos/flatcar-linux/manifest/releases/10715688/assets{?name,label}
+  url: https://api.github.com/repos/flatcar-linux/manifest/releases/10715688
+  zipball_url: https://api.github.com/repos/flatcar-linux/manifest/zipball/v1722.2.0
+image_packages:
+  docker: 17.12.1
+  ignition: 0.23.0
+  kernel: 4.14.30
+  rkt: 1.29.0
+  systemd: '237'
+release: current
+version: 1722.2.0

@@ -1,0 +1,78 @@
+{{ partial "header.html" .}}
+
+{{ $releases := $.Site.Data.releases }}
+{{ $stable := $releases.stable }}
+{{ $beta := $releases.beta }}
+{{ $alpha := $releases.alpha }}
+
+<div class="container">
+
+  <h2>Release Channels</h2>
+  <div class="row">
+    <div class="col-md-4">
+      <div class="card">
+        <div class="card-body">
+          <h5 class="card-tile">Stable <span class="pull-right">{{ $stable.current.version }}</span></h5>
+          <p>The Stable channel should be used by production clusters. Versions of Flatcar Linux are battle-tested within the Beta and Alpha channels before being promoted.</p>
+          <dl>
+            {{ range $name, $version := $stable.current.image_packages }}
+            <dt><dfn>{{ $name }}</dfn></dt><dd>{{ $version }}</dd>
+            {{ end }}
+          </dl>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-4">
+      <div class="card">
+        <div class="card-body">
+          <h5 class="card-tile">Beta <span class="pull-right">{{ $beta.current.version }}</span></h5>
+					<p>The Beta channel consists of promoted Alpha releases. Mix a few beta machines into your production clusters to catch any bugs specific to your hardware or configuration.</p>
+          <dl>
+            {{ range $name, $version := $beta.current.image_packages }}
+            <dt><dfn>{{ $name }}</dfn></dt><dd>{{ $version }}</dd>
+            {{ end }}
+          </dl>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-4">
+      <div class="card">
+        <div class="card-body">
+          <h5 class="card-tile">Alpha <span class="pull-right">{{ $alpha.current.version }}</span></h5>
+					<p>The Alpha channel closely tracks current development work and is released frequently. The newest versions of the Linux kernel, systemd, and other components will be available for testing.</p>
+          <dl>
+            {{ range $name, $version := $alpha.current.image_packages }}
+            <dt><dfn>{{ $name }}</dt><dd>{{ $version }}</dd>
+            {{ end }}
+          </dl>
+        </div>
+      </div>
+    </div>
+  </div>
+  <h2>Release Notes</h2>
+	<ul class="nav nav-tabs" id="release-tabs" role="tablist">
+		<li class="nav-item">
+			<a class="nav-link active" id="stable-release-tab" data-toggle="tab" href="#stable-release" role="tab" aria-controls="stable-release" aria-selected="true">Stable Channel</a>
+		</li>
+		<li class="nav-item">
+			<a class="nav-link" id="beta-release-tab" data-toggle="tab" href="#beta-release" role="tab" aria-controls="beta-release" aria-selected="false">Beta Channel</a>
+		</li>
+		<li class="nav-item">
+			<a class="nav-link" id="alpha-release-tab" data-toggle="tab" href="#alpha-release" role="tab" aria-controls="alpha-release" aria-selected="false">Alpha Channel</a>
+		</li>
+	</ul>
+	<div class="tab-content" id="release-tabs-content">
+		<div class="tab-pane fade show active" id="stable-release" role="tabpanel" aria-labelledby="stable-release-tab">
+			{{ partial "release-notes.html" $stable }}
+		</div>
+		<div class="tab-pane fade" id="beta-release" role="tabpanel" aria-labelledby="beta-release-tab">
+			{{ partial "release-notes.html" $beta }}
+		</div>
+		<div class="tab-pane fade" id="alpha-release" role="tabpanel" aria-labelledby="alpha-release-tab">
+			{{ partial "release-notes.html" $alpha }}
+		</div>
+	</div>
+
+</div> <!-- container -->
+
+{{ partial "footer.html" .}}
