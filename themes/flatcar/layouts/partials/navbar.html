@@ -1,6 +1,6 @@
 <!-- Navigation -->
 {{ $isHome := eq "/" ((.URL | relURL) | string) }}
-<nav class="navbar navbar-dark">
+<nav class="navbar navbar-expand-sm navbar-dark">
     <!-- Collect the nav links, forms, and other content for toggling -->
     <!-- <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
@@ -30,7 +30,7 @@
     <!-- /.navbar-collapse -->
 
 {{ if not $isHome }}
-    <a class="navbar-brand mx-auto" href="{{ .Site.BaseURL }}/">
+    <a class="navbar-brand d-none d-sm-block" href="{{ .Site.BaseURL }}/">
         <img src="{{ .Site.BaseURL }}/media/brand-logo.svg" />
     </a>
 {{ end }}
