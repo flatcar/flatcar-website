@@ -1,0 +1,66 @@
+channel: alpha
+github_release:
+  assets: []
+  assets_url: https://api.github.com/repos/flatcar-linux/manifest/releases/10731573/assets
+  author:
+    avatar_url: https://avatars0.githubusercontent.com/u/507354?v=4
+    events_url: https://api.github.com/users/iaguis/events{/privacy}
+    followers_url: https://api.github.com/users/iaguis/followers
+    following_url: https://api.github.com/users/iaguis/following{/other_user}
+    gists_url: https://api.github.com/users/iaguis/gists{/gist_id}
+    gravatar_id: ''
+    html_url: https://github.com/iaguis
+    id: 507354
+    login: iaguis
+    organizations_url: https://api.github.com/users/iaguis/orgs
+    received_events_url: https://api.github.com/users/iaguis/received_events
+    repos_url: https://api.github.com/users/iaguis/repos
+    site_admin: false
+    starred_url: https://api.github.com/users/iaguis/starred{/owner}{/repo}
+    subscriptions_url: https://api.github.com/users/iaguis/subscriptions
+    type: User
+    url: https://api.github.com/users/iaguis
+  body: "## [Upstream Container Linux updates](https://github.com/coreos/manifest/releases/tag/v1758.0.0):\r\
+    \n\r\nSecurity fixes:\r\n - Fix ntp clock manipulation from ephemeral connections\
+    \ ([CVE-2016-1549](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2016-1549),\
+    \ [CVE-2018-7170](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2018-7170))\r\
+    \n - Fix ntp denial of service from out of bounds read ([CVE-2018-7182](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2018-7182))\
+    \ \r\n - Fix ntp denial of service from packets with timestamp 0 ([CVE-2018-7184](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2018-7184),\
+    \ [CVE-2018-7185](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2018-7185))\r\
+    \n - Fix ntp remote code execution ([CVE-2018-7183](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2018-7183))\r\
+    \n\r\nBug fixes:\r\n - Pass `/etc/machine-id` from the host to the kubelet\r\n\
+    \ - Fix docker2aci tar conversion ([#2402](https://github.com/coreos/bugs/issues/2402))\r\
+    \n - Switch `/boot` from FAT16 to FAT32 ([#2246](https://github.com/coreos/bugs/issues/2246))\r\
+    \n\r\nChanges:\r\n - Make Ignition failures more visible on the console\r\n\r\n\
+    Updates:\r\n - containerd [1.0.3](https://github.com/containerd/containerd/releases/tag/v1.0.3)\r\
+    \n - coreos-cloudinit [1.14.0](https://github.com/coreos/coreos-cloudinit/releases/tag/v1.14.0)\r\
+    \n - coreos-metadata [1.0.6](https://github.com/coreos/coreos-metadata/releases/tag/v1.0.6)\r\
+    \n - Docker [18.04.0-ce](https://docs.docker.com/release-notes/docker-ce/#18040-ce-2018-04-10)\r\
+    \n - Go [1.9.5](https://golang.org/doc/devel/release.html#go1.9.minor)\r\n - Go\
+    \ [1.10.1](https://golang.org/doc/devel/release.html#go1.10.minor)\r\n - Linux\
+    \ [4.16.3](https://lwn.net/ml/linux-kernel/20180419074956.GA22325@kroah.com/)\r\
+    \n - ntp [4.2.8p11](https://www.eecis.udel.edu/~ntp/ntp_spool/ntp4/ChangeLog-stable)\r\
+    \n - rkt [1.30.0](https://github.com/rkt/rkt/releases/tag/v1.30.0)\r\n - Rust\
+    \ [1.25.0](https://blog.rust-lang.org/2018/03/29/Rust-1.25.html)\r\n - torcx [0.1.3](https://github.com/coreos/torcx/releases/tag/v0.1.3)\r\
+    \n - update-ssh-keys [0.1.2](https://github.com/coreos/update-ssh-keys/releases/tag/v0.1.2)"
+  created_at: '2018-04-25T14:46:42Z'
+  draft: false
+  html_url: https://github.com/flatcar-linux/manifest/releases/tag/v1758.0.0
+  id: 10731573
+  name: v1758.0.0
+  prerelease: false
+  published_at: '2018-04-26T09:58:53Z'
+  tag_name: v1758.0.0
+  tarball_url: https://api.github.com/repos/flatcar-linux/manifest/tarball/v1758.0.0
+  target_commitish: master
+  upload_url: https://uploads.github.com/repos/flatcar-linux/manifest/releases/10731573/assets{?name,label}
+  url: https://api.github.com/repos/flatcar-linux/manifest/releases/10731573
+  zipball_url: https://api.github.com/repos/flatcar-linux/manifest/zipball/v1758.0.0
+image_packages:
+  docker: 18.04.0
+  ignition: 0.24.0
+  kernel: 4.16.3
+  rkt: 1.30.0
+  systemd: '238'
+release: current
+version: 1758.0.0

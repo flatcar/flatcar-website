@@ -1,0 +1,19 @@
+{{ range sort . "version" "desc" }}
+{{ if ne .release "current" }}
+<div class="row">
+  <div class="col-md-2">
+    <h5>{{ .version }}</h5>
+  </div>
+  <div class="col-md-10">
+    {{ range $name, $version := .image_packages }}
+      {{ $name }} <span class="badge badge-pill badge-light">{{ $version }}</span>
+    {{ end }}
+  </div>
+</div>
+<div class="row">
+  <div class="col-md-10 offset-md-2">
+    {{ .github_release.body | markdownify }}
+  </div>
+</div>
+{{ end }}
+{{ end }}
