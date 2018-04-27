@@ -6,10 +6,9 @@
 {{ $alpha := $releases.alpha }}
 
 <div class="container">
-
+  <div class="row mt-5">
   <h2>Release Channels</h2>
-  <div class="row">
-    <div class="col-md-4">
+    <div class="card-group">
       <div class="card">
         <div class="card-body">
           <h5 class="card-tile">Stable <span class="pull-right">{{ $stable.current.version }}</span></h5>
@@ -21,8 +20,6 @@
           </dl>
         </div>
       </div>
-    </div>
-    <div class="col-md-4">
       <div class="card">
         <div class="card-body">
           <h5 class="card-tile">Beta <span class="pull-right">{{ $beta.current.version }}</span></h5>
@@ -34,8 +31,6 @@
           </dl>
         </div>
       </div>
-    </div>
-    <div class="col-md-4">
       <div class="card">
         <div class="card-body">
           <h5 class="card-tile">Alpha <span class="pull-right">{{ $alpha.current.version }}</span></h5>
@@ -47,9 +42,11 @@
           </dl>
         </div>
       </div>
-    </div>
   </div>
-  <h2>Release Notes</h2>
+
+  <div class="row mt-5">
+      <h2>Release Notes</h2>
+      <div>
 	<ul class="nav nav-tabs" id="release-tabs" role="tablist">
 		<li class="nav-item">
 			<a class="nav-link active" id="stable-release-tab" data-toggle="tab" href="#stable-release" role="tab" aria-controls="stable-release" aria-selected="true">Stable Channel</a>
@@ -72,7 +69,8 @@
 			{{ partial "release-notes.html" $alpha }}
 		</div>
 	</div>
-
+      </div>
+      </div>
 </div> <!-- container -->
 
 {{ partial "footer.html" .}}
