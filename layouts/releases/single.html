@@ -1,76 +1,66 @@
 {{ partial "header.html" .}}
 
-{{ $releases := $.Site.Data.releases }}
-{{ $stable := $releases.stable }}
-{{ $beta := $releases.beta }}
-{{ $alpha := $releases.alpha }}
+{{ $chan_desc := (dict "stable" "The Stable channel is intended for use in production clusters. Versions of Flatcar Linux have been tested as they move through Alpha and Beta channels before being promoted to stable." "alpha" "The Alpha channel follows a more frequent release cadence and is where new updates are introduced. Users can try the news versions of the Linux kernel, systemd and other core packages." "beta" "The Beta channel is where Flatcar Linux stability is solidified. We encourage including some beta machines in production clusters in order to catch any issues that may arise with your setup.") }}
 
 <div class="container">
   <div class="row mt-5">
   <h2>Release Channels</h2>
-    <div class="card-group">
-      <div class="card">
-        <div class="card-body">
-          <h5 class="card-tile">Stable <span class="pull-right">{{ $stable.current.version }}</span></h5>
-          <p>The Stable channel should be used by production clusters. Versions of Flatcar Linux are battle-tested within the Beta and Alpha channels before being promoted.</p>
-          <dl>
-            {{ range $name, $version := $stable.current.image_packages }}
-            <dt><dfn>{{ $name }}</dfn></dt><dd>{{ $version }}</dd>
-            {{ end }}
-          </dl>
-        </div>
-      </div>
-      <div class="card">
-        <div class="card-body">
-          <h5 class="card-tile">Beta <span class="pull-right">{{ $beta.current.version }}</span></h5>
-					<p>The Beta channel consists of promoted Alpha releases. Mix a few beta machines into your production clusters to catch any bugs specific to your hardware or configuration.</p>
-          <dl>
-            {{ range $name, $version := $beta.current.image_packages }}
-            <dt><dfn>{{ $name }}</dfn></dt><dd>{{ $version }}</dd>
-            {{ end }}
-          </dl>
-        </div>
-      </div>
-      <div class="card">
-        <div class="card-body">
-          <h5 class="card-tile">Alpha <span class="pull-right">{{ $alpha.current.version }}</span></h5>
-					<p>The Alpha channel closely tracks current development work and is released frequently. The newest versions of the Linux kernel, systemd, and other components will be available for testing.</p>
-          <dl>
-            {{ range $name, $version := $alpha.current.image_packages }}
-            <dt><dfn>{{ $name }}</dt><dd>{{ $version }}</dd>
-            {{ end }}
-          </dl>
-        </div>
-      </div>
+    <div class="card-deck mt-3">
+       {{ range $i, $chan := sort $.Site.Data.releases "" "desc" }}
+       <div class="card">
+           <div class="card-header align-middle">
+               <h5 class="d-inline"> {{ humanize $chan.current.channel }} </h5>
+               <a href="https://{{ $chan.current.channel }}.release.flatcar-linux.net/amd64-usr/{{ $chan.current.version }}/" class="pull-right">
+                   {{ $chan.current.version }}</a>
+           </div>
+           <div class="card-body">
+             <p>{{ index $chan_desc $chan.current.channel }}</p>
+           </div>
+           <div class="card-footer">
+               {{ range $pkg, $ver := $chan.current.image_packages }}
+                 {{ $.Scratch.SetInMap "pkgPkgMap" $pkg $pkg }}
+               {{ end }}
+               {{ $pkgSorted := $.Scratch.GetSortedMapValues "pkgPkgMap" }}
+               {{ $.Scratch.Delete "pkgPkgMap" }}
+               {{ range $i, $ver := sort $chan.current.image_packages "" }}
+              <span class="badge badge-light">{{ index $pkgSorted $i }} -<span class="font-weight-light"> {{ $ver }}</span></span>
+              {{ end }}
+           </div>
+       </div>
+       {{ end }}
+    </div>
   </div>
 
   <div class="row mt-5">
       <h2>Release Notes</h2>
-      <div>
-	<ul class="nav nav-tabs" id="release-tabs" role="tablist">
-		<li class="nav-item">
-			<a class="nav-link active" id="stable-release-tab" data-toggle="tab" href="#stable-release" role="tab" aria-controls="stable-release" aria-selected="true">Stable Channel</a>
-		</li>
-		<li class="nav-item">
-			<a class="nav-link" id="beta-release-tab" data-toggle="tab" href="#beta-release" role="tab" aria-controls="beta-release" aria-selected="false">Beta Channel</a>
-		</li>
-		<li class="nav-item">
-			<a class="nav-link" id="alpha-release-tab" data-toggle="tab" href="#alpha-release" role="tab" aria-controls="alpha-release" aria-selected="false">Alpha Channel</a>
-		</li>
-	</ul>
-	<div class="tab-content" id="release-tabs-content">
-		<div class="tab-pane fade show active" id="stable-release" role="tabpanel" aria-labelledby="stable-release-tab">
-			{{ partial "release-notes.html" $stable }}
-		</div>
-		<div class="tab-pane fade" id="beta-release" role="tabpanel" aria-labelledby="beta-release-tab">
-			{{ partial "release-notes.html" $beta }}
-		</div>
-		<div class="tab-pane fade" id="alpha-release" role="tabpanel" aria-labelledby="alpha-release-tab">
-			{{ partial "release-notes.html" $alpha }}
-		</div>
-	</div>
+      <div class="mt-3">
+	        <ul class="nav nav-tabs" id="release-tabs" role="tablist">
+              {{ range $i, $chan := sort $.Site.Data.releases "" "desc" }}
+		          <li class="nav-item">
+			            <a class="nav-link {{ if eq $chan.current.channel "stable" }}active{{ end }}" id="{{ $chan.current.channel }}-release-tab"
+                     data-toggle="tab" href="#{{ $chan.current.channel }}-release" role="tab"
+                     aria-controls="{{ $chan.current.channel }}-release"
+                     aria-selected="true">
+                      {{ humanize $chan.current.channel }} Channel
+                  </a>
+		          </li>
+              {{ end }}
+	        </ul>
+	        <div class="tab-content p-3" id="release-tabs-content">
+              {{ range $i, $chan := sort $.Site.Data.releases "" "desc" }}
+              <div class="tab-pane fade {{ if eq $chan.current.channel "stable" }} active show {{ end }}" id="{{ $chan.current.channel }}-release"
+                   role="tabpanel" aria-labelledby="{{ $chan.current.channel }}-release-tab">
+                  {{ range $pkg, $ver := $chan.current.image_packages }}
+                  {{ $.Scratch.SetInMap "pkgPkgMap" $pkg $pkg }}
+                  {{ end }}
+                  {{ $pkgSorted := $.Scratch.GetSortedMapValues "pkgPkgMap" }}
+			            {{ partial "release-notes.html" (dict "ctx" . "chan" $chan "pkgs" $pkgSorted) }}
+                  {{ $.Scratch.Delete "pkgPkgMap" }}
+		          </div>
+              {{ end }}
+	        </div>
       </div>
-      </div>
+  </div>
 </div> <!-- container -->
 
 {{ partial "footer.html" .}}
