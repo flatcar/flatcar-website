@@ -1,7 +1,7 @@
 channel: beta
 github_release:
   assets: []
-  assets_url: https://api.github.com/repos/flatcar-linux/manifest/releases/11190165/assets
+  assets_url: https://api.github.com/repos/flatcar-linux/manifest/releases/11280220/assets
   author:
     avatar_url: https://avatars0.githubusercontent.com/u/507354?v=4
     events_url: https://api.github.com/users/iaguis/events{/privacy}
@@ -12,6 +12,7 @@ github_release:
     html_url: https://github.com/iaguis
     id: 507354
     login: iaguis
+    node_id: MDQ6VXNlcjUwNzM1NA==
     organizations_url: https://api.github.com/users/iaguis/orgs
     received_events_url: https://api.github.com/users/iaguis/received_events
     repos_url: https://api.github.com/users/iaguis/repos
@@ -20,28 +21,32 @@ github_release:
     subscriptions_url: https://api.github.com/users/iaguis/subscriptions
     type: User
     url: https://api.github.com/users/iaguis
-  body: "## [Upstream Container Linux updates](https://github.com/coreos/manifest/releases/tag/v1772.1.1):\r\
-    \n\r\nChanges:\r\n- Switch to the LTS Docker version [18.03.1-ce](https://github.com/docker/docker-ce/releases/tag/v18.03.1-ce)\
-    \ for the beta channel\r\n- Switch to the LTS Linux version [4.14.42](https://lwn.net/Articles/754972/)\
-    \ for the beta channel\r\n\r\nUpdates:\r\n- Ignition [0.24.1](https://github.com/coreos/ignition/releases/tag/v0.24.1)"
-  created_at: '2018-05-23T16:35:13Z'
+  body: "## [Upstream Container Linux updates](https://github.com/coreos/manifest/releases/tag/v1772.2.0):\r\
+    \n\r\nSecurity fixes:\r\n- Fix Git arbitrary code execution when cloning untrusted\
+    \ repositories ([CVE-2018-11235](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2018-11235))\r\
+    \n\r\nBug fixes:\r\n- Fix inadvertent change of network interface names ([#2437](https://github.com/coreos/bugs/issues/2437))\r\
+    \n- Fix failure to set network interface MTU ([#2443](https://github.com/coreos/bugs/issues/2443))\r\
+    \n\r\nUpdates:\r\n- Git [2.16.4](https://raw.githubusercontent.com/git/git/v2.16.4/Documentation/RelNotes/2.16.4.txt)\r\
+    \n- Linux [4.14.47](https://lwn.net/Articles/756055/)"
+  created_at: '2018-05-31T10:26:40Z'
   draft: false
-  html_url: https://github.com/flatcar-linux/manifest/releases/tag/v1772.1.1
-  id: 11190165
-  name: v1772.1.1
+  html_url: https://github.com/flatcar-linux/manifest/releases/tag/v1772.2.0
+  id: 11280220
+  name: v1772.2.0
+  node_id: MDc6UmVsZWFzZTExMjgwMjIw
   prerelease: false
-  published_at: '2018-05-26T15:29:49Z'
-  tag_name: v1772.1.1
-  tarball_url: https://api.github.com/repos/flatcar-linux/manifest/tarball/v1772.1.1
+  published_at: '2018-06-01T13:23:43Z'
+  tag_name: v1772.2.0
+  tarball_url: https://api.github.com/repos/flatcar-linux/manifest/tarball/v1772.2.0
   target_commitish: master
-  upload_url: https://uploads.github.com/repos/flatcar-linux/manifest/releases/11190165/assets{?name,label}
-  url: https://api.github.com/repos/flatcar-linux/manifest/releases/11190165
-  zipball_url: https://api.github.com/repos/flatcar-linux/manifest/zipball/v1772.1.1
+  upload_url: https://uploads.github.com/repos/flatcar-linux/manifest/releases/11280220/assets{?name,label}
+  url: https://api.github.com/repos/flatcar-linux/manifest/releases/11280220
+  zipball_url: https://api.github.com/repos/flatcar-linux/manifest/zipball/v1772.2.0
 image_packages:
   docker: 18.03.1
   ignition: 0.24.1
-  kernel: 4.14.42
+  kernel: 4.14.47
   rkt: 1.30.0
   systemd: '238'
 release: current
-version: 1772.1.1
+version: 1772.2.0
