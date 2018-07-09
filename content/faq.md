@@ -49,11 +49,11 @@ A [flatcar](https://en.wikipedia.org/wiki/Flatcar) is the flat, open railcar use
 
 ## Can I use Flatcar Linux today?
 
-Yes! You can consult [the documentation](https://docs.flatcar-linux.org/) on how to use Flatcar Linux or go straight to the [release page](https://docs.flatcar-linux.org/) for links to each channel.
+Yes! You can consult [the documentation](https://docs.flatcar-linux.org/) on how to use Flatcar Linux or go straight to the [release page](https://www.flatcar-linux.org/releases/) for links to each channel.
 
 ## When will Flatcar Linux be generally available?
 
-Flatcar Linux is generally available and has been since April 30th, 2018. See the [release page](https://docs.flatcar-linux.org/) for links to each channel.
+Flatcar Linux is generally available and has been since April 30th, 2018. See the [release page](https://www.flatcar-linux.org/releases/) for links to each channel.
 
 ## But Red Hat stated they will continue to support Container Linux, right?
 
