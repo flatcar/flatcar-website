@@ -26,6 +26,11 @@
               <span class="badge badge-light">{{ index $pkgSorted $i }} -<span class="font-weight-light"> {{ $ver }}</span></span>
               {{ end }}
            </div>
+           <div class="card-footer">
+             <span class="badge badge-light">
+               {{ $chan.current.github_release.published_at }}
+             </span>
+           </div>
        </div>
        {{ end }}
     </div>
