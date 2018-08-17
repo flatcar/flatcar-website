@@ -1,49 +1,54 @@
 channel: beta
 github_release:
   assets: []
-  assets_url: https://api.github.com/repos/flatcar-linux/manifest/releases/12306582/assets
+  assets_url: https://api.github.com/repos/flatcar-linux/manifest/releases/12453207/assets
   author:
-    avatar_url: https://avatars0.githubusercontent.com/u/507354?v=4
-    events_url: https://api.github.com/users/iaguis/events{/privacy}
-    followers_url: https://api.github.com/users/iaguis/followers
-    following_url: https://api.github.com/users/iaguis/following{/other_user}
-    gists_url: https://api.github.com/users/iaguis/gists{/gist_id}
+    avatar_url: https://avatars0.githubusercontent.com/u/10096906?v=4
+    events_url: https://api.github.com/users/dongsupark/events{/privacy}
+    followers_url: https://api.github.com/users/dongsupark/followers
+    following_url: https://api.github.com/users/dongsupark/following{/other_user}
+    gists_url: https://api.github.com/users/dongsupark/gists{/gist_id}
     gravatar_id: ''
-    html_url: https://github.com/iaguis
-    id: 507354
-    login: iaguis
-    node_id: MDQ6VXNlcjUwNzM1NA==
-    organizations_url: https://api.github.com/users/iaguis/orgs
-    received_events_url: https://api.github.com/users/iaguis/received_events
-    repos_url: https://api.github.com/users/iaguis/repos
+    html_url: https://github.com/dongsupark
+    id: 10096906
+    login: dongsupark
+    node_id: MDQ6VXNlcjEwMDk2OTA2
+    organizations_url: https://api.github.com/users/dongsupark/orgs
+    received_events_url: https://api.github.com/users/dongsupark/received_events
+    repos_url: https://api.github.com/users/dongsupark/repos
     site_admin: false
-    starred_url: https://api.github.com/users/iaguis/starred{/owner}{/repo}
-    subscriptions_url: https://api.github.com/users/iaguis/subscriptions
+    starred_url: https://api.github.com/users/dongsupark/starred{/owner}{/repo}
+    subscriptions_url: https://api.github.com/users/dongsupark/subscriptions
     type: User
-    url: https://api.github.com/users/iaguis
-  body: "## [Upstream Container Linux updates](https://github.com/coreos/manifest/releases/tag/v1828.3.0):\r\
-    \n\r\nSecurity fixes:\r\n- Fix Linux local denial of service as Xen PV guest ([CVE-2018-14678](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2018-14678))\r\
-    \n\r\nBug fixes:\r\n- Fix failure to mount large ext4 filesystems ([#2485](https://github.com/coreos/bugs/issues/2485))\r\
-    \n\r\nUpdates:\r\n- Linux [4.14.60](https://lwn.net/Articles/761767/)"
-  created_at: '2018-08-07T08:35:20Z'
+    url: https://api.github.com/users/dongsupark
+  body: "## [Upstream Container Linux updates](https://github.com/coreos/manifest/releases/tag/v1855.2.0):\r\
+    \n\r\nSecurity fixes:\r\n- Fix Linux remote denial of service ([FragmentSmack](https://access.redhat.com/security/cve/cve-2018-5391),\
+    \ [CVE-2018-5391](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2018-5391))\r\
+    \n- Fix Linux privileged memory access via speculative execution ([L1TF/Foreshadow](https://foreshadowattack.eu/),\
+    \ [CVE-2018-3620](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2018-3620),\
+    \ [CVE-2018-3646](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2018-3646))\r\
+    \n\r\nBug fixes:\r\n- Fix PXE systems attempting to mount an ESP ([#2491](https://github.com/coreos/bugs/issues/2491))\r\
+    \n\r\nChanges:\r\n- Switch to the LTS Linux version [4.14.63](https://lwn.net/Articles/762808/)\
+    \ for the beta channel"
+  created_at: '2018-08-16T11:50:02Z'
   draft: false
-  html_url: https://github.com/flatcar-linux/manifest/releases/tag/v1828.3.0
-  id: 12306582
-  name: v1828.3.0
-  node_id: MDc6UmVsZWFzZTEyMzA2NTgy
+  html_url: https://github.com/flatcar-linux/manifest/releases/tag/v1855.2.0
+  id: 12453207
+  name: v1855.2.0
+  node_id: MDc6UmVsZWFzZTEyNDUzMjA3
   prerelease: false
-  published_at: '2018-08-08T10:49:50Z'
-  tag_name: v1828.3.0
-  tarball_url: https://api.github.com/repos/flatcar-linux/manifest/tarball/v1828.3.0
+  published_at: '2018-08-17T12:09:29Z'
+  tag_name: v1855.2.0
+  tarball_url: https://api.github.com/repos/flatcar-linux/manifest/tarball/v1855.2.0
   target_commitish: master
-  upload_url: https://uploads.github.com/repos/flatcar-linux/manifest/releases/12306582/assets{?name,label}
-  url: https://api.github.com/repos/flatcar-linux/manifest/releases/12306582
-  zipball_url: https://api.github.com/repos/flatcar-linux/manifest/zipball/v1828.3.0
+  upload_url: https://uploads.github.com/repos/flatcar-linux/manifest/releases/12453207/assets{?name,label}
+  url: https://api.github.com/repos/flatcar-linux/manifest/releases/12453207
+  zipball_url: https://api.github.com/repos/flatcar-linux/manifest/zipball/v1855.2.0
 image_packages:
-  docker: 18.03.1
+  docker: 18.06.0
   ignition: 0.26.0
-  kernel: 4.14.60
+  kernel: 4.14.63
   rkt: 1.30.0
   systemd: '238'
 release: current
-version: 1828.3.0
+version: 1855.2.0
