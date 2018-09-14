@@ -1,51 +1,49 @@
 channel: beta
 github_release:
   assets: []
-  assets_url: https://api.github.com/repos/flatcar-linux/manifest/releases/12736050/assets
+  assets_url: https://api.github.com/repos/flatcar-linux/manifest/releases/12899234/assets
   author:
-    avatar_url: https://avatars0.githubusercontent.com/u/10096906?v=4
-    events_url: https://api.github.com/users/dongsupark/events{/privacy}
-    followers_url: https://api.github.com/users/dongsupark/followers
-    following_url: https://api.github.com/users/dongsupark/following{/other_user}
-    gists_url: https://api.github.com/users/dongsupark/gists{/gist_id}
+    avatar_url: https://avatars0.githubusercontent.com/u/507354?v=4
+    events_url: https://api.github.com/users/iaguis/events{/privacy}
+    followers_url: https://api.github.com/users/iaguis/followers
+    following_url: https://api.github.com/users/iaguis/following{/other_user}
+    gists_url: https://api.github.com/users/iaguis/gists{/gist_id}
     gravatar_id: ''
-    html_url: https://github.com/dongsupark
-    id: 10096906
-    login: dongsupark
-    node_id: MDQ6VXNlcjEwMDk2OTA2
-    organizations_url: https://api.github.com/users/dongsupark/orgs
-    received_events_url: https://api.github.com/users/dongsupark/received_events
-    repos_url: https://api.github.com/users/dongsupark/repos
+    html_url: https://github.com/iaguis
+    id: 507354
+    login: iaguis
+    node_id: MDQ6VXNlcjUwNzM1NA==
+    organizations_url: https://api.github.com/users/iaguis/orgs
+    received_events_url: https://api.github.com/users/iaguis/received_events
+    repos_url: https://api.github.com/users/iaguis/repos
     site_admin: false
-    starred_url: https://api.github.com/users/dongsupark/starred{/owner}{/repo}
-    subscriptions_url: https://api.github.com/users/dongsupark/subscriptions
+    starred_url: https://api.github.com/users/iaguis/starred{/owner}{/repo}
+    subscriptions_url: https://api.github.com/users/iaguis/subscriptions
     type: User
-    url: https://api.github.com/users/dongsupark
-  body: "## [Upstream Container Linux updates](https://github.com/coreos/manifest/releases/tag/v1855.3.0):\r\
-    \n\r\nChanges:\r\n- Drop AWS PV images from regions which do not support PV\r\n\
-    \r\nUpdates:\r\n- containerd [1.1.2](https://github.com/containerd/containerd/releases/tag/v1.1.2)\r\
-    \n- Docker [18.06.1-ce](https://github.com/docker/docker-ce/releases/tag/v18.06.1-ce)\r\
-    \n- intel-microcode [20180807a](https://downloadcenter.intel.com/download/28087/Linux-Processor-Microcode-Data-File)\r\
-    \n- Linux [4.14.67](https://lwn.net/Articles/763433/)"
-  created_at: '2018-09-04T20:44:06Z'
+    url: https://api.github.com/users/iaguis
+  body: "## [Upstream Container Linux updates](https://github.com/coreos/manifest/releases/tag/v1883.1.0):\r\
+    \n\r\nBug fixes:\r\n- Fix Docker mounting named volumes ([#2497](https://github.com/coreos/bugs/issues/2497))\r\
+    \n\r\nChanges:\r\n- Switch to the LTS Linux version [4.14.69](https://lwn.net/Articles/764513/)\
+    \ for the beta channel\r\n\r\nUpdates:\r\n- intel-microcode [20180807a](https://downloadcenter.intel.com/download/28087)"
+  created_at: '2018-09-13T15:29:36Z'
   draft: false
-  html_url: https://github.com/flatcar-linux/manifest/releases/tag/v1855.3.0
-  id: 12736050
-  name: v1855.3.0
-  node_id: MDc6UmVsZWFzZTEyNzM2MDUw
+  html_url: https://github.com/flatcar-linux/manifest/releases/tag/v1883.1.0
+  id: 12899234
+  name: v1883.1.0
+  node_id: MDc6UmVsZWFzZTEyODk5MjM0
   prerelease: false
-  published_at: '2018-09-05T08:43:19Z'
-  tag_name: v1855.3.0
-  tarball_url: https://api.github.com/repos/flatcar-linux/manifest/tarball/v1855.3.0
+  published_at: '2018-09-14T09:59:48Z'
+  tag_name: v1883.1.0
+  tarball_url: https://api.github.com/repos/flatcar-linux/manifest/tarball/v1883.1.0
   target_commitish: master
-  upload_url: https://uploads.github.com/repos/flatcar-linux/manifest/releases/12736050/assets{?name,label}
-  url: https://api.github.com/repos/flatcar-linux/manifest/releases/12736050
-  zipball_url: https://api.github.com/repos/flatcar-linux/manifest/zipball/v1855.3.0
+  upload_url: https://uploads.github.com/repos/flatcar-linux/manifest/releases/12899234/assets{?name,label}
+  url: https://api.github.com/repos/flatcar-linux/manifest/releases/12899234
+  zipball_url: https://api.github.com/repos/flatcar-linux/manifest/zipball/v1883.1.0
 image_packages:
   docker: 18.06.1
-  ignition: 0.26.0
-  kernel: 4.14.67
+  ignition: 0.28.0
+  kernel: 4.14.69
   rkt: 1.30.0
   systemd: '238'
 release: current
-version: 1855.3.0
+version: 1883.1.0
