@@ -1,52 +1,51 @@
 channel: beta
 github_release:
   assets: []
-  assets_url: https://api.github.com/repos/flatcar-linux/manifest/releases/13373236/assets
+  assets_url: https://api.github.com/repos/flatcar-linux/manifest/releases/13674032/assets
   author:
-    avatar_url: https://avatars0.githubusercontent.com/u/507354?v=4
-    events_url: https://api.github.com/users/iaguis/events{/privacy}
-    followers_url: https://api.github.com/users/iaguis/followers
-    following_url: https://api.github.com/users/iaguis/following{/other_user}
-    gists_url: https://api.github.com/users/iaguis/gists{/gist_id}
+    avatar_url: https://avatars0.githubusercontent.com/u/10096906?v=4
+    events_url: https://api.github.com/users/dongsupark/events{/privacy}
+    followers_url: https://api.github.com/users/dongsupark/followers
+    following_url: https://api.github.com/users/dongsupark/following{/other_user}
+    gists_url: https://api.github.com/users/dongsupark/gists{/gist_id}
     gravatar_id: ''
-    html_url: https://github.com/iaguis
-    id: 507354
-    login: iaguis
-    node_id: MDQ6VXNlcjUwNzM1NA==
-    organizations_url: https://api.github.com/users/iaguis/orgs
-    received_events_url: https://api.github.com/users/iaguis/received_events
-    repos_url: https://api.github.com/users/iaguis/repos
+    html_url: https://github.com/dongsupark
+    id: 10096906
+    login: dongsupark
+    node_id: MDQ6VXNlcjEwMDk2OTA2
+    organizations_url: https://api.github.com/users/dongsupark/orgs
+    received_events_url: https://api.github.com/users/dongsupark/received_events
+    repos_url: https://api.github.com/users/dongsupark/repos
     site_admin: false
-    starred_url: https://api.github.com/users/iaguis/starred{/owner}{/repo}
-    subscriptions_url: https://api.github.com/users/iaguis/subscriptions
+    starred_url: https://api.github.com/users/dongsupark/starred{/owner}{/repo}
+    subscriptions_url: https://api.github.com/users/dongsupark/subscriptions
     type: User
-    url: https://api.github.com/users/iaguis
-  body: "## Flatcar updates\r\n\r\nChanges:\r\n\r\n* Add new image signing subkey\
-    \ to `flatcar-install` ([flatcar-linux/init#4](https://github.com/flatcar-linux/init/pull/4))\r\
-    \n\r\nBug fixes:\r\n\r\n* Fix `/usr/lib/coreos` symlink for Container Linux compatibility\
-    \ ([flatcar-linux/coreos-overlay#8](https://github.com/flatcar-linux/coreos-overlay/pull/8))\r\
-    \n\r\n## [Upstream Container Linux updates](https://github.com/coreos/manifest/releases/tag/v1911.1.1):\r\
-    \n\r\nChanges:\r\n- Switch to the LTS Linux version [4.14.74](https://lwn.net/Articles/767628/)\
-    \ for the beta channel\r\n"
-  created_at: '2018-10-11T09:34:49Z'
+    url: https://api.github.com/users/dongsupark
+  body: "## [Upstream Container Linux updates](https://github.com/coreos/manifest/releases/tag/v1911.2.0):\r\
+    \n\r\nSecurity fixes:\r\n- Fix Git remote code execution during recursive clone\
+    \ ([CVE-2018-17456](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2018-17456))\r\
+    \n\r\nBug fixes:\r\n- Fix missing kernel headers ([#2505](https://github.com/coreos/bugs/issues/2505))\r\
+    \n\r\nUpdates:\r\n- Git [2.16.5](https://raw.githubusercontent.com/git/git/v2.16.5/Documentation/RelNotes/2.16.5.txt)\r\
+    \n- Linux [4.14.78](https://lwn.net/Articles/769051/)"
+  created_at: '2018-10-24T13:43:47Z'
   draft: false
-  html_url: https://github.com/flatcar-linux/manifest/releases/tag/v1911.1.1
-  id: 13373236
-  name: v1911.1.1
-  node_id: MDc6UmVsZWFzZTEzMzczMjM2
+  html_url: https://github.com/flatcar-linux/manifest/releases/tag/v1911.2.0
+  id: 13674032
+  name: v1911.2.0
+  node_id: MDc6UmVsZWFzZTEzNjc0MDMy
   prerelease: false
-  published_at: '2018-10-11T13:18:49Z'
-  tag_name: v1911.1.1
-  tarball_url: https://api.github.com/repos/flatcar-linux/manifest/tarball/v1911.1.1
+  published_at: '2018-10-26T10:14:36Z'
+  tag_name: v1911.2.0
+  tarball_url: https://api.github.com/repos/flatcar-linux/manifest/tarball/v1911.2.0
   target_commitish: master
-  upload_url: https://uploads.github.com/repos/flatcar-linux/manifest/releases/13373236/assets{?name,label}
-  url: https://api.github.com/repos/flatcar-linux/manifest/releases/13373236
-  zipball_url: https://api.github.com/repos/flatcar-linux/manifest/zipball/v1911.1.1
+  upload_url: https://uploads.github.com/repos/flatcar-linux/manifest/releases/13674032/assets{?name,label}
+  url: https://api.github.com/repos/flatcar-linux/manifest/releases/13674032
+  zipball_url: https://api.github.com/repos/flatcar-linux/manifest/zipball/v1911.2.0
 image_packages:
   docker: 18.06.1
   ignition: 0.28.0
-  kernel: 4.14.74
+  kernel: 4.14.78
   rkt: 1.30.0
   systemd: '238'
 release: current
-version: 1911.1.1
+version: 1911.2.0
