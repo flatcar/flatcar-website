@@ -7,6 +7,7 @@
     <h5><a href="https://{{ .channel }}.release.flatcar-linux.net/amd64-usr/{{ .version }}/">{{ .version }}</a></h5>
   </div>
   <div class="col-md-10">
+    <p class="small">Release Date: {{ dateFormat "Jan 2, 2006" .github_release.published_at }}</p>
       {{ range $i, $ver := sort .image_packages "" }}
         {{ index $pkgs $i }} <span class="mr-2 badge badge-pill badge-light">{{ $ver }}</span>
       {{ end }}
