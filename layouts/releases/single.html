@@ -28,7 +28,7 @@
            </div>
            <div class="card-footer">
              <span class="badge badge-light">
-               {{ $chan.current.github_release.published_at }}
+               Release Date: <span class="font-weight-light">{{ dateFormat "Jan 2, 2006" $chan.current.github_release.published_at }}</span>
              </span>
            </div>
        </div>
