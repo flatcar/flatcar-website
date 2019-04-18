@@ -22,7 +22,17 @@ Is a part of our larger K8s distro plans. It aims to be a testbed for cutting-ed
 
 FIXME: instructions how to reproduce the bcck8s demo from Flatcar Linux Edge.
 
-## Changes in the latest Edge release (2051.99.2)
+## Changes in the Edge release 2107.99.0
+
+* [upgrade kernel to 5.0.7](https://github.com/flatcar-linux/coreos-overlay/pull/26)
+* [add cgroupid and patch runc for OCI hooks](https://github.com/flatcar-linux/coreos-overlay/pull/23)
+* [add bpftool](https://github.com/flatcar-linux/coreos-overlay/pull/24)
+
+## Changes in the Edge release 2079.99.0
+
+* [upgrade kernel to 5.0.1](https://github.com/flatcar-linux/coreos-overlay/commit/1cb21784a4c9b8f44369b39739a350bb7e042487)
+
+## Changes in the Edge release 2051.99.2
 
 ### cgroup-v2 enabled
 
@@ -39,15 +49,16 @@ systemd.legacy_systemd_cgroup_controller=false
 ```
 
 This was done on the following images:
-- AWS. PR: FIXME
-- bare-metal. PR: FIXME
+- AWS : https://github.com/flatcar-linux/coreos-overlay/commit/f4dde83caf457fc5b480edbbb54d550632c92cf3
+- bare-metal : https://github.com/flatcar-linux/coreos-overlay/commit/8184af2518634c115dd6ef623959da5948be4cca
+and https://github.com/flatcar-linux/scripts/commit/271ec2423bc99c9d23faf4ab6ae722726f955966
 
 The following Docker options were added:
 ```
 --exec-opt native.cgroupdriver=systemd
 ```
 
-This was done in PR FIXME.
+This was done via https://github.com/flatcar-linux/coreos-overlay/commit/8184af2518634c115dd6ef623959da5948be4cca.
 
 containerd's configuration was updated to have the following in `/run/torcx/unpack/docker/usr/share/containerd/config.toml`:
 ```
@@ -57,7 +68,7 @@ disabled_plugins = []
 systemd_cgroup = true
 ```
 
-This was done in PR FIXME.
+This was done via https://github.com/flatcar-linux/coreos-overlay/commit/8184af2518634c115dd6ef623959da5948be4cca.
 
 The Kubelet will need to have `--cgroup-driver=systemd`. Kubelet is not part of Flatcar Linux. TODO: Instructions for this will follow.
 
@@ -81,3 +92,7 @@ chmod +x kubectl
 
 ## Future changes
 
+- [ ] add CFLAGS to protect against Spectre v2
+- [ ] add cri-o
+- [ ] add wireguard
+- [ ] etc.
