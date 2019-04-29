@@ -1,6 +1,6 @@
 {{ partial "header.html" .}}
 
-{{ $chan_desc := (dict "stable" "The Stable channel is intended for use in production clusters. Versions of Flatcar Linux have been tested as they move through Alpha and Beta channels before being promoted to stable." "alpha" "The Alpha channel follows a more frequent release cadence and is where new updates are introduced. Users can try the news versions of the Linux kernel, systemd and other core packages." "beta" "The Beta channel is where Flatcar Linux stability is solidified. We encourage including some beta machines in production clusters in order to catch any issues that may arise with your setup.") }}
+{{ $chan_desc := (dict "stable" "The Stable channel is intended for use in production clusters. Versions of Flatcar Linux have been tested as they move through Alpha and Beta channels before being promoted to stable." "alpha" "The Alpha channel follows a more frequent release cadence and is where new updates are introduced. Users can try the new versions of the Linux kernel, systemd and other core packages." "beta" "The Beta channel is where Flatcar Linux stability is solidified. We encourage including some beta machines in production clusters in order to catch any issues that may arise with your setup." "edge" "The Edge channel includes bleeding-edge features with the newest versions of the Linux kernel, systemd and other core packages. Can be highly unstable.") }}
 
 <div class="container">
   <div class="row mt-5">
