@@ -7,6 +7,7 @@
   <h2>Release Channels</h2>
     <div class="card-deck mt-3">
        {{ range $i, $chan := sort $.Site.Data.releases "" "desc" }}
+       {{ if ne $chan.current.channel "edge" }}
        <div class="card">
            <div class="card-header align-middle">
                <h5 class="d-inline"> {{ humanize $chan.current.channel }} </h5>
@@ -33,6 +34,38 @@
            </div>
        </div>
        {{ end }}
+       {{ end }}
+    </div>
+    <div class="card-deck mt-3">
+       {{ range $i, $chan := sort $.Site.Data.releases "" "desc" }}
+       {{ if eq $chan.current.channel "edge" }}
+       <div class="card">
+           <div class="card-header align-middle">
+               <h5 class="d-inline"> {{ humanize $chan.current.channel }} </h5>
+               <a href="https://{{ $chan.current.channel }}.release.flatcar-linux.net/amd64-usr/{{ $chan.current.version }}/" class="pull-right">
+                   {{ $chan.current.version }}</a>
+           </div>
+           <div class="card-body">
+             <p>{{ index $chan_desc $chan.current.channel }}</p>
+           </div>
+           <div class="card-footer">
+               {{ range $pkg, $ver := $chan.current.image_packages }}
+                 {{ $.Scratch.SetInMap "pkgPkgMap" $pkg $pkg }}
+               {{ end }}
+               {{ $pkgSorted := $.Scratch.GetSortedMapValues "pkgPkgMap" }}
+               {{ $.Scratch.Delete "pkgPkgMap" }}
+               {{ range $i, $ver := sort $chan.current.image_packages "" }}
+              <span class="badge badge-light">{{ index $pkgSorted $i }} -<span class="font-weight-light"> {{ $ver }}</span></span>
+              {{ end }}
+           </div>
+           <div class="card-footer">
+             <span class="badge badge-light">
+               Release Date: <span class="font-weight-light">{{ dateFormat "Jan 2, 2006" $chan.current.github_release.published_at }}</span>
+             </span>
+           </div>
+       </div>
+       {{ end }}
+       {{ end }}
     </div>
   </div>
 
@@ -41,6 +74,7 @@
       <div class="mt-3">
 	        <ul class="nav nav-tabs" id="release-tabs" role="tablist">
               {{ range $i, $chan := sort $.Site.Data.releases "" "desc" }}
+              {{ if ne $chan.current.channel "edge" }}
 		          <li class="nav-item">
 			            <a class="nav-link {{ if eq $chan.current.channel "stable" }}active{{ end }}" id="{{ $chan.current.channel }}-release-tab"
                      data-toggle="tab" href="#{{ $chan.current.channel }}-release" role="tab"
@@ -49,6 +83,20 @@
                       {{ humanize $chan.current.channel }} Channel
                   </a>
 		          </li>
+              {{ end }}
+              {{ end }}
+
+              {{ range $i, $chan := sort $.Site.Data.releases "" "desc" }}
+              {{ if eq $chan.current.channel "edge" }}
+		          <li class="nav-item">
+			            <a class="nav-link" id="{{ $chan.current.channel }}-release-tab"
+                     data-toggle="tab" href="#{{ $chan.current.channel }}-release" role="tab"
+                     aria-controls="{{ $chan.current.channel }}-release"
+                     aria-selected="true">
+                      {{ humanize $chan.current.channel }} Channel
+                  </a>
+		          </li>
+              {{ end }}
               {{ end }}
 	        </ul>
 	        <div class="tab-content p-3" id="release-tabs-content">
