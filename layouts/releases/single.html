@@ -39,7 +39,7 @@
     <div class="card-deck mt-3">
        {{ range $i, $chan := sort $.Site.Data.releases "" "desc" }}
        {{ if eq $chan.current.channel "edge" }}
-       <div class="card">
+       <div class="card" style="background-color: rgba(239, 239, 239, 0.5)">
            <div class="card-header align-middle">
                <h5 class="d-inline"> {{ humanize $chan.current.channel }} </h5>
                <a href="https://{{ $chan.current.channel }}.release.flatcar-linux.net/amd64-usr/{{ $chan.current.version }}/" class="pull-right">
@@ -63,6 +63,10 @@
                Release Date: <span class="font-weight-light">{{ dateFormat "Jan 2, 2006" $chan.current.github_release.published_at }}</span>
              </span>
            </div>
+       </div>
+       <div class="card" style="background-color: transparent">
+       </div>
+       <div class="card" style="background-color: transparent">
        </div>
        {{ end }}
        {{ end }}
