@@ -1,11 +1,12 @@
 {{ partial "header.html" .}}
 
-{{ $chan_desc := (dict "stable" "The Stable channel is intended for use in production clusters. Versions of Flatcar Linux have been tested as they move through Alpha and Beta channels before being promoted to stable." "alpha" "The Alpha channel follows a more frequent release cadence and is where new updates are introduced. Users can try the new versions of the Linux kernel, systemd and other core packages." "beta" "The Beta channel is where Flatcar Linux stability is solidified. We encourage including some beta machines in production clusters in order to catch any issues that may arise with your setup." "edge" "The Edge channel includes bleeding-edge features with the newest versions of the Linux kernel, systemd and other core packages. Can be highly unstable.") }}
+{{ $chan_desc := (dict "stable" "The Stable channel is intended for use in production clusters. Versions of Flatcar Linux have been tested as they move through Alpha and Beta channels before being promoted to stable." "alpha" "The Alpha channel follows a more frequent release cadence and is where new updates are introduced. Users can try the new versions of the Linux kernel, systemd and other core packages." "beta" "The Beta channel is where Flatcar Linux stability is solidified. We encourage including some beta machines in production clusters in order to catch any issues that may arise with your setup." "edge" "The Edge channel includes experiemental features and patches of the Linux kernel and other core OS packages. It is designed for experimental purposes and is not supported.") }}
 
 <div class="container">
   <div class="row mt-5">
   <h2>Release Channels</h2>
-    <div class="card-deck mt-3">
+  <div class="card-deck-wrapper">
+    <div class="card-deck">
        {{ range $i, $chan := sort $.Site.Data.releases "" "desc" }}
        {{ if ne $chan.current.channel "edge" }}
        <div class="card">
@@ -35,8 +36,6 @@
        </div>
        {{ end }}
        {{ end }}
-    </div>
-    <div class="card-deck mt-3">
        {{ range $i, $chan := sort $.Site.Data.releases "" "desc" }}
        {{ if eq $chan.current.channel "edge" }}
        <div class="card" style="background-color: rgba(239, 239, 239, 0.5)">
@@ -64,13 +63,10 @@
              </span>
            </div>
        </div>
-       <div class="card" style="background-color: transparent">
-       </div>
-       <div class="card" style="background-color: transparent">
-       </div>
        {{ end }}
        {{ end }}
     </div>
+  </div>
   </div>
 
   <div class="row mt-5">
