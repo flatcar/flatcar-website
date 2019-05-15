@@ -33,6 +33,12 @@ Changes mostly consist of a set of patches to remove trademarked terms. Ideally,
 Flatcar Linux will only diverge from the upstream project if fundamental changes are made to it.
 In this respect, one can view Flatcar Linux as a guaranteer of the Container Linux project as it is today. 
 
+## What is the Flatcar Linux Edge channel?
+
+The Flatcar Car Linux Edge channel is new channel that includes experimental features and patches of the Linux kernel and other core OS packages.
+It's intended to ease the deliver and promotion of new Linux technologies into Kubernetes and other Cloud Native technologies.
+You can read more about this in the [Flatcar Linux Edge channel announcement](https://kinvolk.io/blog/2019/05/introducing-the-flatcar-linux-edge-channel/).
+
 ## What do you mean when you say Flatcar Linux is "independently built"?
 
 We mean that Flatcar Linux is not dependent on upstream binary artifacts, and is fully built from source.
