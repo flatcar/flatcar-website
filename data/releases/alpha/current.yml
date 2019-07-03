@@ -1,51 +1,52 @@
 channel: alpha
 github_release:
   assets: []
-  assets_url: https://api.github.com/repos/flatcar-linux/manifest/releases/18328046/assets
+  assets_url: https://api.github.com/repos/flatcar-linux/manifest/releases/18379921/assets
   author:
-    avatar_url: https://avatars1.githubusercontent.com/u/70861?v=4
-    events_url: https://api.github.com/users/rata/events{/privacy}
-    followers_url: https://api.github.com/users/rata/followers
-    following_url: https://api.github.com/users/rata/following{/other_user}
-    gists_url: https://api.github.com/users/rata/gists{/gist_id}
+    avatar_url: https://avatars0.githubusercontent.com/u/10096906?v=4
+    events_url: https://api.github.com/users/dongsupark/events{/privacy}
+    followers_url: https://api.github.com/users/dongsupark/followers
+    following_url: https://api.github.com/users/dongsupark/following{/other_user}
+    gists_url: https://api.github.com/users/dongsupark/gists{/gist_id}
     gravatar_id: ''
-    html_url: https://github.com/rata
-    id: 70861
-    login: rata
-    node_id: MDQ6VXNlcjcwODYx
-    organizations_url: https://api.github.com/users/rata/orgs
-    received_events_url: https://api.github.com/users/rata/received_events
-    repos_url: https://api.github.com/users/rata/repos
+    html_url: https://github.com/dongsupark
+    id: 10096906
+    login: dongsupark
+    node_id: MDQ6VXNlcjEwMDk2OTA2
+    organizations_url: https://api.github.com/users/dongsupark/orgs
+    received_events_url: https://api.github.com/users/dongsupark/received_events
+    repos_url: https://api.github.com/users/dongsupark/repos
     site_admin: false
-    starred_url: https://api.github.com/users/rata/starred{/owner}{/repo}
-    subscriptions_url: https://api.github.com/users/rata/subscriptions
+    starred_url: https://api.github.com/users/dongsupark/starred{/owner}{/repo}
+    subscriptions_url: https://api.github.com/users/dongsupark/subscriptions
     type: User
-    url: https://api.github.com/users/rata
-  body: "## [Upstream Container Linux updates](https://github.com/coreos/manifest/releases/tag/v2184.0.0):\r\
-    \nBug fixes:\r\n\r\n- Temporarily revert bunzip2 change in 2163.0.0 causing decompression\
-    \ failures for invalid archives created by older versions of lbzip2, including\
-    \ Container Linux release images ([#2589](https://github.com/coreos/bugs/issues/2589))\r\
-    \n\r\nUpdates:\r\n\r\n- intel-microcode [20190618](https://github.com/intel/Intel-Linux-Processor-Microcode-Data-Files/blob/microcode-20190618/releasenote)\r\
-    \n- Linux [4.19.55](https://lwn.net/Articles/791755/)"
-  created_at: '2019-06-25T10:53:17Z'
+    url: https://api.github.com/users/dongsupark
+  body: "## [Upstream Container Linux updates](https://github.com/coreos/manifest/releases/tag/v2191.0.0):\r\
+    \n\r\nSecurity fixes:\r\n\r\n * Fix libexpat denial of service ([CVE-2018-20843](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2018-20843))\r\
+    \n\r\nBug fixes:\r\n\r\n * Fix Ignition panic when no `guestinfo.(coreos|ignition).config`\
+    \ parameters are specified on VMware (coreos/ignition#821)\r\n\r\nUpdates:\r\n\
+    \r\n * expat [2.2.7](https://github.com/libexpat/libexpat/releases/tag/R_2_2_7)\r\
+    \n * Ignition [0.33.0](https://github.com/coreos/ignition/releases/tag/v0.33.0)\r\
+    \n * Linux [4.19.56](https://lwn.net/Articles/792009/)"
+  created_at: '2019-07-02T10:12:10Z'
   draft: false
-  html_url: https://github.com/flatcar-linux/manifest/releases/tag/v2184.0.0
-  id: 18328046
-  name: v2184.0.0
-  node_id: MDc6UmVsZWFzZTE4MzI4MDQ2
+  html_url: https://github.com/flatcar-linux/manifest/releases/tag/v2191.0.0
+  id: 18379921
+  name: v2191.0.0
+  node_id: MDc6UmVsZWFzZTE4Mzc5OTIx
   prerelease: false
-  published_at: '2019-07-01T10:43:29Z'
-  tag_name: v2184.0.0
-  tarball_url: https://api.github.com/repos/flatcar-linux/manifest/tarball/v2184.0.0
+  published_at: '2019-07-03T08:03:08Z'
+  tag_name: v2191.0.0
+  tarball_url: https://api.github.com/repos/flatcar-linux/manifest/tarball/v2191.0.0
   target_commitish: master
-  upload_url: https://uploads.github.com/repos/flatcar-linux/manifest/releases/18328046/assets{?name,label}
-  url: https://api.github.com/repos/flatcar-linux/manifest/releases/18328046
-  zipball_url: https://api.github.com/repos/flatcar-linux/manifest/zipball/v2184.0.0
+  upload_url: https://uploads.github.com/repos/flatcar-linux/manifest/releases/18379921/assets{?name,label}
+  url: https://api.github.com/repos/flatcar-linux/manifest/releases/18379921
+  zipball_url: https://api.github.com/repos/flatcar-linux/manifest/zipball/v2191.0.0
 image_packages:
   docker: 18.06.3
-  ignition: 0.32.0
-  kernel: 4.19.55
+  ignition: 0.33.0
+  kernel: 4.19.56
   rkt: 1.30.0
   systemd: '241'
 release: current
-version: 2184.0.0
+version: 2191.0.0
