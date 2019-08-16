@@ -1,7 +1,7 @@
 channel: beta
 github_release:
   assets: []
-  assets_url: https://api.github.com/repos/flatcar-linux/manifest/releases/19157230/assets
+  assets_url: https://api.github.com/repos/flatcar-linux/manifest/releases/19333885/assets
   author:
     avatar_url: https://avatars0.githubusercontent.com/u/10096906?v=4
     events_url: https://api.github.com/users/dongsupark/events{/privacy}
@@ -21,26 +21,29 @@ github_release:
     subscriptions_url: https://api.github.com/users/dongsupark/subscriptions
     type: User
     url: https://api.github.com/users/dongsupark
-  body: "## [Upstream Container Linux updates](https://github.com/coreos/manifest/releases/tag/v2191.3.0):\r\
-    \n\r\nSecurity fixes:\r\n- Fix Linux information leak attack vector via speculative\
-    \ side channel ([CVE-2019-1125](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2019-1125))\r\
+  body: "## [Upstream Container Linux updates](https://github.com/coreos/manifest/releases/tag/v2219.2.0):\r\
+    \n\r\nSecurity fixes:\r\n- Use secure_getenv to fix a vulnerability around XDG_SEAT\
+    \ in pam_systemd (https://github.com/coreos/systemd/pull/118) ([CVE-2019-3842](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2019-3842))\r\
     \n\r\nUpdates:\r\n- Linux [4.19.65](https://lwn.net/Articles/795525/)\r\n\r\n\
-    ## Flatcar updates\r\n\r\nChanges:\r\n- Add \"-s\" flag in flatcar-install to\
-    \ install to smallest disk (https://github.com/flatcar-linux/init/pull/7)"
-  created_at: '2019-08-07T11:09:40Z'
+    ## Flatcar updates\r\n\r\nBug fixes:\r\n- Fix wrong key name for fw_cfg in ignition\
+    \ with QEMU (https://github.com/flatcar-linux/ignition/issues/2)\r\n- Get SELinux\
+    \ context included in torcx tarballs (https://github.com/flatcar-linux/scripts/pull/16)\r\
+    \n- Enable XattrPrivileged for untar to fix SELinux issue (https://github.com/flatcar-linux/torcx/pull/1)\r\
+    \n"
+  created_at: '2019-08-14T12:40:08Z'
   draft: false
-  html_url: https://github.com/flatcar-linux/manifest/releases/tag/v2191.3.0
-  id: 19157230
-  name: v2191.3.0
-  node_id: MDc6UmVsZWFzZTE5MTU3MjMw
+  html_url: https://github.com/flatcar-linux/manifest/releases/tag/v2219.2.0
+  id: 19333885
+  name: v2219.2.0
+  node_id: MDc6UmVsZWFzZTE5MzMzODg1
   prerelease: false
-  published_at: '2019-08-08T08:18:09Z'
-  tag_name: v2191.3.0
-  tarball_url: https://api.github.com/repos/flatcar-linux/manifest/tarball/v2191.3.0
+  published_at: '2019-08-16T09:44:16Z'
+  tag_name: v2219.2.0
+  tarball_url: https://api.github.com/repos/flatcar-linux/manifest/tarball/v2219.2.0
   target_commitish: master
-  upload_url: https://uploads.github.com/repos/flatcar-linux/manifest/releases/19157230/assets{?name,label}
-  url: https://api.github.com/repos/flatcar-linux/manifest/releases/19157230
-  zipball_url: https://api.github.com/repos/flatcar-linux/manifest/zipball/v2191.3.0
+  upload_url: https://uploads.github.com/repos/flatcar-linux/manifest/releases/19333885/assets{?name,label}
+  url: https://api.github.com/repos/flatcar-linux/manifest/releases/19333885
+  zipball_url: https://api.github.com/repos/flatcar-linux/manifest/zipball/v2219.2.0
 image_packages:
   docker: 18.06.3
   ignition: 0.33.0
@@ -48,4 +51,4 @@ image_packages:
   rkt: 1.30.0
   systemd: '241'
 release: current
-version: 2191.3.0
+version: 2219.2.0
