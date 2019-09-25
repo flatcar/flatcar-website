@@ -1,50 +1,52 @@
 channel: alpha
 github_release:
   assets: []
-  assets_url: https://api.github.com/repos/flatcar-linux/manifest/releases/19969550/assets
+  assets_url: https://api.github.com/repos/flatcar-linux/manifest/releases/20237779/assets
   author:
-    avatar_url: https://avatars0.githubusercontent.com/u/1189130?v=4
-    events_url: https://api.github.com/users/pothos/events{/privacy}
-    followers_url: https://api.github.com/users/pothos/followers
-    following_url: https://api.github.com/users/pothos/following{/other_user}
-    gists_url: https://api.github.com/users/pothos/gists{/gist_id}
+    avatar_url: https://avatars0.githubusercontent.com/u/10096906?v=4
+    events_url: https://api.github.com/users/dongsupark/events{/privacy}
+    followers_url: https://api.github.com/users/dongsupark/followers
+    following_url: https://api.github.com/users/dongsupark/following{/other_user}
+    gists_url: https://api.github.com/users/dongsupark/gists{/gist_id}
     gravatar_id: ''
-    html_url: https://github.com/pothos
-    id: 1189130
-    login: pothos
-    node_id: MDQ6VXNlcjExODkxMzA=
-    organizations_url: https://api.github.com/users/pothos/orgs
-    received_events_url: https://api.github.com/users/pothos/received_events
-    repos_url: https://api.github.com/users/pothos/repos
+    html_url: https://github.com/dongsupark
+    id: 10096906
+    login: dongsupark
+    node_id: MDQ6VXNlcjEwMDk2OTA2
+    organizations_url: https://api.github.com/users/dongsupark/orgs
+    received_events_url: https://api.github.com/users/dongsupark/received_events
+    repos_url: https://api.github.com/users/dongsupark/repos
     site_admin: false
-    starred_url: https://api.github.com/users/pothos/starred{/owner}{/repo}
-    subscriptions_url: https://api.github.com/users/pothos/subscriptions
+    starred_url: https://api.github.com/users/dongsupark/starred{/owner}{/repo}
+    subscriptions_url: https://api.github.com/users/dongsupark/subscriptions
     type: User
-    url: https://api.github.com/users/pothos
-  body: "## [Upstream Container Linux updates](https://github.com/coreos/manifest/releases/tag/v2261.0.0):\r\
-    \n\r\nSecurity fixes:\r\n\r\n- Fix systemd-resolved bug allowing unprivileged\
-    \ users to change DNS settings ([CVE-2019-15718](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2019-15718))\r\
-    \n\r\nBug fixes:\r\n\r\n- Fix GCE agent crash loop in new installs ([#2608](https://github.com/coreos/bugs/issues/2608))\r\
-    \n\r\nUpdates:\r\n\r\n- Linux [4.19.71](https://lwn.net/Articles/798627/)\r\n"
-  created_at: '2019-09-11T14:36:04Z'
+    url: https://api.github.com/users/dongsupark
+  body: "## [Upstream Container Linux updates](https://github.com/coreos/manifest/releases/tag/v2275.0.0):\r\
+    \n\r\nSecurity fixes:\r\n\r\n- Fix dbus authentication bypass in non-default configurations\
+    \ ([CVE-2019-12749](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2019-12749))\r\
+    \n- Fix kernel KVM guest escape ([CVE-2019-14835](http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2019-14835))\r\
+    \n- Fix race condition in Intel microprocessors ([CVE-2019-11184](http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2019-11184))\r\
+    \n\r\nUpdates:\r\n\r\n- intel-microcode [20190918](https://github.com/intel/Intel-Linux-Processor-Microcode-Data-Files/blob/microcode-20190918/releasenote)\r\
+    \n- Linux [4.19.75](https://lwn.net/Articles/800247/)"
+  created_at: '2019-09-23T16:35:58Z'
   draft: false
-  html_url: https://github.com/flatcar-linux/manifest/releases/tag/v2261.0.0
-  id: 19969550
-  name: v2261.0.0
-  node_id: MDc6UmVsZWFzZTE5OTY5NTUw
+  html_url: https://github.com/flatcar-linux/manifest/releases/tag/v2275.0.0
+  id: 20237779
+  name: v2275.0.0
+  node_id: MDc6UmVsZWFzZTIwMjM3Nzc5
   prerelease: false
-  published_at: '2019-09-13T10:54:40Z'
-  tag_name: v2261.0.0
-  tarball_url: https://api.github.com/repos/flatcar-linux/manifest/tarball/v2261.0.0
+  published_at: '2019-09-25T09:33:48Z'
+  tag_name: v2275.0.0
+  tarball_url: https://api.github.com/repos/flatcar-linux/manifest/tarball/v2275.0.0
   target_commitish: master
-  upload_url: https://uploads.github.com/repos/flatcar-linux/manifest/releases/19969550/assets{?name,label}
-  url: https://api.github.com/repos/flatcar-linux/manifest/releases/19969550
-  zipball_url: https://api.github.com/repos/flatcar-linux/manifest/zipball/v2261.0.0
+  upload_url: https://uploads.github.com/repos/flatcar-linux/manifest/releases/20237779/assets{?name,label}
+  url: https://api.github.com/repos/flatcar-linux/manifest/releases/20237779
+  zipball_url: https://api.github.com/repos/flatcar-linux/manifest/zipball/v2275.0.0
 image_packages:
   docker: 18.06.3
   ignition: 0.33.0
-  kernel: 4.19.71
+  kernel: 4.19.75
   rkt: 1.30.0
   systemd: '241'
 release: current
-version: 2261.0.0
+version: 2275.0.0
