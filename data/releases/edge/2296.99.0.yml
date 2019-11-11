@@ -1,0 +1,57 @@
+channel: edge
+github_release:
+  assets: []
+  assets_url: https://api.github.com/repos/flatcar-linux/manifest/releases/20907818/assets
+  author:
+    avatar_url: https://avatars0.githubusercontent.com/u/10096906?v=4
+    events_url: https://api.github.com/users/dongsupark/events{/privacy}
+    followers_url: https://api.github.com/users/dongsupark/followers
+    following_url: https://api.github.com/users/dongsupark/following{/other_user}
+    gists_url: https://api.github.com/users/dongsupark/gists{/gist_id}
+    gravatar_id: ''
+    html_url: https://github.com/dongsupark
+    id: 10096906
+    login: dongsupark
+    node_id: MDQ6VXNlcjEwMDk2OTA2
+    organizations_url: https://api.github.com/users/dongsupark/orgs
+    received_events_url: https://api.github.com/users/dongsupark/received_events
+    repos_url: https://api.github.com/users/dongsupark/repos
+    site_admin: false
+    starred_url: https://api.github.com/users/dongsupark/starred{/owner}{/repo}
+    subscriptions_url: https://api.github.com/users/dongsupark/subscriptions
+    type: User
+    url: https://api.github.com/users/dongsupark
+  body: "## Flatcar updates\r\n\r\nSecurity fixes:\r\n\r\n- Fix panic caused by invalid\
+    \ DSA public keys in Go 1.12 and 1.13 ([CVE-2019-17596](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2019-17596))\r\
+    \n- Fix AppArmor restriction bypass issue in runc 1.0.0-rc8 or older ([CVE-2019-16884](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2019-16884))\r\
+    \n- Fix bypass of certain policy blacklists and session PAM modules in sudo 1.8.27\
+    \ or older ([CVE-2019-14287](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2019-14287))\r\
+    \n\r\nBug fixes:\r\n\r\n- Fix rkt fetch issue that does not work without docker://\
+    \ prefix in URLs (https://github.com/flatcar-linux/coreos-overlay/pull/96)\r\n\
+    - Multiple bug fixes from the upstream systemd-stable repo (https://github.com/flatcar-linux/coreos-overlay/pull/97)\r\
+    \n\r\nUpdates: \r\n\r\n- Linux [5.3.7](https://lwn.net/Articles/802627/)\r\n-\
+    \ Go [1.12.12](https://go.googlesource.com/go/+/refs/tags/go1.12.12) and [1.13.3](https://go.googlesource.com/go/+/refs/tags/go1.13.3)\r\
+    \n- runc [1.0.0-rc9](https://github.com/opencontainers/runc/releases/tag/v1.0.0-rc9)\r\
+    \n- sudo [1.8.28](https://www.sudo.ws/stable.html#1.8.28)"
+  created_at: '2019-10-22T17:27:42Z'
+  draft: false
+  html_url: https://github.com/flatcar-linux/manifest/releases/tag/v2296.99.0
+  id: 20907818
+  name: v2296.99.0
+  node_id: MDc6UmVsZWFzZTIwOTA3ODE4
+  prerelease: false
+  published_at: '2019-10-23T08:54:42Z'
+  tag_name: v2296.99.0
+  tarball_url: https://api.github.com/repos/flatcar-linux/manifest/tarball/v2296.99.0
+  target_commitish: master
+  upload_url: https://uploads.github.com/repos/flatcar-linux/manifest/releases/20907818/assets{?name,label}
+  url: https://api.github.com/repos/flatcar-linux/manifest/releases/20907818
+  zipball_url: https://api.github.com/repos/flatcar-linux/manifest/zipball/v2296.99.0
+image_packages:
+  docker: 19.03.2
+  ignition: 0.33.0
+  kernel: 5.3.7
+  rkt: 1.30.0
+  systemd: '242'
+release: 2296.99.0
+version: 2296.99.0

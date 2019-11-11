@@ -1,0 +1,57 @@
+channel: edge
+github_release:
+  assets: []
+  assets_url: https://api.github.com/repos/flatcar-linux/manifest/releases/18407739/assets
+  author:
+    avatar_url: https://avatars0.githubusercontent.com/u/10096906?v=4
+    events_url: https://api.github.com/users/dongsupark/events{/privacy}
+    followers_url: https://api.github.com/users/dongsupark/followers
+    following_url: https://api.github.com/users/dongsupark/following{/other_user}
+    gists_url: https://api.github.com/users/dongsupark/gists{/gist_id}
+    gravatar_id: ''
+    html_url: https://github.com/dongsupark
+    id: 10096906
+    login: dongsupark
+    node_id: MDQ6VXNlcjEwMDk2OTA2
+    organizations_url: https://api.github.com/users/dongsupark/orgs
+    received_events_url: https://api.github.com/users/dongsupark/received_events
+    repos_url: https://api.github.com/users/dongsupark/repos
+    site_admin: false
+    starred_url: https://api.github.com/users/dongsupark/starred{/owner}{/repo}
+    subscriptions_url: https://api.github.com/users/dongsupark/subscriptions
+    type: User
+    url: https://api.github.com/users/dongsupark
+  body: "## [Upstream Container Linux updates](https://github.com/coreos/manifest/releases/tag/v2191.0.0):\r\
+    \n\r\nSecurity fixes:\r\n\r\n * Fix libexpat denial of service ([CVE-2018-20843](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2018-20843))\r\
+    \n\r\nBug fixes:\r\n\r\n * Fix Ignition panic when no `guestinfo.(coreos|ignition).config`\
+    \ parameters are specified on VMware (https://github.com/coreos/ignition/issues/821)\r\
+    \n\r\nUpdates:\r\n\r\n * expat [2.2.7](https://github.com/libexpat/libexpat/releases/tag/R_2_2_7)\r\
+    \n * Ignition [0.33.0](https://github.com/coreos/ignition/releases/tag/v0.33.0)\r\
+    \n\r\n## Flatcar updates\r\n\r\nBug fixes:\r\n\r\n- make containerd listen on\
+    \ localhost (https://github.com/flatcar-linux/coreos-overlay/pull/41)\r\n\r\n\
+    Updates:\r\n\r\n- Linux [5.1.15](https://lwn.net/Articles/792008/)\r\n- cri-tools\
+    \ [1.14.0](https://github.com/flatcar-linux/coreos-overlay/pull/42)\r\n\r\nChanges:\r\
+    \n\r\n- Fix installation prefix of conmon in a cri-o example config (https://github.com/flatcar-linux/coreos-overlay/pull/43)\r\
+    \n"
+  created_at: '2019-07-03T14:48:44Z'
+  draft: false
+  html_url: https://github.com/flatcar-linux/manifest/releases/tag/v2191.99.0
+  id: 18407739
+  name: v2191.99.0
+  node_id: MDc6UmVsZWFzZTE4NDA3NzM5
+  prerelease: false
+  published_at: '2019-07-04T08:25:18Z'
+  tag_name: v2191.99.0
+  tarball_url: https://api.github.com/repos/flatcar-linux/manifest/tarball/v2191.99.0
+  target_commitish: master
+  upload_url: https://uploads.github.com/repos/flatcar-linux/manifest/releases/18407739/assets{?name,label}
+  url: https://api.github.com/repos/flatcar-linux/manifest/releases/18407739
+  zipball_url: https://api.github.com/repos/flatcar-linux/manifest/zipball/v2191.99.0
+image_packages:
+  docker: 18.06.3
+  ignition: 0.33.0
+  kernel: 5.1.15
+  rkt: 1.30.0
+  systemd: '241'
+release: 2191.99.0
+version: 2191.99.0
