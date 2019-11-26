@@ -21,23 +21,27 @@ github_release:
     subscriptions_url: https://api.github.com/users/dongsupark/subscriptions
     type: User
     url: https://api.github.com/users/dongsupark
-  body: "## [Upstream Container Linux updates](https://github.com/coreos/manifest/releases/tag/v2331.0.0):\r\
-    \n\r\nSecurity fixes:\r\n\r\n- Fix Intel CPU disclosure of memory to user process.\
-    \ Complete mitigation requires [manually disabling TSX or SMT](https://docs.flatcar-linux.org/os/disabling-smt/)\
-    \ on affected processors. ([CVE-2019-11135](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2019-11135),\
+  body: "## Flatcar updates\r\n\r\nSecurity fixes:\r\n\r\n- Fix Intel CPU disclosure\
+    \ of memory to user process. Complete mitigation requires [manually disabling\
+    \ TSX or SMT](https://docs.flatcar-linux.org/os/disabling-smt/) on affected processors.\
+    \ ([CVE-2019-11135](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2019-11135),\
     \ [TAA](https://www.intel.com/content/www/us/en/security-center/advisory/intel-sa-00270.html))\r\
     \n- Fix Intel CPU denial of service by a malicious guest VM ([CVE-2018-12207](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2018-12207))\r\
     \n- Fix curl Kerberos FTP double free ([CVE-2019-5481](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2019-5481))\r\
     \n - Fix curl TFTP buffer overflow with non-default block size ([CVE-2019-5482](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2019-5482))\r\
     \n - Fix OpenSSL key extraction attacks under non-default conditions ([CVE-2019-1563](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2019-1563),\
     \ [CVE-2019-1547](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2019-1547))\r\
+    \n- Fix panic caused by invalid DSA public keys in Go 1.12 and 1.13 ([CVE-2019-17596](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2019-17596))\r\
     \n\r\nBug fixes:\r\n\r\n- Fix CFS scheduler throttling highly-threaded I/O-bound\
     \ applications ([#2623](https://github.com/coreos/bugs/issues/2623))\r\n- Fix\
     \ time zone for Brazil ([#2627](https://github.com/coreos/bugs/issues/2627))\r\
-    \n\r\nUpdates:\r\n\r\n- curl [7.66.0](https://curl.haxx.se/mail/archive-2019-09/0002.html)\r\
-    \n- intel-microcode [20191115](https://github.com/intel/Intel-Linux-Processor-Microcode-Data-Files/blob/microcode-20191115/releasenote)\r\
+    \n\r\nUpdates:\r\n\r\n- Go [1.12.12](https://go.googlesource.com/go/+/refs/tags/go1.12.12)\
+    \ and [1.13.3](https://go.googlesource.com/go/+/refs/tags/go1.13.3)\r\n- curl\
+    \ [7.66.0](https://curl.haxx.se/mail/archive-2019-09/0002.html)\r\n- intel-microcode\
+    \ [20191115](https://github.com/intel/Intel-Linux-Processor-Microcode-Data-Files/blob/microcode-20191115/releasenote)\r\
     \n- Linux [4.19.84](https://lwn.net/Articles/804465/)\r\n- OpenSSL [1.0.2t](https://www.openssl.org/news/cl102.txt)\r\
-    \n- timezone-data [2019c](http://mm.icann.org/pipermail/tz-announce/2019-September/000057.html)"
+    \n- timezone-data [2019c](http://mm.icann.org/pipermail/tz-announce/2019-September/000057.html)\r\
+    \n"
   created_at: '2019-11-22T13:56:49Z'
   draft: false
   html_url: https://github.com/flatcar-linux/manifest/releases/tag/v2331.0.0
