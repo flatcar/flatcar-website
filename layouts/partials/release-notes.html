@@ -4,7 +4,7 @@
 {{ if ne .release "current" }}
 <div class="row">
   <div class="col-md-2">
-    <h5><a href="https://{{ .channel }}.release.flatcar-linux.net/amd64-usr/{{ .version }}/">{{ .version }}</a></h5>
+    <h5><a id="release-{{ .version }}" href="https://{{ .channel }}.release.flatcar-linux.net/amd64-usr/{{ .version }}/">{{ .version }}</a></h5>
   </div>
   <div class="col-md-10">
     <p class="small">Release Date: {{ dateFormat "Jan 2, 2006" .github_release.published_at }}</p>

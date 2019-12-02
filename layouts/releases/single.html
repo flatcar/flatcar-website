@@ -12,7 +12,7 @@
        <div class="card">
            <div class="card-header align-middle">
                <h5 class="d-inline"> {{ humanize $chan.current.channel }} </h5>
-               <a href="https://{{ $chan.current.channel }}.release.flatcar-linux.net/amd64-usr/{{ $chan.current.version }}/" class="pull-right">
+               <a id="release-{{ $chan.current.version }}-short" href="https://{{ $chan.current.channel }}.release.flatcar-linux.net/amd64-usr/{{ $chan.current.version }}/" class="pull-right">
                    {{ $chan.current.version }}</a>
            </div>
            <div class="card-body">
@@ -41,7 +41,7 @@
        <div class="card" style="background-color: rgba(239, 239, 239, 0.5)">
            <div class="card-header align-middle">
                <h5 class="d-inline"> {{ humanize $chan.current.channel }} </h5>
-               <a href="https://{{ $chan.current.channel }}.release.flatcar-linux.net/amd64-usr/{{ $chan.current.version }}/" class="pull-right">
+               <a id="release-{{ $chan.current.version }}-short" href="https://{{ $chan.current.channel }}.release.flatcar-linux.net/amd64-usr/{{ $chan.current.version }}/" class="pull-right">
                    {{ $chan.current.version }}</a>
            </div>
            <div class="card-body">
