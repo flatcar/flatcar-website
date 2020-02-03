@@ -2,12 +2,15 @@
 
 {{ $chan_desc := (dict "stable" "The Stable channel is intended for use in production clusters. Versions of Flatcar Container Linux have been tested as they move through Alpha and Beta channels before being promoted to stable." "alpha" "The Alpha channel follows a more frequent release cadence and is where new updates are introduced. Users can try the new versions of the Linux kernel, systemd and other core packages." "beta" "The Beta channel is where Flatcar Container Linux stability is solidified. We encourage including some beta machines in production clusters in order to catch any issues that may arise with your setup." "edge" "The Edge channel includes experimental features and patches of the Linux kernel and other core OS packages. It is designed for experimental purposes and is not supported.") }}
 
+{{ $orderedchan := (slice "stable" "beta" "alpha" "edge") }}
+
 <div class="container">
   <div class="row mt-5">
   <h2>Release Channels</h2>
   <div class="card-deck-wrapper">
     <div class="card-deck">
-       {{ range $i, $chan := sort $.Site.Data.releases "" "desc" }}
+       {{ range $i, $name := $orderedchan }}
+       {{ $chan := index $.Site.Data.releases $name }}
        <div class="card" {{ if eq $chan.current.channel "edge" }}style="background-color: rgba(239, 239, 239, 0.5)"{{ end }}>
            <div class="card-header align-middle">
                <h5 class="d-inline"> {{ humanize $chan.current.channel }} </h5>
@@ -42,7 +45,8 @@
       <h2>Release Notes</h2>
       <div class="mt-3">
 	        <ul class="nav nav-tabs" id="release-tabs" role="tablist">
-              {{ range $i, $chan := sort $.Site.Data.releases "" "desc" }}
+              {{ range $i, $name := $orderedchan }}
+              {{ $chan := index $.Site.Data.releases $name }}
 		          <li class="nav-item">
 			            <a class="nav-link {{ if eq $chan.current.channel "stable" }}active{{ end }}" id="{{ $chan.current.channel }}-release-tab"
                      data-toggle="tab" href="#{{ $chan.current.channel }}-release" role="tab"
@@ -55,7 +59,8 @@
 
 	        </ul>
 	        <div class="tab-content p-3" id="release-tabs-content">
-              {{ range $i, $chan := sort $.Site.Data.releases "" "desc" }}
+              {{ range $i, $name := $orderedchan }}
+              {{ $chan := index $.Site.Data.releases $name }}
               <div class="tab-pane fade {{ if eq $chan.current.channel "stable" }} active show {{ end }}" id="{{ $chan.current.channel }}-release"
                    role="tabpanel" aria-labelledby="{{ $chan.current.channel }}-release-tab">
                   {{ range $pkg, $ver := $chan.current.image_packages }}
