@@ -14,8 +14,13 @@
        <div class="card" {{ if eq $chan.current.channel "edge" }}style="background-color: rgba(239, 239, 239, 0.5)"{{ end }}>
            <div class="card-header align-middle">
                <h5 class="d-inline"> {{ humanize $chan.current.channel }} </h5>
-               <a id="release-{{ $chan.current.version }}-short" href="https://{{ $chan.current.channel }}.release.flatcar-linux.net/amd64-usr/{{ $chan.current.version }}/" class="pull-right">
-                   {{ $chan.current.version }}</a>
+               <div class="pull-right text-right">
+               {{ $chan.current.version }}<br>
+               {{ range $j, $arch := $chan.current.architectures }}
+               <a id="release-{{ $chan.current.version }}-short" href="https://{{ $chan.current.channel }}.release.flatcar-linux.net/{{ $arch }}-usr/{{ $chan.current.version }}/">
+                   {{ $arch }}</a>
+               {{ end }}
+               </div>
            </div>
            <div class="card-body">
              <p>{{ index $chan_desc $chan.current.channel }}</p>
