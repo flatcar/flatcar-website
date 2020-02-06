@@ -17,7 +17,7 @@
                <div class="pull-right text-right">
                {{ $chan.current.version }}<br>
                {{ range $j, $arch := $chan.current.architectures }}
-               <a id="release-{{ $chan.current.version }}-short" href="https://{{ $chan.current.channel }}.release.flatcar-linux.net/{{ $arch }}-usr/{{ $chan.current.version }}/">
+               <a id="release-{{ $chan.current.version }}-short" href="https://{{ $chan.current.channel }}.release.flatcar-linux.net/{{ $arch }}-usr/current/">
                    {{ $arch }}</a>
                {{ end }}
                </div>
