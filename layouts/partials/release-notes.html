@@ -6,7 +6,7 @@
   <div class="col-md-2">
     <h5 style="margin-bottom: 0">{{ $release.version }}</h5>
     {{ range $j, $arch := $release.architectures }}
-    <a id="release-{{ $release.version }}" href="https://{{ $release.channel }}.release.flatcar-linux.net/{{ $arch }}-usr/{{ $release.version }}/">{{ $arch }}</a><br>
+    <a class="arch small font-weight-light" id="release-{{ $release.version }}" href="https://{{ $release.channel }}.release.flatcar-linux.net/{{ $arch }}-usr/{{ $release.version }}/">{{ $arch }}</a><br>
     {{ end }}
   </div>
   <div class="col-md-10">
