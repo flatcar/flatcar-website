@@ -23,7 +23,11 @@ github_release:
     subscriptions_url: https://api.github.com/users/dongsupark/subscriptions
     type: User
     url: https://api.github.com/users/dongsupark
-  body: "## [Upstream Container Linux updates](https://github.com/coreos/manifest/releases/tag/v2345.2.0):\r\
+  body: "## Flatcar updates\r\n\r\nBug fixes:\r\n- Fix DNS resolution for the GCE\
+    \ metadata server (https://github.com/flatcar-linux/coreos-overlay/pull/160)\r\
+    \n- Create symlink for /run/metadata/coreos (https://github.com/flatcar-linux/coreos-overlay/pull/166)\r\
+    \n- Create symlink for flatcar-install (https://github.com/flatcar-linux/init/pull/14)\r\
+    \n\r\n## [Upstream Container Linux updates](https://github.com/coreos/manifest/releases/tag/v2345.2.0):\r\
     \n\r\nSecurity fixes:\r\n- Fix systemd use-after-free upon receiving crafted D-Bus\
     \ message from local unprivileged attacker ([CVE-2020-1712](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2020-1712))\r\
     \n\r\nChanges:\r\n- Enable `qede` kernel module\r\n\r\nUpdates:\r\n- Linux [4.19.102](https://lwn.net/Articles/811638/)"
