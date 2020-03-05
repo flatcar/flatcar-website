@@ -4,7 +4,7 @@ architectures:
 channel: edge
 github_release:
   assets: []
-  assets_url: https://api.github.com/repos/flatcar-linux/manifest/releases/23740020/assets
+  assets_url: https://api.github.com/repos/flatcar-linux/manifest/releases/24242049/assets
   author:
     avatar_url: https://avatars0.githubusercontent.com/u/10096906?v=4
     events_url: https://api.github.com/users/dongsupark/events{/privacy}
@@ -24,41 +24,31 @@ github_release:
     subscriptions_url: https://api.github.com/users/dongsupark/subscriptions
     type: User
     url: https://api.github.com/users/dongsupark
-  body: "## Flatcar updates\r\n\r\nSecurity fixes:\r\n\r\n- Fix incorrect access control\
-    \ leading to privileges escalation in runc ([CVE-2019-19921](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2019-19921))\r\
-    \n- Fix systemd use-after-free upon receiving crafted D-Bus message from local\
-    \ unprivileged attacker ([CVE-2020-1712](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2020-1712))\r\
-    \n\r\nBug fixes:\r\n\r\n- Fix backwards compatibility issues for users to migrate\
-    \ from CoreOS Container Linux (https://github.com/flatcar-linux/Flatcar/issues/16\
-    \ https://github.com/flatcar-linux/afterburn/pull/7 https://github.com/flatcar-linux/bootengine/pull/7\
-    \ https://github.com/flatcar-linux/bootengine/pull/8 https://github.com/flatcar-linux/init/pull/16\
-    \ https://github.com/flatcar-linux/init/pull/17 https://github.com/flatcar-linux/ignition/pull/8)\r\
-    \n\r\nChanges:\r\n\r\n- Build Flatcar tarballs to be used by containers (https://github.com/flatcar-linux/scripts/pull/51)\r\
-    \n- Enable qede kernel module\r\n- Enable kernel config for BTF (BPF Type Format)\r\
-    \n\r\nUpdates:\r\n\r\n- Linux [5.5.2](https://lwn.net/Articles/811599/)\r\n- coreos-firmware\
-    \ [20200122](https://github.com/flatcar-linux/coreos-overlay/pull/175/commits/8751b200031ca9d9b52a6ff060640b77f21b9504)\
-    \ (https://git.kernel.org/pub/scm/linux/kernel/git/firmware/linux-firmware.git/tag/?h=20200122)\r\
-    \n- runc [1.0.0-rc10](https://github.com/opencontainers/runc/releases/tag/v1.0.0-rc10)\r\
-    \n"
-  created_at: '2020-02-14T14:51:16Z'
+  body: "## Flatcar updates\r\n\r\nBug fixes:\r\n\r\n- Enable persistent network interface\
+    \ names already in the initramfs to fix https://github.com/coreos/bugs/issues/1767\r\
+    \n- Make systemd-hostnamed work again by updating systemd to v243 (https://github.com/flatcar-linux/systemd/pull/7)\r\
+    \n- Use correct branch name format in developer container tools (https://github.com/flatcar-linux/dev-util/pull/2)\r\
+    \n\r\nUpdates:\r\n\r\n- Linux [5.5.6](https://lwn.net/Articles/813155/)\r\n- systemd\
+    \ [243](https://github.com/systemd/systemd/releases/tag/v243)"
+  created_at: '2020-03-02T15:12:53Z'
   draft: false
-  html_url: https://github.com/flatcar-linux/manifest/releases/tag/v2411.99.0
-  id: 23740020
-  name: v2411.99.0
-  node_id: MDc6UmVsZWFzZTIzNzQwMDIw
+  html_url: https://github.com/flatcar-linux/manifest/releases/tag/v2430.99.0
+  id: 24242049
+  name: v2430.99.0
+  node_id: MDc6UmVsZWFzZTI0MjQyMDQ5
   prerelease: false
-  published_at: '2020-02-17T16:41:29Z'
-  tag_name: v2411.99.0
-  tarball_url: https://api.github.com/repos/flatcar-linux/manifest/tarball/v2411.99.0
+  published_at: '2020-03-05T10:27:05Z'
+  tag_name: v2430.99.0
+  tarball_url: https://api.github.com/repos/flatcar-linux/manifest/tarball/v2430.99.0
   target_commitish: master
-  upload_url: https://uploads.github.com/repos/flatcar-linux/manifest/releases/23740020/assets{?name,label}
-  url: https://api.github.com/repos/flatcar-linux/manifest/releases/23740020
-  zipball_url: https://api.github.com/repos/flatcar-linux/manifest/zipball/v2411.99.0
+  upload_url: https://uploads.github.com/repos/flatcar-linux/manifest/releases/24242049/assets{?name,label}
+  url: https://api.github.com/repos/flatcar-linux/manifest/releases/24242049
+  zipball_url: https://api.github.com/repos/flatcar-linux/manifest/zipball/v2430.99.0
 image_packages:
   docker: 19.03.5
   ignition: 0.34.0
-  kernel: 5.5.2
+  kernel: 5.5.6
   rkt: 1.30.0
-  systemd: '242'
+  systemd: '243'
 release: current
-version: 2411.99.0
+version: 2430.99.0
