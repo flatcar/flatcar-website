@@ -1,10 +1,10 @@
 architectures:
 - amd64
 - arm64
-channel: alpha
+channel: edge
 github_release:
   assets: []
-  assets_url: https://api.github.com/repos/flatcar-linux/manifest/releases/24241997/assets
+  assets_url: https://api.github.com/repos/flatcar-linux/manifest/releases/24242049/assets
   author:
     avatar_url: https://avatars0.githubusercontent.com/u/10096906?v=4
     events_url: https://api.github.com/users/dongsupark/events{/privacy}
@@ -26,29 +26,29 @@ github_release:
     url: https://api.github.com/users/dongsupark
   body: "## Flatcar updates\r\n\r\nBug fixes:\r\n\r\n- Enable persistent network interface\
     \ names already in the initramfs to fix https://github.com/coreos/bugs/issues/1767\r\
-    \n- Do not error out in runc if SELinux is disabled on the system (https://github.com/flatcar-linux/coreos-overlay/pull/189)\r\
-    \n- Bring back runc 1.0-rc2 for Docker 17.03 (https://github.com/flatcar-linux/coreos-overlay/pull/191)\r\
+    \n- Make systemd-hostnamed work again by updating systemd to v243 (https://github.com/flatcar-linux/systemd/pull/7)\r\
     \n- Use correct branch name format in developer container tools (https://github.com/flatcar-linux/dev-util/pull/2)\r\
-    \n\r\nUpdates:\r\n\r\n- Linux [4.19.106](https://lwn.net/Articles/813157/)"
-  created_at: '2020-03-02T12:52:21Z'
+    \n\r\nUpdates:\r\n\r\n- Linux [5.5.6](https://lwn.net/Articles/813155/)\r\n- systemd\
+    \ [243](https://github.com/systemd/systemd/releases/tag/v243)"
+  created_at: '2020-03-02T15:12:53Z'
   draft: false
-  html_url: https://github.com/flatcar-linux/manifest/releases/tag/v2430.0.0
-  id: 24241997
-  name: v2430.0.0
-  node_id: MDc6UmVsZWFzZTI0MjQxOTk3
+  html_url: https://github.com/flatcar-linux/manifest/releases/tag/v2430.99.0
+  id: 24242049
+  name: v2430.99.0
+  node_id: MDc6UmVsZWFzZTI0MjQyMDQ5
   prerelease: false
-  published_at: '2020-03-05T10:26:46Z'
-  tag_name: v2430.0.0
-  tarball_url: https://api.github.com/repos/flatcar-linux/manifest/tarball/v2430.0.0
+  published_at: '2020-03-05T10:27:05Z'
+  tag_name: v2430.99.0
+  tarball_url: https://api.github.com/repos/flatcar-linux/manifest/tarball/v2430.99.0
   target_commitish: master
-  upload_url: https://uploads.github.com/repos/flatcar-linux/manifest/releases/24241997/assets{?name,label}
-  url: https://api.github.com/repos/flatcar-linux/manifest/releases/24241997
-  zipball_url: https://api.github.com/repos/flatcar-linux/manifest/zipball/v2430.0.0
+  upload_url: https://uploads.github.com/repos/flatcar-linux/manifest/releases/24242049/assets{?name,label}
+  url: https://api.github.com/repos/flatcar-linux/manifest/releases/24242049
+  zipball_url: https://api.github.com/repos/flatcar-linux/manifest/zipball/v2430.99.0
 image_packages:
   docker: 19.03.5
   ignition: 0.34.0
-  kernel: 4.19.106
+  kernel: 5.5.6
   rkt: 1.30.0
-  systemd: '241'
-release: current
-version: 2430.0.0
+  systemd: '243'
+release: 2430.99.0
+version: 2430.99.0
