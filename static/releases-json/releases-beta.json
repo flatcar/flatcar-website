@@ -1,0 +1,1352 @@
+{
+  "1722.2.0": {
+    "channel": "beta",
+    "architectures": [
+      "amd64"
+    ],
+    "release_date": "2018-04-25 14:36:40 +0000",
+    "major_software": {
+      "docker": [
+        "17.12.1"
+      ],
+      "ignition": [
+        "0.23.0"
+      ],
+      "kernel": [
+        "4.14.30"
+      ],
+      "rkt": [
+        "1.29.0"
+      ],
+      "systemd": [
+        "237"
+      ]
+    },
+    "release_notes": "## Flatcar updates\n\nInitial Flatcar release.\n\nBug fixes:\n- Fix GRUB crash at boot ([#2284](https://github.com/coreos/bugs/issues/2284))\n- Fix [poweroff problems](https://groups.google.com/forum/#!topic/coreos-user/YcGkRHU9SvQ) ([#8080](https://github.com/systemd/systemd/pull/8080))\n\nNotes:\n- Previous test images have been removed from the release servers. This is due to a new update key being generated using our updated security policy which we [included](https://github.com/flatcar-linux/coreos-overlay/pull/6) in the first public image.\n\n## [Upstream Container Linux updates](https://github.com/coreos/manifest/releases/tag/v1722.2.0):\n\nBug fixes:\n- Fix kernel panic with vxlan ([#2382](https://github.com/coreos/bugs/issues/2382))"
+  },
+  "1745.1.0": {
+    "channel": "beta",
+    "architectures": [
+      "amd64"
+    ],
+    "release_date": "2018-04-26 09:58:55 +0000",
+    "major_software": {
+      "docker": [
+        "18.03.0"
+      ],
+      "ignition": [
+        "0.24.0"
+      ],
+      "kernel": [
+        "4.14.35"
+      ],
+      "rkt": [
+        "1.29.0"
+      ],
+      "systemd": [
+        "238"
+      ]
+    },
+    "release_notes": "## [Upstream Container Linux updates](https://github.com/coreos/manifest/releases/tag/v1745.1.0):\n\nBug fixes:\n - Fix docker2aci tar conversion ([#2402](https://github.com/coreos/bugs/issues/2402))\n\nChanges:\n - Switch to the LTS Linux version [4.14.35](https://lwn.net/Articles/752328/) for the beta channel"
+  },
+  "1745.2.0": {
+    "channel": "beta",
+    "architectures": [
+      "amd64"
+    ],
+    "release_date": "2018-05-11 11:40:35 +0000",
+    "major_software": {
+      "docker": [
+        "18.03.1"
+      ],
+      "ignition": [
+        "0.24.0"
+      ],
+      "kernel": [
+        "4.14.39"
+      ],
+      "rkt": [
+        "1.29.0"
+      ],
+      "systemd": [
+        "238"
+      ]
+    },
+    "release_notes": "## [Upstream Container Linux updates](https://github.com/coreos/manifest/releases/tag/v1745.2.0):\n\nSecurity fixes:\n - Fix ntp clock manipulation from ephemeral connections ([CVE-2016-1549](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2016-1549), [CVE-2018-7170](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2018-7170))\n - Fix ntp denial of service from out of bounds read ([CVE-2018-7182](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2018-7182)) \n -  Fix ntp denial of service from packets with timestamp 0 ([CVE-2018-7184](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2018-7184), [CVE-2018-7185](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2018-7185))\n - Fix ntp remote code execution ([CVE-2018-7183](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2018-7183))\n\nUpdates:\n - containerd [1.0.3](https://github.com/containerd/containerd/releases/tag/v1.0.3)\n - Docker [18.03.1-ce](https://github.com/docker/docker-ce/releases/tag/v18.03.1-ce)\n - Linux [4.14.39](https://lwn.net/Articles/753349/)\n - ntp [4.2.8p11](https://www.eecis.udel.edu/~ntp/ntp_spool/ntp4/ChangeLog-stable)\n"
+  },
+  "1772.1.1": {
+    "channel": "beta",
+    "architectures": [
+      "amd64"
+    ],
+    "release_date": "2018-05-26 15:29:49 +0000",
+    "major_software": {
+      "docker": [
+        "18.03.1"
+      ],
+      "ignition": [
+        "0.24.1"
+      ],
+      "kernel": [
+        "4.14.42"
+      ],
+      "rkt": [
+        "1.30.0"
+      ],
+      "systemd": [
+        "238"
+      ]
+    },
+    "release_notes": "## [Upstream Container Linux updates](https://github.com/coreos/manifest/releases/tag/v1772.1.1):\n\nChanges:\n- Switch to the LTS Docker version [18.03.1-ce](https://github.com/docker/docker-ce/releases/tag/v18.03.1-ce) for the beta channel\n- Switch to the LTS Linux version [4.14.42](https://lwn.net/Articles/754972/) for the beta channel\n\nUpdates:\n- Ignition [0.24.1](https://github.com/coreos/ignition/releases/tag/v0.24.1)"
+  },
+  "1772.2.0": {
+    "channel": "beta",
+    "architectures": [
+      "amd64"
+    ],
+    "release_date": "2018-06-01 13:23:43 +0000",
+    "major_software": {
+      "docker": [
+        "18.03.1"
+      ],
+      "ignition": [
+        "0.24.1"
+      ],
+      "kernel": [
+        "4.14.47"
+      ],
+      "rkt": [
+        "1.30.0"
+      ],
+      "systemd": [
+        "238"
+      ]
+    },
+    "release_notes": "## [Upstream Container Linux updates](https://github.com/coreos/manifest/releases/tag/v1772.2.0):\n\nSecurity fixes:\n- Fix Git arbitrary code execution when cloning untrusted repositories ([CVE-2018-11235](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2018-11235))\n\nBug fixes:\n- Fix inadvertent change of network interface names ([#2437](https://github.com/coreos/bugs/issues/2437))\n- Fix failure to set network interface MTU ([#2443](https://github.com/coreos/bugs/issues/2443))\n\nUpdates:\n- Git [2.16.4](https://raw.githubusercontent.com/git/git/v2.16.4/Documentation/RelNotes/2.16.4.txt)\n- Linux [4.14.47](https://lwn.net/Articles/756055/)"
+  },
+  "1772.3.0": {
+    "channel": "beta",
+    "architectures": [
+      "amd64"
+    ],
+    "release_date": "2018-06-13 13:22:40 +0000",
+    "major_software": {
+      "docker": [
+        "18.03.1"
+      ],
+      "ignition": [
+        "0.24.1"
+      ],
+      "kernel": [
+        "4.14.48"
+      ],
+      "rkt": [
+        "1.30.0"
+      ],
+      "systemd": [
+        "238"
+      ]
+    },
+    "release_notes": "## [Upstream Container Linux updates](https://github.com/coreos/manifest/releases/tag/v1772.3.0):\n\nBug fixes:\n- Fix Hyper-V network driver regression ([#2454](https://github.com/coreos/bugs/issues/2454))\n\nUpdates:\n- Linux [4.14.48](https://lwn.net/Articles/756652/)"
+  },
+  "1772.4.0": {
+    "channel": "beta",
+    "architectures": [
+      "amd64"
+    ],
+    "release_date": "2018-06-15 14:51:22 +0000",
+    "major_software": {
+      "docker": [
+        "18.03.1"
+      ],
+      "ignition": [
+        "0.24.1"
+      ],
+      "kernel": [
+        "4.14.49"
+      ],
+      "rkt": [
+        "1.30.0"
+      ],
+      "systemd": [
+        "238"
+      ]
+    },
+    "release_notes": "## [Upstream Container Linux updates](https://github.com/coreos/manifest/releases/tag/v1772.4.0):\n\nBug fixes:\n- Fix TCP connection stalls ([#2457](https://github.com/coreos/bugs/issues/2457))\n\nUpdates:\n- Linux [4.14.49](https://lwn.net/Articles/757308/)"
+  },
+  "1800.2.0": {
+    "channel": "beta",
+    "architectures": [
+      "amd64"
+    ],
+    "release_date": "2018-06-22 10:17:31 +0000",
+    "major_software": {
+      "docker": [
+        "18.03.1"
+      ],
+      "ignition": [
+        "0.25.1"
+      ],
+      "kernel": [
+        "4.14.50"
+      ],
+      "rkt": [
+        "1.30.0"
+      ],
+      "systemd": [
+        "238"
+      ]
+    },
+    "release_notes": "## [Upstream Container Linux updates](https://github.com/coreos/manifest/releases/tag/v1800.2.0):\n\nChanges:\n- Switch to the LTS Docker version [18.03.1-ce](https://github.com/docker/docker-ce/releases/tag/v18.03.1-ce) for the beta channel\n- Switch to the LTS Linux version [4.14.50](https://lwn.net/Articles/757680/) for the beta channel"
+  },
+  "1800.3.0": {
+    "channel": "beta",
+    "architectures": [
+      "amd64"
+    ],
+    "release_date": "2018-07-13 15:43:19 +0000",
+    "major_software": {
+      "docker": [
+        "18.03.1"
+      ],
+      "ignition": [
+        "0.25.1"
+      ],
+      "kernel": [
+        "4.14.55"
+      ],
+      "rkt": [
+        "1.30.0"
+      ],
+      "systemd": [
+        "238"
+      ]
+    },
+    "release_notes": "## [Upstream Container Linux updates](https://github.com/coreos/manifest/releases/tag/v1800.3.0):\n\nUpdates:\n- Linux [4.14.55](https://lwn.net/Articles/759535/)"
+  },
+  "1828.1.0": {
+    "channel": "beta",
+    "architectures": [
+      "amd64"
+    ],
+    "release_date": "2018-07-26 09:40:11 +0000",
+    "major_software": {
+      "docker": [
+        "18.03.1"
+      ],
+      "ignition": [
+        "0.26.0"
+      ],
+      "kernel": [
+        "4.14.57"
+      ],
+      "rkt": [
+        "1.30.0"
+      ],
+      "systemd": [
+        "238"
+      ]
+    },
+    "release_notes": "## [Upstream Container Linux updates](https://github.com/coreos/manifest/releases/tag/v1828.1.0):\n\nChanges:\n- Switch to the LTS Docker version [18.03.1-ce](https://github.com/docker/docker-ce/releases/tag/v18.03.1-ce) for the beta channel\n- Switch to the LTS Linux version [4.14.57](https://lwn.net/Articles/760500/) for the beta channel\n"
+  },
+  "1828.2.0": {
+    "channel": "beta",
+    "architectures": [
+      "amd64"
+    ],
+    "release_date": "2018-07-31 09:16:00 +0000",
+    "major_software": {
+      "docker": [
+        "18.03.1"
+      ],
+      "ignition": [
+        "0.26.0"
+      ],
+      "kernel": [
+        "4.14.59"
+      ],
+      "rkt": [
+        "1.30.0"
+      ],
+      "systemd": [
+        "238"
+      ]
+    },
+    "release_notes": "## [Upstream Container Linux updates](https://github.com/coreos/manifest/releases/tag/v1828.2.0):\n\nBug fixes:\n- Fix kernel CIFS client ([#2480](https://github.com/coreos/bugs/issues/2480))\n\nUpdates:\n- Linux [4.14.59](https://lwn.net/Articles/761180/)"
+  },
+  "1828.3.0": {
+    "channel": "beta",
+    "architectures": [
+      "amd64"
+    ],
+    "release_date": "2018-08-08 10:49:50 +0000",
+    "major_software": {
+      "docker": [
+        "18.03.1"
+      ],
+      "ignition": [
+        "0.26.0"
+      ],
+      "kernel": [
+        "4.14.60"
+      ],
+      "rkt": [
+        "1.30.0"
+      ],
+      "systemd": [
+        "238"
+      ]
+    },
+    "release_notes": "## [Upstream Container Linux updates](https://github.com/coreos/manifest/releases/tag/v1828.3.0):\n\nSecurity fixes:\n- Fix Linux local denial of service as Xen PV guest ([CVE-2018-14678](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2018-14678))\n\nBug fixes:\n- Fix failure to mount large ext4 filesystems ([#2485](https://github.com/coreos/bugs/issues/2485))\n\nUpdates:\n- Linux [4.14.60](https://lwn.net/Articles/761767/)"
+  },
+  "1855.2.0": {
+    "channel": "beta",
+    "architectures": [
+      "amd64"
+    ],
+    "release_date": "2018-08-17 12:09:29 +0000",
+    "major_software": {
+      "docker": [
+        "18.06.0"
+      ],
+      "ignition": [
+        "0.26.0"
+      ],
+      "kernel": [
+        "4.14.63"
+      ],
+      "rkt": [
+        "1.30.0"
+      ],
+      "systemd": [
+        "238"
+      ]
+    },
+    "release_notes": "## [Upstream Container Linux updates](https://github.com/coreos/manifest/releases/tag/v1855.2.0):\n\nSecurity fixes:\n- Fix Linux remote denial of service ([FragmentSmack](https://access.redhat.com/security/cve/cve-2018-5391), [CVE-2018-5391](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2018-5391))\n- Fix Linux privileged memory access via speculative execution ([L1TF/Foreshadow](https://foreshadowattack.eu/), [CVE-2018-3620](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2018-3620), [CVE-2018-3646](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2018-3646))\n\nBug fixes:\n- Fix PXE systems attempting to mount an ESP ([#2491](https://github.com/coreos/bugs/issues/2491))\n\nChanges:\n- Switch to the LTS Linux version [4.14.63](https://lwn.net/Articles/762808/) for the beta channel"
+  },
+  "1855.3.0": {
+    "channel": "beta",
+    "architectures": [
+      "amd64"
+    ],
+    "release_date": "2018-09-05 08:43:19 +0000",
+    "major_software": {
+      "docker": [
+        "18.06.1"
+      ],
+      "ignition": [
+        "0.26.0"
+      ],
+      "kernel": [
+        "4.14.67"
+      ],
+      "rkt": [
+        "1.30.0"
+      ],
+      "systemd": [
+        "238"
+      ]
+    },
+    "release_notes": "## [Upstream Container Linux updates](https://github.com/coreos/manifest/releases/tag/v1855.3.0):\n\nChanges:\n- Drop AWS PV images from regions which do not support PV\n\nUpdates:\n- containerd [1.1.2](https://github.com/containerd/containerd/releases/tag/v1.1.2)\n- Docker [18.06.1-ce](https://github.com/docker/docker-ce/releases/tag/v18.06.1-ce)\n- intel-microcode [20180807a](https://downloadcenter.intel.com/download/28087/Linux-Processor-Microcode-Data-File)\n- Linux [4.14.67](https://lwn.net/Articles/763433/)"
+  },
+  "1883.1.0": {
+    "channel": "beta",
+    "architectures": [
+      "amd64"
+    ],
+    "release_date": "2018-09-14 09:59:48 +0000",
+    "major_software": {
+      "docker": [
+        "18.06.1"
+      ],
+      "ignition": [
+        "0.28.0"
+      ],
+      "kernel": [
+        "4.14.69"
+      ],
+      "rkt": [
+        "1.30.0"
+      ],
+      "systemd": [
+        "238"
+      ]
+    },
+    "release_notes": "## [Upstream Container Linux updates](https://github.com/coreos/manifest/releases/tag/v1883.1.0):\n\nBug fixes:\n- Fix Docker mounting named volumes ([#2497](https://github.com/coreos/bugs/issues/2497))\n\nChanges:\n- Switch to the LTS Linux version [4.14.69](https://lwn.net/Articles/764513/) for the beta channel\n\nUpdates:\n- intel-microcode [20180807a](https://downloadcenter.intel.com/download/28087)"
+  },
+  "1911.1.1": {
+    "channel": "beta",
+    "architectures": [
+      "amd64"
+    ],
+    "release_date": "2018-10-11 13:18:49 +0000",
+    "major_software": {
+      "docker": [
+        "18.06.1"
+      ],
+      "ignition": [
+        "0.28.0"
+      ],
+      "kernel": [
+        "4.14.74"
+      ],
+      "rkt": [
+        "1.30.0"
+      ],
+      "systemd": [
+        "238"
+      ]
+    },
+    "release_notes": "## Flatcar updates\n\nChanges:\n\n* Add new image signing subkey to `flatcar-install` ([flatcar-linux/init#4](https://github.com/flatcar-linux/init/pull/4))\n\nBug fixes:\n\n* Fix `/usr/lib/coreos` symlink for Container Linux compatibility ([flatcar-linux/coreos-overlay#8](https://github.com/flatcar-linux/coreos-overlay/pull/8))\n\n## [Upstream Container Linux updates](https://github.com/coreos/manifest/releases/tag/v1911.1.1):\n\nChanges:\n- Switch to the LTS Linux version [4.14.74](https://lwn.net/Articles/767628/) for the beta channel\n"
+  },
+  "1911.2.0": {
+    "channel": "beta",
+    "architectures": [
+      "amd64"
+    ],
+    "release_date": "2018-10-26 10:14:36 +0000",
+    "major_software": {
+      "docker": [
+        "18.06.1"
+      ],
+      "ignition": [
+        "0.28.0"
+      ],
+      "kernel": [
+        "4.14.78"
+      ],
+      "rkt": [
+        "1.30.0"
+      ],
+      "systemd": [
+        "238"
+      ]
+    },
+    "release_notes": "## [Upstream Container Linux updates](https://github.com/coreos/manifest/releases/tag/v1911.2.0):\n\nSecurity fixes:\n- Fix Git remote code execution during recursive clone ([CVE-2018-17456](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2018-17456))\n\nBug fixes:\n- Fix missing kernel headers ([#2505](https://github.com/coreos/bugs/issues/2505))\n\nUpdates:\n- Git [2.16.5](https://raw.githubusercontent.com/git/git/v2.16.5/Documentation/RelNotes/2.16.5.txt)\n- Linux [4.14.78](https://lwn.net/Articles/769051/)"
+  },
+  "1939.1.0": {
+    "channel": "beta",
+    "architectures": [
+      "amd64"
+    ],
+    "release_date": "2018-11-08 16:14:38 +0000",
+    "major_software": {
+      "docker": [
+        "18.06.1"
+      ],
+      "ignition": [
+        "0.28.0"
+      ],
+      "kernel": [
+        "4.14.79"
+      ],
+      "rkt": [
+        "1.30.0"
+      ],
+      "systemd": [
+        "238"
+      ]
+    },
+    "release_notes": "## [Upstream Container Linux updates](https://github.com/coreos/manifest/releases/tag/v1939.1.0):\n\nSecurity fixes:\n- Fix systemd re-executing with arbitrary supplied state ([CVE-2018-15686](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2018-15686))\n- Fix systemd race allowing changing file permissions ([CVE-2018-15687](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2018-15687))\n- Fix systemd-networkd buffer overflow in the dhcp6 client ([CVE-2018-15688](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2018-15688))\n\nChanges:\n- Switch to the LTS Linux version [4.14.79](https://lwn.net/Articles/770749/) for the beta channel"
+  },
+  "1939.2.1": {
+    "channel": "beta",
+    "architectures": [
+      "amd64"
+    ],
+    "release_date": "2018-11-21 10:57:13 +0000",
+    "major_software": {
+      "docker": [
+        "18.06.1"
+      ],
+      "ignition": [
+        "0.28.0"
+      ],
+      "kernel": [
+        "4.14.81"
+      ],
+      "rkt": [
+        "1.30.0"
+      ],
+      "systemd": [
+        "238"
+      ]
+    },
+    "release_notes": "## [Upstream Container Linux updates](https://github.com/coreos/manifest/releases/tag/v1939.2.1):\n\nSecurity fixes:\n- Disable containerd CRI plugin to stop it from listening on a TCP port ([#2524](https://github.com/coreos/bugs/issues/2524))\n\nUpdates:\n- Linux [4.14.81](https://lwn.net/Articles/771885/)"
+  },
+  "1967.1.0": {
+    "channel": "beta",
+    "architectures": [
+      "amd64"
+    ],
+    "release_date": "2018-12-06 09:43:43 +0000",
+    "major_software": {
+      "docker": [
+        "18.06.1"
+      ],
+      "ignition": [
+        "0.28.0"
+      ],
+      "kernel": [
+        "4.14.84"
+      ],
+      "rkt": [
+        "1.30.0"
+      ],
+      "systemd": [
+        "238"
+      ]
+    },
+    "release_notes": "## [Upstream Container Linux updates](https://github.com/coreos/manifest/releases/tag/v1967.1.0):\n\nChanges:\n - Switch to the LTS Linux version [4.14.84](https://lwn.net/Articles/773114/) for the beta channel"
+  },
+  "1967.2.0": {
+    "channel": "beta",
+    "architectures": [
+      "amd64"
+    ],
+    "release_date": "2018-12-21 09:08:43 +0000",
+    "major_software": {
+      "docker": [
+        "18.06.1"
+      ],
+      "ignition": [
+        "0.28.0"
+      ],
+      "kernel": [
+        "4.14.88"
+      ],
+      "rkt": [
+        "1.30.0"
+      ],
+      "systemd": [
+        "238"
+      ]
+    },
+    "release_notes": "## [Upstream Container Linux updates](https://github.com/coreos/manifest/releases/tag/v1967.2.0):\n\nSecurity fixes:\n- Fix Go CPU denial of service in X.509 verification ([CVE-2018-16875](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2018-16875))\n- Fix PolicyKit always authorizing UIDs greater than `INT_MAX` ([CVE-2018-19788](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2018-19788))\n\nUpdates:\n- Go [1.10.6](https://golang.org/doc/devel/release.html#go1.10.minor)\n- Go [1.11.3](https://golang.org/doc/devel/release.html#go1.11.minor)\n- Linux [4.14.88](https://lwn.net/Articles/774848/)"
+  },
+  "1995.1.0": {
+    "channel": "beta",
+    "architectures": [
+      "amd64"
+    ],
+    "release_date": "2019-01-18 09:10:26 +0000",
+    "major_software": {
+      "docker": [
+        "18.06.1"
+      ],
+      "ignition": [
+        "0.29.1"
+      ],
+      "kernel": [
+        "4.19.13"
+      ],
+      "rkt": [
+        "1.30.0"
+      ],
+      "systemd": [
+        "238"
+      ]
+    },
+    "release_notes": "## [Upstream Container Linux updates](https://github.com/coreos/manifest/releases/tag/v1995.1.0):\n\nUpdates:\n- Linux [4.19.13](https://lwn.net/Articles/775720/)"
+  },
+  "2023.1.0": {
+    "channel": "beta",
+    "architectures": [
+      "amd64"
+    ],
+    "release_date": "2019-01-30 13:45:28 +0000",
+    "major_software": {
+      "docker": [
+        "18.06.1"
+      ],
+      "ignition": [
+        "0.30.0"
+      ],
+      "kernel": [
+        "4.19.18"
+      ],
+      "rkt": [
+        "1.30.0"
+      ],
+      "systemd": [
+        "238"
+      ]
+    },
+    "release_notes": "## [Upstream Container Linux updates](https://github.com/coreos/manifest/releases/tag/v2023.1.0):\n\nSecurity fixes:\n- Fix Go CPU denial of service in ECC ([CVE-2019-6486](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2019-6486))\n\nUpdates:\n- Go [1.10.8](https://golang.org/doc/devel/release.html#go1.10.minor)\n- Go [1.11.5](https://golang.org/doc/devel/release.html#go1.11.minor)\n- Linux [4.19.18](https://lwn.net/Articles/777580/)"
+  },
+  "2023.2.0": {
+    "channel": "beta",
+    "architectures": [
+      "amd64"
+    ],
+    "release_date": "2019-02-14 10:31:00 +0000",
+    "major_software": {
+      "docker": [
+        "18.06.1"
+      ],
+      "ignition": [
+        "0.30.0"
+      ],
+      "kernel": [
+        "4.19.20"
+      ],
+      "rkt": [
+        "1.30.0"
+      ],
+      "systemd": [
+        "238"
+      ]
+    },
+    "release_notes": "## [Upstream Container Linux updates](https://github.com/coreos/manifest/releases/tag/v2023.2.0):\nSecurity fixes:\n - Fix runc container breakout ([CVE-2019-5736](http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2019-5736))\n\nChanges:\n - Revert `/sys/bus/rbd/add` to Linux 4.14 behavior ([#2544](https://github.com/coreos/bugs/issues/2544))\n\nUpdates:\n - etcd [3.3.12](https://github.com/etcd-io/etcd/releases/tag/v3.3.12)\n - etcdctl [3.3.12](https://github.com/etcd-io/etcd/releases/tag/v3.3.12)\n - Linux [4.19.20](https://lwn.net/Articles/779132/)\n"
+  },
+  "2023.3.0": {
+    "channel": "beta",
+    "architectures": [
+      "amd64"
+    ],
+    "release_date": "2019-02-21 08:41:36 +0000",
+    "major_software": {
+      "docker": [
+        "18.06.1"
+      ],
+      "ignition": [
+        "0.30.0"
+      ],
+      "kernel": [
+        "4.19.23"
+      ],
+      "rkt": [
+        "1.30.0"
+      ],
+      "systemd": [
+        "238"
+      ]
+    },
+    "release_notes": "## [Upstream Container Linux updates](https://github.com/coreos/manifest/releases/tag/v2023.3.0):\n\nUpdates:\n- Linux [4.19.23](https://lwn.net/Articles/779940/)"
+  },
+  "2051.1.0": {
+    "channel": "beta",
+    "architectures": [
+      "amd64"
+    ],
+    "release_date": "2019-02-27 08:53:46 +0000",
+    "major_software": {
+      "docker": [
+        "18.06.1"
+      ],
+      "ignition": [
+        "0.30.0"
+      ],
+      "kernel": [
+        "4.19.25"
+      ],
+      "rkt": [
+        "1.30.0"
+      ],
+      "systemd": [
+        "238"
+      ]
+    },
+    "release_notes": "## [Upstream Container Linux updates](https://github.com/coreos/manifest/releases/tag/v2051.1.0):\n\nSecurity fixes:\n- Fix Linux use-after-free in `sockfs_setattr` ([CVE-2019-8912](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2019-8912))\n- Fix systemd crash from a specially-crafted D-Bus message ([CVE-2019-6454](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2019-6454))\n\nUpdates:\n- Linux [4.19.25](https://lwn.net/Articles/780611/)"
+  },
+  "2051.2.0": {
+    "channel": "beta",
+    "architectures": [
+      "amd64"
+    ],
+    "release_date": "2019-03-12 14:37:08 +0000",
+    "major_software": {
+      "docker": [
+        "18.06.1"
+      ],
+      "ignition": [
+        "0.30.0"
+      ],
+      "kernel": [
+        "4.19.28"
+      ],
+      "rkt": [
+        "1.30.0"
+      ],
+      "systemd": [
+        "238"
+      ]
+    },
+    "release_notes": "## [Upstream Container Linux updates](https://github.com/coreos/manifest/releases/tag/v2051.2.0):\n\nBug fixes:\n- Fix systemd-journald memory leak ([#2564](https://github.com/coreos/bugs/issues/2564))\n\nUpdates:\n- Linux [4.19.28](https://lwn.net/Articles/782719/)"
+  },
+  "2079.1.0": {
+    "channel": "beta",
+    "architectures": [
+      "amd64"
+    ],
+    "release_date": "2019-03-26 13:08:57 +0000",
+    "major_software": {
+      "docker": [
+        "18.06.3"
+      ],
+      "ignition": [
+        "0.31.0"
+      ],
+      "kernel": [
+        "4.19.31"
+      ],
+      "rkt": [
+        "1.30.0"
+      ],
+      "systemd": [
+        "241"
+      ]
+    },
+    "release_notes": "## [Upstream Container Linux updates](https://github.com/coreos/manifest/releases/tag/v2079.1.0):\n\nBug fixes:\n- Fix systemd presets incorrectly handling escaped unit names ([#2569](https://github.com/coreos/bugs/issues/2569))\n\nUpdates:\n- Linux [4.19.31](https://lwn.net/Articles/783858/)\n"
+  },
+  "2079.2.0": {
+    "channel": "beta",
+    "architectures": [
+      "amd64"
+    ],
+    "release_date": "2019-04-17 07:53:14 +0000",
+    "major_software": {
+      "docker": [
+        "18.06.3"
+      ],
+      "ignition": [
+        "0.31.0"
+      ],
+      "kernel": [
+        "4.19.34"
+      ],
+      "rkt": [
+        "1.30.0"
+      ],
+      "systemd": [
+        "241"
+      ]
+    },
+    "release_notes": "## [Upstream Container Linux updates](https://github.com/coreos/manifest/releases/tag/v2079.2.0):\n\nBug fixes:\n- Disable new sticky directory protections for backwards compatibility ([#2577](https://github.com/coreos/bugs/issues/2577))\n\nChanges:\n- Enable `atlantic` kernel module ([#2576](https://github.com/coreos/bugs/issues/2576))\n\nUpdates:\n- Linux [4.19.34](https://lwn.net/Articles/786050/)"
+  },
+  "2107.1.0": {
+    "channel": "beta",
+    "architectures": [
+      "amd64"
+    ],
+    "release_date": "2019-04-24 10:01:19 +0000",
+    "major_software": {
+      "docker": [
+        "18.06.3"
+      ],
+      "ignition": [
+        "0.31.0"
+      ],
+      "kernel": [
+        "4.19.36"
+      ],
+      "rkt": [
+        "1.30.0"
+      ],
+      "systemd": [
+        "241"
+      ]
+    },
+    "release_notes": "## [Upstream Container Linux updates](https://github.com/coreos/manifest/releases/tag/v2107.1.0):\n\nBug fixes:\n - Disable new sticky directory protections for backward compatibility ([#2577](https://github.com/coreos/bugs/issues/2577))\n\nChanges:\n - Enable `atlantic` kernel module ([#2576](https://github.com/coreos/bugs/issues/2576))\n\nUpdates:\n - Linux [4.19.36](https://lwn.net/Articles/786361/)"
+  },
+  "2107.2.0": {
+    "channel": "beta",
+    "architectures": [
+      "amd64"
+    ],
+    "release_date": "2019-05-08 07:07:32 +0000",
+    "major_software": {
+      "docker": [
+        "18.06.3"
+      ],
+      "ignition": [
+        "0.31.0"
+      ],
+      "kernel": [
+        "4.19.36"
+      ],
+      "rkt": [
+        "1.30.0"
+      ],
+      "systemd": [
+        "241"
+      ]
+    },
+    "release_notes": "## [Upstream Container Linux updates](https://github.com/coreos/manifest/releases/tag/v2107.2.0):\n\nBug fixes:\n\n- Fix systemd `MountFlags=shared` option ([#2579](https://github.com/coreos/bugs/issues/2579))\n\nChanges:\n\n- Pin network interface naming to systemd v238 scheme ([#2578](https://github.com/coreos/bugs/issues/2578))"
+  },
+  "2107.3.0": {
+    "channel": "beta",
+    "architectures": [
+      "amd64"
+    ],
+    "release_date": "2019-05-16 10:57:15 +0000",
+    "major_software": {
+      "docker": [
+        "18.06.3"
+      ],
+      "ignition": [
+        "0.31.0"
+      ],
+      "kernel": [
+        "4.19.43"
+      ],
+      "rkt": [
+        "1.30.0"
+      ],
+      "systemd": [
+        "241"
+      ]
+    },
+    "release_notes": "## [Upstream Container Linux updates](https://github.com/coreos/manifest/releases/tag/v2107.3.0):\n\nSecurity fixes:\n- Fix Intel CPU disclosure of memory to user process.  Complete mitigation requires [manually disabling SMT](https://docs.flatcar-linux.org/os/disabling-smt/) on affected processors. ([CVE-2019-11091](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2019-11091), [CVE-2018-12126](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2018-12126), [CVE-2018-12127](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2018-12127), [CVE-2018-12130](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2018-12130), [MDS](https://www.intel.com/content/www/us/en/security-center/advisory/intel-sa-00233.html))\n\nUpdates:\n- intel-microcode [20190514](https://github.com/intel/Intel-Linux-Processor-Microcode-Data-Files/blob/microcode-20190514/releasenote)\n- Linux [4.19.43](https://lwn.net/Articles/788388/)"
+  },
+  "2135.2.0": {
+    "channel": "beta",
+    "architectures": [
+      "amd64"
+    ],
+    "release_date": "2019-05-21 20:28:25 +0000",
+    "major_software": {
+      "docker": [
+        "18.06.3"
+      ],
+      "ignition": [
+        "0.32.0"
+      ],
+      "kernel": [
+        "4.19.44"
+      ],
+      "rkt": [
+        "1.30.0"
+      ],
+      "systemd": [
+        "241"
+      ]
+    },
+    "release_notes": "## [Upstream Container Linux updates](https://github.com/coreos/manifest/releases/tag/v2135.2.0):\n\nUpdates:\n- Linux [4.19.44](https://lwn.net/Articles/788778/)"
+  },
+  "2135.3.1": {
+    "channel": "beta",
+    "architectures": [
+      "amd64"
+    ],
+    "release_date": "2019-06-19 08:16:10 +0000",
+    "major_software": {
+      "docker": [
+        "18.06.3"
+      ],
+      "ignition": [
+        "0.32.0"
+      ],
+      "kernel": [
+        "4.19.50"
+      ],
+      "rkt": [
+        "1.30.0"
+      ],
+      "systemd": [
+        "241"
+      ]
+    },
+    "release_notes": "## [Upstream Container Linux updates](https://github.com/coreos/manifest/releases/tag/v2135.3.1):\n\nSecurity fixes:\n\n- Fix Linux TCP remotely-triggerable kernel panic and excessive resource consumption ([CVE-2019-11477](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2019-11477), [CVE-2019-11478](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2019-11478), [CVE-2019-11479](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2019-11479))\n\nBug fixes:\n\n- Fix invalid bzip2 compression of Container Linux release images ([#2589](https://github.com/coreos/bugs/issues/2589))\n\nUpdates:\n\n- Linux [4.19.50](https://lwn.net/Articles/790878/)"
+  },
+  "2163.3.0": {
+    "channel": "beta",
+    "architectures": [
+      "amd64"
+    ],
+    "release_date": "2019-07-01 10:45:57 +0000",
+    "major_software": {
+      "docker": [
+        "18.06.3"
+      ],
+      "ignition": [
+        "0.32.0"
+      ],
+      "kernel": [
+        "4.19.55"
+      ],
+      "rkt": [
+        "1.30.0"
+      ],
+      "systemd": [
+        "241"
+      ]
+    },
+    "release_notes": "## [Upstream Container Linux updates](https://github.com/coreos/manifest/releases/tag/v2163.3.0):\n\nUpdates:\n\n- Linux [4.19.53](https://lwn.net/Articles/791468/)\n"
+  },
+  "2163.4.0": {
+    "channel": "beta",
+    "architectures": [
+      "amd64"
+    ],
+    "release_date": "2019-07-03 08:02:30 +0000",
+    "major_software": {
+      "docker": [
+        "18.06.3"
+      ],
+      "ignition": [
+        "0.33.0"
+      ],
+      "kernel": [
+        "4.19.55"
+      ],
+      "rkt": [
+        "1.30.0"
+      ],
+      "systemd": [
+        "241"
+      ]
+    },
+    "release_notes": "## [Upstream Container Linux updates](https://github.com/coreos/manifest/releases/tag/v2163.4.0):\n\nBug fixes:\n\n * Fix Ignition panic when no `guestinfo.(coreos|ignition).config` parameters are specified on VMware (coreos/ignition#821)\n\nUpdates:\n\n * Ignition [0.33.0](https://github.com/coreos/ignition/releases/tag/v0.33.0)"
+  },
+  "2191.1.0": {
+    "channel": "beta",
+    "architectures": [
+      "amd64"
+    ],
+    "release_date": "2019-07-17 13:51:51 +0000",
+    "major_software": {
+      "docker": [
+        "18.06.3"
+      ],
+      "ignition": [
+        "0.33.0"
+      ],
+      "kernel": [
+        "4.19.56"
+      ],
+      "rkt": [
+        "1.30.0"
+      ],
+      "systemd": [
+        "241"
+      ]
+    },
+    "release_notes": "## [Upstream Container Linux updates](https://github.com/coreos/manifest/releases/tag/v2191.1.0):\n\nNo changes for beta promotion"
+  },
+  "2191.2.0": {
+    "channel": "beta",
+    "architectures": [
+      "amd64"
+    ],
+    "release_date": "2019-08-01 09:15:48 +0000",
+    "major_software": {
+      "docker": [
+        "18.06.3"
+      ],
+      "ignition": [
+        "0.33.0"
+      ],
+      "kernel": [
+        "4.19.62"
+      ],
+      "rkt": [
+        "1.30.0"
+      ],
+      "systemd": [
+        "241"
+      ]
+    },
+    "release_notes": "## [Upstream Container Linux updates](https://github.com/coreos/manifest/releases/tag/v2191.2.0):\n- Linux [4.19.62](https://lwn.net/Articles/794807/)"
+  },
+  "2191.3.0": {
+    "channel": "beta",
+    "architectures": [
+      "amd64"
+    ],
+    "release_date": "2019-08-08 08:18:09 +0000",
+    "major_software": {
+      "docker": [
+        "18.06.3"
+      ],
+      "ignition": [
+        "0.33.0"
+      ],
+      "kernel": [
+        "4.19.65"
+      ],
+      "rkt": [
+        "1.30.0"
+      ],
+      "systemd": [
+        "241"
+      ]
+    },
+    "release_notes": "## [Upstream Container Linux updates](https://github.com/coreos/manifest/releases/tag/v2191.3.0):\n\nSecurity fixes:\n- Fix Linux information leak attack vector via speculative side channel ([CVE-2019-1125](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2019-1125))\n\nUpdates:\n- Linux [4.19.65](https://lwn.net/Articles/795525/)\n\n## Flatcar updates\n\nChanges:\n- Add \"-s\" flag in flatcar-install to install to smallest disk (https://github.com/flatcar-linux/init/pull/7)"
+  },
+  "2219.2.0": {
+    "channel": "beta",
+    "architectures": [
+      "amd64"
+    ],
+    "release_date": "2019-08-16 09:44:16 +0000",
+    "major_software": {
+      "docker": [
+        "18.06.3"
+      ],
+      "ignition": [
+        "0.33.0"
+      ],
+      "kernel": [
+        "4.19.65"
+      ],
+      "rkt": [
+        "1.30.0"
+      ],
+      "systemd": [
+        "241"
+      ]
+    },
+    "release_notes": "## [Upstream Container Linux updates](https://github.com/coreos/manifest/releases/tag/v2219.2.0):\n\nSecurity fixes:\n- Use secure_getenv to fix a vulnerability around XDG_SEAT in pam_systemd (https://github.com/coreos/systemd/pull/118) ([CVE-2019-3842](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2019-3842))\n\nUpdates:\n- Linux [4.19.65](https://lwn.net/Articles/795525/)\n\n## Flatcar updates\n\nBug fixes:\n- Fix wrong key name for fw_cfg in ignition with QEMU (https://github.com/flatcar-linux/ignition/issues/2)\n- Get SELinux context included in torcx tarballs (https://github.com/flatcar-linux/scripts/pull/16)\n- Enable XattrPrivileged for untar to fix SELinux issue (https://github.com/flatcar-linux/torcx/pull/1)\n"
+  },
+  "2219.2.1": {
+    "channel": "beta",
+    "architectures": [
+      "amd64"
+    ],
+    "release_date": "2019-08-30 07:37:15 +0000",
+    "major_software": {
+      "docker": [
+        "18.06.3"
+      ],
+      "ignition": [
+        "0.33.0"
+      ],
+      "kernel": [
+        "4.19.68"
+      ],
+      "rkt": [
+        "1.30.0"
+      ],
+      "systemd": [
+        "241"
+      ]
+    },
+    "release_notes": "## [Upstream Container Linux updates](https://github.com/coreos/manifest/releases/tag/v2219.2.1):\n\nSecurity fixes:\n- Fix wget buffer overflow allowing arbitrary code execution ([CVE-2019-5953](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2019-5953))\n\nUpdates:\n- Linux [4.19.68](https://lwn.net/Articles/797250/)\n- wget [1.20.3](http://git.savannah.gnu.org/cgit/wget.git/tree/NEWS?h=v1.20.3&id=a220ead43505bc3e0ea8efb1572919111dbbf6dc#n8)"
+  },
+  "2219.3.0": {
+    "channel": "beta",
+    "architectures": [
+      "amd64"
+    ],
+    "release_date": "2019-09-05 08:53:14 +0000",
+    "major_software": {
+      "docker": [
+        "18.06.3"
+      ],
+      "ignition": [
+        "0.33.0"
+      ],
+      "kernel": [
+        "4.19.69"
+      ],
+      "rkt": [
+        "1.30.0"
+      ],
+      "systemd": [
+        "241"
+      ]
+    },
+    "release_notes": "## [Upstream Container Linux updates](https://github.com/coreos/manifest/releases/tag/v2219.3.0):\n\nSecurity fixes:\n\n- Fix pam_systemd bug allowing authenticated remote users to perform polkit actions as if locally logged in ([CVE-2019-3842](http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2019-3842))\n- Fix systemd-resolved bug allowing unprivileged users to change DNS settings ([CVE-2019-15718](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2019-15718))\n\nBug fixes:\n\n- Fix GCE agent crash loop in new installs ([#2608](https://github.com/coreos/bugs/issues/2608))\n\nUpdates:\n\n- Linux [4.19.69](https://lwn.net/Articles/797815/)"
+  },
+  "2247.2.0": {
+    "channel": "beta",
+    "architectures": [
+      "amd64"
+    ],
+    "release_date": "2019-09-13 10:53:37 +0000",
+    "major_software": {
+      "docker": [
+        "18.06.3"
+      ],
+      "ignition": [
+        "0.33.0"
+      ],
+      "kernel": [
+        "4.19.71"
+      ],
+      "rkt": [
+        "1.30.0"
+      ],
+      "systemd": [
+        "241"
+      ]
+    },
+    "release_notes": "## [Upstream Container Linux updates](https://github.com/coreos/manifest/releases/tag/v2247.2.0):\n\nUpdates:\n\n- Linux [4.19.71](https://lwn.net/Articles/798627/)\n"
+  },
+  "2247.3.0": {
+    "channel": "beta",
+    "architectures": [
+      "amd64"
+    ],
+    "release_date": "2019-09-25 09:32:22 +0000",
+    "major_software": {
+      "docker": [
+        "18.06.3"
+      ],
+      "ignition": [
+        "0.33.0"
+      ],
+      "kernel": [
+        "4.19.75"
+      ],
+      "rkt": [
+        "1.30.0"
+      ],
+      "systemd": [
+        "241"
+      ]
+    },
+    "release_notes": "## [Upstream Container Linux updates](https://github.com/coreos/manifest/releases/tag/v2247.3.0):\n\nSecurity fixes:\n\n- Fix kernel KVM guest escape ([CVE-2019-14835](http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2019-14835))\n- Fix race condition in Intel microprocessors ([CVE-2019-11184](http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2019-11184))\n\nUpdates:\n\n- intel-microcode [20190918](https://github.com/intel/Intel-Linux-Processor-Microcode-Data-Files/blob/microcode-20190918/releasenote)\n- Linux [4.19.75](https://lwn.net/Articles/800247/)"
+  },
+  "2247.4.0": {
+    "channel": "beta",
+    "architectures": [
+      "amd64"
+    ],
+    "release_date": "2019-10-16 15:09:03 +0000",
+    "major_software": {
+      "docker": [
+        "18.06.3"
+      ],
+      "ignition": [
+        "0.33.0"
+      ],
+      "kernel": [
+        "4.19.78"
+      ],
+      "rkt": [
+        "1.30.0"
+      ],
+      "systemd": [
+        "241"
+      ]
+    },
+    "release_notes": "## [Upstream Container Linux updates](https://github.com/coreos/manifest/releases/tag/v2247.4.0):\n\nBug fixes:\n- Fix kernel crash with CephFS mounts, introduced in 2247.3.0 ([#2616](https://github.com/coreos/bugs/issues/2616))\n\nUpdates:\n- Linux [4.19.78](https://lwn.net/Articles/801700/)"
+  },
+  "2275.2.0": {
+    "channel": "beta",
+    "architectures": [
+      "amd64"
+    ],
+    "release_date": "2019-10-17 18:54:07 +0000",
+    "major_software": {
+      "docker": [
+        "18.06.3"
+      ],
+      "ignition": [
+        "0.33.0"
+      ],
+      "kernel": [
+        "4.19.79"
+      ],
+      "rkt": [
+        "1.30.0"
+      ],
+      "systemd": [
+        "241"
+      ]
+    },
+    "release_notes": "## [Upstream Container Linux updates](https://github.com/coreos/manifest/releases/tag/v2275.2.0):\n\nUpdates:\n- Linux [4.19.79](https://lwn.net/Articles/802169/)"
+  },
+  "2303.1.1": {
+    "channel": "beta",
+    "architectures": [
+      "amd64"
+    ],
+    "release_date": "2019-11-11 14:13:02 +0000",
+    "major_software": {
+      "docker": [
+        "18.06.3"
+      ],
+      "ignition": [
+        "0.33.0"
+      ],
+      "kernel": [
+        "4.19.81"
+      ],
+      "rkt": [
+        "1.30.0"
+      ],
+      "systemd": [
+        "241"
+      ]
+    },
+    "release_notes": "## [Upstream Container Linux updates](https://github.com/coreos/manifest/releases/tag/v2303.1.1):\n\nBug fixes:\n\n- Fix time zone for Brazil ([#2627](https://github.com/coreos/bugs/issues/2627))\n\nUpdates:\n\n- Linux [4.19.81](https://lwn.net/Articles/803384/)\n- timezone-data [2019c](http://mm.icann.org/pipermail/tz-announce/2019-September/000057.html)"
+  },
+  "2303.2.0": {
+    "channel": "beta",
+    "architectures": [
+      "amd64"
+    ],
+    "release_date": "2019-11-21 09:28:13 +0000",
+    "major_software": {
+      "docker": [
+        "18.06.3"
+      ],
+      "ignition": [
+        "0.33.0"
+      ],
+      "kernel": [
+        "4.19.84"
+      ],
+      "rkt": [
+        "1.30.0"
+      ],
+      "systemd": [
+        "241"
+      ]
+    },
+    "release_notes": "## [Upstream Container Linux updates](https://github.com/coreos/manifest/releases/tag/v2303.2.0):\n\nSecurity fixes:\n\n- Fix Intel CPU disclosure of memory to user process. Complete mitigation requires [manually disabling TSX or SMT](https://docs.flatcar-linux.org/os/disabling-smt/) on affected processors. ([CVE-2019-11135](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2019-11135), [TAA](https://www.intel.com/content/www/us/en/security-center/advisory/intel-sa-00270.html))\n- Fix Intel CPU denial of service by a malicious guest VM ([CVE-2018-12207](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2018-12207))\n\nBug fixes:\n\n- Fix CFS scheduler throttling highly-threaded I/O-bound applications ([#2623](https://github.com/coreos/bugs/issues/2623))\n\nUpdates:\n\n- intel-microcode [20191115](https://github.com/intel/Intel-Linux-Processor-Microcode-Data-Files/blob/microcode-20191115/releasenote)\n- Linux [4.19.84](https://lwn.net/Articles/804465/)"
+  },
+  "2331.1.0": {
+    "channel": "beta",
+    "architectures": [
+      "amd64"
+    ],
+    "release_date": "2019-12-05 06:34:11 +0000",
+    "major_software": {
+      "docker": [
+        "18.06.3"
+      ],
+      "ignition": [
+        "0.33.0"
+      ],
+      "kernel": [
+        "4.19.87"
+      ],
+      "rkt": [
+        "1.30.0"
+      ],
+      "systemd": [
+        "241"
+      ]
+    },
+    "release_notes": "## [Upstream Container Linux updates](https://github.com/coreos/manifest/releases/tag/v2331.1.0):\n\nUpdates:\n  - Linux [4.19.87](https://lwn.net/Articles/805923/)"
+  },
+  "2331.1.1": {
+    "channel": "beta",
+    "architectures": [
+      "amd64"
+    ],
+    "release_date": "2019-12-18 09:49:53 +0000",
+    "major_software": {
+      "docker": [
+        "18.06.3"
+      ],
+      "ignition": [
+        "0.33.0"
+      ],
+      "kernel": [
+        "4.19.87"
+      ],
+      "rkt": [
+        "1.30.0"
+      ],
+      "systemd": [
+        "241"
+      ]
+    },
+    "release_notes": "## Flatcar updates\n\nBug fixes:\n\n- Fix a bug when creating RAID0 arrays by setting the default layout (https://github.com/flatcar-linux/baselayout/pull/2)\n- Fix bug of unpacking tarballs failing when xattr is not supported (https://github.com/flatcar-linux/torcx/pull/2)\n\nUpdates:\n\n- ldb [1.3.6](https://gitlab.com/samba-team/samba/-/tags/ldb-1.3.6)\n- samba [4.8.6](https://gitlab.com/samba-team/samba/-/tags/samba-4.8.6)\n- talloc [2.1.11](https://gitlab.com/samba-team/samba/-/tags/talloc-2.1.11)\n- tdb [1.3.15](https://gitlab.com/samba-team/samba/-/tags/tdb-1.3.15)\n- tevent [0.9.37](https://gitlab.com/samba-team/samba/-/tags/tevent-0.9.37)"
+  },
+  "2345.1.0": {
+    "channel": "beta",
+    "architectures": [
+      "amd64"
+    ],
+    "release_date": "2020-01-17 13:33:11 +0000",
+    "major_software": {
+      "docker": [
+        "18.06.3"
+      ],
+      "ignition": [
+        "0.33.0"
+      ],
+      "kernel": [
+        "4.19.95"
+      ],
+      "rkt": [
+        "1.30.0"
+      ],
+      "systemd": [
+        "241"
+      ]
+    },
+    "release_notes": "## [Upstream Container Linux updates](https://github.com/coreos/manifest/releases/tag/v2345.1.0):\n\nSecurity fixes:\n\n- Fix multiple Git [vulnerabilities](https://marc.info/?l=git&m=157600115215285&w=2) ([CVE-2019-1348](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2019-1348), [CVE-2019-1349](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2019-1349), [CVE-2019-1350](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2019-1350), [CVE-2019-1351](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2019-1351), [CVE-2019-1352](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2019-1352), [CVE-2019-1353](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2019-1353), [CVE-2019-1354](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2019-1354), [CVE-2019-1387](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2019-1387), [CVE-2019-19604](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2019-19604))\n\nUpdates:\n\n- Git [2.24.1](https://github.com/git/git/blob/master/Documentation/RelNotes/2.24.1.txt)\n- Linux [4.19.95](https://lwn.net/Articles/809258/)\n"
+  },
+  "2345.2.0": {
+    "channel": "beta",
+    "architectures": [
+      "amd64"
+    ],
+    "release_date": "2020-02-10 11:11:29 +0000",
+    "major_software": {
+      "docker": [
+        "18.06.3"
+      ],
+      "ignition": [
+        "0.33.0"
+      ],
+      "kernel": [
+        "4.19.102"
+      ],
+      "rkt": [
+        "1.30.0"
+      ],
+      "systemd": [
+        "241"
+      ]
+    },
+    "release_notes": "## Flatcar updates\n\nBug fixes:\n- Fix DNS resolution for the GCE metadata server (https://github.com/flatcar-linux/coreos-overlay/pull/160)\n- Create symlink for /run/metadata/coreos (https://github.com/flatcar-linux/coreos-overlay/pull/166)\n- Create symlink for flatcar-install (https://github.com/flatcar-linux/init/pull/14)\n\n## [Upstream Container Linux updates](https://github.com/coreos/manifest/releases/tag/v2345.2.0):\n\nSecurity fixes:\n- Fix systemd use-after-free upon receiving crafted D-Bus message from local unprivileged attacker ([CVE-2020-1712](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2020-1712))\n\nChanges:\n- Enable `qede` kernel module\n\nUpdates:\n- Linux [4.19.102](https://lwn.net/Articles/811638/)"
+  },
+  "2411.1.0": {
+    "channel": "beta",
+    "architectures": [
+      "amd64"
+    ],
+    "release_date": "2020-03-02 11:57:48 +0000",
+    "major_software": {
+      "docker": [
+        "18.06.3"
+      ],
+      "ignition": [
+        "0.34.0"
+      ],
+      "kernel": [
+        "4.19.106"
+      ],
+      "rkt": [
+        "1.30.0"
+      ],
+      "systemd": [
+        "241"
+      ]
+    },
+    "release_notes": "## Flatcar updates\nBug fixes:\n- Enable persistent network interface names already in the initramfs to fix https://github.com/coreos/bugs/issues/1767\n- Fix backwards compatibility issues for users to migrate from CoreOS Container Linux. Support the kernel command line parameters `coreos.oem.*`, `coreos.autologin`, `coreos.first_boot`, and the QEMU firmware config path `opt/com.coreos/config` (https://github.com/flatcar-linux/Flatcar/issues/16 https://github.com/flatcar-linux/afterburn/pull/7 https://github.com/flatcar-linux/bootengine/pull/7 https://github.com/flatcar-linux/bootengine/pull/8 https://github.com/flatcar-linux/init/pull/16 https://github.com/flatcar-linux/init/pull/17 https://github.com/flatcar-linux/ignition/pull/8)\n\n## [Upstream Container Linux updates](https://github.com/coreos/manifest/releases/tag/v2411.1.0)\nUpdates:\n- Linux [4.19.106](https://lwn.net/Articles/813157/)\n"
+  },
+  "current": {
+    "channel": "beta",
+    "architectures": [
+      "amd64"
+    ],
+    "release_date": "2020-03-02 11:57:48 +0000",
+    "major_software": {
+      "docker": [
+        "18.06.3"
+      ],
+      "ignition": [
+        "0.34.0"
+      ],
+      "kernel": [
+        "4.19.106"
+      ],
+      "rkt": [
+        "1.30.0"
+      ],
+      "systemd": [
+        "241"
+      ]
+    },
+    "release_notes": "## Flatcar updates\nBug fixes:\n- Enable persistent network interface names already in the initramfs to fix https://github.com/coreos/bugs/issues/1767\n- Fix backwards compatibility issues for users to migrate from CoreOS Container Linux. Support the kernel command line parameters `coreos.oem.*`, `coreos.autologin`, `coreos.first_boot`, and the QEMU firmware config path `opt/com.coreos/config` (https://github.com/flatcar-linux/Flatcar/issues/16 https://github.com/flatcar-linux/afterburn/pull/7 https://github.com/flatcar-linux/bootengine/pull/7 https://github.com/flatcar-linux/bootengine/pull/8 https://github.com/flatcar-linux/init/pull/16 https://github.com/flatcar-linux/init/pull/17 https://github.com/flatcar-linux/ignition/pull/8)\n\n## [Upstream Container Linux updates](https://github.com/coreos/manifest/releases/tag/v2411.1.0)\nUpdates:\n- Linux [4.19.106](https://lwn.net/Articles/813157/)\n"
+  }
+}
