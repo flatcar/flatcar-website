@@ -4,9 +4,9 @@
 {{ if ne $release.release "current" }}
 <div class="row">
   <div class="col-md-2">
-    <h5 style="margin-bottom: 0">{{ $release.version }}</h5>
+    <h5 style="margin-bottom: 0" id="release-{{ $release.version }}"><a style="box-shadow: 0 0 0 white; border: none;" href="#release-{{ $release.version }}">{{ $release.version }}</a></h5>
     {{ range $j, $arch := $release.architectures }}
-    <a class="arch small font-weight-light" id="release-{{ $release.version }}" href="https://{{ $release.channel }}.release.flatcar-linux.net/{{ $arch }}-usr/{{ $release.version }}/">{{ $arch }}</a><br>
+    <a class="arch small font-weight-light" href="https://{{ $release.channel }}.release.flatcar-linux.net/{{ $arch }}-usr/{{ $release.version }}/">{{ $arch }}</a><br>
     {{ end }}
   </div>
   <div class="col-md-10">

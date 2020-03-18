@@ -17,7 +17,7 @@
                <div class="pull-right text-right">
                {{ $chan.current.version }}<br>
                {{ range $j, $arch := $chan.current.architectures }}
-               <a class="arch small font-weight-light" id="release-{{ $chan.current.version }}-short" href="https://{{ $chan.current.channel }}.release.flatcar-linux.net/{{ $arch }}-usr/current/">
+               <a class="arch small font-weight-light" href="https://{{ $chan.current.channel }}.release.flatcar-linux.net/{{ $arch }}-usr/current/">
                    {{ $arch }}</a>
                {{ end }}
                </div>
@@ -80,5 +80,27 @@
       </div>
   </div>
 </div> <!-- container -->
+
+<script>
+$(document).ready(function(){
+  var anchor = $(location).attr("hash").substring(1);
+  var elem = $(document.getElementById(anchor)); // Directly $(id) does not work
+  if (!elem.is(":visible")) {
+    if (anchor.startsWith("release")) {
+      var tab_name = elem.parent().parent().parent().attr("aria-labelledby");
+      $("#" + tab_name).tab("show");
+      setTimeout(function() {
+        $(document).scrollTop(elem.offset().top);
+      }, 200);
+    }
+    if (anchor.endsWith("release")) {
+      $("#" + anchor + "-tab").tab("show");
+      setTimeout(function() {
+        $(document).scrollTop($("#release-tabs").offset().top);
+      }, 200);
+    }
+  }
+});
+</script>
 
 {{ partial "footer.html" .}}
