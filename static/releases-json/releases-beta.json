@@ -1324,12 +1324,12 @@
     },
     "release_notes": "## Flatcar updates\nBug fixes:\n- Enable persistent network interface names already in the initramfs to fix https://github.com/coreos/bugs/issues/1767\n- Fix backwards compatibility issues for users to migrate from CoreOS Container Linux. Support the kernel command line parameters `coreos.oem.*`, `coreos.autologin`, `coreos.first_boot`, and the QEMU firmware config path `opt/com.coreos/config` (https://github.com/flatcar-linux/Flatcar/issues/16 https://github.com/flatcar-linux/afterburn/pull/7 https://github.com/flatcar-linux/bootengine/pull/7 https://github.com/flatcar-linux/bootengine/pull/8 https://github.com/flatcar-linux/init/pull/16 https://github.com/flatcar-linux/init/pull/17 https://github.com/flatcar-linux/ignition/pull/8)\n\n## [Upstream Container Linux updates](https://github.com/coreos/manifest/releases/tag/v2411.1.0)\nUpdates:\n- Linux [4.19.106](https://lwn.net/Articles/813157/)\n"
   },
-  "current": {
+  "2411.1.1": {
     "channel": "beta",
     "architectures": [
       "amd64"
     ],
-    "release_date": "2020-03-02 11:57:48 +0000",
+    "release_date": "2020-03-31 16:25:22 +0000",
     "major_software": {
       "docker": [
         "18.06.3"
@@ -1338,7 +1338,7 @@
         "0.34.0"
       ],
       "kernel": [
-        "4.19.106"
+        "4.19.112"
       ],
       "rkt": [
         "1.30.0"
@@ -1347,6 +1347,31 @@
         "241"
       ]
     },
-    "release_notes": "## Flatcar updates\nBug fixes:\n- Enable persistent network interface names already in the initramfs to fix https://github.com/coreos/bugs/issues/1767\n- Fix backwards compatibility issues for users to migrate from CoreOS Container Linux. Support the kernel command line parameters `coreos.oem.*`, `coreos.autologin`, `coreos.first_boot`, and the QEMU firmware config path `opt/com.coreos/config` (https://github.com/flatcar-linux/Flatcar/issues/16 https://github.com/flatcar-linux/afterburn/pull/7 https://github.com/flatcar-linux/bootengine/pull/7 https://github.com/flatcar-linux/bootengine/pull/8 https://github.com/flatcar-linux/init/pull/16 https://github.com/flatcar-linux/init/pull/17 https://github.com/flatcar-linux/ignition/pull/8)\n\n## [Upstream Container Linux updates](https://github.com/coreos/manifest/releases/tag/v2411.1.0)\nUpdates:\n- Linux [4.19.106](https://lwn.net/Articles/813157/)\n"
+    "release_notes": "## Flatcar updates\n\nBug fixes:\n\n- Use newest network interface naming scheme (https://github.com/flatcar-linux/Flatcar/issues/36)\n  - It is a possible breaking change for some persistent network interface names\n- Fix URL scheme in emerge-gitclone (https://github.com/flatcar-linux/coreos-overlay/issues/223)\n- Fix coreos-cloudinit variable names (https://github.com/flatcar-linux/coreos-overlay/pull/206)\n- Prefer /boot/coreos to write updates (https://github.com/flatcar-linux/update_engine/pull/2)\n- Remove /boot/coreos/first_boot after a Ignition rerun on migration (https://github.com/flatcar-linux/bootengine/pull/10)\n- Support coreos.config.url as kernel command line parameter for Ignition (https://github.com/flatcar-linux/ignition/pull/10)\n\nChanges:\n\n- Add kernel config for QEDE driver (https://github.com/flatcar-linux/coreos-overlay/pull/198)\n- Add `tracepath` alongside `traceroute6` (https://github.com/flatcar-linux/Flatcar/issues/50)\n\nUpdates:\n\n- Linux [4.19.112](https://lwn.net/Articles/815677/)"
+  },
+  "current": {
+    "channel": "beta",
+    "architectures": [
+      "amd64"
+    ],
+    "release_date": "2020-03-31 16:25:22 +0000",
+    "major_software": {
+      "docker": [
+        "18.06.3"
+      ],
+      "ignition": [
+        "0.34.0"
+      ],
+      "kernel": [
+        "4.19.112"
+      ],
+      "rkt": [
+        "1.30.0"
+      ],
+      "systemd": [
+        "241"
+      ]
+    },
+    "release_notes": "## Flatcar updates\n\nBug fixes:\n\n- Use newest network interface naming scheme (https://github.com/flatcar-linux/Flatcar/issues/36)\n  - It is a possible breaking change for some persistent network interface names\n- Fix URL scheme in emerge-gitclone (https://github.com/flatcar-linux/coreos-overlay/issues/223)\n- Fix coreos-cloudinit variable names (https://github.com/flatcar-linux/coreos-overlay/pull/206)\n- Prefer /boot/coreos to write updates (https://github.com/flatcar-linux/update_engine/pull/2)\n- Remove /boot/coreos/first_boot after a Ignition rerun on migration (https://github.com/flatcar-linux/bootengine/pull/10)\n- Support coreos.config.url as kernel command line parameter for Ignition (https://github.com/flatcar-linux/ignition/pull/10)\n\nChanges:\n\n- Add kernel config for QEDE driver (https://github.com/flatcar-linux/coreos-overlay/pull/198)\n- Add `tracepath` alongside `traceroute6` (https://github.com/flatcar-linux/Flatcar/issues/50)\n\nUpdates:\n\n- Linux [4.19.112](https://lwn.net/Articles/815677/)"
   }
 }
