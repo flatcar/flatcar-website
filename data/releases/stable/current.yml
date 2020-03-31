@@ -3,77 +3,56 @@ architectures:
 channel: stable
 github_release:
   assets: []
-  assets_url: https://api.github.com/repos/flatcar-linux/manifest/releases/24131090/assets
+  assets_url: https://api.github.com/repos/flatcar-linux/manifest/releases/24927343/assets
   author:
-    avatar_url: https://avatars0.githubusercontent.com/u/1189130?v=4
-    events_url: https://api.github.com/users/pothos/events{/privacy}
-    followers_url: https://api.github.com/users/pothos/followers
-    following_url: https://api.github.com/users/pothos/following{/other_user}
-    gists_url: https://api.github.com/users/pothos/gists{/gist_id}
+    avatar_url: https://avatars0.githubusercontent.com/u/10096906?v=4
+    events_url: https://api.github.com/users/dongsupark/events{/privacy}
+    followers_url: https://api.github.com/users/dongsupark/followers
+    following_url: https://api.github.com/users/dongsupark/following{/other_user}
+    gists_url: https://api.github.com/users/dongsupark/gists{/gist_id}
     gravatar_id: ''
-    html_url: https://github.com/pothos
-    id: 1189130
-    login: pothos
-    node_id: MDQ6VXNlcjExODkxMzA=
-    organizations_url: https://api.github.com/users/pothos/orgs
-    received_events_url: https://api.github.com/users/pothos/received_events
-    repos_url: https://api.github.com/users/pothos/repos
+    html_url: https://github.com/dongsupark
+    id: 10096906
+    login: dongsupark
+    node_id: MDQ6VXNlcjEwMDk2OTA2
+    organizations_url: https://api.github.com/users/dongsupark/orgs
+    received_events_url: https://api.github.com/users/dongsupark/received_events
+    repos_url: https://api.github.com/users/dongsupark/repos
     site_admin: false
-    starred_url: https://api.github.com/users/pothos/starred{/owner}{/repo}
-    subscriptions_url: https://api.github.com/users/pothos/subscriptions
+    starred_url: https://api.github.com/users/dongsupark/starred{/owner}{/repo}
+    subscriptions_url: https://api.github.com/users/dongsupark/subscriptions
     type: User
-    url: https://api.github.com/users/pothos
-  body: "## Flatcar updates\r\nBug fixes:\r\n- Enable persistent network interface\
-    \ names already in the initramfs to fix https://github.com/coreos/bugs/issues/1767\r\
-    \n- Fix backwards compatibility issues for users to migrate from CoreOS Container\
-    \ Linux. Support the kernel command line parameters `coreos.oem.*`, `coreos.autologin`,\
-    \ `coreos.first_boot`, and the QEMU firmware config path `opt/com.coreos/config`\
-    \ (https://github.com/flatcar-linux/Flatcar/issues/16 https://github.com/flatcar-linux/afterburn/pull/7\
-    \ https://github.com/flatcar-linux/bootengine/pull/7 https://github.com/flatcar-linux/bootengine/pull/8\
-    \ https://github.com/flatcar-linux/init/pull/16 https://github.com/flatcar-linux/init/pull/17\
-    \ https://github.com/flatcar-linux/ignition/pull/8)\r\n\r\n## [Upstream Container\
-    \ Linux updates](https://github.com/coreos/manifest/releases/tag/v2345.3.0)\r\n\
-    Security fixes:\r\n- Fix systemd use-after-free upon receiving crafted D-Bus message\
-    \ from local unprivileged attacker [CVE-2020-1712](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2020-1712)\r\
-    \n- Fix heap-based buffer over-read in libexpat ([CVE-2019-15903](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2019-15903))\r\
-    \n- Fix multiple Git [vulnerabilities](https://marc.info/?l=git&m=157600115215285&w=2)\
-    \ ([CVE-2019-1348](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2019-1348),\
-    \ [CVE-2019-1349](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2019-1349),\
-    \ [CVE-2019-1350](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2019-1350),\
-    \ [CVE-2019-1351](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2019-1351),\
-    \ [CVE-2019-1352](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2019-1352),\
-    \ [CVE-2019-1353](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2019-1353),\
-    \ [CVE-2019-1354](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2019-1354),\
-    \ [CVE-2019-1387](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2019-1387),\
-    \ [CVE-2019-19604](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2019-19604))\r\
-    \n- Fix curl Kerberos FTP double free ([CVE-2019-5481](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2019-5481))\r\
-    \n - Fix curl TFTP buffer overflow with non-default block size ([CVE-2019-5482](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2019-5482))\r\
-    \n - Fix OpenSSL key extraction attacks under non-default conditions ([CVE-2019-1563](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2019-1563),\
-    \ [CVE-2019-1547](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2019-1547))\r\
-    \n\r\nUpdates:\r\n\r\n- Git [2.24.1](https://github.com/git/git/blob/master/Documentation/RelNotes/2.24.1.txt)\r\
-    \n- Linux [4.19.106](https://lwn.net/Articles/813157/)\r\n- OpenSSL [1.0.2t](https://www.openssl.org/news/cl102.txt)\r\
-    \n- curl [7.66.0](https://curl.haxx.se/mail/archive-2019-09/0002.html)\r\n- etcd\
-    \ [3.3.18](https://github.com/etcd-io/etcd/releases/tag/v3.3.18)\r\n- expat [2.2.8](https://github.com/libexpat/libexpat/releases/tag/R_2_2_8)\r\
-    \n"
-  created_at: '2020-02-28T13:18:39Z'
+    url: https://api.github.com/users/dongsupark
+  body: "## Flatcar updates\r\n\r\nBug fixes:\r\n\r\n- Use newest network interface\
+    \ naming scheme (https://github.com/flatcar-linux/Flatcar/issues/36)\r\n  - It\
+    \ is a possible breaking change for some persistent network interface names\r\n\
+    - Fix URL scheme in emerge-gitclone (https://github.com/flatcar-linux/coreos-overlay/issues/223)\r\
+    \n- Fix coreos-cloudinit variable names (https://github.com/flatcar-linux/coreos-overlay/pull/206)\r\
+    \n- Prefer /boot/coreos to write updates (https://github.com/flatcar-linux/update_engine/pull/2)\r\
+    \n- Remove /boot/coreos/first_boot after a Ignition rerun on migration (https://github.com/flatcar-linux/bootengine/pull/10)\r\
+    \n- Support coreos.config.url as kernel command line parameter for Ignition (https://github.com/flatcar-linux/ignition/pull/10)\r\
+    \n\r\nChanges:\r\n\r\n- Add kernel config for QEDE driver (https://github.com/flatcar-linux/coreos-overlay/pull/198)\r\
+    \n- Add `tracepath` alongside `traceroute6` (https://github.com/flatcar-linux/Flatcar/issues/50)\r\
+    \n\r\nUpdates:\r\n\r\n- Linux [4.19.107](https://lwn.net/Articles/813602/)"
+  created_at: '2020-03-25T16:23:18Z'
   draft: false
-  html_url: https://github.com/flatcar-linux/manifest/releases/tag/v2345.3.0
-  id: 24131090
-  name: v2345.3.0
-  node_id: MDc6UmVsZWFzZTI0MTMxMDkw
+  html_url: https://github.com/flatcar-linux/manifest/releases/tag/v2345.3.1
+  id: 24927343
+  name: v2345.3.1
+  node_id: MDc6UmVsZWFzZTI0OTI3MzQz
   prerelease: false
-  published_at: '2020-03-02T14:03:06Z'
-  tag_name: v2345.3.0
-  tarball_url: https://api.github.com/repos/flatcar-linux/manifest/tarball/v2345.3.0
+  published_at: '2020-03-31T16:25:06Z'
+  tag_name: v2345.3.1
+  tarball_url: https://api.github.com/repos/flatcar-linux/manifest/tarball/v2345.3.1
   target_commitish: master
-  upload_url: https://uploads.github.com/repos/flatcar-linux/manifest/releases/24131090/assets{?name,label}
-  url: https://api.github.com/repos/flatcar-linux/manifest/releases/24131090
-  zipball_url: https://api.github.com/repos/flatcar-linux/manifest/zipball/v2345.3.0
+  upload_url: https://uploads.github.com/repos/flatcar-linux/manifest/releases/24927343/assets{?name,label}
+  url: https://api.github.com/repos/flatcar-linux/manifest/releases/24927343
+  zipball_url: https://api.github.com/repos/flatcar-linux/manifest/zipball/v2345.3.1
 image_packages:
   docker: 18.06.3
-  ignition: 0.33.0
-  kernel: 4.19.106
+  ignition: 0.34.0
+  kernel: 4.19.107
   rkt: 1.30.0
   systemd: '241'
 release: current
-version: 2345.3.0
+version: 2345.3.1

@@ -1049,21 +1049,21 @@
     },
     "release_notes": "## Flatcar updates\nBug fixes:\n- Enable persistent network interface names already in the initramfs to fix https://github.com/coreos/bugs/issues/1767\n- Fix backwards compatibility issues for users to migrate from CoreOS Container Linux. Support the kernel command line parameters `coreos.oem.*`, `coreos.autologin`, `coreos.first_boot`, and the QEMU firmware config path `opt/com.coreos/config` (https://github.com/flatcar-linux/Flatcar/issues/16 https://github.com/flatcar-linux/afterburn/pull/7 https://github.com/flatcar-linux/bootengine/pull/7 https://github.com/flatcar-linux/bootengine/pull/8 https://github.com/flatcar-linux/init/pull/16 https://github.com/flatcar-linux/init/pull/17 https://github.com/flatcar-linux/ignition/pull/8)\n\n## [Upstream Container Linux updates](https://github.com/coreos/manifest/releases/tag/v2345.3.0)\nSecurity fixes:\n- Fix systemd use-after-free upon receiving crafted D-Bus message from local unprivileged attacker [CVE-2020-1712](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2020-1712)\n- Fix heap-based buffer over-read in libexpat ([CVE-2019-15903](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2019-15903))\n- Fix multiple Git [vulnerabilities](https://marc.info/?l=git&m=157600115215285&w=2) ([CVE-2019-1348](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2019-1348), [CVE-2019-1349](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2019-1349), [CVE-2019-1350](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2019-1350), [CVE-2019-1351](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2019-1351), [CVE-2019-1352](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2019-1352), [CVE-2019-1353](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2019-1353), [CVE-2019-1354](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2019-1354), [CVE-2019-1387](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2019-1387), [CVE-2019-19604](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2019-19604))\n- Fix curl Kerberos FTP double free ([CVE-2019-5481](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2019-5481))\n - Fix curl TFTP buffer overflow with non-default block size ([CVE-2019-5482](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2019-5482))\n - Fix OpenSSL key extraction attacks under non-default conditions ([CVE-2019-1563](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2019-1563), [CVE-2019-1547](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2019-1547))\n\nUpdates:\n\n- Git [2.24.1](https://github.com/git/git/blob/master/Documentation/RelNotes/2.24.1.txt)\n- Linux [4.19.106](https://lwn.net/Articles/813157/)\n- OpenSSL [1.0.2t](https://www.openssl.org/news/cl102.txt)\n- curl [7.66.0](https://curl.haxx.se/mail/archive-2019-09/0002.html)\n- etcd [3.3.18](https://github.com/etcd-io/etcd/releases/tag/v3.3.18)\n- expat [2.2.8](https://github.com/libexpat/libexpat/releases/tag/R_2_2_8)\n"
   },
-  "current": {
+  "2345.3.1": {
     "channel": "stable",
     "architectures": [
       "amd64"
     ],
-    "release_date": "2020-03-02 14:03:06 +0000",
+    "release_date": "2020-03-31 16:25:06 +0000",
     "major_software": {
       "docker": [
         "18.06.3"
       ],
       "ignition": [
-        "0.33.0"
+        "0.34.0"
       ],
       "kernel": [
-        "4.19.106"
+        "4.19.107"
       ],
       "rkt": [
         "1.30.0"
@@ -1072,6 +1072,31 @@
         "241"
       ]
     },
-    "release_notes": "## Flatcar updates\nBug fixes:\n- Enable persistent network interface names already in the initramfs to fix https://github.com/coreos/bugs/issues/1767\n- Fix backwards compatibility issues for users to migrate from CoreOS Container Linux. Support the kernel command line parameters `coreos.oem.*`, `coreos.autologin`, `coreos.first_boot`, and the QEMU firmware config path `opt/com.coreos/config` (https://github.com/flatcar-linux/Flatcar/issues/16 https://github.com/flatcar-linux/afterburn/pull/7 https://github.com/flatcar-linux/bootengine/pull/7 https://github.com/flatcar-linux/bootengine/pull/8 https://github.com/flatcar-linux/init/pull/16 https://github.com/flatcar-linux/init/pull/17 https://github.com/flatcar-linux/ignition/pull/8)\n\n## [Upstream Container Linux updates](https://github.com/coreos/manifest/releases/tag/v2345.3.0)\nSecurity fixes:\n- Fix systemd use-after-free upon receiving crafted D-Bus message from local unprivileged attacker [CVE-2020-1712](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2020-1712)\n- Fix heap-based buffer over-read in libexpat ([CVE-2019-15903](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2019-15903))\n- Fix multiple Git [vulnerabilities](https://marc.info/?l=git&m=157600115215285&w=2) ([CVE-2019-1348](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2019-1348), [CVE-2019-1349](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2019-1349), [CVE-2019-1350](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2019-1350), [CVE-2019-1351](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2019-1351), [CVE-2019-1352](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2019-1352), [CVE-2019-1353](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2019-1353), [CVE-2019-1354](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2019-1354), [CVE-2019-1387](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2019-1387), [CVE-2019-19604](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2019-19604))\n- Fix curl Kerberos FTP double free ([CVE-2019-5481](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2019-5481))\n - Fix curl TFTP buffer overflow with non-default block size ([CVE-2019-5482](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2019-5482))\n - Fix OpenSSL key extraction attacks under non-default conditions ([CVE-2019-1563](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2019-1563), [CVE-2019-1547](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2019-1547))\n\nUpdates:\n\n- Git [2.24.1](https://github.com/git/git/blob/master/Documentation/RelNotes/2.24.1.txt)\n- Linux [4.19.106](https://lwn.net/Articles/813157/)\n- OpenSSL [1.0.2t](https://www.openssl.org/news/cl102.txt)\n- curl [7.66.0](https://curl.haxx.se/mail/archive-2019-09/0002.html)\n- etcd [3.3.18](https://github.com/etcd-io/etcd/releases/tag/v3.3.18)\n- expat [2.2.8](https://github.com/libexpat/libexpat/releases/tag/R_2_2_8)\n"
+    "release_notes": "## Flatcar updates\n\nBug fixes:\n\n- Use newest network interface naming scheme (https://github.com/flatcar-linux/Flatcar/issues/36)\n  - It is a possible breaking change for some persistent network interface names\n- Fix URL scheme in emerge-gitclone (https://github.com/flatcar-linux/coreos-overlay/issues/223)\n- Fix coreos-cloudinit variable names (https://github.com/flatcar-linux/coreos-overlay/pull/206)\n- Prefer /boot/coreos to write updates (https://github.com/flatcar-linux/update_engine/pull/2)\n- Remove /boot/coreos/first_boot after a Ignition rerun on migration (https://github.com/flatcar-linux/bootengine/pull/10)\n- Support coreos.config.url as kernel command line parameter for Ignition (https://github.com/flatcar-linux/ignition/pull/10)\n\nChanges:\n\n- Add kernel config for QEDE driver (https://github.com/flatcar-linux/coreos-overlay/pull/198)\n- Add `tracepath` alongside `traceroute6` (https://github.com/flatcar-linux/Flatcar/issues/50)\n\nUpdates:\n\n- Linux [4.19.107](https://lwn.net/Articles/813602/)"
+  },
+  "current": {
+    "channel": "stable",
+    "architectures": [
+      "amd64"
+    ],
+    "release_date": "2020-03-31 16:25:06 +0000",
+    "major_software": {
+      "docker": [
+        "18.06.3"
+      ],
+      "ignition": [
+        "0.34.0"
+      ],
+      "kernel": [
+        "4.19.107"
+      ],
+      "rkt": [
+        "1.30.0"
+      ],
+      "systemd": [
+        "241"
+      ]
+    },
+    "release_notes": "## Flatcar updates\n\nBug fixes:\n\n- Use newest network interface naming scheme (https://github.com/flatcar-linux/Flatcar/issues/36)\n  - It is a possible breaking change for some persistent network interface names\n- Fix URL scheme in emerge-gitclone (https://github.com/flatcar-linux/coreos-overlay/issues/223)\n- Fix coreos-cloudinit variable names (https://github.com/flatcar-linux/coreos-overlay/pull/206)\n- Prefer /boot/coreos to write updates (https://github.com/flatcar-linux/update_engine/pull/2)\n- Remove /boot/coreos/first_boot after a Ignition rerun on migration (https://github.com/flatcar-linux/bootengine/pull/10)\n- Support coreos.config.url as kernel command line parameter for Ignition (https://github.com/flatcar-linux/ignition/pull/10)\n\nChanges:\n\n- Add kernel config for QEDE driver (https://github.com/flatcar-linux/coreos-overlay/pull/198)\n- Add `tracepath` alongside `traceroute6` (https://github.com/flatcar-linux/Flatcar/issues/50)\n\nUpdates:\n\n- Linux [4.19.107](https://lwn.net/Articles/813602/)"
   }
 }
