@@ -17,9 +17,11 @@ The benefits of this collaboration extend to users who receive a more stable and
 
 ## How does Flatcar Container Linux differ from CoreOS Container Linux?
 
-CoreOS Container Linux maintenance will be discontinued from May 26th, 2020, and publicly available binaries and images will be un-published September 1st, 2020 (see [CoreOS announcement](https://coreos.com/os/eol/#timeline)). Flatcar understands itself as the successor in spirit and will continue following the philosophy pioneered by CoreOS, delivering a fully open source, minimal-footprint, secure by default and always up-to-date Linux distribution for running containers at scale.
+It doesn't. Flatcar Container Linux is a drop-in replacement for the EOL'd CoreOS Container Linux.
 
 ## What will happen with Flatcar Container Linux now that CoreOS Container Linux is discontinuing support?
+
+CoreOS Container Linux maintenance will be discontinued from May 26th, 2020, and publicly available binaries and images will be un-published September 1st, 2020 (see [CoreOS announcement](https://coreos.com/os/eol/#timeline)). Flatcar understands itself as the successor in spirit and will continue following the philosophy pioneered by CoreOS, delivering a fully open source, minimal-footprint, secure by default and always up-to-date Linux distribution for running containers at scale.
 
 We will continue to actively develop and support Flatcar Container Linux. We will also maintain support for Flatcar Container Linux as a drop-in replacement for CoreOS Container Linux for an extended migration period.
 
