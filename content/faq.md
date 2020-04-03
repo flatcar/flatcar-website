@@ -1,14 +1,14 @@
 ---
 title: FAQ
 description: Some answers to common questions
-author: Chris Kuehl
+author: Chris Kuehl, Thilo Fromm, Margarita Manterola
 date: 2020-04-03T14:10:52+02:00
 draft: false
 ---
 
 ## What are the goals of the Flatcar Container Linux project?
 
-The Flatcar Container Linux project aims to be an independently built, distributed, and supported Linux distribution designed for container workloads.
+The Flatcar Container Linux project delivers an independent, distributed, and supported Linux distribution designed for container workloads.
 
 We believe the approach that CoreOS pioneered with CoreOS Container Linux is correct and aim to preserve that.
 
@@ -17,34 +17,23 @@ The benefits of this collaboration extend to users who receive a more stable and
 
 ## How does Flatcar Container Linux differ from CoreOS Container Linux?
 
-**TODO: This answer is obsolete, we need a completely new answer here**.
-
-We do not foresee Flatcar Container Linux significantly diverging from the upstream CoreOS Container Linux project in the near-term.
-Changes mostly consist of a set of patches to remove trademarked terms. Ideally, this would continue to be the only changes.
-
-Flatcar Container Linux will only diverge from the upstream project if fundamental changes are made to it.
-In this respect, one can view Flatcar Container Linux as a guaranteer of the CoreOS Container Linux project as it is today. 
+CoreOS Container Linux maintenance will be discontinued from May 26th, 2020, and publicly available binaries and images will be un-published September 1st, 2020 (see [CoreOS announcement](https://coreos.com/os/eol/#timeline)). Flatcar understands itself as the successor in spirit and will continue following the philosophy pioneered by CoreOS, delivering a fully open source, minimal-footprint, secure by default and always up-to-date Linux distribution for running containers at scale.
 
 ## What will happen with Flatcar Container Linux now that CoreOS Container Linux is discontinuing support?
 
-**TODO: Review both question and answer (the answers are patchwork from previous questions)**
+We will continue to actively develop and support Flatcar Container Linux. We will also maintain support for Flatcar Container Linux as a drop-in replacement for CoreOS Container Linux for an extended migration period.
 
-We support Flatcar Container Linux today and plan to continue supporting Flatcar Container Linux as a drop-in replacement for CoreOS Container Linux.
-
-For users that require it, Flatcar Container Linux provides an additional commercial support channel going forward.
+For users that require it, Kinvolk also offers commercial support subscriptions. Please reach out to [hello@kinvolk.io](mailto:hello@kinvolk.io) for more information.
 
 ## What is the Flatcar Container Linux Edge channel?
 
-The Flatcar Car Linux Edge channel is new channel that includes experimental features and patches of the Linux kernel and other core OS packages.
+The Flatcar Container Linux Edge channel is new channel that includes experimental features and patches of the Linux kernel and other core OS packages.
 It's intended to ease the deliver and promotion of new Linux technologies into Kubernetes and other Cloud Native technologies.
 You can read more about this in the [Flatcar Container Linux Edge channel announcement](https://kinvolk.io/blog/2019/05/introducing-the-flatcar-linux-edge-channel/).
 
-## What do you mean when you say Flatcar Container Linux is "independently built"?
+## What do you mean when you say Flatcar Container Linux is "independent"?
 
-**TODO: this answer needs to be updated**
-
-We mean that Flatcar Container Linux is not dependent on upstream binary artifacts, and is fully built from source.
-In fact, if CoreOS Container Linux disappeared tomorrow, it would have very little impact on the Flatcar Container Linux project.
+We mean that Flatcar Container Linux will continue to be updated and maintained after CoreOS Container Linux EOL, and is not dependent on any CoreOS Container Linux binary artifactc.
 
 ## What is the significance of the Flatcar Container Linux name?
 
@@ -62,12 +51,12 @@ Contact Kinvolk for more information at [hello@kinvolk.io](mailto:hello@kinvolk.
 
 ## How is Flatcar Container Linux funded?
 
-**TODO: should this say "sustains" instead of "plans to sustain"?**
-
-All funding and engineering effort has been provided by [Kinvolk](https://kinvolk.io).
+Main funding and engineering effort has been provided by [Kinvolk](https://kinvolk.io).
 
 Kinvolk is a Linux consulting company and intends to maintain and support the project going forward.
-Kinvolk plans to sustain its effort by offering commercial support agreements and custom engineering services around Flatcar Container Linux and Kubernetes.
+Kinvolk sustains its effort by offering commercial support agreements and custom engineering services around Flatcar Container Linux and Kubernetes.
+
+The Flatcar Container Linux open source project furthermore receives donations from a number of Sponsors.
 
 ## Who is Kinvolk?
 
