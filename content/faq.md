@@ -33,7 +33,7 @@ You can read more about this in the [Flatcar Container Linux Edge channel announ
 
 ## What do you mean when you say Flatcar Container Linux is "independent"?
 
-We mean that Flatcar Container Linux will continue to be updated and maintained after CoreOS Container Linux EOL, and is not dependent on any CoreOS Container Linux binary artifactc.
+We mean that Flatcar Container Linux will continue to be updated and maintained after CoreOS Container Linux EOL, and is not dependent on any CoreOS Container Linux binary artifact.
 
 ## What is the significance of the Flatcar Container Linux name?
 
