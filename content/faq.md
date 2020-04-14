@@ -29,7 +29,7 @@ For users that require it, Kinvolk also offers commercial support subscriptions.
 
 ## What is the Flatcar Container Linux Edge channel?
 
-The Flatcar Container Linux Edge channel is new channel that includes experimental features and patches of the Linux kernel and other core OS packages.
+The Flatcar Container Linux Edge channel is a new channel that includes experimental features and patches of the Linux kernel and other core OS packages.
 It's intended to ease the deliver and promotion of new Linux technologies into Kubernetes and other Cloud Native technologies.
 You can read more about this in the [Flatcar Container Linux Edge channel announcement](https://kinvolk.io/blog/2019/05/introducing-the-flatcar-linux-edge-channel/).
 
