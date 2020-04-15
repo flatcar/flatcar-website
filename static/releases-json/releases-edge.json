@@ -654,22 +654,22 @@
     },
     "release_notes": "## Flatcar updates\n\nBug fixes:\n\n- Enable persistent network interface names already in the initramfs to fix https://github.com/coreos/bugs/issues/1767\n- Make systemd-hostnamed work again by updating systemd to v243 (https://github.com/flatcar-linux/systemd/pull/7)\n- Use correct branch name format in developer container tools (https://github.com/flatcar-linux/dev-util/pull/2)\n\nUpdates:\n\n- Linux [5.5.6](https://lwn.net/Articles/813155/)\n- systemd [243](https://github.com/systemd/systemd/releases/tag/v243)"
   },
-  "current": {
+  "2466.99.0": {
     "channel": "edge",
     "architectures": [
       "amd64",
       "arm64"
     ],
-    "release_date": "2020-03-05 10:27:05 +0000",
+    "release_date": "2020-04-15 15:24:41 +0000",
     "major_software": {
       "docker": [
-        "19.03.5"
+        "19.03.8"
       ],
       "ignition": [
         "0.34.0"
       ],
       "kernel": [
-        "5.5.6"
+        "5.6.2"
       ],
       "rkt": [
         "1.30.0"
@@ -678,6 +678,32 @@
         "243"
       ]
     },
-    "release_notes": "## Flatcar updates\n\nBug fixes:\n\n- Enable persistent network interface names already in the initramfs to fix https://github.com/coreos/bugs/issues/1767\n- Make systemd-hostnamed work again by updating systemd to v243 (https://github.com/flatcar-linux/systemd/pull/7)\n- Use correct branch name format in developer container tools (https://github.com/flatcar-linux/dev-util/pull/2)\n\nUpdates:\n\n- Linux [5.5.6](https://lwn.net/Articles/813155/)\n- systemd [243](https://github.com/systemd/systemd/releases/tag/v243)"
+    "release_notes": "## Flatcar updates\n\nBug fixes:\n\n- Use newest network interface naming scheme (https://github.com/flatcar-linux/Flatcar/issues/36)\n  - It is a possible breaking change for some persistent network interface names\n- Fix coreos-cloudinit variable names (https://github.com/flatcar-linux/coreos-overlay/pull/206)\n- Prefer /boot/coreos to write updates (https://github.com/flatcar-linux/update_engine/pull/2)\n- Build a download URL in a safer way (https://github.com/flatcar-linux/update_engine/issues/3)\n- Remove /boot/coreos/first_boot after a Ignition rerun on migration (https://github.com/flatcar-linux/bootengine/pull/10)\n- Support coreos.config.url as kernel command line parameter for Ignition (https://github.com/flatcar-linux/ignition/pull/10)\n- Make flannel cross-node traffic work with systemd > 242 (https://github.com/coreos/flannel/issues/1155, https://github.com/flatcar-linux/coreos-overlay/pull/279)\n\nChanges:\n\n- Add `tracepath` alongside `traceroute6` (https://github.com/flatcar-linux/Flatcar/issues/50)\n- Extend logging capabilities of mayday (https://github.com/flatcar-linux/Flatcar/issues/61)\n\nUpdates:\n\n- Linux [5.6.2](https://lwn.net/Articles/816638/)\n  - An occasional lockup issue can happen at crypto_wait_for_test (https://bugzilla.kernel.org/show_bug.cgi?id=207159)\n- Docker [19.03.8](https://github.com/docker/docker-ce/releases/tag/v19.03.8)\n- open-vm-tools [11.0.5](https://github.com/vmware/open-vm-tools/releases/tag/stable-11.0.5)\n- openssh [8.1](https://www.openssh.com/txt/release-8.1)\n- WAAgent [2.2.46](https://github.com/Azure/WALinuxAgent/releases/tag/v2.2.46)"
+  },
+  "current": {
+    "channel": "edge",
+    "architectures": [
+      "amd64",
+      "arm64"
+    ],
+    "release_date": "2020-04-15 15:24:41 +0000",
+    "major_software": {
+      "docker": [
+        "19.03.8"
+      ],
+      "ignition": [
+        "0.34.0"
+      ],
+      "kernel": [
+        "5.6.2"
+      ],
+      "rkt": [
+        "1.30.0"
+      ],
+      "systemd": [
+        "243"
+      ]
+    },
+    "release_notes": "## Flatcar updates\n\nBug fixes:\n\n- Use newest network interface naming scheme (https://github.com/flatcar-linux/Flatcar/issues/36)\n  - It is a possible breaking change for some persistent network interface names\n- Fix coreos-cloudinit variable names (https://github.com/flatcar-linux/coreos-overlay/pull/206)\n- Prefer /boot/coreos to write updates (https://github.com/flatcar-linux/update_engine/pull/2)\n- Build a download URL in a safer way (https://github.com/flatcar-linux/update_engine/issues/3)\n- Remove /boot/coreos/first_boot after a Ignition rerun on migration (https://github.com/flatcar-linux/bootengine/pull/10)\n- Support coreos.config.url as kernel command line parameter for Ignition (https://github.com/flatcar-linux/ignition/pull/10)\n- Make flannel cross-node traffic work with systemd > 242 (https://github.com/coreos/flannel/issues/1155, https://github.com/flatcar-linux/coreos-overlay/pull/279)\n\nChanges:\n\n- Add `tracepath` alongside `traceroute6` (https://github.com/flatcar-linux/Flatcar/issues/50)\n- Extend logging capabilities of mayday (https://github.com/flatcar-linux/Flatcar/issues/61)\n\nUpdates:\n\n- Linux [5.6.2](https://lwn.net/Articles/816638/)\n  - An occasional lockup issue can happen at crypto_wait_for_test (https://bugzilla.kernel.org/show_bug.cgi?id=207159)\n- Docker [19.03.8](https://github.com/docker/docker-ce/releases/tag/v19.03.8)\n- open-vm-tools [11.0.5](https://github.com/vmware/open-vm-tools/releases/tag/stable-11.0.5)\n- openssh [8.1](https://www.openssh.com/txt/release-8.1)\n- WAAgent [2.2.46](https://github.com/Azure/WALinuxAgent/releases/tag/v2.2.46)"
   }
 }
