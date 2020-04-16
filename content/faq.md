@@ -47,7 +47,7 @@ Yes! You can consult [the documentation](https://docs.flatcar-linux.org/) on how
 
 ## How can I get commercial support for Flatcar Container Linux?
 
-Kinvolk offers commercial support and custom engineering services around Flatcar Container Linux. Initially, we are offering support for customers running more than 100 nodes. At a later date, we will introduce general support.
+Kinvolk offers commercial support and custom engineering services around Flatcar Container Linux (see this [blog post](https://kinvolk.io/blog/2019/11/announcing-the-kinvolk-flatcar-container-linux-subscription/) for more details).
 
 Contact Kinvolk for more information at [hello@kinvolk.io](mailto:hello@kinvolk.io).
 
@@ -58,7 +58,7 @@ The main funding and engineering effort has been provided by [Kinvolk](https://k
 Kinvolk is a Linux consulting company and intends to maintain and support the project going forward.
 Kinvolk sustains its effort by offering commercial support agreements for Flatcar Container Linux.
 
-The Flatcar Container Linux open source project furthermore as a number of corporate sponsors. If your organization would like to become a sponsor, contact us at [hello@kinvolk.io](mailto:hello@kinvolk.io?subject=I%20want %20to%20sponsor%20Flatcar%20Container%20Linux).
+The Flatcar Container Linux open source project furthermore has a number of corporate sponsors. If your organization would like to become a sponsor, contact us at [hello@kinvolk.io](mailto:hello@kinvolk.io?subject=I%20want %20to%20sponsor%20Flatcar%20Container%20Linux).
 
 ## Who is Kinvolk?
 
