@@ -1505,13 +1505,13 @@
     },
     "release_notes": "## Flatcar updates\n\nBug fixes:\n\n- Use newest network interface naming scheme (https://github.com/flatcar-linux/Flatcar/issues/36)\n  - It is a possible breaking change for some persistent network interface names\n- Fix coreos-cloudinit variable names (https://github.com/flatcar-linux/coreos-overlay/pull/206)\n- Prefer /boot/coreos to write updates (https://github.com/flatcar-linux/update_engine/pull/2)\n- Build a download URL in a safer way (https://github.com/flatcar-linux/update_engine/issues/3)\n- Remove /boot/coreos/first_boot after a Ignition rerun on migration (https://github.com/flatcar-linux/bootengine/pull/10)\n- Support coreos.config.url as kernel command line parameter for Ignition (https://github.com/flatcar-linux/ignition/pull/10)\n- Make flannel cross-node traffic work with systemd > 242 (https://github.com/coreos/flannel/issues/1155, https://github.com/flatcar-linux/coreos-overlay/pull/279)\n\nChanges:\n\n- Add `tracepath` alongside `traceroute6` (https://github.com/flatcar-linux/Flatcar/issues/50)\n- Extend logging capabilities of mayday (https://github.com/flatcar-linux/Flatcar/issues/61)\n\nUpdates:\n\n- Linux [4.19.113](https://lwn.net/Articles/815960/)\n- Docker [19.03.8](https://github.com/docker/docker-ce/releases/tag/v19.03.8)\n- open-vm-tools [11.0.5](https://github.com/vmware/open-vm-tools/releases/tag/stable-11.0.5)\n- openssh [8.1](https://www.openssh.com/txt/release-8.1)\n- WAAgent [2.2.46](https://github.com/Azure/WALinuxAgent/releases/tag/v2.2.46)"
   },
-  "current": {
+  "2492.0.0": {
     "channel": "alpha",
     "architectures": [
       "amd64",
       "arm64"
     ],
-    "release_date": "2020-04-15 15:24:01 +0000",
+    "release_date": "2020-04-30 14:30:52 +0000",
     "major_software": {
       "docker": [
         "19.03.8"
@@ -1520,7 +1520,7 @@
         "0.34.0"
       ],
       "kernel": [
-        "4.19.113"
+        "5.4.35"
       ],
       "rkt": [
         "1.30.0"
@@ -1529,6 +1529,32 @@
         "241"
       ]
     },
-    "release_notes": "## Flatcar updates\n\nBug fixes:\n\n- Use newest network interface naming scheme (https://github.com/flatcar-linux/Flatcar/issues/36)\n  - It is a possible breaking change for some persistent network interface names\n- Fix coreos-cloudinit variable names (https://github.com/flatcar-linux/coreos-overlay/pull/206)\n- Prefer /boot/coreos to write updates (https://github.com/flatcar-linux/update_engine/pull/2)\n- Build a download URL in a safer way (https://github.com/flatcar-linux/update_engine/issues/3)\n- Remove /boot/coreos/first_boot after a Ignition rerun on migration (https://github.com/flatcar-linux/bootengine/pull/10)\n- Support coreos.config.url as kernel command line parameter for Ignition (https://github.com/flatcar-linux/ignition/pull/10)\n- Make flannel cross-node traffic work with systemd > 242 (https://github.com/coreos/flannel/issues/1155, https://github.com/flatcar-linux/coreos-overlay/pull/279)\n\nChanges:\n\n- Add `tracepath` alongside `traceroute6` (https://github.com/flatcar-linux/Flatcar/issues/50)\n- Extend logging capabilities of mayday (https://github.com/flatcar-linux/Flatcar/issues/61)\n\nUpdates:\n\n- Linux [4.19.113](https://lwn.net/Articles/815960/)\n- Docker [19.03.8](https://github.com/docker/docker-ce/releases/tag/v19.03.8)\n- open-vm-tools [11.0.5](https://github.com/vmware/open-vm-tools/releases/tag/stable-11.0.5)\n- openssh [8.1](https://www.openssh.com/txt/release-8.1)\n- WAAgent [2.2.46](https://github.com/Azure/WALinuxAgent/releases/tag/v2.2.46)"
+    "release_notes": "## Flatcar updates\n\nBug fixes:\n\n- Support both guestinfo.ignition.config and guestinfo.coreos.config in coreos-cloudinit (https://github.com/flatcar-linux/coreos-cloudinit/pull/4)\n- Fix VMware guestinfo variable retrieval and add missing variables in ignition (https://github.com/flatcar-linux/ignition/pull/11)\n- Use flatcar.autologin for the console in oem-vmware (https://github.com/flatcar-linux/coreos-overlay/pull/308)\n- Log list of coredumps with coredumpctl in mayday (https://github.com/flatcar-linux/mayday/pull/8)\n\nUpdates:\n\n- Linux [5.4.35](https://lwn.net/Articles/818569/)\n- Go [1.3.10](https://go.googlesource.com/go/+/refs/tags/go1.13.10)\n- containerd [1.3.4](https://github.com/containerd/containerd/releases/tag/v1.3.4)\n- conntrack-tools [1.4.5](https://git.netfilter.org/conntrack-tools/tag/?h=conntrack-tools-1.4.5)\n- linux-firmware [20191022](https://git.kernel.org/pub/scm/linux/kernel/git/firmware/linux-firmware.git/tag/?h=20191022)"
+  },
+  "current": {
+    "channel": "alpha",
+    "architectures": [
+      "amd64",
+      "arm64"
+    ],
+    "release_date": "2020-04-30 14:30:52 +0000",
+    "major_software": {
+      "docker": [
+        "19.03.8"
+      ],
+      "ignition": [
+        "0.34.0"
+      ],
+      "kernel": [
+        "5.4.35"
+      ],
+      "rkt": [
+        "1.30.0"
+      ],
+      "systemd": [
+        "241"
+      ]
+    },
+    "release_notes": "## Flatcar updates\n\nBug fixes:\n\n- Support both guestinfo.ignition.config and guestinfo.coreos.config in coreos-cloudinit (https://github.com/flatcar-linux/coreos-cloudinit/pull/4)\n- Fix VMware guestinfo variable retrieval and add missing variables in ignition (https://github.com/flatcar-linux/ignition/pull/11)\n- Use flatcar.autologin for the console in oem-vmware (https://github.com/flatcar-linux/coreos-overlay/pull/308)\n- Log list of coredumps with coredumpctl in mayday (https://github.com/flatcar-linux/mayday/pull/8)\n\nUpdates:\n\n- Linux [5.4.35](https://lwn.net/Articles/818569/)\n- Go [1.3.10](https://go.googlesource.com/go/+/refs/tags/go1.13.10)\n- containerd [1.3.4](https://github.com/containerd/containerd/releases/tag/v1.3.4)\n- conntrack-tools [1.4.5](https://git.netfilter.org/conntrack-tools/tag/?h=conntrack-tools-1.4.5)\n- linux-firmware [20191022](https://git.kernel.org/pub/scm/linux/kernel/git/firmware/linux-firmware.git/tag/?h=20191022)"
   }
 }
