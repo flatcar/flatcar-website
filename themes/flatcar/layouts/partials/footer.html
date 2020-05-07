@@ -31,6 +31,8 @@
         </div>
     </footer>
 
+    {{ if isset .Site.Params "ganalytics" }}{{ partial "ga.html" . }}{{ end }}
+
     <!-- jQuery -->
     <script src="{{ .Site.BaseURL }}js/jquery.slim.min.js"></script>
     <!-- Bootstrap Core JavaScript -->
