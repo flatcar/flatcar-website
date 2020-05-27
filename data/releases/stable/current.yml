@@ -3,56 +3,89 @@ architectures:
 channel: stable
 github_release:
   assets: []
-  assets_url: https://api.github.com/repos/flatcar-linux/manifest/releases/24927343/assets
+  assets_url: https://api.github.com/repos/flatcar-linux/manifest/releases/26909235/assets
   author:
-    avatar_url: https://avatars0.githubusercontent.com/u/10096906?v=4
-    events_url: https://api.github.com/users/dongsupark/events{/privacy}
-    followers_url: https://api.github.com/users/dongsupark/followers
-    following_url: https://api.github.com/users/dongsupark/following{/other_user}
-    gists_url: https://api.github.com/users/dongsupark/gists{/gist_id}
+    avatar_url: https://avatars0.githubusercontent.com/u/1189130?v=4
+    events_url: https://api.github.com/users/pothos/events{/privacy}
+    followers_url: https://api.github.com/users/pothos/followers
+    following_url: https://api.github.com/users/pothos/following{/other_user}
+    gists_url: https://api.github.com/users/pothos/gists{/gist_id}
     gravatar_id: ''
-    html_url: https://github.com/dongsupark
-    id: 10096906
-    login: dongsupark
-    node_id: MDQ6VXNlcjEwMDk2OTA2
-    organizations_url: https://api.github.com/users/dongsupark/orgs
-    received_events_url: https://api.github.com/users/dongsupark/received_events
-    repos_url: https://api.github.com/users/dongsupark/repos
+    html_url: https://github.com/pothos
+    id: 1189130
+    login: pothos
+    node_id: MDQ6VXNlcjExODkxMzA=
+    organizations_url: https://api.github.com/users/pothos/orgs
+    received_events_url: https://api.github.com/users/pothos/received_events
+    repos_url: https://api.github.com/users/pothos/repos
     site_admin: false
-    starred_url: https://api.github.com/users/dongsupark/starred{/owner}{/repo}
-    subscriptions_url: https://api.github.com/users/dongsupark/subscriptions
+    starred_url: https://api.github.com/users/pothos/starred{/owner}{/repo}
+    subscriptions_url: https://api.github.com/users/pothos/subscriptions
     type: User
-    url: https://api.github.com/users/dongsupark
-  body: "## Flatcar updates\r\n\r\nBug fixes:\r\n\r\n- Use newest network interface\
-    \ naming scheme (https://github.com/flatcar-linux/Flatcar/issues/36)\r\n  - It\
-    \ is a possible breaking change for some persistent network interface names\r\n\
-    - Fix URL scheme in emerge-gitclone (https://github.com/flatcar-linux/coreos-overlay/issues/223)\r\
-    \n- Fix coreos-cloudinit variable names (https://github.com/flatcar-linux/coreos-overlay/pull/206)\r\
-    \n- Prefer /boot/coreos to write updates (https://github.com/flatcar-linux/update_engine/pull/2)\r\
-    \n- Remove /boot/coreos/first_boot after a Ignition rerun on migration (https://github.com/flatcar-linux/bootengine/pull/10)\r\
-    \n- Support coreos.config.url as kernel command line parameter for Ignition (https://github.com/flatcar-linux/ignition/pull/10)\r\
-    \n\r\nChanges:\r\n\r\n- Add kernel config for QEDE driver (https://github.com/flatcar-linux/coreos-overlay/pull/198)\r\
-    \n- Add `tracepath` alongside `traceroute6` (https://github.com/flatcar-linux/Flatcar/issues/50)\r\
-    \n\r\nUpdates:\r\n\r\n- Linux [4.19.107](https://lwn.net/Articles/813602/)"
-  created_at: '2020-03-25T16:23:18Z'
+    url: https://api.github.com/users/pothos
+  body: "## Flatcar updates\r\n\r\nSecurity fixes:\r\n- Fix e2fsprogs arbitrary code\
+    \ execution via crafted filesystem ([CVE-2019-5094](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2019-5094))\r\
+    \n- Fix Git arbitrary path overwrite, credential leak from credential helpers,\
+    \ remote code execution in recursive clones, and arbitrary command execution via\
+    \ submodules ([CVE-2019-1348](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2019-1348),\
+    \ [CVE-2019-1387](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2019-1387),\
+    \ [CVE-2019-19604](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2019-19604),\
+    \ [CVE-2020-11008](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2020-11008),\
+    \ [CVE-2020-5260](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2020-5260))\r\
+    \n- Fix libarchive crash or use-after-free via crafted RAR file ([CVE-2019-18408](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2019-18408),\
+    \ [CVE-2020-9308](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2020-9308))\r\
+    \n- Fix libgcrypt ECDSA timing attack ([CVE-2019-13627](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2019-13627))\r\
+    \n- Fix libidn2 domain impersonation ([CVE-2019-12290](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2019-12290))\r\
+    \n- Fix NSS crashes and heap corruption ([CVE-2017-11695](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-11695),\
+    \ [CVE-2017-11696](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-11696),\
+    \ [CVE-2017-11697](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-11697),\
+    \ [CVE-2017-11698](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-11698),\
+    \ [CVE-2018-18508](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2018-18508),\
+    \ [CVE-2019-11745](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2019-11745))\r\
+    \n- Fix OpenSSL overflow in Montgomery squaring procedure ([CVE-2019-1551](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2019-1551))\r\
+    \n- Fix SQLite crash and heap corruption ([CVE-2019-16168](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2019-16168),\
+    \ [CVE-2019-5827](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2019-5827))\r\
+    \n- Fix unzip heap overflow or excessive resource consumption via crafted archive\
+    \ ([CVE-2018-1000035](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2018-1000035),\
+    \ [CVE-2019-13232](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2019-13232))\r\
+    \n- Fix vim arbitrary command execution via crafted file ([CVE-2019-12735](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2019-12735))\r\
+    \n\r\nBug fixes:\r\n- When writing the update kernel, prefer `/boot/coreos` only\
+    \ if `/boot/coreos/vmlinux-*` exists (https://github.com/flatcar-linux/update_engine/pull/5)\r\
+    \n- Fixed sysroot-boot initramfs service race which resulted in a warning that\
+    \ this service failed\r\n- Use the correct `BINHOST` URLs in the development container\
+    \ to download binary packages\r\n\r\nChanges:\r\n- Support the CoreOS GRUB `/boot/coreos/first_boot`\
+    \ flag file (https://github.com/flatcar-linux/bootengine/pull/13)\r\n- Fetch container\
+    \ images in docker format rather than ACI by default in `etcd-member.service`,\
+    \ `flanneld.service`, and `kubelet-wrapper`\r\n- Use `flatcar.autologin` kernel\
+    \ command line parameter on Azure and VMware for auto login on the serial console\r\
+    \n- Include `conntrack` ([conntrack-tools](http://conntrack-tools.netfilter.org/))\r\
+    \n- Include `journalctl` output, `pstore` kernel crash logs, and `coredumpctl\
+    \ list` output in the `mayday` report\r\n- Update wa-linux-agent to 2.2.46 on\
+    \ Azure\r\n- Support both `coreos.config.*` and `flatcar.config.*` guestinfo variables\
+    \ on VMware OEM\r\n\r\nUpdates:\r\n- e2fsprogs [1.45.5](http://e2fsprogs.sourceforge.net/e2fsprogs-release.html#1.45.5)\r\
+    \n- etcd [3.3.20](https://github.com/etcd-io/etcd/releases/tag/v3.3.20)\r\n- etcdctl\
+    \ [3.3.20](https://github.com/etcd-io/etcd/releases/tag/v3.3.20)\r\n- Git [2.24.1](https://raw.githubusercontent.com/git/git/v2.24.1/Documentation/RelNotes/2.24.1.txt)\r\
+    \n- Linux [4.19.124](https://lwn.net/Articles/820974/)\r\n- OpenSSL [1.0.2u](https://www.openssl.org/news/openssl-1.0.2-notes.html)\r\
+    \n- vim [8.2.0360](http://ftp.vim.org/pub/vim/patches/8.2/README)\r\n"
+  created_at: '2020-05-25T13:26:29Z'
   draft: false
-  html_url: https://github.com/flatcar-linux/manifest/releases/tag/v2345.3.1
-  id: 24927343
-  name: v2345.3.1
-  node_id: MDc6UmVsZWFzZTI0OTI3MzQz
+  html_url: https://github.com/flatcar-linux/manifest/releases/tag/v2512.2.0
+  id: 26909235
+  name: v2512.2.0
+  node_id: MDc6UmVsZWFzZTI2OTA5MjM1
   prerelease: false
-  published_at: '2020-03-31T16:25:06Z'
-  tag_name: v2345.3.1
-  tarball_url: https://api.github.com/repos/flatcar-linux/manifest/tarball/v2345.3.1
-  target_commitish: master
-  upload_url: https://uploads.github.com/repos/flatcar-linux/manifest/releases/24927343/assets{?name,label}
-  url: https://api.github.com/repos/flatcar-linux/manifest/releases/24927343
-  zipball_url: https://api.github.com/repos/flatcar-linux/manifest/zipball/v2345.3.1
+  published_at: '2020-05-26T16:58:25Z'
+  tag_name: v2512.2.0
+  tarball_url: https://api.github.com/repos/flatcar-linux/manifest/tarball/v2512.2.0
+  target_commitish: flatcar-master
+  upload_url: https://uploads.github.com/repos/flatcar-linux/manifest/releases/26909235/assets{?name,label}
+  url: https://api.github.com/repos/flatcar-linux/manifest/releases/26909235
+  zipball_url: https://api.github.com/repos/flatcar-linux/manifest/zipball/v2512.2.0
 image_packages:
   docker: 18.06.3
   ignition: 0.34.0
-  kernel: 4.19.107
+  kernel: 4.19.124
   rkt: 1.30.0
   systemd: '241'
 release: current
-version: 2345.3.1
+version: 2512.2.0

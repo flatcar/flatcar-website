@@ -1074,12 +1074,12 @@
     },
     "release_notes": "## Flatcar updates\n\nBug fixes:\n\n- Use newest network interface naming scheme (https://github.com/flatcar-linux/Flatcar/issues/36)\n  - It is a possible breaking change for some persistent network interface names\n- Fix URL scheme in emerge-gitclone (https://github.com/flatcar-linux/coreos-overlay/issues/223)\n- Fix coreos-cloudinit variable names (https://github.com/flatcar-linux/coreos-overlay/pull/206)\n- Prefer /boot/coreos to write updates (https://github.com/flatcar-linux/update_engine/pull/2)\n- Remove /boot/coreos/first_boot after a Ignition rerun on migration (https://github.com/flatcar-linux/bootengine/pull/10)\n- Support coreos.config.url as kernel command line parameter for Ignition (https://github.com/flatcar-linux/ignition/pull/10)\n\nChanges:\n\n- Add kernel config for QEDE driver (https://github.com/flatcar-linux/coreos-overlay/pull/198)\n- Add `tracepath` alongside `traceroute6` (https://github.com/flatcar-linux/Flatcar/issues/50)\n\nUpdates:\n\n- Linux [4.19.107](https://lwn.net/Articles/813602/)"
   },
-  "current": {
+  "2512.2.0": {
     "channel": "stable",
     "architectures": [
       "amd64"
     ],
-    "release_date": "2020-03-31 16:25:06 +0000",
+    "release_date": "2020-05-26 16:58:25 +0000",
     "major_software": {
       "docker": [
         "18.06.3"
@@ -1088,7 +1088,7 @@
         "0.34.0"
       ],
       "kernel": [
-        "4.19.107"
+        "4.19.124"
       ],
       "rkt": [
         "1.30.0"
@@ -1097,6 +1097,31 @@
         "241"
       ]
     },
-    "release_notes": "## Flatcar updates\n\nBug fixes:\n\n- Use newest network interface naming scheme (https://github.com/flatcar-linux/Flatcar/issues/36)\n  - It is a possible breaking change for some persistent network interface names\n- Fix URL scheme in emerge-gitclone (https://github.com/flatcar-linux/coreos-overlay/issues/223)\n- Fix coreos-cloudinit variable names (https://github.com/flatcar-linux/coreos-overlay/pull/206)\n- Prefer /boot/coreos to write updates (https://github.com/flatcar-linux/update_engine/pull/2)\n- Remove /boot/coreos/first_boot after a Ignition rerun on migration (https://github.com/flatcar-linux/bootengine/pull/10)\n- Support coreos.config.url as kernel command line parameter for Ignition (https://github.com/flatcar-linux/ignition/pull/10)\n\nChanges:\n\n- Add kernel config for QEDE driver (https://github.com/flatcar-linux/coreos-overlay/pull/198)\n- Add `tracepath` alongside `traceroute6` (https://github.com/flatcar-linux/Flatcar/issues/50)\n\nUpdates:\n\n- Linux [4.19.107](https://lwn.net/Articles/813602/)"
+    "release_notes": "## Flatcar updates\n\nSecurity fixes:\n- Fix e2fsprogs arbitrary code execution via crafted filesystem ([CVE-2019-5094](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2019-5094))\n- Fix Git arbitrary path overwrite, credential leak from credential helpers, remote code execution in recursive clones, and arbitrary command execution via submodules ([CVE-2019-1348](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2019-1348), [CVE-2019-1387](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2019-1387), [CVE-2019-19604](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2019-19604), [CVE-2020-11008](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2020-11008), [CVE-2020-5260](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2020-5260))\n- Fix libarchive crash or use-after-free via crafted RAR file ([CVE-2019-18408](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2019-18408), [CVE-2020-9308](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2020-9308))\n- Fix libgcrypt ECDSA timing attack ([CVE-2019-13627](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2019-13627))\n- Fix libidn2 domain impersonation ([CVE-2019-12290](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2019-12290))\n- Fix NSS crashes and heap corruption ([CVE-2017-11695](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-11695), [CVE-2017-11696](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-11696), [CVE-2017-11697](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-11697), [CVE-2017-11698](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-11698), [CVE-2018-18508](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2018-18508), [CVE-2019-11745](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2019-11745))\n- Fix OpenSSL overflow in Montgomery squaring procedure ([CVE-2019-1551](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2019-1551))\n- Fix SQLite crash and heap corruption ([CVE-2019-16168](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2019-16168), [CVE-2019-5827](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2019-5827))\n- Fix unzip heap overflow or excessive resource consumption via crafted archive ([CVE-2018-1000035](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2018-1000035), [CVE-2019-13232](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2019-13232))\n- Fix vim arbitrary command execution via crafted file ([CVE-2019-12735](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2019-12735))\n\nBug fixes:\n- When writing the update kernel, prefer `/boot/coreos` only if `/boot/coreos/vmlinux-*` exists (https://github.com/flatcar-linux/update_engine/pull/5)\n- Fixed sysroot-boot initramfs service race which resulted in a warning that this service failed\n- Use the correct `BINHOST` URLs in the development container to download binary packages\n\nChanges:\n- Support the CoreOS GRUB `/boot/coreos/first_boot` flag file (https://github.com/flatcar-linux/bootengine/pull/13)\n- Fetch container images in docker format rather than ACI by default in `etcd-member.service`, `flanneld.service`, and `kubelet-wrapper`\n- Use `flatcar.autologin` kernel command line parameter on Azure and VMware for auto login on the serial console\n- Include `conntrack` ([conntrack-tools](http://conntrack-tools.netfilter.org/))\n- Include `journalctl` output, `pstore` kernel crash logs, and `coredumpctl list` output in the `mayday` report\n- Update wa-linux-agent to 2.2.46 on Azure\n- Support both `coreos.config.*` and `flatcar.config.*` guestinfo variables on VMware OEM\n\nUpdates:\n- e2fsprogs [1.45.5](http://e2fsprogs.sourceforge.net/e2fsprogs-release.html#1.45.5)\n- etcd [3.3.20](https://github.com/etcd-io/etcd/releases/tag/v3.3.20)\n- etcdctl [3.3.20](https://github.com/etcd-io/etcd/releases/tag/v3.3.20)\n- Git [2.24.1](https://raw.githubusercontent.com/git/git/v2.24.1/Documentation/RelNotes/2.24.1.txt)\n- Linux [4.19.124](https://lwn.net/Articles/820974/)\n- OpenSSL [1.0.2u](https://www.openssl.org/news/openssl-1.0.2-notes.html)\n- vim [8.2.0360](http://ftp.vim.org/pub/vim/patches/8.2/README)\n"
+  },
+  "current": {
+    "channel": "stable",
+    "architectures": [
+      "amd64"
+    ],
+    "release_date": "2020-05-26 16:58:25 +0000",
+    "major_software": {
+      "docker": [
+        "18.06.3"
+      ],
+      "ignition": [
+        "0.34.0"
+      ],
+      "kernel": [
+        "4.19.124"
+      ],
+      "rkt": [
+        "1.30.0"
+      ],
+      "systemd": [
+        "241"
+      ]
+    },
+    "release_notes": "## Flatcar updates\n\nSecurity fixes:\n- Fix e2fsprogs arbitrary code execution via crafted filesystem ([CVE-2019-5094](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2019-5094))\n- Fix Git arbitrary path overwrite, credential leak from credential helpers, remote code execution in recursive clones, and arbitrary command execution via submodules ([CVE-2019-1348](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2019-1348), [CVE-2019-1387](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2019-1387), [CVE-2019-19604](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2019-19604), [CVE-2020-11008](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2020-11008), [CVE-2020-5260](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2020-5260))\n- Fix libarchive crash or use-after-free via crafted RAR file ([CVE-2019-18408](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2019-18408), [CVE-2020-9308](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2020-9308))\n- Fix libgcrypt ECDSA timing attack ([CVE-2019-13627](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2019-13627))\n- Fix libidn2 domain impersonation ([CVE-2019-12290](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2019-12290))\n- Fix NSS crashes and heap corruption ([CVE-2017-11695](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-11695), [CVE-2017-11696](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-11696), [CVE-2017-11697](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-11697), [CVE-2017-11698](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-11698), [CVE-2018-18508](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2018-18508), [CVE-2019-11745](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2019-11745))\n- Fix OpenSSL overflow in Montgomery squaring procedure ([CVE-2019-1551](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2019-1551))\n- Fix SQLite crash and heap corruption ([CVE-2019-16168](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2019-16168), [CVE-2019-5827](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2019-5827))\n- Fix unzip heap overflow or excessive resource consumption via crafted archive ([CVE-2018-1000035](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2018-1000035), [CVE-2019-13232](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2019-13232))\n- Fix vim arbitrary command execution via crafted file ([CVE-2019-12735](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2019-12735))\n\nBug fixes:\n- When writing the update kernel, prefer `/boot/coreos` only if `/boot/coreos/vmlinux-*` exists (https://github.com/flatcar-linux/update_engine/pull/5)\n- Fixed sysroot-boot initramfs service race which resulted in a warning that this service failed\n- Use the correct `BINHOST` URLs in the development container to download binary packages\n\nChanges:\n- Support the CoreOS GRUB `/boot/coreos/first_boot` flag file (https://github.com/flatcar-linux/bootengine/pull/13)\n- Fetch container images in docker format rather than ACI by default in `etcd-member.service`, `flanneld.service`, and `kubelet-wrapper`\n- Use `flatcar.autologin` kernel command line parameter on Azure and VMware for auto login on the serial console\n- Include `conntrack` ([conntrack-tools](http://conntrack-tools.netfilter.org/))\n- Include `journalctl` output, `pstore` kernel crash logs, and `coredumpctl list` output in the `mayday` report\n- Update wa-linux-agent to 2.2.46 on Azure\n- Support both `coreos.config.*` and `flatcar.config.*` guestinfo variables on VMware OEM\n\nUpdates:\n- e2fsprogs [1.45.5](http://e2fsprogs.sourceforge.net/e2fsprogs-release.html#1.45.5)\n- etcd [3.3.20](https://github.com/etcd-io/etcd/releases/tag/v3.3.20)\n- etcdctl [3.3.20](https://github.com/etcd-io/etcd/releases/tag/v3.3.20)\n- Git [2.24.1](https://raw.githubusercontent.com/git/git/v2.24.1/Documentation/RelNotes/2.24.1.txt)\n- Linux [4.19.124](https://lwn.net/Articles/820974/)\n- OpenSSL [1.0.2u](https://www.openssl.org/news/openssl-1.0.2-notes.html)\n- vim [8.2.0360](http://ftp.vim.org/pub/vim/patches/8.2/README)\n"
   }
 }
