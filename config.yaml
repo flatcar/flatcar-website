@@ -24,10 +24,6 @@ blackfriday:
     - noEmptyLineBeforeBlock
 menu:
   main:
-    - name: Releases
-      url: /releases
-      identifier: releases
-      weight: -200
     - name: FAQ
       url: /faq
       identifier: faq
@@ -36,9 +32,12 @@ menu:
       url: /security
       identifier: security
       weight: -50
-
   left:
     - name: Docs
       url: https://docs.flatcar-linux.org
       identifier: docs
-      weight: 0
+      weight: -200
+    - name: Releases
+      url: /releases
+      identifier: releases
+      weight: -0
