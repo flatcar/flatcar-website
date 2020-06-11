@@ -27,4 +27,3 @@ If you are reporting an issue that needs to be urgently looked at, please prepen
 Verify images using the following signing keys.
 
 * [Image signing key for AMD64 images](/security/image-signing-key-amd64/)
-* [Image signing key for ARM images](/security/image-signing-key-arm/)
