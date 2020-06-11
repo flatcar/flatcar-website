@@ -49,14 +49,16 @@
        {{ end }}
     </div>
   </div>
+  <div class="pt-3 w-100">
+    <div class="float-right">
+      <a href="/releases-feed/releases.xml" class="small" style="box-shadow: 0 0 0 white; border: none;"><span class="fa fa-rss"></span> ATOM feed (all releases)</a>
+      <a href="/releases-json/releases.json" class="small" style="box-shadow: 0 0 0 white; border: none;"><span class="fa"></span> JSON feed (all releases)</a>
+    </div>
+  </div>
   </div>
 
   <div class="row mt-5" style="justify-content: space-between;">
       <h2>Release Notes</h2>
-      <div style="padding-right: 1rem;">
-        <a href="/releases-feed/releases.xml" class="small" style="box-shadow: 0 0 0 white; border: none;"><span class="fa fa-rss"></span> ATOM feed (all releases)</a>
-        <a href="/releases-json/releases.json" class="small" style="box-shadow: 0 0 0 white; border: none;"><span class="fa"></span> JSON feed (all releases)</a>
-      </div>
       <div class="mt-3">
 	        <ul class="nav nav-tabs" id="release-tabs" role="tablist">
               {{ range $i, $name := $orderedchan }}
@@ -70,16 +72,17 @@
                   </a>
 		          </li>
               {{ end }}
-
 	        </ul>
 	        <div class="tab-content p-3" id="release-tabs-content">
               {{ range $i, $name := $orderedchan }}
               {{ $chan := index $.Site.Data.releases $name }}
               <div class="tab-pane fade {{ if eq $chan.current.channel "stable" }} active show {{ end }}" id="{{ $chan.current.channel }}-release"
                    role="tabpanel" aria-labelledby="{{ $chan.current.channel }}-release-tab">
-                  <div style="text-align: right;">
-                  <a href="/releases-feed/releases-{{ $chan.current.channel }}.xml" class="small" style="box-shadow: 0 0 0 white; border: none;"><span class="fa fa-rss"></span> ATOM feed ({{ $chan.current.channel }})</a>
-                  <a href="/releases-json/releases-{{ $chan.current.channel }}.json" class="small" style="box-shadow: 0 0 0 white; border: none;"><span class="fa"></span> JSON feed ({{ $chan.current.channel }})</a>
+                  <div class="pt-3 w-100">
+                    <div class="float-right">
+                      <a href="/releases-feed/releases-{{ $chan.current.channel }}.xml" class="small" style="box-shadow: 0 0 0 white; border: none;"><span class="fa fa-rss"></span> ATOM feed ({{ $chan.current.channel }})</a>
+                      <a href="/releases-json/releases-{{ $chan.current.channel }}.json" class="small" style="box-shadow: 0 0 0 white; border: none;"><span class="fa"></span> JSON feed ({{ $chan.current.channel }})</a>
+                    </div>
                   </div>
                   {{ range $pkg, $ver := $chan.current.image_packages }}
                   {{ $.Scratch.SetInMap "pkgPkgMap" $pkg $pkg }}
