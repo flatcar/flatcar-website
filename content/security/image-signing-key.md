@@ -1,5 +1,5 @@
 ---
-title: "Image Signing Key (AMD64)"
+title: "Image Signing Key"
 date: 2018-04-17T19:00:09+02:00
 draft: false
 key: /security/image-signing-key/Flatcar_Image_Signing_Key.asc
