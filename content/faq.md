@@ -58,7 +58,7 @@ The main funding and engineering effort has been provided by [Kinvolk](https://k
 Kinvolk is a Linux consulting company and intends to maintain and support the project going forward.
 Kinvolk sustains its effort by offering commercial support agreements for Flatcar Container Linux.
 
-The Flatcar Container Linux open source project furthermore has a number of corporate sponsors. If your organization would like to become a sponsor, contact us at [hello@kinvolk.io](mailto:hello@kinvolk.io?subject=I%20want %20to%20sponsor%20Flatcar%20Container%20Linux).
+The Flatcar Container Linux open source project furthermore has a number of corporate sponsors. If your organization would like to become a sponsor, contact us at [hello@kinvolk.io](mailto:hello@kinvolk.io?subject=I%20want%20to%20sponsor%20Flatcar%20Container%20Linux).
 
 ## Who is Kinvolk?
 
