@@ -1583,6 +1583,32 @@
     },
     "release_notes": "## Flatcar updates\n\nSecurity fixes:\n- Fix the Intel Microcode vulnerabilities ([CVE-2020-0543](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2020-0543))\n\nChanges:\n- A source code and licensing overview is available under `/usr/share/licenses/INFO`\n\nUpdates:\n- Linux [5.4.46](https://lwn.net/Articles/822840/)\n- intel-microcode [20200609](https://github.com/intel/Intel-Linux-Processor-Microcode-Data-Files/releases/tag/microcode-20200609)"
   },
+  "2513.1.0": {
+    "channel": "alpha",
+    "architectures": [
+      "amd64",
+      "arm64"
+    ],
+    "release_date": "2020-06-30 15:56:06 +0000",
+    "major_software": {
+      "docker": [
+        "19.03.11"
+      ],
+      "ignition": [
+        "0.34.0"
+      ],
+      "kernel": [
+        "5.4.47"
+      ],
+      "rkt": [
+        "1.30.0"
+      ],
+      "systemd": [
+        "243"
+      ]
+    },
+    "release_notes": "Security Fixes:\n\n- Malicious URLs can cause Git to expose private credentials [CVE-2020-5260](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2020-5260)\n- Similar to [CVE-2020-5260](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2020-5260), Malicious URLs can cause Git to expose private credentials [CVE-2020-11008](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2020-11008)\n\nBugfixes:\n- Include dig binary in ARM [flatcar-linux/Flatcar#123](https://github.com/flatcar-linux/Flatcar/issues/123)\n- Fix the login prompt issue in the ISO [flatcar-linux/Flatcar#131](https://github.com/flatcar-linux/Flatcar/issues/131)\n- app-admin/{kubelet, etcd, flannel}-wrapper: don't overwrite the user supplied --insecure-options argument https://github.com/flatcar-linux/coreos-overlay/pull/426\n\nUpdates:\n\n- Linux - [5.4.47](https://lwn.net/Articles/823315/)\n- Docker - [19.03.11](https://docs.docker.com/engine/release-notes/#190311)\n- Go - [1.13.12](https://go.googlesource.com/go/+/refs/tags/go1.13.12)\n- strace - [5.6](https://github.com/strace/strace/releases/tag/v5.6)\n- git - [2.26.2](https://github.com/git/git/blob/master/Documentation/RelNotes/2.26.2.txt)\n\nNote: Please note that ARM images remain experimental for now.\n"
+  },
   "current": {
     "channel": "stable",
     "architectures": [
