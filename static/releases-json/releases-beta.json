@@ -1399,29 +1399,54 @@
     },
     "release_notes": "## Flatcar updates\n\nSecurity fixes:\n- Fix the Intel Microcode vulnerabilities ([CVE-2020-0543](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2020-0543))\n\nChanges:\n- A source code and licensing overview is available under `/usr/share/licenses/INFO`\n\nUpdates:\n- Linux [4.19.128](https://lwn.net/Articles/822841/)\n- intel-microcode [20200609](https://github.com/intel/Intel-Linux-Processor-Microcode-Data-Files/releases/tag/microcode-20200609)"
   },
-  "current": {
+  "2513.2.0": {
     "channel": "beta",
     "architectures": [
       "amd64"
     ],
-    "release_date": "2020-06-17 15:46:09 +0000",
+    "release_date": "2020-07-23 09:44:10 +0000",
     "major_software": {
       "docker": [
-        "18.06.3"
+        "19.03.11"
       ],
       "ignition": [
         "0.34.0"
       ],
       "kernel": [
-        "4.19.128"
+        "5.4.52"
       ],
       "rkt": [
         "1.30.0"
       ],
       "systemd": [
-        "241"
+        "243"
       ]
     },
-    "release_notes": "## Flatcar updates\n\nSecurity fixes:\n- Fix the Intel Microcode vulnerabilities ([CVE-2020-0543](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2020-0543))\n\nChanges:\n- A source code and licensing overview is available under `/usr/share/licenses/INFO`\n\nUpdates:\n- Linux [4.19.128](https://lwn.net/Articles/822841/)\n- intel-microcode [20200609](https://github.com/intel/Intel-Linux-Processor-Microcode-Data-Files/releases/tag/microcode-20200609)"
+    "release_notes": "Changes since the Alpha release 2513.1.0\n\n### Bug Fixes:\n- The [static IP address configuration in the initramfs](https://docs.flatcar-linux.org/ignition/network-configuration/#using-static-ip-addresses-with-ignition) works again in the format `ip=<ip>::<gateway>:<netmask>:<hostname>:<iface>:none[:<dns1>[:<dns2>]]` https://github.com/flatcar-linux/bootengine/pull/15\n\n### Updates:\n- Linux [5.4.52](https://lwn.net/Articles/826291/)\n"
+  },
+  "current": {
+    "channel": "beta",
+    "architectures": [
+      "amd64"
+    ],
+    "release_date": "2020-07-23 09:44:10 +0000",
+    "major_software": {
+      "docker": [
+        "19.03.11"
+      ],
+      "ignition": [
+        "0.34.0"
+      ],
+      "kernel": [
+        "5.4.52"
+      ],
+      "rkt": [
+        "1.30.0"
+      ],
+      "systemd": [
+        "243"
+      ]
+    },
+    "release_notes": "Changes since the Alpha release 2513.1.0\n\n### Bug Fixes:\n- The [static IP address configuration in the initramfs](https://docs.flatcar-linux.org/ignition/network-configuration/#using-static-ip-addresses-with-ignition) works again in the format `ip=<ip>::<gateway>:<netmask>:<hostname>:<iface>:none[:<dns1>[:<dns2>]]` https://github.com/flatcar-linux/bootengine/pull/15\n\n### Updates:\n- Linux [5.4.52](https://lwn.net/Articles/826291/)\n"
   }
 }
