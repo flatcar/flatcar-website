@@ -1424,12 +1424,12 @@
     },
     "release_notes": "Changes since the Alpha release 2513.1.0\n\nBug Fixes:\n- The [static IP address configuration in the initramfs](https://docs.flatcar-linux.org/ignition/network-configuration/#using-static-ip-addresses-with-ignition) works again in the format `ip=<ip>::<gateway>:<netmask>:<hostname>:<iface>:none[:<dns1>[:<dns2>]]` https://github.com/flatcar-linux/bootengine/pull/15\n\n\nUpdates:\n- Linux [5.4.52](https://lwn.net/Articles/826291/)\n"
   },
-  "current": {
+  "2513.3.0": {
     "channel": "beta",
     "architectures": [
       "amd64"
     ],
-    "release_date": "2020-07-23 09:44:10 +0000",
+    "release_date": "2020-08-20 21:46:48 +0000",
     "major_software": {
       "docker": [
         "19.03.11"
@@ -1438,7 +1438,7 @@
         "0.34.0"
       ],
       "kernel": [
-        "5.4.52"
+        "5.4.59"
       ],
       "rkt": [
         "1.30.0"
@@ -1447,6 +1447,31 @@
         "243"
       ]
     },
-    "release_notes": "Changes since the Alpha release 2513.1.0\n\nBug Fixes:\n- The [static IP address configuration in the initramfs](https://docs.flatcar-linux.org/ignition/network-configuration/#using-static-ip-addresses-with-ignition) works again in the format `ip=<ip>::<gateway>:<netmask>:<hostname>:<iface>:none[:<dns1>[:<dns2>]]` https://github.com/flatcar-linux/bootengine/pull/15\n\n\nUpdates:\n- Linux [5.4.52](https://lwn.net/Articles/826291/)\n"
+    "release_notes": "Security fixes:\n\n* Bind: fixes for [CVE-2020-8616](https://nvd.nist.gov/vuln/detail/CVE-2020-8616), [CVE-2020-8617](https://nvd.nist.gov/vuln/detail/CVE-2020-8617), [CVE-2020-8620](https://nvd.nist.gov/vuln/detail/CVE-2020-8620), [CVE-2020-8621](https://nvd.nist.gov/vuln/detail/CVE-2020-8621), [CVE-2020-8622](https://nvd.nist.gov/vuln/detail/CVE-2020-8622), [CVE-2020-8623](https://nvd.nist.gov/vuln/detail/CVE-2020-8623), [CVE-2020-8624](https://nvd.nist.gov/vuln/detail/CVE-2020-8624)\n\nBug fixes:\n\n* etcd-wrapper: Adjust data dir permissions ([flatcar-linux/coreos-overlay#536](https://github.com/flatcar-linux/coreos-overlay/pull/536))\n\nChanges:\n\n* Vultr support in Ignition ([flatcar-linux/ignition#13](https://github.com/flatcar-linux/ignition/pull/13))\n* VMware OVF settings default to ESXi 6.5 and Linux 3.x\n\nUpdates:\n\n* Linux [5.4.59](https://lwn.net/Articles/829106/)\n* bind-tools [9.11.22](https://ftp.isc.org/isc/bind9/cur/9.11/RELEASE-NOTES-bind-9.11.22.txt)\n* etcd-wrapper [3.3.24](https://github.com/etcd-io/etcd/releases/tag/v3.3.24)\n"
+  },
+  "current": {
+    "channel": "beta",
+    "architectures": [
+      "amd64"
+    ],
+    "release_date": "2020-08-20 21:46:48 +0000",
+    "major_software": {
+      "docker": [
+        "19.03.11"
+      ],
+      "ignition": [
+        "0.34.0"
+      ],
+      "kernel": [
+        "5.4.59"
+      ],
+      "rkt": [
+        "1.30.0"
+      ],
+      "systemd": [
+        "243"
+      ]
+    },
+    "release_notes": "Security fixes:\n\n* Bind: fixes for [CVE-2020-8616](https://nvd.nist.gov/vuln/detail/CVE-2020-8616), [CVE-2020-8617](https://nvd.nist.gov/vuln/detail/CVE-2020-8617), [CVE-2020-8620](https://nvd.nist.gov/vuln/detail/CVE-2020-8620), [CVE-2020-8621](https://nvd.nist.gov/vuln/detail/CVE-2020-8621), [CVE-2020-8622](https://nvd.nist.gov/vuln/detail/CVE-2020-8622), [CVE-2020-8623](https://nvd.nist.gov/vuln/detail/CVE-2020-8623), [CVE-2020-8624](https://nvd.nist.gov/vuln/detail/CVE-2020-8624)\n\nBug fixes:\n\n* etcd-wrapper: Adjust data dir permissions ([flatcar-linux/coreos-overlay#536](https://github.com/flatcar-linux/coreos-overlay/pull/536))\n\nChanges:\n\n* Vultr support in Ignition ([flatcar-linux/ignition#13](https://github.com/flatcar-linux/ignition/pull/13))\n* VMware OVF settings default to ESXi 6.5 and Linux 3.x\n\nUpdates:\n\n* Linux [5.4.59](https://lwn.net/Articles/829106/)\n* bind-tools [9.11.22](https://ftp.isc.org/isc/bind9/cur/9.11/RELEASE-NOTES-bind-9.11.22.txt)\n* etcd-wrapper [3.3.24](https://github.com/etcd-io/etcd/releases/tag/v3.3.24)\n"
   }
 }

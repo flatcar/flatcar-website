@@ -1124,12 +1124,12 @@
     },
     "release_notes": "## Flatcar updates\n\nSecurity fixes:\n- Fix the Intel Microcode vulnerabilities ([CVE-2020-0543](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2020-0543))\n\nChanges:\n- A source code and licensing overview is available under `/usr/share/licenses/INFO`\n\nUpdates:\n- Linux [4.19.128](https://lwn.net/Articles/822841/)\n- intel-microcode [20200609](https://github.com/intel/Intel-Linux-Processor-Microcode-Data-Files/releases/tag/microcode-20200609)"
   },
-  "current": {
+  "2512.3.0": {
     "channel": "stable",
     "architectures": [
       "amd64"
     ],
-    "release_date": "2020-06-17 15:45:35 +0000",
+    "release_date": "2020-08-20 21:44:54 +0000",
     "major_software": {
       "docker": [
         "18.06.3"
@@ -1138,7 +1138,7 @@
         "0.34.0"
       ],
       "kernel": [
-        "4.19.128"
+        "4.19.140"
       ],
       "rkt": [
         "1.30.0"
@@ -1147,6 +1147,31 @@
         "241"
       ]
     },
-    "release_notes": "## Flatcar updates\n\nSecurity fixes:\n- Fix the Intel Microcode vulnerabilities ([CVE-2020-0543](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2020-0543))\n\nChanges:\n- A source code and licensing overview is available under `/usr/share/licenses/INFO`\n\nUpdates:\n- Linux [4.19.128](https://lwn.net/Articles/822841/)\n- intel-microcode [20200609](https://github.com/intel/Intel-Linux-Processor-Microcode-Data-Files/releases/tag/microcode-20200609)"
+    "release_notes": "Security fixes:\n\n* Bind: fixes for [CVE-2020-8616](https://nvd.nist.gov/vuln/detail/CVE-2020-8616), [CVE-2020-8617](https://nvd.nist.gov/vuln/detail/CVE-2020-8617), [CVE-2020-8620](https://nvd.nist.gov/vuln/detail/CVE-2020-8620), [CVE-2020-8621](https://nvd.nist.gov/vuln/detail/CVE-2020-8621), [CVE-2020-8622](https://nvd.nist.gov/vuln/detail/CVE-2020-8622), [CVE-2020-8623](https://nvd.nist.gov/vuln/detail/CVE-2020-8623), [CVE-2020-8624](https://nvd.nist.gov/vuln/detail/CVE-2020-8624)\n\nBug fixes:\n\n* The static IP address configuration in the initramfs works again in the format `ip=<ip>::<gateway>:<netmask>:<hostname>:<iface>:none[:<dns1>[:<dns2>]]` ([flatcar-linux/bootengine#15](https://github.com/flatcar-linux/bootengine/pull/15))\n* app-admin/{kubelet, etcd, flannel}-wrapper: don't overwrite the user supplied \u2013insecure-options argument ([flatcar-linux/coreos-overlay#426](https://github.com/flatcar-linux/coreos-overlay/pull/426))\n* etcd-wrapper: Adjust data dir permissions ([flatcar-linux/coreos-overlay#536](https://github.com/flatcar-linux/coreos-overlay/pull/536))\n\nChanges:\n\n* Vultr support in Ignition ([flatcar-linux/ignition#13](https://github.com/flatcar-linux/ignition/pull/13))\n* VMware OVF settings default to ESXi 6.5 and Linux 3.x\n\nUpdates:\n\n* Linux [4.19.140](https://lwn.net/Articles/829107/)\n* bind-tools [9.11.22](https://ftp.isc.org/isc/bind9/cur/9.11/RELEASE-NOTES-bind-9.11.22.txt)\n* etcd-wrapper [3.3.24](https://github.com/etcd-io/etcd/releases/tag/v3.3.24)\n* Git [2.26.2](https://raw.githubusercontent.com/git/git/v2.26.2/Documentation/RelNotes/2.26.2.txt)"
+  },
+  "current": {
+    "channel": "stable",
+    "architectures": [
+      "amd64"
+    ],
+    "release_date": "2020-08-20 21:44:54 +0000",
+    "major_software": {
+      "docker": [
+        "18.06.3"
+      ],
+      "ignition": [
+        "0.34.0"
+      ],
+      "kernel": [
+        "4.19.140"
+      ],
+      "rkt": [
+        "1.30.0"
+      ],
+      "systemd": [
+        "241"
+      ]
+    },
+    "release_notes": "Security fixes:\n\n* Bind: fixes for [CVE-2020-8616](https://nvd.nist.gov/vuln/detail/CVE-2020-8616), [CVE-2020-8617](https://nvd.nist.gov/vuln/detail/CVE-2020-8617), [CVE-2020-8620](https://nvd.nist.gov/vuln/detail/CVE-2020-8620), [CVE-2020-8621](https://nvd.nist.gov/vuln/detail/CVE-2020-8621), [CVE-2020-8622](https://nvd.nist.gov/vuln/detail/CVE-2020-8622), [CVE-2020-8623](https://nvd.nist.gov/vuln/detail/CVE-2020-8623), [CVE-2020-8624](https://nvd.nist.gov/vuln/detail/CVE-2020-8624)\n\nBug fixes:\n\n* The static IP address configuration in the initramfs works again in the format `ip=<ip>::<gateway>:<netmask>:<hostname>:<iface>:none[:<dns1>[:<dns2>]]` ([flatcar-linux/bootengine#15](https://github.com/flatcar-linux/bootengine/pull/15))\n* app-admin/{kubelet, etcd, flannel}-wrapper: don't overwrite the user supplied \u2013insecure-options argument ([flatcar-linux/coreos-overlay#426](https://github.com/flatcar-linux/coreos-overlay/pull/426))\n* etcd-wrapper: Adjust data dir permissions ([flatcar-linux/coreos-overlay#536](https://github.com/flatcar-linux/coreos-overlay/pull/536))\n\nChanges:\n\n* Vultr support in Ignition ([flatcar-linux/ignition#13](https://github.com/flatcar-linux/ignition/pull/13))\n* VMware OVF settings default to ESXi 6.5 and Linux 3.x\n\nUpdates:\n\n* Linux [4.19.140](https://lwn.net/Articles/829107/)\n* bind-tools [9.11.22](https://ftp.isc.org/isc/bind9/cur/9.11/RELEASE-NOTES-bind-9.11.22.txt)\n* etcd-wrapper [3.3.24](https://github.com/etcd-io/etcd/releases/tag/v3.3.24)\n* Git [2.26.2](https://raw.githubusercontent.com/git/git/v2.26.2/Documentation/RelNotes/2.26.2.txt)"
   }
 }

@@ -3,50 +3,60 @@ architectures:
 channel: stable
 github_release:
   assets: []
-  assets_url: https://api.github.com/repos/flatcar-linux/manifest/releases/27647437/assets
+  assets_url: https://api.github.com/repos/flatcar-linux/manifest/releases/29950805/assets
   author:
-    avatar_url: https://avatars3.githubusercontent.com/u/500628?v=4
-    events_url: https://api.github.com/users/sayanchowdhury/events{/privacy}
-    followers_url: https://api.github.com/users/sayanchowdhury/followers
-    following_url: https://api.github.com/users/sayanchowdhury/following{/other_user}
-    gists_url: https://api.github.com/users/sayanchowdhury/gists{/gist_id}
+    avatar_url: https://avatars0.githubusercontent.com/u/1189130?v=4
+    events_url: https://api.github.com/users/pothos/events{/privacy}
+    followers_url: https://api.github.com/users/pothos/followers
+    following_url: https://api.github.com/users/pothos/following{/other_user}
+    gists_url: https://api.github.com/users/pothos/gists{/gist_id}
     gravatar_id: ''
-    html_url: https://github.com/sayanchowdhury
-    id: 500628
-    login: sayanchowdhury
-    node_id: MDQ6VXNlcjUwMDYyOA==
-    organizations_url: https://api.github.com/users/sayanchowdhury/orgs
-    received_events_url: https://api.github.com/users/sayanchowdhury/received_events
-    repos_url: https://api.github.com/users/sayanchowdhury/repos
+    html_url: https://github.com/pothos
+    id: 1189130
+    login: pothos
+    node_id: MDQ6VXNlcjExODkxMzA=
+    organizations_url: https://api.github.com/users/pothos/orgs
+    received_events_url: https://api.github.com/users/pothos/received_events
+    repos_url: https://api.github.com/users/pothos/repos
     site_admin: false
-    starred_url: https://api.github.com/users/sayanchowdhury/starred{/owner}{/repo}
-    subscriptions_url: https://api.github.com/users/sayanchowdhury/subscriptions
+    starred_url: https://api.github.com/users/pothos/starred{/owner}{/repo}
+    subscriptions_url: https://api.github.com/users/pothos/subscriptions
     type: User
-    url: https://api.github.com/users/sayanchowdhury
-  body: "## Flatcar updates\r\n\r\nSecurity fixes:\r\n- Fix the Intel Microcode vulnerabilities\
-    \ ([CVE-2020-0543](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2020-0543))\r\
-    \n\r\nChanges:\r\n- A source code and licensing overview is available under `/usr/share/licenses/INFO`\r\
-    \n\r\nUpdates:\r\n- Linux [4.19.128](https://lwn.net/Articles/822841/)\r\n- intel-microcode\
-    \ [20200609](https://github.com/intel/Intel-Linux-Processor-Microcode-Data-Files/releases/tag/microcode-20200609)"
-  created_at: '2020-06-15T17:40:24Z'
+    url: https://api.github.com/users/pothos
+  body: "Security fixes:\r\n\r\n* Bind: fixes for [CVE-2020-8616](https://nvd.nist.gov/vuln/detail/CVE-2020-8616),\
+    \ [CVE-2020-8617](https://nvd.nist.gov/vuln/detail/CVE-2020-8617), [CVE-2020-8620](https://nvd.nist.gov/vuln/detail/CVE-2020-8620),\
+    \ [CVE-2020-8621](https://nvd.nist.gov/vuln/detail/CVE-2020-8621), [CVE-2020-8622](https://nvd.nist.gov/vuln/detail/CVE-2020-8622),\
+    \ [CVE-2020-8623](https://nvd.nist.gov/vuln/detail/CVE-2020-8623), [CVE-2020-8624](https://nvd.nist.gov/vuln/detail/CVE-2020-8624)\r\
+    \n\r\nBug fixes:\r\n\r\n* The static IP address configuration in the initramfs\
+    \ works again in the format `ip=<ip>::<gateway>:<netmask>:<hostname>:<iface>:none[:<dns1>[:<dns2>]]`\
+    \ ([flatcar-linux/bootengine#15](https://github.com/flatcar-linux/bootengine/pull/15))\r\
+    \n* app-admin/{kubelet, etcd, flannel}-wrapper: don't overwrite the user supplied\
+    \ \u2013insecure-options argument ([flatcar-linux/coreos-overlay#426](https://github.com/flatcar-linux/coreos-overlay/pull/426))\r\
+    \n* etcd-wrapper: Adjust data dir permissions ([flatcar-linux/coreos-overlay#536](https://github.com/flatcar-linux/coreos-overlay/pull/536))\r\
+    \n\r\nChanges:\r\n\r\n* Vultr support in Ignition ([flatcar-linux/ignition#13](https://github.com/flatcar-linux/ignition/pull/13))\r\
+    \n* VMware OVF settings default to ESXi 6.5 and Linux 3.x\r\n\r\nUpdates:\r\n\r\
+    \n* Linux [4.19.140](https://lwn.net/Articles/829107/)\r\n* bind-tools [9.11.22](https://ftp.isc.org/isc/bind9/cur/9.11/RELEASE-NOTES-bind-9.11.22.txt)\r\
+    \n* etcd-wrapper [3.3.24](https://github.com/etcd-io/etcd/releases/tag/v3.3.24)\r\
+    \n* Git [2.26.2](https://raw.githubusercontent.com/git/git/v2.26.2/Documentation/RelNotes/2.26.2.txt)"
+  created_at: '2020-08-18T16:53:55Z'
   draft: false
-  html_url: https://github.com/flatcar-linux/manifest/releases/tag/v2512.2.1
-  id: 27647437
-  name: v2512.2.1
-  node_id: MDc6UmVsZWFzZTI3NjQ3NDM3
+  html_url: https://github.com/flatcar-linux/manifest/releases/tag/v2512.3.0
+  id: 29950805
+  name: v2512.3.0
+  node_id: MDc6UmVsZWFzZTI5OTUwODA1
   prerelease: false
-  published_at: '2020-06-17T15:45:35Z'
-  tag_name: v2512.2.1
-  tarball_url: https://api.github.com/repos/flatcar-linux/manifest/tarball/v2512.2.1
+  published_at: '2020-08-20T21:44:54Z'
+  tag_name: v2512.3.0
+  tarball_url: https://api.github.com/repos/flatcar-linux/manifest/tarball/v2512.3.0
   target_commitish: flatcar-master
-  upload_url: https://uploads.github.com/repos/flatcar-linux/manifest/releases/27647437/assets{?name,label}
-  url: https://api.github.com/repos/flatcar-linux/manifest/releases/27647437
-  zipball_url: https://api.github.com/repos/flatcar-linux/manifest/zipball/v2512.2.1
+  upload_url: https://uploads.github.com/repos/flatcar-linux/manifest/releases/29950805/assets{?name,label}
+  url: https://api.github.com/repos/flatcar-linux/manifest/releases/29950805
+  zipball_url: https://api.github.com/repos/flatcar-linux/manifest/zipball/v2512.3.0
 image_packages:
   docker: 18.06.3
   ignition: 0.34.0
-  kernel: 4.19.128
+  kernel: 4.19.140
   rkt: 1.30.0
   systemd: '241'
 release: current
-version: 2512.2.1
+version: 2512.3.0
