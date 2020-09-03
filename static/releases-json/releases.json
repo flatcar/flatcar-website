@@ -3162,6 +3162,31 @@
     },
     "release_notes": "Security fixes:\n\n* Bind: fixes for [CVE-2020-8616](https://nvd.nist.gov/vuln/detail/CVE-2020-8616), [CVE-2020-8617](https://nvd.nist.gov/vuln/detail/CVE-2020-8617), [CVE-2020-8620](https://nvd.nist.gov/vuln/detail/CVE-2020-8620), [CVE-2020-8621](https://nvd.nist.gov/vuln/detail/CVE-2020-8621), [CVE-2020-8622](https://nvd.nist.gov/vuln/detail/CVE-2020-8622), [CVE-2020-8623](https://nvd.nist.gov/vuln/detail/CVE-2020-8623), [CVE-2020-8624](https://nvd.nist.gov/vuln/detail/CVE-2020-8624)\n\nBug fixes:\n\n* etcd-wrapper: Adjust data dir permissions ([flatcar-linux/coreos-overlay#536](https://github.com/flatcar-linux/coreos-overlay/pull/536))\n\nChanges:\n\n* Vultr support in Ignition ([flatcar-linux/ignition#13](https://github.com/flatcar-linux/ignition/pull/13))\n* VMware OVF settings default to ESXi 6.5 and Linux 3.x\n\nUpdates:\n\n* Linux [5.4.59](https://lwn.net/Articles/829106/)\n* bind-tools [9.11.22](https://ftp.isc.org/isc/bind9/cur/9.11/RELEASE-NOTES-bind-9.11.22.txt)\n* etcd-wrapper [3.3.24](https://github.com/etcd-io/etcd/releases/tag/v3.3.24)\n"
   },
+  "2605.2.0": {
+    "channel": "beta",
+    "architectures": [
+      "amd64"
+    ],
+    "release_date": "2020-09-03 12:48:56 +0000",
+    "major_software": {
+      "docker": [
+        "19.03.12"
+      ],
+      "ignition": [
+        "0.34.0"
+      ],
+      "kernel": [
+        "5.4.61"
+      ],
+      "rkt": [
+        "1.30.0"
+      ],
+      "systemd": [
+        "245"
+      ]
+    },
+    "release_notes": "Changes from Alpha release 2605.1.0\n\nChanges:\n- Update public key to include [new subkey](https://github.com/flatcar-linux/init/pull/25)"
+  },
   "2051.99.1": {
     "channel": "edge",
     "architectures": [
