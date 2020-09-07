@@ -1474,12 +1474,12 @@
     },
     "release_notes": "Changes from Alpha release 2605.1.0\n\nChanges:\n- Update public key to include [new subkey](https://github.com/flatcar-linux/init/pull/25)"
   },
-  "current": {
+  "2605.3.0": {
     "channel": "beta",
     "architectures": [
       "amd64"
     ],
-    "release_date": "2020-09-03 12:48:56 +0000",
+    "release_date": "2020-09-07 15:37:41 +0000",
     "major_software": {
       "docker": [
         "19.03.12"
@@ -1488,7 +1488,7 @@
         "0.34.0"
       ],
       "kernel": [
-        "5.4.61"
+        "5.4.62"
       ],
       "rkt": [
         "1.30.0"
@@ -1497,6 +1497,31 @@
         "245"
       ]
     },
-    "release_notes": "Changes from Alpha release 2605.1.0\n\nChanges:\n- Update public key to include [new subkey](https://github.com/flatcar-linux/init/pull/25)"
+    "release_notes": "Security fixes:\n- Linux kernel: Fix AF_PACKET overflow in tpacket_rcv [CVE-2020-14386](https://seclists.org/oss-sec/2020/q3/146)\n\nUpdates:\n- Linux [5.4.62](https://lwn.net/Articles/830502/)"
+  },
+  "current": {
+    "channel": "beta",
+    "architectures": [
+      "amd64"
+    ],
+    "release_date": "2020-09-07 15:37:41 +0000",
+    "major_software": {
+      "docker": [
+        "19.03.12"
+      ],
+      "ignition": [
+        "0.34.0"
+      ],
+      "kernel": [
+        "5.4.62"
+      ],
+      "rkt": [
+        "1.30.0"
+      ],
+      "systemd": [
+        "245"
+      ]
+    },
+    "release_notes": "Security fixes:\n- Linux kernel: Fix AF_PACKET overflow in tpacket_rcv [CVE-2020-14386](https://seclists.org/oss-sec/2020/q3/146)\n\nUpdates:\n- Linux [5.4.62](https://lwn.net/Articles/830502/)"
   }
 }
