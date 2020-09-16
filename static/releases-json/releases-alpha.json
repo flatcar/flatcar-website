@@ -1687,13 +1687,13 @@
     },
     "release_notes": "\nBug fixes:\n\n- Resolve ipset API incompatibility [Flatcar#174](https://github.com/flatcar-linux/Flatcar/issues/174)\n- Fix udev rule warning about ignored value [Flatcar#164](https://github.com/flatcar-linux/Flatcar/issues/164)\n- Add missing `render` group [Flatcar#169](https://github.com/flatcar-linux/Flatcar/issues/169)\n\nChanges:\n\n- Mount `/sys/fs/bpf` into the toolbox container and allow BPF syscalls ([PR#544](https://github.com/flatcar-linux/coreos-overlay/pull/544))\n- Support loading BPF programs with `tc` [Flatcar#172](https://github.com/flatcar-linux/Flatcar/issues/172)\n\nUpdates:\n\n- Linux [5.4.61](https://lwn.net/Articles/829613/)\n- etcd-wrapper/etcdctl [3.3.25](https://github.com/etcd-io/etcd/releases/tag/v3.3.25)\n- ipset [7.6](https://lwn.net/Articles/813097/)\n- iproute [5.8](https://lwn.net/Articles/828370/)\n- mdadm [4.1](https://mirrors.edge.kernel.org/pub/linux/utils/raid/mdadm/ANNOUNCE)\n- VMware: openvm-tools [11.1.5](https://github.com/vmware/open-vm-tools/blob/stable-11.1.5/ReleaseNotes.md)\n\nNote: Please note that ARM images remain experimental for now.\n"
   },
-  "current": {
+  "2632.0.0": {
     "channel": "alpha",
     "architectures": [
       "amd64",
       "arm64"
     ],
-    "release_date": "2020-09-01 12:24:31 +0000",
+    "release_date": "2020-09-16 06:15:52 +0000",
     "major_software": {
       "docker": [
         "19.03.12"
@@ -1702,7 +1702,7 @@
         "0.34.0"
       ],
       "kernel": [
-        "5.4.61"
+        "5.8.9"
       ],
       "rkt": [
         "1.30.0"
@@ -1711,6 +1711,32 @@
         "245"
       ]
     },
-    "release_notes": "\nBug fixes:\n\n- Resolve ipset API incompatibility [Flatcar#174](https://github.com/flatcar-linux/Flatcar/issues/174)\n- Fix udev rule warning about ignored value [Flatcar#164](https://github.com/flatcar-linux/Flatcar/issues/164)\n- Add missing `render` group [Flatcar#169](https://github.com/flatcar-linux/Flatcar/issues/169)\n\nChanges:\n\n- Mount `/sys/fs/bpf` into the toolbox container and allow BPF syscalls ([PR#544](https://github.com/flatcar-linux/coreos-overlay/pull/544))\n- Support loading BPF programs with `tc` [Flatcar#172](https://github.com/flatcar-linux/Flatcar/issues/172)\n\nUpdates:\n\n- Linux [5.4.61](https://lwn.net/Articles/829613/)\n- etcd-wrapper/etcdctl [3.3.25](https://github.com/etcd-io/etcd/releases/tag/v3.3.25)\n- ipset [7.6](https://lwn.net/Articles/813097/)\n- iproute [5.8](https://lwn.net/Articles/828370/)\n- mdadm [4.1](https://mirrors.edge.kernel.org/pub/linux/utils/raid/mdadm/ANNOUNCE)\n- VMware: openvm-tools [11.1.5](https://github.com/vmware/open-vm-tools/blob/stable-11.1.5/ReleaseNotes.md)\n\nNote: Please note that ARM images remain experimental for now.\n"
+    "release_notes": "Bug fixes:\n\n- Fix resetting of DNS nameservers in systemd-networkd units ([PR#12](https://github.com/flatcar-linux/systemd/pull/12))\n\nChanges:\n\n- Disable TX checksum offloading for the IP-in-IP tunl0 interface used by Calico ([PR#26](https://github.com/flatcar-linux/init/pull/26)). This is a workaround for a Mellanox driver issue, currently tracked in [Flatcar#183](https://github.com/flatcar-linux/Flatcar/issues/183)\n- Set `sysctl net.ipv4.conf.(all|*).rp_filter` to 0 (instead of the systemd upstream value 2) to be less restrictive which some network solutions rely on ([PR#11](https://github.com/flatcar-linux/systemd/pull/11))\n- Update-engine now detects rollbacks and reports them as errors to the update server ([PR#6](https://github.com/flatcar-linux/update_engine/pull/6))\n- `flatcar-install` allows installation to a multipath drive ([PR#24](https://github.com/flatcar-linux/init/pull/24))\n- Support the `lockdown` kernel command line parameter ([PR#533](https://github.com/flatcar-linux/coreos-overlay/pull/553))\n- Update public key to include a [new subkey](https://www.flatcar-linux.org/security/image-signing-key/)\n\nUpdates:\n\n- Linux [5.8.9](https://lwn.net/Articles/831365/)\n- linux-firmware [20200817](https://git.kernel.org/pub/scm/linux/kernel/git/firmware/linux-firmware.git/tag/?h=20200817)\n- Go [1.15.2](https://golang.org/doc/go1.15)\n- Rust [1.46.0](https://blog.rust-lang.org/2020/08/27/Rust-1.46.0.html)\n\nNote: Please note that ARM images remain experimental for now.\n"
+  },
+  "current": {
+    "channel": "alpha",
+    "architectures": [
+      "amd64",
+      "arm64"
+    ],
+    "release_date": "2020-09-16 06:15:52 +0000",
+    "major_software": {
+      "docker": [
+        "19.03.12"
+      ],
+      "ignition": [
+        "0.34.0"
+      ],
+      "kernel": [
+        "5.8.9"
+      ],
+      "rkt": [
+        "1.30.0"
+      ],
+      "systemd": [
+        "245"
+      ]
+    },
+    "release_notes": "Bug fixes:\n\n- Fix resetting of DNS nameservers in systemd-networkd units ([PR#12](https://github.com/flatcar-linux/systemd/pull/12))\n\nChanges:\n\n- Disable TX checksum offloading for the IP-in-IP tunl0 interface used by Calico ([PR#26](https://github.com/flatcar-linux/init/pull/26)). This is a workaround for a Mellanox driver issue, currently tracked in [Flatcar#183](https://github.com/flatcar-linux/Flatcar/issues/183)\n- Set `sysctl net.ipv4.conf.(all|*).rp_filter` to 0 (instead of the systemd upstream value 2) to be less restrictive which some network solutions rely on ([PR#11](https://github.com/flatcar-linux/systemd/pull/11))\n- Update-engine now detects rollbacks and reports them as errors to the update server ([PR#6](https://github.com/flatcar-linux/update_engine/pull/6))\n- `flatcar-install` allows installation to a multipath drive ([PR#24](https://github.com/flatcar-linux/init/pull/24))\n- Support the `lockdown` kernel command line parameter ([PR#533](https://github.com/flatcar-linux/coreos-overlay/pull/553))\n- Update public key to include a [new subkey](https://www.flatcar-linux.org/security/image-signing-key/)\n\nUpdates:\n\n- Linux [5.8.9](https://lwn.net/Articles/831365/)\n- linux-firmware [20200817](https://git.kernel.org/pub/scm/linux/kernel/git/firmware/linux-firmware.git/tag/?h=20200817)\n- Go [1.15.2](https://golang.org/doc/go1.15)\n- Rust [1.46.0](https://blog.rust-lang.org/2020/08/27/Rust-1.46.0.html)\n\nNote: Please note that ARM images remain experimental for now.\n"
   }
 }

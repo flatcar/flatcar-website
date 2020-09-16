@@ -1499,12 +1499,12 @@
     },
     "release_notes": "Security fixes:\n- Linux kernel: Fix AF_PACKET overflow in tpacket_rcv [CVE-2020-14386](https://seclists.org/oss-sec/2020/q3/146)\n\nUpdates:\n- Linux [5.4.62](https://lwn.net/Articles/830502/)"
   },
-  "current": {
+  "2605.4.0": {
     "channel": "beta",
     "architectures": [
       "amd64"
     ],
-    "release_date": "2020-09-07 15:37:41 +0000",
+    "release_date": "2020-09-16 06:13:42 +0000",
     "major_software": {
       "docker": [
         "19.03.12"
@@ -1513,7 +1513,7 @@
         "0.34.0"
       ],
       "kernel": [
-        "5.4.62"
+        "5.4.65"
       ],
       "rkt": [
         "1.30.0"
@@ -1522,6 +1522,31 @@
         "245"
       ]
     },
-    "release_notes": "Security fixes:\n- Linux kernel: Fix AF_PACKET overflow in tpacket_rcv [CVE-2020-14386](https://seclists.org/oss-sec/2020/q3/146)\n\nUpdates:\n- Linux [5.4.62](https://lwn.net/Articles/830502/)"
+    "release_notes": "Bug fixes:\n\n- Fix resetting of DNS nameservers in systemd-networkd units ([PR#12](https://github.com/flatcar-linux/systemd/pull/12))\n\nChanges:\n\n- Disable TX checksum offloading for the IP-in-IP tunl0 interface used by Calico ([PR#26](https://github.com/flatcar-linux/init/pull/26)). This is a workaround for a Mellanox driver issue, currently tracked in [Flatcar#183](https://github.com/flatcar-linux/Flatcar/issues/183)\n- Set `sysctl net.ipv4.conf.(all|*).rp_filter` to 0 (instead of the systemd upstream value 2) to be less restrictive which some network solutions rely on ([PR#11](https://github.com/flatcar-linux/systemd/pull/11))\n-  `flatcar-install` allows installation to a multipath drive ([PR#24](https://github.com/flatcar-linux/init/pull/24))\n\nUpdates:\n\n- Linux [5.4.65](https://lwn.net/Articles/831366/)\n"
+  },
+  "current": {
+    "channel": "beta",
+    "architectures": [
+      "amd64"
+    ],
+    "release_date": "2020-09-16 06:13:42 +0000",
+    "major_software": {
+      "docker": [
+        "19.03.12"
+      ],
+      "ignition": [
+        "0.34.0"
+      ],
+      "kernel": [
+        "5.4.65"
+      ],
+      "rkt": [
+        "1.30.0"
+      ],
+      "systemd": [
+        "245"
+      ]
+    },
+    "release_notes": "Bug fixes:\n\n- Fix resetting of DNS nameservers in systemd-networkd units ([PR#12](https://github.com/flatcar-linux/systemd/pull/12))\n\nChanges:\n\n- Disable TX checksum offloading for the IP-in-IP tunl0 interface used by Calico ([PR#26](https://github.com/flatcar-linux/init/pull/26)). This is a workaround for a Mellanox driver issue, currently tracked in [Flatcar#183](https://github.com/flatcar-linux/Flatcar/issues/183)\n- Set `sysctl net.ipv4.conf.(all|*).rp_filter` to 0 (instead of the systemd upstream value 2) to be less restrictive which some network solutions rely on ([PR#11](https://github.com/flatcar-linux/systemd/pull/11))\n-  `flatcar-install` allows installation to a multipath drive ([PR#24](https://github.com/flatcar-linux/init/pull/24))\n\nUpdates:\n\n- Linux [5.4.65](https://lwn.net/Articles/831366/)\n"
   }
 }
