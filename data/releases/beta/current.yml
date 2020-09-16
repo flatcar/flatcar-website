@@ -3,7 +3,7 @@ architectures:
 channel: beta
 github_release:
   assets: []
-  assets_url: https://api.github.com/repos/flatcar-linux/manifest/releases/30862652/assets
+  assets_url: https://api.github.com/repos/flatcar-linux/manifest/releases/31377863/assets
   author:
     avatar_url: https://avatars3.githubusercontent.com/u/500628?v=4
     events_url: https://api.github.com/users/sayanchowdhury/events{/privacy}
@@ -23,28 +23,35 @@ github_release:
     subscriptions_url: https://api.github.com/users/sayanchowdhury/subscriptions
     type: User
     url: https://api.github.com/users/sayanchowdhury
-  body: "Security fixes:\r\n- Linux kernel: Fix AF_PACKET overflow in tpacket_rcv\
-    \ [CVE-2020-14386](https://seclists.org/oss-sec/2020/q3/146)\r\n\r\nUpdates:\r\
-    \n- Linux [5.4.62](https://lwn.net/Articles/830502/)"
-  created_at: '2020-09-04T16:40:53Z'
+  body: "Bug fixes:\r\n\r\n- Fix resetting of DNS nameservers in systemd-networkd\
+    \ units ([PR#12](https://github.com/flatcar-linux/systemd/pull/12))\r\n\r\nChanges:\r\
+    \n\r\n- Disable TX checksum offloading for the IP-in-IP tunl0 interface used by\
+    \ Calico ([PR#26](https://github.com/flatcar-linux/init/pull/26)). This is a workaround\
+    \ for a Mellanox driver issue, currently tracked in [Flatcar#183](https://github.com/flatcar-linux/Flatcar/issues/183)\r\
+    \n- Set `sysctl net.ipv4.conf.(all|*).rp_filter` to 0 (instead of the systemd\
+    \ upstream value 2) to be less restrictive which some network solutions rely on\
+    \ ([PR#11](https://github.com/flatcar-linux/systemd/pull/11))\r\n-  `flatcar-install`\
+    \ allows installation to a multipath drive ([PR#24](https://github.com/flatcar-linux/init/pull/24))\r\
+    \n\r\nUpdates:\r\n\r\n- Linux [5.4.65](https://lwn.net/Articles/831366/)\r\n"
+  created_at: '2020-09-14T15:26:02Z'
   draft: false
-  html_url: https://github.com/flatcar-linux/manifest/releases/tag/v2605.3.0
-  id: 30862652
-  name: v2605.3.0
-  node_id: MDc6UmVsZWFzZTMwODYyNjUy
+  html_url: https://github.com/flatcar-linux/manifest/releases/tag/v2605.4.0
+  id: 31377863
+  name: v2605.4.0
+  node_id: MDc6UmVsZWFzZTMxMzc3ODYz
   prerelease: false
-  published_at: '2020-09-07T15:37:41Z'
-  tag_name: v2605.3.0
-  tarball_url: https://api.github.com/repos/flatcar-linux/manifest/tarball/v2605.3.0
+  published_at: '2020-09-16T06:13:42Z'
+  tag_name: v2605.4.0
+  tarball_url: https://api.github.com/repos/flatcar-linux/manifest/tarball/v2605.4.0
   target_commitish: flatcar-master
-  upload_url: https://uploads.github.com/repos/flatcar-linux/manifest/releases/30862652/assets{?name,label}
-  url: https://api.github.com/repos/flatcar-linux/manifest/releases/30862652
-  zipball_url: https://api.github.com/repos/flatcar-linux/manifest/zipball/v2605.3.0
+  upload_url: https://uploads.github.com/repos/flatcar-linux/manifest/releases/31377863/assets{?name,label}
+  url: https://api.github.com/repos/flatcar-linux/manifest/releases/31377863
+  zipball_url: https://api.github.com/repos/flatcar-linux/manifest/zipball/v2605.4.0
 image_packages:
   docker: 19.03.12
   ignition: 0.34.0
-  kernel: 5.4.62
+  kernel: 5.4.65
   rkt: 1.30.0
   systemd: '245'
 release: current
-version: 2605.3.0
+version: 2605.4.0

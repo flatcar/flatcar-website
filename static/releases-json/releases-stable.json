@@ -1174,12 +1174,12 @@
     },
     "release_notes": "Security fixes:\n- Linux kernel: Fix AF_PACKET overflow in tpacket_rcv [CVE-2020-14386](https://seclists.org/oss-sec/2020/q3/146)\n\nUpdates:\n- Linux [4.19.143](https://lwn.net/Articles/830503/)"
   },
-  "current": {
+  "2512.5.0": {
     "channel": "stable",
     "architectures": [
       "amd64"
     ],
-    "release_date": "2020-09-07 15:38:48 +0000",
+    "release_date": "2020-09-16 06:12:05 +0000",
     "major_software": {
       "docker": [
         "18.06.3"
@@ -1188,7 +1188,7 @@
         "0.34.0"
       ],
       "kernel": [
-        "4.19.143"
+        "4.19.145"
       ],
       "rkt": [
         "1.30.0"
@@ -1197,6 +1197,31 @@
         "241"
       ]
     },
-    "release_notes": "Security fixes:\n- Linux kernel: Fix AF_PACKET overflow in tpacket_rcv [CVE-2020-14386](https://seclists.org/oss-sec/2020/q3/146)\n\nUpdates:\n- Linux [4.19.143](https://lwn.net/Articles/830503/)"
+    "release_notes": "Changes:\n- Update public key to include a [new subkey](https://www.flatcar-linux.org/security/image-signing-key/)\n\nUpdates:\n- Linux [4.19.145](https://lwn.net/Articles/831367/)\n"
+  },
+  "current": {
+    "channel": "stable",
+    "architectures": [
+      "amd64"
+    ],
+    "release_date": "2020-09-16 06:12:05 +0000",
+    "major_software": {
+      "docker": [
+        "18.06.3"
+      ],
+      "ignition": [
+        "0.34.0"
+      ],
+      "kernel": [
+        "4.19.145"
+      ],
+      "rkt": [
+        "1.30.0"
+      ],
+      "systemd": [
+        "241"
+      ]
+    },
+    "release_notes": "Changes:\n- Update public key to include a [new subkey](https://www.flatcar-linux.org/security/image-signing-key/)\n\nUpdates:\n- Linux [4.19.145](https://lwn.net/Articles/831367/)\n"
   }
 }

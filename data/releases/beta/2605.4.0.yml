@@ -1,10 +1,9 @@
 architectures:
 - amd64
-- arm64
-channel: alpha
+channel: beta
 github_release:
   assets: []
-  assets_url: https://api.github.com/repos/flatcar-linux/manifest/releases/31377936/assets
+  assets_url: https://api.github.com/repos/flatcar-linux/manifest/releases/31377863/assets
   author:
     avatar_url: https://avatars3.githubusercontent.com/u/500628?v=4
     events_url: https://api.github.com/users/sayanchowdhury/events{/privacy}
@@ -31,34 +30,28 @@ github_release:
     \ for a Mellanox driver issue, currently tracked in [Flatcar#183](https://github.com/flatcar-linux/Flatcar/issues/183)\r\
     \n- Set `sysctl net.ipv4.conf.(all|*).rp_filter` to 0 (instead of the systemd\
     \ upstream value 2) to be less restrictive which some network solutions rely on\
-    \ ([PR#11](https://github.com/flatcar-linux/systemd/pull/11))\r\n- Update-engine\
-    \ now detects rollbacks and reports them as errors to the update server ([PR#6](https://github.com/flatcar-linux/update_engine/pull/6))\r\
-    \n- `flatcar-install` allows installation to a multipath drive ([PR#24](https://github.com/flatcar-linux/init/pull/24))\r\
-    \n- Support the `lockdown` kernel command line parameter ([PR#533](https://github.com/flatcar-linux/coreos-overlay/pull/553))\r\
-    \n- Update public key to include a [new subkey](https://www.flatcar-linux.org/security/image-signing-key/)\r\
-    \n\r\nUpdates:\r\n\r\n- Linux [5.8.9](https://lwn.net/Articles/831365/)\r\n- linux-firmware\
-    \ [20200817](https://git.kernel.org/pub/scm/linux/kernel/git/firmware/linux-firmware.git/tag/?h=20200817)\r\
-    \n- Go [1.15.2](https://golang.org/doc/go1.15)\r\n- Rust [1.46.0](https://blog.rust-lang.org/2020/08/27/Rust-1.46.0.html)\r\
-    \n\r\nNote: Please note that ARM images remain experimental for now.\r\n"
-  created_at: '2020-09-14T15:27:38Z'
+    \ ([PR#11](https://github.com/flatcar-linux/systemd/pull/11))\r\n-  `flatcar-install`\
+    \ allows installation to a multipath drive ([PR#24](https://github.com/flatcar-linux/init/pull/24))\r\
+    \n\r\nUpdates:\r\n\r\n- Linux [5.4.65](https://lwn.net/Articles/831366/)\r\n"
+  created_at: '2020-09-14T15:26:02Z'
   draft: false
-  html_url: https://github.com/flatcar-linux/manifest/releases/tag/v2632.0.0
-  id: 31377936
-  name: v2632.0.0
-  node_id: MDc6UmVsZWFzZTMxMzc3OTM2
+  html_url: https://github.com/flatcar-linux/manifest/releases/tag/v2605.4.0
+  id: 31377863
+  name: v2605.4.0
+  node_id: MDc6UmVsZWFzZTMxMzc3ODYz
   prerelease: false
-  published_at: '2020-09-16T06:15:52Z'
-  tag_name: v2632.0.0
-  tarball_url: https://api.github.com/repos/flatcar-linux/manifest/tarball/v2632.0.0
+  published_at: '2020-09-16T06:13:42Z'
+  tag_name: v2605.4.0
+  tarball_url: https://api.github.com/repos/flatcar-linux/manifest/tarball/v2605.4.0
   target_commitish: flatcar-master
-  upload_url: https://uploads.github.com/repos/flatcar-linux/manifest/releases/31377936/assets{?name,label}
-  url: https://api.github.com/repos/flatcar-linux/manifest/releases/31377936
-  zipball_url: https://api.github.com/repos/flatcar-linux/manifest/zipball/v2632.0.0
+  upload_url: https://uploads.github.com/repos/flatcar-linux/manifest/releases/31377863/assets{?name,label}
+  url: https://api.github.com/repos/flatcar-linux/manifest/releases/31377863
+  zipball_url: https://api.github.com/repos/flatcar-linux/manifest/zipball/v2605.4.0
 image_packages:
   docker: 19.03.12
   ignition: 0.34.0
-  kernel: 5.8.9
+  kernel: 5.4.65
   rkt: 1.30.0
   systemd: '245'
-release: current
-version: 2632.0.0
+release: 2605.4.0
+version: 2605.4.0
