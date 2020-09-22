@@ -1199,29 +1199,54 @@
     },
     "release_notes": "Changes:\n- Update public key to include a [new subkey](https://www.flatcar-linux.org/security/image-signing-key/)\n\nUpdates:\n- Linux [4.19.145](https://lwn.net/Articles/831367/)\n"
   },
-  "current": {
+  "2605.5.0": {
     "channel": "stable",
     "architectures": [
       "amd64"
     ],
-    "release_date": "2020-09-16 06:12:05 +0000",
+    "release_date": "2020-09-22 08:20:39 +0000",
     "major_software": {
       "docker": [
-        "18.06.3"
+        "19.03.12"
       ],
       "ignition": [
         "0.34.0"
       ],
       "kernel": [
-        "4.19.145"
+        "5.4.66"
       ],
       "rkt": [
         "1.30.0"
       ],
       "systemd": [
-        "241"
+        "245"
       ]
     },
-    "release_notes": "Changes:\n- Update public key to include a [new subkey](https://www.flatcar-linux.org/security/image-signing-key/)\n\nUpdates:\n- Linux [4.19.145](https://lwn.net/Articles/831367/)\n"
+    "release_notes": "Security fixes:\n- Linux kernel [CVE-2020-14390](https://www.openwall.com/lists/oss-security/2020/09/15/2) and the unassigned [similar bug](https://www.openwall.com/lists/oss-security/2020/09/16/1)\n- Linux kernel [CVE-2020-25284](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2020-25284)\n\n\nUpdates:\n\n- Linux [5.4.66](https://lwn.net/Articles/831752/)\n"
+  },
+  "current": {
+    "channel": "stable",
+    "architectures": [
+      "amd64"
+    ],
+    "release_date": "2020-09-22 08:20:39 +0000",
+    "major_software": {
+      "docker": [
+        "19.03.12"
+      ],
+      "ignition": [
+        "0.34.0"
+      ],
+      "kernel": [
+        "5.4.66"
+      ],
+      "rkt": [
+        "1.30.0"
+      ],
+      "systemd": [
+        "245"
+      ]
+    },
+    "release_notes": "Security fixes:\n- Linux kernel [CVE-2020-14390](https://www.openwall.com/lists/oss-security/2020/09/15/2) and the unassigned [similar bug](https://www.openwall.com/lists/oss-security/2020/09/16/1)\n- Linux kernel [CVE-2020-25284](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2020-25284)\n\n\nUpdates:\n\n- Linux [5.4.66](https://lwn.net/Articles/831752/)\n"
   }
 }
