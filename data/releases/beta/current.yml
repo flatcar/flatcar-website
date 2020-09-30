@@ -3,7 +3,7 @@ architectures:
 channel: beta
 github_release:
   assets: []
-  assets_url: https://api.github.com/repos/flatcar-linux/manifest/releases/31377863/assets
+  assets_url: https://api.github.com/repos/flatcar-linux/manifest/releases/31988098/assets
   author:
     avatar_url: https://avatars3.githubusercontent.com/u/500628?v=4
     events_url: https://api.github.com/users/sayanchowdhury/events{/privacy}
@@ -23,35 +23,41 @@ github_release:
     subscriptions_url: https://api.github.com/users/sayanchowdhury/subscriptions
     type: User
     url: https://api.github.com/users/sayanchowdhury
-  body: "Bug fixes:\r\n\r\n- Fix resetting of DNS nameservers in systemd-networkd\
-    \ units ([PR#12](https://github.com/flatcar-linux/systemd/pull/12))\r\n\r\nChanges:\r\
-    \n\r\n- Disable TX checksum offloading for the IP-in-IP tunl0 interface used by\
-    \ Calico ([PR#26](https://github.com/flatcar-linux/init/pull/26)). This is a workaround\
-    \ for a Mellanox driver issue, currently tracked in [Flatcar#183](https://github.com/flatcar-linux/Flatcar/issues/183)\r\
-    \n- Set `sysctl net.ipv4.conf.(all|*).rp_filter` to 0 (instead of the systemd\
-    \ upstream value 2) to be less restrictive which some network solutions rely on\
-    \ ([PR#11](https://github.com/flatcar-linux/systemd/pull/11))\r\n-  `flatcar-install`\
-    \ allows installation to a multipath drive ([PR#24](https://github.com/flatcar-linux/init/pull/24))\r\
-    \n\r\nUpdates:\r\n\r\n- Linux [5.4.65](https://lwn.net/Articles/831366/)\r\n"
-  created_at: '2020-09-14T15:26:02Z'
+  body: "Security fixes:\r\n- Linux: [CVE-2020-25284](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2020-25284),\
+    \ [CVE-2020-14390](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2020-14390)\r\
+    \n\r\nBug fixes:\r\n\r\n- Enabled missing systemd services ([#191](https://github.com/flatcar-linux/Flatcar/issues/191),\
+    \ [PR #612](https://github.com/flatcar-linux/coreos-overlay/pull/612))\r\n- Fixed\
+    \ Docker torcx image unpacking error on machines with less than ~600 MB total\
+    \ RAM ([#32](https://github.com/flatcar-linux/Flatcar/issues/32))\r\n- Solved\
+    \ adcli Kerberos Active Directory incompatibility ([#194](https://github.com/flatcar-linux/Flatcar/issues/194))\r\
+    \n- Fixed the makefile path when building kernel modules with the developer container\
+    \ ([#195](https://github.com/flatcar-linux/Flatcar/issues/195))\r\n- Removed the\
+    \ `/etc/portage/savedconfig/` folder that contained a dump of the firmware config\
+    \ [flatcar-linux/coreos-overlay#613](https://github.com/flatcar-linux/coreos-overlay/pull/613)\r\
+    \n\r\nChanges:\r\n\r\n- GCE: Improved oslogin support and added shell aliases\
+    \ to run a Python Docker image ([PR #592](https://github.com/flatcar-linux/coreos-overlay/pull/592))\r\
+    \n\r\nUpdates:\r\n\r\n- Linux [5.8.11](https://lwn.net/Articles/832305/)\r\n-\
+    \ adcli [0.9.0](https://cgit.freedesktop.org/realmd/adcli/tree/NEWS?h=0.9.0)\r\
+    \n- GCE: oslogin [20200910.00](https://github.com/GoogleCloudPlatform/guest-oslogin/releases/tag/20200910.00)"
+  created_at: '2020-09-26T16:10:28Z'
   draft: false
-  html_url: https://github.com/flatcar-linux/manifest/releases/tag/v2605.4.0
-  id: 31377863
-  name: v2605.4.0
-  node_id: MDc6UmVsZWFzZTMxMzc3ODYz
+  html_url: https://github.com/flatcar-linux/manifest/releases/tag/v2632.1.0
+  id: 31988098
+  name: v2632.1.0
+  node_id: MDc6UmVsZWFzZTMxOTg4MDk4
   prerelease: false
-  published_at: '2020-09-16T06:13:42Z'
-  tag_name: v2605.4.0
-  tarball_url: https://api.github.com/repos/flatcar-linux/manifest/tarball/v2605.4.0
+  published_at: '2020-09-30T12:22:40Z'
+  tag_name: v2632.1.0
+  tarball_url: https://api.github.com/repos/flatcar-linux/manifest/tarball/v2632.1.0
   target_commitish: flatcar-master
-  upload_url: https://uploads.github.com/repos/flatcar-linux/manifest/releases/31377863/assets{?name,label}
-  url: https://api.github.com/repos/flatcar-linux/manifest/releases/31377863
-  zipball_url: https://api.github.com/repos/flatcar-linux/manifest/zipball/v2605.4.0
+  upload_url: https://uploads.github.com/repos/flatcar-linux/manifest/releases/31988098/assets{?name,label}
+  url: https://api.github.com/repos/flatcar-linux/manifest/releases/31988098
+  zipball_url: https://api.github.com/repos/flatcar-linux/manifest/zipball/v2632.1.0
 image_packages:
   docker: 19.03.12
   ignition: 0.34.0
-  kernel: 5.4.65
+  kernel: 5.8.11
   rkt: 1.30.0
   systemd: '245'
 release: current
-version: 2605.4.0
+version: 2632.1.0
