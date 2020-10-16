@@ -1549,29 +1549,48 @@
     },
     "release_notes": "Security fixes:\n- Linux: [CVE-2020-25284](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2020-25284), [CVE-2020-14390](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2020-14390)\n\nBug fixes:\n\n- Enabled missing systemd services ([#191](https://github.com/flatcar-linux/Flatcar/issues/191), [PR #612](https://github.com/flatcar-linux/coreos-overlay/pull/612))\n- Fixed Docker torcx image unpacking error on machines with less than ~600 MB total RAM ([#32](https://github.com/flatcar-linux/Flatcar/issues/32))\n- Solved adcli Kerberos Active Directory incompatibility ([#194](https://github.com/flatcar-linux/Flatcar/issues/194))\n- Fixed the makefile path when building kernel modules with the developer container ([#195](https://github.com/flatcar-linux/Flatcar/issues/195))\n- Removed the `/etc/portage/savedconfig/` folder that contained a dump of the firmware config [flatcar-linux/coreos-overlay#613](https://github.com/flatcar-linux/coreos-overlay/pull/613)\n\nChanges:\n\n- GCE: Improved oslogin support and added shell aliases to run a Python Docker image ([PR #592](https://github.com/flatcar-linux/coreos-overlay/pull/592))\n\nUpdates:\n\n- Linux [5.8.11](https://lwn.net/Articles/832305/)\n- adcli [0.9.0](https://cgit.freedesktop.org/realmd/adcli/tree/NEWS?h=0.9.0)\n- GCE: oslogin [20200910.00](https://github.com/GoogleCloudPlatform/guest-oslogin/releases/tag/20200910.00)"
   },
-  "current": {
+  "2643.1.0": {
     "channel": "beta",
     "architectures": [
       "amd64"
     ],
-    "release_date": "2020-09-30 12:22:40 +0000",
+    "release_date": "2020-10-16 08:05:22 +0000",
     "major_software": {
       "docker": [
-        "19.03.12"
+        "19.03.13"
       ],
       "ignition": [
         "0.34.0"
       ],
       "kernel": [
-        "5.8.11"
-      ],
-      "rkt": [
-        "1.30.0"
+        "5.8.14"
       ],
       "systemd": [
         "245"
       ]
     },
-    "release_notes": "Security fixes:\n- Linux: [CVE-2020-25284](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2020-25284), [CVE-2020-14390](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2020-14390)\n\nBug fixes:\n\n- Enabled missing systemd services ([#191](https://github.com/flatcar-linux/Flatcar/issues/191), [PR #612](https://github.com/flatcar-linux/coreos-overlay/pull/612))\n- Fixed Docker torcx image unpacking error on machines with less than ~600 MB total RAM ([#32](https://github.com/flatcar-linux/Flatcar/issues/32))\n- Solved adcli Kerberos Active Directory incompatibility ([#194](https://github.com/flatcar-linux/Flatcar/issues/194))\n- Fixed the makefile path when building kernel modules with the developer container ([#195](https://github.com/flatcar-linux/Flatcar/issues/195))\n- Removed the `/etc/portage/savedconfig/` folder that contained a dump of the firmware config [flatcar-linux/coreos-overlay#613](https://github.com/flatcar-linux/coreos-overlay/pull/613)\n\nChanges:\n\n- GCE: Improved oslogin support and added shell aliases to run a Python Docker image ([PR #592](https://github.com/flatcar-linux/coreos-overlay/pull/592))\n\nUpdates:\n\n- Linux [5.8.11](https://lwn.net/Articles/832305/)\n- adcli [0.9.0](https://cgit.freedesktop.org/realmd/adcli/tree/NEWS?h=0.9.0)\n- GCE: oslogin [20200910.00](https://github.com/GoogleCloudPlatform/guest-oslogin/releases/tag/20200910.00)"
+    "release_notes": "Security fixes:\n- Linux - [CVE-2020-25645](https://nvd.nist.gov/vuln/detail/CVE-2020-25645), [CVE-2020-25643](https://nvd.nist.gov/vuln/detail/CVE-2020-25643), [CVE-2020-25211](https://nvd.nist.gov/vuln/detail/CVE-2020-25211)\n\nBug fixes:\n- Ensured that the `/etc/coreos` to `/etc/flatcar` symlink always exists, relevant for the Container Linux Config transpiler (ct) when specifying directives for `update:` or `locksmith:` while also reformatting the rootfs ([baselayout PR#7](https://github.com/flatcar-linux/baselayout/pull/7))\n\nUpdates:\n-   Linux [5.8.14](https://lwn.net/Articles/833689/)"
+  },
+  "current": {
+    "channel": "beta",
+    "architectures": [
+      "amd64"
+    ],
+    "release_date": "2020-10-16 08:05:22 +0000",
+    "major_software": {
+      "docker": [
+        "19.03.13"
+      ],
+      "ignition": [
+        "0.34.0"
+      ],
+      "kernel": [
+        "5.8.14"
+      ],
+      "systemd": [
+        "245"
+      ]
+    },
+    "release_notes": "Security fixes:\n- Linux - [CVE-2020-25645](https://nvd.nist.gov/vuln/detail/CVE-2020-25645), [CVE-2020-25643](https://nvd.nist.gov/vuln/detail/CVE-2020-25643), [CVE-2020-25211](https://nvd.nist.gov/vuln/detail/CVE-2020-25211)\n\nBug fixes:\n- Ensured that the `/etc/coreos` to `/etc/flatcar` symlink always exists, relevant for the Container Linux Config transpiler (ct) when specifying directives for `update:` or `locksmith:` while also reformatting the rootfs ([baselayout PR#7](https://github.com/flatcar-linux/baselayout/pull/7))\n\nUpdates:\n-   Linux [5.8.14](https://lwn.net/Articles/833689/)"
   }
 }
