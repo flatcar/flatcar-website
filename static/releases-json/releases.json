@@ -1758,12 +1758,35 @@
     },
     "release_notes": "Security fixes:\n- Linux - [CVE-2020-25645](https://nvd.nist.gov/vuln/detail/CVE-2020-25645), [CVE-2020-25643](https://nvd.nist.gov/vuln/detail/CVE-2020-25643), [CVE-2020-25211](https://nvd.nist.gov/vuln/detail/CVE-2020-25211)\n\nBug fixes:\n- Ensured that the `/etc/coreos` to `/etc/flatcar` symlink always exists, relevant for the Container Linux Config transpiler (ct) when specifying directives for `update:` or `locksmith:` while also reformatting the rootfs ([baselayout PR#7](https://github.com/flatcar-linux/baselayout/pull/7))\n- Azure: Exclude bonded SR-IOV network interfaces with newer drivers from networkd (in addition to the old drivers) to prevent them being configured instead of just the bond interface ([init PR#29](https://github.com/flatcar-linux/init/pull/29), [bootengine PR#19](https://github.com/flatcar-linux/bootengine/pull/19))\n\nChanges:\n- Compress kernel modules with xz ([overlay PR#628](https://github.com/flatcar-linux/coreos-overlay/pull/628))\n- Add containerd-runc-shim-v* binaries required by kubelet custom CRI endpoints ([overlay PR#623](https://github.com/flatcar-linux/coreos-overlay/pull/623))\n- AWS arm64: Enable elastic network adapter module ([overlay PR#631](https://github.com/flatcar-linux/coreos-overlay/pull/631))\n- Equinix Metal (Packet): Exclude unused network interfaces from networkd, disregard the state of the bonded interfaces for the `network-online.target` and only require the bond interface itself to have at least one active link instead of `routable` which requires both links to be active ([afterburn PR#10](https://github.com/flatcar-linux/afterburn/pull/10))\n- QEMU: Use flatcar.autologin kernel command line parameter for auto login on the console ([Flatcar #71](https://github.com/flatcar-linux/Flatcar/issues/71))\n\nUpdates:\n- Linux [5.8.14](https://lwn.net/Articles/833689/)\n- systemd [246](https://lwn.net/Articles/827675/)\n- tini [0.18](https://github.com/krallin/tini/releases/tag/v0.18.0)\n- libseccomp [2.5.0](https://github.com/seccomp/libseccomp/releases/tag/v2.5.0)\n- audit [2.8.5](https://github.com/linux-audit/audit-userspace/releases/tag/v2.8.5)\n- dracut [050](https://github.com/dracutdevs/dracut/releases/tag/050)"
   },
+  "2671.0.0": {
+    "channel": "alpha",
+    "architectures": [
+      "amd64",
+      "arm64"
+    ],
+    "release_date": "2020-10-28 14:37:26 +0000",
+    "major_software": {
+      "docker": [
+        "19.03.13"
+      ],
+      "ignition": [
+        "0.34.0"
+      ],
+      "kernel": [
+        "5.8.16"
+      ],
+      "systemd": [
+        "246"
+      ]
+    },
+    "release_notes": "Security fixes:\n\n- Linux - [CVE-2020-27194](https://nvd.nist.gov/vuln/detail/CVE-2020-27194)\n- c-ares - [CVE-2017-1000381](https://nvd.nist.gov/vuln/detail/CVE-2017-1000381)\n- file - [CVE-2019-18218](https://nvd.nist.gov/vuln/detail/CVE-2019-18218)\n- json-c - [CVE-2020-12762](https://nvd.nist.gov/vuln/detail/CVE-2020-12762)\n- libuv - [CVE-2020-8252](https://nvd.nist.gov/vuln/detail/CVE-2020-8252)\n- libxml2 - [CVE-2019-20388](https://nvd.nist.gov/vuln/detail/CVE-2019-20388) [CVE-2020-7595](https://nvd.nist.gov/vuln/detail/CVE-2020-7595)\n- re2c - [CVE-2020-11958](https://nvd.nist.gov/vuln/detail/CVE-2020-11958)\n- tar - [CVE-2019-9923](https://nvd.nist.gov/vuln/detail/CVE-2019-9923)\n\nBug fixes:\n\n- Ensured that the `/etc/coreos` to `/etc/flatcar` symlink always exists, relevant for the Container Linux Config transpiler (ct) when specifying directives for `update:` or `locksmith:` while also reformatting the rootfs ([baselayout PR#7](https://github.com/flatcar-linux/baselayout/pull/7))\n- Allow inactive network interfaces to be bound to a bonding interface, by encoding additional configuration for systemd-networkd-wait-online ([afterburn PR #10](https://github.com/flatcar-linux/afterburn/pull/10))\n- Azure: Exclude bonded SR-IOV driver mlx5-core from network interfaces managed by systemd-networkd ([bootengine PR #19](https://github.com/flatcar-linux/bootengine/pull/19)) ([init PR #29](https://github.com/flatcar-linux/init/pull/29))\n- Do not configure ccache in Jenkins ([scripts PR #100](https://github.com/flatcar-linux/scripts/pull/100))\n\nChanges:\n\n- Remove unnecessary kernel module nf-conntrack-ipv4 ([overlay PR#649](https://github.com/flatcar-linux/coreos-overlay/pull/649))\n\nUpdates:\n\n- Linux [5.8.16](https://lwn.net/Articles/834536/)\n- c-ares [1.61.1](https://github.com/c-ares/c-ares/releases/tag/cares-1_16_1)\n- cryptsetup [2.3.2](https://gitlab.com/cryptsetup/cryptsetup/-/tags/v2.3.2)\n- json-c [0.15](https://github.com/json-c/json-c/releases/tag/json-c-0.15-20200726)\n- libuv [1.39.0](https://github.com/libuv/libuv/releases/tag/v1.39.0)\n- libxml2 [2.9.10](https://gitlab.gnome.org/GNOME/libxml2/-/tags/v2.9.10)\n- tar [1.32](https://git.savannah.gnu.org/cgit/tar.git/tag/?h=release_1_32)\n- Go [1.15.3](https://go.googlesource.com/go/+/refs/tags/go1.15.3), [1.12.17](https://go.googlesource.com/go/+/refs/tags/go1.12.17) (only in SDK)\n- file [5.39](https://github.com/file/file/tree/FILE5_39) (only in SDK)\n- gdbus-codegen [2.64.5](https://gitlab.gnome.org/GNOME/glib/-/tags/2.64.5) (only in SDK)\n- meson [0.55.3](https://github.com/mesonbuild/meson/releases/tag/0.55.3) (only in SDK)\n- re2c [2.0.3](https://re2c.org/releases/release_notes.html#release-2-0-3) (only in SDK)\n\nNote: Please note that ARM images remain experimental for now.\n"
+  },
   "current": {
     "channel": "stable",
     "architectures": [
       "amd64"
     ],
-    "release_date": "2020-09-30 12:21:16 +0000",
+    "release_date": "2020-10-28 14:35:36 +0000",
     "major_software": {
       "docker": [
         "19.03.12"
@@ -1772,13 +1795,13 @@
         "0.34.0"
       ],
       "kernel": [
-        "5.4.67"
+        "5.4.72"
       ],
       "systemd": [
         "245"
       ]
     },
-    "release_notes": "Bug fixes:\n- Enabled missing systemd services ([#191](https://github.com/flatcar-linux/Flatcar/issues/191), [PR #612](https://github.com/flatcar-linux/coreos-overlay/pull/612))\n- Fixed Docker torcx image unpacking error on machines with less than ~600 MB total RAM ([#32](https://github.com/flatcar-linux/Flatcar/issues/32))\n- Solved adcli Kerberos Active Directory incompatibility ([#194](https://github.com/flatcar-linux/Flatcar/issues/194))\n- Fixed the makefile path when building kernel modules with the developer container ([#195](https://github.com/flatcar-linux/Flatcar/issues/195))\n- Removed the `/etc/portage/savedconfig/` folder that contained a dump of the firmware config [flatcar-linux/coreos-overlay#613](https://github.com/flatcar-linux/coreos-overlay/pull/613)\n\nChanges:\n\n- GCE: Improved oslogin support and added shell aliases to run a Python Docker image ([PR #592](https://github.com/flatcar-linux/coreos-overlay/pull/592))\n\nUpdates:\n\n- Linux [5.4.67](https://lwn.net/Articles/832306/)\n- adcli [0.9.0](https://cgit.freedesktop.org/realmd/adcli/tree/NEWS?h=0.9.0)\n- GCE: oslogin [20200910.00](https://github.com/GoogleCloudPlatform/guest-oslogin/releases/tag/20200910.00)"
+    "release_notes": "Security fixes:\n\n- Linux - [CVE-2020-25645](https://nvd.nist.gov/vuln/detail/CVE-2020-25645), [CVE-2020-25643](https://nvd.nist.gov/vuln/detail/CVE-2020-25643), [CVE-2020-25211](https://nvd.nist.gov/vuln/detail/CVE-2020-25211)\n\nBug fixes:\n\n- Ensured that the `/etc/coreos` to `/etc/flatcar` symlink always exists, relevant for the Container Linux Config transpiler (ct) when specifying directives for `update:` or `locksmith:` while also reformatting the rootfs ([baselayout PR#7](https://github.com/flatcar-linux/baselayout/pull/7))\n\nUpdates:\n\n- Linux [5.4.72](https://lwn.net/Articles/834537/)"
   },
   "1722.2.0": {
     "channel": "beta",
@@ -5276,5 +5299,27 @@
       ]
     },
     "release_notes": "Bug fixes:\n- Enabled missing systemd services ([#191](https://github.com/flatcar-linux/Flatcar/issues/191), [PR #612](https://github.com/flatcar-linux/coreos-overlay/pull/612))\n- Fixed Docker torcx image unpacking error on machines with less than ~600 MB total RAM ([#32](https://github.com/flatcar-linux/Flatcar/issues/32))\n- Solved adcli Kerberos Active Directory incompatibility ([#194](https://github.com/flatcar-linux/Flatcar/issues/194))\n- Fixed the makefile path when building kernel modules with the developer container ([#195](https://github.com/flatcar-linux/Flatcar/issues/195))\n- Removed the `/etc/portage/savedconfig/` folder that contained a dump of the firmware config [flatcar-linux/coreos-overlay#613](https://github.com/flatcar-linux/coreos-overlay/pull/613)\n\nChanges:\n\n- GCE: Improved oslogin support and added shell aliases to run a Python Docker image ([PR #592](https://github.com/flatcar-linux/coreos-overlay/pull/592))\n\nUpdates:\n\n- Linux [5.4.67](https://lwn.net/Articles/832306/)\n- adcli [0.9.0](https://cgit.freedesktop.org/realmd/adcli/tree/NEWS?h=0.9.0)\n- GCE: oslogin [20200910.00](https://github.com/GoogleCloudPlatform/guest-oslogin/releases/tag/20200910.00)"
+  },
+  "2605.7.0": {
+    "channel": "stable",
+    "architectures": [
+      "amd64"
+    ],
+    "release_date": "2020-10-28 14:35:36 +0000",
+    "major_software": {
+      "docker": [
+        "19.03.12"
+      ],
+      "ignition": [
+        "0.34.0"
+      ],
+      "kernel": [
+        "5.4.72"
+      ],
+      "systemd": [
+        "245"
+      ]
+    },
+    "release_notes": "Security fixes:\n\n- Linux - [CVE-2020-25645](https://nvd.nist.gov/vuln/detail/CVE-2020-25645), [CVE-2020-25643](https://nvd.nist.gov/vuln/detail/CVE-2020-25643), [CVE-2020-25211](https://nvd.nist.gov/vuln/detail/CVE-2020-25211)\n\nBug fixes:\n\n- Ensured that the `/etc/coreos` to `/etc/flatcar` symlink always exists, relevant for the Container Linux Config transpiler (ct) when specifying directives for `update:` or `locksmith:` while also reformatting the rootfs ([baselayout PR#7](https://github.com/flatcar-linux/baselayout/pull/7))\n\nUpdates:\n\n- Linux [5.4.72](https://lwn.net/Articles/834537/)"
   }
 }
