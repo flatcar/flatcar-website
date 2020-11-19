@@ -1268,12 +1268,12 @@
     },
     "release_notes": "Security fixes:\n\n- Linux - [CVE-2020-25645](https://nvd.nist.gov/vuln/detail/CVE-2020-25645), [CVE-2020-25643](https://nvd.nist.gov/vuln/detail/CVE-2020-25643), [CVE-2020-25211](https://nvd.nist.gov/vuln/detail/CVE-2020-25211)\n\nBug fixes:\n\n- Ensured that the `/etc/coreos` to `/etc/flatcar` symlink always exists, relevant for the Container Linux Config transpiler (ct) when specifying directives for `update:` or `locksmith:` while also reformatting the rootfs ([baselayout PR#7](https://github.com/flatcar-linux/baselayout/pull/7))\n\nUpdates:\n\n- Linux [5.4.72](https://lwn.net/Articles/834537/)"
   },
-  "current": {
+  "2605.8.0": {
     "channel": "stable",
     "architectures": [
       "amd64"
     ],
-    "release_date": "2020-10-28 14:35:36 +0000",
+    "release_date": "2020-11-19 15:40:47 +0000",
     "major_software": {
       "docker": [
         "19.03.12"
@@ -1282,12 +1282,34 @@
         "0.34.0"
       ],
       "kernel": [
-        "5.4.72"
+        "5.4.77"
       ],
       "systemd": [
         "245"
       ]
     },
-    "release_notes": "Security fixes:\n\n- Linux - [CVE-2020-25645](https://nvd.nist.gov/vuln/detail/CVE-2020-25645), [CVE-2020-25643](https://nvd.nist.gov/vuln/detail/CVE-2020-25643), [CVE-2020-25211](https://nvd.nist.gov/vuln/detail/CVE-2020-25211)\n\nBug fixes:\n\n- Ensured that the `/etc/coreos` to `/etc/flatcar` symlink always exists, relevant for the Container Linux Config transpiler (ct) when specifying directives for `update:` or `locksmith:` while also reformatting the rootfs ([baselayout PR#7](https://github.com/flatcar-linux/baselayout/pull/7))\n\nUpdates:\n\n- Linux [5.4.72](https://lwn.net/Articles/834537/)"
+    "release_notes": "Security fixes:\n\n*   Linux -  [CVE-2020-27673](https://nvd.nist.gov/vuln/detail/CVE-2020-27673), [CVE-2020-27675](https://nvd.nist.gov/vuln/detail/CVE-2020-27675)\n\nBug fixes:\n\n*   network: Restore KeepConfiguration=dhcp-on-stop ([kinvolk/init#30](https://github.com/kinvolk/init/pull/30))\n*   systemd-stable-245.8: ingest latest fixes on top of upstream release ([#1](https://github.com/kinvolk/systemd/commit/261680bc0ea61777ac22ea1c42b0d728ec52ae14), [#2](https://github.com/kinvolk/systemd/commit/b2b382820bcfc166d048b85aadd90f5cf71c7a4a), [#3](https://github.com/kinvolk/systemd/commit/711ca814c9f2e81d3d25ebbed0b837b7d4fbbeda))\n\nUpdates:\n\n*   Linux ([5.4.77](https://lwn.net/Articles/836795/))\n*   systemd ([245.8](https://github.com/systemd/systemd-stable/releases/tag/v245.8))"
+  },
+  "current": {
+    "channel": "stable",
+    "architectures": [
+      "amd64"
+    ],
+    "release_date": "2020-11-19 15:40:47 +0000",
+    "major_software": {
+      "docker": [
+        "19.03.12"
+      ],
+      "ignition": [
+        "0.34.0"
+      ],
+      "kernel": [
+        "5.4.77"
+      ],
+      "systemd": [
+        "245"
+      ]
+    },
+    "release_notes": "Security fixes:\n\n*   Linux -  [CVE-2020-27673](https://nvd.nist.gov/vuln/detail/CVE-2020-27673), [CVE-2020-27675](https://nvd.nist.gov/vuln/detail/CVE-2020-27675)\n\nBug fixes:\n\n*   network: Restore KeepConfiguration=dhcp-on-stop ([kinvolk/init#30](https://github.com/kinvolk/init/pull/30))\n*   systemd-stable-245.8: ingest latest fixes on top of upstream release ([#1](https://github.com/kinvolk/systemd/commit/261680bc0ea61777ac22ea1c42b0d728ec52ae14), [#2](https://github.com/kinvolk/systemd/commit/b2b382820bcfc166d048b85aadd90f5cf71c7a4a), [#3](https://github.com/kinvolk/systemd/commit/711ca814c9f2e81d3d25ebbed0b837b7d4fbbeda))\n\nUpdates:\n\n*   Linux ([5.4.77](https://lwn.net/Articles/836795/))\n*   systemd ([245.8](https://github.com/systemd/systemd-stable/releases/tag/v245.8))"
   }
 }
