@@ -1781,13 +1781,13 @@
     },
     "release_notes": "Security fixes:\n\n- Linux - [CVE-2020-27194](https://nvd.nist.gov/vuln/detail/CVE-2020-27194)\n- c-ares - [CVE-2017-1000381](https://nvd.nist.gov/vuln/detail/CVE-2017-1000381)\n- file - [CVE-2019-18218](https://nvd.nist.gov/vuln/detail/CVE-2019-18218)\n- json-c - [CVE-2020-12762](https://nvd.nist.gov/vuln/detail/CVE-2020-12762)\n- libuv - [CVE-2020-8252](https://nvd.nist.gov/vuln/detail/CVE-2020-8252)\n- libxml2 - [CVE-2019-20388](https://nvd.nist.gov/vuln/detail/CVE-2019-20388) [CVE-2020-7595](https://nvd.nist.gov/vuln/detail/CVE-2020-7595)\n- re2c - [CVE-2020-11958](https://nvd.nist.gov/vuln/detail/CVE-2020-11958)\n- tar - [CVE-2019-9923](https://nvd.nist.gov/vuln/detail/CVE-2019-9923)\n\nBug fixes:\n\n- Ensured that the `/etc/coreos` to `/etc/flatcar` symlink always exists, relevant for the Container Linux Config transpiler (ct) when specifying directives for `update:` or `locksmith:` while also reformatting the rootfs ([baselayout PR#7](https://github.com/flatcar-linux/baselayout/pull/7))\n- Allow inactive network interfaces to be bound to a bonding interface, by encoding additional configuration for systemd-networkd-wait-online ([afterburn PR #10](https://github.com/flatcar-linux/afterburn/pull/10))\n- Azure: Exclude bonded SR-IOV driver mlx5-core from network interfaces managed by systemd-networkd ([bootengine PR #19](https://github.com/flatcar-linux/bootengine/pull/19)) ([init PR #29](https://github.com/flatcar-linux/init/pull/29))\n- Do not configure ccache in Jenkins ([scripts PR #100](https://github.com/flatcar-linux/scripts/pull/100))\n\nChanges:\n\n- Remove unnecessary kernel module nf-conntrack-ipv4 ([overlay PR#649](https://github.com/flatcar-linux/coreos-overlay/pull/649))\n\nUpdates:\n\n- Linux [5.8.16](https://lwn.net/Articles/834536/)\n- c-ares [1.61.1](https://github.com/c-ares/c-ares/releases/tag/cares-1_16_1)\n- cryptsetup [2.3.2](https://gitlab.com/cryptsetup/cryptsetup/-/tags/v2.3.2)\n- json-c [0.15](https://github.com/json-c/json-c/releases/tag/json-c-0.15-20200726)\n- libuv [1.39.0](https://github.com/libuv/libuv/releases/tag/v1.39.0)\n- libxml2 [2.9.10](https://gitlab.gnome.org/GNOME/libxml2/-/tags/v2.9.10)\n- tar [1.32](https://git.savannah.gnu.org/cgit/tar.git/tag/?h=release_1_32)\n- Go [1.15.3](https://go.googlesource.com/go/+/refs/tags/go1.15.3), [1.12.17](https://go.googlesource.com/go/+/refs/tags/go1.12.17) (only in SDK)\n- file [5.39](https://github.com/file/file/tree/FILE5_39) (only in SDK)\n- gdbus-codegen [2.64.5](https://gitlab.gnome.org/GNOME/glib/-/tags/2.64.5) (only in SDK)\n- meson [0.55.3](https://github.com/mesonbuild/meson/releases/tag/0.55.3) (only in SDK)\n- re2c [2.0.3](https://re2c.org/releases/release_notes.html#release-2-0-3) (only in SDK)\n\nNote: Please note that ARM images remain experimental for now.\n"
   },
-  "current": {
+  "2697.0.0": {
     "channel": "alpha",
     "architectures": [
       "amd64",
       "arm64"
     ],
-    "release_date": "2020-10-28 14:37:26 +0000",
+    "release_date": "2020-11-20 10:25:21 +0000",
     "major_software": {
       "docker": [
         "19.03.13"
@@ -1796,12 +1796,58 @@
         "0.34.0"
       ],
       "kernel": [
-        "5.8.16"
+        "5.9.8"
       ],
       "systemd": [
         "246"
       ]
     },
-    "release_notes": "Security fixes:\n\n- Linux - [CVE-2020-27194](https://nvd.nist.gov/vuln/detail/CVE-2020-27194)\n- c-ares - [CVE-2017-1000381](https://nvd.nist.gov/vuln/detail/CVE-2017-1000381)\n- file - [CVE-2019-18218](https://nvd.nist.gov/vuln/detail/CVE-2019-18218)\n- json-c - [CVE-2020-12762](https://nvd.nist.gov/vuln/detail/CVE-2020-12762)\n- libuv - [CVE-2020-8252](https://nvd.nist.gov/vuln/detail/CVE-2020-8252)\n- libxml2 - [CVE-2019-20388](https://nvd.nist.gov/vuln/detail/CVE-2019-20388) [CVE-2020-7595](https://nvd.nist.gov/vuln/detail/CVE-2020-7595)\n- re2c - [CVE-2020-11958](https://nvd.nist.gov/vuln/detail/CVE-2020-11958)\n- tar - [CVE-2019-9923](https://nvd.nist.gov/vuln/detail/CVE-2019-9923)\n\nBug fixes:\n\n- Ensured that the `/etc/coreos` to `/etc/flatcar` symlink always exists, relevant for the Container Linux Config transpiler (ct) when specifying directives for `update:` or `locksmith:` while also reformatting the rootfs ([baselayout PR#7](https://github.com/flatcar-linux/baselayout/pull/7))\n- Allow inactive network interfaces to be bound to a bonding interface, by encoding additional configuration for systemd-networkd-wait-online ([afterburn PR #10](https://github.com/flatcar-linux/afterburn/pull/10))\n- Azure: Exclude bonded SR-IOV driver mlx5-core from network interfaces managed by systemd-networkd ([bootengine PR #19](https://github.com/flatcar-linux/bootengine/pull/19)) ([init PR #29](https://github.com/flatcar-linux/init/pull/29))\n- Do not configure ccache in Jenkins ([scripts PR #100](https://github.com/flatcar-linux/scripts/pull/100))\n\nChanges:\n\n- Remove unnecessary kernel module nf-conntrack-ipv4 ([overlay PR#649](https://github.com/flatcar-linux/coreos-overlay/pull/649))\n\nUpdates:\n\n- Linux [5.8.16](https://lwn.net/Articles/834536/)\n- c-ares [1.61.1](https://github.com/c-ares/c-ares/releases/tag/cares-1_16_1)\n- cryptsetup [2.3.2](https://gitlab.com/cryptsetup/cryptsetup/-/tags/v2.3.2)\n- json-c [0.15](https://github.com/json-c/json-c/releases/tag/json-c-0.15-20200726)\n- libuv [1.39.0](https://github.com/libuv/libuv/releases/tag/v1.39.0)\n- libxml2 [2.9.10](https://gitlab.gnome.org/GNOME/libxml2/-/tags/v2.9.10)\n- tar [1.32](https://git.savannah.gnu.org/cgit/tar.git/tag/?h=release_1_32)\n- Go [1.15.3](https://go.googlesource.com/go/+/refs/tags/go1.15.3), [1.12.17](https://go.googlesource.com/go/+/refs/tags/go1.12.17) (only in SDK)\n- file [5.39](https://github.com/file/file/tree/FILE5_39) (only in SDK)\n- gdbus-codegen [2.64.5](https://gitlab.gnome.org/GNOME/glib/-/tags/2.64.5) (only in SDK)\n- meson [0.55.3](https://github.com/mesonbuild/meson/releases/tag/0.55.3) (only in SDK)\n- re2c [2.0.3](https://re2c.org/releases/release_notes.html#release-2-0-3) (only in SDK)\n\nNote: Please note that ARM images remain experimental for now.\n"
+    "release_notes": "Security fixes:\n\n*   Linux -  ([CVE-2020-27673](https://nvd.nist.gov/vuln/detail/CVE-2020-27673), [CVE-2020-27675](https://nvd.nist.gov/vuln/detail/CVE-2020-27675))\n*   Go - ([CVE-2020-28362](https://nvd.nist.gov/vuln/detail/CVE-2020-28362), [CVE-2020-28367](https://nvd.nist.gov/vuln/detail/CVE-2020-28367), [CVE-2020-28366](https://nvd.nist.gov/vuln/detail/CVE-2020-28366))\n*   glib ([CVE-2019-12450](https://nvd.nist.gov/vuln/detail/CVE-2019-12450))\n*   open-iscsi ([CVE-2017-17840](https://nvd.nist.gov/vuln/detail/CVE-2017-17840))\n*   samba ([CVE-2019-10197](https://nvd.nist.gov/vuln/detail/CVE-2019-10197), [CVE-2020-10704](https://nvd.nist.gov/vuln/detail/CVE-2020-10704), [CVE-2020-10745](https://nvd.nist.gov/vuln/detail/CVE-2020-10745), [CVE-2019-3880](https://nvd.nist.gov/vuln/detail/CVE-2019-3880), [CVE-2019-10218](https://nvd.nist.gov/vuln/detail/CVE-2019-10218))\n*   shadow ([CVE-2019-19882](https://nvd.nist.gov/vuln/detail/CVE-2019-19882))\n*   sssd ([CVE-2018-16883](https://nvd.nist.gov/vuln/detail/CVE-2018-16883), [CVE-2019-3811](https://nvd.nist.gov/vuln/detail/CVE-2019-3811), [CVE-2018-16838](https://nvd.nist.gov/vuln/detail/CVE-2018-16838))\n*   trousers ([CVE-2020-24330](https://nvd.nist.gov/vuln/detail/CVE-2020-24330), [CVE-2020-24331](https://nvd.nist.gov/vuln/detail/CVE-2020-24331))\n*   cifs-utils ([CVE-2020-14342](https://nvd.nist.gov/vuln/detail/CVE-2020-14342))\n*   ntp ([CVE-2020-11868](https://nvd.nist.gov/vuln/detail/CVE-2020-11868), [CVE-2020-13817](https://nvd.nist.gov/vuln/detail/CVE-2020-13817), [CVE-2018-8956](https://nvd.nist.gov/vuln/detail/CVE-2018-8956), [CVE-2020-15025](https://nvd.nist.gov/vuln/detail/CVE-2020-15025))\n*   bzip2 ([CVE-2019-12900](https://nvd.nist.gov/vuln/detail/CVE-2019-12900))\n\nBug fixes:\n\n*   network: Restore KeepConfiguration=dhcp-on-stop ([kinvolk/init#30](https://github.com/kinvolk/init/pull/30))\n*   Make the automatic filesystem resizing more robust against a race and add more logging ([kinvolk/init#31](https://github.com/kinvolk/init/pull/31))\n*   Default again to waiting only for one network interface to be ready with systemd-networkd-wait-online which was missing in the initial systemd 246 update\n*   Default again to disabling IP Forwarding in systemd which was missing in the initial systemd 246 update\n*   Make systemd detect updates again when the /usr partition changes which was missing in the initial systemd 246 update\n*   Default again to set DefaultTasksMax=100% in systemd which was missing in the initial systemd 246 update\n*   Default again to disable SELinux permissions checks in systemd which was missing in the initial systemd 246 update\n\nChanges:\n\n*   The zstd tools were added (version 1.4.4)\n*   The kernel config CONFIG_PSI was set to support [Pressure Stall Information](https://www.kernel.org/doc/html/latest/accounting/psi.html), more information also under [https://facebookmicrosites.github.io/psi/docs/overview](https://facebookmicrosites.github.io/psi/docs/overview) ([Flatcar#162](https://github.com/flatcar-linux/Flatcar/issues/162))\n*   The kernel config CONFIG_BPF_JIT_ALWAYS_ON was set to use the BPF just-in-time compiler by default for faster execution\n*   The kernel config CONFIG_DEBUG_INFO_BTF was set to support BTF metadata (BPF Type Format), one important piece for portability of BPF programs (CO-RE: Compile Once - Run Everywhere) through relocation\n*   The kernel config CONFIG_POWER_SUPPLY was set\n*   The kernel configs CONFIG_OVERLAY_FS_METACOPY and CONFIG_OVERLAY_FS_REDIRECT_DIR were set. With the first overlayfs will only copy up metadata when a metadata-specific operation like chown/chmod is performed. The full file will be copied up later when the file is opened for write operations. With the second, which is equivalent to setting \"redirect_dir=on\" in the kernel command-line, overlayfs will copy up the directory first before the actual content ([Flatcar#170](https://github.com/kinvolk/Flatcar/issues/170)).\n\nUpdates:\n\n*   Linux ([5.9.8](https://lwn.net/Articles/836794/))\n*   Linux firmware ([20200918](https://git.kernel.org/pub/scm/linux/kernel/git/firmware/linux-firmware.git/tag/?h=20200918))\n*   systemd ([246.6](https://github.com/systemd/systemd-stable/releases/tag/v246.6))\n*   bzip2 ([1.0.8](https://sourceware.org/git/?p=bzip2.git;a=blob;f=CHANGES;h=30afead2586b6d64f50988a41d394a0131b38949;hb=HEAD#l342))\n*   cifs-utils (6.11)\n*   dbus-glib (0.110)\n*   elfutils (0.178)\n*   glib (2.64.5)\n*   ntp (4.2.8_p15)\n*   open-iscsi (2.1.2)\n*   samba (4.11.13)\n*   shadow (4.8)\n*   sssd (2.3.1)\n*   strace (5.9)\n*   talloc (2.3.1)\n*   tdb (1.4.3)\n*   tevent (0.10.2)\n*   SDK/developer container: GCC (9.3.0), binutils (2.35), gdb (9.2)\n*   SDK: Go (1.15.5)\n*   VMware: open-vm-tools (11.2.0)\n"
+  },
+  "2705.0.0": {
+    "channel": "alpha",
+    "architectures": [
+      "amd64",
+      "arm64"
+    ],
+    "release_date": "2020-11-27 10:48:14 +0000",
+    "major_software": {
+      "docker": [
+        "19.03.13"
+      ],
+      "ignition": [
+        "0.34.0"
+      ],
+      "kernel": [
+        "5.9.11"
+      ],
+      "systemd": [
+        "246"
+      ]
+    },
+    "release_notes": "Security fixes\n\n*   glibc ([CVE-2019-9169](https://nvd.nist.gov/vuln/detail/CVE-2019-9169), [CVE-2019-6488](https://nvd.nist.gov/vuln/detail/CVE-2019-6488), [CVE-2019-7309](https://nvd.nist.gov/vuln/detail/CVE-2019-7309), [CVE-2020-10029](https://nvd.nist.gov/vuln/detail/CVE-2020-10029), [CVE-2020-1751](https://nvd.nist.gov/vuln/detail/CVE-2020-1751), [CVE-2020-6096](https://nvd.nist.gov/vuln/detail/CVE-2020-6096), [CVE-2018-20796](https://nvd.nist.gov/vuln/detail/CVE-2018-20796))\n\nBug fixes\n\n*   Added systemd-tmpfiles directives for /opt and /opt/bin to ensure that the folders have correct permissions even when /opt/ was once created by containerd ([Flatcar#279](https://github.com/kinvolk/Flatcar/issues/279))\n\nChanges\n\n*   Enabled the kernel config HOTPLUG_PCI_ACPI for arm64 to support attaching EC2 volumes ([PR#705](https://github.com/kinvolk/coreos-overlay/pull/705))\n\nUpdates\n\n*   Linux ([5.9.11](https://lwn.net/Articles/838257/))\n*   glibc ([2.32](https://lwn.net/Articles/828210/))\n\nNote: Please note that ARM images remain experimental for now.\n"
+  },
+  "current": {
+    "channel": "alpha",
+    "architectures": [
+      "amd64",
+      "arm64"
+    ],
+    "release_date": "2020-11-27 10:48:14 +0000",
+    "major_software": {
+      "docker": [
+        "19.03.13"
+      ],
+      "ignition": [
+        "0.34.0"
+      ],
+      "kernel": [
+        "5.9.11"
+      ],
+      "systemd": [
+        "246"
+      ]
+    },
+    "release_notes": "Security fixes\n\n*   glibc ([CVE-2019-9169](https://nvd.nist.gov/vuln/detail/CVE-2019-9169), [CVE-2019-6488](https://nvd.nist.gov/vuln/detail/CVE-2019-6488), [CVE-2019-7309](https://nvd.nist.gov/vuln/detail/CVE-2019-7309), [CVE-2020-10029](https://nvd.nist.gov/vuln/detail/CVE-2020-10029), [CVE-2020-1751](https://nvd.nist.gov/vuln/detail/CVE-2020-1751), [CVE-2020-6096](https://nvd.nist.gov/vuln/detail/CVE-2020-6096), [CVE-2018-20796](https://nvd.nist.gov/vuln/detail/CVE-2018-20796))\n\nBug fixes\n\n*   Added systemd-tmpfiles directives for /opt and /opt/bin to ensure that the folders have correct permissions even when /opt/ was once created by containerd ([Flatcar#279](https://github.com/kinvolk/Flatcar/issues/279))\n\nChanges\n\n*   Enabled the kernel config HOTPLUG_PCI_ACPI for arm64 to support attaching EC2 volumes ([PR#705](https://github.com/kinvolk/coreos-overlay/pull/705))\n\nUpdates\n\n*   Linux ([5.9.11](https://lwn.net/Articles/838257/))\n*   glibc ([2.32](https://lwn.net/Articles/828210/))\n\nNote: Please note that ARM images remain experimental for now.\n"
   }
 }
