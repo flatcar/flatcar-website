@@ -72,10 +72,10 @@
                      data-toggle="tab" href="#{{ $chan.current.channel }}-release" role="tab"
                      aria-controls="{{ $chan.current.channel }}-release"
                      aria-selected="true">
-                      {{ if eq $chan.current.channel "lts" }}
+                      {{ if eq $name "lts-2021" }}
                           LTS 2021
                       {{ else }}
-                          {{ humanize $chan.current.channel }}
+                          {{ humanize $name }}
                       {{ end }} Channel
                   </a>
 		          </li>
@@ -88,8 +88,8 @@
                    role="tabpanel" aria-labelledby="{{ $chan.current.channel }}-release-tab">
                   <div class="pt-3 w-100">
                     <div class="float-right">
-                      <a href="/releases-feed/releases-{{ $chan.current.channel }}.xml" class="small" style="box-shadow: 0 0 0 white; border: none;"><span class="fa fa-rss"></span> ATOM feed ({{ $chan.current.channel }})</a>
-                      <a href="/releases-json/releases-{{ $chan.current.channel }}.json" class="small" style="box-shadow: 0 0 0 white; border: none;"><span class="fa"></span> JSON feed ({{ $chan.current.channel }})</a>
+                      <a href="/releases-feed/releases-{{ $name }}.xml" class="small" style="box-shadow: 0 0 0 white; border: none;"><span class="fa fa-rss"></span> ATOM feed ({{ $name }})</a>
+                      <a href="/releases-json/releases-{{ $name }}.json" class="small" style="box-shadow: 0 0 0 white; border: none;"><span class="fa"></span> JSON feed ({{ $name }})</a>
                     </div>
                   </div>
                   {{ range $pkg, $ver := $chan.current.image_packages }}
