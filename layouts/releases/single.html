@@ -1,8 +1,8 @@
 {{ partial "header.html" .}}
 
-{{ $chan_desc := (dict "stable" "The Stable channel is intended for use in production clusters. Versions of Flatcar Container Linux have been tested as they move through Alpha and Beta channels before being promoted to stable." "alpha" "The Alpha channel follows a more frequent release cadence and is where new updates are introduced. Users can try the new versions of the Linux kernel, systemd and other core packages." "beta" "The Beta channel is where Flatcar Container Linux stability is solidified. We encourage including some beta machines in production clusters in order to catch any issues that may arise with your setup." "edge" "The Edge channel includes experimental features and patches of the Linux kernel and other core OS packages. It is designed for experimental purposes and is not supported.") }}
+{{ $chan_desc := (dict "stable" "The Stable channel is intended for use in production clusters. Versions of Flatcar Container Linux have been tested as they move through Alpha and Beta channels before being promoted to stable." "alpha" "The Alpha channel follows a more frequent release cadence and is where new updates are introduced. Users can try the new versions of the Linux kernel, systemd and other core packages." "beta" "The Beta channel is where Flatcar Container Linux stability is solidified. We encourage including some beta machines in production clusters in order to catch any issues that may arise with your setup." "lts" "LTS releases will be maintained for an extended lifetime of 18 months. The LTS channel is available to support subscription customers.") }}
 
-{{ $orderedchan := (slice "stable" "beta" "alpha" "edge") }}
+{{ $orderedchan := (slice "stable" "beta" "alpha" "lts") }}
 
 <div class="container">
   <div class="row mt-5">
@@ -11,12 +11,16 @@
     <div class="card-deck">
        {{ range $i, $name := $orderedchan }}
        {{ $chan := index $.Site.Data.releases $name }}
-       <div class="card" {{ if eq $chan.current.channel "edge" }}style="background-color: rgba(239, 239, 239, 0.5)"{{ end }}>
+       <div class="card" {{ if eq $chan.current.channel "lts" }}style="background-color: rgba(239, 239, 239, 0.5)"{{ end }}>
            <div class="card-header align-middle">
                <h5 class="d-inline">
                    <a href="#{{ $chan.current.channel }}-release" style="border-bottom: none; box-shadow: none;"
                       onclick="javascript:$('#{{ $chan.current.channel }}-release-tab').click(); $(document).scrollTop($('#release-tabs').offset().top);">
+                          {{ if eq $chan.current.channel "lts" }}
+                          LTS
+                          {{ else }}
                           {{ humanize $chan.current.channel }}
+                          {{ end }}
                    </a>
                </h5>
                <div class="pull-right text-right">
@@ -68,7 +72,11 @@
                      data-toggle="tab" href="#{{ $chan.current.channel }}-release" role="tab"
                      aria-controls="{{ $chan.current.channel }}-release"
                      aria-selected="true">
-                      {{ humanize $chan.current.channel }} Channel
+                      {{ if eq $chan.current.channel "lts" }}
+                          LTS
+                      {{ else }}
+                          {{ humanize $chan.current.channel }}
+                      {{ end }} Channel
                   </a>
 		          </li>
               {{ end }}
