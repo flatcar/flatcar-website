@@ -4143,6 +4143,50 @@
     },
     "release_notes": "## Flatcar updates\n\nBug fixes:\n\n- Use newest network interface naming scheme (https://github.com/flatcar-linux/Flatcar/issues/36)\n  - It is a possible breaking change for some persistent network interface names\n- Fix coreos-cloudinit variable names (https://github.com/flatcar-linux/coreos-overlay/pull/206)\n- Prefer /boot/coreos to write updates (https://github.com/flatcar-linux/update_engine/pull/2)\n- Build a download URL in a safer way (https://github.com/flatcar-linux/update_engine/issues/3)\n- Remove /boot/coreos/first_boot after a Ignition rerun on migration (https://github.com/flatcar-linux/bootengine/pull/10)\n- Support coreos.config.url as kernel command line parameter for Ignition (https://github.com/flatcar-linux/ignition/pull/10)\n- Make flannel cross-node traffic work with systemd > 242 (https://github.com/coreos/flannel/issues/1155, https://github.com/flatcar-linux/coreos-overlay/pull/279)\n\nChanges:\n\n- Add `tracepath` alongside `traceroute6` (https://github.com/flatcar-linux/Flatcar/issues/50)\n- Extend logging capabilities of mayday (https://github.com/flatcar-linux/Flatcar/issues/61)\n\nUpdates:\n\n- Linux [5.6.2](https://lwn.net/Articles/816638/)\n  - An occasional lockup issue can happen at crypto_wait_for_test (https://bugzilla.kernel.org/show_bug.cgi?id=207159)\n- Docker [19.03.8](https://github.com/docker/docker-ce/releases/tag/v19.03.8)\n- open-vm-tools [11.0.5](https://github.com/vmware/open-vm-tools/releases/tag/stable-11.0.5)\n- openssh [8.1](https://www.openssh.com/txt/release-8.1)\n- WAAgent [2.2.46](https://github.com/Azure/WALinuxAgent/releases/tag/v2.2.46)"
   },
+  "2605.10.1": {
+    "channel": "lts",
+    "architectures": [
+      "amd64"
+    ],
+    "release_date": "2020-12-16 12:01:59 +0000",
+    "major_software": {
+      "docker": [
+        "19.03.14"
+      ],
+      "ignition": [
+        "0.34.0"
+      ],
+      "kernel": [
+        "5.4.83"
+      ],
+      "systemd": [
+        "246"
+      ]
+    },
+    "release_notes": "Changes:\n\n*   The Linux kernel is compiled with FIPS support\n*   Containerd CRI plugin got enabled by default, only the containerd socket path needs to be specified as kubelet parameter for Kubernetes 1.20 to use containerd instead of Docker ([Flatcar#283](https://github.com/kinvolk/Flatcar/issues/283))\n\nUpdates:\n\n*   Linux (5.4.83)\n*   Docker (19.03.14)\n*   containerd (1.4.3)\n*   systemd (246.6)\n"
+  },
+  "current-2021": {
+    "channel": "lts",
+    "architectures": [
+      "amd64"
+    ],
+    "release_date": "2020-12-16 12:01:59 +0000",
+    "major_software": {
+      "docker": [
+        "19.03.14"
+      ],
+      "ignition": [
+        "0.34.0"
+      ],
+      "kernel": [
+        "5.4.83"
+      ],
+      "systemd": [
+        "246"
+      ]
+    },
+    "release_notes": "Changes:\n\n*   The Linux kernel is compiled with FIPS support\n*   Containerd CRI plugin got enabled by default, only the containerd socket path needs to be specified as kubelet parameter for Kubernetes 1.20 to use containerd instead of Docker ([Flatcar#283](https://github.com/kinvolk/Flatcar/issues/283))\n\nUpdates:\n\n*   Linux (5.4.83)\n*   Docker (19.03.14)\n*   containerd (1.4.3)\n*   systemd (246.6)\n"
+  },
   "1688.5.3": {
     "channel": "stable",
     "architectures": [

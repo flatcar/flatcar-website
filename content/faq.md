@@ -27,11 +27,11 @@ We will continue to actively develop and support Flatcar Container Linux; updati
 
 For users that require it, Kinvolk also offers commercial support subscriptions. Please reach out to [hello@kinvolk.io](mailto:hello@kinvolk.io) for more information.
 
-## What is the Flatcar Container Linux Edge channel?
+## What is the Flatcar Container Linux LTS channel?
 
-The Flatcar Container Linux Edge channel is a new channel that includes experimental features and patches of the Linux kernel and other core OS packages.
-It's intended to ease the deliver and promotion of new Linux technologies into Kubernetes and other Cloud Native technologies.
-You can read more about this in the [Flatcar Container Linux Edge channel announcement](https://kinvolk.io/blog/2019/05/introducing-the-flatcar-linux-edge-channel/).
+Flatcar Container Linux LTS releases will be maintained for an extended lifetime of 18 months. Throughout the maintenance period LTS releases will receive bug fixes and security updates. New LTS versions are released in a 12 month cadence, providing an overlap of 6 months to upgrade to a new LTS.
+The LTS channel is available to [Kinvolk support subscription customers](https://kinvolk.io/flatcar-container-linux/#support-section).
+You can read more about it in the [Kinvolk customer support portal](https://kinvolk.io/fcl-lts-docs).
 
 ## What do you mean when you say Flatcar Container Linux is "independently built"?
 
