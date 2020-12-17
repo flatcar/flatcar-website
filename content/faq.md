@@ -30,8 +30,8 @@ For users that require it, Kinvolk also offers commercial support subscriptions.
 ## What is the Flatcar Container Linux LTS channel?
 
 Flatcar Container Linux LTS releases will be maintained for an extended lifetime of 18 months. Throughout the maintenance period LTS releases will receive bug fixes and security updates. New LTS versions are released in a 12 month cadence, providing an overlap of 6 months to upgrade to a new LTS.
-The LTS channel is available to [support subscription customers](https://kinvolk.io/flatcar-container-linux/#support-section).
-You can read more about it in the [customer support portal](https://kinvolk.io/fcl-lts-docs).
+The LTS channel is available to [Kinvolk support subscription customers](https://kinvolk.io/flatcar-container-linux/#support-section).
+You can read more about it in the [Kinvolk customer support portal](https://kinvolk.io/fcl-lts-docs).
 
 ## What do you mean when you say Flatcar Container Linux is "independently built"?
 
