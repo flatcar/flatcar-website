@@ -1827,27 +1827,50 @@
     },
     "release_notes": "Security fixes\n\n*   glibc ([CVE-2019-9169](https://nvd.nist.gov/vuln/detail/CVE-2019-9169), [CVE-2019-6488](https://nvd.nist.gov/vuln/detail/CVE-2019-6488), [CVE-2019-7309](https://nvd.nist.gov/vuln/detail/CVE-2019-7309), [CVE-2020-10029](https://nvd.nist.gov/vuln/detail/CVE-2020-10029), [CVE-2020-1751](https://nvd.nist.gov/vuln/detail/CVE-2020-1751), [CVE-2020-6096](https://nvd.nist.gov/vuln/detail/CVE-2020-6096), [CVE-2018-20796](https://nvd.nist.gov/vuln/detail/CVE-2018-20796))\n\nBug fixes\n\n*   Added systemd-tmpfiles directives for /opt and /opt/bin to ensure that the folders have correct permissions even when /opt/ was once created by containerd ([Flatcar#279](https://github.com/kinvolk/Flatcar/issues/279))\n\nChanges\n\n*   Enabled the kernel config HOTPLUG_PCI_ACPI for arm64 to support attaching EC2 volumes ([PR#705](https://github.com/kinvolk/coreos-overlay/pull/705))\n\nUpdates\n\n*   Linux ([5.9.11](https://lwn.net/Articles/838257/))\n*   glibc ([2.32](https://lwn.net/Articles/828210/))\n\nNote: Please note that ARM images remain experimental for now.\n"
   },
+  "2723.0.0": {
+    "channel": "alpha",
+    "architectures": [
+      "amd64",
+      "arm64"
+    ],
+    "release_date": "2020-12-18 14:10:15 +0000",
+    "major_software": {
+      "docker": [
+        "19.03.14"
+      ],
+      "ignition": [
+        "0.34.0"
+      ],
+      "kernel": [
+        "5.9.14"
+      ],
+      "systemd": [
+        "246"
+      ]
+    },
+    "release_notes": "Security fixes\n\n*   bsdiff\n    *   [CVE-2014-9862](https://nvd.nist.gov/vuln/detail/CVE-2014-9862)\n*   containerd\n    *   [CVE-2020-15257](https://nvd.nist.gov/vuln/detail/CVE-2020-15257)\n*   pam\n    *   [CVE-2020-27780](https://nvd.nist.gov/vuln/detail/CVE-2020-27780)\n*   Linux\n    *   [CVE-2020-29661](https://nvd.nist.gov/vuln/detail/CVE-2020-29661)\n    *   [CVE-2020-29660](https://nvd.nist.gov/vuln/detail/CVE-2020-29660)\n    *   [CVE-2020-27830](https://nvd.nist.gov/vuln/detail/CVE-2020-27830)\n    *   [CVE-2020-28588](https://nvd.nist.gov/vuln/detail/CVE-2020-28588) (only affects 32-bit systems, Flatcar Container Linux is not affected)\n    *   [CVE-2020-27835](https://nvd.nist.gov/vuln/detail/CVE-2020-27835) (only affects systems with Infiniband HF1 driver, Flatcar Container Linux is not affected)\n\nBug fixes\n\n*   The sysctl net.ipv4.conf.*.rp_filter is set to 0 for the Cilium CNI plugin to work ([Flatcar#181](https://github.com/kinvolk/Flatcar/issues/181))\n*   Package downloads in the developer container now use the correct URL again ([Flatcar#298](https://github.com/kinvolk/Flatcar/issues/298))\n\nChanges\n\n*   A symlink `vimdiff` should not be created, if the USE flag `minimal` is enabled. ([Flatcar/#221](https://github.com/kinvolk/Flatcar/issues/221))\n*   The sysctl default config file is now applied under the prefix 60 which allows for custom sysctl config files to take effect when they start with a prefix of 70, 80, or 90 ([baselayout#13](https://github.com/kinvolk/baselayout/pull/13))\n*   Containerd CRI plugin got enabled by default, only the containerd socket path needs to be specified as kubelet parameter for Kubernetes 1.20 to use containerd instead of Docker ([Flatcar#283](https://github.com/kinvolk/Flatcar/issues/283))\n*   For users with a custom update server a machine alias setting in update-engine allows to give human-friendly names to client instances ([update-engine#8](https://github.com/kinvolk/update_engine/pull/8))\n*   Enable BCMGENET as a module on arm64_defconfig-5.9 (c[oreos-overlay#717](https://github.com/kinvolk/coreos-overlay/pull/717))\n*   Enable BCM7XXX_PHY as a module on arm64_defconfig-5.9 for Raspberry Pi 4 ([coreos-overlay#716](https://github.com/kinvolk/coreos-overlay/pull/716))\n*   Disable jpeg USE flag from QEMU ([coreos-overlay#729](https://github.com/kinvolk/coreos-overlay/pull/729))\n*   flatcar_production_qemu.sh: Use more CPUs for ARM if available ([scripts#91](https://github.com/kinvolk/flatcar-scripts/pull/91))\n\nUpdates\n\n*   Linux ([5.9.14](https://lwn.net/Articles/839874/))\n*   Linux firmware ([20201118](https://git.kernel.org/pub/scm/linux/kernel/git/firmware/linux-firmware.git/tag/?h=20201118))\n*   Docker ([19.03.14](https://github.com/docker/docker-ce/releases/tag/v19.03.14))\n*   containerd ([1.4.3](https://github.com/containerd/containerd/releases/tag/v1.4.3))\n*   pam ([1.5.1](https://github.com/linux-pam/linux-pam/releases/tag/v1.5.1))\n*   sqlite ([3.33](https://www.sqlite.org/releaselog/3_33_0.html))\n*   SDK: Rust ([1.47.0](https://github.com/rust-lang/rust/blob/master/RELEASES.md#version-1470-2020-10-08))\n*   SDK: Go ([1.15.6](https://go.googlesource.com/go/+/refs/tags/go1.15.6))\n*   SDK: repo (2.8)\n*   SDK: dwarves (1.19)\n\nNote: Please note that ARM images remain experimental for now.\n"
+  },
   "current": {
     "channel": "alpha",
     "architectures": [
       "amd64",
       "arm64"
     ],
-    "release_date": "2020-11-27 10:48:14 +0000",
+    "release_date": "2020-12-18 14:10:15 +0000",
     "major_software": {
       "docker": [
-        "19.03.13"
+        "19.03.14"
       ],
       "ignition": [
         "0.34.0"
       ],
       "kernel": [
-        "5.9.11"
+        "5.9.14"
       ],
       "systemd": [
         "246"
       ]
     },
-    "release_notes": "Security fixes\n\n*   glibc ([CVE-2019-9169](https://nvd.nist.gov/vuln/detail/CVE-2019-9169), [CVE-2019-6488](https://nvd.nist.gov/vuln/detail/CVE-2019-6488), [CVE-2019-7309](https://nvd.nist.gov/vuln/detail/CVE-2019-7309), [CVE-2020-10029](https://nvd.nist.gov/vuln/detail/CVE-2020-10029), [CVE-2020-1751](https://nvd.nist.gov/vuln/detail/CVE-2020-1751), [CVE-2020-6096](https://nvd.nist.gov/vuln/detail/CVE-2020-6096), [CVE-2018-20796](https://nvd.nist.gov/vuln/detail/CVE-2018-20796))\n\nBug fixes\n\n*   Added systemd-tmpfiles directives for /opt and /opt/bin to ensure that the folders have correct permissions even when /opt/ was once created by containerd ([Flatcar#279](https://github.com/kinvolk/Flatcar/issues/279))\n\nChanges\n\n*   Enabled the kernel config HOTPLUG_PCI_ACPI for arm64 to support attaching EC2 volumes ([PR#705](https://github.com/kinvolk/coreos-overlay/pull/705))\n\nUpdates\n\n*   Linux ([5.9.11](https://lwn.net/Articles/838257/))\n*   glibc ([2.32](https://lwn.net/Articles/828210/))\n\nNote: Please note that ARM images remain experimental for now.\n"
+    "release_notes": "Security fixes\n\n*   bsdiff\n    *   [CVE-2014-9862](https://nvd.nist.gov/vuln/detail/CVE-2014-9862)\n*   containerd\n    *   [CVE-2020-15257](https://nvd.nist.gov/vuln/detail/CVE-2020-15257)\n*   pam\n    *   [CVE-2020-27780](https://nvd.nist.gov/vuln/detail/CVE-2020-27780)\n*   Linux\n    *   [CVE-2020-29661](https://nvd.nist.gov/vuln/detail/CVE-2020-29661)\n    *   [CVE-2020-29660](https://nvd.nist.gov/vuln/detail/CVE-2020-29660)\n    *   [CVE-2020-27830](https://nvd.nist.gov/vuln/detail/CVE-2020-27830)\n    *   [CVE-2020-28588](https://nvd.nist.gov/vuln/detail/CVE-2020-28588) (only affects 32-bit systems, Flatcar Container Linux is not affected)\n    *   [CVE-2020-27835](https://nvd.nist.gov/vuln/detail/CVE-2020-27835) (only affects systems with Infiniband HF1 driver, Flatcar Container Linux is not affected)\n\nBug fixes\n\n*   The sysctl net.ipv4.conf.*.rp_filter is set to 0 for the Cilium CNI plugin to work ([Flatcar#181](https://github.com/kinvolk/Flatcar/issues/181))\n*   Package downloads in the developer container now use the correct URL again ([Flatcar#298](https://github.com/kinvolk/Flatcar/issues/298))\n\nChanges\n\n*   A symlink `vimdiff` should not be created, if the USE flag `minimal` is enabled. ([Flatcar/#221](https://github.com/kinvolk/Flatcar/issues/221))\n*   The sysctl default config file is now applied under the prefix 60 which allows for custom sysctl config files to take effect when they start with a prefix of 70, 80, or 90 ([baselayout#13](https://github.com/kinvolk/baselayout/pull/13))\n*   Containerd CRI plugin got enabled by default, only the containerd socket path needs to be specified as kubelet parameter for Kubernetes 1.20 to use containerd instead of Docker ([Flatcar#283](https://github.com/kinvolk/Flatcar/issues/283))\n*   For users with a custom update server a machine alias setting in update-engine allows to give human-friendly names to client instances ([update-engine#8](https://github.com/kinvolk/update_engine/pull/8))\n*   Enable BCMGENET as a module on arm64_defconfig-5.9 (c[oreos-overlay#717](https://github.com/kinvolk/coreos-overlay/pull/717))\n*   Enable BCM7XXX_PHY as a module on arm64_defconfig-5.9 for Raspberry Pi 4 ([coreos-overlay#716](https://github.com/kinvolk/coreos-overlay/pull/716))\n*   Disable jpeg USE flag from QEMU ([coreos-overlay#729](https://github.com/kinvolk/coreos-overlay/pull/729))\n*   flatcar_production_qemu.sh: Use more CPUs for ARM if available ([scripts#91](https://github.com/kinvolk/flatcar-scripts/pull/91))\n\nUpdates\n\n*   Linux ([5.9.14](https://lwn.net/Articles/839874/))\n*   Linux firmware ([20201118](https://git.kernel.org/pub/scm/linux/kernel/git/firmware/linux-firmware.git/tag/?h=20201118))\n*   Docker ([19.03.14](https://github.com/docker/docker-ce/releases/tag/v19.03.14))\n*   containerd ([1.4.3](https://github.com/containerd/containerd/releases/tag/v1.4.3))\n*   pam ([1.5.1](https://github.com/linux-pam/linux-pam/releases/tag/v1.5.1))\n*   sqlite ([3.33](https://www.sqlite.org/releaselog/3_33_0.html))\n*   SDK: Rust ([1.47.0](https://github.com/rust-lang/rust/blob/master/RELEASES.md#version-1470-2020-10-08))\n*   SDK: Go ([1.15.6](https://go.googlesource.com/go/+/refs/tags/go1.15.6))\n*   SDK: repo (2.8)\n*   SDK: dwarves (1.19)\n\nNote: Please note that ARM images remain experimental for now.\n"
   }
 }
