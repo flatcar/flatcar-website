@@ -1850,12 +1850,13 @@
     },
     "release_notes": "Security fixes\n\n*   bsdiff\n    *   [CVE-2014-9862](https://nvd.nist.gov/vuln/detail/CVE-2014-9862)\n*   containerd\n    *   [CVE-2020-15257](https://nvd.nist.gov/vuln/detail/CVE-2020-15257)\n*   pam\n    *   [CVE-2020-27780](https://nvd.nist.gov/vuln/detail/CVE-2020-27780)\n*   Linux\n    *   [CVE-2020-29661](https://nvd.nist.gov/vuln/detail/CVE-2020-29661)\n    *   [CVE-2020-29660](https://nvd.nist.gov/vuln/detail/CVE-2020-29660)\n    *   [CVE-2020-27830](https://nvd.nist.gov/vuln/detail/CVE-2020-27830)\n    *   [CVE-2020-28588](https://nvd.nist.gov/vuln/detail/CVE-2020-28588) (only affects 32-bit systems, Flatcar Container Linux is not affected)\n    *   [CVE-2020-27835](https://nvd.nist.gov/vuln/detail/CVE-2020-27835) (only affects systems with Infiniband HF1 driver, Flatcar Container Linux is not affected)\n\nBug fixes\n\n*   The sysctl net.ipv4.conf.*.rp_filter is set to 0 for the Cilium CNI plugin to work ([Flatcar#181](https://github.com/kinvolk/Flatcar/issues/181))\n*   Package downloads in the developer container now use the correct URL again ([Flatcar#298](https://github.com/kinvolk/Flatcar/issues/298))\n\nChanges\n\n*   A symlink `vimdiff` should not be created, if the USE flag `minimal` is enabled. ([Flatcar/#221](https://github.com/kinvolk/Flatcar/issues/221))\n*   The sysctl default config file is now applied under the prefix 60 which allows for custom sysctl config files to take effect when they start with a prefix of 70, 80, or 90 ([baselayout#13](https://github.com/kinvolk/baselayout/pull/13))\n*   Containerd CRI plugin got enabled by default, only the containerd socket path needs to be specified as kubelet parameter for Kubernetes 1.20 to use containerd instead of Docker ([Flatcar#283](https://github.com/kinvolk/Flatcar/issues/283))\n*   For users with a custom update server a machine alias setting in update-engine allows to give human-friendly names to client instances ([update-engine#8](https://github.com/kinvolk/update_engine/pull/8))\n*   Enable BCMGENET as a module on arm64_defconfig-5.9 (c[oreos-overlay#717](https://github.com/kinvolk/coreos-overlay/pull/717))\n*   Enable BCM7XXX_PHY as a module on arm64_defconfig-5.9 for Raspberry Pi 4 ([coreos-overlay#716](https://github.com/kinvolk/coreos-overlay/pull/716))\n*   Disable jpeg USE flag from QEMU ([coreos-overlay#729](https://github.com/kinvolk/coreos-overlay/pull/729))\n*   flatcar_production_qemu.sh: Use more CPUs for ARM if available ([scripts#91](https://github.com/kinvolk/flatcar-scripts/pull/91))\n\nUpdates\n\n*   Linux ([5.9.14](https://lwn.net/Articles/839874/))\n*   Linux firmware ([20201118](https://git.kernel.org/pub/scm/linux/kernel/git/firmware/linux-firmware.git/tag/?h=20201118))\n*   Docker ([19.03.14](https://github.com/docker/docker-ce/releases/tag/v19.03.14))\n*   containerd ([1.4.3](https://github.com/containerd/containerd/releases/tag/v1.4.3))\n*   pam ([1.5.1](https://github.com/linux-pam/linux-pam/releases/tag/v1.5.1))\n*   sqlite ([3.33](https://www.sqlite.org/releaselog/3_33_0.html))\n*   SDK: Rust ([1.47.0](https://github.com/rust-lang/rust/blob/master/RELEASES.md#version-1470-2020-10-08))\n*   SDK: Go ([1.15.6](https://go.googlesource.com/go/+/refs/tags/go1.15.6))\n*   SDK: repo (2.8)\n*   SDK: dwarves (1.19)\n\nNote: Please note that ARM images remain experimental for now.\n"
   },
-  "current": {
-    "channel": "stable",
+  "2748.0.0": {
+    "channel": "alpha",
     "architectures": [
-      "amd64"
+      "amd64",
+      "arm64"
     ],
-    "release_date": "2020-12-16 12:01:04 +0000",
+    "release_date": "2021-01-12 17:02:16 +0000",
     "major_software": {
       "docker": [
         "19.03.14"
@@ -1864,13 +1865,35 @@
         "0.34.0"
       ],
       "kernel": [
-        "5.4.83"
+        "5.10.4"
       ],
       "systemd": [
         "246"
       ]
     },
-    "release_notes": "Security fixes:\n\n*   Linux [CVE-2020-29661](https://nvd.nist.gov/vuln/detail/CVE-2020-29661), [CVE-2020-29660](https://nvd.nist.gov/vuln/detail/CVE-2020-29660), [CVE-2020-27830](https://nvd.nist.gov/vuln/detail/CVE-2020-27830), [CVE-2020-28588](https://nvd.nist.gov/vuln/detail/CVE-2020-28588)\n\nBug fixes:\n\n*   The sysctl `net.ipv4.conf.*.rp_filter` is set to `0` for the Cilium CNI plugin to work ([Flatcar#181](https://github.com/kinvolk/Flatcar/issues/181))\n*   Package downloads in the developer container now use the correct URL again ([Flatcar#298](https://github.com/kinvolk/Flatcar/issues/298))\n\nChanges:\n\n*   The sysctl default config file is now applied under the prefix 60 which allows for custom sysctl config files to take effect when they start with a prefix of 70, 80, or 90 ([baselayout#13](https://github.com/kinvolk/baselayout/pull/13))\n*   Containerd CRI plugin got enabled by default, only the containerd socket path needs to be specified as kubelet parameter for Kubernetes 1.20 to use containerd instead of Docker ([Flatcar#283](https://github.com/kinvolk/Flatcar/issues/283))\n*   For users with a custom update server a machine alias setting in update-engine allows to give human-friendly names to client instances ([update-engine#8](https://github.com/kinvolk/update_engine/pull/8))\n\nUpdates:\n\n*   Linux ([5.4.83](https://lwn.net/Articles/839875/))\n"
+    "release_notes": "**Security fixes**\n\n * Linux\n   - [CVE-2020-27815](https://www.openwall.com/lists/oss-security/2020/11/30/5)\n   - [CVE-2020-27830](https://www.openwall.com/lists/oss-security/2020/12/07/1)\n   - [CVE-2020-27835](https://nvd.nist.gov/vuln/detail/CVE-2020-27835)\n   - [CVE-2020-28588](https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=4f134b89a24b965991e7c345b9a4591821f7c2a6)\n   - [CVE-2020-29568](https://nvd.nist.gov/vuln/detail/CVE-2020-29568)\n   - [CVE-2020-29569](https://nvd.nist.gov/vuln/detail/CVE-2020-29569)\n   - [CVE-2020-29660](https://nvd.nist.gov/vuln/detail/CVE-2020-29660)\n   - [CVE-2020-29661](https://nvd.nist.gov/vuln/detail/CVE-2020-29661)\n\n**Bug fixes**\n\n*   afterburn (coreos-metadata): Restart on failure and keep coreos-metadata unit active ([kinvolk/coreos-overlay#768](https://github.com/kinvolk/coreos-overlay/pull/768))\n*   networkd: avoid managing MAC addresses for veth devices ([kinvolk/init#33](https://github.com/kinvolk/init/pull/33))\n\n**Changes**\n\n*   Updated nsswitch.conf to use systemd-resolved ([kinvolk/baselayout#10](https://github.com/kinvolk/baselayout/pull/10))\n*   Enabled systemd-resolved stub listeners ([kinvolk/baselayout#11](https://github.com/kinvolk/baselayout/pull/11))\n*   systemd-resolved: Disabled DNSSEC for the mean time ([kinvolk/baselayout#14](https://github.com/kinvolk/baselayout/pull/14))\n*   kernel: enabled CONFIG_DEBUG_INFO_BTF ([kinvolk/coreos-overlay#753](https://github.com/kinvolk/coreos-overlay/pull/753))\n*   containerd: Switched to default upstream socket location while keeping a symlink for the previous location in Flatcar ([kinvolk/coreos-overlay#771](https://github.com/kinvolk/coreos-overlay/pull/771))\n*   containerd: Disabled shim debug logs ([kinvolk/coreos-overlay#766](https://github.com/kinvolk/coreos-overlay/pull/766))\n\n**Updates**\n\n*   Linux ([5.10.4](https://lwn.net/Articles/841473/))\n*   Linux firmware ([20201218](https://git.kernel.org/pub/scm/linux/kernel/git/firmware/linux-firmware.git/tag/?h=20201218))\n*   SDK: Rust ([1.48.0](https://github.com/rust-lang/rust/blob/master/RELEASES.md#version-1480-2020-11-19))\n\nNote: Please note that ARM images remain experimental for now."
+  },
+  "current": {
+    "channel": "stable",
+    "architectures": [
+      "amd64"
+    ],
+    "release_date": "2021-01-12 16:59:40 +0000",
+    "major_software": {
+      "docker": [
+        "19.03.14"
+      ],
+      "ignition": [
+        "0.34.0"
+      ],
+      "kernel": [
+        "5.4.87"
+      ],
+      "systemd": [
+        "246"
+      ]
+    },
+    "release_notes": "**Security fixes**\n\n * Linux\n   - [CVE-2020-27815](https://www.openwall.com/lists/oss-security/2020/11/30/5)\n   - [CVE-2020-29568](https://nvd.nist.gov/vuln/detail/CVE-2020-29568)\n   - [CVE-2020-29569](https://nvd.nist.gov/vuln/detail/CVE-2020-29569)\n\n**Bug fixes**\n\n*   networkd: avoid managing MAC addresses for veth devices ([kinvolk/init#33](https://github.com/kinvolk/init/pull/33))\n\n**Updates**\n\n*   Linux ([5.4.87](https://lwn.net/Articles/841900/))\n"
   },
   "1722.2.0": {
     "channel": "beta",
@@ -3487,6 +3510,28 @@
       ]
     },
     "release_notes": "Security fixes:\n*   No changes since Alpha 2705.0.0\n\nBug fixes:\n*   No changes since Alpha 2705.0.0\n\nChanges:\n*   No changes since Alpha 2705.0.0\n\nUpdates:\n*   No changes since Alpha 2705.0.0\n"
+  },
+  "2705.1.1": {
+    "channel": "beta",
+    "architectures": [
+      "amd64"
+    ],
+    "release_date": "2021-01-12 17:00:58 +0000",
+    "major_software": {
+      "docker": [
+        "19.03.14"
+      ],
+      "ignition": [
+        "0.34.0"
+      ],
+      "kernel": [
+        "5.9.16"
+      ],
+      "systemd": [
+        "246"
+      ]
+    },
+    "release_notes": "**Security fixes**\n\n* Linux\n  - [CVE-2020-27835](https://nvd.nist.gov/vuln/detail/CVE-2020-27835)\n  - [CVE-2020-29661](https://nvd.nist.gov/vuln/detail/CVE-2020-29661)\n  - [CVE-2020-29660](https://nvd.nist.gov/vuln/detail/CVE-2020-29660)\n  - [CVE-2020-27830](https://www.openwall.com/lists/oss-security/2020/12/07/1)\n  - [CVE-2020-28588](https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=4f134b89a24b965991e7c345b9a4591821f7c2a6)\n\n**Bug fixes**\n\n*   The sysctl `net.ipv4.conf.*.rp_filter` is set to `0` for the Cilium CNI plugin to work ([kinvolk/Flatcar#181](https://github.com/kinvolk/Flatcar/issues/181))\n*   Package downloads in the developer container now use the correct URL again ([kinvolk/Flatcar#298](https://github.com/kinvolk/Flatcar/issues/298))\n*   networkd: avoid managing MAC addresses for veth devices ([kinvolk/init#33](https://github.com/kinvolk/init/pull/33))\n\n**Changes**\n\n*   The sysctl default config file is now applied under the prefix 60 which allows for custom sysctl config files to take effect when they start with a prefix of 70, 80, or 90 ([kinvolk/baselayout#13](https://github.com/kinvolk/baselayout/pull/13))\n*   Containerd CRI plugin got enabled by default, only the containerd socket path needs to be specified as kubelet parameter for Kubernetes 1.20 to use containerd instead of Docker ([kinvolk/Flatcar#283](https://github.com/kinvolk/Flatcar/issues/283))\n*   For users with a custom update server a machine alias setting in update-engine allows to give human-friendly names to client instances ([kinvolk/update-engine#8](https://github.com/kinvolk/update_engine/pull/8))\n\n**Updates**\n\n*   Linux ([5.9.16](https://lwn.net/Articles/840977/))\n*   containerd ([1.4.3](https://github.com/containerd/containerd/releases/tag/v1.4.3))\n*   Docker ([19.03.14](https://github.com/docker/docker-ce/releases/tag/v19.03.14))\n"
   },
   "2051.99.1": {
     "channel": "edge",
@@ -5431,6 +5476,28 @@
       ]
     },
     "release_notes": "Security fixes:\n\n*   Linux [CVE-2020-29661](https://nvd.nist.gov/vuln/detail/CVE-2020-29661), [CVE-2020-29660](https://nvd.nist.gov/vuln/detail/CVE-2020-29660), [CVE-2020-27830](https://nvd.nist.gov/vuln/detail/CVE-2020-27830), [CVE-2020-28588](https://nvd.nist.gov/vuln/detail/CVE-2020-28588)\n\nBug fixes:\n\n*   The sysctl `net.ipv4.conf.*.rp_filter` is set to `0` for the Cilium CNI plugin to work ([Flatcar#181](https://github.com/kinvolk/Flatcar/issues/181))\n*   Package downloads in the developer container now use the correct URL again ([Flatcar#298](https://github.com/kinvolk/Flatcar/issues/298))\n\nChanges:\n\n*   The sysctl default config file is now applied under the prefix 60 which allows for custom sysctl config files to take effect when they start with a prefix of 70, 80, or 90 ([baselayout#13](https://github.com/kinvolk/baselayout/pull/13))\n*   Containerd CRI plugin got enabled by default, only the containerd socket path needs to be specified as kubelet parameter for Kubernetes 1.20 to use containerd instead of Docker ([Flatcar#283](https://github.com/kinvolk/Flatcar/issues/283))\n*   For users with a custom update server a machine alias setting in update-engine allows to give human-friendly names to client instances ([update-engine#8](https://github.com/kinvolk/update_engine/pull/8))\n\nUpdates:\n\n*   Linux ([5.4.83](https://lwn.net/Articles/839875/))\n"
+  },
+  "2605.11.0": {
+    "channel": "stable",
+    "architectures": [
+      "amd64"
+    ],
+    "release_date": "2021-01-12 16:59:40 +0000",
+    "major_software": {
+      "docker": [
+        "19.03.14"
+      ],
+      "ignition": [
+        "0.34.0"
+      ],
+      "kernel": [
+        "5.4.87"
+      ],
+      "systemd": [
+        "246"
+      ]
+    },
+    "release_notes": "**Security fixes**\n\n * Linux\n   - [CVE-2020-27815](https://www.openwall.com/lists/oss-security/2020/11/30/5)\n   - [CVE-2020-29568](https://nvd.nist.gov/vuln/detail/CVE-2020-29568)\n   - [CVE-2020-29569](https://nvd.nist.gov/vuln/detail/CVE-2020-29569)\n\n**Bug fixes**\n\n*   networkd: avoid managing MAC addresses for veth devices ([kinvolk/init#33](https://github.com/kinvolk/init/pull/33))\n\n**Updates**\n\n*   Linux ([5.4.87](https://lwn.net/Articles/841900/))\n"
   },
   "2605.5.0": {
     "channel": "stable",

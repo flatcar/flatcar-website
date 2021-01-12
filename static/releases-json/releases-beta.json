@@ -1615,26 +1615,48 @@
     },
     "release_notes": "Security fixes:\n*   No changes since Alpha 2705.0.0\n\nBug fixes:\n*   No changes since Alpha 2705.0.0\n\nChanges:\n*   No changes since Alpha 2705.0.0\n\nUpdates:\n*   No changes since Alpha 2705.0.0\n"
   },
-  "current": {
+  "2705.1.1": {
     "channel": "beta",
     "architectures": [
       "amd64"
     ],
-    "release_date": "2020-12-01 13:28:41 +0000",
+    "release_date": "2021-01-12 17:00:58 +0000",
     "major_software": {
       "docker": [
-        "19.03.13"
+        "19.03.14"
       ],
       "ignition": [
         "0.34.0"
       ],
       "kernel": [
-        "5.9.11"
+        "5.9.16"
       ],
       "systemd": [
         "246"
       ]
     },
-    "release_notes": "Security fixes:\n*   No changes since Alpha 2705.0.0\n\nBug fixes:\n*   No changes since Alpha 2705.0.0\n\nChanges:\n*   No changes since Alpha 2705.0.0\n\nUpdates:\n*   No changes since Alpha 2705.0.0\n"
+    "release_notes": "**Security fixes**\n\n* Linux\n  - [CVE-2020-27835](https://nvd.nist.gov/vuln/detail/CVE-2020-27835)\n  - [CVE-2020-29661](https://nvd.nist.gov/vuln/detail/CVE-2020-29661)\n  - [CVE-2020-29660](https://nvd.nist.gov/vuln/detail/CVE-2020-29660)\n  - [CVE-2020-27830](https://www.openwall.com/lists/oss-security/2020/12/07/1)\n  - [CVE-2020-28588](https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=4f134b89a24b965991e7c345b9a4591821f7c2a6)\n\n**Bug fixes**\n\n*   The sysctl `net.ipv4.conf.*.rp_filter` is set to `0` for the Cilium CNI plugin to work ([kinvolk/Flatcar#181](https://github.com/kinvolk/Flatcar/issues/181))\n*   Package downloads in the developer container now use the correct URL again ([kinvolk/Flatcar#298](https://github.com/kinvolk/Flatcar/issues/298))\n*   networkd: avoid managing MAC addresses for veth devices ([kinvolk/init#33](https://github.com/kinvolk/init/pull/33))\n\n**Changes**\n\n*   The sysctl default config file is now applied under the prefix 60 which allows for custom sysctl config files to take effect when they start with a prefix of 70, 80, or 90 ([kinvolk/baselayout#13](https://github.com/kinvolk/baselayout/pull/13))\n*   Containerd CRI plugin got enabled by default, only the containerd socket path needs to be specified as kubelet parameter for Kubernetes 1.20 to use containerd instead of Docker ([kinvolk/Flatcar#283](https://github.com/kinvolk/Flatcar/issues/283))\n*   For users with a custom update server a machine alias setting in update-engine allows to give human-friendly names to client instances ([kinvolk/update-engine#8](https://github.com/kinvolk/update_engine/pull/8))\n\n**Updates**\n\n*   Linux ([5.9.16](https://lwn.net/Articles/840977/))\n*   containerd ([1.4.3](https://github.com/containerd/containerd/releases/tag/v1.4.3))\n*   Docker ([19.03.14](https://github.com/docker/docker-ce/releases/tag/v19.03.14))\n"
+  },
+  "current": {
+    "channel": "beta",
+    "architectures": [
+      "amd64"
+    ],
+    "release_date": "2021-01-12 17:00:58 +0000",
+    "major_software": {
+      "docker": [
+        "19.03.14"
+      ],
+      "ignition": [
+        "0.34.0"
+      ],
+      "kernel": [
+        "5.9.16"
+      ],
+      "systemd": [
+        "246"
+      ]
+    },
+    "release_notes": "**Security fixes**\n\n* Linux\n  - [CVE-2020-27835](https://nvd.nist.gov/vuln/detail/CVE-2020-27835)\n  - [CVE-2020-29661](https://nvd.nist.gov/vuln/detail/CVE-2020-29661)\n  - [CVE-2020-29660](https://nvd.nist.gov/vuln/detail/CVE-2020-29660)\n  - [CVE-2020-27830](https://www.openwall.com/lists/oss-security/2020/12/07/1)\n  - [CVE-2020-28588](https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=4f134b89a24b965991e7c345b9a4591821f7c2a6)\n\n**Bug fixes**\n\n*   The sysctl `net.ipv4.conf.*.rp_filter` is set to `0` for the Cilium CNI plugin to work ([kinvolk/Flatcar#181](https://github.com/kinvolk/Flatcar/issues/181))\n*   Package downloads in the developer container now use the correct URL again ([kinvolk/Flatcar#298](https://github.com/kinvolk/Flatcar/issues/298))\n*   networkd: avoid managing MAC addresses for veth devices ([kinvolk/init#33](https://github.com/kinvolk/init/pull/33))\n\n**Changes**\n\n*   The sysctl default config file is now applied under the prefix 60 which allows for custom sysctl config files to take effect when they start with a prefix of 70, 80, or 90 ([kinvolk/baselayout#13](https://github.com/kinvolk/baselayout/pull/13))\n*   Containerd CRI plugin got enabled by default, only the containerd socket path needs to be specified as kubelet parameter for Kubernetes 1.20 to use containerd instead of Docker ([kinvolk/Flatcar#283](https://github.com/kinvolk/Flatcar/issues/283))\n*   For users with a custom update server a machine alias setting in update-engine allows to give human-friendly names to client instances ([kinvolk/update-engine#8](https://github.com/kinvolk/update_engine/pull/8))\n\n**Updates**\n\n*   Linux ([5.9.16](https://lwn.net/Articles/840977/))\n*   containerd ([1.4.3](https://github.com/containerd/containerd/releases/tag/v1.4.3))\n*   Docker ([19.03.14](https://github.com/docker/docker-ce/releases/tag/v19.03.14))\n"
   }
 }
