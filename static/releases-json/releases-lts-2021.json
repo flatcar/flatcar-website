@@ -65,12 +65,12 @@
     },
     "release_notes": "**Security fixes**\n\n*   Linux - [CVE-2021-20194](https://nvd.nist.gov/vuln/detail/CVE-2021-20194), [CVE-2021-3348](https://nvd.nist.gov/vuln/detail/CVE-2021-3348), [CVE-2020-27825](https://nvd.nist.gov/vuln/detail/CVE-2020-27825), [CVE-2021-3347](https://nvd.nist.gov/vuln/detail/CVE-2021-3347), [CVE-2021-26931](https://nvd.nist.gov/vuln/detail/CVE-2021-26931), [CVE-2021-26930](https://nvd.nist.gov/vuln/detail/CVE-2021-26930), [CVE-2021-26932](https://nvd.nist.gov/vuln/detail/CVE-2021-26932)\n\n**Bug fixes**\n\n*   login message (motd): filter out bullet point when parsing failed units ([baselayout#16](https://github.com/kinvolk/baselayout/pull/16))\n*   tcsd.service: use correct file permissions ([coreos-overlay#809](https://github.com/kinvolk/coreos-overlay/pull/809))\n*   Use LTS 2021 as OS codename instead of the wrong LTS 2020 name\n*   Flatcar Pro for AWS: flatcar-eks: add missing mkdir and update to latest versions ([coreos-overlay#817](https://github.com/kinvolk/coreos-overlay/pull/817))\n\n**Updates**\n\n*   Linux [5.4.101](https://lwn.net/Articles/847590/)\n"
   },
-  "current-2021": {
+  "2605.14.1": {
     "channel": "lts",
     "architectures": [
       "amd64"
     ],
-    "release_date": "2021-03-02 12:23:32 +0000",
+    "release_date": "2021-03-25 15:40:57 +0000",
     "major_software": {
       "docker": [
         "19.03.15"
@@ -79,20 +79,42 @@
         "0.34.0"
       ],
       "kernel": [
-        "5.4.101"
+        "5.4.107"
       ],
       "systemd": [
         "246"
       ]
     },
-    "release_notes": "**Security fixes**\n\n*   Linux - [CVE-2021-20194](https://nvd.nist.gov/vuln/detail/CVE-2021-20194), [CVE-2021-3348](https://nvd.nist.gov/vuln/detail/CVE-2021-3348), [CVE-2020-27825](https://nvd.nist.gov/vuln/detail/CVE-2020-27825), [CVE-2021-3347](https://nvd.nist.gov/vuln/detail/CVE-2021-3347), [CVE-2021-26931](https://nvd.nist.gov/vuln/detail/CVE-2021-26931), [CVE-2021-26930](https://nvd.nist.gov/vuln/detail/CVE-2021-26930), [CVE-2021-26932](https://nvd.nist.gov/vuln/detail/CVE-2021-26932)\n\n**Bug fixes**\n\n*   login message (motd): filter out bullet point when parsing failed units ([baselayout#16](https://github.com/kinvolk/baselayout/pull/16))\n*   tcsd.service: use correct file permissions ([coreos-overlay#809](https://github.com/kinvolk/coreos-overlay/pull/809))\n*   Use LTS 2021 as OS codename instead of the wrong LTS 2020 name\n*   Flatcar Pro for AWS: flatcar-eks: add missing mkdir and update to latest versions ([coreos-overlay#817](https://github.com/kinvolk/coreos-overlay/pull/817))\n\n**Updates**\n\n*   Linux [5.4.101](https://lwn.net/Articles/847590/)\n"
+    "release_notes": "**Security fixes**\n\n\n\n*   Linux ([CVE-2021-28375](https://nvd.nist.gov/vuln/detail/CVE-2021-28375), [CVE-2021-28660](https://nvd.nist.gov/vuln/detail/CVE-2021-28660), [CVE-2021-27363](https://nvd.nist.gov/vuln/detail/CVE-2021-27363), [CVE-2021-27365](https://nvd.nist.gov/vuln/detail/CVE-2021-27365), [CVE-2021-28038](https://nvd.nist.gov/vuln/detail/CVE-2021-28038), [CVE-2021-27364](https://nvd.nist.gov/vuln/detail/CVE-2021-27364), [CVE-2020-25639](https://nvd.nist.gov/vuln/detail/CVE-2020-25639))\n*   openssl ([CVE-2021-23840](https://nvd.nist.gov/vuln/detail/CVE-2021-23840),[ CVE-2021-23841](https://nvd.nist.gov/vuln/detail/CVE-2021-23841), [CVE-2020-1971](https://nvd.nist.gov/vuln/detail/CVE-2020-1971),[ CVE-2021-23840](https://nvd.nist.gov/vuln/detail/CVE-2021-23840),[ CVE-2021-23841](https://nvd.nist.gov/vuln/detail/CVE-2021-23841), [CVE-2021-3449](https://nvd.nist.gov/vuln/detail/CVE-2021-3449),[ CVE-2021-3450](https://nvd.nist.gov/vuln/detail/CVE-2021-3450))\n\n**Updates**\n\n\n\n*   Linux ([5.4.107](https://lwn.net/Articles/849952/))\n*   openssl ([1.1.1k](https://mta.openssl.org/pipermail/openssl-announce/2021-March/000197.html))\n*   open-iscsi ([2.1.4](https://github.com/open-iscsi/open-iscsi/releases/tag/2.1.4))\n*   containerd ([1.4.4](https://github.com/containerd/containerd/releases/tag/v1.4.4))"
+  },
+  "current-2021": {
+    "channel": "lts",
+    "architectures": [
+      "amd64"
+    ],
+    "release_date": "2021-03-25 15:40:57 +0000",
+    "major_software": {
+      "docker": [
+        "19.03.15"
+      ],
+      "ignition": [
+        "0.34.0"
+      ],
+      "kernel": [
+        "5.4.107"
+      ],
+      "systemd": [
+        "246"
+      ]
+    },
+    "release_notes": "**Security fixes**\n\n\n\n*   Linux ([CVE-2021-28375](https://nvd.nist.gov/vuln/detail/CVE-2021-28375), [CVE-2021-28660](https://nvd.nist.gov/vuln/detail/CVE-2021-28660), [CVE-2021-27363](https://nvd.nist.gov/vuln/detail/CVE-2021-27363), [CVE-2021-27365](https://nvd.nist.gov/vuln/detail/CVE-2021-27365), [CVE-2021-28038](https://nvd.nist.gov/vuln/detail/CVE-2021-28038), [CVE-2021-27364](https://nvd.nist.gov/vuln/detail/CVE-2021-27364), [CVE-2020-25639](https://nvd.nist.gov/vuln/detail/CVE-2020-25639))\n*   openssl ([CVE-2021-23840](https://nvd.nist.gov/vuln/detail/CVE-2021-23840),[ CVE-2021-23841](https://nvd.nist.gov/vuln/detail/CVE-2021-23841), [CVE-2020-1971](https://nvd.nist.gov/vuln/detail/CVE-2020-1971),[ CVE-2021-23840](https://nvd.nist.gov/vuln/detail/CVE-2021-23840),[ CVE-2021-23841](https://nvd.nist.gov/vuln/detail/CVE-2021-23841), [CVE-2021-3449](https://nvd.nist.gov/vuln/detail/CVE-2021-3449),[ CVE-2021-3450](https://nvd.nist.gov/vuln/detail/CVE-2021-3450))\n\n**Updates**\n\n\n\n*   Linux ([5.4.107](https://lwn.net/Articles/849952/))\n*   openssl ([1.1.1k](https://mta.openssl.org/pipermail/openssl-announce/2021-March/000197.html))\n*   open-iscsi ([2.1.4](https://github.com/open-iscsi/open-iscsi/releases/tag/2.1.4))\n*   containerd ([1.4.4](https://github.com/containerd/containerd/releases/tag/v1.4.4))"
   },
   "current": {
     "channel": "lts",
     "architectures": [
       "amd64"
     ],
-    "release_date": "2021-03-02 12:23:32 +0000",
+    "release_date": "2021-03-25 15:40:57 +0000",
     "major_software": {
       "docker": [
         "19.03.15"
@@ -101,12 +123,12 @@
         "0.34.0"
       ],
       "kernel": [
-        "5.4.101"
+        "5.4.107"
       ],
       "systemd": [
         "246"
       ]
     },
-    "release_notes": "**Security fixes**\n\n*   Linux - [CVE-2021-20194](https://nvd.nist.gov/vuln/detail/CVE-2021-20194), [CVE-2021-3348](https://nvd.nist.gov/vuln/detail/CVE-2021-3348), [CVE-2020-27825](https://nvd.nist.gov/vuln/detail/CVE-2020-27825), [CVE-2021-3347](https://nvd.nist.gov/vuln/detail/CVE-2021-3347), [CVE-2021-26931](https://nvd.nist.gov/vuln/detail/CVE-2021-26931), [CVE-2021-26930](https://nvd.nist.gov/vuln/detail/CVE-2021-26930), [CVE-2021-26932](https://nvd.nist.gov/vuln/detail/CVE-2021-26932)\n\n**Bug fixes**\n\n*   login message (motd): filter out bullet point when parsing failed units ([baselayout#16](https://github.com/kinvolk/baselayout/pull/16))\n*   tcsd.service: use correct file permissions ([coreos-overlay#809](https://github.com/kinvolk/coreos-overlay/pull/809))\n*   Use LTS 2021 as OS codename instead of the wrong LTS 2020 name\n*   Flatcar Pro for AWS: flatcar-eks: add missing mkdir and update to latest versions ([coreos-overlay#817](https://github.com/kinvolk/coreos-overlay/pull/817))\n\n**Updates**\n\n*   Linux [5.4.101](https://lwn.net/Articles/847590/)\n"
+    "release_notes": "**Security fixes**\n\n\n\n*   Linux ([CVE-2021-28375](https://nvd.nist.gov/vuln/detail/CVE-2021-28375), [CVE-2021-28660](https://nvd.nist.gov/vuln/detail/CVE-2021-28660), [CVE-2021-27363](https://nvd.nist.gov/vuln/detail/CVE-2021-27363), [CVE-2021-27365](https://nvd.nist.gov/vuln/detail/CVE-2021-27365), [CVE-2021-28038](https://nvd.nist.gov/vuln/detail/CVE-2021-28038), [CVE-2021-27364](https://nvd.nist.gov/vuln/detail/CVE-2021-27364), [CVE-2020-25639](https://nvd.nist.gov/vuln/detail/CVE-2020-25639))\n*   openssl ([CVE-2021-23840](https://nvd.nist.gov/vuln/detail/CVE-2021-23840),[ CVE-2021-23841](https://nvd.nist.gov/vuln/detail/CVE-2021-23841), [CVE-2020-1971](https://nvd.nist.gov/vuln/detail/CVE-2020-1971),[ CVE-2021-23840](https://nvd.nist.gov/vuln/detail/CVE-2021-23840),[ CVE-2021-23841](https://nvd.nist.gov/vuln/detail/CVE-2021-23841), [CVE-2021-3449](https://nvd.nist.gov/vuln/detail/CVE-2021-3449),[ CVE-2021-3450](https://nvd.nist.gov/vuln/detail/CVE-2021-3450))\n\n**Updates**\n\n\n\n*   Linux ([5.4.107](https://lwn.net/Articles/849952/))\n*   openssl ([1.1.1k](https://mta.openssl.org/pipermail/openssl-announce/2021-March/000197.html))\n*   open-iscsi ([2.1.4](https://github.com/open-iscsi/open-iscsi/releases/tag/2.1.4))\n*   containerd ([1.4.4](https://github.com/containerd/containerd/releases/tag/v1.4.4))"
   }
 }
