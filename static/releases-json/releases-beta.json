@@ -1681,12 +1681,12 @@
     },
     "release_notes": "**Security fixes**\n\n\n\n*   Linux ([CVE-2021-3347](https://nvd.nist.gov/vuln/detail/CVE-2021-3347), [CVE-2021-3348](https://nvd.nist.gov/vuln/detail/CVE-2021-3348), [CVE-2021-26708](https://nvd.nist.gov/vuln/detail/CVE-2021-26708), [CVE-2021-20194](https://nvd.nist.gov/vuln/detail/CVE-2021-20194))\n*   Docker ([CVE-2021-21285](https://nvd.nist.gov/vuln/detail/CVE-2021-21285), [CVE-2021-21284](https://nvd.nist.gov/vuln/detail/CVE-2021-21284))\n*   NVIDIA ([CVE-2021-1052](https://nvd.nist.gov/vuln/detail/CVE-2021-1052),[ CVE-2021-1053](https://nvd.nist.gov/vuln/detail/CVE-2021-1053),[ CVE-2021-1056](https://nvd.nist.gov/vuln/detail/CVE-2021-1056))\n\n**Bug Fixes**\n\n\n\n*   app-crypt/trousers: use correct file permissions ([coreos-overlay#809](https://github.com/kinvolk/coreos-overlay/pull/809))\n*   x11-drivers/nvidia-drivers: Handle NVIDIA Version upgrades ([https://github.com/kinvolk/coreos-overlay/pull/762](https://github.com/kinvolk/coreos-overlay/pull/762))\n*   flatcar-eks: add missing mkdir and update to latest versions ([https://github.com/kinvolk/coreos-overlay/pull/817](https://github.com/kinvolk/coreos-overlay/pull/817))\n\n**Updates**\n\n\n\n*   Linux ([5.10.16](https://lwn.net/Articles/846116/))\n*   Docker ([19.03.15](https://docs.docker.com/engine/release-notes/19.03/#190315))\n*   NVIDIA Tesla Driver ([460.32.03](https://docs.nvidia.com/datacenter/tesla/tesla-release-notes-460-32-03/index.html))"
   },
-  "current": {
+  "2801.1.0": {
     "channel": "beta",
     "architectures": [
       "amd64"
     ],
-    "release_date": "2021-02-18 12:44:47 +0000",
+    "release_date": "2021-03-25 15:38:18 +0000",
     "major_software": {
       "docker": [
         "19.03.15"
@@ -1695,12 +1695,34 @@
         "0.34.0"
       ],
       "kernel": [
-        "5.10.16"
+        "5.10.25"
       ],
       "systemd": [
         "247"
       ]
     },
-    "release_notes": "**Security fixes**\n\n\n\n*   Linux ([CVE-2021-3347](https://nvd.nist.gov/vuln/detail/CVE-2021-3347), [CVE-2021-3348](https://nvd.nist.gov/vuln/detail/CVE-2021-3348), [CVE-2021-26708](https://nvd.nist.gov/vuln/detail/CVE-2021-26708), [CVE-2021-20194](https://nvd.nist.gov/vuln/detail/CVE-2021-20194))\n*   Docker ([CVE-2021-21285](https://nvd.nist.gov/vuln/detail/CVE-2021-21285), [CVE-2021-21284](https://nvd.nist.gov/vuln/detail/CVE-2021-21284))\n*   NVIDIA ([CVE-2021-1052](https://nvd.nist.gov/vuln/detail/CVE-2021-1052),[ CVE-2021-1053](https://nvd.nist.gov/vuln/detail/CVE-2021-1053),[ CVE-2021-1056](https://nvd.nist.gov/vuln/detail/CVE-2021-1056))\n\n**Bug Fixes**\n\n\n\n*   app-crypt/trousers: use correct file permissions ([coreos-overlay#809](https://github.com/kinvolk/coreos-overlay/pull/809))\n*   x11-drivers/nvidia-drivers: Handle NVIDIA Version upgrades ([https://github.com/kinvolk/coreos-overlay/pull/762](https://github.com/kinvolk/coreos-overlay/pull/762))\n*   flatcar-eks: add missing mkdir and update to latest versions ([https://github.com/kinvolk/coreos-overlay/pull/817](https://github.com/kinvolk/coreos-overlay/pull/817))\n\n**Updates**\n\n\n\n*   Linux ([5.10.16](https://lwn.net/Articles/846116/))\n*   Docker ([19.03.15](https://docs.docker.com/engine/release-notes/19.03/#190315))\n*   NVIDIA Tesla Driver ([460.32.03](https://docs.nvidia.com/datacenter/tesla/tesla-release-notes-460-32-03/index.html))"
+    "release_notes": "**Security fixes**\n\n\n\n*   Linux ([CVE-2021-27365](https://nvd.nist.gov/vuln/detail/CVE-2021-27365), [CVE-2021-27364](https://nvd.nist.gov/vuln/detail/CVE-2021-27364), [CVE-2021-27363](https://nvd.nist.gov/vuln/detail/CVE-2021-27363), [CVE-2021-28038](https://nvd.nist.gov/vuln/detail/CVE-2021-28038), [CVE-2021-28039](https://nvd.nist.gov/vuln/detail/CVE-2021-28039), [CVE-2021-28375](https://nvd.nist.gov/vuln/detail/CVE-2021-28375), [CVE-2021-28660](https://nvd.nist.gov/vuln/detail/CVE-2021-28660), [CVE-2021-27218](https://nvd.nist.gov/vuln/detail/CVE-2021-27218), [CVE-2021-27219](https://nvd.nist.gov/vuln/detail/CVE-2021-27219), [CVE-2021-3444](https://nvd.nist.gov/vuln/detail/CVE-2021-3444))\n*   openssl ([CVE-2021-23840](https://nvd.nist.gov/vuln/detail/CVE-2021-23840),[ CVE-2021-23841](https://nvd.nist.gov/vuln/detail/CVE-2021-23841), [CVE-2020-1971](https://nvd.nist.gov/vuln/detail/CVE-2020-1971),[ CVE-2021-23840](https://nvd.nist.gov/vuln/detail/CVE-2021-23840),[ CVE-2021-23841](https://nvd.nist.gov/vuln/detail/CVE-2021-23841), [CVE-2021-3449](https://nvd.nist.gov/vuln/detail/CVE-2021-3449),[ CVE-2021-3450](https://nvd.nist.gov/vuln/detail/CVE-2021-3450))\n\n**Bug Fixes**\n\n\n\n*   GCE: The old interface name ens4v1 which was replaced by eth0 due to a broken udev rule was restored, but now as alternative interface name, and eth0 will stay the primary name for consistency across cloud environments. ([init#38](https://github.com/kinvolk/init/pull/38))\n\n**Changes**\n\n\n\n*   The virtio network interfaces got predictable interface names as alternative interface names, and thus these names can also be used to match for a specific interface in case there is more than one and the eth0 and eth1 name assignment is not stable. ([init#38](https://github.com/kinvolk/init/pull/38))\n\n**Updates**\n\n\n\n*   Linux ([5.10.25](https://lwn.net/Articles/849951/))\n*   openssl ([1.1.1k](https://mta.openssl.org/pipermail/openssl-announce/2021-March/000197.html))\n*   open-iscsi ([2.1.4](https://github.com/open-iscsi/open-iscsi/releases/tag/2.1.4))\n\n**Deprecation**\n\n\n\n*   dhcpcd and containerd-stress are deprecated and removed from Beta, also from subsequent channels in the future. Users that relied on dhcpd should either migrate to systemd-networkd as a DHCP server or run dhcpd from a container.\n*   Docker 1.12 is deprecated and removed from Beta, also from subsequent channels in the future."
+  },
+  "current": {
+    "channel": "beta",
+    "architectures": [
+      "amd64"
+    ],
+    "release_date": "2021-03-25 15:38:18 +0000",
+    "major_software": {
+      "docker": [
+        "19.03.15"
+      ],
+      "ignition": [
+        "0.34.0"
+      ],
+      "kernel": [
+        "5.10.25"
+      ],
+      "systemd": [
+        "247"
+      ]
+    },
+    "release_notes": "**Security fixes**\n\n\n\n*   Linux ([CVE-2021-27365](https://nvd.nist.gov/vuln/detail/CVE-2021-27365), [CVE-2021-27364](https://nvd.nist.gov/vuln/detail/CVE-2021-27364), [CVE-2021-27363](https://nvd.nist.gov/vuln/detail/CVE-2021-27363), [CVE-2021-28038](https://nvd.nist.gov/vuln/detail/CVE-2021-28038), [CVE-2021-28039](https://nvd.nist.gov/vuln/detail/CVE-2021-28039), [CVE-2021-28375](https://nvd.nist.gov/vuln/detail/CVE-2021-28375), [CVE-2021-28660](https://nvd.nist.gov/vuln/detail/CVE-2021-28660), [CVE-2021-27218](https://nvd.nist.gov/vuln/detail/CVE-2021-27218), [CVE-2021-27219](https://nvd.nist.gov/vuln/detail/CVE-2021-27219), [CVE-2021-3444](https://nvd.nist.gov/vuln/detail/CVE-2021-3444))\n*   openssl ([CVE-2021-23840](https://nvd.nist.gov/vuln/detail/CVE-2021-23840),[ CVE-2021-23841](https://nvd.nist.gov/vuln/detail/CVE-2021-23841), [CVE-2020-1971](https://nvd.nist.gov/vuln/detail/CVE-2020-1971),[ CVE-2021-23840](https://nvd.nist.gov/vuln/detail/CVE-2021-23840),[ CVE-2021-23841](https://nvd.nist.gov/vuln/detail/CVE-2021-23841), [CVE-2021-3449](https://nvd.nist.gov/vuln/detail/CVE-2021-3449),[ CVE-2021-3450](https://nvd.nist.gov/vuln/detail/CVE-2021-3450))\n\n**Bug Fixes**\n\n\n\n*   GCE: The old interface name ens4v1 which was replaced by eth0 due to a broken udev rule was restored, but now as alternative interface name, and eth0 will stay the primary name for consistency across cloud environments. ([init#38](https://github.com/kinvolk/init/pull/38))\n\n**Changes**\n\n\n\n*   The virtio network interfaces got predictable interface names as alternative interface names, and thus these names can also be used to match for a specific interface in case there is more than one and the eth0 and eth1 name assignment is not stable. ([init#38](https://github.com/kinvolk/init/pull/38))\n\n**Updates**\n\n\n\n*   Linux ([5.10.25](https://lwn.net/Articles/849951/))\n*   openssl ([1.1.1k](https://mta.openssl.org/pipermail/openssl-announce/2021-March/000197.html))\n*   open-iscsi ([2.1.4](https://github.com/open-iscsi/open-iscsi/releases/tag/2.1.4))\n\n**Deprecation**\n\n\n\n*   dhcpcd and containerd-stress are deprecated and removed from Beta, also from subsequent channels in the future. Users that relied on dhcpd should either migrate to systemd-networkd as a DHCP server or run dhcpd from a container.\n*   Docker 1.12 is deprecated and removed from Beta, also from subsequent channels in the future."
   }
 }

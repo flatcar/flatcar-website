@@ -1400,12 +1400,12 @@
     },
     "release_notes": "**Security fixes**\n\n\n\n*   Linux ([CVE-2021-26931](https://nvd.nist.gov/vuln/detail/CVE-2021-26931), [CVE-2021-26930](https://nvd.nist.gov/vuln/detail/CVE-2021-26930), [CVE-2021-26932](https://nvd.nist.gov/vuln/detail/CVE-2021-26932))\n\n**Updates**\n\n\n\n*   Linux ([5.10.19](https://lwn.net/Articles/847589/))\n"
   },
-  "current": {
+  "2765.2.1": {
     "channel": "stable",
     "architectures": [
       "amd64"
     ],
-    "release_date": "2021-03-03 14:58:35 +0000",
+    "release_date": "2021-03-11 09:19:31 +0000",
     "major_software": {
       "docker": [
         "19.03.15"
@@ -1414,12 +1414,56 @@
         "0.34.0"
       ],
       "kernel": [
-        "5.10.19"
+        "5.10.21"
       ],
       "systemd": [
         "247"
       ]
     },
-    "release_notes": "**Security fixes**\n\n\n\n*   Linux ([CVE-2021-26931](https://nvd.nist.gov/vuln/detail/CVE-2021-26931), [CVE-2021-26930](https://nvd.nist.gov/vuln/detail/CVE-2021-26930), [CVE-2021-26932](https://nvd.nist.gov/vuln/detail/CVE-2021-26932))\n\n**Updates**\n\n\n\n*   Linux ([5.10.19](https://lwn.net/Articles/847589/))\n"
+    "release_notes": "**Security fixes**\n\n*   Linux - ([CVE-2020-25639](https://nvd.nist.gov/vuln/detail/CVE-2020-25639), [CVE-2021-27365](https://nvd.nist.gov/vuln/detail/CVE-2021-27365), [CVE-2021-27364](https://nvd.nist.gov/vuln/detail/CVE-2021-27364), [CVE-2021-27363](https://nvd.nist.gov/vuln/detail/CVE-2021-27363), [CVE-2021-28038](https://nvd.nist.gov/vuln/detail/CVE-2021-28038), [CVE-2021-28039](https://nvd.nist.gov/vuln/detail/CVE-2021-28039))\n*   containerd ([GHSA-6g2q-w5j3-fwh4](https://github.com/containerd/containerd/security/advisories/GHSA-6g2q-w5j3-fwh4))\n\n**Bug fixes**\n\n*   Include firmware files for all modules shipped in our image ([Issue #359](https://github.com/kinvolk/Flatcar/issues/359), [PR #887](https://github.com/kinvolk/coreos-overlay/pull/887))\n*   Add explicit path to the binary call in the coreos-metadata unit file ([Issue #360](https://github.com/kinvolk/Flatcar/issues/360))\n\n**Updates**\n\n*   Linux ([5.10.21](https://lwn.net/Articles/848617/))\n*   Containerd ([1.4.4](https://github.com/containerd/containerd/releases/tag/v1.4.4))\n\n"
+  },
+  "2765.2.2": {
+    "channel": "stable",
+    "architectures": [
+      "amd64"
+    ],
+    "release_date": "2021-03-25 15:39:33 +0000",
+    "major_software": {
+      "docker": [
+        "19.03.15"
+      ],
+      "ignition": [
+        "0.34.0"
+      ],
+      "kernel": [
+        "5.10.25"
+      ],
+      "systemd": [
+        "247"
+      ]
+    },
+    "release_notes": "**Security fixes**\n\n\n\n*   Linux ([CVE-2021-27365](https://nvd.nist.gov/vuln/detail/CVE-2021-27365), [CVE-2021-27364](https://nvd.nist.gov/vuln/detail/CVE-2021-27364), [CVE-2021-27363](https://nvd.nist.gov/vuln/detail/CVE-2021-27363), [CVE-2021-28038](https://nvd.nist.gov/vuln/detail/CVE-2021-28038),[CVE-2021-28039](https://nvd.nist.gov/vuln/detail/CVE-2021-28039), [CVE-2021-28375](https://nvd.nist.gov/vuln/detail/CVE-2021-28375), [CVE-2021-28660](https://nvd.nist.gov/vuln/detail/CVE-2021-28660), [CVE-2021-27218](https://nvd.nist.gov/vuln/detail/CVE-2021-27218), [CVE-2021-27219](https://nvd.nist.gov/vuln/detail/CVE-2021-27219))\n*   openssl ([CVE-2021-23840](https://nvd.nist.gov/vuln/detail/CVE-2021-23840),[ CVE-2021-23841](https://nvd.nist.gov/vuln/detail/CVE-2021-23841), [CVE-2020-1971](https://nvd.nist.gov/vuln/detail/CVE-2020-1971),[ CVE-2021-23840](https://nvd.nist.gov/vuln/detail/CVE-2021-23840),[ CVE-2021-23841](https://nvd.nist.gov/vuln/detail/CVE-2021-23841), [CVE-2021-3449](https://nvd.nist.gov/vuln/detail/CVE-2021-3449),[ CVE-2021-3450](https://nvd.nist.gov/vuln/detail/CVE-2021-3450))\n\n**Bug Fixes**\n\n\n\n*   GCE: The old interface name ens4v1 which was replaced by eth0 due to a broken udev rule was restored, but now as alternative interface name, and eth0 will stay the primary name for consistency across cloud environments. ([init#38](https://github.com/kinvolk/init/pull/38))\n\n**Changes**\n\n\n\n*   The virtio network interfaces got predictable interface names as alternative interface names, and thus these names can also be used to match for a specific interface in case there is more than one and the eth0 and eth1 name assignment is not stable. ([init#38](https://github.com/kinvolk/init/pull/38))\n\n**Updates**\n\n\n\n*   Linux ([5.10.25](https://lwn.net/Articles/849951/))\n*   openssl ([1.1.1k](https://mta.openssl.org/pipermail/openssl-announce/2021-March/000197.html))\n*   open-iscsi ([2.1.4](https://github.com/open-iscsi/open-iscsi/releases/tag/2.1.4))"
+  },
+  "current": {
+    "channel": "stable",
+    "architectures": [
+      "amd64"
+    ],
+    "release_date": "2021-03-25 15:39:33 +0000",
+    "major_software": {
+      "docker": [
+        "19.03.15"
+      ],
+      "ignition": [
+        "0.34.0"
+      ],
+      "kernel": [
+        "5.10.25"
+      ],
+      "systemd": [
+        "247"
+      ]
+    },
+    "release_notes": "**Security fixes**\n\n\n\n*   Linux ([CVE-2021-27365](https://nvd.nist.gov/vuln/detail/CVE-2021-27365), [CVE-2021-27364](https://nvd.nist.gov/vuln/detail/CVE-2021-27364), [CVE-2021-27363](https://nvd.nist.gov/vuln/detail/CVE-2021-27363), [CVE-2021-28038](https://nvd.nist.gov/vuln/detail/CVE-2021-28038),[CVE-2021-28039](https://nvd.nist.gov/vuln/detail/CVE-2021-28039), [CVE-2021-28375](https://nvd.nist.gov/vuln/detail/CVE-2021-28375), [CVE-2021-28660](https://nvd.nist.gov/vuln/detail/CVE-2021-28660), [CVE-2021-27218](https://nvd.nist.gov/vuln/detail/CVE-2021-27218), [CVE-2021-27219](https://nvd.nist.gov/vuln/detail/CVE-2021-27219))\n*   openssl ([CVE-2021-23840](https://nvd.nist.gov/vuln/detail/CVE-2021-23840),[ CVE-2021-23841](https://nvd.nist.gov/vuln/detail/CVE-2021-23841), [CVE-2020-1971](https://nvd.nist.gov/vuln/detail/CVE-2020-1971),[ CVE-2021-23840](https://nvd.nist.gov/vuln/detail/CVE-2021-23840),[ CVE-2021-23841](https://nvd.nist.gov/vuln/detail/CVE-2021-23841), [CVE-2021-3449](https://nvd.nist.gov/vuln/detail/CVE-2021-3449),[ CVE-2021-3450](https://nvd.nist.gov/vuln/detail/CVE-2021-3450))\n\n**Bug Fixes**\n\n\n\n*   GCE: The old interface name ens4v1 which was replaced by eth0 due to a broken udev rule was restored, but now as alternative interface name, and eth0 will stay the primary name for consistency across cloud environments. ([init#38](https://github.com/kinvolk/init/pull/38))\n\n**Changes**\n\n\n\n*   The virtio network interfaces got predictable interface names as alternative interface names, and thus these names can also be used to match for a specific interface in case there is more than one and the eth0 and eth1 name assignment is not stable. ([init#38](https://github.com/kinvolk/init/pull/38))\n\n**Updates**\n\n\n\n*   Linux ([5.10.25](https://lwn.net/Articles/849951/))\n*   openssl ([1.1.1k](https://mta.openssl.org/pipermail/openssl-announce/2021-March/000197.html))\n*   open-iscsi ([2.1.4](https://github.com/open-iscsi/open-iscsi/releases/tag/2.1.4))"
   }
 }
