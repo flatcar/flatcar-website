@@ -16,7 +16,9 @@
     {{ end }}
 
     <!-- Custom CSS -->
-    <link href="{{ .Site.BaseURL }}css/flatcar.min.css" rel="stylesheet">
+    {{ $options := (dict "targetPath" "/css/style.css" "outputStyle" "compressed" "enableSourceMap" true) }}
+    {{ $style := resources.Get "scss/main.scss" | resources.ToCSS $options | fingerprint}}
+    <link rel="stylesheet" href="{{ $style.Permalink }}" integrity="{{ $style.Data.Integrity }}">
 
     <!-- Custom Fonts -->
     <link href="{{ .Site.BaseURL }}css/font-awesome.min.css"    rel="stylesheet" type="text/css">
