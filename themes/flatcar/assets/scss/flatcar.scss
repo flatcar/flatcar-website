@@ -22,6 +22,8 @@ $color-grey: #999;
 $color-black: #000;
 $color-white: #fff;
 
+$color-pink: #cc0a63;
+
 html {
     height: 100%;
     font-size: 18px;
@@ -267,4 +269,20 @@ footer {
 .copyright {
     color: $color-blue;
     margin-bottom: 0;
+}
+
+code {
+    color: $color-pink;
+}
+
+.navbar-dark {
+    background-color: $color-blue;
+
+    & .navbar-nav .nav-link {
+        color: $color-grey;
+
+        &:hover {
+            color: $color-black;
+        }
+    }
 }
