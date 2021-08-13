@@ -66,14 +66,15 @@
   <div class="row mt-5" style="justify-content: space-between;">
       <h2>Release Notes</h2>
       <div class="mt-3">
-	        <ul class="nav nav-tabs" id="release-tabs" role="tablist">
+	        <ul class="nav nav-tabs" id="release-tabs">
               {{ range $i, $name := $orderedchan }}
               {{ $chan := index $.Site.Data.releases $name }}
 		          <li class="nav-item">
 			            <a class="nav-link {{ if eq $chan.current.channel "stable" }}active{{ end }}" id="{{ $chan.current.channel }}-release-tab"
-                     data-toggle="tab" href="#{{ $chan.current.channel }}-release" role="tab"
+                     data-toggle="tab" href="#{{ $chan.current.channel }}-release"
                      aria-controls="{{ $chan.current.channel }}-release"
-                     aria-selected="true">
+                     aria-current="page"
+                  >
                       {{ if eq $name "lts-2021" }}
                           LTS 2021
                       {{ else }}

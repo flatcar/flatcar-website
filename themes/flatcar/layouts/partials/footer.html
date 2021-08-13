@@ -5,7 +5,7 @@
                 <div class="col-md-6">
                   <ul class="list-inline social">
                     <li class="list-inline-item">
-                      <a href="mailto:{{ .Site.Params.Email }}">
+                      <a aria-label="Send an email to {{ .Site.Params.Email }}" href="mailto:{{ .Site.Params.Email }}">
                         <span class="fa-stack fa-lg">
                           <i class="fa fa-circle fa-stack-2x"></i>
                           <i class="fa fa-envelope-o fa-stack-1x fa-inverse"></i>
@@ -14,7 +14,7 @@
                     </li>
                     {{ range .Site.Params.social }}
                     <li class="list-inline-item">
-                      <a href="{{ .url }}">
+                      <a href="{{ .url }}" aria-label="{{ .title }}">
                         <span class="fa-stack fa-lg">
                           <i class="fa fa-circle fa-stack-2x"></i>
                           <i class="fa fa-{{ .title }} fa-stack-1x fa-inverse"></i>
