@@ -16,5 +16,12 @@
                 </div>
                 {{ end }}
             </div>
+            {{- if .article -}}
+            <div class="row">
+                <div class="col=12">
+                    <p>{{ .article |markdownify }}</p>
+                </div>
+            </div>
+            {{- end -}}
         </div>
 {{ end }}
