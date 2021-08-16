@@ -1941,12 +1941,13 @@
     },
     "release_notes": "**Security fixes**\n\n\n\n*   Linux ([CVE-2021-28964](https://nvd.nist.gov/vuln/detail/CVE-2021-28964), [CVE-2021-28972](https://nvd.nist.gov/vuln/detail/CVE-2021-28972), [CVE-2021-28971](https://nvd.nist.gov/vuln/detail/CVE-2021-28971), [CVE-2021-28951](https://nvd.nist.gov/vuln/detail/CVE-2021-28951), [CVE-2021-28952](https://nvd.nist.gov/vuln/detail/CVE-2021-28952), [CVE-2021-29266](https://nvd.nist.gov/vuln/detail/CVE-2021-29266), [CVE-2021-28688](https://nvd.nist.gov/vuln/detail/CVE-2021-28688), [CVE-2021-29264](https://nvd.nist.gov/vuln/detail/CVE-2021-29264), [CVE-2021-29649](https://nvd.nist.gov/vuln/detail/CVE-2021-29649), [CVE-2021-29650](https://nvd.nist.gov/vuln/detail/CVE-2021-29650), [CVE-2021-29646](https://nvd.nist.gov/vuln/detail/CVE-2021-29646), [CVE-2021-29647](https://nvd.nist.gov/vuln/detail/CVE-2021-29647), [CVE-2021-29154](https://nvd.nist.gov/vuln/detail/CVE-2021-29154), [CVE-2021-29155](https://nvd.nist.gov/vuln/detail/CVE-2021-29155), [CVE-2021-23133](https://nvd.nist.gov/vuln/detail/CVE-2021-23133))\n*   dnsmasq ([CVE-2020-25681](https://nvd.nist.gov/vuln/detail/CVE-2020-25681), [CVE-2020-25682](https://nvd.nist.gov/vuln/detail/CVE-2020-25682), [CVE-2020-25683](https://nvd.nist.gov/vuln/detail/CVE-2020-25683), [CVE-2020-25684](https://nvd.nist.gov/vuln/detail/CVE-2020-25683), [CVE-2020-25685](https://nvd.nist.gov/vuln/detail/CVE-2020-25685), [CVE-2020-25686](https://nvd.nist.gov/vuln/detail/CVE-2020-25686), [CVE-2020-25687](https://nvd.nist.gov/vuln/detail/CVE-2020-25687))\n*   git ([CVE-2021-21300](https://nvd.nist.gov/vuln/detail/CVE-2021-21300))\n*   gnutls ([CVE-2021-20231](https://nvd.nist.gov/vuln/detail/CVE-2021-20231),[ CVE-2021-20232](https://nvd.nist.gov/vuln/detail/CVE-2021-20232))\n*   sqlite ([CVE-2021-20227](https://nvd.nist.gov/vuln/detail/CVE-2021-20227))\n*   qemu ([CVE-2020-10717](https://nvd.nist.gov/vuln/detail/CVE-2020-10717),[ CVE-2020-13754](https://nvd.nist.gov/vuln/detail/CVE-2020-13754),[ CVE-2020-15859](https://nvd.nist.gov/vuln/detail/CVE-2020-15859),[ CVE-2020-15863](https://nvd.nist.gov/vuln/detail/CVE-2020-15863),[ CVE-2020-16092](https://nvd.nist.gov/vuln/detail/CVE-2020-16092),[ CVE-2020-25741](https://nvd.nist.gov/vuln/detail/CVE-2020-25741),[ CVE-2020-25742](https://nvd.nist.gov/vuln/detail/CVE-2020-25742),[ CVE-2020-25743](https://nvd.nist.gov/vuln/detail/CVE-2020-25743))\n*   curl ([CVE-2021-22876](https://nvd.nist.gov/vuln/detail/CVE-2021-22876),[ CVE-2021-22890](https://nvd.nist.gov/vuln/detail/CVE-2021-22890))\n*   libxml2 ([CVE-2020-24977](https://nvd.nist.gov/vuln/detail/CVE-2020-24977))\n*   openldap ([CVE-2021-27212](https://nvd.nist.gov/vuln/detail/CVE-2021-27212))\n\n**Bug fixes**\n\n\n\n*   Fix the patch to update DefaultTasksMax in systemd ([coreos-overlay#971](https://github.com/kinvolk/coreos-overlay/pull/971))\n\n**Changes**\n\n\n\n*   Make the hostname setting units optional. Having the hostname units as required by the initrd.target meant that if the unit failed the machine wouldn't start, disrupting the whole boot. ([bootengine#23](https://github.com/kinvolk/bootengine/pull/23))\n*   Enable using iSCSI netroot devices on Flatcar ([bootengine#22](https://github.com/kinvolk/bootengine/pull/22))\n\n**Updates**\n\n\n\n*   Linux ([5.10.32](https://lwn.net/Articles/853762/))\n*   systemd ([247.6](https://github.com/systemd/systemd-stable/releases/tag/v247.6))\n*   openldap ([2.4.58](https://www.openldap.org/software/release/announce.html))\n*   curl ([7.76.1](https://curl.se/changes.html#7_76_1))\n*   gnutls ([3.7.1](https://gitlab.com/gnutls/gnutls/-/tags/3.7.1))\n*   git ([2.26.3](https://raw.githubusercontent.com/git/git/v2.26.3/Documentation/RelNotes/2.26.3.txt))\n*   libxml2 ([2.9.10](https://gitlab.gnome.org/GNOME/libxml2/-/tags/v2.9.10))\n*   sqlite ([3.34.1](https://www.sqlite.org/releaselog/3_34_1.html))\n*   dnsmasq ([2.83](https://thekelleys.org.uk/dnsmasq/CHANGELOG))\n*   go ([1.16.2](https://go.googlesource.com/go/+/refs/tags/go1.6.2))\n*   SDK: QEMU ([5.2.0](https://wiki.qemu.org/ChangeLog/5.2))\n*   SDK: Rust ([1.51.0](https://blog.rust-lang.org/2021/03/25/Rust-1.51.0.html))\n\n**Deprecation**\n\n\n\n*   rkt and kubelet-wrapper are deprecated and removed from Alpha, also from subsequent channels in the future. Please read the [removal announcement](https://groups.google.com/g/flatcar-linux-user/c/MeinndLqJO4) to know more.\n\n[Alpha only] Note: Please note that ARM images remain experimental for now.\n"
   },
-  "current": {
-    "channel": "stable",
+  "2955.0.0": {
+    "channel": "alpha",
     "architectures": [
-      "amd64"
+      "amd64",
+      "arm64"
     ],
-    "release_date": "2021-04-28 13:36:47 +0000",
+    "release_date": "2021-08-04 13:21:34 +0000",
     "major_software": {
       "docker": [
         "19.03.15"
@@ -1955,13 +1956,35 @@
         "0.34.0"
       ],
       "kernel": [
-        "5.10.32"
+        "5.10.55"
       ],
       "systemd": [
         "247"
       ]
     },
-    "release_notes": "\n**Security fixes**\n\n\n\n*   Linux ([CVE-2021-28964](https://nvd.nist.gov/vuln/detail/CVE-2021-28964), [CVE-2021-28972](https://nvd.nist.gov/vuln/detail/CVE-2021-28972), [CVE-2021-28971](https://nvd.nist.gov/vuln/detail/CVE-2021-28971), [CVE-2021-28951](https://nvd.nist.gov/vuln/detail/CVE-2021-28951), [CVE-2021-28952](https://nvd.nist.gov/vuln/detail/CVE-2021-28952), [CVE-2021-29266](https://nvd.nist.gov/vuln/detail/CVE-2021-29266), [CVE-2021-28688](https://nvd.nist.gov/vuln/detail/CVE-2021-28688), [CVE-2021-29264](https://nvd.nist.gov/vuln/detail/CVE-2021-29264), [CVE-2021-29649](https://nvd.nist.gov/vuln/detail/CVE-2021-29649), [CVE-2021-29650](https://nvd.nist.gov/vuln/detail/CVE-2021-29650), [CVE-2021-29646](https://nvd.nist.gov/vuln/detail/CVE-2021-29646), [CVE-2021-29647](https://nvd.nist.gov/vuln/detail/CVE-2021-29647), [CVE-2021-29154](https://nvd.nist.gov/vuln/detail/CVE-2021-29154), [CVE-2021-29155](https://nvd.nist.gov/vuln/detail/CVE-2021-29155), [CVE-2021-23133](https://nvd.nist.gov/vuln/detail/CVE-2021-23133))\n\n**Bug fixes**\n\n\n\n*   Fix the patch to update DefaultTasksMax in systemd ([coreos-overlay#971](https://github.com/kinvolk/coreos-overlay/pull/971))\n\n**Updates**\n\n\n\n*   Linux ([5.10.32](https://lwn.net/Articles/853762/))"
+    "release_notes": "\n**Security fixes**\n\n* Linux ([CVE-2021-37576](https://nvd.nist.gov/vuln/detail/CVE-2021-37576))\n* expat ([CVE-2013-0340](https://nvd.nist.gov/vuln/detail/CVE-2013-0340))\n\n**Bug fixes**\n\n* Set the cilium_vxlan interface to be not managed by networkd's default setup with DHCP as it's managed by Cilium. ([init#43](https://github.com/kinvolk/init/pull/43))\n* Disabled SELinux by default on `dockerd` wrapper script ([coreos-overlay#1149](https://github.com/kinvolk/coreos-overlay/pull/1149))\n* Fixed the network-cleanup service race in the initramfs which resulted in a failure being reported\n* GCE: Granted CAP_NET_ADMIN to set routes for the TCP LB when starting oem-gce.service ([coreos-overlay#1146](https://github.com/kinvolk/coreos-overlay/pull/1146))\n\n**Changes**\n\n* Switched the arm64 kernel to use a 4k page size instead of 64k\n* Switched dm-verity corruption detection to issue a kernel panic (a panic results in a reboot after 1 minute, this was the case before already) instead of merely failing certain syscalls that try to use the corrupted data\n* Support BTRFS in OEM and /usr partitions, but only used it for the OEM partition for now. Ignition configurations that refer to the OEM partition will work with any filesystem format specified, a mismatch is not resulting in a boot error. ([coreos-overlay#1106](https://github.com/kinvolk/coreos-overlay/pull/1106))\n* Enabled zstd compression for the initramfs and for amd64 also for the kernel because we hit the vmlinuz size limit on the /boot partition\n* Deleted the unused kernel+initramfs vmlinuz file from the /usr partition\n* devcontainer: added support to run on arm64 by switching to an architecture-agnostic partition UUID\n* Enabled ARM64 SDK bootstrap ([scripts#134](https://github.com/kinvolk/flatcar-scripts/pull/134))\n\n**Updates**\n\n\n\n* Linux ([5.10.55](https://lwn.net/Articles/864901/))\n* Linux Firmware ([20210716](https://git.kernel.org/pub/scm/linux/kernel/git/firmware/linux-firmware.git/tag/?h=20210716))\n* expat ([2.4.1](https://www.xml.com/news/2021-05-expat-240-and-241/))\n* libarchive ([3.5.1](https://github.com/libarchive/libarchive/releases/tag/3.5.1))\n* xz-utils ([5.2.5](https://git.tukaani.org/?p=xz.git;a=blob;f=NEWS;h=aade49443ad7ddba13bbfd9da188c99664736d80;hb=3247e95115acb95bc27f41e8cf4501db5b0b4309#l16))\n* cryptsetup ([2.3.6](https://gitlab.com/cryptsetup/cryptsetup/-/tags/v2.3.6))\n\nNote: Please note that ARM images remain experimental for now."
+  },
+  "current": {
+    "channel": "stable",
+    "architectures": [
+      "amd64"
+    ],
+    "release_date": "2021-08-04 13:24:56 +0000",
+    "major_software": {
+      "docker": [
+        "19.03.15"
+      ],
+      "ignition": [
+        "0.34.0"
+      ],
+      "kernel": [
+        "5.10.55"
+      ],
+      "systemd": [
+        "247"
+      ]
+    },
+    "release_notes": "**Security fixes**\n\n* Linux ([CVE-2021-37576](https://nvd.nist.gov/vuln/detail/CVE-2021-37576))\n\n**Bug fixes**\n\n* Set the cilium_vxlan interface to be not managed by networkd's default setup with DHCP as it's managed by Cilium. ([init#43](https://github.com/kinvolk/init/pull/43))\n* Disabled SELinux by default on `dockerd` wrapper script ([coreos-overlay#1149](https://github.com/kinvolk/coreos-overlay/pull/1149))\n* GCE: Granted CAP_NET_ADMIN to set routes for the TCP LB when starting oem-gce.service ([coreos-overlay#1146](https://github.com/kinvolk/coreos-overlay/pull/1146))\n\n**Updates**\n\n* Linux ([5.10.55](https://lwn.net/Articles/864901/))"
   },
   "1722.2.0": {
     "channel": "beta",
@@ -3667,6 +3690,28 @@
     },
     "release_notes": "_Changes since **Alpha** **2823.0.0**:_\n\n\n**Security fixes**\n\n\n\n*   Linux ([CVE-2021-28964](https://nvd.nist.gov/vuln/detail/CVE-2021-28964), [CVE-2021-28972](https://nvd.nist.gov/vuln/detail/CVE-2021-28972), [CVE-2021-28971](https://nvd.nist.gov/vuln/detail/CVE-2021-28971), [CVE-2021-28951](https://nvd.nist.gov/vuln/detail/CVE-2021-28951), [CVE-2021-28952](https://nvd.nist.gov/vuln/detail/CVE-2021-28952), [CVE-2021-29266](https://nvd.nist.gov/vuln/detail/CVE-2021-29266), [CVE-2021-28688](https://nvd.nist.gov/vuln/detail/CVE-2021-28688), [CVE-2021-29264](https://nvd.nist.gov/vuln/detail/CVE-2021-29264), [CVE-2021-29649](https://nvd.nist.gov/vuln/detail/CVE-2021-29649), [CVE-2021-29650](https://nvd.nist.gov/vuln/detail/CVE-2021-29650), [CVE-2021-29646](https://nvd.nist.gov/vuln/detail/CVE-2021-29646), [CVE-2021-29647](https://nvd.nist.gov/vuln/detail/CVE-2021-29647), [CVE-2021-29154](https://nvd.nist.gov/vuln/detail/CVE-2021-29154), [CVE-2021-29155](https://nvd.nist.gov/vuln/detail/CVE-2021-29155), [CVE-2021-23133](https://nvd.nist.gov/vuln/detail/CVE-2021-23133))\n\n**Bug fixes**\n\n\n\n*   Fix the patch to update DefaultTasksMax in systemd ([coreos-overlay#971](https://github.com/kinvolk/coreos-overlay/pull/971))\n\n**Updates**\n\n\n\n*   Linux ([5.10.32](https://lwn.net/Articles/853762/))\n*   systemd ([247.6](https://github.com/systemd/systemd-stable/releases/tag/v247.6))\n\n_Changes since **Beta** **2801.1.0**:_\n\n**Security fixes**\n\n\n\n*   Linux ([CVE-2021-28964](https://nvd.nist.gov/vuln/detail/CVE-2021-28964), [CVE-2021-28972](https://nvd.nist.gov/vuln/detail/CVE-2021-28972), [CVE-2021-28971](https://nvd.nist.gov/vuln/detail/CVE-2021-28971), [CVE-2021-28951](https://nvd.nist.gov/vuln/detail/CVE-2021-28951), [CVE-2021-28952](https://nvd.nist.gov/vuln/detail/CVE-2021-28952), [CVE-2021-29266](https://nvd.nist.gov/vuln/detail/CVE-2021-29266), [CVE-2021-28688](https://nvd.nist.gov/vuln/detail/CVE-2021-28688), [CVE-2021-29264](https://nvd.nist.gov/vuln/detail/CVE-2021-29264), [CVE-2021-29649](https://nvd.nist.gov/vuln/detail/CVE-2021-29649), [CVE-2021-29650](https://nvd.nist.gov/vuln/detail/CVE-2021-29650), [CVE-2021-29646](https://nvd.nist.gov/vuln/detail/CVE-2021-29646), [CVE-2021-29647](https://nvd.nist.gov/vuln/detail/CVE-2021-29647), [CVE-2021-29154](https://nvd.nist.gov/vuln/detail/CVE-2021-29154), [CVE-2021-29155](https://nvd.nist.gov/vuln/detail/CVE-2021-29155), [CVE-2021-23133](https://nvd.nist.gov/vuln/detail/CVE-2021-23133))\n*   Go ([CVE-2021-27918](https://nvd.nist.gov/vuln/detail/CVE-2021-27918),[ CVE-2021-27919](https://nvd.nist.gov/vuln/detail/CVE-2021-27919)) \n*   glib ([CVE-2021-28153](https://nvd.nist.gov/vuln/detail/CVE-2021-28153),[ CVE-2021-27218](https://nvd.nist.gov/vuln/detail/CVE-2021-27218),[ CVE-2021-27219](https://nvd.nist.gov/vuln/detail/CVE-2021-27219)) \n*   boost ([CVE-2012-2677](https://nvd.nist.gov/vuln/detail/CVE-2012-2677))\n*   ncurses ([CVE-2019-17594](https://nvd.nist.gov/vuln/detail/CVE-2019-17594),[ CVE-2019-17595](https://nvd.nist.gov/vuln/detail/CVE-2019-17595))\n*   zstd ([CVE-2021-24032](https://nvd.nist.gov/vuln/detail/CVE-2021-24032))\n\n**Bug Fixes**\n\n\n\n*   Fix the patch to update DefaultTasksMax in systemd ([coreos-overlay#971](https://github.com/kinvolk/coreos-overlay/pull/971))\n\n**Changes**\n\n\n\n*   The pam_faillock PAM module was enabled as replacement for the removed pam_tally2 module and will temporarily lock an account if there were login attempts with a wrong password. The faillock command can be used to show the current state. With pam_tally2 there was no limit for wrong password login attempts but with faillock the default is already restricting the attempts. The default behavior was relaxed to allow 5 wrong passwords per two minutes, and a one minute account lock time. This does not apply to logins with an SSH key. ([baselayout#17](https://github.com/kinvolk/baselayout/pull/17))\n*   The etcd and flannel services are now run with Docker and any rkt-based customizations of the etcd-member and flanneld services not supported anymore. Also, because the flanneld service relies on Docker and will restart Docker after applying the new configuration, it is not possible anymore to set Requires=flanneld.service for docker.service and instead it\u2019s enough to have flanneld.service enabled. ([coreos-overlay#857](https://github.com/kinvolk/coreos-overlay/pull/857))\n\n**Updates**\n\n\n\n*   Linux ([5.10.32](https://lwn.net/Articles/853762/))\n*   Linux firmware ([20210315](https://git.kernel.org/pub/scm/linux/kernel/git/firmware/linux-firmware.git/tag/?h=20210315))\n*   systemd ([247.6](https://github.com/systemd/systemd-stable/releases/tag/v247.6))\n*   Go ([1.15.10](https://go.googlesource.com/go/+/refs/tags/go1.15.10))\n*   boost ([1.75.0](https://www.boost.org/users/history/version_1_75_0.html))\n*   glib ([2.66.8](https://gitlab.gnome.org/GNOME/glib/-/releases/2.66.8))\n*   ncurses ([6.2](https://invisible-island.net/ncurses/announce-6.2.html))\n*   zstd ([1.4.9](https://github.com/facebook/zstd/releases/tag/v1.4.9))"
   },
+  "2942.1.0": {
+    "channel": "beta",
+    "architectures": [
+      "amd64"
+    ],
+    "release_date": "2021-08-04 13:23:23 +0000",
+    "major_software": {
+      "docker": [
+        "19.03.15"
+      ],
+      "ignition": [
+        "0.34.0"
+      ],
+      "kernel": [
+        "5.10.55"
+      ],
+      "systemd": [
+        "247"
+      ]
+    },
+    "release_notes": "_Changes since **Beta 2920.1.0**_\n\n**Security Fixes**\n\n* Linux ([CVE-2021-37576](https://nvd.nist.gov/vuln/detail/CVE-2021-37576))\n* containerd ([CVE-2021-32760](https://nvd.nist.gov/vuln/detail/CVE-2021-32760))\n* glibc ([CVE-2020-29562](https://nvd.nist.gov/vuln/detail/CVE-2020-29562), [CVE-2019-25013](https://nvd.nist.gov/vuln/detail/CVE-2019-25013), [CVE-2020-27618](https://nvd.nist.gov/vuln/detail/https://cve.circl.lu/cve/CVE-2020-27618), [CVE-2021-27645](https://nvd.nist.gov/vuln/detail/CVE-2021-27645), [CVE-2021-33574](https://nvd.nist.gov/vuln/detail/CVE-2021-33574))\n* Go ([CVE-2021-34558](https://nvd.nist.gov/vuln/detail/CVE-2021-34558))\n* libgcrypt ([CVE-2021-33560](https://nvd.nist.gov/vuln/detail/CVE-2021-33560))\n* libpcre ([CVE-2019-20838](https://nvd.nist.gov/vuln/detail/CVE-2019-20838), [CVE-2020-14155](https://nvd.nist.gov/vuln/detail/CVE-2020-14155))\n\n**Bug Fixes**\n\n* Added the systemd tag in udev for Azure storage devices, to fix /boot automount ([init#41](https://github.com/kinvolk/init/pull/41))\n* Disabled SELinux by default on `dockerd` wrapper script ([coreos-overlay#1149](https://github.com/kinvolk/coreos-overlay/pull/1149))\n* Set the cilium_vxlan interface to be not managed by networkd's default setup with DHCP as it's managed by Cilium. ([init#43](https://github.com/kinvolk/init/pull/43))\n* update_engine_client: Improve feedback when an update is not needed([update_engine#10](https://github.com/kinvolk/update_engine/pull/10))\n* GCE: Granted CAP_NET_ADMIN to set routes for the TCP LB when starting oem-gce.service ([coreos-overlay#1146](https://github.com/kinvolk/coreos-overlay/pull/1146))\n\n**Changes**\n\n* Enabled telnet support for curl ([coreos-overlay#1099](https://github.com/kinvolk/coreos-overlay/pull/1099))\n* Enabled ssl USE flag for wget ([coreos-overlay#932](https://github.com/kinvolk/coreos-overlay/pull/932))\n* Enabled MDIO_BCM_UNIMAC for arm64 ([coreos-overlay#929](https://github.com/kinvolk/coreos-overlay/pull/929))\n\n**Updates**\n\n* Linux ([5.10.55](https://lwn.net/Articles/864901/))\n* containerd ([1.5.4](https://github.com/containerd/containerd/releases/tag/v1.5.4))\n* dbus ([1.12.20](https://github.com/freedesktop/dbus/blob/ab88811768f750777d1a8b9d9ab12f13390bfd3a/NEWS#L1))\n* dracut ([053](https://github.com/dracutdevs/dracut/releases/tag/053))\n* glibc ([2.33](https://sourceware.org/pipermail/libc-alpha/2021-February/122207.html))\n* go ([1.16.6](https://golang.org/doc/devel/release#go1.16.minor)) \n* libev (4.33)\n* libgcrypt ([1.9.3](https://github.com/gpg/libgcrypt/blob/cb78627203705365d24b48ec4fc4cf2fc804b277/NEWS#L1))\n* libpcre (8.44)\n* libverto ([0.3.1](https://github.com/latchset/libverto/releases/tag/0.3.1))\n* pax-utils (1.3.1)\n* readline ([8.1_p1](https://tiswww.case.edu/php/chet/readline/CHANGES))\n* rust ([1.53.0](https://blog.rust-lang.org/2021/06/17/Rust-1.53.0.html))\n* selinux ([3.1](https://github.com/SELinuxProject/selinux/releases/tag/20200710))\n* selinux-refpolicy ([2.20200818](https://github.com/SELinuxProject/refpolicy/releases/tag/RELEASE_2_20200818))\n* systemd ([247.7](https://github.com/systemd/systemd-stable/releases/tag/v247.7))\n* VMWare: open-vm-tools ([11.3.0](https://github.com/vmware/open-vm-tools/releases/tag/stable-11.3.0))\n\n_Changes since **Alpha 2942.0.0**_\n\n**Security fixes**\n\n* Linux ([CVE-2021-37576](https://nvd.nist.gov/vuln/detail/CVE-2021-37576))\n\n**Bug fixes**\n\n* Set the cilium_vxlan interface to be not managed by networkd's default setup with DHCP as it's managed by Cilium. ([init#43](https://github.com/kinvolk/init/pull/43))\n* Disabled SELinux by default on `dockerd` wrapper script ([coreos-overlay#1149](https://github.com/kinvolk/coreos-overlay/pull/1149))\n* GCE: Granted CAP_NET_ADMIN to set routes for the TCP LB when starting oem-gce.service ([coreos-overlay#1146](https://github.com/kinvolk/coreos-overlay/pull/1146))\n\n**Updates**\n\n* Linux ([5.10.55](https://lwn.net/Articles/864901/))"
+  },
   "2051.99.1": {
     "channel": "edge",
     "architectures": [
@@ -4433,12 +4478,12 @@
     },
     "release_notes": "**Security fixes**\n\n\n\n*   Linux ([CVE-2021-28375](https://nvd.nist.gov/vuln/detail/CVE-2021-28375), [CVE-2021-28660](https://nvd.nist.gov/vuln/detail/CVE-2021-28660), [CVE-2021-27363](https://nvd.nist.gov/vuln/detail/CVE-2021-27363), [CVE-2021-27365](https://nvd.nist.gov/vuln/detail/CVE-2021-27365), [CVE-2021-28038](https://nvd.nist.gov/vuln/detail/CVE-2021-28038), [CVE-2021-27364](https://nvd.nist.gov/vuln/detail/CVE-2021-27364), [CVE-2020-25639](https://nvd.nist.gov/vuln/detail/CVE-2020-25639))\n*   openssl ([CVE-2021-23840](https://nvd.nist.gov/vuln/detail/CVE-2021-23840),[ CVE-2021-23841](https://nvd.nist.gov/vuln/detail/CVE-2021-23841), [CVE-2020-1971](https://nvd.nist.gov/vuln/detail/CVE-2020-1971),[ CVE-2021-23840](https://nvd.nist.gov/vuln/detail/CVE-2021-23840),[ CVE-2021-23841](https://nvd.nist.gov/vuln/detail/CVE-2021-23841), [CVE-2021-3449](https://nvd.nist.gov/vuln/detail/CVE-2021-3449),[ CVE-2021-3450](https://nvd.nist.gov/vuln/detail/CVE-2021-3450))\n\n**Updates**\n\n\n\n*   Linux ([5.4.107](https://lwn.net/Articles/849952/))\n*   openssl ([1.1.1k](https://mta.openssl.org/pipermail/openssl-announce/2021-March/000197.html))\n*   open-iscsi ([2.1.4](https://github.com/open-iscsi/open-iscsi/releases/tag/2.1.4))\n*   containerd ([1.4.4](https://github.com/containerd/containerd/releases/tag/v1.4.4))"
   },
-  "current-2021": {
+  "2605.18.1": {
     "channel": "lts",
     "architectures": [
       "amd64"
     ],
-    "release_date": "2021-03-25 15:40:57 +0000",
+    "release_date": "2021-07-28 08:28:35 +0000",
     "major_software": {
       "docker": [
         "19.03.15"
@@ -4447,13 +4492,35 @@
         "0.34.0"
       ],
       "kernel": [
-        "5.4.107"
+        "5.4.134"
       ],
       "systemd": [
         "246"
       ]
     },
-    "release_notes": "**Security fixes**\n\n\n\n*   Linux ([CVE-2021-28375](https://nvd.nist.gov/vuln/detail/CVE-2021-28375), [CVE-2021-28660](https://nvd.nist.gov/vuln/detail/CVE-2021-28660), [CVE-2021-27363](https://nvd.nist.gov/vuln/detail/CVE-2021-27363), [CVE-2021-27365](https://nvd.nist.gov/vuln/detail/CVE-2021-27365), [CVE-2021-28038](https://nvd.nist.gov/vuln/detail/CVE-2021-28038), [CVE-2021-27364](https://nvd.nist.gov/vuln/detail/CVE-2021-27364), [CVE-2020-25639](https://nvd.nist.gov/vuln/detail/CVE-2020-25639))\n*   openssl ([CVE-2021-23840](https://nvd.nist.gov/vuln/detail/CVE-2021-23840),[ CVE-2021-23841](https://nvd.nist.gov/vuln/detail/CVE-2021-23841), [CVE-2020-1971](https://nvd.nist.gov/vuln/detail/CVE-2020-1971),[ CVE-2021-23840](https://nvd.nist.gov/vuln/detail/CVE-2021-23840),[ CVE-2021-23841](https://nvd.nist.gov/vuln/detail/CVE-2021-23841), [CVE-2021-3449](https://nvd.nist.gov/vuln/detail/CVE-2021-3449),[ CVE-2021-3450](https://nvd.nist.gov/vuln/detail/CVE-2021-3450))\n\n**Updates**\n\n\n\n*   Linux ([5.4.107](https://lwn.net/Articles/849952/))\n*   openssl ([1.1.1k](https://mta.openssl.org/pipermail/openssl-announce/2021-March/000197.html))\n*   open-iscsi ([2.1.4](https://github.com/open-iscsi/open-iscsi/releases/tag/2.1.4))\n*   containerd ([1.4.4](https://github.com/containerd/containerd/releases/tag/v1.4.4))"
+    "release_notes": "**Security Fixes**\n\n\n\n* Linux ([CVE-2021-34693](https://nvd.nist.gov/vuln/detail/CVE-2021-34693), [CVE-2020-26541](https://nvd.nist.gov/vuln/detail/CVE-2020-26541), [CVE-2021-35039](https://nvd.nist.gov/vuln/detail/CVE-2021-35039), [CVE-2021-22543](https://nvd.nist.gov/vuln/detail/CVE-2021-22543), [CVE-2020-36311](https://nvd.nist.gov/vuln/detail/CVE-2020-36311), [CVE-2021-3609](https://nvd.nist.gov/vuln/detail/CVE-2021-3609), [CVE-2021-3655](https://nvd.nist.gov/vuln/detail/CVE-2021-3655), [CVE-2021-33909](https://nvd.nist.gov/vuln/detail/CVE-2021-33909))\n\n**Updates**\n\n\n\n* Linux ([5.4.134](https://lwn.net/Articles/863649/))"
+  },
+  "current-2021": {
+    "channel": "lts",
+    "architectures": [
+      "amd64"
+    ],
+    "release_date": "2021-07-28 08:28:35 +0000",
+    "major_software": {
+      "docker": [
+        "19.03.15"
+      ],
+      "ignition": [
+        "0.34.0"
+      ],
+      "kernel": [
+        "5.4.134"
+      ],
+      "systemd": [
+        "246"
+      ]
+    },
+    "release_notes": "**Security Fixes**\n\n\n\n* Linux ([CVE-2021-34693](https://nvd.nist.gov/vuln/detail/CVE-2021-34693), [CVE-2020-26541](https://nvd.nist.gov/vuln/detail/CVE-2020-26541), [CVE-2021-35039](https://nvd.nist.gov/vuln/detail/CVE-2021-35039), [CVE-2021-22543](https://nvd.nist.gov/vuln/detail/CVE-2021-22543), [CVE-2020-36311](https://nvd.nist.gov/vuln/detail/CVE-2020-36311), [CVE-2021-3609](https://nvd.nist.gov/vuln/detail/CVE-2021-3609), [CVE-2021-3655](https://nvd.nist.gov/vuln/detail/CVE-2021-3655), [CVE-2021-33909](https://nvd.nist.gov/vuln/detail/CVE-2021-33909))\n\n**Updates**\n\n\n\n* Linux ([5.4.134](https://lwn.net/Articles/863649/))"
   },
   "2605.15.1": {
     "channel": "lts",
@@ -5899,5 +5966,27 @@
       ]
     },
     "release_notes": "\n**Security fixes**\n\n\n\n*   Linux ([CVE-2021-28964](https://nvd.nist.gov/vuln/detail/CVE-2021-28964), [CVE-2021-28972](https://nvd.nist.gov/vuln/detail/CVE-2021-28972), [CVE-2021-28971](https://nvd.nist.gov/vuln/detail/CVE-2021-28971), [CVE-2021-28951](https://nvd.nist.gov/vuln/detail/CVE-2021-28951), [CVE-2021-28952](https://nvd.nist.gov/vuln/detail/CVE-2021-28952), [CVE-2021-29266](https://nvd.nist.gov/vuln/detail/CVE-2021-29266), [CVE-2021-28688](https://nvd.nist.gov/vuln/detail/CVE-2021-28688), [CVE-2021-29264](https://nvd.nist.gov/vuln/detail/CVE-2021-29264), [CVE-2021-29649](https://nvd.nist.gov/vuln/detail/CVE-2021-29649), [CVE-2021-29650](https://nvd.nist.gov/vuln/detail/CVE-2021-29650), [CVE-2021-29646](https://nvd.nist.gov/vuln/detail/CVE-2021-29646), [CVE-2021-29647](https://nvd.nist.gov/vuln/detail/CVE-2021-29647), [CVE-2021-29154](https://nvd.nist.gov/vuln/detail/CVE-2021-29154), [CVE-2021-29155](https://nvd.nist.gov/vuln/detail/CVE-2021-29155), [CVE-2021-23133](https://nvd.nist.gov/vuln/detail/CVE-2021-23133))\n\n**Bug fixes**\n\n\n\n*   Fix the patch to update DefaultTasksMax in systemd ([coreos-overlay#971](https://github.com/kinvolk/coreos-overlay/pull/971))\n\n**Updates**\n\n\n\n*   Linux ([5.10.32](https://lwn.net/Articles/853762/))"
+  },
+  "2905.2.1": {
+    "channel": "stable",
+    "architectures": [
+      "amd64"
+    ],
+    "release_date": "2021-08-04 13:24:56 +0000",
+    "major_software": {
+      "docker": [
+        "19.03.15"
+      ],
+      "ignition": [
+        "0.34.0"
+      ],
+      "kernel": [
+        "5.10.55"
+      ],
+      "systemd": [
+        "247"
+      ]
+    },
+    "release_notes": "**Security fixes**\n\n* Linux ([CVE-2021-37576](https://nvd.nist.gov/vuln/detail/CVE-2021-37576))\n\n**Bug fixes**\n\n* Set the cilium_vxlan interface to be not managed by networkd's default setup with DHCP as it's managed by Cilium. ([init#43](https://github.com/kinvolk/init/pull/43))\n* Disabled SELinux by default on `dockerd` wrapper script ([coreos-overlay#1149](https://github.com/kinvolk/coreos-overlay/pull/1149))\n* GCE: Granted CAP_NET_ADMIN to set routes for the TCP LB when starting oem-gce.service ([coreos-overlay#1146](https://github.com/kinvolk/coreos-overlay/pull/1146))\n\n**Updates**\n\n* Linux ([5.10.55](https://lwn.net/Articles/864901/))"
   }
 }

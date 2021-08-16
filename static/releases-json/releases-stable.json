@@ -1422,12 +1422,12 @@
     },
     "release_notes": "\n**Security fixes**\n\n\n\n*   Linux ([CVE-2021-28964](https://nvd.nist.gov/vuln/detail/CVE-2021-28964), [CVE-2021-28972](https://nvd.nist.gov/vuln/detail/CVE-2021-28972), [CVE-2021-28971](https://nvd.nist.gov/vuln/detail/CVE-2021-28971), [CVE-2021-28951](https://nvd.nist.gov/vuln/detail/CVE-2021-28951), [CVE-2021-28952](https://nvd.nist.gov/vuln/detail/CVE-2021-28952), [CVE-2021-29266](https://nvd.nist.gov/vuln/detail/CVE-2021-29266), [CVE-2021-28688](https://nvd.nist.gov/vuln/detail/CVE-2021-28688), [CVE-2021-29264](https://nvd.nist.gov/vuln/detail/CVE-2021-29264), [CVE-2021-29649](https://nvd.nist.gov/vuln/detail/CVE-2021-29649), [CVE-2021-29650](https://nvd.nist.gov/vuln/detail/CVE-2021-29650), [CVE-2021-29646](https://nvd.nist.gov/vuln/detail/CVE-2021-29646), [CVE-2021-29647](https://nvd.nist.gov/vuln/detail/CVE-2021-29647), [CVE-2021-29154](https://nvd.nist.gov/vuln/detail/CVE-2021-29154), [CVE-2021-29155](https://nvd.nist.gov/vuln/detail/CVE-2021-29155), [CVE-2021-23133](https://nvd.nist.gov/vuln/detail/CVE-2021-23133))\n\n**Bug fixes**\n\n\n\n*   Fix the patch to update DefaultTasksMax in systemd ([coreos-overlay#971](https://github.com/kinvolk/coreos-overlay/pull/971))\n\n**Updates**\n\n\n\n*   Linux ([5.10.32](https://lwn.net/Articles/853762/))"
   },
-  "current": {
+  "2905.2.1": {
     "channel": "stable",
     "architectures": [
       "amd64"
     ],
-    "release_date": "2021-04-28 13:36:47 +0000",
+    "release_date": "2021-08-04 13:24:56 +0000",
     "major_software": {
       "docker": [
         "19.03.15"
@@ -1436,12 +1436,34 @@
         "0.34.0"
       ],
       "kernel": [
-        "5.10.32"
+        "5.10.55"
       ],
       "systemd": [
         "247"
       ]
     },
-    "release_notes": "\n**Security fixes**\n\n\n\n*   Linux ([CVE-2021-28964](https://nvd.nist.gov/vuln/detail/CVE-2021-28964), [CVE-2021-28972](https://nvd.nist.gov/vuln/detail/CVE-2021-28972), [CVE-2021-28971](https://nvd.nist.gov/vuln/detail/CVE-2021-28971), [CVE-2021-28951](https://nvd.nist.gov/vuln/detail/CVE-2021-28951), [CVE-2021-28952](https://nvd.nist.gov/vuln/detail/CVE-2021-28952), [CVE-2021-29266](https://nvd.nist.gov/vuln/detail/CVE-2021-29266), [CVE-2021-28688](https://nvd.nist.gov/vuln/detail/CVE-2021-28688), [CVE-2021-29264](https://nvd.nist.gov/vuln/detail/CVE-2021-29264), [CVE-2021-29649](https://nvd.nist.gov/vuln/detail/CVE-2021-29649), [CVE-2021-29650](https://nvd.nist.gov/vuln/detail/CVE-2021-29650), [CVE-2021-29646](https://nvd.nist.gov/vuln/detail/CVE-2021-29646), [CVE-2021-29647](https://nvd.nist.gov/vuln/detail/CVE-2021-29647), [CVE-2021-29154](https://nvd.nist.gov/vuln/detail/CVE-2021-29154), [CVE-2021-29155](https://nvd.nist.gov/vuln/detail/CVE-2021-29155), [CVE-2021-23133](https://nvd.nist.gov/vuln/detail/CVE-2021-23133))\n\n**Bug fixes**\n\n\n\n*   Fix the patch to update DefaultTasksMax in systemd ([coreos-overlay#971](https://github.com/kinvolk/coreos-overlay/pull/971))\n\n**Updates**\n\n\n\n*   Linux ([5.10.32](https://lwn.net/Articles/853762/))"
+    "release_notes": "**Security fixes**\n\n* Linux ([CVE-2021-37576](https://nvd.nist.gov/vuln/detail/CVE-2021-37576))\n\n**Bug fixes**\n\n* Set the cilium_vxlan interface to be not managed by networkd's default setup with DHCP as it's managed by Cilium. ([init#43](https://github.com/kinvolk/init/pull/43))\n* Disabled SELinux by default on `dockerd` wrapper script ([coreos-overlay#1149](https://github.com/kinvolk/coreos-overlay/pull/1149))\n* GCE: Granted CAP_NET_ADMIN to set routes for the TCP LB when starting oem-gce.service ([coreos-overlay#1146](https://github.com/kinvolk/coreos-overlay/pull/1146))\n\n**Updates**\n\n* Linux ([5.10.55](https://lwn.net/Articles/864901/))"
+  },
+  "current": {
+    "channel": "stable",
+    "architectures": [
+      "amd64"
+    ],
+    "release_date": "2021-08-04 13:24:56 +0000",
+    "major_software": {
+      "docker": [
+        "19.03.15"
+      ],
+      "ignition": [
+        "0.34.0"
+      ],
+      "kernel": [
+        "5.10.55"
+      ],
+      "systemd": [
+        "247"
+      ]
+    },
+    "release_notes": "**Security fixes**\n\n* Linux ([CVE-2021-37576](https://nvd.nist.gov/vuln/detail/CVE-2021-37576))\n\n**Bug fixes**\n\n* Set the cilium_vxlan interface to be not managed by networkd's default setup with DHCP as it's managed by Cilium. ([init#43](https://github.com/kinvolk/init/pull/43))\n* Disabled SELinux by default on `dockerd` wrapper script ([coreos-overlay#1149](https://github.com/kinvolk/coreos-overlay/pull/1149))\n* GCE: Granted CAP_NET_ADMIN to set routes for the TCP LB when starting oem-gce.service ([coreos-overlay#1146](https://github.com/kinvolk/coreos-overlay/pull/1146))\n\n**Updates**\n\n* Linux ([5.10.55](https://lwn.net/Articles/864901/))"
   }
 }
