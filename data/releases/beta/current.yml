@@ -3,7 +3,7 @@ architectures:
 channel: beta
 github_release:
   assets: []
-  assets_url: https://api.github.com/repos/kinvolk/manifest/releases/47293780/assets
+  assets_url: https://api.github.com/repos/kinvolk/manifest/releases/48115293/assets
   author:
     avatar_url: https://avatars.githubusercontent.com/u/500628?v=4
     events_url: https://api.github.com/users/sayanchowdhury/events{/privacy}
@@ -23,67 +23,42 @@ github_release:
     subscriptions_url: https://api.github.com/users/sayanchowdhury/subscriptions
     type: User
     url: https://api.github.com/users/sayanchowdhury
-  body: "_Changes since **Beta 2920.1.0**_\r\n\r\n**Security Fixes**\r\n\r\n* Linux\
-    \ ([CVE-2021-37576](https://nvd.nist.gov/vuln/detail/CVE-2021-37576))\r\n* containerd\
-    \ ([CVE-2021-32760](https://nvd.nist.gov/vuln/detail/CVE-2021-32760))\r\n* glibc\
-    \ ([CVE-2020-29562](https://nvd.nist.gov/vuln/detail/CVE-2020-29562), [CVE-2019-25013](https://nvd.nist.gov/vuln/detail/CVE-2019-25013),\
-    \ [CVE-2020-27618](https://nvd.nist.gov/vuln/detail/https://cve.circl.lu/cve/CVE-2020-27618),\
-    \ [CVE-2021-27645](https://nvd.nist.gov/vuln/detail/CVE-2021-27645), [CVE-2021-33574](https://nvd.nist.gov/vuln/detail/CVE-2021-33574))\r\
-    \n* Go ([CVE-2021-34558](https://nvd.nist.gov/vuln/detail/CVE-2021-34558))\r\n\
-    * libgcrypt ([CVE-2021-33560](https://nvd.nist.gov/vuln/detail/CVE-2021-33560))\r\
-    \n* libpcre ([CVE-2019-20838](https://nvd.nist.gov/vuln/detail/CVE-2019-20838),\
-    \ [CVE-2020-14155](https://nvd.nist.gov/vuln/detail/CVE-2020-14155))\r\n\r\n**Bug\
-    \ Fixes**\r\n\r\n* Added the systemd tag in udev for Azure storage devices, to\
-    \ fix /boot automount ([init#41](https://github.com/kinvolk/init/pull/41))\r\n\
-    * Disabled SELinux by default on `dockerd` wrapper script ([coreos-overlay#1149](https://github.com/kinvolk/coreos-overlay/pull/1149))\r\
-    \n* Set the cilium_vxlan interface to be not managed by networkd's default setup\
-    \ with DHCP as it's managed by Cilium. ([init#43](https://github.com/kinvolk/init/pull/43))\r\
-    \n* update_engine_client: Improve feedback when an update is not needed([update_engine#10](https://github.com/kinvolk/update_engine/pull/10))\r\
-    \n* GCE: Granted CAP_NET_ADMIN to set routes for the TCP LB when starting oem-gce.service\
-    \ ([coreos-overlay#1146](https://github.com/kinvolk/coreos-overlay/pull/1146))\r\
-    \n\r\n**Changes**\r\n\r\n* Enabled telnet support for curl ([coreos-overlay#1099](https://github.com/kinvolk/coreos-overlay/pull/1099))\r\
-    \n* Enabled ssl USE flag for wget ([coreos-overlay#932](https://github.com/kinvolk/coreos-overlay/pull/932))\r\
-    \n* Enabled MDIO_BCM_UNIMAC for arm64 ([coreos-overlay#929](https://github.com/kinvolk/coreos-overlay/pull/929))\r\
-    \n\r\n**Updates**\r\n\r\n* Linux ([5.10.55](https://lwn.net/Articles/864901/))\r\
-    \n* containerd ([1.5.4](https://github.com/containerd/containerd/releases/tag/v1.5.4))\r\
-    \n* dbus ([1.12.20](https://github.com/freedesktop/dbus/blob/ab88811768f750777d1a8b9d9ab12f13390bfd3a/NEWS#L1))\r\
-    \n* dracut ([053](https://github.com/dracutdevs/dracut/releases/tag/053))\r\n\
-    * glibc ([2.33](https://sourceware.org/pipermail/libc-alpha/2021-February/122207.html))\r\
-    \n* go ([1.16.6](https://golang.org/doc/devel/release#go1.16.minor)) \r\n* libev\
-    \ (4.33)\r\n* libgcrypt ([1.9.3](https://github.com/gpg/libgcrypt/blob/cb78627203705365d24b48ec4fc4cf2fc804b277/NEWS#L1))\r\
-    \n* libpcre (8.44)\r\n* libverto ([0.3.1](https://github.com/latchset/libverto/releases/tag/0.3.1))\r\
-    \n* pax-utils (1.3.1)\r\n* readline ([8.1_p1](https://tiswww.case.edu/php/chet/readline/CHANGES))\r\
-    \n* rust ([1.53.0](https://blog.rust-lang.org/2021/06/17/Rust-1.53.0.html))\r\n\
-    * selinux ([3.1](https://github.com/SELinuxProject/selinux/releases/tag/20200710))\r\
-    \n* selinux-refpolicy ([2.20200818](https://github.com/SELinuxProject/refpolicy/releases/tag/RELEASE_2_20200818))\r\
-    \n* systemd ([247.7](https://github.com/systemd/systemd-stable/releases/tag/v247.7))\r\
-    \n* VMWare: open-vm-tools ([11.3.0](https://github.com/vmware/open-vm-tools/releases/tag/stable-11.3.0))\r\
-    \n\r\n_Changes since **Alpha 2942.0.0**_\r\n\r\n**Security fixes**\r\n\r\n* Linux\
-    \ ([CVE-2021-37576](https://nvd.nist.gov/vuln/detail/CVE-2021-37576))\r\n\r\n\
-    **Bug fixes**\r\n\r\n* Set the cilium_vxlan interface to be not managed by networkd's\
-    \ default setup with DHCP as it's managed by Cilium. ([init#43](https://github.com/kinvolk/init/pull/43))\r\
-    \n* Disabled SELinux by default on `dockerd` wrapper script ([coreos-overlay#1149](https://github.com/kinvolk/coreos-overlay/pull/1149))\r\
-    \n* GCE: Granted CAP_NET_ADMIN to set routes for the TCP LB when starting oem-gce.service\
-    \ ([coreos-overlay#1146](https://github.com/kinvolk/coreos-overlay/pull/1146))\r\
-    \n\r\n**Updates**\r\n\r\n* Linux ([5.10.55](https://lwn.net/Articles/864901/))"
-  created_at: '2021-08-03T16:20:30Z'
+  body: "_Changes since **Beta 2942.1.0**_\r\n\r\n**Security fixes**\r\n\r\n\r\n\r\
+    \n* Linux ([CVE-2021-34556](https://nvd.nist.gov/vuln/detail/CVE-2021-34556),\
+    \ [CVE-2021-35477](https://nvd.nist.gov/vuln/detail/CVE-2021-35477), [CVE-2021-38205](https://nvd.nist.gov/vuln/detail/CVE-2021-38205))\r\
+    \n* NVIDIA Drivers ([CVE-2021-1090](https://nvd.nist.gov/vuln/detail/CVE-2021-1090),\
+    \ [CVE-2021-1093](https://nvd.nist.gov/vuln/detail/CVE-2021-1093), [CVE-2021-1094](https://nvd.nist.gov/vuln/detail/CVE-2021-1094),\
+    \ [CVE-2021-1095](https://nvd.nist.gov/vuln/detail/CVE-2021-1095))\r\n* Go ([CVE-2021-36221](https://nvd.nist.gov/vuln/detail/CVE-2021-36221))\r\
+    \n* Systemd ([CVE-2020-13529](https://nvd.nist.gov/vuln/detail/CVE-2020-13529),\
+    \ [CVE-2021-33910](https://nvd.nist.gov/vuln/detail/CVE-2021-33910))\r\n\r\n**Bug\
+    \ Fixes**\r\n\r\n\r\n\r\n* Fixed `pam.d` sssd LDAP auth with sudo ([coreos-overlay#1170](https://github.com/kinvolk/coreos-overlay/pull/1170))\r\
+    \n* Let network-cleanup.service finish before entering rootfs ([coreos-overlay#1182](https://github.com/kinvolk/coreos-overlay/pull/1182))\r\
+    \n* Fixed SELinux policy for Flannel CNI ([coreos-overlay#1181](https://github.com/kinvolk/coreos-overlay/pull/1181))\r\
+    \n\r\n**Changes**\r\n\r\n\r\n\r\n* Switched to zstd for the initramfs ([coreos-overlay#1136](https://github.com/kinvolk/coreos-overlay/pull/1136))\r\
+    \n* Embedded new subkey in flatcar-install ([coreos-overlay#1180](https://github.com/kinvolk/coreos-overlay/pull/1180))\r\
+    \n\r\n**Updates**\r\n\r\n\r\n\r\n* Linux ([5.10.59](https://lwn.net/Articles/866302/))\r\
+    \n* NVIDIA Drivers ([470.57.02](https://docs.nvidia.com/datacenter/tesla/tesla-release-notes-470-57-02/index.html))\r\
+    \n* Systemd ([247.9](https://github.com/systemd/systemd-stable/releases/tag/v247.9))\r\
+    \n* Go ([1.16.7](https://golang.org/doc/devel/release#go1.16.minor))\r\n* portage-utils\
+    \ ([0.90](https://github.com/gentoo/portage-utils/releases/tag/v0.90))"
+  created_at: '2021-08-17T10:53:34Z'
   draft: false
-  html_url: https://github.com/kinvolk/manifest/releases/tag/v2942.1.0
-  id: 47293780
-  name: ''
-  node_id: MDc6UmVsZWFzZTQ3MjkzNzgw
+  html_url: https://github.com/kinvolk/manifest/releases/tag/v2942.1.1
+  id: 48115293
+  name: v2942.1.1
+  node_id: MDc6UmVsZWFzZTQ4MTE1Mjkz
   prerelease: false
-  published_at: '2021-08-04T13:23:23Z'
-  tag_name: v2942.1.0
-  tarball_url: https://api.github.com/repos/kinvolk/manifest/tarball/v2942.1.0
+  published_at: '2021-08-19T13:36:00Z'
+  tag_name: v2942.1.1
+  tarball_url: https://api.github.com/repos/kinvolk/manifest/tarball/v2942.1.1
   target_commitish: flatcar-master
-  upload_url: https://uploads.github.com/repos/kinvolk/manifest/releases/47293780/assets{?name,label}
-  url: https://api.github.com/repos/kinvolk/manifest/releases/47293780
-  zipball_url: https://api.github.com/repos/kinvolk/manifest/zipball/v2942.1.0
+  upload_url: https://uploads.github.com/repos/kinvolk/manifest/releases/48115293/assets{?name,label}
+  url: https://api.github.com/repos/kinvolk/manifest/releases/48115293
+  zipball_url: https://api.github.com/repos/kinvolk/manifest/zipball/v2942.1.1
 image_packages:
   docker: 19.03.15
   ignition: 0.34.0
-  kernel: 5.10.55
+  kernel: 5.10.59
   systemd: '247'
 release: current
-version: 2942.1.0
+version: 2942.1.1

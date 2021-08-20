@@ -1,9 +1,9 @@
 architectures:
 - amd64
-channel: stable
+channel: beta
 github_release:
   assets: []
-  assets_url: https://api.github.com/repos/kinvolk/manifest/releases/48115342/assets
+  assets_url: https://api.github.com/repos/kinvolk/manifest/releases/48115293/assets
   author:
     avatar_url: https://avatars.githubusercontent.com/u/500628?v=4
     events_url: https://api.github.com/users/sayanchowdhury/events{/privacy}
@@ -23,38 +23,42 @@ github_release:
     subscriptions_url: https://api.github.com/users/sayanchowdhury/subscriptions
     type: User
     url: https://api.github.com/users/sayanchowdhury
-  body: "_Changes since **Stable**_ **2905.2.1**\r\n\r\n**Security fixes**\r\n\r\n\
-    \r\n\r\n* Linux ([CVE-2021-34556](https://nvd.nist.gov/vuln/detail/CVE-2021-34556),\
+  body: "_Changes since **Beta 2942.1.0**_\r\n\r\n**Security fixes**\r\n\r\n\r\n\r\
+    \n* Linux ([CVE-2021-34556](https://nvd.nist.gov/vuln/detail/CVE-2021-34556),\
     \ [CVE-2021-35477](https://nvd.nist.gov/vuln/detail/CVE-2021-35477), [CVE-2021-38205](https://nvd.nist.gov/vuln/detail/CVE-2021-38205))\r\
-    \n* Go ([CVE-2021-36221](https://nvd.nist.gov/vuln/detail/CVE-2021-36221))\r\n\
-    * Systemd ([CVE-2020-13529](https://nvd.nist.gov/vuln/detail/CVE-2020-13529),\
+    \n* NVIDIA Drivers ([CVE-2021-1090](https://nvd.nist.gov/vuln/detail/CVE-2021-1090),\
+    \ [CVE-2021-1093](https://nvd.nist.gov/vuln/detail/CVE-2021-1093), [CVE-2021-1094](https://nvd.nist.gov/vuln/detail/CVE-2021-1094),\
+    \ [CVE-2021-1095](https://nvd.nist.gov/vuln/detail/CVE-2021-1095))\r\n* Go ([CVE-2021-36221](https://nvd.nist.gov/vuln/detail/CVE-2021-36221))\r\
+    \n* Systemd ([CVE-2020-13529](https://nvd.nist.gov/vuln/detail/CVE-2020-13529),\
     \ [CVE-2021-33910](https://nvd.nist.gov/vuln/detail/CVE-2021-33910))\r\n\r\n**Bug\
     \ Fixes**\r\n\r\n\r\n\r\n* Fixed `pam.d` sssd LDAP auth with sudo ([coreos-overlay#1170](https://github.com/kinvolk/coreos-overlay/pull/1170))\r\
     \n* Let network-cleanup.service finish before entering rootfs ([coreos-overlay#1182](https://github.com/kinvolk/coreos-overlay/pull/1182))\r\
+    \n* Fixed SELinux policy for Flannel CNI ([coreos-overlay#1181](https://github.com/kinvolk/coreos-overlay/pull/1181))\r\
     \n\r\n**Changes**\r\n\r\n\r\n\r\n* Switched to zstd for the initramfs ([coreos-overlay#1136](https://github.com/kinvolk/coreos-overlay/pull/1136))\r\
     \n* Embedded new subkey in flatcar-install ([coreos-overlay#1180](https://github.com/kinvolk/coreos-overlay/pull/1180))\r\
     \n\r\n**Updates**\r\n\r\n\r\n\r\n* Linux ([5.10.59](https://lwn.net/Articles/866302/))\r\
+    \n* NVIDIA Drivers ([470.57.02](https://docs.nvidia.com/datacenter/tesla/tesla-release-notes-470-57-02/index.html))\r\
     \n* Systemd ([247.9](https://github.com/systemd/systemd-stable/releases/tag/v247.9))\r\
     \n* Go ([1.16.7](https://golang.org/doc/devel/release#go1.16.minor))\r\n* portage-utils\
     \ ([0.90](https://github.com/gentoo/portage-utils/releases/tag/v0.90))"
-  created_at: '2021-08-17T11:11:00Z'
+  created_at: '2021-08-17T10:53:34Z'
   draft: false
-  html_url: https://github.com/kinvolk/manifest/releases/tag/v2905.2.2
-  id: 48115342
-  name: v2905.2.2
-  node_id: MDc6UmVsZWFzZTQ4MTE1MzQy
+  html_url: https://github.com/kinvolk/manifest/releases/tag/v2942.1.1
+  id: 48115293
+  name: v2942.1.1
+  node_id: MDc6UmVsZWFzZTQ4MTE1Mjkz
   prerelease: false
-  published_at: '2021-08-19T13:36:44Z'
-  tag_name: v2905.2.2
-  tarball_url: https://api.github.com/repos/kinvolk/manifest/tarball/v2905.2.2
+  published_at: '2021-08-19T13:36:00Z'
+  tag_name: v2942.1.1
+  tarball_url: https://api.github.com/repos/kinvolk/manifest/tarball/v2942.1.1
   target_commitish: flatcar-master
-  upload_url: https://uploads.github.com/repos/kinvolk/manifest/releases/48115342/assets{?name,label}
-  url: https://api.github.com/repos/kinvolk/manifest/releases/48115342
-  zipball_url: https://api.github.com/repos/kinvolk/manifest/zipball/v2905.2.2
+  upload_url: https://uploads.github.com/repos/kinvolk/manifest/releases/48115293/assets{?name,label}
+  url: https://api.github.com/repos/kinvolk/manifest/releases/48115293
+  zipball_url: https://api.github.com/repos/kinvolk/manifest/zipball/v2942.1.1
 image_packages:
   docker: 19.03.15
   ignition: 0.34.0
   kernel: 5.10.59
   systemd: '247'
-release: current
-version: 2905.2.2
+release: 2942.1.1
+version: 2942.1.1
