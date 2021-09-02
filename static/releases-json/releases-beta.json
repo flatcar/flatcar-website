@@ -1747,12 +1747,12 @@
     },
     "release_notes": "_Changes since **Beta 2942.1.0**_\n\n**Security fixes**\n\n\n\n* Linux ([CVE-2021-34556](https://nvd.nist.gov/vuln/detail/CVE-2021-34556), [CVE-2021-35477](https://nvd.nist.gov/vuln/detail/CVE-2021-35477), [CVE-2021-38205](https://nvd.nist.gov/vuln/detail/CVE-2021-38205))\n* NVIDIA Drivers ([CVE-2021-1090](https://nvd.nist.gov/vuln/detail/CVE-2021-1090), [CVE-2021-1093](https://nvd.nist.gov/vuln/detail/CVE-2021-1093), [CVE-2021-1094](https://nvd.nist.gov/vuln/detail/CVE-2021-1094), [CVE-2021-1095](https://nvd.nist.gov/vuln/detail/CVE-2021-1095))\n* Go ([CVE-2021-36221](https://nvd.nist.gov/vuln/detail/CVE-2021-36221))\n* Systemd ([CVE-2020-13529](https://nvd.nist.gov/vuln/detail/CVE-2020-13529), [CVE-2021-33910](https://nvd.nist.gov/vuln/detail/CVE-2021-33910))\n\n**Bug Fixes**\n\n\n\n* Fixed `pam.d` sssd LDAP auth with sudo ([coreos-overlay#1170](https://github.com/kinvolk/coreos-overlay/pull/1170))\n* Let network-cleanup.service finish before entering rootfs ([coreos-overlay#1182](https://github.com/kinvolk/coreos-overlay/pull/1182))\n* Fixed SELinux policy for Flannel CNI ([coreos-overlay#1181](https://github.com/kinvolk/coreos-overlay/pull/1181))\n\n**Changes**\n\n\n\n* Switched to zstd for the initramfs ([coreos-overlay#1136](https://github.com/kinvolk/coreos-overlay/pull/1136))\n* Embedded new subkey in flatcar-install ([coreos-overlay#1180](https://github.com/kinvolk/coreos-overlay/pull/1180))\n\n**Updates**\n\n\n\n* Linux ([5.10.59](https://lwn.net/Articles/866302/))\n* NVIDIA Drivers ([470.57.02](https://docs.nvidia.com/datacenter/tesla/tesla-release-notes-470-57-02/index.html))\n* Systemd ([247.9](https://github.com/systemd/systemd-stable/releases/tag/v247.9))\n* Go ([1.16.7](https://golang.org/doc/devel/release#go1.16.minor))\n* portage-utils ([0.90](https://github.com/gentoo/portage-utils/releases/tag/v0.90))"
   },
-  "current": {
+  "2942.1.2": {
     "channel": "beta",
     "architectures": [
       "amd64"
     ],
-    "release_date": "2021-08-19 13:36:00 +0000",
+    "release_date": "2021-09-01 14:14:50 +0000",
     "major_software": {
       "docker": [
         "19.03.15"
@@ -1761,12 +1761,34 @@
         "0.34.0"
       ],
       "kernel": [
-        "5.10.59"
+        "5.10.61"
       ],
       "systemd": [
         "247"
       ]
     },
-    "release_notes": "_Changes since **Beta 2942.1.0**_\n\n**Security fixes**\n\n\n\n* Linux ([CVE-2021-34556](https://nvd.nist.gov/vuln/detail/CVE-2021-34556), [CVE-2021-35477](https://nvd.nist.gov/vuln/detail/CVE-2021-35477), [CVE-2021-38205](https://nvd.nist.gov/vuln/detail/CVE-2021-38205))\n* NVIDIA Drivers ([CVE-2021-1090](https://nvd.nist.gov/vuln/detail/CVE-2021-1090), [CVE-2021-1093](https://nvd.nist.gov/vuln/detail/CVE-2021-1093), [CVE-2021-1094](https://nvd.nist.gov/vuln/detail/CVE-2021-1094), [CVE-2021-1095](https://nvd.nist.gov/vuln/detail/CVE-2021-1095))\n* Go ([CVE-2021-36221](https://nvd.nist.gov/vuln/detail/CVE-2021-36221))\n* Systemd ([CVE-2020-13529](https://nvd.nist.gov/vuln/detail/CVE-2020-13529), [CVE-2021-33910](https://nvd.nist.gov/vuln/detail/CVE-2021-33910))\n\n**Bug Fixes**\n\n\n\n* Fixed `pam.d` sssd LDAP auth with sudo ([coreos-overlay#1170](https://github.com/kinvolk/coreos-overlay/pull/1170))\n* Let network-cleanup.service finish before entering rootfs ([coreos-overlay#1182](https://github.com/kinvolk/coreos-overlay/pull/1182))\n* Fixed SELinux policy for Flannel CNI ([coreos-overlay#1181](https://github.com/kinvolk/coreos-overlay/pull/1181))\n\n**Changes**\n\n\n\n* Switched to zstd for the initramfs ([coreos-overlay#1136](https://github.com/kinvolk/coreos-overlay/pull/1136))\n* Embedded new subkey in flatcar-install ([coreos-overlay#1180](https://github.com/kinvolk/coreos-overlay/pull/1180))\n\n**Updates**\n\n\n\n* Linux ([5.10.59](https://lwn.net/Articles/866302/))\n* NVIDIA Drivers ([470.57.02](https://docs.nvidia.com/datacenter/tesla/tesla-release-notes-470-57-02/index.html))\n* Systemd ([247.9](https://github.com/systemd/systemd-stable/releases/tag/v247.9))\n* Go ([1.16.7](https://golang.org/doc/devel/release#go1.16.minor))\n* portage-utils ([0.90](https://github.com/gentoo/portage-utils/releases/tag/v0.90))"
+    "release_notes": "New **Beta** release **2942.1.2**\n\n_Changes since **Beta 2942.1.1**_\n\n**Security fixes**\n\n\n\n* Linux ([CVE-2021-3653](https://nvd.nist.gov/vuln/detail/CVE-2021-3653), [CVE-2021-3656](https://nvd.nist.gov/vuln/detail/CVE-2021-3656), [CVE-2021-38166](https://nvd.nist.gov/vuln/detail/CVE-2021-38166)) \n* openssl ([CVE-2021-3711](https://nvd.nist.gov/vuln/detail/CVE-2021-3711), [CVE-2021-3712](https://nvd.nist.gov/vuln/detail/CVE-2021-3712))\n\n**Bug Fixes**\n\n\n\n* Re-enabled kernel config FS_ENCRYPTION ([coreos-overlay#1212](https://github.com/kinvolk/coreos-overlay/pull/1212/))\n* Fixed Perl in dev-container ([coreos-overlay#1238](https://github.com/kinvolk/coreos-overlay/pull/1238))\n\n**Updates**\n\n\n\n* Linux ([5.10.61](https://lwn.net/Articles/867497/))\n* openssl ([1.1.1l](https://mta.openssl.org/pipermail/openssl-announce/2021-August/000206.html))"
+  },
+  "current": {
+    "channel": "beta",
+    "architectures": [
+      "amd64"
+    ],
+    "release_date": "2021-09-01 14:14:50 +0000",
+    "major_software": {
+      "docker": [
+        "19.03.15"
+      ],
+      "ignition": [
+        "0.34.0"
+      ],
+      "kernel": [
+        "5.10.61"
+      ],
+      "systemd": [
+        "247"
+      ]
+    },
+    "release_notes": "New **Beta** release **2942.1.2**\n\n_Changes since **Beta 2942.1.1**_\n\n**Security fixes**\n\n\n\n* Linux ([CVE-2021-3653](https://nvd.nist.gov/vuln/detail/CVE-2021-3653), [CVE-2021-3656](https://nvd.nist.gov/vuln/detail/CVE-2021-3656), [CVE-2021-38166](https://nvd.nist.gov/vuln/detail/CVE-2021-38166)) \n* openssl ([CVE-2021-3711](https://nvd.nist.gov/vuln/detail/CVE-2021-3711), [CVE-2021-3712](https://nvd.nist.gov/vuln/detail/CVE-2021-3712))\n\n**Bug Fixes**\n\n\n\n* Re-enabled kernel config FS_ENCRYPTION ([coreos-overlay#1212](https://github.com/kinvolk/coreos-overlay/pull/1212/))\n* Fixed Perl in dev-container ([coreos-overlay#1238](https://github.com/kinvolk/coreos-overlay/pull/1238))\n\n**Updates**\n\n\n\n* Linux ([5.10.61](https://lwn.net/Articles/867497/))\n* openssl ([1.1.1l](https://mta.openssl.org/pipermail/openssl-announce/2021-August/000206.html))"
   }
 }
