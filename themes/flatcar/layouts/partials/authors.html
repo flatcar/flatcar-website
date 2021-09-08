@@ -1,0 +1,28 @@
+{{ $params := .context.Params }}
+{{ $with_date := default false .with_date }}
+{{ $context := .context }}
+<p class="authors">
+  {{ .message }}
+  {{ $authors := default (slice) $params.authors }}
+  {{ $num_authors := len $authors }}
+  {{ $author_index := 1 }}
+  {{ range $authors }}
+    {{ $author := default (dict) (index $context.Site.Data.references.authors.authors .) }}
+    {{ if $author }}
+      {{ if (index $author "Params") }}
+        {{ $author.Params.title }}
+      {{ else }}
+        {{ $author.name }}
+      {{ end }}
+    {{ else }}
+      {{ . }}
+    {{ end }}
+    {{ if (lt $author_index $num_authors) }}
+    /
+    {{ end }}
+    {{ $author_index = add $author_index 1 }}
+  {{ end }}
+  {{ if $with_date }}
+    <time datetime="{{ $params.PublishDate.Format "2006-01-02" }}"><span class="post__date">· {{ $params.PublishDate.Format "January 2, 2006" }}</span></time>
+  {{ end }}
+</p>

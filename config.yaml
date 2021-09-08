@@ -8,6 +8,9 @@ copyright: © Kinvolk GmbH
 pluralizelisttitles: 'false'
 author:
   name: Chris Kuehl
+assetDir: static
+permalinks:
+  blog: "/blog/:year/:month/:title/"
 params:
   DateForm: 'Jan 2, 2006'
   Description: Flatcar Container Linux website
@@ -33,6 +36,10 @@ menu:
       identifier: security
       weight: -50
   left:
+    - name: Blog
+      url: /blog
+      identifier: blog
+      weight: -250
     - name: Docs
       url: https://kinvolk.io/docs/flatcar-container-linux/latest
       identifier: docs
