@@ -1,0 +1,31 @@
+<div class="row blog-posts justify-content-center">
+    {{ range .Pages }}
+    {{ if .Title }}
+    <div class="col-12 col-sm-6 col-md-4 post__item mb-5 mb-sm-7">
+        <div class="card">
+            <div class="card-img-top">
+                {{- $path := print "*/" .Params.postImage -}}
+                {{- $image := resources.GetMatch $path -}}
+                {{- $imagePath := path.Join "/media/" .Params.postImage -}}
+                {{- if $image -}}
+                {{- if in (slice "image/jpeg" "image/jpg" "image/png") (string $image.MediaType) -}}
+                    {{- $imagePath = ($image.Resize "500x webp q100").RelPermalink -}}
+                {{- end -}}
+                {{- end -}}
+                <a href="{{ .Permalink }}">
+                    <img src="{{ $imagePath }}" alt="post image">
+                </a>
+            </div>
+            <div class="card-body">
+                <a href="{{ .Permalink }}" class="post__title card-title mb-2">
+                    {{ .Title }}
+                </a>
+                <p>
+                    <span class="post__date">{{ .Params.PublishDate.Format "Jan 2, 2006" }}</span>
+                </p>
+            </div>
+        </div>
+    </div>
+    {{ end }}
+    {{ end }}
+</div>
