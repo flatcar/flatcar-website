@@ -17,24 +17,3 @@ GO_VERSION = "1.12"
 HUGO_VERSION = "0.83.1"
 PYTHON_VERSION = "3.7"
 NETLIFY_BUILD_PREVIEW = "true"
-
-[[headers]]
-  for = "/media/*"
-  [headers.values]
-    Cache-Control = "public, max-age=3600"
-[[headers]]
-  for = "/images/*"
-  [headers.values]
-    Cache-Control = "public, max-age=3600"
-[[headers]]
-  for = "/css/*"
-  [headers.values]
-    Cache-Control = "public, max-age=86400"
-[[headers]]
-  for = "/js/*"
-  [headers.values]
-    Cache-Control = "public, max-age=3600"
-[[headers]]
-  for = "/security/image-signing-key/*"
-  [headers.values]
-    Cache-Control = "public, max-age=7200"
