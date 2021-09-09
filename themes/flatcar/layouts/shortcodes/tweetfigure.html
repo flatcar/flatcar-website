@@ -1,3 +1,5 @@
+{{ $anchor := (index (last 1 (split (delimit (split (.Get "src") "/") "," "") ",")) 0) | urlize }}
+<a name="{{ $anchor}}" aria-hidden="true"></a>
 <figure{{ with .Get "class" }} class="{{ . }}"{{ end }}>
     {{- if .Get "link" -}}
         <a href="{{ .Get "link" }}"{{ with .Get "target" }} target="{{ . }}"{{ end }}{{ with .Get "rel" }} rel="{{ . }}"{{ end }}>
@@ -32,7 +34,7 @@
 <div class="text-center py-2 my-4">
     <a
         class="tweet-button"
-        href="https://twitter.com/intent/tweet?text={{ replace $tweet "{{URL}}" .Page.Permalink  }} {{ .Get "src" | absURL }}"
+        href="https://twitter.com/intent/tweet?text={{ replace $tweet "{{URL}}" .Page.Permalink  }} {{ printf "%s/#%s" .Page.Permalink $anchor }}"
     >
     Tweet
     </a>
