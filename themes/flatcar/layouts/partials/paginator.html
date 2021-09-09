@@ -4,7 +4,7 @@
     <div class="col-12 col-sm-6 col-md-4 post__item mb-5 mb-sm-7">
         <div class="card">
             <div class="card-img-top">
-                {{- $path := print "*/" .Params.postImage -}}
+                {{- $path := print "**/" .Params.postImage -}}
                 {{- $image := resources.GetMatch $path -}}
                 {{- $imagePath := path.Join "/media/splash/" .Params.postImage -}}
                 {{- if $image -}}

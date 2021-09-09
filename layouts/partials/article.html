@@ -8,7 +8,7 @@
         </div>
       </div>
 
-      {{- $path := print "*/" .Params.postImage -}}
+      {{- $path := print "**/" .Params.postImage -}}
       {{- $image := resources.GetMatch $path -}}
       {{- $imagePath := path.Join "/media/splash/" .Params.postImage -}}
       {{- $scaleImage := true -}}
