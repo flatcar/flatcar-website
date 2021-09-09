@@ -80,6 +80,13 @@ a {
     }
 }
 
+.card-img-top {
+    a {
+        border: none;
+        box-shadow: none;
+    }
+}
+
 #jumbotron {
     background-color: $color-blue;
     padding-bottom: 120px;
@@ -283,6 +290,20 @@ code {
 
         &:hover {
             color: $color-black;
+        }
+    }
+}
+
+.pagination {
+    .page-link {
+        border: none;
+        box-shadow: none;
+        color: $color-red;
+    }
+
+    .active {
+        .page-link {
+            background-color: $color-red;
         }
     }
 }
