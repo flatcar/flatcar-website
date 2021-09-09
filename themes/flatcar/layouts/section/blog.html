@@ -9,7 +9,7 @@
           <div class="col-12 col-lg-6 order-first order-lg-last p-0">
             {{- $path := print "*/" .Params.postImage -}}
             {{- $image := resources.GetMatch $path -}}
-            {{- $imagePath := path.Join "/media/" .Params.postImage -}}
+            {{- $imagePath := path.Join "/media/splash/" .Params.postImage -}}
             {{- if eq (index .Params "scaleImage") false -}}
               {{- $scaleImage = false -}}
             {{- end -}}

@@ -22,7 +22,7 @@
             <div class="card mx-auto">
                 {{- $path := print "*/" .Params.postImage -}}
                 {{- $image := resources.GetMatch $path -}}
-                {{- $imagePath := path.Join "/media/" .Params.postImage -}}
+                {{- $imagePath := path.Join "/media/splash" .Params.postImage -}}
                 {{- if $image -}}
                 {{- if in (slice "image/jpeg" "image/jpg" "image/png") (string $image.MediaType) -}}
                     {{- $imagePath = ($image.Resize "318x webp q100").RelPermalink -}}
