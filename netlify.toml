@@ -1,6 +1,6 @@
 [build]
 publish = "public"
-command = "hugo --theme=flatcar"
+command = "hugo --theme=flatcar -b https://flatcar-linux.org"
 
 [context.production.environment]
 GO_VERSION = "1.12"
@@ -10,7 +10,7 @@ HUGO_ENV = "production"
 HUGO_ENABLEGITINFO = "true"
 
 [context.deploy-preview]
-command = "hugo --theme=flatcar -F"
+command = "hugo --theme=flatcar -F -b $DEPLOY_PRIME_URL"
 
 [context.deploy-preview.environment]
 GO_VERSION = "1.12"
