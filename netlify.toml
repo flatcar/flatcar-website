@@ -1,6 +1,6 @@
 [build]
 publish = "public"
-command = "hugo --theme=flatcar -b https://flatcar-linux.org"
+command = "hugo --theme=flatcar -b $URL"
 
 [context.production.environment]
 GO_VERSION = "1.12"
