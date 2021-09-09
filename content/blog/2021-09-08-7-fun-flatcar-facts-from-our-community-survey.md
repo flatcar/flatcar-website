@@ -5,7 +5,7 @@ description = "7 Fun Flatcar Facts from our Community Survey "
 draft = false
 tags = ["flatcar", "community"]
 title = "7 Fun Flatcar Facts from our Community Survey "
-postImage = "/splash/many-trains.jpg"
+postImage = "/many-trains.jpg"
 +++
 
 We recently asked the Flatcar user community to share their experiences deploying Flatcar Container Linux. We promised to share the results back with the community, and so here are the top 7 take-aways from the survey:
