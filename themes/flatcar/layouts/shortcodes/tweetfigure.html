@@ -34,7 +34,7 @@
 <div class="text-center py-2 my-4">
     <a
         class="tweet-button"
-        href="https://twitter.com/intent/tweet?text={{ replace $tweet "{{URL}}" .Page.Permalink  }} {{ printf "%s/#%s" .Page.Permalink $anchor }}"
+        href="https://twitter.com/intent/tweet?text={{ $tweet }} {{ printf "%s#%s" .Page.Permalink $anchor }}"
     >
     Tweet
     </a>

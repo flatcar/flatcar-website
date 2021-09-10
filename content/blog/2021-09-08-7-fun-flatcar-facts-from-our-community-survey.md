@@ -16,35 +16,35 @@ No surprise here, since Flatcar is designed for containers and Kubernetes is the
 
 Interestingly, more than half (57%) of Flatcar users report that they run unorchestrated Docker containers.
 
-{{< tweetfigure src="/media/community-survey-2021/image1.png" alt="Chart showing the percentage of users deploying Flatcar under a certain environment. Kubernetes: 82.1%; Docker containers: 57.1%; Non-containerized apps: 3.6%; NFS Server: 3.6%; Mesos / DC/ OS, and others: 0%" tweet="4 out of 5 @flatcar_linux users deploy Kubernetes. 👉 Flatcar community survey {{URL}}">}}
+{{< tweetfigure src="/media/community-survey-2021/image1.png" alt="Chart showing the percentage of users deploying Flatcar under a certain environment. Kubernetes: 82.1%; Docker containers: 57.1%; Non-containerized apps: 3.6%; NFS Server: 3.6%; Mesos / DC/ OS, and others: 0%" tweet="4 out of 5 @flatcar_linux users deploy Kubernetes. 👉 Flatcar community survey">}}
 
 ## #2 Kubeadm is the most popular Kubernetes deployment tool, among a wide variety of installers and distros
 
 We asked those users who are deploying Kubernetes which distro or installation tool they were using. Even among a relatively small sample size, there was a wide variety of solutions in use, indicating that the Kubernetes landscape is still very heterogeneous. The most widely used tool, however, was kubeadm, reflecting that project’s position as the canonical upstream “best practice” installer.
 
-{{< tweetfigure src="/media/community-survey-2021/image2.png" alt="Chart showing distros / installers used for installing Flatcar. kubeadm: 7; DIY: 4; Lokomotive, Amazon EKS, kops, Rancher, Typhoon: 2; Cluster API, K3s, Gardener, Kubermatic: 1" tweet="Kubeadm is the most popular Kubernetes deployment tool used by @flatcar_linux users. 👉 Flatcar community survey {{URL}}" >}}
+{{< tweetfigure src="/media/community-survey-2021/image2.png" alt="Chart showing distros / installers used for installing Flatcar. kubeadm: 7; DIY: 4; Lokomotive, Amazon EKS, kops, Rancher, Typhoon: 2; Cluster API, K3s, Gardener, Kubermatic: 1" tweet="Kubeadm is the most popular Kubernetes deployment tool used by @flatcar_linux users. 👉 Flatcar community survey" >}}
 
 ## #3 Three quarters of Flatcar users deploy in their own data centers, but more than half of those users also deploy Flatcar in the cloud
 
 Users deploy Flatcar in a wide variety of environments: including all the major clouds, on-premises with vSphere, on-premises bare metal, and more. Looking at just cloud vs on-prem, we see that hybrid is the most popular option with users deploying some workloads on-prem and some in cloud.
 
-{{< tweetfigure src="/media/community-survey-2021/image3.png" alt="Chart showing percentage of Flatcar deployments. On-prem: 36%; Cloud only: 25%; Hybrid: 39%" tweet="Hybrid cloud and on-prem deployment model is the most popular for @flatcar_linux users. 👉 Flatcar community survey {{URL}}" >}}
+{{< tweetfigure src="/media/community-survey-2021/image3.png" alt="Chart showing percentage of Flatcar deployments. On-prem: 36%; Cloud only: 25%; Hybrid: 39%" tweet="Hybrid cloud and on-prem deployment model is the most popular for @flatcar_linux users. 👉 Flatcar community survey" >}}
 
 ## #4 Most Flatcar users automate updates
 
 Flatcar was designed to be an auto-updating operating system, inheriting the A/B partition and automatic update downloading mechanism from ChromeOS. More than 6 out of 10 users make use of this automatic update mechanism to ensure their systems stay always up to date. The remaining 37% reinstall nodes as required when new builds are available.
 
-{{< tweetfigure src="/media/community-survey-2021/image4.png" alt="Chart showing how users update Flatcar. Reinstalling nodes: 37%; Kinvolk Update Service: 11.1%; Self-deployed Nebraska server: 3.8%; Public update server: 48.1%" tweet="Six out of ten @flatcar_linux users stay up to date with automated operating system updates. 👉 Flatcar community survey {{URL}}">}}
+{{< tweetfigure src="/media/community-survey-2021/image4.png" alt="Chart showing how users update Flatcar. Reinstalling nodes: 37%; Kinvolk Update Service: 11.1%; Self-deployed Nebraska server: 3.8%; Public update server: 48.1%" tweet="Six out of ten @flatcar_linux users stay up to date with automated operating system updates. 👉 Flatcar community survey">}}
 
 ## #5 Nine out of every ten users cite Security and Manageability as key reasons for deploying Flatcar
 
 Flatcar’s combination of automatic updates with an immutable base OS image are designed to make large distributed systems both more secure and easier to manage. This is reflected in the fact that 93% of users rated security and manageability as “somewhat” or “very” important factors in their decision to deploy Flatcar.
 
-{{< tweetfigure src="/media/community-survey-2021/image5.png" alt="Chart showing reasons why users deploy Flatcar. Security: 93%; Manageability (minimal management overhead): 93%; Small, lightweight distro: 86%; Integration with container ecosystem: 82%; Open, community-driven development process: 82%; Simple, atomic update mechanism: 79%" tweet="9 out of 10 users cite Security and Manageability as key factors in their decision to deploy @flatcar_linux. 👉 Flatcar community survey {{URL}}" >}}
+{{< tweetfigure src="/media/community-survey-2021/image5.png" alt="Chart showing reasons why users deploy Flatcar. Security: 93%; Manageability (minimal management overhead): 93%; Small, lightweight distro: 86%; Integration with container ecosystem: 82%; Open, community-driven development process: 82%; Simple, atomic update mechanism: 79%" tweet="9 out of 10 users cite Security and Manageability as key factors in their decision to deploy @flatcar_linux. 👉 Flatcar community survey" >}}
 
 If we drill into the responses and look at the weighted ranking (from 1 = not at all important to 5 = very important), we see Flatcar’s security and manageability characteristics, along with its small, lightweight footprint, are still the most decisive factors for users:
 
-{{< tweetfigure src="/media/community-survey-2021/image6.png" alt="" tweet="Security, Manageability, and Small/lightweight Distro are the most popular characteristics of @flatcar_linux. 👉 Flatcar community survey {{URL}}" >}}
+{{< tweetfigure src="/media/community-survey-2021/image6.png" alt="" tweet="Security, Manageability, and Small/lightweight Distro are the most popular characteristics of @flatcar_linux. 👉 Flatcar community survey" >}}
 
 ## #6 Only half of all Flatcar users adopted it as a drop-in CoreOS replacement
 
@@ -52,13 +52,13 @@ Flatcar started as a fork of CoreOS Container Linux, enabling users to seamlessl
 
 In other words, fully half of the users selected Flatcar as the best container operating system for their needs, independent of its CoreOS compatibility.
 
-{{< tweetfigure src="/media/community-survey-2021/image7.png" alt="" tweet="Half of @flatcar_linux users adopt it for its ability to seamlessly migrate from CoreOS Container Linux. 👉 Flatcar community survey {{URL}}">}}
+{{< tweetfigure src="/media/community-survey-2021/image7.png" alt="" tweet="Half of @flatcar_linux users adopt it for its ability to seamlessly migrate from CoreOS Container Linux. 👉 Flatcar community survey">}}
 
 ## #7 Flatcar users don’t just like Flatcar, they love it
 
 We asked our users how likely it is that they would recommend Flatcar to a friend or colleague on a scale of 0-10 (the classic “NPS question”). Fully 71% rated Flatcar as 9 or 10, and none was below 7, resulting in an excellent NPS Score of 71.
 
-{{< tweetfigure src="/media/community-survey-2021/image8.png" alt="" tweet="Users love and recommend @flatcar_linux! 👉 Flatcar community survey {{URL}}">}}
+{{< tweetfigure src="/media/community-survey-2021/image8.png" alt="" tweet="Users love and recommend @flatcar_linux! 👉 Flatcar community survey">}}
 
 Some sample comments:
 
