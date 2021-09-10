@@ -13,7 +13,7 @@ if [ ! -d "$FCL_RELEASE_SCRIPTS" ]; then
     exit 1
 fi
 
-FLATCAR_DATA="$WEBSITE_DIR"/data/products/flatcar
+FLATCAR_DATA="$WEBSITE_DIR"/data
 CHANNELS=(
     alpha
     beta
@@ -24,7 +24,7 @@ CHANNELS=(
 )
 
 generate-release-feeds() {
-    RELEASES_DIR=$WEBSITE_DIR/static/flatcar-container-linux/
+    RELEASES_DIR=$WEBSITE_DIR/static/
 
 	for CHANNEL in ${CHANNELS[@]} ; do \
 	    $FCL_RELEASE_SCRIPTS/releases_as_json.py $FLATCAR_DATA/releases/$CHANNEL/*.yml > $RELEASES_DIR/releases-json/releases-$CHANNEL.json;
