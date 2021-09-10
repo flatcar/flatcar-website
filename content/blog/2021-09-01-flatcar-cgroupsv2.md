@@ -4,12 +4,12 @@ topics = ["Linux", "cgroups"]
 authors = ["jeremi-piotrowski"]
 title = "Flatcar Linux is moving to CGroupsV2"
 draft = false
-description = "Flatcar Linux is moving to CGroupsV2"
+description = "Flatcar Container Linux is moving to CGroupsV2"
 date = "2021-09-01T20:00:00+02:00"
 postImage = "/train-passing-by.jpg"
 +++
 
-[Flatcar Linux v2969.0.0](https://flatcar-linux.org/releases/#release-2969.0.0) was released to the Alpha channel on Aug 19, 2021. This release brings a big change to the underlying configuration of the OS: the default control groups hierarchy has been switched to CGroupsV2. This blog post explains why these changes are necessary and how they will impact users.
+[Flatcar Container Linux v2969.0.0](https://flatcar-linux.org/releases/#release-2969.0.0) was released to the Alpha channel on Aug 19, 2021. This release brings a big change to the underlying configuration of the OS: the default control groups hierarchy has been switched to CGroupsV2. This blog post explains why these changes are necessary and how they will impact users.
 
 # cgroup
 Linux namespaces and control groups (or cgroups) are the core building blocks of containers on Linux. Cgroups restrict the resources (CPU, memory, I/O) that a process or container can consume, which is essential to securely hosting diverse workloads on the same system.
