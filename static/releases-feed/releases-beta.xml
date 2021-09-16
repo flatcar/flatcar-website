@@ -1,20 +1,28 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en">
-  <id>https://flatcar-linux.org/</id>
+  <id>https://kinvolk.io/flatcar-container-linux/</id>
   <title>Flatcar :: beta</title>
-  <updated>2021-09-01T15:50:49.060329+00:00</updated>
+  <updated>2021-09-16T16:52:39.426539+00:00</updated>
   <author>
     <name>Flatcar by Kinvolk</name>
     <email>hello@kinvolk.io</email>
   </author>
-  <link href="https://flatcar-linux.org/" rel="self"/>
+  <link href="https://kinvolk.io/flatcar-container-linux/" rel="self"/>
   <generator uri="https://lkiesow.github.io/python-feedgen" version="0.9.0">python-feedgen</generator>
   <logo>https://kinvolk.io/images/flatcar-logo.svg</logo>
   <subtitle>Container Linux release feed</subtitle>
   <entry>
+    <id>https://github.com/kinvolk/manifest/releases/tag/v2983.1.0</id>
+    <title>2983.1.0</title>
+    <updated>2021-09-16T16:52:40.000069+00:00</updated>
+    <content>New **Beta** release **2983.1.0**&lt;br&gt;&lt;br&gt;_Changes since **Beta 2942.1.2**_&lt;br&gt;&lt;br&gt;**Update to CGroupsV2**&lt;br&gt;&lt;br&gt;As of Alpha version 2969.0.0, Flatcar Container Linux migrates to the unified cgroup hierarchy (aka CGroupsV2)! New nodes will utilize CGroupsV2 by default. Existing nodes remain on CGroupsV1 and need to be manually migrated to CGroupsV2. To learn more about CGroupsV2 on Flatcar Container Linux and the migration guide, please refer to [https://kinvolk.io/docs/flatcar-container-linux/latest/container-runtimes/switching-to-unified-cgroups/](https://kinvolk.io/docs/flatcar-container-linux/latest/container-runtimes/switching-to-unified-cgroups/) &lt;br&gt;&lt;br&gt;**Security fixes**&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;* dnsmasq ([CVE-2021-3448](https://nvd.nist.gov/vuln/detail/CVE-2021-3448))&lt;br&gt;* glibc ([CVE-2021-35942](https://nvd.nist.gov/vuln/detail/CVE-2021-35942))&lt;br&gt;* Go ([CVE-2021-36221](https://nvd.nist.gov/vuln/detail/CVE-2021-36221))&lt;br&gt;* libuv ([CVE-2021-22918](https://nvd.nist.gov/vuln/detail/CVE-2021-22918))&lt;br&gt;* mit-krb5 ([CVE-2021-36222](https://nvd.nist.gov/vuln/detail/CVE-2021-36222))&lt;br&gt;* tar ([CVE-2021-20193](https://nvd.nist.gov/vuln/detail/CVE-2021-20193))&lt;br&gt;* expat ([CVE-2013-0340](https://nvd.nist.gov/vuln/detail/CVE-2013-0340))&lt;br&gt;* Linux ([CVE-2021-3753](https://nvd.nist.gov/vuln/detail/CVE-2021-3753), [CVE-2021-3739](https://nvd.nist.gov/vuln/detail/CVE-2021-3739))&lt;br&gt;&lt;br&gt;**Bug Fixes**&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;* Fixed containerd config after introduction of CGroupsV2 ([coreos-overlay#1214](https://github.com/kinvolk/coreos-overlay/pull/1214))&lt;br&gt;* Fixed path for amazon-ssm-agent in base-ec2.ign ([coreos-overlay#1228](https://github.com/kinvolk/coreos-overlay/pull/1228))&lt;br&gt;* Fixed locksmith adhering to reboot window when getting the etcd lock ([locksmith#10](https://github.com/kinvolk/locksmith/pull/10))&lt;br&gt;* Disabled SELinux by default on dockerd wrapper script ([coreos-overlay#1149](https://github.com/kinvolk/coreos-overlay/pull/1149))&lt;br&gt;* Let network-cleanup.service finish before entering rootfs ([coreos-overlay#1182](https://github.com/kinvolk/coreos-overlay/pull/1182))&lt;br&gt;&lt;br&gt;**Changes**&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;* Added Azure [Generation 2 VM](https://docs.microsoft.com/en-us/azure/virtual-machines/generation-2) support ([coreos-overlay#1198](https://github.com/kinvolk/coreos-overlay/pull/1198))&lt;br&gt;* cgroups v2 by default for new nodes ([coreos-overlay#931](https://github.com/kinvolk/coreos-overlay/pull/931)).&lt;br&gt;* Upgrade Docker to 20.10 ([coreos-overlay#931](https://github.com/kinvolk/coreos-overlay/pull/931))&lt;br&gt;* Switched Docker ecosystem packages to go1.16 ([coreos-overlay#1217](https://github.com/kinvolk/coreos-overlay/pull/1217))&lt;br&gt;* Added lbzip2 binary to the image ([coreos-overlay#1221](https://github.com/kinvolk/coreos-overlay/pull/1221))&lt;br&gt;* flatcar-install uses lbzip2 if present, falls back on bzip2 if not ([init#46](https://github.com/kinvolk/init/pull/46))&lt;br&gt;* Added Intel E800 series network adapter driver ([coreos-overlay#1237](https://github.com/kinvolk/coreos-overlay/pull/1237))&lt;br&gt;* Enabled 'audit' use flag for sys-libs/pam ([coreos-overlay#1233](https://github.com/kinvolk/coreos-overlay/pull/1233))&lt;br&gt;* Bumped etcd and flannel to respectively `3.5.0`, `0.14.0` to get multiarch images for arm64 support. _Note for users of the old etcd v2 support_: `ETCDCTL_API=2` must be set to use v2 store as well as `ETCD_ENABLE_V2=true` in the `etcd-member.service` - this support will be removed in `3.6.0` ([coreos-overlay#1179](https://github.com/kinvolk/coreos-overlay/pull/1179))&lt;br&gt;* Switched to zstd compression for the initramfs ([coreos-overlay#1136](https://github.com/kinvolk/coreos-overlay/pull/1136))&lt;br&gt;* Support BTRFS in OEM and /usr partitions, but only used it for the OEM partition for now. Ignition configurations that refer to the OEM partition will work with any filesystem format specified, a mismatch is not resulting in a boot error. ([coreos-overlay#1106](https://github.com/kinvolk/coreos-overlay/pull/1106))&lt;br&gt;* Switched the arm64 kernel to use a 4k page size instead of 64k&lt;br&gt;* Switched dm-verity corruption detection to issue a kernel panic (a panic results in a reboot after 1 minute, this was the case before already) instead of merely failing certain syscalls that try to use the corrupted data&lt;br&gt;* Support BTRFS in OEM and /usr partitions, but only used it for the OEM partition for now. Ignition configurations that refer to the OEM partition will work with any filesystem format specified, a mismatch is not resulting in a boot error. ([coreos-overlay#1106](https://github.com/kinvolk/coreos-overlay/pull/1106))&lt;br&gt;* Enabled zstd compression for the initramfs and for amd64 also for the kernel because we hit the vmlinuz size limit on the /boot partition&lt;br&gt;* Deleted the unused kernel+initramfs vmlinuz file from the /usr partition&lt;br&gt;* devcontainer: added support to run on arm64 by switching to an architecture-agnostic partition UUID&lt;br&gt;* Enabled ARM64 SDK bootstrap ([scripts#134](https://github.com/kinvolk/flatcar-scripts/pull/134))&lt;br&gt;* SDK: enabled experimental ARM64 SDK usage ([flatcar-scripts#134](https://github.com/kinvolk/flatcar-scripts/pull/134)) ([flatcar-scripts#141](https://github.com/kinvolk/flatcar-scripts/pull/141))&lt;br&gt;* AWS: Added amazon-ssm-agent ([coreos-overlay#1162](https://github.com/kinvolk/coreos-overlay/pull/1162))&lt;br&gt;* Azure: Compile OEM contents for all architectures ([coreos-overlay#1196](https://github.com/kinvolk/coreos-overlay/pull/1196))&lt;br&gt;* update_engine: add postinstall hook to stay on cgroupv1 ([update_engine#13](https://github.com/kinvolk/update_engine/pull/13))&lt;br&gt;&lt;br&gt;**Updates**&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;* Linux ([5.10.63](https://lwn.net/Articles/868663/))&lt;br&gt;* Linux firmware ([20210818](https://git.kernel.org/pub/scm/linux/kernel/git/firmware/linux-firmware.git/tag/?h=20210818))&lt;br&gt;* c-ares ([1.17.2](https://c-ares.haxx.se/changelog.html#1_17_2))&lt;br&gt;* docker ([20.10.8](https://docs.docker.com/engine/release-notes/#20108))&lt;br&gt;* docker CLI ([20.10.8](https://github.com/docker/cli/releases/tag/v20.10.8))&lt;br&gt;* docker proxy ([0.8.0_p20210525](https://github.com/moby/libnetwork/commit/64b7a4574d1426139437d20e81c0b6d391130ec8))&lt;br&gt;* Go ([1.16.7](https://golang.org/doc/devel/release#go1.16.minor))&lt;br&gt;* glibc ([2.33-r5](https://gitweb.gentoo.org/repo/gentoo.git/commit/?id=7dfddd056de5f23bc29591d212f4051ed9d0634e))&lt;br&gt;* etcd ([3.5.0](https://github.com/etcd-io/etcd/releases/tag/v3.5.0))&lt;br&gt;* flannel ([0.14.0](https://github.com/flannel-io/flannel/releases/tag/v0.14.0))&lt;br&gt;* runc ([1.0.2](https://github.com/opencontainers/runc/releases/tag/v1.0.2))&lt;br&gt;* strace ([5.12](https://github.com/strace/strace/releases/tag/v5.12))&lt;br&gt;* wa-linux-agent ([2.3.1.1](https://github.com/Azure/WALinuxAgent/releases/tag/v2.3.1.1))&lt;br&gt;* cryptsetup ([2.3.6](https://gitlab.com/cryptsetup/cryptsetup/-/tags/v2.3.6))&lt;br&gt;* expat ([2.4.1](https://www.xml.com/news/2021-05-expat-240-and-241/))&lt;br&gt;* portage-utils ([0.90](https://github.com/gentoo/portage-utils/releases/tag/v0.90))&lt;br&gt;* libarchive ([3.5.1](https://github.com/libarchive/libarchive/releases/tag/3.5.1))&lt;br&gt;* xz-utils ([5.2.5](https://git.tukaani.org/?p=xz.git;a=blob;f=NEWS;h=aade49443ad7ddba13bbfd9da188c99664736d80;hb=3247e95115acb95bc27f41e8cf4501db5b0b4309#l16))&lt;br&gt;* tar ([1.34](https://savannah.gnu.org/forum/forum.php?forum_id=9935))&lt;br&gt;* libuv ([1.41.1](https://github.com/libuv/libuv/releases/tag/v1.41.1))&lt;br&gt;* tini ([0.19](https://github.com/krallin/tini/releases/tag/v0.19.0))&lt;br&gt;* mit-krb5 ([1.19.2](https://github.com/krb5/krb5/tree/krb5-1.19.2-final))&lt;br&gt;* SDK: dnsmasq ([2.85](https://thekelleys.org.uk/dnsmasq/CHANGELOG))&lt;br&gt;* SDK: rust ([1.54](https://github.com/rust-lang/rust/releases/tag/1.54.0))&lt;br&gt;&lt;br&gt;_Changes since **Alpha 2983.0.0**_&lt;br&gt;&lt;br&gt;**Security fixes**&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;* Linux([CVE-2021-3753](https://nvd.nist.gov/vuln/detail/CVE-2021-3753), [CVE-2021-3739](https://nvd.nist.gov/vuln/detail/CVE-2021-3739))&lt;br&gt;&lt;br&gt;**Updates**&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;* Linux ([5.10.63](https://lwn.net/Articles/868663/))&lt;br&gt;Packages:&lt;br&gt;- docker 20.10.8&lt;br&gt;- ignition 0.34.0&lt;br&gt;- kernel 5.10.63&lt;br&gt;- systemd 247&lt;br&gt;&lt;br&gt;Architectures:&lt;br&gt;- amd64&lt;br&gt;</content>
+    <link href="https://www.flatcar-linux.org/releases/#release-2983.1.0" rel="self"/>
+    <published>2021-09-16T14:56:46+00:00</published>
+  </entry>
+  <entry>
     <id>https://github.com/kinvolk/manifest/releases/tag/v2942.1.2</id>
     <title>2942.1.2</title>
-    <updated>2021-09-01T15:50:49.429116+00:00</updated>
+    <updated>2021-09-16T16:52:39.984586+00:00</updated>
     <content>New **Beta** release **2942.1.2**&lt;br&gt;&lt;br&gt;_Changes since **Beta 2942.1.1**_&lt;br&gt;&lt;br&gt;**Security fixes**&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;* Linux ([CVE-2021-3653](https://nvd.nist.gov/vuln/detail/CVE-2021-3653), [CVE-2021-3656](https://nvd.nist.gov/vuln/detail/CVE-2021-3656), [CVE-2021-38166](https://nvd.nist.gov/vuln/detail/CVE-2021-38166)) &lt;br&gt;* openssl ([CVE-2021-3711](https://nvd.nist.gov/vuln/detail/CVE-2021-3711), [CVE-2021-3712](https://nvd.nist.gov/vuln/detail/CVE-2021-3712))&lt;br&gt;&lt;br&gt;**Bug Fixes**&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;* Re-enabled kernel config FS_ENCRYPTION ([coreos-overlay#1212](https://github.com/kinvolk/coreos-overlay/pull/1212/))&lt;br&gt;* Fixed Perl in dev-container ([coreos-overlay#1238](https://github.com/kinvolk/coreos-overlay/pull/1238))&lt;br&gt;&lt;br&gt;**Updates**&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;* Linux ([5.10.61](https://lwn.net/Articles/867497/))&lt;br&gt;* openssl ([1.1.1l](https://mta.openssl.org/pipermail/openssl-announce/2021-August/000206.html))&lt;br&gt;Packages:&lt;br&gt;- docker 19.03.15&lt;br&gt;- ignition 0.34.0&lt;br&gt;- kernel 5.10.61&lt;br&gt;- systemd 247&lt;br&gt;&lt;br&gt;Architectures:&lt;br&gt;- amd64&lt;br&gt;</content>
     <link href="https://www.flatcar-linux.org/releases/#release-2942.1.2" rel="self"/>
     <published>2021-09-01T14:14:50+00:00</published>
@@ -22,7 +30,7 @@
   <entry>
     <id>https://github.com/kinvolk/manifest/releases/tag/v2942.1.1</id>
     <title>2942.1.1</title>
-    <updated>2021-09-01T15:50:49.424162+00:00</updated>
+    <updated>2021-09-16T16:52:39.977096+00:00</updated>
     <content>_Changes since **Beta 2942.1.0**_&lt;br&gt;&lt;br&gt;**Security fixes**&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;* Linux ([CVE-2021-34556](https://nvd.nist.gov/vuln/detail/CVE-2021-34556), [CVE-2021-35477](https://nvd.nist.gov/vuln/detail/CVE-2021-35477), [CVE-2021-38205](https://nvd.nist.gov/vuln/detail/CVE-2021-38205))&lt;br&gt;* NVIDIA Drivers ([CVE-2021-1090](https://nvd.nist.gov/vuln/detail/CVE-2021-1090), [CVE-2021-1093](https://nvd.nist.gov/vuln/detail/CVE-2021-1093), [CVE-2021-1094](https://nvd.nist.gov/vuln/detail/CVE-2021-1094), [CVE-2021-1095](https://nvd.nist.gov/vuln/detail/CVE-2021-1095))&lt;br&gt;* Go ([CVE-2021-36221](https://nvd.nist.gov/vuln/detail/CVE-2021-36221))&lt;br&gt;* Systemd ([CVE-2020-13529](https://nvd.nist.gov/vuln/detail/CVE-2020-13529), [CVE-2021-33910](https://nvd.nist.gov/vuln/detail/CVE-2021-33910))&lt;br&gt;&lt;br&gt;**Bug Fixes**&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;* Fixed `pam.d` sssd LDAP auth with sudo ([coreos-overlay#1170](https://github.com/kinvolk/coreos-overlay/pull/1170))&lt;br&gt;* Let network-cleanup.service finish before entering rootfs ([coreos-overlay#1182](https://github.com/kinvolk/coreos-overlay/pull/1182))&lt;br&gt;* Fixed SELinux policy for Flannel CNI ([coreos-overlay#1181](https://github.com/kinvolk/coreos-overlay/pull/1181))&lt;br&gt;&lt;br&gt;**Changes**&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;* Switched to zstd for the initramfs ([coreos-overlay#1136](https://github.com/kinvolk/coreos-overlay/pull/1136))&lt;br&gt;* Embedded new subkey in flatcar-install ([coreos-overlay#1180](https://github.com/kinvolk/coreos-overlay/pull/1180))&lt;br&gt;&lt;br&gt;**Updates**&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;* Linux ([5.10.59](https://lwn.net/Articles/866302/))&lt;br&gt;* NVIDIA Drivers ([470.57.02](https://docs.nvidia.com/datacenter/tesla/tesla-release-notes-470-57-02/index.html))&lt;br&gt;* Systemd ([247.9](https://github.com/systemd/systemd-stable/releases/tag/v247.9))&lt;br&gt;* Go ([1.16.7](https://golang.org/doc/devel/release#go1.16.minor))&lt;br&gt;* portage-utils ([0.90](https://github.com/gentoo/portage-utils/releases/tag/v0.90))&lt;br&gt;Packages:&lt;br&gt;- docker 19.03.15&lt;br&gt;- ignition 0.34.0&lt;br&gt;- kernel 5.10.59&lt;br&gt;- systemd 247&lt;br&gt;&lt;br&gt;Architectures:&lt;br&gt;- amd64&lt;br&gt;</content>
     <link href="https://www.flatcar-linux.org/releases/#release-2942.1.1" rel="self"/>
     <published>2021-08-19T13:36:00+00:00</published>
@@ -30,7 +38,7 @@
   <entry>
     <id>https://github.com/kinvolk/manifest/releases/tag/v2942.1.0</id>
     <title>2942.1.0</title>
-    <updated>2021-09-01T15:50:49.418318+00:00</updated>
+    <updated>2021-09-16T16:52:39.967823+00:00</updated>
     <content>_Changes since **Beta 2920.1.0**_&lt;br&gt;&lt;br&gt;**Security Fixes**&lt;br&gt;&lt;br&gt;* Linux ([CVE-2021-37576](https://nvd.nist.gov/vuln/detail/CVE-2021-37576))&lt;br&gt;* containerd ([CVE-2021-32760](https://nvd.nist.gov/vuln/detail/CVE-2021-32760))&lt;br&gt;* glibc ([CVE-2020-29562](https://nvd.nist.gov/vuln/detail/CVE-2020-29562), [CVE-2019-25013](https://nvd.nist.gov/vuln/detail/CVE-2019-25013), [CVE-2020-27618](https://nvd.nist.gov/vuln/detail/https://cve.circl.lu/cve/CVE-2020-27618), [CVE-2021-27645](https://nvd.nist.gov/vuln/detail/CVE-2021-27645), [CVE-2021-33574](https://nvd.nist.gov/vuln/detail/CVE-2021-33574))&lt;br&gt;* Go ([CVE-2021-34558](https://nvd.nist.gov/vuln/detail/CVE-2021-34558))&lt;br&gt;* libgcrypt ([CVE-2021-33560](https://nvd.nist.gov/vuln/detail/CVE-2021-33560))&lt;br&gt;* libpcre ([CVE-2019-20838](https://nvd.nist.gov/vuln/detail/CVE-2019-20838), [CVE-2020-14155](https://nvd.nist.gov/vuln/detail/CVE-2020-14155))&lt;br&gt;&lt;br&gt;**Bug Fixes**&lt;br&gt;&lt;br&gt;* Added the systemd tag in udev for Azure storage devices, to fix /boot automount ([init#41](https://github.com/kinvolk/init/pull/41))&lt;br&gt;* Disabled SELinux by default on `dockerd` wrapper script ([coreos-overlay#1149](https://github.com/kinvolk/coreos-overlay/pull/1149))&lt;br&gt;* Set the cilium_vxlan interface to be not managed by networkd's default setup with DHCP as it's managed by Cilium. ([init#43](https://github.com/kinvolk/init/pull/43))&lt;br&gt;* update_engine_client: Improve feedback when an update is not needed([update_engine#10](https://github.com/kinvolk/update_engine/pull/10))&lt;br&gt;* GCE: Granted CAP_NET_ADMIN to set routes for the TCP LB when starting oem-gce.service ([coreos-overlay#1146](https://github.com/kinvolk/coreos-overlay/pull/1146))&lt;br&gt;&lt;br&gt;**Changes**&lt;br&gt;&lt;br&gt;* Enabled telnet support for curl ([coreos-overlay#1099](https://github.com/kinvolk/coreos-overlay/pull/1099))&lt;br&gt;* Enabled ssl USE flag for wget ([coreos-overlay#932](https://github.com/kinvolk/coreos-overlay/pull/932))&lt;br&gt;* Enabled MDIO_BCM_UNIMAC for arm64 ([coreos-overlay#929](https://github.com/kinvolk/coreos-overlay/pull/929))&lt;br&gt;&lt;br&gt;**Updates**&lt;br&gt;&lt;br&gt;* Linux ([5.10.55](https://lwn.net/Articles/864901/))&lt;br&gt;* containerd ([1.5.4](https://github.com/containerd/containerd/releases/tag/v1.5.4))&lt;br&gt;* dbus ([1.12.20](https://github.com/freedesktop/dbus/blob/ab88811768f750777d1a8b9d9ab12f13390bfd3a/NEWS#L1))&lt;br&gt;* dracut ([053](https://github.com/dracutdevs/dracut/releases/tag/053))&lt;br&gt;* glibc ([2.33](https://sourceware.org/pipermail/libc-alpha/2021-February/122207.html))&lt;br&gt;* go ([1.16.6](https://golang.org/doc/devel/release#go1.16.minor)) &lt;br&gt;* libev (4.33)&lt;br&gt;* libgcrypt ([1.9.3](https://github.com/gpg/libgcrypt/blob/cb78627203705365d24b48ec4fc4cf2fc804b277/NEWS#L1))&lt;br&gt;* libpcre (8.44)&lt;br&gt;* libverto ([0.3.1](https://github.com/latchset/libverto/releases/tag/0.3.1))&lt;br&gt;* pax-utils (1.3.1)&lt;br&gt;* readline ([8.1_p1](https://tiswww.case.edu/php/chet/readline/CHANGES))&lt;br&gt;* rust ([1.53.0](https://blog.rust-lang.org/2021/06/17/Rust-1.53.0.html))&lt;br&gt;* selinux ([3.1](https://github.com/SELinuxProject/selinux/releases/tag/20200710))&lt;br&gt;* selinux-refpolicy ([2.20200818](https://github.com/SELinuxProject/refpolicy/releases/tag/RELEASE_2_20200818))&lt;br&gt;* systemd ([247.7](https://github.com/systemd/systemd-stable/releases/tag/v247.7))&lt;br&gt;* VMWare: open-vm-tools ([11.3.0](https://github.com/vmware/open-vm-tools/releases/tag/stable-11.3.0))&lt;br&gt;&lt;br&gt;_Changes since **Alpha 2942.0.0**_&lt;br&gt;&lt;br&gt;**Security fixes**&lt;br&gt;&lt;br&gt;* Linux ([CVE-2021-37576](https://nvd.nist.gov/vuln/detail/CVE-2021-37576))&lt;br&gt;&lt;br&gt;**Bug fixes**&lt;br&gt;&lt;br&gt;* Set the cilium_vxlan interface to be not managed by networkd's default setup with DHCP as it's managed by Cilium. ([init#43](https://github.com/kinvolk/init/pull/43))&lt;br&gt;* Disabled SELinux by default on `dockerd` wrapper script ([coreos-overlay#1149](https://github.com/kinvolk/coreos-overlay/pull/1149))&lt;br&gt;* GCE: Granted CAP_NET_ADMIN to set routes for the TCP LB when starting oem-gce.service ([coreos-overlay#1146](https://github.com/kinvolk/coreos-overlay/pull/1146))&lt;br&gt;&lt;br&gt;**Updates**&lt;br&gt;&lt;br&gt;* Linux ([5.10.55](https://lwn.net/Articles/864901/))&lt;br&gt;Packages:&lt;br&gt;- docker 19.03.15&lt;br&gt;- ignition 0.34.0&lt;br&gt;- kernel 5.10.55&lt;br&gt;- systemd 247&lt;br&gt;&lt;br&gt;Architectures:&lt;br&gt;- amd64&lt;br&gt;</content>
     <link href="https://www.flatcar-linux.org/releases/#release-2942.1.0" rel="self"/>
     <published>2021-08-04T13:23:23+00:00</published>
@@ -38,7 +46,7 @@
   <entry>
     <id>https://github.com/kinvolk/manifest/releases/tag/v2823.1.0</id>
     <title>2823.1.0</title>
-    <updated>2021-09-01T15:50:49.410816+00:00</updated>
+    <updated>2021-09-16T16:52:39.955822+00:00</updated>
     <content>_Changes since **Alpha** **2823.0.0**:_&lt;br&gt;&lt;br&gt;&lt;br&gt;**Security fixes**&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;*   Linux ([CVE-2021-28964](https://nvd.nist.gov/vuln/detail/CVE-2021-28964), [CVE-2021-28972](https://nvd.nist.gov/vuln/detail/CVE-2021-28972), [CVE-2021-28971](https://nvd.nist.gov/vuln/detail/CVE-2021-28971), [CVE-2021-28951](https://nvd.nist.gov/vuln/detail/CVE-2021-28951), [CVE-2021-28952](https://nvd.nist.gov/vuln/detail/CVE-2021-28952), [CVE-2021-29266](https://nvd.nist.gov/vuln/detail/CVE-2021-29266), [CVE-2021-28688](https://nvd.nist.gov/vuln/detail/CVE-2021-28688), [CVE-2021-29264](https://nvd.nist.gov/vuln/detail/CVE-2021-29264), [CVE-2021-29649](https://nvd.nist.gov/vuln/detail/CVE-2021-29649), [CVE-2021-29650](https://nvd.nist.gov/vuln/detail/CVE-2021-29650), [CVE-2021-29646](https://nvd.nist.gov/vuln/detail/CVE-2021-29646), [CVE-2021-29647](https://nvd.nist.gov/vuln/detail/CVE-2021-29647), [CVE-2021-29154](https://nvd.nist.gov/vuln/detail/CVE-2021-29154), [CVE-2021-29155](https://nvd.nist.gov/vuln/detail/CVE-2021-29155), [CVE-2021-23133](https://nvd.nist.gov/vuln/detail/CVE-2021-23133))&lt;br&gt;&lt;br&gt;**Bug fixes**&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;*   Fix the patch to update DefaultTasksMax in systemd ([coreos-overlay#971](https://github.com/kinvolk/coreos-overlay/pull/971))&lt;br&gt;&lt;br&gt;**Updates**&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;*   Linux ([5.10.32](https://lwn.net/Articles/853762/))&lt;br&gt;*   systemd ([247.6](https://github.com/systemd/systemd-stable/releases/tag/v247.6))&lt;br&gt;&lt;br&gt;_Changes since **Beta** **2801.1.0**:_&lt;br&gt;&lt;br&gt;**Security fixes**&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;*   Linux ([CVE-2021-28964](https://nvd.nist.gov/vuln/detail/CVE-2021-28964), [CVE-2021-28972](https://nvd.nist.gov/vuln/detail/CVE-2021-28972), [CVE-2021-28971](https://nvd.nist.gov/vuln/detail/CVE-2021-28971), [CVE-2021-28951](https://nvd.nist.gov/vuln/detail/CVE-2021-28951), [CVE-2021-28952](https://nvd.nist.gov/vuln/detail/CVE-2021-28952), [CVE-2021-29266](https://nvd.nist.gov/vuln/detail/CVE-2021-29266), [CVE-2021-28688](https://nvd.nist.gov/vuln/detail/CVE-2021-28688), [CVE-2021-29264](https://nvd.nist.gov/vuln/detail/CVE-2021-29264), [CVE-2021-29649](https://nvd.nist.gov/vuln/detail/CVE-2021-29649), [CVE-2021-29650](https://nvd.nist.gov/vuln/detail/CVE-2021-29650), [CVE-2021-29646](https://nvd.nist.gov/vuln/detail/CVE-2021-29646), [CVE-2021-29647](https://nvd.nist.gov/vuln/detail/CVE-2021-29647), [CVE-2021-29154](https://nvd.nist.gov/vuln/detail/CVE-2021-29154), [CVE-2021-29155](https://nvd.nist.gov/vuln/detail/CVE-2021-29155), [CVE-2021-23133](https://nvd.nist.gov/vuln/detail/CVE-2021-23133))&lt;br&gt;*   Go ([CVE-2021-27918](https://nvd.nist.gov/vuln/detail/CVE-2021-27918),[ CVE-2021-27919](https://nvd.nist.gov/vuln/detail/CVE-2021-27919)) &lt;br&gt;*   glib ([CVE-2021-28153](https://nvd.nist.gov/vuln/detail/CVE-2021-28153),[ CVE-2021-27218](https://nvd.nist.gov/vuln/detail/CVE-2021-27218),[ CVE-2021-27219](https://nvd.nist.gov/vuln/detail/CVE-2021-27219)) &lt;br&gt;*   boost ([CVE-2012-2677](https://nvd.nist.gov/vuln/detail/CVE-2012-2677))&lt;br&gt;*   ncurses ([CVE-2019-17594](https://nvd.nist.gov/vuln/detail/CVE-2019-17594),[ CVE-2019-17595](https://nvd.nist.gov/vuln/detail/CVE-2019-17595))&lt;br&gt;*   zstd ([CVE-2021-24032](https://nvd.nist.gov/vuln/detail/CVE-2021-24032))&lt;br&gt;&lt;br&gt;**Bug Fixes**&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;*   Fix the patch to update DefaultTasksMax in systemd ([coreos-overlay#971](https://github.com/kinvolk/coreos-overlay/pull/971))&lt;br&gt;&lt;br&gt;**Changes**&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;*   The pam_faillock PAM module was enabled as replacement for the removed pam_tally2 module and will temporarily lock an account if there were login attempts with a wrong password. The faillock command can be used to show the current state. With pam_tally2 there was no limit for wrong password login attempts but with faillock the default is already restricting the attempts. The default behavior was relaxed to allow 5 wrong passwords per two minutes, and a one minute account lock time. This does not apply to logins with an SSH key. ([baselayout#17](https://github.com/kinvolk/baselayout/pull/17))&lt;br&gt;*   The etcd and flannel services are now run with Docker and any rkt-based customizations of the etcd-member and flanneld services not supported anymore. Also, because the flanneld service relies on Docker and will restart Docker after applying the new configuration, it is not possible anymore to set Requires=flanneld.service for docker.service and instead it’s enough to have flanneld.service enabled. ([coreos-overlay#857](https://github.com/kinvolk/coreos-overlay/pull/857))&lt;br&gt;&lt;br&gt;**Updates**&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;*   Linux ([5.10.32](https://lwn.net/Articles/853762/))&lt;br&gt;*   Linux firmware ([20210315](https://git.kernel.org/pub/scm/linux/kernel/git/firmware/linux-firmware.git/tag/?h=20210315))&lt;br&gt;*   systemd ([247.6](https://github.com/systemd/systemd-stable/releases/tag/v247.6))&lt;br&gt;*   Go ([1.15.10](https://go.googlesource.com/go/+/refs/tags/go1.15.10))&lt;br&gt;*   boost ([1.75.0](https://www.boost.org/users/history/version_1_75_0.html))&lt;br&gt;*   glib ([2.66.8](https://gitlab.gnome.org/GNOME/glib/-/releases/2.66.8))&lt;br&gt;*   ncurses ([6.2](https://invisible-island.net/ncurses/announce-6.2.html))&lt;br&gt;*   zstd ([1.4.9](https://github.com/facebook/zstd/releases/tag/v1.4.9))&lt;br&gt;Packages:&lt;br&gt;- docker 19.03.15&lt;br&gt;- ignition 0.34.0&lt;br&gt;- kernel 5.10.32&lt;br&gt;- systemd 247&lt;br&gt;&lt;br&gt;Architectures:&lt;br&gt;- amd64&lt;br&gt;</content>
     <link href="https://www.flatcar-linux.org/releases/#release-2823.1.0" rel="self"/>
     <published>2021-04-28T13:33:49+00:00</published>
@@ -46,7 +54,7 @@
   <entry>
     <id>https://github.com/kinvolk/manifest/releases/tag/v2765.1.0</id>
     <title>2765.1.0</title>
-    <updated>2021-09-01T15:50:49.402306+00:00</updated>
+    <updated>2021-09-16T16:52:39.943387+00:00</updated>
     <content>**Security fixes**&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;*   Linux ([CVE-2021-3347](https://nvd.nist.gov/vuln/detail/CVE-2021-3347), [CVE-2021-3348](https://nvd.nist.gov/vuln/detail/CVE-2021-3348), [CVE-2021-26708](https://nvd.nist.gov/vuln/detail/CVE-2021-26708), [CVE-2021-20194](https://nvd.nist.gov/vuln/detail/CVE-2021-20194))&lt;br&gt;*   Docker ([CVE-2021-21285](https://nvd.nist.gov/vuln/detail/CVE-2021-21285), [CVE-2021-21284](https://nvd.nist.gov/vuln/detail/CVE-2021-21284))&lt;br&gt;*   NVIDIA ([CVE-2021-1052](https://nvd.nist.gov/vuln/detail/CVE-2021-1052),[ CVE-2021-1053](https://nvd.nist.gov/vuln/detail/CVE-2021-1053),[ CVE-2021-1056](https://nvd.nist.gov/vuln/detail/CVE-2021-1056))&lt;br&gt;&lt;br&gt;**Bug Fixes**&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;*   app-crypt/trousers: use correct file permissions ([coreos-overlay#809](https://github.com/kinvolk/coreos-overlay/pull/809))&lt;br&gt;*   x11-drivers/nvidia-drivers: Handle NVIDIA Version upgrades ([https://github.com/kinvolk/coreos-overlay/pull/762](https://github.com/kinvolk/coreos-overlay/pull/762))&lt;br&gt;*   flatcar-eks: add missing mkdir and update to latest versions ([https://github.com/kinvolk/coreos-overlay/pull/817](https://github.com/kinvolk/coreos-overlay/pull/817))&lt;br&gt;&lt;br&gt;**Updates**&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;*   Linux ([5.10.16](https://lwn.net/Articles/846116/))&lt;br&gt;*   Docker ([19.03.15](https://docs.docker.com/engine/release-notes/19.03/#190315))&lt;br&gt;*   NVIDIA Tesla Driver ([460.32.03](https://docs.nvidia.com/datacenter/tesla/tesla-release-notes-460-32-03/index.html))&lt;br&gt;Packages:&lt;br&gt;- docker 19.03.15&lt;br&gt;- ignition 0.34.0&lt;br&gt;- kernel 5.10.16&lt;br&gt;- systemd 247&lt;br&gt;&lt;br&gt;Architectures:&lt;br&gt;- amd64&lt;br&gt;</content>
     <link href="https://www.flatcar-linux.org/releases/#release-2765.1.0" rel="self"/>
     <published>2021-02-18T12:44:47+00:00</published>
@@ -54,7 +62,7 @@
   <entry>
     <id>https://github.com/kinvolk/manifest/releases/tag/v2705.1.2</id>
     <title>2705.1.2</title>
-    <updated>2021-09-01T15:50:49.396600+00:00</updated>
+    <updated>2021-09-16T16:52:39.934435+00:00</updated>
     <content>**Security fixes**&lt;br&gt;&lt;br&gt;*   go - [CVE-2021-3114](https://github.com/golang/go/issues/43786)&lt;br&gt;*   sudo - [CVE-2021-3156](https://nvd.nist.gov/vuln/detail/CVE-2021-3156), [CVE-2021-23239](https://nvd.nist.gov/vuln/detail/CVE-2021-23239)&lt;br&gt;&lt;br&gt;**Bug fixes**&lt;br&gt;&lt;br&gt;*   `/etc/iscsi/initiatorname.iscsi` is generated by the iscsi-init service ([#321](https://github.com/kinvolk/Flatcar/issues/321))&lt;br&gt;*   Prevent iscsiadm buffer overflow ([#318](https://github.com/kinvolk/Flatcar/issues/318))&lt;br&gt;&lt;br&gt;**Changes**&lt;br&gt;&lt;br&gt;*   Revert to building docker and containerd with go1.13 instead of go1.15. This reduces the SIGURG log spam ([Issue #315](https://github.com/kinvolk/Flatcar/issues/315) [PR #774](https://github.com/kinvolk/coreos-overlay/pull/774))&lt;br&gt;*   The containerd socket is now available in the default location (`/run/containerd/containerd.sock`) and also as a symlink in the previous location (`/run/docker/libcontainerd/docker-containerd.sock`) ([#771](https://github.com/kinvolk/coreos-overlay/pull/771))&lt;br&gt;*   With the iscsi update, the service unit has changed from iscsid to iscsi ([#791](https://github.com/kinvolk/coreos-overlay/pull/791))&lt;br&gt;*   AWS Pro: include scripts to facilitate setup of EKS workers ([#794](https://github.com/kinvolk/coreos-overlay/pull/794)).&lt;br&gt;*   Missed from earlier notes: with the previous open-iscsi update to 2.1.2, the service unit name changed from iscsid to iscsi ([#682](https://github.com/kinvolk/coreos-overlay/pull/682))&lt;br&gt;&lt;br&gt;**Updates**&lt;br&gt;&lt;br&gt;*   open-iscsi ([2.1.3](https://github.com/open-iscsi/open-iscsi/releases/tag/2.1.3))&lt;br&gt;*   go ([1.15.7](https://go.googlesource.com/go/+/refs/tags/go1.15.7))&lt;br&gt;*   sudo ([1.9.5p2](https://github.com/sudo-project/sudo/releases/tag/SUDO_1_9_5p2))&lt;br&gt;Packages:&lt;br&gt;- docker 19.03.14&lt;br&gt;- ignition 0.34.0&lt;br&gt;- kernel 5.9.16&lt;br&gt;- systemd 246&lt;br&gt;&lt;br&gt;Architectures:&lt;br&gt;- amd64&lt;br&gt;</content>
     <link href="https://www.flatcar-linux.org/releases/#release-2705.1.2" rel="self"/>
     <published>2021-01-28T11:01:35+00:00</published>
@@ -62,7 +70,7 @@
   <entry>
     <id>https://github.com/kinvolk/manifest/releases/tag/v2705.1.1</id>
     <title>2705.1.1</title>
-    <updated>2021-09-01T15:50:49.390761+00:00</updated>
+    <updated>2021-09-16T16:52:39.925674+00:00</updated>
     <content>**Security fixes**&lt;br&gt;&lt;br&gt;* Linux&lt;br&gt;  - [CVE-2020-27835](https://nvd.nist.gov/vuln/detail/CVE-2020-27835)&lt;br&gt;  - [CVE-2020-29661](https://nvd.nist.gov/vuln/detail/CVE-2020-29661)&lt;br&gt;  - [CVE-2020-29660](https://nvd.nist.gov/vuln/detail/CVE-2020-29660)&lt;br&gt;  - [CVE-2020-27830](https://www.openwall.com/lists/oss-security/2020/12/07/1)&lt;br&gt;  - [CVE-2020-28588](https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=4f134b89a24b965991e7c345b9a4591821f7c2a6)&lt;br&gt;&lt;br&gt;**Bug fixes**&lt;br&gt;&lt;br&gt;*   The sysctl `net.ipv4.conf.*.rp_filter` is set to `0` for the Cilium CNI plugin to work ([kinvolk/Flatcar#181](https://github.com/kinvolk/Flatcar/issues/181))&lt;br&gt;*   Package downloads in the developer container now use the correct URL again ([kinvolk/Flatcar#298](https://github.com/kinvolk/Flatcar/issues/298))&lt;br&gt;*   networkd: avoid managing MAC addresses for veth devices ([kinvolk/init#33](https://github.com/kinvolk/init/pull/33))&lt;br&gt;&lt;br&gt;**Changes**&lt;br&gt;&lt;br&gt;*   The sysctl default config file is now applied under the prefix 60 which allows for custom sysctl config files to take effect when they start with a prefix of 70, 80, or 90 ([kinvolk/baselayout#13](https://github.com/kinvolk/baselayout/pull/13))&lt;br&gt;*   Containerd CRI plugin got enabled by default, only the containerd socket path needs to be specified as kubelet parameter for Kubernetes 1.20 to use containerd instead of Docker ([kinvolk/Flatcar#283](https://github.com/kinvolk/Flatcar/issues/283))&lt;br&gt;*   For users with a custom update server a machine alias setting in update-engine allows to give human-friendly names to client instances ([kinvolk/update-engine#8](https://github.com/kinvolk/update_engine/pull/8))&lt;br&gt;&lt;br&gt;**Updates**&lt;br&gt;&lt;br&gt;*   Linux ([5.9.16](https://lwn.net/Articles/840977/))&lt;br&gt;*   containerd ([1.4.3](https://github.com/containerd/containerd/releases/tag/v1.4.3))&lt;br&gt;*   Docker ([19.03.14](https://github.com/docker/docker-ce/releases/tag/v19.03.14))&lt;br&gt;&lt;br&gt;Packages:&lt;br&gt;- docker 19.03.14&lt;br&gt;- ignition 0.34.0&lt;br&gt;- kernel 5.9.16&lt;br&gt;- systemd 246&lt;br&gt;&lt;br&gt;Architectures:&lt;br&gt;- amd64&lt;br&gt;</content>
     <link href="https://www.flatcar-linux.org/releases/#release-2705.1.1" rel="self"/>
     <published>2021-01-12T17:00:58+00:00</published>
@@ -70,7 +78,7 @@
   <entry>
     <id>https://github.com/kinvolk/manifest/releases/tag/v2705.1.0</id>
     <title>2705.1.0</title>
-    <updated>2021-09-01T15:50:49.384434+00:00</updated>
+    <updated>2021-09-16T16:52:39.915607+00:00</updated>
     <content>Security fixes:&lt;br&gt;*   No changes since Alpha 2705.0.0&lt;br&gt;&lt;br&gt;Bug fixes:&lt;br&gt;*   No changes since Alpha 2705.0.0&lt;br&gt;&lt;br&gt;Changes:&lt;br&gt;*   No changes since Alpha 2705.0.0&lt;br&gt;&lt;br&gt;Updates:&lt;br&gt;*   No changes since Alpha 2705.0.0&lt;br&gt;&lt;br&gt;Packages:&lt;br&gt;- docker 19.03.13&lt;br&gt;- ignition 0.34.0&lt;br&gt;- kernel 5.9.11&lt;br&gt;- systemd 246&lt;br&gt;&lt;br&gt;Architectures:&lt;br&gt;- amd64&lt;br&gt;</content>
     <link href="https://www.flatcar-linux.org/releases/#release-2705.1.0" rel="self"/>
     <published>2020-12-01T13:28:41+00:00</published>
@@ -78,7 +86,7 @@
   <entry>
     <id>https://github.com/kinvolk/manifest/releases/tag/v2643.1.1</id>
     <title>2643.1.1</title>
-    <updated>2021-09-01T15:50:49.379832+00:00</updated>
+    <updated>2021-09-16T16:52:39.908760+00:00</updated>
     <content>Security fixes:&lt;br&gt;&lt;br&gt;*   Linux -  [CVE-2020-27194](https://nvd.nist.gov/vuln/detail/CVE-2020-27194), [CVE-2020-27152](https://nvd.nist.gov/vuln/detail/CVE-2020-27152)&lt;br&gt;*   Go - [CVE-2020-28362](https://nvd.nist.gov/vuln/detail/CVE-2020-28362), [CVE-2020-28367](https://nvd.nist.gov/vuln/detail/CVE-2020-28367), [CVE-2020-28366](https://nvd.nist.gov/vuln/detail/CVE-2020-28366)&lt;br&gt;&lt;br&gt;Bug fixes:&lt;br&gt;&lt;br&gt;*   network: Restore KeepConfiguration=dhcp-on-stop ([kinvolk/init#30](https://github.com/kinvolk/init/pull/30))&lt;br&gt;&lt;br&gt;Updates:&lt;br&gt;&lt;br&gt;*   Linux ([5.8.18](https://lwn.net/Articles/835763/))&lt;br&gt;*   Go ([1.15.5](https://go.googlesource.com/go/+/refs/tags/go1.15.5))&lt;br&gt;&lt;br&gt;Packages:&lt;br&gt;- docker 19.03.13&lt;br&gt;- ignition 0.34.0&lt;br&gt;- kernel 5.8.18&lt;br&gt;- systemd 245&lt;br&gt;&lt;br&gt;Architectures:&lt;br&gt;- amd64&lt;br&gt;</content>
     <link href="https://www.flatcar-linux.org/releases/#release-2643.1.1" rel="self"/>
     <published>2020-11-19T15:42:05+00:00</published>
@@ -86,7 +94,7 @@
   <entry>
     <id>https://github.com/flatcar-linux/manifest/releases/tag/v2643.1.0</id>
     <title>2643.1.0</title>
-    <updated>2021-09-01T15:50:49.375103+00:00</updated>
+    <updated>2021-09-16T16:52:39.900972+00:00</updated>
     <content>Security fixes:&lt;br&gt;- Linux - [CVE-2020-25645](https://nvd.nist.gov/vuln/detail/CVE-2020-25645), [CVE-2020-25643](https://nvd.nist.gov/vuln/detail/CVE-2020-25643), [CVE-2020-25211](https://nvd.nist.gov/vuln/detail/CVE-2020-25211)&lt;br&gt;&lt;br&gt;Bug fixes:&lt;br&gt;- Ensured that the `/etc/coreos` to `/etc/flatcar` symlink always exists, relevant for the Container Linux Config transpiler (ct) when specifying directives for `update:` or `locksmith:` while also reformatting the rootfs ([baselayout PR#7](https://github.com/flatcar-linux/baselayout/pull/7))&lt;br&gt;&lt;br&gt;Updates:&lt;br&gt;-   Linux [5.8.14](https://lwn.net/Articles/833689/)&lt;br&gt;Packages:&lt;br&gt;- docker 19.03.13&lt;br&gt;- ignition 0.34.0&lt;br&gt;- kernel 5.8.14&lt;br&gt;- systemd 245&lt;br&gt;&lt;br&gt;Architectures:&lt;br&gt;- amd64&lt;br&gt;</content>
     <link href="https://www.flatcar-linux.org/releases/#release-2643.1.0" rel="self"/>
     <published>2020-10-16T08:05:22+00:00</published>
@@ -94,7 +102,7 @@
   <entry>
     <id>https://github.com/flatcar-linux/manifest/releases/tag/v2632.1.0</id>
     <title>2632.1.0</title>
-    <updated>2021-09-01T15:50:49.370229+00:00</updated>
+    <updated>2021-09-16T16:52:39.894604+00:00</updated>
     <content>Security fixes:&lt;br&gt;- Linux: [CVE-2020-25284](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2020-25284), [CVE-2020-14390](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2020-14390)&lt;br&gt;&lt;br&gt;Bug fixes:&lt;br&gt;&lt;br&gt;- Enabled missing systemd services ([#191](https://github.com/flatcar-linux/Flatcar/issues/191), [PR #612](https://github.com/flatcar-linux/coreos-overlay/pull/612))&lt;br&gt;- Fixed Docker torcx image unpacking error on machines with less than ~600 MB total RAM ([#32](https://github.com/flatcar-linux/Flatcar/issues/32))&lt;br&gt;- Solved adcli Kerberos Active Directory incompatibility ([#194](https://github.com/flatcar-linux/Flatcar/issues/194))&lt;br&gt;- Fixed the makefile path when building kernel modules with the developer container ([#195](https://github.com/flatcar-linux/Flatcar/issues/195))&lt;br&gt;- Removed the `/etc/portage/savedconfig/` folder that contained a dump of the firmware config [flatcar-linux/coreos-overlay#613](https://github.com/flatcar-linux/coreos-overlay/pull/613)&lt;br&gt;&lt;br&gt;Changes:&lt;br&gt;&lt;br&gt;- GCE: Improved oslogin support and added shell aliases to run a Python Docker image ([PR #592](https://github.com/flatcar-linux/coreos-overlay/pull/592))&lt;br&gt;&lt;br&gt;Updates:&lt;br&gt;&lt;br&gt;- Linux [5.8.11](https://lwn.net/Articles/832305/)&lt;br&gt;- adcli [0.9.0](https://cgit.freedesktop.org/realmd/adcli/tree/NEWS?h=0.9.0)&lt;br&gt;- GCE: oslogin [20200910.00](https://github.com/GoogleCloudPlatform/guest-oslogin/releases/tag/20200910.00)&lt;br&gt;Packages:&lt;br&gt;- docker 19.03.12&lt;br&gt;- ignition 0.34.0&lt;br&gt;- kernel 5.8.11&lt;br&gt;- rkt 1.30.0&lt;br&gt;- systemd 245&lt;br&gt;&lt;br&gt;Architectures:&lt;br&gt;- amd64&lt;br&gt;</content>
     <link href="https://www.flatcar-linux.org/releases/#release-2632.1.0" rel="self"/>
     <published>2020-09-30T12:22:40+00:00</published>
@@ -102,7 +110,7 @@
   <entry>
     <id>https://github.com/flatcar-linux/manifest/releases/tag/v2605.4.0</id>
     <title>2605.4.0</title>
-    <updated>2021-09-01T15:50:49.364695+00:00</updated>
+    <updated>2021-09-16T16:52:39.885472+00:00</updated>
     <content>Bug fixes:&lt;br&gt;&lt;br&gt;- Fix resetting of DNS nameservers in systemd-networkd units ([PR#12](https://github.com/flatcar-linux/systemd/pull/12))&lt;br&gt;&lt;br&gt;Changes:&lt;br&gt;&lt;br&gt;- Disable TX checksum offloading for the IP-in-IP tunl0 interface used by Calico ([PR#26](https://github.com/flatcar-linux/init/pull/26)). This is a workaround for a Mellanox driver issue, currently tracked in [Flatcar#183](https://github.com/flatcar-linux/Flatcar/issues/183)&lt;br&gt;- Set `sysctl net.ipv4.conf.(all|*).rp_filter` to 0 (instead of the systemd upstream value 2) to be less restrictive which some network solutions rely on ([PR#11](https://github.com/flatcar-linux/systemd/pull/11))&lt;br&gt;-  `flatcar-install` allows installation to a multipath drive ([PR#24](https://github.com/flatcar-linux/init/pull/24))&lt;br&gt;&lt;br&gt;Updates:&lt;br&gt;&lt;br&gt;- Linux [5.4.65](https://lwn.net/Articles/831366/)&lt;br&gt;&lt;br&gt;Packages:&lt;br&gt;- docker 19.03.12&lt;br&gt;- ignition 0.34.0&lt;br&gt;- kernel 5.4.65&lt;br&gt;- rkt 1.30.0&lt;br&gt;- systemd 245&lt;br&gt;&lt;br&gt;Architectures:&lt;br&gt;- amd64&lt;br&gt;</content>
     <link href="https://www.flatcar-linux.org/releases/#release-2605.4.0" rel="self"/>
     <published>2020-09-16T06:13:42+00:00</published>
@@ -110,7 +118,7 @@
   <entry>
     <id>https://github.com/flatcar-linux/manifest/releases/tag/v2605.3.0</id>
     <title>2605.3.0</title>
-    <updated>2021-09-01T15:50:49.359560+00:00</updated>
+    <updated>2021-09-16T16:52:39.877886+00:00</updated>
     <content>Security fixes:&lt;br&gt;- Linux kernel: Fix AF_PACKET overflow in tpacket_rcv [CVE-2020-14386](https://seclists.org/oss-sec/2020/q3/146)&lt;br&gt;&lt;br&gt;Updates:&lt;br&gt;- Linux [5.4.62](https://lwn.net/Articles/830502/)&lt;br&gt;Packages:&lt;br&gt;- docker 19.03.12&lt;br&gt;- ignition 0.34.0&lt;br&gt;- kernel 5.4.62&lt;br&gt;- rkt 1.30.0&lt;br&gt;- systemd 245&lt;br&gt;&lt;br&gt;Architectures:&lt;br&gt;- amd64&lt;br&gt;</content>
     <link href="https://www.flatcar-linux.org/releases/#release-2605.3.0" rel="self"/>
     <published>2020-09-07T15:37:41+00:00</published>
@@ -118,7 +126,7 @@
   <entry>
     <id>https://github.com/flatcar-linux/manifest/releases/tag/v2605.2.0</id>
     <title>2605.2.0</title>
-    <updated>2021-09-01T15:50:49.354870+00:00</updated>
+    <updated>2021-09-16T16:52:39.870412+00:00</updated>
     <content>Changes from Alpha release 2605.1.0&lt;br&gt;&lt;br&gt;Changes:&lt;br&gt;- Update public key to include [new subkey](https://github.com/flatcar-linux/init/pull/25)&lt;br&gt;Packages:&lt;br&gt;- docker 19.03.12&lt;br&gt;- ignition 0.34.0&lt;br&gt;- kernel 5.4.61&lt;br&gt;- rkt 1.30.0&lt;br&gt;- systemd 245&lt;br&gt;&lt;br&gt;Architectures:&lt;br&gt;- amd64&lt;br&gt;</content>
     <link href="https://www.flatcar-linux.org/releases/#release-2605.2.0" rel="self"/>
     <published>2020-09-03T12:48:56+00:00</published>
@@ -126,7 +134,7 @@
   <entry>
     <id>https://github.com/flatcar-linux/manifest/releases/tag/v2513.3.0</id>
     <title>2513.3.0</title>
-    <updated>2021-09-01T15:50:49.350397+00:00</updated>
+    <updated>2021-09-16T16:52:39.862925+00:00</updated>
     <content>Security fixes:&lt;br&gt;&lt;br&gt;* Bind: fixes for [CVE-2020-8616](https://nvd.nist.gov/vuln/detail/CVE-2020-8616), [CVE-2020-8617](https://nvd.nist.gov/vuln/detail/CVE-2020-8617), [CVE-2020-8620](https://nvd.nist.gov/vuln/detail/CVE-2020-8620), [CVE-2020-8621](https://nvd.nist.gov/vuln/detail/CVE-2020-8621), [CVE-2020-8622](https://nvd.nist.gov/vuln/detail/CVE-2020-8622), [CVE-2020-8623](https://nvd.nist.gov/vuln/detail/CVE-2020-8623), [CVE-2020-8624](https://nvd.nist.gov/vuln/detail/CVE-2020-8624)&lt;br&gt;&lt;br&gt;Bug fixes:&lt;br&gt;&lt;br&gt;* etcd-wrapper: Adjust data dir permissions ([flatcar-linux/coreos-overlay#536](https://github.com/flatcar-linux/coreos-overlay/pull/536))&lt;br&gt;&lt;br&gt;Updates:&lt;br&gt;&lt;br&gt;* Linux [5.4.59](https://lwn.net/Articles/829106/)&lt;br&gt;* bind-tools [9.11.22](https://ftp.isc.org/isc/bind9/cur/9.11/RELEASE-NOTES-bind-9.11.22.txt)&lt;br&gt;* etcd-wrapper [3.3.24](https://github.com/etcd-io/etcd/releases/tag/v3.3.24)&lt;br&gt;&lt;br&gt;Packages:&lt;br&gt;- docker 19.03.11&lt;br&gt;- ignition 0.34.0&lt;br&gt;- kernel 5.4.59&lt;br&gt;- rkt 1.30.0&lt;br&gt;- systemd 243&lt;br&gt;&lt;br&gt;Architectures:&lt;br&gt;- amd64&lt;br&gt;</content>
     <link href="https://www.flatcar-linux.org/releases/#release-2513.3.0" rel="self"/>
     <published>2020-08-20T21:46:48+00:00</published>
@@ -134,7 +142,7 @@
   <entry>
     <id>https://github.com/flatcar-linux/manifest/releases/tag/v2513.2.0</id>
     <title>2513.2.0</title>
-    <updated>2021-09-01T15:50:49.345557+00:00</updated>
+    <updated>2021-09-16T16:52:39.855707+00:00</updated>
     <content>Changes since the Alpha release 2513.1.0&lt;br&gt;&lt;br&gt;Bug Fixes:&lt;br&gt;- The [static IP address configuration in the initramfs](https://docs.flatcar-linux.org/ignition/network-configuration/#using-static-ip-addresses-with-ignition) works again in the format `ip=&lt;ip&gt;::&lt;gateway&gt;:&lt;netmask&gt;:&lt;hostname&gt;:&lt;iface&gt;:none[:&lt;dns1&gt;[:&lt;dns2&gt;]]` https://github.com/flatcar-linux/bootengine/pull/15&lt;br&gt;&lt;br&gt;&lt;br&gt;Updates:&lt;br&gt;- Linux [5.4.52](https://lwn.net/Articles/826291/)&lt;br&gt;&lt;br&gt;Packages:&lt;br&gt;- docker 19.03.11&lt;br&gt;- ignition 0.34.0&lt;br&gt;- kernel 5.4.52&lt;br&gt;- rkt 1.30.0&lt;br&gt;- systemd 243&lt;br&gt;&lt;br&gt;Architectures:&lt;br&gt;- amd64&lt;br&gt;</content>
     <link href="https://www.flatcar-linux.org/releases/#release-2513.2.0" rel="self"/>
     <published>2020-07-23T09:44:10+00:00</published>
@@ -142,7 +150,7 @@
   <entry>
     <id>https://github.com/flatcar-linux/manifest/releases/tag/v2512.1.1</id>
     <title>2512.1.1</title>
-    <updated>2021-09-01T15:50:49.340871+00:00</updated>
+    <updated>2021-09-16T16:52:39.848381+00:00</updated>
     <content>## Flatcar updates&lt;br&gt;&lt;br&gt;Security fixes:&lt;br&gt;- Fix the Intel Microcode vulnerabilities ([CVE-2020-0543](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2020-0543))&lt;br&gt;&lt;br&gt;Changes:&lt;br&gt;- A source code and licensing overview is available under `/usr/share/licenses/INFO`&lt;br&gt;&lt;br&gt;Updates:&lt;br&gt;- Linux [4.19.128](https://lwn.net/Articles/822841/)&lt;br&gt;- intel-microcode [20200609](https://github.com/intel/Intel-Linux-Processor-Microcode-Data-Files/releases/tag/microcode-20200609)&lt;br&gt;Packages:&lt;br&gt;- docker 18.06.3&lt;br&gt;- ignition 0.34.0&lt;br&gt;- kernel 4.19.128&lt;br&gt;- rkt 1.30.0&lt;br&gt;- systemd 241&lt;br&gt;&lt;br&gt;Architectures:&lt;br&gt;- amd64&lt;br&gt;</content>
     <link href="https://www.flatcar-linux.org/releases/#release-2512.1.1" rel="self"/>
     <published>2020-06-17T15:46:09+00:00</published>
@@ -150,7 +158,7 @@
   <entry>
     <id>https://github.com/flatcar-linux/manifest/releases/tag/v2512.1.0</id>
     <title>2512.1.0</title>
-    <updated>2021-09-01T15:50:49.335922+00:00</updated>
+    <updated>2021-09-16T16:52:39.840208+00:00</updated>
     <content>## Flatcar updates&lt;br&gt;&lt;br&gt;Security fixes:&lt;br&gt;- Fix e2fsprogs arbitrary code execution via crafted filesystem ([CVE-2019-5094](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2019-5094))&lt;br&gt;- Fix Git arbitrary path overwrite, credential leak from credential helpers, remote code execution in recursive clones, and arbitrary command execution via submodules ([CVE-2019-1348](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2019-1348), [CVE-2019-1387](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2019-1387), [CVE-2019-19604](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2019-19604), [CVE-2020-11008](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2020-11008), [CVE-2020-5260](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2020-5260))&lt;br&gt;- Fix libarchive crash or use-after-free via crafted RAR file ([CVE-2019-18408](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2019-18408), [CVE-2020-9308](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2020-9308))&lt;br&gt;- Fix libgcrypt ECDSA timing attack ([CVE-2019-13627](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2019-13627))&lt;br&gt;- Fix libidn2 domain impersonation ([CVE-2019-12290](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2019-12290))&lt;br&gt;- Fix NSS crashes and heap corruption ([CVE-2017-11695](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-11695), [CVE-2017-11696](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-11696), [CVE-2017-11697](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-11697), [CVE-2017-11698](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-11698), [CVE-2018-18508](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2018-18508), [CVE-2019-11745](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2019-11745))&lt;br&gt;- Fix OpenSSL overflow in Montgomery squaring procedure ([CVE-2019-1551](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2019-1551))&lt;br&gt;- Fix SQLite crash and heap corruption ([CVE-2019-16168](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2019-16168), [CVE-2019-5827](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2019-5827))&lt;br&gt;- Fix unzip heap overflow or excessive resource consumption via crafted archive ([CVE-2018-1000035](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2018-1000035), [CVE-2019-13232](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2019-13232))&lt;br&gt;- Fix vim arbitrary command execution via crafted file ([CVE-2019-12735](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2019-12735))&lt;br&gt;&lt;br&gt;Bug fixes:&lt;br&gt;- When writing the update kernel, prefer `/boot/coreos` only if `/boot/coreos/vmlinux-*` exists (https://github.com/flatcar-linux/update_engine/pull/5)&lt;br&gt;- Fixed sysroot-boot initramfs service race which resulted in a warning that this service failed&lt;br&gt;- Use the correct `BINHOST` URLs in the development container to download binary packages&lt;br&gt;&lt;br&gt;Changes:&lt;br&gt;- Support the CoreOS GRUB `/boot/coreos/first_boot` flag file (https://github.com/flatcar-linux/bootengine/pull/13)&lt;br&gt;- Fetch container images in docker format rather than ACI by default in `etcd-member.service`, `flanneld.service`, and `kubelet-wrapper`&lt;br&gt;- Use `flatcar.autologin` kernel command line parameter on Azure and VMware for auto login on the serial console&lt;br&gt;- Include `conntrack` ([conntrack-tools](http://conntrack-tools.netfilter.org/))&lt;br&gt;- Include `journalctl` output, `pstore` kernel crash logs, and `coredumpctl list` output in the `mayday` report&lt;br&gt;- Update wa-linux-agent to 2.2.46 on Azure&lt;br&gt;- Support both `coreos.config.*` and `flatcar.config.*` guestinfo variables on VMware OEM&lt;br&gt;&lt;br&gt;Updates:&lt;br&gt;- e2fsprogs [1.45.5](http://e2fsprogs.sourceforge.net/e2fsprogs-release.html#1.45.5)&lt;br&gt;- etcd [3.3.20](https://github.com/etcd-io/etcd/releases/tag/v3.3.20)&lt;br&gt;- etcdctl [3.3.20](https://github.com/etcd-io/etcd/releases/tag/v3.3.20)&lt;br&gt;- Git [2.24.1](https://raw.githubusercontent.com/git/git/v2.24.1/Documentation/RelNotes/2.24.1.txt)&lt;br&gt;- Linux [4.19.124](https://lwn.net/Articles/820974/)&lt;br&gt;- OpenSSL [1.0.2u](https://www.openssl.org/news/openssl-1.0.2-notes.html)&lt;br&gt;- vim [8.2.0360](http://ftp.vim.org/pub/vim/patches/8.2/README)&lt;br&gt;&lt;br&gt;Packages:&lt;br&gt;- docker 18.06.3&lt;br&gt;- ignition 0.34.0&lt;br&gt;- kernel 4.19.124&lt;br&gt;- rkt 1.30.0&lt;br&gt;- systemd 241&lt;br&gt;&lt;br&gt;Architectures:&lt;br&gt;- amd64&lt;br&gt;</content>
     <link href="https://www.flatcar-linux.org/releases/#release-2512.1.0" rel="self"/>
     <published>2020-05-26T16:58:31+00:00</published>
@@ -158,7 +166,7 @@
   <entry>
     <id>https://github.com/flatcar-linux/manifest/releases/tag/v2411.1.1</id>
     <title>2411.1.1</title>
-    <updated>2021-09-01T15:50:49.328146+00:00</updated>
+    <updated>2021-09-16T16:52:39.827492+00:00</updated>
     <content>## Flatcar updates&lt;br&gt;&lt;br&gt;Bug fixes:&lt;br&gt;&lt;br&gt;- Use newest network interface naming scheme (https://github.com/flatcar-linux/Flatcar/issues/36)&lt;br&gt;  - It is a possible breaking change for some persistent network interface names&lt;br&gt;- Fix URL scheme in emerge-gitclone (https://github.com/flatcar-linux/coreos-overlay/issues/223)&lt;br&gt;- Fix coreos-cloudinit variable names (https://github.com/flatcar-linux/coreos-overlay/pull/206)&lt;br&gt;- Prefer /boot/coreos to write updates (https://github.com/flatcar-linux/update_engine/pull/2)&lt;br&gt;- Remove /boot/coreos/first_boot after a Ignition rerun on migration (https://github.com/flatcar-linux/bootengine/pull/10)&lt;br&gt;- Support coreos.config.url as kernel command line parameter for Ignition (https://github.com/flatcar-linux/ignition/pull/10)&lt;br&gt;&lt;br&gt;Changes:&lt;br&gt;&lt;br&gt;- Add kernel config for QEDE driver (https://github.com/flatcar-linux/coreos-overlay/pull/198)&lt;br&gt;- Add `tracepath` alongside `traceroute6` (https://github.com/flatcar-linux/Flatcar/issues/50)&lt;br&gt;&lt;br&gt;Updates:&lt;br&gt;&lt;br&gt;- Linux [4.19.112](https://lwn.net/Articles/815677/)&lt;br&gt;Packages:&lt;br&gt;- docker 18.06.3&lt;br&gt;- ignition 0.34.0&lt;br&gt;- kernel 4.19.112&lt;br&gt;- rkt 1.30.0&lt;br&gt;- systemd 241&lt;br&gt;&lt;br&gt;Architectures:&lt;br&gt;- amd64&lt;br&gt;</content>
     <link href="https://www.flatcar-linux.org/releases/#release-2411.1.1" rel="self"/>
     <published>2020-03-31T16:25:22+00:00</published>
@@ -166,7 +174,7 @@
   <entry>
     <id>https://github.com/flatcar-linux/manifest/releases/tag/v2411.1.0</id>
     <title>2411.1.0</title>
-    <updated>2021-09-01T15:50:49.322694+00:00</updated>
+    <updated>2021-09-16T16:52:39.818417+00:00</updated>
     <content>## Flatcar updates&lt;br&gt;Bug fixes:&lt;br&gt;- Enable persistent network interface names already in the initramfs to fix https://github.com/coreos/bugs/issues/1767&lt;br&gt;- Fix backwards compatibility issues for users to migrate from CoreOS Container Linux. Support the kernel command line parameters `coreos.oem.*`, `coreos.autologin`, `coreos.first_boot`, and the QEMU firmware config path `opt/com.coreos/config` (https://github.com/flatcar-linux/Flatcar/issues/16 https://github.com/flatcar-linux/afterburn/pull/7 https://github.com/flatcar-linux/bootengine/pull/7 https://github.com/flatcar-linux/bootengine/pull/8 https://github.com/flatcar-linux/init/pull/16 https://github.com/flatcar-linux/init/pull/17 https://github.com/flatcar-linux/ignition/pull/8)&lt;br&gt;&lt;br&gt;## [Upstream Container Linux updates](https://github.com/coreos/manifest/releases/tag/v2411.1.0)&lt;br&gt;Updates:&lt;br&gt;- Linux [4.19.106](https://lwn.net/Articles/813157/)&lt;br&gt;&lt;br&gt;Packages:&lt;br&gt;- docker 18.06.3&lt;br&gt;- ignition 0.34.0&lt;br&gt;- kernel 4.19.106&lt;br&gt;- rkt 1.30.0&lt;br&gt;- systemd 241&lt;br&gt;&lt;br&gt;Architectures:&lt;br&gt;- amd64&lt;br&gt;</content>
     <link href="https://www.flatcar-linux.org/releases/#release-2411.1.0" rel="self"/>
     <published>2020-03-02T11:57:48+00:00</published>
@@ -174,7 +182,7 @@
   <entry>
     <id>https://github.com/flatcar-linux/manifest/releases/tag/v2345.2.0</id>
     <title>2345.2.0</title>
-    <updated>2021-09-01T15:50:49.317567+00:00</updated>
+    <updated>2021-09-16T16:52:39.812174+00:00</updated>
     <content>## Flatcar updates&lt;br&gt;&lt;br&gt;Bug fixes:&lt;br&gt;- Fix DNS resolution for the GCE metadata server (https://github.com/flatcar-linux/coreos-overlay/pull/160)&lt;br&gt;- Create symlink for /run/metadata/coreos (https://github.com/flatcar-linux/coreos-overlay/pull/166)&lt;br&gt;- Create symlink for flatcar-install (https://github.com/flatcar-linux/init/pull/14)&lt;br&gt;&lt;br&gt;## [Upstream Container Linux updates](https://github.com/coreos/manifest/releases/tag/v2345.2.0):&lt;br&gt;&lt;br&gt;Security fixes:&lt;br&gt;- Fix systemd use-after-free upon receiving crafted D-Bus message from local unprivileged attacker ([CVE-2020-1712](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2020-1712))&lt;br&gt;&lt;br&gt;Changes:&lt;br&gt;- Enable `qede` kernel module&lt;br&gt;&lt;br&gt;Updates:&lt;br&gt;- Linux [4.19.102](https://lwn.net/Articles/811638/)&lt;br&gt;Packages:&lt;br&gt;- docker 18.06.3&lt;br&gt;- ignition 0.33.0&lt;br&gt;- kernel 4.19.102&lt;br&gt;- rkt 1.30.0&lt;br&gt;- systemd 241&lt;br&gt;&lt;br&gt;Architectures:&lt;br&gt;- amd64&lt;br&gt;</content>
     <link href="https://www.flatcar-linux.org/releases/#release-2345.2.0" rel="self"/>
     <published>2020-02-10T11:11:29+00:00</published>
@@ -182,7 +190,7 @@
   <entry>
     <id>https://github.com/flatcar-linux/manifest/releases/tag/v2345.1.0</id>
     <title>2345.1.0</title>
-    <updated>2021-09-01T15:50:49.312477+00:00</updated>
+    <updated>2021-09-16T16:52:39.805694+00:00</updated>
     <content>## [Upstream Container Linux updates](https://github.com/coreos/manifest/releases/tag/v2345.1.0):&lt;br&gt;&lt;br&gt;Security fixes:&lt;br&gt;&lt;br&gt;- Fix multiple Git [vulnerabilities](https://marc.info/?l=git&amp;m=157600115215285&amp;w=2) ([CVE-2019-1348](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2019-1348), [CVE-2019-1349](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2019-1349), [CVE-2019-1350](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2019-1350), [CVE-2019-1351](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2019-1351), [CVE-2019-1352](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2019-1352), [CVE-2019-1353](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2019-1353), [CVE-2019-1354](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2019-1354), [CVE-2019-1387](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2019-1387), [CVE-2019-19604](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2019-19604))&lt;br&gt;&lt;br&gt;Updates:&lt;br&gt;&lt;br&gt;- Git [2.24.1](https://github.com/git/git/blob/master/Documentation/RelNotes/2.24.1.txt)&lt;br&gt;- Linux [4.19.95](https://lwn.net/Articles/809258/)&lt;br&gt;&lt;br&gt;Packages:&lt;br&gt;- docker 18.06.3&lt;br&gt;- ignition 0.33.0&lt;br&gt;- kernel 4.19.95&lt;br&gt;- rkt 1.30.0&lt;br&gt;- systemd 241&lt;br&gt;&lt;br&gt;Architectures:&lt;br&gt;- amd64&lt;br&gt;</content>
     <link href="https://www.flatcar-linux.org/releases/#release-2345.1.0" rel="self"/>
     <published>2020-01-17T13:33:11+00:00</published>
@@ -190,7 +198,7 @@
   <entry>
     <id>https://github.com/flatcar-linux/manifest/releases/tag/v2331.1.1</id>
     <title>2331.1.1</title>
-    <updated>2021-09-01T15:50:49.307296+00:00</updated>
+    <updated>2021-09-16T16:52:39.798439+00:00</updated>
     <content>## Flatcar updates&lt;br&gt;&lt;br&gt;Bug fixes:&lt;br&gt;&lt;br&gt;- Fix a bug when creating RAID0 arrays by setting the default layout (https://github.com/flatcar-linux/baselayout/pull/2)&lt;br&gt;- Fix bug of unpacking tarballs failing when xattr is not supported (https://github.com/flatcar-linux/torcx/pull/2)&lt;br&gt;&lt;br&gt;Updates:&lt;br&gt;&lt;br&gt;- ldb [1.3.6](https://gitlab.com/samba-team/samba/-/tags/ldb-1.3.6)&lt;br&gt;- samba [4.8.6](https://gitlab.com/samba-team/samba/-/tags/samba-4.8.6)&lt;br&gt;- talloc [2.1.11](https://gitlab.com/samba-team/samba/-/tags/talloc-2.1.11)&lt;br&gt;- tdb [1.3.15](https://gitlab.com/samba-team/samba/-/tags/tdb-1.3.15)&lt;br&gt;- tevent [0.9.37](https://gitlab.com/samba-team/samba/-/tags/tevent-0.9.37)&lt;br&gt;Packages:&lt;br&gt;- docker 18.06.3&lt;br&gt;- ignition 0.33.0&lt;br&gt;- kernel 4.19.87&lt;br&gt;- rkt 1.30.0&lt;br&gt;- systemd 241&lt;br&gt;&lt;br&gt;Architectures:&lt;br&gt;- amd64&lt;br&gt;</content>
     <link href="https://www.flatcar-linux.org/releases/#release-2331.1.1" rel="self"/>
     <published>2019-12-18T09:49:53+00:00</published>
@@ -198,7 +206,7 @@
   <entry>
     <id>https://github.com/flatcar-linux/manifest/releases/tag/v2331.1.0</id>
     <title>2331.1.0</title>
-    <updated>2021-09-01T15:50:49.302271+00:00</updated>
+    <updated>2021-09-16T16:52:39.792748+00:00</updated>
     <content>## [Upstream Container Linux updates](https://github.com/coreos/manifest/releases/tag/v2331.1.0):&lt;br&gt;&lt;br&gt;Updates:&lt;br&gt;  - Linux [4.19.87](https://lwn.net/Articles/805923/)&lt;br&gt;Packages:&lt;br&gt;- docker 18.06.3&lt;br&gt;- ignition 0.33.0&lt;br&gt;- kernel 4.19.87&lt;br&gt;- rkt 1.30.0&lt;br&gt;- systemd 241&lt;br&gt;&lt;br&gt;Architectures:&lt;br&gt;- amd64&lt;br&gt;</content>
     <link href="https://www.flatcar-linux.org/releases/#release-2331.1.0" rel="self"/>
     <published>2019-12-05T06:34:11+00:00</published>
@@ -206,7 +214,7 @@
   <entry>
     <id>https://github.com/flatcar-linux/manifest/releases/tag/v2303.2.0</id>
     <title>2303.2.0</title>
-    <updated>2021-09-01T15:50:49.297724+00:00</updated>
+    <updated>2021-09-16T16:52:39.786915+00:00</updated>
     <content>## [Upstream Container Linux updates](https://github.com/coreos/manifest/releases/tag/v2303.2.0):&lt;br&gt;&lt;br&gt;Security fixes:&lt;br&gt;&lt;br&gt;- Fix Intel CPU disclosure of memory to user process. Complete mitigation requires [manually disabling TSX or SMT](https://docs.flatcar-linux.org/os/disabling-smt/) on affected processors. ([CVE-2019-11135](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2019-11135), [TAA](https://www.intel.com/content/www/us/en/security-center/advisory/intel-sa-00270.html))&lt;br&gt;- Fix Intel CPU denial of service by a malicious guest VM ([CVE-2018-12207](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2018-12207))&lt;br&gt;&lt;br&gt;Bug fixes:&lt;br&gt;&lt;br&gt;- Fix CFS scheduler throttling highly-threaded I/O-bound applications ([#2623](https://github.com/coreos/bugs/issues/2623))&lt;br&gt;&lt;br&gt;Updates:&lt;br&gt;&lt;br&gt;- intel-microcode [20191115](https://github.com/intel/Intel-Linux-Processor-Microcode-Data-Files/blob/microcode-20191115/releasenote)&lt;br&gt;- Linux [4.19.84](https://lwn.net/Articles/804465/)&lt;br&gt;Packages:&lt;br&gt;- docker 18.06.3&lt;br&gt;- ignition 0.33.0&lt;br&gt;- kernel 4.19.84&lt;br&gt;- rkt 1.30.0&lt;br&gt;- systemd 241&lt;br&gt;&lt;br&gt;Architectures:&lt;br&gt;- amd64&lt;br&gt;</content>
     <link href="https://www.flatcar-linux.org/releases/#release-2303.2.0" rel="self"/>
     <published>2019-11-21T09:28:13+00:00</published>
@@ -214,7 +222,7 @@
   <entry>
     <id>https://github.com/flatcar-linux/manifest/releases/tag/v2303.1.1</id>
     <title>2303.1.1</title>
-    <updated>2021-09-01T15:50:49.292632+00:00</updated>
+    <updated>2021-09-16T16:52:39.780094+00:00</updated>
     <content>## [Upstream Container Linux updates](https://github.com/coreos/manifest/releases/tag/v2303.1.1):&lt;br&gt;&lt;br&gt;Bug fixes:&lt;br&gt;&lt;br&gt;- Fix time zone for Brazil ([#2627](https://github.com/coreos/bugs/issues/2627))&lt;br&gt;&lt;br&gt;Updates:&lt;br&gt;&lt;br&gt;- Linux [4.19.81](https://lwn.net/Articles/803384/)&lt;br&gt;- timezone-data [2019c](http://mm.icann.org/pipermail/tz-announce/2019-September/000057.html)&lt;br&gt;Packages:&lt;br&gt;- docker 18.06.3&lt;br&gt;- ignition 0.33.0&lt;br&gt;- kernel 4.19.81&lt;br&gt;- rkt 1.30.0&lt;br&gt;- systemd 241&lt;br&gt;&lt;br&gt;Architectures:&lt;br&gt;- amd64&lt;br&gt;</content>
     <link href="https://www.flatcar-linux.org/releases/#release-2303.1.1" rel="self"/>
     <published>2019-11-11T14:13:02+00:00</published>
@@ -222,7 +230,7 @@
   <entry>
     <id>https://github.com/flatcar-linux/manifest/releases/tag/v2275.2.0</id>
     <title>2275.2.0</title>
-    <updated>2021-09-01T15:50:49.287773+00:00</updated>
+    <updated>2021-09-16T16:52:39.774168+00:00</updated>
     <content>## [Upstream Container Linux updates](https://github.com/coreos/manifest/releases/tag/v2275.2.0):&lt;br&gt;&lt;br&gt;Updates:&lt;br&gt;- Linux [4.19.79](https://lwn.net/Articles/802169/)&lt;br&gt;Packages:&lt;br&gt;- docker 18.06.3&lt;br&gt;- ignition 0.33.0&lt;br&gt;- kernel 4.19.79&lt;br&gt;- rkt 1.30.0&lt;br&gt;- systemd 241&lt;br&gt;&lt;br&gt;Architectures:&lt;br&gt;- amd64&lt;br&gt;</content>
     <link href="https://www.flatcar-linux.org/releases/#release-2275.2.0" rel="self"/>
     <published>2019-10-17T18:54:07+00:00</published>
@@ -230,7 +238,7 @@
   <entry>
     <id>https://github.com/flatcar-linux/manifest/releases/tag/v2247.4.0</id>
     <title>2247.4.0</title>
-    <updated>2021-09-01T15:50:49.283380+00:00</updated>
+    <updated>2021-09-16T16:52:39.766281+00:00</updated>
     <content>## [Upstream Container Linux updates](https://github.com/coreos/manifest/releases/tag/v2247.4.0):&lt;br&gt;&lt;br&gt;Bug fixes:&lt;br&gt;- Fix kernel crash with CephFS mounts, introduced in 2247.3.0 ([#2616](https://github.com/coreos/bugs/issues/2616))&lt;br&gt;&lt;br&gt;Updates:&lt;br&gt;- Linux [4.19.78](https://lwn.net/Articles/801700/)&lt;br&gt;Packages:&lt;br&gt;- docker 18.06.3&lt;br&gt;- ignition 0.33.0&lt;br&gt;- kernel 4.19.78&lt;br&gt;- rkt 1.30.0&lt;br&gt;- systemd 241&lt;br&gt;&lt;br&gt;Architectures:&lt;br&gt;- amd64&lt;br&gt;</content>
     <link href="https://www.flatcar-linux.org/releases/#release-2247.4.0" rel="self"/>
     <published>2019-10-16T15:09:03+00:00</published>
@@ -238,7 +246,7 @@
   <entry>
     <id>https://github.com/flatcar-linux/manifest/releases/tag/v2247.3.0</id>
     <title>2247.3.0</title>
-    <updated>2021-09-01T15:50:49.278741+00:00</updated>
+    <updated>2021-09-16T16:52:39.759269+00:00</updated>
     <content>## [Upstream Container Linux updates](https://github.com/coreos/manifest/releases/tag/v2247.3.0):&lt;br&gt;&lt;br&gt;Security fixes:&lt;br&gt;&lt;br&gt;- Fix kernel KVM guest escape ([CVE-2019-14835](http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2019-14835))&lt;br&gt;- Fix race condition in Intel microprocessors ([CVE-2019-11184](http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2019-11184))&lt;br&gt;&lt;br&gt;Updates:&lt;br&gt;&lt;br&gt;- intel-microcode [20190918](https://github.com/intel/Intel-Linux-Processor-Microcode-Data-Files/blob/microcode-20190918/releasenote)&lt;br&gt;- Linux [4.19.75](https://lwn.net/Articles/800247/)&lt;br&gt;Packages:&lt;br&gt;- docker 18.06.3&lt;br&gt;- ignition 0.33.0&lt;br&gt;- kernel 4.19.75&lt;br&gt;- rkt 1.30.0&lt;br&gt;- systemd 241&lt;br&gt;&lt;br&gt;Architectures:&lt;br&gt;- amd64&lt;br&gt;</content>
     <link href="https://www.flatcar-linux.org/releases/#release-2247.3.0" rel="self"/>
     <published>2019-09-25T09:32:22+00:00</published>
@@ -246,7 +254,7 @@
   <entry>
     <id>https://github.com/flatcar-linux/manifest/releases/tag/v2247.2.0</id>
     <title>2247.2.0</title>
-    <updated>2021-09-01T15:50:49.273825+00:00</updated>
+    <updated>2021-09-16T16:52:39.751944+00:00</updated>
     <content>## [Upstream Container Linux updates](https://github.com/coreos/manifest/releases/tag/v2247.2.0):&lt;br&gt;&lt;br&gt;Updates:&lt;br&gt;&lt;br&gt;- Linux [4.19.71](https://lwn.net/Articles/798627/)&lt;br&gt;&lt;br&gt;Packages:&lt;br&gt;- docker 18.06.3&lt;br&gt;- ignition 0.33.0&lt;br&gt;- kernel 4.19.71&lt;br&gt;- rkt 1.30.0&lt;br&gt;- systemd 241&lt;br&gt;&lt;br&gt;Architectures:&lt;br&gt;- amd64&lt;br&gt;</content>
     <link href="https://www.flatcar-linux.org/releases/#release-2247.2.0" rel="self"/>
     <published>2019-09-13T10:53:37+00:00</published>
@@ -254,7 +262,7 @@
   <entry>
     <id>https://github.com/flatcar-linux/manifest/releases/tag/v2219.3.0</id>
     <title>2219.3.0</title>
-    <updated>2021-09-01T15:50:49.269080+00:00</updated>
+    <updated>2021-09-16T16:52:39.744500+00:00</updated>
     <content>## [Upstream Container Linux updates](https://github.com/coreos/manifest/releases/tag/v2219.3.0):&lt;br&gt;&lt;br&gt;Security fixes:&lt;br&gt;&lt;br&gt;- Fix pam_systemd bug allowing authenticated remote users to perform polkit actions as if locally logged in ([CVE-2019-3842](http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2019-3842))&lt;br&gt;- Fix systemd-resolved bug allowing unprivileged users to change DNS settings ([CVE-2019-15718](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2019-15718))&lt;br&gt;&lt;br&gt;Bug fixes:&lt;br&gt;&lt;br&gt;- Fix GCE agent crash loop in new installs ([#2608](https://github.com/coreos/bugs/issues/2608))&lt;br&gt;&lt;br&gt;Updates:&lt;br&gt;&lt;br&gt;- Linux [4.19.69](https://lwn.net/Articles/797815/)&lt;br&gt;Packages:&lt;br&gt;- docker 18.06.3&lt;br&gt;- ignition 0.33.0&lt;br&gt;- kernel 4.19.69&lt;br&gt;- rkt 1.30.0&lt;br&gt;- systemd 241&lt;br&gt;&lt;br&gt;Architectures:&lt;br&gt;- amd64&lt;br&gt;</content>
     <link href="https://www.flatcar-linux.org/releases/#release-2219.3.0" rel="self"/>
     <published>2019-09-05T08:53:14+00:00</published>
@@ -262,7 +270,7 @@
   <entry>
     <id>https://github.com/flatcar-linux/manifest/releases/tag/v2219.2.1</id>
     <title>2219.2.1</title>
-    <updated>2021-09-01T15:50:49.263989+00:00</updated>
+    <updated>2021-09-16T16:52:39.735581+00:00</updated>
     <content>## [Upstream Container Linux updates](https://github.com/coreos/manifest/releases/tag/v2219.2.1):&lt;br&gt;&lt;br&gt;Security fixes:&lt;br&gt;- Fix wget buffer overflow allowing arbitrary code execution ([CVE-2019-5953](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2019-5953))&lt;br&gt;&lt;br&gt;Updates:&lt;br&gt;- Linux [4.19.68](https://lwn.net/Articles/797250/)&lt;br&gt;- wget [1.20.3](http://git.savannah.gnu.org/cgit/wget.git/tree/NEWS?h=v1.20.3&amp;id=a220ead43505bc3e0ea8efb1572919111dbbf6dc#n8)&lt;br&gt;Packages:&lt;br&gt;- docker 18.06.3&lt;br&gt;- ignition 0.33.0&lt;br&gt;- kernel 4.19.68&lt;br&gt;- rkt 1.30.0&lt;br&gt;- systemd 241&lt;br&gt;&lt;br&gt;Architectures:&lt;br&gt;- amd64&lt;br&gt;</content>
     <link href="https://www.flatcar-linux.org/releases/#release-2219.2.1" rel="self"/>
     <published>2019-08-30T07:37:15+00:00</published>
@@ -270,7 +278,7 @@
   <entry>
     <id>https://github.com/flatcar-linux/manifest/releases/tag/v2219.2.0</id>
     <title>2219.2.0</title>
-    <updated>2021-09-01T15:50:49.258467+00:00</updated>
+    <updated>2021-09-16T16:52:39.728950+00:00</updated>
     <content>## [Upstream Container Linux updates](https://github.com/coreos/manifest/releases/tag/v2219.2.0):&lt;br&gt;&lt;br&gt;Security fixes:&lt;br&gt;- Use secure_getenv to fix a vulnerability around XDG_SEAT in pam_systemd (https://github.com/coreos/systemd/pull/118) ([CVE-2019-3842](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2019-3842))&lt;br&gt;&lt;br&gt;Updates:&lt;br&gt;- Linux [4.19.65](https://lwn.net/Articles/795525/)&lt;br&gt;&lt;br&gt;## Flatcar updates&lt;br&gt;&lt;br&gt;Bug fixes:&lt;br&gt;- Fix wrong key name for fw_cfg in ignition with QEMU (https://github.com/flatcar-linux/ignition/issues/2)&lt;br&gt;- Get SELinux context included in torcx tarballs (https://github.com/flatcar-linux/scripts/pull/16)&lt;br&gt;- Enable XattrPrivileged for untar to fix SELinux issue (https://github.com/flatcar-linux/torcx/pull/1)&lt;br&gt;&lt;br&gt;Packages:&lt;br&gt;- docker 18.06.3&lt;br&gt;- ignition 0.33.0&lt;br&gt;- kernel 4.19.65&lt;br&gt;- rkt 1.30.0&lt;br&gt;- systemd 241&lt;br&gt;&lt;br&gt;Architectures:&lt;br&gt;- amd64&lt;br&gt;</content>
     <link href="https://www.flatcar-linux.org/releases/#release-2219.2.0" rel="self"/>
     <published>2019-08-16T09:44:16+00:00</published>
@@ -278,7 +286,7 @@
   <entry>
     <id>https://github.com/flatcar-linux/manifest/releases/tag/v2191.3.0</id>
     <title>2191.3.0</title>
-    <updated>2021-09-01T15:50:49.253128+00:00</updated>
+    <updated>2021-09-16T16:52:39.719655+00:00</updated>
     <content>## [Upstream Container Linux updates](https://github.com/coreos/manifest/releases/tag/v2191.3.0):&lt;br&gt;&lt;br&gt;Security fixes:&lt;br&gt;- Fix Linux information leak attack vector via speculative side channel ([CVE-2019-1125](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2019-1125))&lt;br&gt;&lt;br&gt;Updates:&lt;br&gt;- Linux [4.19.65](https://lwn.net/Articles/795525/)&lt;br&gt;&lt;br&gt;## Flatcar updates&lt;br&gt;&lt;br&gt;Changes:&lt;br&gt;- Add "-s" flag in flatcar-install to install to smallest disk (https://github.com/flatcar-linux/init/pull/7)&lt;br&gt;Packages:&lt;br&gt;- docker 18.06.3&lt;br&gt;- ignition 0.33.0&lt;br&gt;- kernel 4.19.65&lt;br&gt;- rkt 1.30.0&lt;br&gt;- systemd 241&lt;br&gt;&lt;br&gt;Architectures:&lt;br&gt;- amd64&lt;br&gt;</content>
     <link href="https://www.flatcar-linux.org/releases/#release-2191.3.0" rel="self"/>
     <published>2019-08-08T08:18:09+00:00</published>
@@ -286,7 +294,7 @@
   <entry>
     <id>https://github.com/flatcar-linux/manifest/releases/tag/v2191.2.0</id>
     <title>2191.2.0</title>
-    <updated>2021-09-01T15:50:49.248050+00:00</updated>
+    <updated>2021-09-16T16:52:39.712062+00:00</updated>
     <content>## [Upstream Container Linux updates](https://github.com/coreos/manifest/releases/tag/v2191.2.0):&lt;br&gt;- Linux [4.19.62](https://lwn.net/Articles/794807/)&lt;br&gt;Packages:&lt;br&gt;- docker 18.06.3&lt;br&gt;- ignition 0.33.0&lt;br&gt;- kernel 4.19.62&lt;br&gt;- rkt 1.30.0&lt;br&gt;- systemd 241&lt;br&gt;&lt;br&gt;Architectures:&lt;br&gt;- amd64&lt;br&gt;</content>
     <link href="https://www.flatcar-linux.org/releases/#release-2191.2.0" rel="self"/>
     <published>2019-08-01T09:15:48+00:00</published>
@@ -294,7 +302,7 @@
   <entry>
     <id>https://github.com/flatcar-linux/manifest/releases/tag/v2191.1.0</id>
     <title>2191.1.0</title>
-    <updated>2021-09-01T15:50:49.243365+00:00</updated>
+    <updated>2021-09-16T16:52:39.705655+00:00</updated>
     <content>## [Upstream Container Linux updates](https://github.com/coreos/manifest/releases/tag/v2191.1.0):&lt;br&gt;&lt;br&gt;No changes for beta promotion&lt;br&gt;Packages:&lt;br&gt;- docker 18.06.3&lt;br&gt;- ignition 0.33.0&lt;br&gt;- kernel 4.19.56&lt;br&gt;- rkt 1.30.0&lt;br&gt;- systemd 241&lt;br&gt;&lt;br&gt;Architectures:&lt;br&gt;- amd64&lt;br&gt;</content>
     <link href="https://www.flatcar-linux.org/releases/#release-2191.1.0" rel="self"/>
     <published>2019-07-17T13:51:51+00:00</published>
@@ -302,7 +310,7 @@
   <entry>
     <id>https://github.com/flatcar-linux/manifest/releases/tag/v2163.4.0</id>
     <title>2163.4.0</title>
-    <updated>2021-09-01T15:50:49.237569+00:00</updated>
+    <updated>2021-09-16T16:52:39.698002+00:00</updated>
     <content>## [Upstream Container Linux updates](https://github.com/coreos/manifest/releases/tag/v2163.4.0):&lt;br&gt;&lt;br&gt;Bug fixes:&lt;br&gt;&lt;br&gt; * Fix Ignition panic when no `guestinfo.(coreos|ignition).config` parameters are specified on VMware (coreos/ignition#821)&lt;br&gt;&lt;br&gt;Updates:&lt;br&gt;&lt;br&gt; * Ignition [0.33.0](https://github.com/coreos/ignition/releases/tag/v0.33.0)&lt;br&gt;Packages:&lt;br&gt;- docker 18.06.3&lt;br&gt;- ignition 0.33.0&lt;br&gt;- kernel 4.19.55&lt;br&gt;- rkt 1.30.0&lt;br&gt;- systemd 241&lt;br&gt;&lt;br&gt;Architectures:&lt;br&gt;- amd64&lt;br&gt;</content>
     <link href="https://www.flatcar-linux.org/releases/#release-2163.4.0" rel="self"/>
     <published>2019-07-03T08:02:30+00:00</published>
@@ -310,7 +318,7 @@
   <entry>
     <id>https://github.com/flatcar-linux/manifest/releases/tag/v2163.3.0</id>
     <title>2163.3.0</title>
-    <updated>2021-09-01T15:50:49.232953+00:00</updated>
+    <updated>2021-09-16T16:52:39.692093+00:00</updated>
     <content>## [Upstream Container Linux updates](https://github.com/coreos/manifest/releases/tag/v2163.3.0):&lt;br&gt;&lt;br&gt;Updates:&lt;br&gt;&lt;br&gt;- Linux [4.19.53](https://lwn.net/Articles/791468/)&lt;br&gt;&lt;br&gt;Packages:&lt;br&gt;- docker 18.06.3&lt;br&gt;- ignition 0.32.0&lt;br&gt;- kernel 4.19.55&lt;br&gt;- rkt 1.30.0&lt;br&gt;- systemd 241&lt;br&gt;&lt;br&gt;Architectures:&lt;br&gt;- amd64&lt;br&gt;</content>
     <link href="https://www.flatcar-linux.org/releases/#release-2163.3.0" rel="self"/>
     <published>2019-07-01T10:45:57+00:00</published>
@@ -318,7 +326,7 @@
   <entry>
     <id>https://github.com/flatcar-linux/manifest/releases/tag/v2135.3.1</id>
     <title>2135.3.1</title>
-    <updated>2021-09-01T15:50:49.228484+00:00</updated>
+    <updated>2021-09-16T16:52:39.685760+00:00</updated>
     <content>## [Upstream Container Linux updates](https://github.com/coreos/manifest/releases/tag/v2135.3.1):&lt;br&gt;&lt;br&gt;Security fixes:&lt;br&gt;&lt;br&gt;- Fix Linux TCP remotely-triggerable kernel panic and excessive resource consumption ([CVE-2019-11477](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2019-11477), [CVE-2019-11478](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2019-11478), [CVE-2019-11479](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2019-11479))&lt;br&gt;&lt;br&gt;Bug fixes:&lt;br&gt;&lt;br&gt;- Fix invalid bzip2 compression of Container Linux release images ([#2589](https://github.com/coreos/bugs/issues/2589))&lt;br&gt;&lt;br&gt;Updates:&lt;br&gt;&lt;br&gt;- Linux [4.19.50](https://lwn.net/Articles/790878/)&lt;br&gt;Packages:&lt;br&gt;- docker 18.06.3&lt;br&gt;- ignition 0.32.0&lt;br&gt;- kernel 4.19.50&lt;br&gt;- rkt 1.30.0&lt;br&gt;- systemd 241&lt;br&gt;&lt;br&gt;Architectures:&lt;br&gt;- amd64&lt;br&gt;</content>
     <link href="https://www.flatcar-linux.org/releases/#release-2135.3.1" rel="self"/>
     <published>2019-06-19T08:16:10+00:00</published>
@@ -326,7 +334,7 @@
   <entry>
     <id>https://github.com/flatcar-linux/manifest/releases/tag/v2135.2.0</id>
     <title>2135.2.0</title>
-    <updated>2021-09-01T15:50:49.223415+00:00</updated>
+    <updated>2021-09-16T16:52:39.678934+00:00</updated>
     <content>## [Upstream Container Linux updates](https://github.com/coreos/manifest/releases/tag/v2135.2.0):&lt;br&gt;&lt;br&gt;Updates:&lt;br&gt;- Linux [4.19.44](https://lwn.net/Articles/788778/)&lt;br&gt;Packages:&lt;br&gt;- docker 18.06.3&lt;br&gt;- ignition 0.32.0&lt;br&gt;- kernel 4.19.44&lt;br&gt;- rkt 1.30.0&lt;br&gt;- systemd 241&lt;br&gt;&lt;br&gt;Architectures:&lt;br&gt;- amd64&lt;br&gt;</content>
     <link href="https://www.flatcar-linux.org/releases/#release-2135.2.0" rel="self"/>
     <published>2019-05-21T20:28:25+00:00</published>
@@ -334,7 +342,7 @@
   <entry>
     <id>https://github.com/flatcar-linux/manifest/releases/tag/v2107.3.0</id>
     <title>2107.3.0</title>
-    <updated>2021-09-01T15:50:49.218789+00:00</updated>
+    <updated>2021-09-16T16:52:39.673369+00:00</updated>
     <content>## [Upstream Container Linux updates](https://github.com/coreos/manifest/releases/tag/v2107.3.0):&lt;br&gt;&lt;br&gt;Security fixes:&lt;br&gt;- Fix Intel CPU disclosure of memory to user process.  Complete mitigation requires [manually disabling SMT](https://docs.flatcar-linux.org/os/disabling-smt/) on affected processors. ([CVE-2019-11091](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2019-11091), [CVE-2018-12126](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2018-12126), [CVE-2018-12127](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2018-12127), [CVE-2018-12130](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2018-12130), [MDS](https://www.intel.com/content/www/us/en/security-center/advisory/intel-sa-00233.html))&lt;br&gt;&lt;br&gt;Updates:&lt;br&gt;- intel-microcode [20190514](https://github.com/intel/Intel-Linux-Processor-Microcode-Data-Files/blob/microcode-20190514/releasenote)&lt;br&gt;- Linux [4.19.43](https://lwn.net/Articles/788388/)&lt;br&gt;Packages:&lt;br&gt;- docker 18.06.3&lt;br&gt;- ignition 0.31.0&lt;br&gt;- kernel 4.19.43&lt;br&gt;- rkt 1.30.0&lt;br&gt;- systemd 241&lt;br&gt;&lt;br&gt;Architectures:&lt;br&gt;- amd64&lt;br&gt;</content>
     <link href="https://www.flatcar-linux.org/releases/#release-2107.3.0" rel="self"/>
     <published>2019-05-16T10:57:15+00:00</published>
@@ -342,7 +350,7 @@
   <entry>
     <id>https://github.com/flatcar-linux/manifest/releases/tag/v2107.2.0</id>
     <title>2107.2.0</title>
-    <updated>2021-09-01T15:50:49.213880+00:00</updated>
+    <updated>2021-09-16T16:52:39.666309+00:00</updated>
     <content>## [Upstream Container Linux updates](https://github.com/coreos/manifest/releases/tag/v2107.2.0):&lt;br&gt;&lt;br&gt;Bug fixes:&lt;br&gt;&lt;br&gt;- Fix systemd `MountFlags=shared` option ([#2579](https://github.com/coreos/bugs/issues/2579))&lt;br&gt;&lt;br&gt;Changes:&lt;br&gt;&lt;br&gt;- Pin network interface naming to systemd v238 scheme ([#2578](https://github.com/coreos/bugs/issues/2578))&lt;br&gt;Packages:&lt;br&gt;- docker 18.06.3&lt;br&gt;- ignition 0.31.0&lt;br&gt;- kernel 4.19.36&lt;br&gt;- rkt 1.30.0&lt;br&gt;- systemd 241&lt;br&gt;&lt;br&gt;Architectures:&lt;br&gt;- amd64&lt;br&gt;</content>
     <link href="https://www.flatcar-linux.org/releases/#release-2107.2.0" rel="self"/>
     <published>2019-05-08T07:07:32+00:00</published>
@@ -350,7 +358,7 @@
   <entry>
     <id>https://github.com/flatcar-linux/manifest/releases/tag/v2107.1.0</id>
     <title>2107.1.0</title>
-    <updated>2021-09-01T15:50:49.209429+00:00</updated>
+    <updated>2021-09-16T16:52:39.660393+00:00</updated>
     <content>## [Upstream Container Linux updates](https://github.com/coreos/manifest/releases/tag/v2107.1.0):&lt;br&gt;&lt;br&gt;Bug fixes:&lt;br&gt; - Disable new sticky directory protections for backward compatibility ([#2577](https://github.com/coreos/bugs/issues/2577))&lt;br&gt;&lt;br&gt;Changes:&lt;br&gt; - Enable `atlantic` kernel module ([#2576](https://github.com/coreos/bugs/issues/2576))&lt;br&gt;&lt;br&gt;Updates:&lt;br&gt; - Linux [4.19.36](https://lwn.net/Articles/786361/)&lt;br&gt;Packages:&lt;br&gt;- docker 18.06.3&lt;br&gt;- ignition 0.31.0&lt;br&gt;- kernel 4.19.36&lt;br&gt;- rkt 1.30.0&lt;br&gt;- systemd 241&lt;br&gt;&lt;br&gt;Architectures:&lt;br&gt;- amd64&lt;br&gt;</content>
     <link href="https://www.flatcar-linux.org/releases/#release-2107.1.0" rel="self"/>
     <published>2019-04-24T10:01:19+00:00</published>
@@ -358,7 +366,7 @@
   <entry>
     <id>https://github.com/flatcar-linux/manifest/releases/tag/v2079.2.0</id>
     <title>2079.2.0</title>
-    <updated>2021-09-01T15:50:49.204574+00:00</updated>
+    <updated>2021-09-16T16:52:39.653976+00:00</updated>
     <content>## [Upstream Container Linux updates](https://github.com/coreos/manifest/releases/tag/v2079.2.0):&lt;br&gt;&lt;br&gt;Bug fixes:&lt;br&gt;- Disable new sticky directory protections for backwards compatibility ([#2577](https://github.com/coreos/bugs/issues/2577))&lt;br&gt;&lt;br&gt;Changes:&lt;br&gt;- Enable `atlantic` kernel module ([#2576](https://github.com/coreos/bugs/issues/2576))&lt;br&gt;&lt;br&gt;Updates:&lt;br&gt;- Linux [4.19.34](https://lwn.net/Articles/786050/)&lt;br&gt;Packages:&lt;br&gt;- docker 18.06.3&lt;br&gt;- ignition 0.31.0&lt;br&gt;- kernel 4.19.34&lt;br&gt;- rkt 1.30.0&lt;br&gt;- systemd 241&lt;br&gt;&lt;br&gt;Architectures:&lt;br&gt;- amd64&lt;br&gt;</content>
     <link href="https://www.flatcar-linux.org/releases/#release-2079.2.0" rel="self"/>
     <published>2019-04-17T07:53:14+00:00</published>
@@ -366,7 +374,7 @@
   <entry>
     <id>https://github.com/flatcar-linux/manifest/releases/tag/v2079.1.0</id>
     <title>2079.1.0</title>
-    <updated>2021-09-01T15:50:49.199803+00:00</updated>
+    <updated>2021-09-16T16:52:39.646358+00:00</updated>
     <content>## [Upstream Container Linux updates](https://github.com/coreos/manifest/releases/tag/v2079.1.0):&lt;br&gt;&lt;br&gt;Bug fixes:&lt;br&gt;- Fix systemd presets incorrectly handling escaped unit names ([#2569](https://github.com/coreos/bugs/issues/2569))&lt;br&gt;&lt;br&gt;Updates:&lt;br&gt;- Linux [4.19.31](https://lwn.net/Articles/783858/)&lt;br&gt;&lt;br&gt;Packages:&lt;br&gt;- docker 18.06.3&lt;br&gt;- ignition 0.31.0&lt;br&gt;- kernel 4.19.31&lt;br&gt;- rkt 1.30.0&lt;br&gt;- systemd 241&lt;br&gt;&lt;br&gt;Architectures:&lt;br&gt;- amd64&lt;br&gt;</content>
     <link href="https://www.flatcar-linux.org/releases/#release-2079.1.0" rel="self"/>
     <published>2019-03-26T13:08:57+00:00</published>
@@ -374,7 +382,7 @@
   <entry>
     <id>https://github.com/flatcar-linux/manifest/releases/tag/v2051.2.0</id>
     <title>2051.2.0</title>
-    <updated>2021-09-01T15:50:49.195199+00:00</updated>
+    <updated>2021-09-16T16:52:39.640048+00:00</updated>
     <content>## [Upstream Container Linux updates](https://github.com/coreos/manifest/releases/tag/v2051.2.0):&lt;br&gt;&lt;br&gt;Bug fixes:&lt;br&gt;- Fix systemd-journald memory leak ([#2564](https://github.com/coreos/bugs/issues/2564))&lt;br&gt;&lt;br&gt;Updates:&lt;br&gt;- Linux [4.19.28](https://lwn.net/Articles/782719/)&lt;br&gt;Packages:&lt;br&gt;- docker 18.06.1&lt;br&gt;- ignition 0.30.0&lt;br&gt;- kernel 4.19.28&lt;br&gt;- rkt 1.30.0&lt;br&gt;- systemd 238&lt;br&gt;&lt;br&gt;Architectures:&lt;br&gt;- amd64&lt;br&gt;</content>
     <link href="https://www.flatcar-linux.org/releases/#release-2051.2.0" rel="self"/>
     <published>2019-03-12T14:37:08+00:00</published>
@@ -382,7 +390,7 @@
   <entry>
     <id>https://github.com/flatcar-linux/manifest/releases/tag/v2051.1.0</id>
     <title>2051.1.0</title>
-    <updated>2021-09-01T15:50:49.190508+00:00</updated>
+    <updated>2021-09-16T16:52:39.632903+00:00</updated>
     <content>## [Upstream Container Linux updates](https://github.com/coreos/manifest/releases/tag/v2051.1.0):&lt;br&gt;&lt;br&gt;Security fixes:&lt;br&gt;- Fix Linux use-after-free in `sockfs_setattr` ([CVE-2019-8912](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2019-8912))&lt;br&gt;- Fix systemd crash from a specially-crafted D-Bus message ([CVE-2019-6454](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2019-6454))&lt;br&gt;&lt;br&gt;Updates:&lt;br&gt;- Linux [4.19.25](https://lwn.net/Articles/780611/)&lt;br&gt;Packages:&lt;br&gt;- docker 18.06.1&lt;br&gt;- ignition 0.30.0&lt;br&gt;- kernel 4.19.25&lt;br&gt;- rkt 1.30.0&lt;br&gt;- systemd 238&lt;br&gt;&lt;br&gt;Architectures:&lt;br&gt;- amd64&lt;br&gt;</content>
     <link href="https://www.flatcar-linux.org/releases/#release-2051.1.0" rel="self"/>
     <published>2019-02-27T08:53:46+00:00</published>
@@ -390,7 +398,7 @@
   <entry>
     <id>https://github.com/flatcar-linux/manifest/releases/tag/v2023.3.0</id>
     <title>2023.3.0</title>
-    <updated>2021-09-01T15:50:49.185703+00:00</updated>
+    <updated>2021-09-16T16:52:39.626858+00:00</updated>
     <content>## [Upstream Container Linux updates](https://github.com/coreos/manifest/releases/tag/v2023.3.0):&lt;br&gt;&lt;br&gt;Updates:&lt;br&gt;- Linux [4.19.23](https://lwn.net/Articles/779940/)&lt;br&gt;Packages:&lt;br&gt;- docker 18.06.1&lt;br&gt;- ignition 0.30.0&lt;br&gt;- kernel 4.19.23&lt;br&gt;- rkt 1.30.0&lt;br&gt;- systemd 238&lt;br&gt;&lt;br&gt;Architectures:&lt;br&gt;- amd64&lt;br&gt;</content>
     <link href="https://www.flatcar-linux.org/releases/#release-2023.3.0" rel="self"/>
     <published>2019-02-21T08:41:36+00:00</published>
@@ -398,7 +406,7 @@
   <entry>
     <id>https://github.com/flatcar-linux/manifest/releases/tag/v2023.2.0</id>
     <title>2023.2.0</title>
-    <updated>2021-09-01T15:50:49.181255+00:00</updated>
+    <updated>2021-09-16T16:52:39.619434+00:00</updated>
     <content>## [Upstream Container Linux updates](https://github.com/coreos/manifest/releases/tag/v2023.2.0):&lt;br&gt;Security fixes:&lt;br&gt; - Fix runc container breakout ([CVE-2019-5736](http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2019-5736))&lt;br&gt;&lt;br&gt;Changes:&lt;br&gt; - Revert `/sys/bus/rbd/add` to Linux 4.14 behavior ([#2544](https://github.com/coreos/bugs/issues/2544))&lt;br&gt;&lt;br&gt;Updates:&lt;br&gt; - etcd [3.3.12](https://github.com/etcd-io/etcd/releases/tag/v3.3.12)&lt;br&gt; - etcdctl [3.3.12](https://github.com/etcd-io/etcd/releases/tag/v3.3.12)&lt;br&gt; - Linux [4.19.20](https://lwn.net/Articles/779132/)&lt;br&gt;&lt;br&gt;Packages:&lt;br&gt;- docker 18.06.1&lt;br&gt;- ignition 0.30.0&lt;br&gt;- kernel 4.19.20&lt;br&gt;- rkt 1.30.0&lt;br&gt;- systemd 238&lt;br&gt;&lt;br&gt;Architectures:&lt;br&gt;- amd64&lt;br&gt;</content>
     <link href="https://www.flatcar-linux.org/releases/#release-2023.2.0" rel="self"/>
     <published>2019-02-14T10:31:00+00:00</published>
@@ -406,7 +414,7 @@
   <entry>
     <id>https://github.com/flatcar-linux/manifest/releases/tag/v2023.1.0</id>
     <title>2023.1.0</title>
-    <updated>2021-09-01T15:50:49.176456+00:00</updated>
+    <updated>2021-09-16T16:52:39.612344+00:00</updated>
     <content>## [Upstream Container Linux updates](https://github.com/coreos/manifest/releases/tag/v2023.1.0):&lt;br&gt;&lt;br&gt;Security fixes:&lt;br&gt;- Fix Go CPU denial of service in ECC ([CVE-2019-6486](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2019-6486))&lt;br&gt;&lt;br&gt;Updates:&lt;br&gt;- Go [1.10.8](https://golang.org/doc/devel/release.html#go1.10.minor)&lt;br&gt;- Go [1.11.5](https://golang.org/doc/devel/release.html#go1.11.minor)&lt;br&gt;- Linux [4.19.18](https://lwn.net/Articles/777580/)&lt;br&gt;Packages:&lt;br&gt;- docker 18.06.1&lt;br&gt;- ignition 0.30.0&lt;br&gt;- kernel 4.19.18&lt;br&gt;- rkt 1.30.0&lt;br&gt;- systemd 238&lt;br&gt;&lt;br&gt;Architectures:&lt;br&gt;- amd64&lt;br&gt;</content>
     <link href="https://www.flatcar-linux.org/releases/#release-2023.1.0" rel="self"/>
     <published>2019-01-30T13:45:28+00:00</published>
@@ -414,7 +422,7 @@
   <entry>
     <id>https://github.com/flatcar-linux/manifest/releases/tag/v1995.1.0</id>
     <title>1995.1.0</title>
-    <updated>2021-09-01T15:50:49.171707+00:00</updated>
+    <updated>2021-09-16T16:52:39.601812+00:00</updated>
     <content>## [Upstream Container Linux updates](https://github.com/coreos/manifest/releases/tag/v1995.1.0):&lt;br&gt;&lt;br&gt;Updates:&lt;br&gt;- Linux [4.19.13](https://lwn.net/Articles/775720/)&lt;br&gt;Packages:&lt;br&gt;- docker 18.06.1&lt;br&gt;- ignition 0.29.1&lt;br&gt;- kernel 4.19.13&lt;br&gt;- rkt 1.30.0&lt;br&gt;- systemd 238&lt;br&gt;&lt;br&gt;Architectures:&lt;br&gt;- amd64&lt;br&gt;</content>
     <link href="https://www.flatcar-linux.org/releases/#release-1995.1.0" rel="self"/>
     <published>2019-01-18T09:10:26+00:00</published>
@@ -422,7 +430,7 @@
   <entry>
     <id>https://github.com/flatcar-linux/manifest/releases/tag/v1967.2.0</id>
     <title>1967.2.0</title>
-    <updated>2021-09-01T15:50:49.167243+00:00</updated>
+    <updated>2021-09-16T16:52:39.595539+00:00</updated>
     <content>## [Upstream Container Linux updates](https://github.com/coreos/manifest/releases/tag/v1967.2.0):&lt;br&gt;&lt;br&gt;Security fixes:&lt;br&gt;- Fix Go CPU denial of service in X.509 verification ([CVE-2018-16875](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2018-16875))&lt;br&gt;- Fix PolicyKit always authorizing UIDs greater than `INT_MAX` ([CVE-2018-19788](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2018-19788))&lt;br&gt;&lt;br&gt;Updates:&lt;br&gt;- Go [1.10.6](https://golang.org/doc/devel/release.html#go1.10.minor)&lt;br&gt;- Go [1.11.3](https://golang.org/doc/devel/release.html#go1.11.minor)&lt;br&gt;- Linux [4.14.88](https://lwn.net/Articles/774848/)&lt;br&gt;Packages:&lt;br&gt;- docker 18.06.1&lt;br&gt;- ignition 0.28.0&lt;br&gt;- kernel 4.14.88&lt;br&gt;- rkt 1.30.0&lt;br&gt;- systemd 238&lt;br&gt;&lt;br&gt;Architectures:&lt;br&gt;- amd64&lt;br&gt;</content>
     <link href="https://www.flatcar-linux.org/releases/#release-1967.2.0" rel="self"/>
     <published>2018-12-21T09:08:43+00:00</published>
@@ -430,7 +438,7 @@
   <entry>
     <id>https://github.com/flatcar-linux/manifest/releases/tag/v1967.1.0</id>
     <title>1967.1.0</title>
-    <updated>2021-09-01T15:50:49.162405+00:00</updated>
+    <updated>2021-09-16T16:52:39.588943+00:00</updated>
     <content>## [Upstream Container Linux updates](https://github.com/coreos/manifest/releases/tag/v1967.1.0):&lt;br&gt;&lt;br&gt;Changes:&lt;br&gt; - Switch to the LTS Linux version [4.14.84](https://lwn.net/Articles/773114/) for the beta channel&lt;br&gt;Packages:&lt;br&gt;- docker 18.06.1&lt;br&gt;- ignition 0.28.0&lt;br&gt;- kernel 4.14.84&lt;br&gt;- rkt 1.30.0&lt;br&gt;- systemd 238&lt;br&gt;&lt;br&gt;Architectures:&lt;br&gt;- amd64&lt;br&gt;</content>
     <link href="https://www.flatcar-linux.org/releases/#release-1967.1.0" rel="self"/>
     <published>2018-12-06T09:43:43+00:00</published>
@@ -438,7 +446,7 @@
   <entry>
     <id>https://github.com/flatcar-linux/manifest/releases/tag/v1939.2.1</id>
     <title>1939.2.1</title>
-    <updated>2021-09-01T15:50:49.157632+00:00</updated>
+    <updated>2021-09-16T16:52:39.582149+00:00</updated>
     <content>## [Upstream Container Linux updates](https://github.com/coreos/manifest/releases/tag/v1939.2.1):&lt;br&gt;&lt;br&gt;Security fixes:&lt;br&gt;- Disable containerd CRI plugin to stop it from listening on a TCP port ([#2524](https://github.com/coreos/bugs/issues/2524))&lt;br&gt;&lt;br&gt;Updates:&lt;br&gt;- Linux [4.14.81](https://lwn.net/Articles/771885/)&lt;br&gt;Packages:&lt;br&gt;- docker 18.06.1&lt;br&gt;- ignition 0.28.0&lt;br&gt;- kernel 4.14.81&lt;br&gt;- rkt 1.30.0&lt;br&gt;- systemd 238&lt;br&gt;&lt;br&gt;Architectures:&lt;br&gt;- amd64&lt;br&gt;</content>
     <link href="https://www.flatcar-linux.org/releases/#release-1939.2.1" rel="self"/>
     <published>2018-11-21T10:57:13+00:00</published>
@@ -446,7 +454,7 @@
   <entry>
     <id>https://github.com/flatcar-linux/manifest/releases/tag/v1939.1.0</id>
     <title>1939.1.0</title>
-    <updated>2021-09-01T15:50:49.152824+00:00</updated>
+    <updated>2021-09-16T16:52:39.575945+00:00</updated>
     <content>## [Upstream Container Linux updates](https://github.com/coreos/manifest/releases/tag/v1939.1.0):&lt;br&gt;&lt;br&gt;Security fixes:&lt;br&gt;- Fix systemd re-executing with arbitrary supplied state ([CVE-2018-15686](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2018-15686))&lt;br&gt;- Fix systemd race allowing changing file permissions ([CVE-2018-15687](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2018-15687))&lt;br&gt;- Fix systemd-networkd buffer overflow in the dhcp6 client ([CVE-2018-15688](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2018-15688))&lt;br&gt;&lt;br&gt;Changes:&lt;br&gt;- Switch to the LTS Linux version [4.14.79](https://lwn.net/Articles/770749/) for the beta channel&lt;br&gt;Packages:&lt;br&gt;- docker 18.06.1&lt;br&gt;- ignition 0.28.0&lt;br&gt;- kernel 4.14.79&lt;br&gt;- rkt 1.30.0&lt;br&gt;- systemd 238&lt;br&gt;&lt;br&gt;Architectures:&lt;br&gt;- amd64&lt;br&gt;</content>
     <link href="https://www.flatcar-linux.org/releases/#release-1939.1.0" rel="self"/>
     <published>2018-11-08T16:14:38+00:00</published>
@@ -454,7 +462,7 @@
   <entry>
     <id>https://github.com/flatcar-linux/manifest/releases/tag/v1911.2.0</id>
     <title>1911.2.0</title>
-    <updated>2021-09-01T15:50:49.147890+00:00</updated>
+    <updated>2021-09-16T16:52:39.567374+00:00</updated>
     <content>## [Upstream Container Linux updates](https://github.com/coreos/manifest/releases/tag/v1911.2.0):&lt;br&gt;&lt;br&gt;Security fixes:&lt;br&gt;- Fix Git remote code execution during recursive clone ([CVE-2018-17456](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2018-17456))&lt;br&gt;&lt;br&gt;Bug fixes:&lt;br&gt;- Fix missing kernel headers ([#2505](https://github.com/coreos/bugs/issues/2505))&lt;br&gt;&lt;br&gt;Updates:&lt;br&gt;- Git [2.16.5](https://raw.githubusercontent.com/git/git/v2.16.5/Documentation/RelNotes/2.16.5.txt)&lt;br&gt;- Linux [4.14.78](https://lwn.net/Articles/769051/)&lt;br&gt;Packages:&lt;br&gt;- docker 18.06.1&lt;br&gt;- ignition 0.28.0&lt;br&gt;- kernel 4.14.78&lt;br&gt;- rkt 1.30.0&lt;br&gt;- systemd 238&lt;br&gt;&lt;br&gt;Architectures:&lt;br&gt;- amd64&lt;br&gt;</content>
     <link href="https://www.flatcar-linux.org/releases/#release-1911.2.0" rel="self"/>
     <published>2018-10-26T10:14:36+00:00</published>
@@ -462,7 +470,7 @@
   <entry>
     <id>https://github.com/flatcar-linux/manifest/releases/tag/v1911.1.1</id>
     <title>1911.1.1</title>
-    <updated>2021-09-01T15:50:49.143137+00:00</updated>
+    <updated>2021-09-16T16:52:39.561070+00:00</updated>
     <content>## Flatcar updates&lt;br&gt;&lt;br&gt;Changes:&lt;br&gt;&lt;br&gt;* Add new image signing subkey to `flatcar-install` ([flatcar-linux/init#4](https://github.com/flatcar-linux/init/pull/4))&lt;br&gt;&lt;br&gt;Bug fixes:&lt;br&gt;&lt;br&gt;* Fix `/usr/lib/coreos` symlink for Container Linux compatibility ([flatcar-linux/coreos-overlay#8](https://github.com/flatcar-linux/coreos-overlay/pull/8))&lt;br&gt;&lt;br&gt;## [Upstream Container Linux updates](https://github.com/coreos/manifest/releases/tag/v1911.1.1):&lt;br&gt;&lt;br&gt;Changes:&lt;br&gt;- Switch to the LTS Linux version [4.14.74](https://lwn.net/Articles/767628/) for the beta channel&lt;br&gt;&lt;br&gt;Packages:&lt;br&gt;- docker 18.06.1&lt;br&gt;- ignition 0.28.0&lt;br&gt;- kernel 4.14.74&lt;br&gt;- rkt 1.30.0&lt;br&gt;- systemd 238&lt;br&gt;&lt;br&gt;Architectures:&lt;br&gt;- amd64&lt;br&gt;</content>
     <link href="https://www.flatcar-linux.org/releases/#release-1911.1.1" rel="self"/>
     <published>2018-10-11T13:18:49+00:00</published>
@@ -470,7 +478,7 @@
   <entry>
     <id>https://github.com/flatcar-linux/manifest/releases/tag/v1883.1.0</id>
     <title>1883.1.0</title>
-    <updated>2021-09-01T15:50:49.137999+00:00</updated>
+    <updated>2021-09-16T16:52:39.554122+00:00</updated>
     <content>## [Upstream Container Linux updates](https://github.com/coreos/manifest/releases/tag/v1883.1.0):&lt;br&gt;&lt;br&gt;Bug fixes:&lt;br&gt;- Fix Docker mounting named volumes ([#2497](https://github.com/coreos/bugs/issues/2497))&lt;br&gt;&lt;br&gt;Changes:&lt;br&gt;- Switch to the LTS Linux version [4.14.69](https://lwn.net/Articles/764513/) for the beta channel&lt;br&gt;&lt;br&gt;Updates:&lt;br&gt;- intel-microcode [20180807a](https://downloadcenter.intel.com/download/28087)&lt;br&gt;Packages:&lt;br&gt;- docker 18.06.1&lt;br&gt;- ignition 0.28.0&lt;br&gt;- kernel 4.14.69&lt;br&gt;- rkt 1.30.0&lt;br&gt;- systemd 238&lt;br&gt;&lt;br&gt;Architectures:&lt;br&gt;- amd64&lt;br&gt;</content>
     <link href="https://www.flatcar-linux.org/releases/#release-1883.1.0" rel="self"/>
     <published>2018-09-14T09:59:48+00:00</published>
@@ -478,7 +486,7 @@
   <entry>
     <id>https://github.com/flatcar-linux/manifest/releases/tag/v1855.3.0</id>
     <title>1855.3.0</title>
-    <updated>2021-09-01T15:50:49.133314+00:00</updated>
+    <updated>2021-09-16T16:52:39.547112+00:00</updated>
     <content>## [Upstream Container Linux updates](https://github.com/coreos/manifest/releases/tag/v1855.3.0):&lt;br&gt;&lt;br&gt;Changes:&lt;br&gt;- Drop AWS PV images from regions which do not support PV&lt;br&gt;&lt;br&gt;Updates:&lt;br&gt;- containerd [1.1.2](https://github.com/containerd/containerd/releases/tag/v1.1.2)&lt;br&gt;- Docker [18.06.1-ce](https://github.com/docker/docker-ce/releases/tag/v18.06.1-ce)&lt;br&gt;- intel-microcode [20180807a](https://downloadcenter.intel.com/download/28087/Linux-Processor-Microcode-Data-File)&lt;br&gt;- Linux [4.14.67](https://lwn.net/Articles/763433/)&lt;br&gt;Packages:&lt;br&gt;- docker 18.06.1&lt;br&gt;- ignition 0.26.0&lt;br&gt;- kernel 4.14.67&lt;br&gt;- rkt 1.30.0&lt;br&gt;- systemd 238&lt;br&gt;&lt;br&gt;Architectures:&lt;br&gt;- amd64&lt;br&gt;</content>
     <link href="https://www.flatcar-linux.org/releases/#release-1855.3.0" rel="self"/>
     <published>2018-09-05T08:43:19+00:00</published>
@@ -486,7 +494,7 @@
   <entry>
     <id>https://github.com/flatcar-linux/manifest/releases/tag/v1855.2.0</id>
     <title>1855.2.0</title>
-    <updated>2021-09-01T15:50:49.128377+00:00</updated>
+    <updated>2021-09-16T16:52:39.540359+00:00</updated>
     <content>## [Upstream Container Linux updates](https://github.com/coreos/manifest/releases/tag/v1855.2.0):&lt;br&gt;&lt;br&gt;Security fixes:&lt;br&gt;- Fix Linux remote denial of service ([FragmentSmack](https://access.redhat.com/security/cve/cve-2018-5391), [CVE-2018-5391](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2018-5391))&lt;br&gt;- Fix Linux privileged memory access via speculative execution ([L1TF/Foreshadow](https://foreshadowattack.eu/), [CVE-2018-3620](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2018-3620), [CVE-2018-3646](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2018-3646))&lt;br&gt;&lt;br&gt;Bug fixes:&lt;br&gt;- Fix PXE systems attempting to mount an ESP ([#2491](https://github.com/coreos/bugs/issues/2491))&lt;br&gt;&lt;br&gt;Changes:&lt;br&gt;- Switch to the LTS Linux version [4.14.63](https://lwn.net/Articles/762808/) for the beta channel&lt;br&gt;Packages:&lt;br&gt;- docker 18.06.0&lt;br&gt;- ignition 0.26.0&lt;br&gt;- kernel 4.14.63&lt;br&gt;- rkt 1.30.0&lt;br&gt;- systemd 238&lt;br&gt;&lt;br&gt;Architectures:&lt;br&gt;- amd64&lt;br&gt;</content>
     <link href="https://www.flatcar-linux.org/releases/#release-1855.2.0" rel="self"/>
     <published>2018-08-17T12:09:29+00:00</published>
@@ -494,7 +502,7 @@
   <entry>
     <id>https://github.com/flatcar-linux/manifest/releases/tag/v1828.3.0</id>
     <title>1828.3.0</title>
-    <updated>2021-09-01T15:50:49.122785+00:00</updated>
+    <updated>2021-09-16T16:52:39.533025+00:00</updated>
     <content>## [Upstream Container Linux updates](https://github.com/coreos/manifest/releases/tag/v1828.3.0):&lt;br&gt;&lt;br&gt;Security fixes:&lt;br&gt;- Fix Linux local denial of service as Xen PV guest ([CVE-2018-14678](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2018-14678))&lt;br&gt;&lt;br&gt;Bug fixes:&lt;br&gt;- Fix failure to mount large ext4 filesystems ([#2485](https://github.com/coreos/bugs/issues/2485))&lt;br&gt;&lt;br&gt;Updates:&lt;br&gt;- Linux [4.14.60](https://lwn.net/Articles/761767/)&lt;br&gt;Packages:&lt;br&gt;- docker 18.03.1&lt;br&gt;- ignition 0.26.0&lt;br&gt;- kernel 4.14.60&lt;br&gt;- rkt 1.30.0&lt;br&gt;- systemd 238&lt;br&gt;&lt;br&gt;Architectures:&lt;br&gt;- amd64&lt;br&gt;</content>
     <link href="https://www.flatcar-linux.org/releases/#release-1828.3.0" rel="self"/>
     <published>2018-08-08T10:49:50+00:00</published>
@@ -502,7 +510,7 @@
   <entry>
     <id>https://github.com/flatcar-linux/manifest/releases/tag/v1828.2.0</id>
     <title>1828.2.0</title>
-    <updated>2021-09-01T15:50:49.118023+00:00</updated>
+    <updated>2021-09-16T16:52:39.526577+00:00</updated>
     <content>## [Upstream Container Linux updates](https://github.com/coreos/manifest/releases/tag/v1828.2.0):&lt;br&gt;&lt;br&gt;Bug fixes:&lt;br&gt;- Fix kernel CIFS client ([#2480](https://github.com/coreos/bugs/issues/2480))&lt;br&gt;&lt;br&gt;Updates:&lt;br&gt;- Linux [4.14.59](https://lwn.net/Articles/761180/)&lt;br&gt;Packages:&lt;br&gt;- docker 18.03.1&lt;br&gt;- ignition 0.26.0&lt;br&gt;- kernel 4.14.59&lt;br&gt;- rkt 1.30.0&lt;br&gt;- systemd 238&lt;br&gt;&lt;br&gt;Architectures:&lt;br&gt;- amd64&lt;br&gt;</content>
     <link href="https://www.flatcar-linux.org/releases/#release-1828.2.0" rel="self"/>
     <published>2018-07-31T09:16:00+00:00</published>
@@ -510,7 +518,7 @@
   <entry>
     <id>https://github.com/flatcar-linux/manifest/releases/tag/v1828.1.0</id>
     <title>1828.1.0</title>
-    <updated>2021-09-01T15:50:49.113267+00:00</updated>
+    <updated>2021-09-16T16:52:39.517996+00:00</updated>
     <content>## [Upstream Container Linux updates](https://github.com/coreos/manifest/releases/tag/v1828.1.0):&lt;br&gt;&lt;br&gt;Changes:&lt;br&gt;- Switch to the LTS Docker version [18.03.1-ce](https://github.com/docker/docker-ce/releases/tag/v18.03.1-ce) for the beta channel&lt;br&gt;- Switch to the LTS Linux version [4.14.57](https://lwn.net/Articles/760500/) for the beta channel&lt;br&gt;&lt;br&gt;Packages:&lt;br&gt;- docker 18.03.1&lt;br&gt;- ignition 0.26.0&lt;br&gt;- kernel 4.14.57&lt;br&gt;- rkt 1.30.0&lt;br&gt;- systemd 238&lt;br&gt;&lt;br&gt;Architectures:&lt;br&gt;- amd64&lt;br&gt;</content>
     <link href="https://www.flatcar-linux.org/releases/#release-1828.1.0" rel="self"/>
     <published>2018-07-26T09:40:11+00:00</published>
@@ -518,7 +526,7 @@
   <entry>
     <id>https://github.com/flatcar-linux/manifest/releases/tag/v1800.3.0</id>
     <title>1800.3.0</title>
-    <updated>2021-09-01T15:50:49.108409+00:00</updated>
+    <updated>2021-09-16T16:52:39.511873+00:00</updated>
     <content>## [Upstream Container Linux updates](https://github.com/coreos/manifest/releases/tag/v1800.3.0):&lt;br&gt;&lt;br&gt;Updates:&lt;br&gt;- Linux [4.14.55](https://lwn.net/Articles/759535/)&lt;br&gt;Packages:&lt;br&gt;- docker 18.03.1&lt;br&gt;- ignition 0.25.1&lt;br&gt;- kernel 4.14.55&lt;br&gt;- rkt 1.30.0&lt;br&gt;- systemd 238&lt;br&gt;&lt;br&gt;Architectures:&lt;br&gt;- amd64&lt;br&gt;</content>
     <link href="https://www.flatcar-linux.org/releases/#release-1800.3.0" rel="self"/>
     <published>2018-07-13T15:43:19+00:00</published>
@@ -526,7 +534,7 @@
   <entry>
     <id>https://github.com/flatcar-linux/manifest/releases/tag/v1800.2.0</id>
     <title>1800.2.0</title>
-    <updated>2021-09-01T15:50:49.103556+00:00</updated>
+    <updated>2021-09-16T16:52:39.502074+00:00</updated>
     <content>## [Upstream Container Linux updates](https://github.com/coreos/manifest/releases/tag/v1800.2.0):&lt;br&gt;&lt;br&gt;Changes:&lt;br&gt;- Switch to the LTS Docker version [18.03.1-ce](https://github.com/docker/docker-ce/releases/tag/v18.03.1-ce) for the beta channel&lt;br&gt;- Switch to the LTS Linux version [4.14.50](https://lwn.net/Articles/757680/) for the beta channel&lt;br&gt;Packages:&lt;br&gt;- docker 18.03.1&lt;br&gt;- ignition 0.25.1&lt;br&gt;- kernel 4.14.50&lt;br&gt;- rkt 1.30.0&lt;br&gt;- systemd 238&lt;br&gt;&lt;br&gt;Architectures:&lt;br&gt;- amd64&lt;br&gt;</content>
     <link href="https://www.flatcar-linux.org/releases/#release-1800.2.0" rel="self"/>
     <published>2018-06-22T10:17:31+00:00</published>
@@ -534,7 +542,7 @@
   <entry>
     <id>https://github.com/flatcar-linux/manifest/releases/tag/v1772.4.0</id>
     <title>1772.4.0</title>
-    <updated>2021-09-01T15:50:49.098545+00:00</updated>
+    <updated>2021-09-16T16:52:39.490760+00:00</updated>
     <content>## [Upstream Container Linux updates](https://github.com/coreos/manifest/releases/tag/v1772.4.0):&lt;br&gt;&lt;br&gt;Bug fixes:&lt;br&gt;- Fix TCP connection stalls ([#2457](https://github.com/coreos/bugs/issues/2457))&lt;br&gt;&lt;br&gt;Updates:&lt;br&gt;- Linux [4.14.49](https://lwn.net/Articles/757308/)&lt;br&gt;Packages:&lt;br&gt;- docker 18.03.1&lt;br&gt;- ignition 0.24.1&lt;br&gt;- kernel 4.14.49&lt;br&gt;- rkt 1.30.0&lt;br&gt;- systemd 238&lt;br&gt;&lt;br&gt;Architectures:&lt;br&gt;- amd64&lt;br&gt;</content>
     <link href="https://www.flatcar-linux.org/releases/#release-1772.4.0" rel="self"/>
     <published>2018-06-15T14:51:22+00:00</published>
@@ -542,7 +550,7 @@
   <entry>
     <id>https://github.com/flatcar-linux/manifest/releases/tag/v1772.3.0</id>
     <title>1772.3.0</title>
-    <updated>2021-09-01T15:50:49.093596+00:00</updated>
+    <updated>2021-09-16T16:52:39.483879+00:00</updated>
     <content>## [Upstream Container Linux updates](https://github.com/coreos/manifest/releases/tag/v1772.3.0):&lt;br&gt;&lt;br&gt;Bug fixes:&lt;br&gt;- Fix Hyper-V network driver regression ([#2454](https://github.com/coreos/bugs/issues/2454))&lt;br&gt;&lt;br&gt;Updates:&lt;br&gt;- Linux [4.14.48](https://lwn.net/Articles/756652/)&lt;br&gt;Packages:&lt;br&gt;- docker 18.03.1&lt;br&gt;- ignition 0.24.1&lt;br&gt;- kernel 4.14.48&lt;br&gt;- rkt 1.30.0&lt;br&gt;- systemd 238&lt;br&gt;&lt;br&gt;Architectures:&lt;br&gt;- amd64&lt;br&gt;</content>
     <link href="https://www.flatcar-linux.org/releases/#release-1772.3.0" rel="self"/>
     <published>2018-06-13T13:22:40+00:00</published>
@@ -550,7 +558,7 @@
   <entry>
     <id>https://github.com/flatcar-linux/manifest/releases/tag/v1772.2.0</id>
     <title>1772.2.0</title>
-    <updated>2021-09-01T15:50:49.088140+00:00</updated>
+    <updated>2021-09-16T16:52:39.476242+00:00</updated>
     <content>## [Upstream Container Linux updates](https://github.com/coreos/manifest/releases/tag/v1772.2.0):&lt;br&gt;&lt;br&gt;Security fixes:&lt;br&gt;- Fix Git arbitrary code execution when cloning untrusted repositories ([CVE-2018-11235](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2018-11235))&lt;br&gt;&lt;br&gt;Bug fixes:&lt;br&gt;- Fix inadvertent change of network interface names ([#2437](https://github.com/coreos/bugs/issues/2437))&lt;br&gt;- Fix failure to set network interface MTU ([#2443](https://github.com/coreos/bugs/issues/2443))&lt;br&gt;&lt;br&gt;Updates:&lt;br&gt;- Git [2.16.4](https://raw.githubusercontent.com/git/git/v2.16.4/Documentation/RelNotes/2.16.4.txt)&lt;br&gt;- Linux [4.14.47](https://lwn.net/Articles/756055/)&lt;br&gt;Packages:&lt;br&gt;- docker 18.03.1&lt;br&gt;- ignition 0.24.1&lt;br&gt;- kernel 4.14.47&lt;br&gt;- rkt 1.30.0&lt;br&gt;- systemd 238&lt;br&gt;&lt;br&gt;Architectures:&lt;br&gt;- amd64&lt;br&gt;</content>
     <link href="https://www.flatcar-linux.org/releases/#release-1772.2.0" rel="self"/>
     <published>2018-06-01T13:23:43+00:00</published>
@@ -558,7 +566,7 @@
   <entry>
     <id>https://github.com/flatcar-linux/manifest/releases/tag/v1772.1.1</id>
     <title>1772.1.1</title>
-    <updated>2021-09-01T15:50:49.082826+00:00</updated>
+    <updated>2021-09-16T16:52:39.468278+00:00</updated>
     <content>## [Upstream Container Linux updates](https://github.com/coreos/manifest/releases/tag/v1772.1.1):&lt;br&gt;&lt;br&gt;Changes:&lt;br&gt;- Switch to the LTS Docker version [18.03.1-ce](https://github.com/docker/docker-ce/releases/tag/v18.03.1-ce) for the beta channel&lt;br&gt;- Switch to the LTS Linux version [4.14.42](https://lwn.net/Articles/754972/) for the beta channel&lt;br&gt;&lt;br&gt;Updates:&lt;br&gt;- Ignition [0.24.1](https://github.com/coreos/ignition/releases/tag/v0.24.1)&lt;br&gt;Packages:&lt;br&gt;- docker 18.03.1&lt;br&gt;- ignition 0.24.1&lt;br&gt;- kernel 4.14.42&lt;br&gt;- rkt 1.30.0&lt;br&gt;- systemd 238&lt;br&gt;&lt;br&gt;Architectures:&lt;br&gt;- amd64&lt;br&gt;</content>
     <link href="https://www.flatcar-linux.org/releases/#release-1772.1.1" rel="self"/>
     <published>2018-05-26T15:29:49+00:00</published>
@@ -566,7 +574,7 @@
   <entry>
     <id>https://github.com/flatcar-linux/manifest/releases/tag/v1745.2.0</id>
     <title>1745.2.0</title>
-    <updated>2021-09-01T15:50:49.077459+00:00</updated>
+    <updated>2021-09-16T16:52:39.460822+00:00</updated>
     <content>## [Upstream Container Linux updates](https://github.com/coreos/manifest/releases/tag/v1745.2.0):&lt;br&gt;&lt;br&gt;Security fixes:&lt;br&gt; - Fix ntp clock manipulation from ephemeral connections ([CVE-2016-1549](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2016-1549), [CVE-2018-7170](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2018-7170))&lt;br&gt; - Fix ntp denial of service from out of bounds read ([CVE-2018-7182](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2018-7182)) &lt;br&gt; -  Fix ntp denial of service from packets with timestamp 0 ([CVE-2018-7184](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2018-7184), [CVE-2018-7185](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2018-7185))&lt;br&gt; - Fix ntp remote code execution ([CVE-2018-7183](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2018-7183))&lt;br&gt;&lt;br&gt;Updates:&lt;br&gt; - containerd [1.0.3](https://github.com/containerd/containerd/releases/tag/v1.0.3)&lt;br&gt; - Docker [18.03.1-ce](https://github.com/docker/docker-ce/releases/tag/v18.03.1-ce)&lt;br&gt; - Linux [4.14.39](https://lwn.net/Articles/753349/)&lt;br&gt; - ntp [4.2.8p11](https://www.eecis.udel.edu/~ntp/ntp_spool/ntp4/ChangeLog-stable)&lt;br&gt;&lt;br&gt;Packages:&lt;br&gt;- docker 18.03.1&lt;br&gt;- ignition 0.24.0&lt;br&gt;- kernel 4.14.39&lt;br&gt;- rkt 1.29.0&lt;br&gt;- systemd 238&lt;br&gt;&lt;br&gt;Architectures:&lt;br&gt;- amd64&lt;br&gt;</content>
     <link href="https://www.flatcar-linux.org/releases/#release-1745.2.0" rel="self"/>
     <published>2018-05-11T11:40:35+00:00</published>
@@ -574,7 +582,7 @@
   <entry>
     <id>https://github.com/flatcar-linux/manifest/releases/tag/v1745.1.0</id>
     <title>1745.1.0</title>
-    <updated>2021-09-01T15:50:49.071145+00:00</updated>
+    <updated>2021-09-16T16:52:39.447667+00:00</updated>
     <content>## [Upstream Container Linux updates](https://github.com/coreos/manifest/releases/tag/v1745.1.0):&lt;br&gt;&lt;br&gt;Bug fixes:&lt;br&gt; - Fix docker2aci tar conversion ([#2402](https://github.com/coreos/bugs/issues/2402))&lt;br&gt;&lt;br&gt;Changes:&lt;br&gt; - Switch to the LTS Linux version [4.14.35](https://lwn.net/Articles/752328/) for the beta channel&lt;br&gt;Packages:&lt;br&gt;- docker 18.03.0&lt;br&gt;- ignition 0.24.0&lt;br&gt;- kernel 4.14.35&lt;br&gt;- rkt 1.29.0&lt;br&gt;- systemd 238&lt;br&gt;&lt;br&gt;Architectures:&lt;br&gt;- amd64&lt;br&gt;</content>
     <link href="https://www.flatcar-linux.org/releases/#release-1745.1.0" rel="self"/>
     <published>2018-04-26T09:58:55+00:00</published>
@@ -582,7 +590,7 @@
   <entry>
     <id>https://github.com/flatcar-linux/manifest/releases/tag/v1722.2.0</id>
     <title>1722.2.0</title>
-    <updated>2021-09-01T15:50:49.066264+00:00</updated>
+    <updated>2021-09-16T16:52:39.437644+00:00</updated>
     <content>## Flatcar updates&lt;br&gt;&lt;br&gt;Initial Flatcar release.&lt;br&gt;&lt;br&gt;Bug fixes:&lt;br&gt;- Fix GRUB crash at boot ([#2284](https://github.com/coreos/bugs/issues/2284))&lt;br&gt;- Fix [poweroff problems](https://groups.google.com/forum/#!topic/coreos-user/YcGkRHU9SvQ) ([#8080](https://github.com/systemd/systemd/pull/8080))&lt;br&gt;&lt;br&gt;Notes:&lt;br&gt;- Previous test images have been removed from the release servers. This is due to a new update key being generated using our updated security policy which we [included](https://github.com/flatcar-linux/coreos-overlay/pull/6) in the first public image.&lt;br&gt;&lt;br&gt;## [Upstream Container Linux updates](https://github.com/coreos/manifest/releases/tag/v1722.2.0):&lt;br&gt;&lt;br&gt;Bug fixes:&lt;br&gt;- Fix kernel panic with vxlan ([#2382](https://github.com/coreos/bugs/issues/2382))&lt;br&gt;Packages:&lt;br&gt;- docker 17.12.1&lt;br&gt;- ignition 0.23.0&lt;br&gt;- kernel 4.14.30&lt;br&gt;- rkt 1.29.0&lt;br&gt;- systemd 237&lt;br&gt;&lt;br&gt;Architectures:&lt;br&gt;- amd64&lt;br&gt;</content>
     <link href="https://www.flatcar-linux.org/releases/#release-1722.2.0" rel="self"/>
     <published>2018-04-25T14:36:40+00:00</published>
