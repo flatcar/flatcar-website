@@ -1,0 +1,26 @@
+<nav aria-label="breadcrumb" class="d-none d-md-block d-print-none">
+	<ol class="breadcrumb spb-1">
+		{{ template "breadcrumbnav" (dict "p1" . "p2" .) }}
+	</ol>
+</nav	>
+{{ define "breadcrumbnav" }}
+{{ if .p1.Parent }}
+{{ if not .p1.Parent.IsHome }}
+{{ template "breadcrumbnav" (dict "p1" .p1.Parent "p2" .p2 )  }}
+{{ end }}
+{{ else if not .p1.IsHome }}
+{{ template "breadcrumbnav" (dict "p1" .p1.Site.Home "p2" .p2 )  }}
+{{ end }}
+{{ $isActive :=  eq .p1 .p2  }}
+<li class="breadcrumb-item{{ if $isActive }} active{{ end }}" {{ if $isActive }}aria-current="page"{{ end }}>
+	{{ $title := .p1.LinkTitle }}
+	{{ if .p1.Params.use_dir_name | or .p1.Parent.Params.children_are_versions }}
+		{{ $title = partial "docs/dirversion" .p1 }}
+	{{ end }}
+	{{ $link := .p1.RelPermalink }}
+	{{ if .p1.Params.sidebar.link }}
+		{{ $link = path.Join $link .p1.Params.sidebar.link }}
+	{{ end }}
+	<a href="{{ $link }}">{{ $title }}</a>
+</li>
+{{ end }}

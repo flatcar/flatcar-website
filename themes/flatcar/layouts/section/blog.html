@@ -1,48 +1,66 @@
-{{ partial "header.html" .}}
-
-<main class="main blog-page">
-  <section class="header-blog">
-    <div class="container">
-      <div class="row post-hero post__item">
-        {{- $scaleImage := true -}}
-        {{ range first 1 (where .Data.Pages "Type" "blog").ByDate.Reverse }}
-          <div class="col-12 col-lg-6 order-first order-lg-last p-0">
-            {{- $path := print "**/" .Params.postImage -}}
-            {{- $image := resources.GetMatch $path -}}
-            {{- $imagePath := path.Join "/media/splash/" .Params.postImage -}}
-            {{- if eq (index .Params "scaleImage") false -}}
-              {{- $scaleImage = false -}}
-            {{- end -}}
-            {{- if ($image) | and $scaleImage -}}
-            {{- if in (slice "image/jpeg" "image/jpg" "image/png") (string $image.MediaType) -}}
-                {{- $imagePath = ($image.Resize "920x webp q100").RelPermalink -}}
-            {{- end -}}
-            {{- end -}}
-            <div class="w-100 h-100 post-hero__image" style="background-image: url('{{ $imagePath }}');">
+<!DOCTYPE html>
+<html>
+    {{- partial "head.html" . -}}
+    <body>
+        {{- partial "header.html" . -}}
+        <main class="main blog-page">
+          <section class="header-bg-stripes">
+            <div class="container">
+              <div class="row align-items-center justify-content-center page-header">
+                <div class="col-12 p-0 align-items-center text-center">
+                  <h2 class="section-title">Blog</h2>
+                </div>
+              </div>
+              <div class="row post-hero post__item">
+                {{- $scaleImage := true -}}
+                {{ range first 1 (where .Data.Pages "Type" "blog").ByDate.Reverse }}
+                  <div class="col-12 col-lg-6 order-first order-lg-last p-0">
+                    {{- $path := print "**/" .Params.postImage -}}
+                    {{- $image := resources.GetMatch $path -}}
+                    {{- $imagePath := path.Join "/media/splash/" .Params.postImage -}}
+                    {{- if eq (index .Params "scaleImage") false -}}
+                      {{- $scaleImage = false -}}
+                    {{- end -}}
+                    {{- if ($image) | and $scaleImage -}}
+                    {{- if in (slice "image/jpeg" "image/jpg" "image/png") (string $image.MediaType) -}}
+                        {{- $imagePath = ($image.Resize "920x webp q100").RelPermalink -}}
+                    {{- end -}}
+                    {{- end -}}
+                    <div class="w-100 h-100 post-hero__image" style="background-image: url('{{ $imagePath }}');">
+                    </div>
+                  </div>
+                  <div class="col-12 col-lg-6 order-last order-lg-first card post-hero__content p-0">
+                    <div class="card-body">
+                      <a href="{{ .Permalink }}" class="card-title post__title" aria-label="Read more about {{ .Title }}">
+                        <h2>{{ .Title }}</h2>
+                      </a>
+                      {{ partial "authors.html" (dict "context" . "with_date" true "message" "By")  }}
+                      <p  class="read-more">
+                        <a href="{{ .Permalink }}" aria-label="Read more about {{ .Title }}">Read more
+                          <svg class="btn-arrow__icon" viewBox="0 0 12 15">
+                            <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="/images/arrow.svg#arrow"></use>
+                          </svg>
+                        </a>
+                      </p>
+                    </div>
+                  </div>
+                {{ end }}
+              </div>
+              {{ partial "paginator.html" (.Paginate (after 1 (where .Data.Pages "Type" "blog").ByDate.Reverse)) }}
+              <div class="row justify-content-center pagination-wrap">
+                {{ template "_internal/pagination.html" . }}
+              </div>
             </div>
-          </div>
-          <div class="col-12 col-lg-6 order-last order-lg-first card post-hero__content p-0">
-            <div class="card-body">
-              <h2>
-                <a href="{{ .Permalink }}" class="card-title post__title" aria-label="Read more about {{ .Title }}">
-                  {{ .Title }}
-                </a>
-              </h2>
-              {{ partial "authors.html" (dict "context" . "with_date" true "message" "By")  }}
-              <p  class="read-more">
-                <a href="{{ .Permalink }}" aria-label="Read more about {{ .Title }}">Read more</a>
-              </p>
-            </div>
-          </div>
-        {{ end }}
-      </div>
-      {{ partial "paginator.html" (.Paginate (after 1 (where .Data.Pages "Type" "blog").ByDate.Reverse)) }}
-      <div class="row justify-content-center pagination-wrap">
-        {{ template "_internal/pagination.html" . }}
-      </div>
-    </div>
-  </section>
+          </section>
 
-</main>
+        </main>
 
-{{ partial "footer.html" .}}
+    {{- partial "footer.html" . -}}
+
+    {{ $common := resources.Get "js/common.js" }}
+
+    {{ $js := slice $common | resources.Concat "js/bundle.js" }}
+
+    <script src="{{ $js.Permalink }}"></script>
+    </body>
+</html>

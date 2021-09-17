@@ -1,0 +1,181 @@
+.footer {
+  background-color: $black;
+  color: $white;
+
+  > .container {
+    flex-direction: column;
+  }
+}
+
+.footer__socials {
+  display: inline;
+
+  > ul {
+    display: inline;
+  }
+
+  .mobile {
+    @include media-breakpoint-up(sm) {
+      display: none;
+    }
+  }
+
+  .desktop {
+    @include media-breakpoint-down(xs) {
+      display: none;
+    }
+  }
+
+  @include media-breakpoint-down(md) {
+    text-align: right;
+  }
+
+  @include media-breakpoint-up(md) {
+    text-align: left;
+  }
+}
+
+.footer__logo {
+  display: inline;
+
+  > a {
+    display: inline;
+  }
+
+  img {
+    height: 50px;
+    width: auto;
+  }
+
+  @include media-breakpoint-up(sm) {
+    margin-right: 60px;
+  }
+
+  @include media-breakpoint-up(xl) {
+    @include calcWidth (1440px, 1920px, 64px, 80px);
+  }
+}
+
+.footer__navigation {
+  display: flex;
+  justify-content: space-between;
+
+  > .row {
+    flex-wrap: nowrap;
+    width: 100%;
+  }
+}
+
+.footer-head {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+
+  @include media-breakpoint-down(sm) {
+    flex-direction: row;
+    margin-bottom: 60px;
+  }
+
+  @include media-breakpoint-down(xs) {
+    margin-bottom: 30px;
+  }
+}
+
+.footer-menu {
+  max-width: 760px;
+  display: flex;
+  justify-content: space-between;
+
+  @include media-breakpoint-up(xl) {
+    max-width: none;
+  }
+
+  @include media-breakpoint-down(sm) {
+    width: 100%;
+  }
+
+  @include media-breakpoint-down(xs) {
+    margin-right: 0;
+    flex-wrap: wrap;
+  }
+}
+
+.footer-menu__list {
+  list-style: none;
+}
+
+.footer-column__title {
+  font-size: 16px;
+  line-height: 1.14em;
+  font-weight: $font-weight-semi-bold;
+  color: $gray;
+  margin-bottom: 30px;
+  text-transform: uppercase;
+
+  a {
+    color: $gray;
+  }
+
+  @include media-breakpoint-up(xl) {
+    margin-bottom: 1.67em;
+  }
+
+  @include media-breakpoint-down(xs) {
+    text-transform: uppercase;
+    font-size: 16px;
+    font-weight: $font-weight-extra-bold;
+  }
+}
+
+.footer-menu__item {
+  font-size: 0.875em;
+}
+
+.footer-menu__link {
+  color: $white;
+  text-transform: capitalize;
+  transition: color 0.3s;
+
+  &:hover {
+    @include media-breakpoint-up(md) {
+      color: $flatcar-blue;
+    }
+  }
+}
+
+.footer__copy {
+  padding: 0;
+
+  @include media-breakpoint-up(xxl) {
+    padding: 2.3vw 0;
+  }
+
+  @include media-breakpoint-down(xs) {
+    padding: 20px 0 34px;
+  }
+
+  p {
+    font-size: 0.875rem;
+    line-height: 1.57em;
+
+    @include media-breakpoint-down(xs) {
+      font-size: 12px;
+    }
+  }
+}
+
+.footer__brand {
+  flex-wrap: nowrap;
+}
+
+.footer__copyright {
+  > p {
+    @include media-breakpoint-up(sm) {
+      text-align: right;
+    }
+
+    @include media-breakpoint-down(sm) {
+      text-align: center;
+    }
+  }
+}

@@ -1,0 +1,134 @@
+{{/* We cache this partial for bigger sites and set the active class client side. */}}
+
+{{ $shouldDelayActive := ge (len .Site.Pages) 2000 }}
+<div id="td-sidebar-menu" class="td-sidebar__inner{{ if $shouldDelayActive }} d-none{{ end }}">
+  {{ if not .Site.Params.ui.sidebar_search_disable }}
+  <form class="td-sidebar__search d-flex align-items-center text-center">
+    {{/* partial "search-input.html" . */}}
+    <button class="btn btn-link td-sidebar__toggle d-md-none p-0 ml-3 fas fa-bars" type="button" data-toggle="collapse" data-target="#td-section-nav" aria-controls="td-docs-nav" aria-expanded="false" aria-label="Toggle section navigation">
+    </button>
+    <button class="btn btn-link td-sidebar__toggle d-md-none p-0" type="button" data-toggle="collapse" data-target="#td-section-nav" aria-controls="td-docs-nav" aria-expanded="false" aria-label="Toggle section navigation">
+      <img src="/images/menu-swap-outline.svg" />
+    </button>
+  </form>
+  {{ end }}
+  <nav class="collapse td-sidebar-nav" id="td-section-nav">
+    {{ if  (gt (len .Site.Home.Translations) 0) }}
+    <div class="nav-item dropdown d-block d-lg-none">
+      {{ partial "navbar-lang-selector.html" . }}
+    </div>
+    {{ end }}
+    {{ $currentLang := "en" }}
+    {{ template "section-tree-nav-section" (dict "page" . "section" .FirstSection "delayActive" $shouldDelayActive "currentLang" $currentLang) }}
+  </nav>
+</div>
+{{ define "section-tree-nav-section" }}
+{{ $s := .section }}
+{{ $p := .page }}
+{{ $parent := .parent }}
+{{ $shouldDelayActive := .delayActive }}
+{{ $active := eq $p.CurrentSection $s }}
+{{ $show := or (eq $s $p.FirstSection) (and (not $p.Site.Params.ui.sidebar_menu_compact) ($p.IsDescendant $s)) }}
+{{ $sid := $s.RelPermalink | anchorize }}
+<ul class="td-sidebar-nav__section">
+  <li class="td-sidebar-nav__section-title">
+    {{ $link := $s.RelPermalink }}
+    {{ if $s.Params.sidebar.link }}
+      {{ $link = path.Join $s.RelPermalink $s.Params.sidebar.link }}
+    {{ end }}
+    {{ if not $parent }}
+      <a href="/docs">{{ $s.LinkTitle }}</a>
+    {{ else }}
+      <a  href="#{{ $sid }}" role="" data-toggle="collapse" class="align-left pl-0 pr-2{{ if not $show }} collapsed{{ end }}{{ if $active}} active{{ end }} td-sidebar-link td-sidebar-link__section">
+        {{ $title := default $s.Title $s.LinkTitle }}
+        {{ if $s.Params.use_dir_name | or $parent.Params.children_are_versions }}
+          {{ $title = partial "docs/dirversion" $s }}
+        {{ end }}
+
+        {{ $title }}
+        {{ if $s.Parent.Params.children_are_versions }}
+          <span style="margin-left: 1rem;" class="badge badge-pill badge-dark">{{ partial "docs/getcurrentversion" $s }}</span>
+        {{ end }}
+      </a>
+    {{ end }}
+  </li>
+  <li class="p-0">
+  <ul class="collapse {{ if $show }}show{{ end }}" id="{{ $sid }}">
+    {{ if $parent }}
+    <li class="show">
+      <a class="td-sidebar-link td-sidebar-link__page {{ if (eq $s $p) }} active{{ end }}" href="{{ $link }}">
+        Overview
+      </a>
+    </li>
+    {{ end }}
+    {{ $pages := where (union $s.Pages $s.Sections).ByWeight ".Params.toc_hide" "!=" true }}
+    {{ with site.Params.language_alternatives }}
+      {{ range . }}
+        {{ with (where $.section.Translations ".Lang" . ) }}
+          {{ $p := index . 0 }}
+          {{ $pages =  $pages | lang.Merge (union $p.Pages $p.Sections) }}
+        {{ end }}
+      {{ end }}
+    {{ end }}
+    {{ $pages := $pages | first 50 }}
+    {{ range $pages }}
+      {{ if .IsPage }}
+        {{/* Don't show page if there's no title */}}
+        {{ if .Title }}
+        {{ $mid := printf "m-%s" (.RelPermalink | anchorize) }}
+        {{ $active := eq . $p }}
+        {{ $isForeignLanguage := (ne (string .Lang) (string $.currentLang)) }}
+        <li class="show">
+          <a class="td-sidebar-link td-sidebar-link__page {{ if and (not $shouldDelayActive) $active }} active{{ end }}" id="{{ $mid }}" {{ if $isForeignLanguage }}target="_blank"{{ end }}  href="{{ .RelPermalink }}">
+            {{ .LinkTitle }}{{ if $isForeignLanguage }} <small>({{ .Lang | upper }})</small>{{ end }}
+          </a>
+        </li>
+        {{ end }}
+      {{ else }}
+        {{ $isSectionOpen := ($p.IsDescendant .)}}
+        {{/* If a section should be skipped, this means we show the children sections/pages instead */}}
+        {{ if .Params.sidebar.skip }}
+          {{ $subSections := slice }}
+          {{ $currentSection := . }}
+          {{ $allSubSections := (where (union .Pages .Sections).ByWeight ".Params.toc_hide" "!=" true) }}
+          {{ range $allSubSections }}
+            {{/* In "skip" sections, the children are only shown if they're open or their a first section */}}
+            {{ $isSectionOpen := ($p.IsDescendant .)}}
+            {{ if $isSectionOpen | or (eq . $p.FirstSection) }}
+              {{ $subSections = append . $subSections }}
+            {{ end }}
+          {{ end }}
+
+          {{/* If the subsections are empty, then we check if there's a subsection that is the latest version */}}
+          {{ if eq (len $subSections) 0 }}
+            {{ range $allSubSections }}
+              {{ if $currentSection.Params.external_docs }}
+                {{ $defaultVersion := partial "docs/getlatestversion" $currentSection }}
+                {{ $dirName := partial "docs/dirversion" . }}
+                {{ if eq $dirName $defaultVersion }}
+                  {{ $subSections = append . $subSections }}
+                {{ end }}
+              {{ end }}
+            {{ end }}
+          {{ end }}
+
+          {{/* If subsections are still empty, then we show this section */}}
+          {{ if eq (len $subSections) 0 }}
+            {{ $subSections = append . $subSections }}
+          {{ end }}
+          {{ range $subSections }}
+            <li class="p-0">
+              {{ template "section-tree-nav-section" (dict "page" $p "section" . "currentLang" $.currentLang "parent" $s ) }}
+            </li>
+          {{ end }}
+        {{ else }}
+          <li class="p-0">
+            {{ template "section-tree-nav-section" (dict "page" $p "section" . "currentLang" $.currentLang "parent" $s ) }}
+          </li>
+        {{ end }}
+      {{ end }}
+    {{ end }}
+  </ul>
+  </li>
+</ul>
+{{ end }}

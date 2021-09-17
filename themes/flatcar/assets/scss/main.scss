@@ -1,4 +1,36 @@
-@import "./flatcar.scss";
-@import "./blog-page.scss";
-@import "./article.scss";
-@import "./companies.scss";
+// This file is the main entry point for the Kinvolk theme.
+// brings in the bootstrap theme customizations + all the
+// theme specific files.
+@import "./mixins/mixins.scss";
+
+// Bring in our bootstrap customizations
+@import "./custom";
+
+@import "./fonts";
+
+@import "./search.scss";
+@import "./layouts.scss";
+@import "./buttons.scss";
+
+@import "./partials/companies.scss";
+@import "./partials/header.scss";
+@import "./partials/navbar.scss";
+@import "./partials/hero.scss";
+@import "./partials/quick-features.scss";
+@import "./partials/platform-cards.scss";
+@import "./partials/grid-statements.scss";
+@import "./partials/socials.scss";
+@import "./partials/standard.scss";
+@import "./partials/footer.scss";
+
+// Front page sections
+@import "./sections/section-hero.scss";
+@import "./sections/section-related-post.scss";
+@import "./sections/section-product.scss";
+@import "./sections/section-work-on.scss";
+@import "./sections/section-contact-us.scss";
+@import "./sections/section-docs.scss";
+
+@import "./pages/events-page.scss";
+@import "./pages/blog-page.scss";
+@import "./pages/article.scss";

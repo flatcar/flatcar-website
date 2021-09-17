@@ -1,0 +1,6 @@
+{{ define "unique-content" }}
+    <section>
+        {{ $support := where (where $.Site.RegularPages "Section" "products") ".Params.product_type" "=" "support" }}
+        {{ partial "cards-section.html" (dict "context" . "items" $support ) }}
+    </section>
+{{ end }}

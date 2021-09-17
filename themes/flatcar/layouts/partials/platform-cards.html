@@ -1,0 +1,48 @@
+{{ $platforms := .Params.platform_cards.platforms }}
+{{ $title := .Params.platform_cards.title }}
+{{ $description := .Params.platform_cards.description }}
+{{ if $platforms }}
+<section class="platform-cards">
+  <div class="container">
+    {{ if $title }}<h2 class="title">{{ $title }}</h2>{{ end }}
+    {{ if $description }}<div class="description">{{ $description | markdownify }}</div>{{ end }}
+    <div class="row justify-content-center mx-auto">
+      {{ range $platforms }}
+        <div class="col-12 col-md-auto col-lg-4 feature">
+          <div class="icon">
+          {{ if .link }}
+            <a href="{{ .link.url }}">
+          {{ end }}
+          {{ if .icon }}
+            <img src="/media/{{ .icon }}" alt="{{ .icon }}" />
+          {{ else }}
+            <h2 class="title">{{ (default .title .text) | markdownify }}</h2>
+          {{ end }}
+          {{ if .link }}
+            </a>
+          {{ end }}
+          </div>
+          <div class="card">
+          {{ if .title }}
+            <h2 class="title">{{ .title }}</h2>
+          {{ end }}
+          {{ if .text }}
+            <p class="text">{{ .text | markdownify }}</p>
+          {{ end }}
+          {{ if .features }}
+            <ul class="features">
+              {{ range .features }}
+                <li style="background-image: url(/images/icon-{{ default "list-check" .icon }}.svg);">{{ .text }}</li>
+              {{ end }}
+            </ul>
+            {{ if .link }}
+            <a href="{{ .link.url }}" class="read-more">{{ default "Read more" .link.text }}</a>
+            {{ end }}
+          {{ end }}
+          </div>
+        </div>
+      {{ end }}
+    </div>
+  </div>
+</section>
+{{ end }}

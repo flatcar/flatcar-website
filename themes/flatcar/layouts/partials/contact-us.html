@@ -1,0 +1,40 @@
+{{/* Parameters in .Params: */}}
+{{/*   contact.message -> the message to show, in markdown */}}
+{{/*   contact.simple -> shows a button if true, otherwise shows the full form */}}
+{{/*   contact.header -> the header/title to show on top of the form; not used if `simple` is true */}}
+
+{{ $contact := .Params.contact }}
+{{ $kinvolk := $.Site.Data.company.metadata }}
+
+{{ if $contact.simple }}
+<section class="section-contact-us-simple lines-above">
+  <div class="container">
+    <div class="row justify-content-center align-items-center">
+      {{ if $contact.message }}
+        <div class="col-12 col-md-6 message">
+          {{ $contact.message | markdownify }}
+        </div>
+      {{ end }}
+      <div class="col-12 {{ if $contact.message }}col-md-6{{ end }} text-center">
+        <a class="btn btn-blue" href="{{ ($.Site.GetPage "contact-us").Permalink }}">{{ default "Contact us" $contact.header }}</a>
+      </div>
+    </div>
+  </div>
+</section>
+{{ else }}
+<section class="section-contact-us">
+  <div class="container">
+    <div class="row justify-content-center">
+      {{ if $contact.message }}
+        <div class="col-12 col-md-6 message text-center">
+          {{ $contact.message | markdownify }}
+        </div>
+      {{ end }}
+      <div class="col-12 {{ if $contact.message }}col-md-6{{ end }} form-wrap">
+        <h2>{{ default "Contact us" $contact.header }}</h2>
+        <p>You can reach us at <a href="mailto:{{ $kinvolk.email }}">{{ $kinvolk.email }}</a></p>
+      </div>
+    </div>
+  </div>
+</section>
+{{ end }}

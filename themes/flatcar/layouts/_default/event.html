@@ -1,0 +1,16 @@
+{{ define "unique-content" }}
+        <div class="container">
+            <div class="row align-items-center justify-content-center event-row">
+                {{ if .Params.flickr }}
+                    <div class="col-12">
+                        <a data-flickr-embed="true"  href="{{ .Params.flickr }}" title="{{ .Title }}">
+                        <img src="{{ .Params.thumbnail }}" width="640" alt="{{ .Title }}">
+                        </a>
+                    </div>
+                {{ end }}
+                <div class="col-12 text-center">
+                    <a href="{{ .Params.link }}" class="btn btn-blue">Website</a>
+                </div>
+            </div>
+        </div>
+{{ end }}

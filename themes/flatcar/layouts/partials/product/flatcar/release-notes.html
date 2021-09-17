@@ -1,0 +1,38 @@
+{{ $ctx := .ctx }}
+{{ $pkgs := .pkgs }}
+{{ range $i, $release := sort .chan "github_release.published_at" "desc" }}
+{{ if ne $release.release "current" }}
+<div class="row">
+  <div class="col-12 col-md-auto">
+    <a class="btn btn-black" id="release-{{ $release.version }}" href="#release-{{ $release.version }}">{{ $release.version }}</a>
+  </div>
+  <div class="col-12 col-md mt-3">
+    <p class="date small">Release Date: {{ dateFormat "Jan 2, 2006" $release.github_release.published_at }}&nbsp;
+      <span class="ml-1">
+        {{ range $j, $arch := $release.architectures }}
+        {{ if ne $release.channel "lts" }}
+          <a class="arch font-weight-light" href="https://{{ $release.channel }}.release.flatcar-linux.net/{{ $arch }}-usr/{{ $release.version }}/">{{ $arch }}</a>
+        {{ else }}
+          <span class="arch font-weight-light">{{ $arch }}</span>
+        {{ end }}
+        {{ end }}
+      </span>
+    </p>
+  </div>
+  <div class="col-12 mt-3">
+      <div class="small packages mb-3">
+        {{ range $i, $ver := sort $release.image_packages "" }}
+        <span class="font-weight-bold">{{ index $pkgs $i }}</span> - {{ $ver }}<br/>
+        {{ end }}
+      </div>
+      <div class="release-notes">
+          {{ $release.github_release.body | markdownify }}
+      </div>
+      <div class="release-separator">
+        <hr/>
+      </div>
+  </div>
+</div>
+{{ end }}
+{{ end }}
+

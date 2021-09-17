@@ -1,0 +1,147 @@
+{{ define "unique-content" }}
+  {{ $styles := .Params.style }}
+  {{ $channels := .Params.channels }}
+  {{ $section := .Section }}
+
+<section class="releases">
+  <article class="article">
+    <div class="container">
+      <h2 class="text-center mb-5 mt-3">Release Channels</h2>
+      <div class="card-deck-wrapper">
+        <div class="card-columns align-items-stretch">
+          {{ range $i, $channel := $channels }}
+          {{ $chan := index $.Site.Data.releases $channel.name }}
+          <div class="card {{ default "" $channel.style }}">
+              <div class="card-header align-middle p-3">
+                  <div class="row">
+                    <div class="col">
+                      <h5 class="d-inline">
+                        <a href="#{{ $chan.current.channel }}-release" style="border-bottom: none; box-shadow: none;"
+                          onclick="javascript:$('#{{ $chan.current.channel }}-release-tab').click(); $(document).scrollTop($('#release-tabs').offset().top);">
+                              {{ $channel.title }}
+                        </a>
+                      </h5>
+                    </div>
+                    <div class="col text-right align-bottom pt-1">
+                      <span class="version">{{ $chan.current.version }}</span>
+                    </div>
+                  </div>
+                  <div class="pull-left text-left">
+                  {{ range $j, $arch := $chan.current.architectures }}
+                  {{ if ne $chan.current.channel "lts" }}
+                    <a class="arch small font-weight-light" href="https://{{ $chan.current.channel }}.release.flatcar-linux.net/{{ $arch }}-usr/current/">
+                      {{ $arch }}</a>
+                  {{ else }}
+                    <span class="arch small font-weight-light">{{ $arch }}</span>
+                  {{ end }}
+                  {{ end }}
+                  </div>
+                  <div>
+                    <span class="release-date">
+                      Release Date: <span class="font-weight-light">{{ dateFormat "Jan 2, 2006" $chan.current.github_release.published_at }}</span>
+                    </span>
+                  </div>
+              </div>
+              <div class="card-body p-3">
+                <p>{{ $channel.description }}</p>
+              </div>
+              <div class="card-footer p-3">
+                  {{ range $pkg, $ver := $chan.current.image_packages }}
+                    {{ $.Scratch.SetInMap "pkgPkgMap" $pkg $pkg }}
+                  {{ end }}
+                  {{ $pkgSorted := $.Scratch.GetSortedMapValues "pkgPkgMap" }}
+                  {{ $.Scratch.Delete "pkgPkgMap" }}
+                  {{ range $i, $ver := sort $chan.current.image_packages "" }}
+                  <span class="font-weight-bold">{{ index $pkgSorted $i }} -<span class="font-weight-light"> {{ $ver }}</span><br/>
+                  {{ end }}
+              </div>
+          </div>
+          {{ end }}
+        </div>
+      </div>
+
+      <div class="row justify-content-center py-3 py-lg-5">
+        <div class="col-12 text-center">
+          <a href="/releases-feed/releases.xml" class="feed-button button btn btn-black mt-2"><span class="fa fa-rss"></span> ATOM feed (all releases)</a>
+          <a href="/releases-json/releases.json" class="feed-button button btn btn-black mt-2"><span class="fa"></span> JSON feed (all releases)</a>
+        </div>
+      </div>
+    </div>
+    <div class="notes-area">
+      <div class="container">
+        <div class="row">
+          <div class="text-center w-100 py-4 py-lg-6">
+            <h2>Release Notes</h2>
+          </div>
+
+          <div class="mt-3">
+            <ul class="nav nav-tabs" id="release-tabs">
+                {{ range $i, $channel := $channels }}
+                {{ $chan := index $.Site.Data.releases $channel.name }}
+                <li class="nav-item">
+                    <a class="nav-link {{ if eq $chan.current.channel "stable" }}active{{ end }}" id="{{ $chan.current.channel }}-release-tab"
+                      data-toggle="tab" href="#{{ $chan.current.channel }}-release"
+                      aria-controls="{{ $chan.current.channel }}-release"
+                      {{ if eq $chan.current.channel "stable" }}aria-current="page"{{ end }}
+                      >
+                        {{ $channel.title }} Channel
+                    </a>
+                </li>
+                {{ end }}
+
+            </ul>
+            <div class="release-list">
+              <div class="tab-content p-3" id="release-tabs-content">
+                  {{ range $i, $channel := $channels }}
+                  {{ $chan := index $.Site.Data.releases $channel.name }}
+                  <div class="tab-pane fade {{ if eq $chan.current.channel "stable" }} active show {{ end }}" id="{{ $chan.current.channel }}-release"
+                      role="tabpanel" aria-labelledby="{{ $chan.current.channel }}-release-tab">
+                      <div style="text-align: right;">
+                      <a href="/{{ $section }}/releases-feed/releases-{{ $chan.current.channel }}.xml" class="small" style="box-shadow: 0 0 0 white; border: none;"><span class="fa fa-rss"></span> ATOM feed ({{ $channel.title }})</a>
+                      <a href="/{{ $section }}/releases-json/releases-{{ $chan.current.channel }}.json" class="small" style="box-shadow: 0 0 0 white; border: none;"><span class="fa"></span> JSON feed ({{ $channel.title }})</a>
+                      </div>
+                      {{ range $pkg, $ver := $chan.current.image_packages }}
+                      {{ $.Scratch.SetInMap "pkgPkgMap" $pkg $pkg }}
+                      {{ end }}
+                      {{ $pkgSorted := $.Scratch.GetSortedMapValues "pkgPkgMap" }}
+                      {{ partial "product/flatcar/release-notes.html" (dict "ctx" . "chan" $chan "pkgs" $pkgSorted) }}
+                      {{ $.Scratch.Delete "pkgPkgMap" }}
+                  </div>
+                  {{ end }}
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+</div>
+</article>
+</section> <!-- container -->
+
+<script>
+window.onload = function(){
+  var anchor = $(location).attr("hash").substring(1);
+  var elem = $(document.getElementById(anchor)); // Directly $(id) does not work
+  if (!elem.is(":visible")) {
+    if (anchor.startsWith("release")) {
+      var tab_name = elem.parent().parent().parent().attr("aria-labelledby");
+      $("#" + tab_name).tab("show");
+      setTimeout(function() {
+        $(document).scrollTop(elem.offset().top);
+      }, 200);
+    }
+    if (anchor.endsWith("release")) {
+      $("#" + anchor + "-tab").tab("show");
+      setTimeout(function() {
+        $(document).scrollTop($("#release-tabs").offset().top);
+      }, 200);
+    }
+  }
+}
+</script>
+
+{{ end }}
+
+{{ define "bottom" }}
+    {{ partial "product/product-bottom" . }}
+{{ end }}

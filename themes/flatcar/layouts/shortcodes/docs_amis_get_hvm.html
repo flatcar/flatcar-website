@@ -1,0 +1,10 @@
+{{- $channel_name := .Get 0 -}}
+{{- $ami_name := .Get 1 -}}
+{{- $channel_data := .Page.Param (print "data." $channel_name "_channel") -}}
+{{- $hvm := "" -}}
+{{- range $region := $channel_data.amis -}}
+    {{- if $region.name | eq $ami_name -}}
+        {{- $hvm = $region.hvm -}}
+    {{- end -}}
+{{- end -}}
+{{- $hvm -}}

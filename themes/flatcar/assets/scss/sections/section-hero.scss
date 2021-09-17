@@ -1,0 +1,218 @@
+.section-hero {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  padding-top: 50px;
+  padding-bottom: 0;
+
+  @include media-breakpoint-down(md) {
+    padding-top: 22px;
+  }
+
+  .container > .row {
+    position: relative;
+  }
+
+  .section-hero__banner {
+    padding-bottom: 50px;
+
+    @include media-breakpoint-down(xs) {
+      padding-bottom: 70px;
+    }
+  }
+
+  .section-hero__content {
+    padding-left: 40px !important;
+    padding-right: 10px !important;
+
+    @include media-breakpoint-down(md) {
+      padding-left: 0 !important;
+    }
+
+    @include media-breakpoint-down(xs) {
+      margin-right: 0;
+    }
+  }
+
+  .section-hero__title {
+    position: relative;
+    text-align: center;
+    margin-bottom: 0.72em;
+    width: 95%;
+    margin-left: auto;
+    margin-right: auto;
+    color: $white;
+    font-size: 3rem;
+
+    @include media-breakpoint-down(xs) {
+      text-transform: inherit;
+    }
+
+    @include media-breakpoint-down(md) {
+      font-size: 2.5rem;
+    }
+
+    .quotes {
+      position: absolute;
+      top: 0;
+      left: 0;
+      transform: translate(-100%, -100%);
+      width: 40px;
+      min-width: 40px;
+
+      @include media-breakpoint-down(md) {
+        transform: translate(0, -100%);
+        padding-bottom: 18px;
+      }
+    }
+
+    .quotes > svg {
+      display: block;
+      width: 100%;
+      height: auto;
+      fill: $flatcar-blue;
+    }
+  }
+
+  .section-hero__image {
+    position: relative;
+    min-width: 180px;
+    height: 300px;
+
+    @include media-breakpoint-down(xs) {
+      display: none;
+    }
+
+    img {
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      margin: auto;
+      transform: translateY(-5%);
+      width: 100%;
+      height: 100%;
+      padding-left: 40px !important;
+
+      @include media-breakpoint-down(md) {
+        transform: translateY(-25%);
+      }
+    }
+  }
+
+  .section-companies {
+    position: relative;
+    background: $black;
+    padding: 20px 0px;
+
+    @include media-breakpoint-down(xs) {
+      padding: 30px 0;
+    }
+
+    > .container {
+      max-width: 960px;
+
+      @include media-breakpoint-up(xl) {
+        max-width: none;
+        @include calcWidth (1440px, 1920px, 960px, 1250px);
+      }
+
+      > .row {
+        flex-wrap: nowrap;
+
+        @include media-breakpoint-down(xs) {
+          flex-wrap: wrap;
+        }
+      }
+    }
+  }
+
+  .section-companies__title {
+    position: relative;
+    display: flex;
+    align-items: center;
+    font-weight: $font-weight-light;
+    font-size: 0.75rem;
+    color: rgba($white, 0.8);
+    min-width: 19.17em;
+    flex-shrink: 0;
+    padding-left: 86px !important;
+
+    @include media-breakpoint-down(xs) {
+      margin-bottom: 30px;
+      padding-left: 0 !important;
+      padding-top: 60px !important;
+      justify-content: center;
+      text-align: center;
+    }
+
+    &:before {
+      content: "";
+      display: block;
+      position: absolute;
+      left: 0;
+      top: 0;
+      bottom: 0;
+      margin: auto;
+      width: 28px;
+      height: 28px;
+      background: $flatcar-blue;
+      transform: rotate(-45deg);
+      box-shadow: 18px 18px 0 0 $white;
+
+      @include media-breakpoint-up(xl) {
+        width: 2.33em;
+        height: 2.33em;
+        box-shadow: 1.5em 1.5em 0 0 $white;
+      }
+
+      @include media-breakpoint-down(xs) {
+        transform: rotate(-45deg) translateY(-100%);
+        right: 0;
+      }
+    }
+  }
+
+  .section-companies__list {
+    margin-bottom: 0;
+    flex-wrap: nowrap !important;
+
+    @include media-breakpoint-down(sm) {
+      flex-wrap: wrap !important;
+    }
+
+    @include media-breakpoint-down(xs) {
+      flex-wrap: wrap;
+    }
+  }
+
+  .section-companies__item {
+    display: flex;
+    align-items: center;
+
+    img {
+      width: 100%;
+      height: auto;
+    }
+  }
+
+  .section-products {
+    margin-top: 64px;
+    width: 90%;
+
+    .product {
+      text-align: center;
+
+      img {
+        height: 50px;
+        width: auto;
+      }
+
+      p {
+        font-weight: bold;
+        font-size: 1rem;
+        color: $white;
+        padding: 5%;
+      }
+    }
+  }
+}

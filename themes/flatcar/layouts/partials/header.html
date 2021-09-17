@@ -1,13 +1,48 @@
-{{ partial "head.html" . }}
-<div class="container">
-  {{ partial "navbar.html" . }}
-</div>
-    <!-- Page Headder -->
-    <header class="intro-header">
-      <div id="jumbotron">
-        <div class="container">
-          <h1 class="title">{{ .Title }}</h1>
-          <h2 class=subtitle>{{ .Description }}</h2>
-        </div>
+{{ $use_news_stripe := false }}
+{{ $news_stripe := merge .Site.Params.news_stripe (default (dict) .Params.news_stripe) }}
+{{ if $news_stripe }}
+  {{ $urlPath := urls.Parse .Permalink }}
+  {{ $noShowOn := default (slice) $news_stripe.no_show_on }}
+  {{ if not (in $noShowOn $urlPath.Path) }}
+    {{ if ge (time $news_stripe.expiration).Unix now.Unix }}
+      {{ $use_news_stripe = true }}
+    {{ end }}
+  {{ end }}
+{{ end }}
+
+<header class="header {{ if $use_news_stripe }}header-with-news-stripe{{ end }} {{ default "" .Params.header_class }}">
+  {{ if $use_news_stripe }}
+  {{ $stripe_style := $news_stripe.style }}
+  <div class="w-100 news_stripe {{ $stripe_style.class }}" style="{{ if $stripe_style.bgcolor }}background-color: {{$stripe_style.bgcolor}};{{ end }} {{ if $stripe_style.fgcolor }}color: {{$stripe_style.fgcolor}};{{ end }}">
+    <div class="container">
+      <div class="row">
+        <span>
+          {{ with $news_stripe }}
+            {{ .text|markdownify }}
+          {{ end }}
+        </span>
       </div>
-    </header>
+    </div>
+  </div>
+  {{ end }}
+  <div class="container">
+    <div class="row">
+      {{/* Use "navbar_class=dark" in the front-matter for the dark theme menus. */}}
+      <nav class="w-100 p-0 navbar navbar-expand-md justify-content-md-between {{ default "" .Params.navbar_class }}">
+
+        <a href="{{ .Site.BaseURL }}" class="navbar-brand">
+            {{ partial "logo.html" . }}
+        </a>
+
+        <button aria-label="Toggle navigation bar" class="navbar-toggler p-0 mobile-menu" type="button" data-toggle="collapse" data-target="#navbarToggler">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div id="navbarToggler" class="collapse navbar-collapse justify-content-end header__navigation">
+            {{ partial "navbar.html" . }}
+        </div>
+
+      </nav>
+    </div>
+  </div>
+</header>

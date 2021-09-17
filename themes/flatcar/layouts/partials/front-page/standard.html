@@ -1,0 +1,12 @@
+<section class="fstandard py-7">
+  <div class="container">
+    <div class="text-center section-header mx-auto">
+        {{ if .heading }}<h4 class="heading">{{ .heading }}</h4>{{ end }}
+        {{ if .title }}<h2 class="title">{{ .title }}</h2>{{ end }}
+        <p class="description">{{ .text }}</p>
+    </div>
+    {{ with .cta }}
+    <a href="{{ .link }}" class="btn btn-lg btn-blue">{{ .text }}</a>
+    {{ end }}
+  </div>
+</section>

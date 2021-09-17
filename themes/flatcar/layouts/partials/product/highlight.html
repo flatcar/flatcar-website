@@ -1,0 +1,91 @@
+{{ $styles := .Params.style }}
+{{ $bg_image := printf `<svg xmlns="http://www.w3.org/2000/svg" width="1803" height="1071" viewBox="0 0 1803 1071"><path fill="%s" d="M218,66L1803,0V1071H0Z" /></svg>` $styles.accent.bgcolor }}
+{{ $logo_bg := default "product-bg-2" .Params.logo_bg_img }}
+{{/* Load the SVG file and replace the colors */}}
+{{ $svg_contents := (printf "themes/kinvolk/static/images/%s.svg" $logo_bg) | readFile | safeHTML }}
+{{ $svg_contents = replace $svg_contents  "__main_fill__" $styles.bgcolor }}
+{{ $productId := .File.BaseFileName }}
+
+<div
+  id="{{ $productId }}"
+  class="section-product"
+  style="background-color: {{ $styles.bgcolor }}; color: {{ $styles.fgcolor }}; background-image: url('data:image/svg+xml;base64,{{ $bg_image | base64Encode }}');"
+>
+    <div class="container">
+      <div class="row justify-content-between mx-auto section-top p-0">
+        <div
+          class="col-12 col-lg-6 p-0"
+        >
+          <div class="section-product-image" style="background-image: url('data:image/svg+xml;base64,{{ $svg_contents | safeHTML | base64Encode }}');">
+            <img src={{ .Params.logo }} role="presentation" alt="" />
+          </div>
+        </div>
+        <div class="col-12 col-lg-6 section-content">
+          <h2>{{ .Title }}</h2>
+          <p>{{ .Description }}</p>
+          <div class="w-100 justify-content-center mt-4 section-link">
+            <a
+              href="{{ .Permalink }}"
+              class="btn btn-md"
+              style="background-color: {{ $styles.accent.fgcolor }}"
+              {{ if .Params.cta_aria_label }}aria-label="{{ .Params.cta_aria_label }}"{{ end }}
+            >
+              {{ .Params.cta }}
+              {{ if .Params.Link | findRE "github.com"}}
+                <img src="/images/github.png" alt="github" />&nbsp;
+              {{ end }}
+            </a>
+          </div>
+        </div>
+      </div>
+      {{ with .Params.Highlights }}
+      <div class="row section-feature justify-content-center">
+        <div class="col-12 p-0">
+          <div class="row align-items-center justify-content-center d-none d-md-flex mt-6">
+              {{ range . }}
+              <div class="col-12 col-md-6 col-lg-4">
+                <div class="card">
+                  {{ if .icon }}
+                  <div class="card-header">
+                    <img src="/images/icon-{{ .icon }}.svg" role="presentation" alt="" />
+                  </div>
+                  {{ end }}
+                  <div class="card-body">
+                      <h5 class="card-title">{{ .title }}</h5>
+                      {{ if .description }}<p class="card-description">{{ .description | markdownify }}</p>{{ end }}
+                  </div>
+                </div>
+              </div>
+              {{ end }}
+          </div>
+          <div class="row no-gutters d-none d-block d-md-none mt-5">
+            <div id="productCarousel-{{ $productId }}" class="carousel slide" data-ride="carousel">
+              <ol class="carousel-indicators">
+                {{ range $index,$item := . }}
+                  <li data-target="#productCarousel-{{ $productId }}" data-slide-to="{{ $index }}" class="{{ if eq $index 0 }}active{{ end }}"></li>
+                {{ end }}
+              </ol>
+              <div class="carousel-inner">
+                {{ range $index,$item := . }}
+                  <div class="carousel-item {{ if eq $index 0 }}active{{ end }}">
+                    <div class="card">
+                      {{ if .icon }}
+                      <div class="card-header">
+                        <img src="/images/icon-{{ .icon }}.svg" role="presentation" alt="" />
+                      </div>
+                      {{ end }}
+                      <div class="card-body">
+                          <h5 class="card-title">{{ $item.title }}</h5>
+                          {{ if .description }}<p class="card-description">{{ $item.description | markdownify }}</p>{{ end }}
+                      </div>
+                    </div>
+                  </div>
+                {{ end }}
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      {{ end }}
+    </div>
+</div>

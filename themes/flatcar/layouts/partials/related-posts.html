@@ -1,0 +1,47 @@
+<div class="article__related">
+    {{ $page_link := .Permalink }}
+    {{ $posts := (where $.Site.Pages "Type" "blog").ByPublishDate.Reverse }}
+    {{ $tags := default (slice) .Params.tags }}
+    {{ $latestPosts := where $posts "Permalink" "!=" $page_link }}
+    {{ $postsToDisplay := (slice) }}
+    {{ $title := "Related Articles" }}
+    {{ range $latestPosts }}
+        {{ if intersect $tags .Params.tags | len | lt 0  }}
+        {{ $postsToDisplay = $postsToDisplay | append . }}
+        {{ end }}
+    {{ end }}
+    {{ if not $postsToDisplay }}
+        {{ $postsToDisplay = $latestPosts }}
+        {{ $title = "Latest Posts" }}
+    {{ end }}
+    <h2 class="col-12 text-center">{{ $title }}</h2>
+    <div class="container">
+        <div class="row justify-content-center">
+        {{ range (first 2 $postsToDisplay) }}
+            <div class="col-12 col-sm-6 col-lg-4 mb-4">
+            <div class="card mx-auto">
+                {{- $path := print "**/" .Params.postImage -}}
+                {{- $image := resources.GetMatch $path -}}
+                {{- $imagePath := path.Join "/media/" .Params.postImage -}}
+                {{- if $image -}}
+                {{- if in (slice "image/jpeg" "image/jpg" "image/png") (string $image.MediaType) -}}
+                    {{- $imagePath = ($image.Resize "318x webp q100").RelPermalink -}}
+                {{- end -}}
+                {{- end -}}
+                <a href="{{ .Permalink }}">
+                    <img src="{{ $imagePath }}" class="card-img-top" alt="post image">
+                </a>
+                <div class="card-body">
+                <p class="card-date">
+                    {{ .Params.publishDate.Format "Jan 2, 2006" }}
+                </p>
+                <a href="{{ .RelPermalink }}" class="article__related-title">
+                    <h6 class="card-title">{{ .Title | markdownify }}</h6>
+                </a>
+                </div>
+            </div>
+            </div>
+        {{ end }}
+        </div>
+    </div>
+</div>

@@ -1,0 +1,243 @@
+.header {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  width: 100%;
+  margin: 0 auto;
+  display: block;
+  min-height: 70px;
+  z-index: 10;
+
+  .news_stripe {
+    background-color: #ffe000;
+    color: $black;
+    font-size: .8em;
+    padding: .5em 0;
+    font-weight: bold;
+    line-height: normal;
+
+    a {
+      color: $gray-800;
+      text-decoration: underline;
+      white-space: nowrap;
+    }
+  }
+
+  .news_stripe.text-light {
+    color: $white;
+
+    a {
+      color: $gray-400;
+    }
+  }
+
+  .news_stripe.text-dark {
+    color: $black;
+
+    a {
+      color: $gray-800;
+    }
+  }
+
+  &:after {
+    display: block;
+    content:"";
+    background: red;
+  }
+}
+
+header {
+  &.blackbg {
+    background: $black;
+  }
+}
+
+main > *.header-bg-stripes:first-child {
+  background: url(/images/hero-stripe-bg.png) #262626;
+  width: 100%;
+  left: 0;
+  z-index: -1;
+  color: $white;
+}
+
+main > *:first-child {
+  padding-top: 150px;
+}
+
+main > *.header-bg-grid:first-child {
+  background:
+    url(/images/hero-triangle.svg) calc(-600px + 5%) -350px no-repeat,
+    url(/images/hero-plus.svg) right 150px / calc(100px + 5%) auto no-repeat,
+    linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(0,0,0,0) 25%, rgba(0,0,0,0) 75%, rgba(0,0,0,1) 100%),
+    url(/images/grid.svg)
+    $black;
+  // We need to have it begin at height-of-screen above the beginning because
+  // of the mobile version's menu, which will scroll it all the way down.
+  // i.e. if we don't have it above the screen for the length of its height,
+  // it will not look good when sliding the mobile menu.
+  left: 0;
+  z-index: -1;
+
+  @include media-breakpoint-up(xl) {
+    background:
+      url(/images/hero-triangle.svg) calc(-550px + 15%) -350px no-repeat,
+      url(/images/hero-plus.svg) right 150px / calc(150px + 5%) auto no-repeat,
+      linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(0,0,0,0) 25%, rgba(0,0,0,0) 75%, rgba(0,0,0,1) 100%),
+      url(/images/grid.svg)
+      $black;
+  }
+
+  @include media-breakpoint-down(md) {
+    background:
+      linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(0,0,0,0) 25%, rgba(0,0,0,0) 75%, rgba(0,0,0,1) 100%),
+      url(/images/grid.svg)
+      $black;
+  }
+}
+
+main > *.header-bg-flatcar-2:first-child {
+  background:
+    url(/images/flatcar-hero-2-bg.svg) center center / auto 100% repeat-x,
+    #000;
+  left: 0;
+  z-index: -1;
+}
+
+main > *.header-bg-flatcar:first-child {
+  background:
+    url(/images/flatcar-hero-left.svg) calc(100% / 2 - 650px) calc(100% / 2 + 100px) no-repeat,
+    url(/images/flatcar-hero-right.svg) calc(100% / 2 + 700px) calc(100% / 2 + 100px)  no-repeat,
+    url(/images/flatcar-hero-bg.svg) center bottom / auto 100% repeat-x,
+    #12172c;
+  // We need to have it begin at height-of-screen above the beginning because
+  // of the mobile version's menu, which will scroll it all the way down.
+  // i.e. if we don't have it above the screen for the length of its height,
+  // it will not look good when sliding the mobile menu.
+  left: 0;
+  z-index: -1;
+}
+
+main > *.header-bg-lokomotive:first-child {
+  background:
+    url(/images/lokomotive-hero-left.svg) calc(100% / 2 - 650px) calc(100% / 2 + 20px) no-repeat,
+    url(/images/lokomotive-hero-right.svg) calc(100% / 2 + 650px) calc(100% / 2 + 36px)  no-repeat,
+    url(/images/lokomotive-hero-bg.svg) center bottom no-repeat,
+    #ecd31f;
+  // We need to have it begin at height-of-screen above the beginning because
+  // of the mobile version's menu, which will scroll it all the way down.
+  // i.e. if we don't have it above the screen for the length of its height,
+  // it will not look good when sliding the mobile menu.
+  left: 0;
+  z-index: -1;
+}
+
+main > *.header-bg-docs:first-child {
+  background:
+    url(/images/docs-hero-left.svg) calc(100% / 2 - 650px) 140px no-repeat,
+    url(/images/docs-hero-right.svg) calc(100% / 2 + 650px) 140px  no-repeat,
+    linear-gradient(180deg, $black 0, $black 500px, $white 500px);
+  // We need to have it begin at height-of-screen above the beginning because
+  // of the mobile version's menu, which will scroll it all the way down.
+  // i.e. if we don't have it above the screen for the length of its height,
+  // it will not look good when sliding the mobile menu.
+  left: 0;
+  z-index: -1;
+}
+
+main > *.header-bg-triangles:first-child {
+  background-color: $flatcar-bg-blue;
+  background-position: left bottom;
+  background-size: 100% auto;
+}
+
+.header__navigation {
+  margin-top: -8px;
+}
+
+.header__navigation {
+  @include media-breakpoint-down(sm) {
+    text-align: center;
+    margin-top: 60px;
+  }
+
+  &.collapsing {
+    background: $black;
+  }
+}
+
+.header__link {
+  margin-left: 72px;
+
+  @include media-breakpoint-down(lg) {
+    margin-left: 60px;
+  }
+
+  @include media-breakpoint-down(md) {
+    margin-left: 3.3vw;
+  }
+
+  @include media-breakpoint-down(sm) {
+    margin-left: 0;
+    margin-top: 78px;
+    padding: 1.38em 5.58em;
+    background: $flatcar-blue;
+    font-size: 16px;
+  }
+
+  @include media-breakpoint-down(xs) {
+    width: 100%;
+  }
+}
+@include media-breakpoint-down(sm) {
+  body.mobile-menu_open {
+    .header {
+      position: fixed;
+      height: 100%;
+      background: $black;
+      overflow: hidden auto;
+    }
+
+    .header-bg-stripes:after {
+      content: "";
+      background: none;
+    }
+
+    .dropdown-menu {
+      transition: all 0s;
+    }
+
+    .mobile-menu {
+      background: $black;
+      height: 20px;
+
+      > span {
+        width: 24px;
+        transform: rotate(45deg) translate(-2px, 0px);
+        top: 50%;
+        background: $white;
+
+        &:before {
+          transform: scaleX(0);
+        }
+
+        &:after {
+          transform: rotate(90deg) translate(-1px, 0px);
+          top: 50%;
+          background: $white;
+          box-shadow: none;
+        }
+      }
+    }
+  }
+}
+
+.header-with-news-stripe + main > *:first-child {
+  padding-top: 180px;
+}
+
+.header-with-news-stripe {
+  .navbar {
+    margin-top: 0;
+  }
+}

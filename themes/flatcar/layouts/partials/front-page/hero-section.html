@@ -1,0 +1,29 @@
+<section class="section-hero header-bg-grid">
+  <div class="section-hero__banner">
+    <div class="container">
+      <div class="section-hero__content">
+          <h2 class="section-hero__title">
+            {{ safeHTML .Params.hero.copy }}
+          </h2>
+      </div>
+    </div>
+    <div class="container">
+      <div class="row section-products mx-auto">
+        {{ range .Params.hero.highlights }}
+          <div class="col-12 col-sm-6 col-lg-3 product">
+            {{ if .link }}
+            <a href={{ .link }}>
+            {{ end }}
+            <img src="/images/{{ .image }}" alt="{{ .title }}"/>
+            {{ if .link }}
+            </a>
+            {{ end }}
+            <p style="color: {{ .color }}">
+              {{ .text }}
+            </p>
+          </div>
+        {{ end }}
+      </div>
+    </div>
+  </div>
+</section>

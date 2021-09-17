@@ -1,0 +1,41 @@
+<div class="docs-reader">
+<ul class="nav nav-tabs" id="licensesTab">
+  {{ range $i, $channel := $.Site.Data.licenses.info.flatcar.channels }}
+    {{ $active := $i | eq 0 }}
+    <li class="nav-item">
+      <a class="nav-link {{ if $active }}active{{ end }}" id="{{ $channel }}-tab" data-toggle="tab" href="#{{ $channel }}" aria-controls="{{ $channel }}" aria-current="page">{{ $channel }}</a>
+    </li>
+  {{ end }}
+  </li>
+</ul>
+<div class="tab-content" id="licensesTabContent">
+  {{ range $i, $channel := $.Site.Data.licenses.info.flatcar.channels }}
+    {{ $active := $i | eq 0 }}
+    {{ $licenses := (index $.Site.Data.licenses (print "flatcar-licenses-" $channel)) }}
+
+    <div class="tab-pane fade {{ if $active }}show active{{ end }}" id="{{ $channel }}" role="tabpanel" aria-labelledby="{{ $channel }}-tab">
+      {{ if not $licenses }}
+        <p>Something is missing…</p>
+        {{ if (getenv "NETLIFY_PREVIEW_BUILD") }}<p>(This can be because it's a website build preview)</p>{{ end }}
+      {{ else }}
+      <table class="table">
+        <thead>
+          <tr>
+            <th scope="col">Component</th>
+            <th scope="col">License(s)</th>
+          </tr>
+        </thead>
+        <tbody>
+          {{ range $licenses }}
+          <tr>
+            <td>{{ .project }}</td>
+            <td>{{ .licenses }}</td>
+          </tr>
+          {{ end }}
+        </tbody>
+      </table>
+      {{ end }}
+    </div>
+  {{ end }}
+</div>
+</div>

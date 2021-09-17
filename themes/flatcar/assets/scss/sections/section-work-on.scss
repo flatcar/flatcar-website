@@ -1,0 +1,114 @@
+.section-content__list {
+  margin-top: 68px !important;
+
+  @include media-breakpoint-down(xs) {
+    margin-top: 64px !important;
+  }
+}
+
+.content-card {
+  .card__icon {
+    height: 80px;
+    width: auto;
+  }
+
+  .card-text {
+    margin-bottom: 22px;
+
+    @include media-breakpoint-down(xs) {
+      margin-bottom: 30px;
+    }
+  }
+
+  .card-title {
+    font-weight: $font-weight-semi-bold;
+  }
+
+  .card-text {
+    font-weight: $font-weight-light;
+  }
+}
+
+.section-content__list {
+  position: relative;
+
+  .section-content__item {
+    position: static;
+
+    @include media-breakpoint-down(sm) {
+      padding: 0;
+    }
+  }
+
+  .section-content__item + .section-content__item {
+    @include media-breakpoint-down(sm) {
+      margin-top: 60px;
+      padding: 0;
+    }
+  }
+
+  .section-content__item:nth-child(2n) {
+    @include media-breakpoint-up(md) {
+      &:before {
+        content: '';
+        display: block;
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        margin: auto;
+        width: 1px;
+        height: 84%;
+        background: #dddddd;
+      }
+    }
+  }
+}
+
+.section-work-on {
+  .section-header {
+    @include media-breakpoint-down(xs) {
+      text-align: left !important;
+    }
+  }
+
+  .section-header h2 {
+    position: relative;
+    padding-top: 64px;
+
+    @include media-breakpoint-up(sm) {
+      &:before {
+        content: '';
+        display: block;
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        margin: auto;
+        width: 48px;
+        height: 48px;
+        background: url("/images/decor-shape.svg") no-repeat center;
+        background-size: contain;
+      }
+    }
+
+    @include media-breakpoint-down(xs) {
+      padding-left: 38px;
+      padding-top: 0;
+
+      &:before {
+        content: '';
+        display: block;
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 20px;
+        height: 20px;
+        background: url("/images/square-decor.svg") no-repeat center;
+        background-size: contain;
+        transform: translateY(0.2em);
+      }
+    }
+  }
+}

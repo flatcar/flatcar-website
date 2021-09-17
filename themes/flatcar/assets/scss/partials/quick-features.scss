@@ -1,0 +1,83 @@
+.quick-features {
+  padding-bottom: 60px;
+  text-align: center;
+
+  @include media-breakpoint-down(md) {
+    padding-bottom: 60px;
+  }
+
+  .title {
+    font-size: 2.5rem;
+
+    @include media-breakpoint-down(md) {
+      font-size: 2rem;
+    }
+  }
+
+  .description {
+    max-width: 700px;
+    font-size: 1.2rem;
+    margin: 0 auto 44px auto;
+
+    @include media-breakpoint-down(md) {
+      font-size: 1.2rem;
+    }
+  }
+
+  .row {
+    @include media-breakpoint-up(lg) {
+      width: 80%;
+    }
+  }
+
+  .feature {
+    @include media-breakpoint-down(md) {
+      margin-bottom: 44px;
+    }
+
+    .title, .text {
+      text-align: center;
+      max-width: 250px;
+      margin-left: auto;
+      margin-right: auto;
+      font-size: 1.1rem;
+      font-weight: normal;
+
+      a {
+        color: $flatcar-blue;
+      }
+    }
+
+    .title {
+      font-size: large;
+      font-weight: bold;
+    }
+
+    .text {
+      font-size: smaller;
+    }
+
+    .quick-features-on-shape {
+      background-position: center bottom;
+      background-repeat: no-repeat;
+      text-align: center;
+      height: 100px;
+
+      img {
+        margin-top: 0;
+        max-height: 70px;
+        width: auto;
+      }
+
+      .text, .title {
+        font-size: 1.3rem;
+        font-weight: bold;
+        max-width: 150px;
+      }
+    }
+
+    .quick-features-on-shape + h2 {
+      margin-top: 32px;
+    }
+  }
+}
