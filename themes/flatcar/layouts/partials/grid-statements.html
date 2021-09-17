@@ -1,0 +1,22 @@
+{{ $gridStatements := .Params.grid_statements }}
+{{ $title := $gridStatements.title }}
+{{ if $gridStatements }}
+<section class="grid-statements">
+  <div class="container">
+    <div class="row">
+      <h2 class="title mx-auto">{{ $title }}</h2>
+    </div>
+    <div class="row">
+      {{ range $gridStatements.statements }}
+        <div class="col col-12 py-4 col-md-6">
+          <div class="card shadow-lg rounded border">
+            <div class="card-body">
+              {{ . | markdownify }}
+            </div>
+          </div>
+        </div>
+      {{ end }}
+    </div>
+  </div>
+</section>
+{{ end }}

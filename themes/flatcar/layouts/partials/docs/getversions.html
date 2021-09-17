@@ -1,0 +1,13 @@
+{{ $parent := .Parent }}
+{{ $sections := slice }}
+{{ with $parent }}
+  {{ if .Params.children_are_versions }}
+    {{ $sections = append .Sections $sections }}
+  {{ else }}
+    {{ if .Parent }}
+      {{ $sections = partial "docs/getversions" . }}
+    {{ end }}
+  {{ end }}
+{{ end }}
+
+{{ return $sections }}

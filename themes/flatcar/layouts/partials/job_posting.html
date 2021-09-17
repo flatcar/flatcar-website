@@ -1,0 +1,15 @@
+    <!-- Post Content -->
+    <article>
+        <div class="container">
+            <div class="row">
+                {{ if ne .Title "Careers" }}<div class="article-header">
+                    <h1>{{ .Title }}</h1>
+                </div>
+                {{ end }}
+                <div>
+                  {{ .Content }}
+                </div>
+            </div>
+        </div>
+    </article>
+

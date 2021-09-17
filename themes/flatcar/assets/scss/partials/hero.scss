@@ -1,0 +1,54 @@
+.banner {
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: -1;
+  padding-bottom: 100px;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+
+  h1 {
+    font-size: 3.5rem;
+    font-family: 'Overpass Mono';
+
+    @include media-breakpoint-down(md) {
+      font-size: xxx-large;
+    }
+  }
+
+  h2 {
+    font-size: 1.4rem;
+    font-weight: normal;
+    margin-left: auto;
+    margin-right: auto;
+
+    @include media-breakpoint-up(lg) {
+      max-width: 500px;
+    }
+  }
+
+  .hero-icon {
+    max-height: 120px;
+    width: auto;
+
+    @include media-breakpoint-down(md) {
+      max-width: 100%;
+    }
+  }
+
+  .hero-button {
+    margin-top: 22px;
+  }
+}
+
+.content {
+  font-size: 1.5rem;
+  margin-top: 25px;
+}
+
+.section-image {
+  @include media-breakpoint-down(sm) {
+    margin-bottom: 68px;
+  }
+}

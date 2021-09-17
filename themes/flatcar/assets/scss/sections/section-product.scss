@@ -1,0 +1,852 @@
+.section-product {
+  padding-top: 120px;
+  background-repeat: no-repeat;
+  background-position: center top;
+  background-size: cover;
+  color: $white;
+
+  &:last-child {
+    padding-bottom: 120px;
+  }
+
+  @include media-breakpoint-down(md) {
+    padding-top: 100px;
+    padding-bottom: 100px;
+  }
+
+  .row {
+    margin-left: auto;
+    margin-right: auto;
+
+    @include media-breakpoint-up(md) {
+      width: 90%;
+    }
+  }
+
+  .card-body {
+    padding: 20px 0px 0px;
+  }
+
+  .btn:hover {
+    background-color: #fff;
+  }
+
+  .card-title {
+    margin-bottom: 20px;
+  }
+
+  .card__index {
+    display: inline-flex;
+    width: 32px;
+    height: 32px;
+    background: $flatcar-blue;
+    color: $white;
+    font-weight: $font-weight-semi-bold;
+    margin: auto;
+    justify-content: center;
+    align-items: center;
+    line-height: 0;
+  }
+
+  .btn {
+    @include media-breakpoint-down(xs) {
+      font-size: 13px;
+    }
+  }
+
+  .section-product-image {
+    background-repeat: no-repeat;
+    background-size: auto 100%;
+    background-position: center center;
+    text-align: center;
+    height: 100%;
+    display: flex;
+    padding-top: 44px;
+    padding-bottom: 44px;
+    margin-bottom: 22px;
+
+    @include media-breakpoint-down(md) {
+      padding-top: 0 !important;
+      padding-bottom: 0 !important;
+    }
+
+    img {
+      width: 50%;
+      margin-left: auto;
+      margin-right: auto;
+
+      @include media-breakpoint-down(md) {
+        margin-top: 7%;
+        max-height: 150px;
+      }
+    }
+  }
+
+  .section-content {
+    @include media-breakpoint-down(md) {
+      padding-top: 44px;
+      padding-right: 0;
+      padding-left: 0;
+    }
+  }
+
+  .section-top {
+    min-height: 300px;
+  }
+
+  .section-link {
+    text-align: left;
+  }
+
+  .section-feature {
+    text-align: center;
+
+    .card-header {
+      img {
+        height: 40px;
+      }
+    }
+  }
+
+  .carousel-inner {
+    .card-description {
+      min-height: 150px;
+    }
+  }
+}
+
+// This transform is so we invert the background horizontally:
+// We invert everything (so the bg gets inverted), and then we invert the children
+// again (so they get transformed back into their regular state).
+.section-product:nth-child(even) {
+  transform: scaleX(-1);
+}
+
+.section-product:nth-child(even) > * {
+  transform: scaleX(-1);
+}
+
+.section-product:nth-child(odd) {
+  .section-content {
+    @include media-breakpoint-up(lg) {
+      order: -1;
+    }
+  }
+}
+
+.products {
+  .companies {
+    .title {
+      width: 100%;
+      color: $black;
+      font-size: 2rem;
+    }
+  }
+
+  :not(nav) + .quick-features-separator {
+    &:before {
+      content: "";
+      height: 140px;
+      display: block;
+      background: url(/images/separator-blue.svg) center top repeat-x;
+    }
+  }
+
+  .section-product {
+    padding-bottom: 0;
+
+    .row {
+      margin-left: auto;
+      margin-right: auto;
+
+      @include media-breakpoint-up(md) {
+        width: 100%;
+      }
+    }
+
+    .container {
+      @include media-breakpoint-up(lg) {
+        width: 70%;
+      }
+    }
+
+    .section-feature {
+      text-align: left;
+
+      .card-header {
+        img {
+          width: auto;
+          height: 50px;
+        }
+      }
+
+      .card-title {
+        font-size: 1.5rem;
+        font-weight: normal;
+      }
+    }
+
+    .section-product-image {
+      background-repeat: no-repeat;
+      background-size: auto 100%;
+      background-position: center center;
+      text-align: center;
+      height: 100%;
+      display: flex;
+      padding-top: 44px;
+      padding-bottom: 44px;
+      margin-bottom: 22px;
+
+      img {
+        width: 80%;
+        height: 350px;
+        max-height: 100%;
+        margin-left: auto;
+        margin-right: auto;
+
+        @include media-breakpoint-down(md) {
+          margin-top: 7%;
+          max-height: 150px;
+        }
+      }
+    }
+
+    .section-content {
+      h2 {
+        font-size: 3.2rem;
+
+        @include media-breakpoint-down(md) {
+          font-size: xx-large;
+        }
+      }
+    }
+
+    &:last-child:after {
+      content: "";
+      display: block;
+      height: 350px;
+      background: url(/images/features-bottom-pattern.svg) center calc(100% + 1px) repeat-x;
+    }
+  }
+
+  .comparison-table {
+    $tableColor: #09BAC8;
+    background-color: $flatcar-bg-blue;
+    color: $white;
+    font-size: smaller;
+    text-align: center;
+    padding-bottom: 0;
+
+    a {
+      color: $flatcar-blue;
+      text-decoration: underline;
+    }
+
+    h2.title {
+      color: $tableColor;
+    }
+
+    .table-bottom {
+      margin-top: 64px;
+      font-weight: 700;
+      font-size: large;
+      max-width: 60%;
+
+      @include media-breakpoint-down(md) {
+        max-width: 80%;
+      }
+
+      @include media-breakpoint-down(sm) {
+        max-width: 100%;
+      }
+    }
+
+    .table-header {
+      background-color: $tableColor;
+      color: $black;
+
+      tr {
+        min-height: 45px;
+        height: 45px;
+      }
+    }
+
+    tr {
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+      min-height: 55px;
+      height: 55px;
+
+      @include media-breakpoint-down(sm) {
+        font-size: small;
+      }
+
+      td:first-child {
+        text-align: left;
+
+        @include media-breakpoint-up(sm) {
+          max-width: 45%;
+          width: 45%;
+        }
+      }
+
+      td:not(:first-child) {
+        color: $tableColor;
+      }
+    }
+
+    td {
+      .icon {
+        max-height: 20px;
+      }
+    }
+
+    td, th {
+      padding-right: 24px;
+
+      @include media-breakpoint-down(md) {
+        padding-right: 15px;
+      }
+
+      @include media-breakpoint-down(sm) {
+        padding-right: 5px;
+      }
+    }
+
+    &:after {
+      content: "";
+      display: block;
+      height: 350px;
+      background: url(/images/features-bottom-pattern-white.svg) center calc(100% + 1px) repeat-x;
+    }
+  }
+
+  .pricing-table {
+    background-color: #F6F6F7;
+    padding-bottom: 64px;
+    color: $black;
+    font-size: smaller;
+    text-align: center;
+
+    a {
+      color: $flatcar-blue;
+      text-decoration: underline;
+    }
+
+    .description {
+      font-size: large;
+      padding-bottom: 22px;
+      margin-bottom: 0;
+
+      @include media-breakpoint-up(md) {
+        max-width: 80%;
+        padding-bottom: 64px;
+      }
+    }
+
+    .table-bottom {
+      margin-top: 64px;
+      font-weight: 700;
+      font-size: normal;
+      max-width: 80%;
+
+      @include media-breakpoint-down(md) {
+        max-width: 100%;
+        margin-top: 0;
+      }
+    }
+
+    .table-header {
+      background-color: $black;
+      color: $white;
+
+      tr {
+        min-height: 45px;
+        height: 45px;
+      }
+    }
+
+    tr {
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+      min-height: 55px;
+      height: 55px;
+
+      td:first-child {
+        text-align: left;
+      }
+      td:not(:first-child) {
+        text-align: center;
+      }
+    }
+
+    td {
+      .icon {
+        max-height: 20px;
+      }
+
+      border-bottom: 1px solid rgba(224, 223, 223, 1);
+    }
+
+    td, th {
+      padding-right: 24px;
+      padding-left: 24px;
+
+      @include media-breakpoint-down(md) {
+        padding-right: 15px;
+      }
+
+      @include media-breakpoint-down(sm) {
+        padding-right: 5px;
+      }
+    }
+  }
+}
+
+.product-features {
+  padding-bottom: 0;
+}
+
+.support {
+  .container {
+    width: 90%;
+    max-width: 1200px;
+  }
+
+  .text-side {
+    @include media-breakpoint-up(md) {
+      margin-top: 50px;
+      max-width: 70%;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    @include media-breakpoint-up(xl) {
+      max-width: 100%;
+    }
+  }
+
+  .card {
+    padding: 16px;
+    min-height: 120px;
+
+    // This if for being able to align vertically to the center
+    .row {
+      min-height: 88px;
+    }
+
+    .card-body {
+      padding: 0;
+
+      p {
+        margin: 0;
+      }
+
+      .support-icon {
+        max-height: 25px;
+      }
+    }
+
+    @include media-breakpoint-up(lg) {
+      margin-left: auto;
+      max-width: 380px;
+    }
+  }
+
+  .title {
+    margin: 64px 0 22px 0;
+    text-align: center;
+    color: $flatcar-blue;
+    font-size: 2.7rem;
+
+    @include media-breakpoint-down(md) {
+      font-size: 2rem;
+    }
+  }
+
+  .support-screenshot {
+    width: 100%;
+    max-width: 633px;
+  }
+}
+
+.subproduct {
+  color: $white;
+  text-align: center;
+  padding-top: 70px;
+
+  .subproduct-title {
+    font-size: 2.8rem;
+
+    @include media-breakpoint-down(md) {
+      font-size: 2rem;
+    }
+  }
+
+  .subproduct-description {
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+
+    a {
+      color: inherit;
+      font-weight: bolder;
+      text-decoration: underline;
+    }
+  }
+
+  .subproduct-bottom-text {
+    font-size: 1rem;
+    color: white;
+
+    img {
+      height: 1.8rem;
+      margin: 0;
+      padding: 0 6px;
+      width: auto;
+    }
+  }
+
+  .subproduct-screenshot {
+    img {
+      width: auto;
+      max-width: 100%;
+    }
+  }
+}
+
+.resources {
+  padding: 120px 0;
+
+  .resources-header {
+    text-align: center;
+    padding-bottom: 44px;
+
+    .resources-title {
+      font-size: 2.5rem;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .resources-description {
+      font-size: 1.2rem;
+      color: $gray-700;
+      margin-left: auto;
+      margin-right: auto;
+    }
+  }
+
+  .resource-title {
+    font-size: 1.2rem;
+    text-transform: uppercase;
+    margin-bottom: 0;
+
+    img {
+      max-height: 20px;
+      max-width: 32px;
+      margin: 0;
+      padding: 0;
+      display: inline;
+    }
+  }
+
+  .resource-description {
+    font-size: large;
+  }
+
+  .card {
+    background: $gray-100;
+    padding: 22px;
+    height: 100%;
+    text-align: center;
+
+    .card-body {
+      padding-top: 12px;
+
+      a {
+        color: $flatcar-blue;
+        text-decoration: underline;
+      }
+    }
+  }
+
+  .gray-text-left {
+    .card {
+      text-align: left;
+    }
+  }
+
+  .white {
+    .resource-title {
+      text-transform: none;
+    }
+
+    .card {
+      background-color: $white;
+      text-align: left;
+    }
+
+    .col-md-auto {
+      max-width: 40%;
+    }
+  }
+
+  .big-card {
+    padding: 64px 44px 44px 44px;
+  };
+}
+
+.page-menus {
+  background-color: $gray-100;
+  margin-top: 0;
+  padding: .5rem 1rem !important;
+
+  .menu-button {
+    font-size: x-large;
+
+    &:hover {
+      color: $gray-700;
+    }
+  }
+
+  ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+
+    .nav-item {
+      display: inline;
+      font-size: 18px;
+      width: auto;
+
+      @include media-breakpoint-down(md) {
+        font-size: x-large;
+      }
+
+      &:before {
+        background: $flatcar-blue;
+      }
+
+      .nav-link {
+        color: $black;
+        text-transform: none;
+        font-weight: 700;
+      }
+
+      &.active {
+        a {
+          color: $flatcar-blue !important;
+        }
+      }
+    }
+
+    .nav-item + .nav-item {
+      margin: 0;
+
+      @include media-breakpoint-up(sm) {
+        margin-left: 2em;
+      }
+
+      @include media-breakpoint-up(lg) {
+        margin-left: 5em;
+      }
+    }
+  }
+}
+
+.releases {
+  $gray-text: #717171;
+  $border-color: #DEE2E6;
+
+  .article {
+    a {
+      color: $flatcar-darker-blue;
+    }
+  }
+
+  h2 {
+    @include media-breakpoint-down(sm) {
+      font-size: xx-large;
+    }
+  }
+
+  .card {
+    border: 1px solid $border-color;
+
+    .card-header {
+      background-color: #F6F6F7;
+
+      h5 {
+        font-size: 1.5em;
+      }
+
+      .version {
+        font-size: .9em;
+        font-weight: bolder;
+        color: $gray-text;
+      }
+
+      a.arch {
+        color: inherit;
+        text-decoration: underline;
+
+        &:hover {
+          color: $flatcar-blue;
+        }
+      }
+
+      .release-date {
+        font-size: .8rem;
+        font-weight: bolder;
+        color: $gray-text;
+      }
+    }
+
+    .card-body {
+      min-height: 260px;
+
+      p {
+        font-size: .8em;
+        color: #474747;
+      }
+    }
+
+    .card-footer {
+      border-top: 1px solid $border-color;
+      font-size: 0.7em;
+    }
+  }
+
+  .special {
+    background-color: $gray-100;
+    .card-header {
+      border-bottom: 1px solid $gray-400;
+    }
+  }
+
+  .feed-button {
+    min-width: 315px;
+  }
+
+  .card-columns {
+    column-count: 1;
+
+    @include media-breakpoint-up(md) {
+      column-count: 2;
+    }
+
+    @include media-breakpoint-up(lg) {
+      column-count: 4;
+    }
+  }
+
+  .notes-area {
+    $dark-text: #474747;
+    background-color: #F6F6F7;
+    padding-left: auto;
+    padding-right: auto;
+
+    ul.nav-tabs {
+      border-bottom: 1px solid #dee2e6;
+      padding-left: auto;
+      padding-right: auto;
+      max-width: 1200px;
+
+      li {
+        margin-right: 50px;
+
+        a {
+          color: $dark-text;
+
+          &:hover {
+            text-decoration: none;
+          }
+
+          &.nav-link {
+            border: none;
+            background: none;
+            text-transform: none;
+            font-size: 1.5em;
+            font-weight: normal;
+          }
+
+          &.active {
+            font-weight: bold;
+            color: $flatcar-darker-blue;
+            border-bottom: 2px solid $flatcar-blue;
+          }
+
+          &:hover {
+            border-bottom: 2px solid $flatcar-blue;
+          }
+        }
+      }
+
+      .nav-item {
+        margin-top: 0;
+        margin-left: auto;
+        margin-right: auto;
+        text-align: center;
+
+        @include media-breakpoint-down(sm) {
+          min-width: 40%;
+          max-width: 40%;
+          white-space: nowrap;
+          margin-left: 5%;
+          margin-right: 5%;
+          padding-left: 0;
+          padding-right: 0;
+
+          a {
+            text-overflow: ellipsis;
+          }
+        }
+
+        @include media-breakpoint-down(sm) {
+          max-width: 25%;
+        }
+      }
+    }
+
+    a.btn {
+      text-decoration: none;
+    }
+
+    a.arch {
+      text-decoration: underline;
+      color: $black;
+
+      &:hover {
+        color: $flatcar-blue;
+      }
+    }
+
+    p.date {
+      color: $gray-text;
+    }
+
+    .packages {
+      color: $dark-text;
+    }
+
+    .release-list {
+      h2 {
+        font-size: x-large;
+      }
+
+      .release-notes {
+        color: $dark-text;
+        overflow-wrap: anywhere;
+      }
+
+      .release-separator {
+        margin-top: 34px;
+        margin-bottom: 44px;
+
+        hr {
+          width: 80%;
+          border-top: 1px solid $gray-400;
+        }
+      }
+    }
+  }
+}
+
+

@@ -1,0 +1,85 @@
+.section-contact-us, .section-contact-us-simple {
+  .form-wrap {
+    padding-left: 0;
+
+    @include media-breakpoint-up(md) {
+      max-width: 500px;
+    }
+  }
+
+  .message {
+    text-align: center;
+    color: $gray-500;
+
+    h1 {
+      color: $black;
+      font-size: 2rem;
+    }
+
+    h2 {
+      color: $gray-800;
+      font-size: 1.8rem;
+    }
+
+    h3 {
+      color: $gray-600;
+      font-size: 1.6rem;
+    }
+
+    ul {
+      list-style: none;
+    }
+  }
+
+  .form__error-message {
+    color: $red;
+  }
+
+  input, textarea {
+    &::placeholder {
+      color: $gray-700;
+    }
+  }
+
+  .after-input-message {
+    width: 100%;
+    text-align: right;
+
+    p {
+      color: $gray-600;
+      padding: 0;
+      margin: 0;
+      font-size: .9rem;
+    }
+  }
+}
+
+.section-contact-us-simple {
+  .row {
+    width: 80%;
+    margin: 0 auto 0 auto;
+  }
+
+  .message {
+    @include media-breakpoint-up(md) {
+      max-width: 800px;
+      text-align: left;
+    }
+
+    h1 {
+      font-size: 2.5rem;
+
+      @include media-breakpoint-down(md) {
+        font-size: 2rem;
+      }
+    }
+
+    h2 {
+      font-size: 2.2rem;
+    }
+
+    h3 {
+      font-size: 2rem;
+    }
+  }
+}

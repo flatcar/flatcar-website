@@ -1,0 +1,27 @@
+.socials__list {
+  font-size: 0;
+}
+
+.socials__item {
+  font-size: 35px;
+  line-height: 0;
+
+  a {
+    display: block;
+  }
+}
+
+.socials__link:hover {
+  .socials__icon {
+    @include media-breakpoint-up(md) {
+      fill: $flatcar-blue;
+    }
+  }
+}
+
+.socials__icon {
+  width: 32px;
+  height: 32px;
+  fill: $white;
+  transition: fill 0.3s;
+}

@@ -1,0 +1,108 @@
+.platform-cards {
+  padding-bottom: 120px;
+  text-align: center;
+
+  .row {
+    width: 100%;
+  }
+
+  @include media-breakpoint-down(md) {
+    padding-bottom: 60px;
+  }
+
+  .title {
+    font-size: 2.5rem;
+
+    @include media-breakpoint-down(md) {
+      font-size: 2rem;
+    }
+  }
+
+  .icon {
+    max-height: 70px;
+    margin-bottom: 44px;
+
+    img {
+      max-width: 80%;
+      max-height: 54px;
+      max-width: auto;
+      width: auto;
+    }
+  }
+
+  .description {
+    max-width: 700px;
+    font-size: 1.2rem;
+    margin: 0 auto 44px auto;
+
+    @include media-breakpoint-down(md) {
+      font-size: 1.2rem;
+    }
+  }
+
+  .feature {
+    @include media-breakpoint-down(md) {
+      margin-bottom: 64px;
+    }
+
+    .title, .text {
+      text-align: center;
+      max-width: 250px;
+      margin-left: auto;
+      margin-right: auto;
+      font-size: 1.1rem;
+      font-weight: normal;
+
+      a {
+        color: $flatcar-blue;
+      }
+    }
+
+    .title {
+      font-size: large;
+      font-weight: bold;
+    }
+
+    .text {
+      font-size: smaller;
+    }
+
+    .card {
+      border: 1px solid rgba(222, 226, 230, 1);
+      padding: 24px;
+      box-shadow: 0px 0px 48px 0px rgba(0, 0, 0, 0.17);
+      font-size: smaller;
+      font-weight: 400;
+      text-align: left;
+      min-height: 80%;
+      max-width: 350px;
+      margin-left: auto;
+      margin-right: auto;
+
+      @include media-breakpoint-up(sm) {
+        padding: 32px;
+      }
+
+      ul {
+        text-align: left;
+        list-style: none;
+        padding: 0;
+
+        li {
+          padding-left: 35px;
+          background-position: left 3px;
+          background-repeat: no-repeat;
+          margin-bottom: 12px;
+          max-width: 80%;
+        }
+      }
+
+      a.read-more {
+        color: $flatcar-blue;
+        font-weight: 700;
+        text-decoration: underline;
+        margin-left: 35px;
+      }
+    }
+  }
+}

@@ -1,0 +1,74 @@
+{{ $menuName := default (.Site.GetPage "section" .Section).Params.menuName .Params.menuName }}
+{{ if $menuName }}
+{{ $menus := index .Site.Menus $menuName }}
+{{ if $menus }}
+{{ $pageID :=  replace (replace .File.Path "/" "-") "." "-" | urlize }}
+
+<nav class="navbar navbar-expand-sm navbar-light bg-light page-menus">
+  <div class="d-sm-none w-100 text-right">
+    <button class="btn btn-link td-sidebar__toggle p-0" type="button" data-toggle="collapse" data-target="#{{ $pageID }}" aria-controls="{{ $pageID }}" aria-expanded="false" aria-label="Toggle section navigation">
+      <span class="menu-button">Menu <img src="/images/menu-swap-outline.svg" /></span>
+    </button>
+  </div>
+  <ul id="{{ $pageID }}" class="collapse navbar-nav align-items-center mx-auto d-sm-flex">
+    {{ $currentPage := . }}
+    {{ range $menus }}
+        {{ if .HasChildren }}
+            <li class="nav-item dropdown">
+
+              <a href="{{ .URL }}" class="nav-link dropdown-toggle">
+                {{ .Name }}
+                <span class="navbar__link-underline"></span>
+              </a>
+
+              {{ $scratch := newScratch }}
+              {{ range .Children }}
+                {{ $scratch.Add "itemLogo" .Pre }}
+              {{ end }}
+
+                <div class="dropdown-menu row {{ if (gt (len ($scratch.Get "itemLogo")) 0) }}dropdown-menu_lg{{ end }}">
+                    {{ if .Pre }}
+                      <div class="dropdown-item-pre" style="color: white">
+                        {{ .Pre|markdownify }}
+                      </div>
+                    {{ end }}
+                    <div {{ if (gt (len ($scratch.Get "itemLogo")) 0) }}class="d-md-flex"{{ end }}>
+                      {{ range $index, $elem := .Children }}
+                        {{ $careers := $.GetPage "careers" }}
+                        {{ if ($careers.Params.hiring) | or (not (eq $elem.Identifier "careers")) }}
+                        <a href="{{ $elem.URL }}" class="dropdown-item">
+                          {{ if gt (len .Pre) 0 }}
+                          <div class="dropdown-item__icon">
+                            {{ $elem.Pre }}
+                          </div>
+                          {{ end }}
+                          <div class="dropdown-item__description">
+                            <div class="dropdown-item__title">{{ $elem.name }}</div>
+                            {{ with  $elem.Title }}
+                            <p class="dropdown-item__text">{{ $elem.Title }}</p>
+                            {{ end }}
+                          </div>
+                        </a>
+                        {{ end }}
+                      {{ end }}
+                    </div>
+                    {{ if .Post }}
+                      <div class="dropdown-item-post " style="color: white">
+                        {{ .Post|markdownify }}
+                      </div>
+                    {{ end }}
+                </div>
+            </li>
+        {{ else }}
+            <li class="nav-item {{ if $currentPage.IsMenuCurrent $menuName . }}active{{ end }}">
+                <a href="{{ .URL }}" class="nav-link">
+                  {{ .Name }}
+                  <span class="navbar__link-underline"></span>
+                </a>
+            </li>
+        {{ end }}
+    {{ end }}
+  </ul>
+</nav>
+{{ end }}
+{{ end }}

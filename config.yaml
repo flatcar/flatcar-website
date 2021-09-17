@@ -4,13 +4,11 @@ canonifyurls: true
 paginate: 8
 theme: flatcar
 languageCode: en-us
-copyright: © Kinvolk GmbH
+copyright: Copyright © Microsoft Corporation
 pluralizelisttitles: 'false'
-author:
-  name: Chris Kuehl
-assetDir: static
 permalinks:
   blog: "/blog/:year/:month/:title/"
+
 params:
   DateForm: 'Jan 2, 2006'
   Description: Flatcar Container Linux website
@@ -20,11 +18,29 @@ params:
   social:
     - title: twitter
       url: 'https://twitter.com/flatcar_linux'
+      image: 'twitter-icon'
     - title: github
       url: 'https://github.com/flatcar-linux'
-blackfriday:
-  extensions:
-    - noEmptyLineBeforeBlock
+      image: 'github-icon'
+  favicon: "/media/brand-logo.svg"
+
+
+pygmentsCodefences: true
+pygmentsCodefencesGuessSyntax: true
+pygmentsStyle: "vs"
+
+markup:
+  defaultMarkdownHandler: goldmark
+  goldmark:
+    renderer:
+      unsafe: true
+
+assetDir: static
+
+privacy:
+  youtube:
+    privacyEnhanced: true
+
 menu:
   main:
     - name: FAQ
@@ -35,16 +51,15 @@ menu:
       url: /security
       identifier: security
       weight: -50
-  left:
     - name: Blog
       url: /blog
       identifier: blog
-      weight: -250
-    - name: Docs
-      url: https://kinvolk.io/docs/flatcar-container-linux/latest
-      identifier: docs
-      weight: -200
+      weight: -500
     - name: Releases
       url: /releases
       identifier: releases
-      weight: -0
+      weight: -400
+    - name: Docs »
+      url: https://kinvolk.io/docs/flatcar-container-linux/latest
+      identifier: docs
+      weight: -200

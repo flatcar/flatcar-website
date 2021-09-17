@@ -1,0 +1,11 @@
+{{ $channel_name := .Get 0 }}
+{{ $context := . }}
+{{ $channels := slice (dict "name" (print $channel_name "_channel" ) "arch" "amd64") (dict "name" (print $channel_name "_channel" "_arm" ) "arch" "arm64") }}
+{{ range $channel := $channels }}
+    {{ $params := ($context.Page.Param (print "data." $channel.name))}}
+    {{ if $params.amis }}
+        {{ if gt (len $params.amis) 0 }}
+        <a href="https://{{ $channel_name }}.release.flatcar-linux.net/{{ $channel.arch }}-usr/current/flatcar_production_ami_all.json"><span class="fa fa-rss"></span>{{ $channel.arch }}</a>
+        {{ end }}
+    {{ end }}
+{{ end }}

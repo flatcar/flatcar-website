@@ -1,0 +1,35 @@
+{{ $section := .Site.GetPage "section" .Section }}
+{{ $mergeHero := $section.Params.hero.merge }}
+
+{{ $hero := dict }}
+{{ if $mergeHero }}
+  {{ $hero = default (dict) $section.Params.hero }}
+{{ end }}
+
+{{ $hero = merge $hero (default (dict) .Params.hero) }}
+
+{{ $styles := $hero.style }}
+{{ $title := index $hero "title" }}
+{{ if eq $title nil }}
+  {{ $title = default .Title $hero.title }}
+{{ end }}
+{{ $description := default .Description $hero.description }}
+<section
+  class="banner {{ default "header-bg-flatcar" $styles.class }}"
+  style="background-color: {{ default "#12172c" $styles.bgcolor }}; color: {{ default "#fff" $styles.fgcolor }}"
+>
+  <div class="container">
+      <div class="row justify-content-between">
+          <div class="col-12">
+              {{ if $hero.icon }}
+                <img class="hero-icon" src="/images/{{ $hero.icon }}" alt="Flatcar Logo">
+              {{ end }}
+              <h1>{{ $title }}</h1>
+              <h2 {{ if $styles.descriptioncolor }}style="color: {{ $styles.descriptioncolor }}"{{ end }}>{{ $description }}</h2>
+              {{ if $hero.button }}
+                  <a class="hero-button btn {{ default "btn-blue" $hero.button.class }}" href="{{ $hero.button.link }}">{{ $hero.button.text }}</a>
+              {{ end }}
+          </div>
+      </div>
+  </div>
+</section>

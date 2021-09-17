@@ -1,0 +1,13 @@
+<div class="quotation">
+    <div class="row">
+        <div class="card shadow-lg mx-auto">
+            <div class="card-body">
+                {{ .Inner | markdownify }}
+            </div>
+            <div class="author">
+                {{ $title := .Get "title" }}
+                <h2>{{ .Get "author" }}{{ if $title }} · {{ $title }}{{ end }}</h2>
+            </div>
+        </div>
+    </div>
+</div>

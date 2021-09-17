@@ -1,0 +1,128 @@
+<!doctype html>
+<html lang="{{ .Site.Language.Lang }}">
+  <head>
+    {{ partial "head.html" . }}
+    <title>{{ if .IsHome }}{{ .Site.Title }}{{ else }}{{ with .Title }}{{ . }} | {{ end }}{{ .Site.Title }}{{ end }}</title>
+  </head>
+  <body class="td-{{ .Kind }}">
+    {{ partial "header.html" . }}
+
+    <main class="main docs-section">
+      <div class="container">
+        <div class="row flex-md-nowrap">
+          <div class="col-12 col-md-3 col-xl-3 td-sidebar d-print-none">
+            {{ partial "sidebar.html" . }}
+          </div>
+          <div class="col-12 col-md-9 col-xl-8 pl-md-5 docs-reader" role="main">
+            {{ if not (eq .Params.search.domain nil) }}
+            <div class="row mt-2">
+              <div class="col-12">
+                {{ partial "search" . }}
+              </div>
+            </div>
+            {{ end }}
+            <div class="row">
+              {{ $currentVersion := partial "docs/getcurrentversion" . }}
+              {{ $latestVersion := partial "docs/getlatestversion" . }}
+              {{ if and (not $currentVersion | eq "") (not ($currentVersion | eq $latestVersion))}}
+              <div class="col-12 order-xl-first bg-warning p-4 m-2">
+                The version of the documentation you are reading is not the latest one!
+                {{ range (partial "docs/getversions" . ) }}
+                  {{ if eq (partial "docs/dirversion" .) $latestVersion }}
+                  &nbsp;See the <a href="{{ .Permalink }}">latest version</a>.
+                  {{ end }}
+                {{ end }}
+              </div>
+              {{ end }}
+              <div class="col-12 col-lg-9 order-last order-lg-first">
+                {{ if not .Site.Params.ui.breadcrumb_disable }}{{ partial "breadcrumb.html" . }}{{ end }}
+              </div>
+              {{ $versions := partial "docs/getversions" . }}
+              {{ if gt (len $versions) 1 }}
+              <div class="col-12 offset-sm-6 col-sm-6 offset-lg-0 col-lg-3 order-first order-lg-last text-right">
+                {{ template "versionchooser" . }}
+              </div>
+              {{ end }}
+
+            </div>
+            {{ block "main" . }}{{ end }}
+            {{ if (and (not .Params.hide_feedback) (.Site.Params.ui.feedback.enable) (.Site.GoogleAnalytics)) }}
+              {{ partial "feedback.html" .Site.Params.ui.feedback }}
+            {{ end }}
+
+            <div class="github-footer">
+              <hr class="panel-line" />
+              {{ $gitthubEditUrl := .Params.github_edit_url }}
+              {{ if $gitthubEditUrl }}
+                {{ $filepath := .File.Path }}
+                {{ $versionFilePath := "" }}
+                {{ $currentVersion := partial "docs/getversionsection" . }}
+                {{ if $currentVersion }}
+                  {{ $versionFilePath = path.Dir $currentVersion.File.Path }}
+                {{ end }}
+                {{ $filepath = substr $filepath (len $versionFilePath) }}
+                {{ $editLink := (print $gitthubEditUrl $filepath) }}
+                <a
+                  href="{{ $editLink }}"
+                  class="btn btn-md mt-2"
+                  style="border: 2px solid #afafaf; padding: 4px 2px; font-weight: inherit;"
+                >
+                  <img src="/images/github.png" style="width: 20px; height: 20px; " alt="github" /> Edit this page
+                </a>
+              {{ end }}
+
+              {{ $issuesUrl := .Params.issues_url}}
+              {{ if $issuesUrl }}
+              <a
+                href="{{ $issuesUrl }}"
+                class="btn btn-md mt-2"
+                style="border: 2px solid #afafaf; padding: 4px 2px; font-weight: inherit;"
+              >
+                <img src="/images/github.png" style="width: 20px; height: 20px; " alt="github" /> File documentation issue
+              </a>
+              {{ end }}
+            </div>
+
+            {{ if (.Site.DisqusShortname) }}
+              <br />
+              {{ partial "disqus-comment.html" . }}
+            {{ end }}
+          </div>
+          <div class="d-none d-xl-block col-xl-2 td-toc d-print-none">
+            {{ partial "toc.html" . }}
+          </div>
+        </div>
+      </div>
+    </main>
+
+    {{ partial "footer.html" . }}
+
+    {{ block "scripts" . }}
+      {{ $common := resources.Get "js/common.js" }}
+      {{ $anchor := resources.Get "js/anchor.js" }}
+
+      {{ $js := slice $common $anchor | resources.Concat "js/bundle-docs.js" }}
+
+      <script src="{{ $js.Permalink }}"></script>
+    {{ end }}
+  </body>
+</html>
+
+{{ define "versionchooser" }}
+{{ $versions := partial "docs/getversions" . }}
+<select class="custom-select custom-select-lg mb-3"
+  onchange="if (this.value) window.location.href=this.value"
+  title="Version"
+>
+  {{ $current := partial "docs/getcurrentversion" . }}
+  {{ range $versions }}
+    {{ $version := partial "docs/dirversion" . }}
+    <option
+      value={{ .Permalink }}
+      {{ if eq $version $current }}selected{{ end }}
+    >
+      {{ $version }}
+    </option>
+  {{ end }}
+</select>
+{{ end }}

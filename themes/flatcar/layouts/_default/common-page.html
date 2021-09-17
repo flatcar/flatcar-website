@@ -1,0 +1,17 @@
+{{ $styles := .Params.style }}
+
+{{ partial "hero" . }}
+{{ partial "page-menus" . }}
+
+{{ if len .Content | lt 0 }}
+<section {{ if .Params.main_article_class }}class="{{ .Params.main_article_class }}"{{ end }}>
+    {{ partial "main-article" . }}
+</section>
+{{ end }}
+
+
+{{ if .Params.use_feature_rows }}
+    <section class="fpstandard">
+        {{ partial "feature-rows" . }}
+    </section>
+{{ end }}

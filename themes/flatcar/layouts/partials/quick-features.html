@@ -1,0 +1,47 @@
+{{ $features := .Params.quick_features.features }}
+{{ $title := .Params.quick_features.title }}
+{{ $description := .Params.quick_features.description }}
+{{ $shapes := slice "blue" "yellow" "red" "green" }}
+{{ $useSeparator := default true .Params.quick_features.top_separator }}
+{{ if $features }}
+{{ if $useSeparator }}
+{{/* This is a trick to make the separator only visible when we want */}}
+<div class="quick-features-separator"></div>
+{{ end }}
+<section class="quick-features">
+  <div class="container">
+    {{ if $title }}<h2 class="title">{{ $title }}</h2>{{ end }}
+    {{ if $description }}<div class="description">{{ $description | markdownify }}</div>{{ end }}
+    <div class="row justify-content-between mx-auto">
+      {{ $i := 0 }}
+      {{ range $features }}
+        <div class="col-12 col-sm-6 col-md-auto feature">
+          <div
+            class="quick-features-on-shape"
+            {{ if .shape }}
+              style="background-image: url(/images/{{ .shape }}.svg);"
+            {{ else }}
+              style="background-image: url(/images/shape-{{ index $shapes $i }}.svg);"
+            {{ end }}
+          >
+            {{ if .icon }}
+              <img src="/images/icon-{{ .icon }}.svg" alt="{{ .icon }}" />
+            {{ else }}
+              <h2 class="title">{{ (default .title .text) | markdownify }}</h2>
+            {{ end }}
+          </div>
+          {{ if .icon }}
+            {{ if .title }}
+              <h2 class="title">{{ .title }}</h2>
+            {{ end }}
+            {{ if .text }}
+              <p class="text">{{ .text | markdownify }}</p>
+            {{ end }}
+          {{ end }}
+        </div>
+        {{ $i = mod (add $i 1) (len $shapes) }}
+      {{ end }}
+    </div>
+  </div>
+</section>
+{{ end }}

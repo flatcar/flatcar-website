@@ -1,0 +1,111 @@
+{{ define "main" }}
+    {{ $styles := .Params.style }}
+
+    {{ if .Params.hero }}
+        {{ partial "hero" . }}
+    {{ end }}
+
+    <section>
+        <article class="article">
+            <div class="container">
+                <div class="article-content text-center">
+                    <h2>{{ .Title }}</h2>
+                    <p>{{ .Description | markdownify }}</p>
+                </div>
+            </div>
+        </article>
+    </section>
+
+    {{ $kinvolk := $.Site.Data.company.metadata }}
+    <section class="mission-values">
+        <div class="container">
+            <div class="row justify-content-center align-items-center mx-auto">
+                <div class="col-12 col-md-auto">
+                    <div class="values">
+                        <h2>Our values</h2>
+                        <table>
+                            {{ range $kinvolk.values }}
+                                <tr>
+                                    {{ $split_values := split . " > " }}
+                                    <td>{{ index $split_values 0 }}</td>
+                                    <td class="values-gt px-2">&gt;</td>
+                                    <td>{{ index $split_values 1 }}</td>
+                                </tr>
+                            {{ end }}
+                        </table>
+                    </div>
+                </div>
+                <div class="col-12 col-md-auto">
+                    <div class="mission-bg">
+                        <div class="mission">
+                            <h2>Mission</h2>
+                            <p>
+                                {{ $kinvolk.mission }}
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        {{ partial "main-article" . }}
+    </section>
+{{ end }}
+
+{{ define "unique-content" }}
+
+{{ $kinvolk := $.Site.Data.company.metadata }}
+<section class="office">
+    <div class="container text-center">
+        <div class="row justify-content-center mx-auto">
+            <div class="col-12 office-header">
+                <h2>Where to find us</h2>
+                <p>Kinvolk is headquarted in Berlin's Kreuzberg district but is a fundamentally distributed and remote friendly team.</p>
+            </div>
+        </div>
+        <div class="row justify-content-center mx-auto">
+            <div class="col-12 col-sm-6 ">
+                <div class="card">
+                    <h2>{{ $kinvolk.name }}</h2>
+                    <div class="card-body">
+                        {{ range split $kinvolk.address "," }}
+                            {{ . }}</br>
+                        {{ end }}
+                        </br>
+                        <a href="mailto:{{ $kinvolk.email }}">{{ $kinvolk.email }}</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-12 col-sm-6 ">
+                <div class="card">
+                    <h2>Also remotely in</h2>
+                    <div class="card-body">
+                        {{ range sort $kinvolk.remote }}
+                            {{ . }}<br />
+                        {{ end }}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+{{ if not (eq ($.GetPage "careers").Params.hiring false) }}
+<section class="join-us">
+    <div class="container text-center">
+        <div class="row justify-content-md-center">
+            <div class="col-12 col-md-7">
+                <h2 class="join-us-description">Want to join our team?</h2>
+                <p>Yes, we’re hiring! If you are excited by open source, cloud native and Linux technologies, please check out our job listings.</p>
+            </div>
+            <div class="col-12 col-md-auto">
+                <a href="https://careers.microsoft.com/" class="btn btn-blue">See Job Listings</a>
+            </div>
+        </div>
+    </div>
+</section>
+{{ end }}
+
+{{ end }}

@@ -1,14 +1,3 @@
-{{ partial "header.html" . }}
-
-    <!-- Main Content -->
-    <article class="single">
-    <div class="container">
-        <div class="row">
-            <div class="">
-              {{ .Content }}
-            </div>
-        </div>
-    </div>
-    </article>
-
-{{ partial "footer.html" . }}
+{{ define "main" }}
+    {{ .Render "common-page" }}
+{{ end }}

@@ -2,7 +2,7 @@
 draft: false
 title: Security
 date: 2018-01-01T00:00:00+00:00
-type: security
+layout: single
 ---
 
 As Flatcar Container Linux is a part of many organization's critical infrastructure, we understand that users place a great deal of trust in us to ensure that security is taken seriously.

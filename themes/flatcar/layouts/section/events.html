@@ -1,0 +1,3 @@
+{{ define "unique-content" }}
+    {{ partial "cards-section.html" (dict "context" . "items" (where $.Site.RegularPages "Type" "event") ) }}
+{{ end }}

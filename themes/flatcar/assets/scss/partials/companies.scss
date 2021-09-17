@@ -1,0 +1,50 @@
+.companies {
+  @include media-breakpoint-down(sm) {
+    .carousel {
+      max-width: 80%;
+      margin-left: auto;
+      margin-right: auto;
+    }
+  }
+
+  .title {
+    text-align: center;
+    font-size: 1.8rem;
+    margin-left: auto;
+    margin-right: auto;
+    width: 100%;
+
+    @include media-breakpoint-up(md) {
+      width: 800px;
+    }
+  }
+
+  .logo {
+    text-align: center;
+    padding: 22px;
+    max-height: 130px;
+
+    @include media-breakpoint-up(md) {
+      padding: 22px 54px;
+    }
+
+    img {
+      height: auto;
+      width: 100%;
+      margin: 0;
+      object-fit: contain;
+
+      @include media-breakpoint-down(sm) {
+        height: 70px;
+        width: auto;
+        max-width: 80%;
+        margin-left: auto;
+        margin-right: auto;
+      }
+    }
+  }
+
+  &+.companies {
+    margin-top: 64px;
+  }
+}

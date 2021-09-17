@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+    {{- partial "head.html" . -}}
+    <body>
+        {{- partial "header.html" . -}}
+
+        <main class="main docs-portal">
+            {{/* partial "hero" . */}}
+            {{ block "unique-content" . }}{{ end }}
+            {{ block "bottom" . }}{{ end }}
+            <section class="header-bg-docs">
+              <div class="container main-container">
+                <div class="row align-items-center justify-content-around page-header">
+                  <div class="col-12 p-0 align-items-center text-center">
+                    <h2 class="section-title">Kinvolk</h2>
+                    <h1>{{ .Params.hero.title }}</h1>
+                    <div class="search mb-4">
+                      {{ partial "search" . }}
+                    </div>
+                  </div>
+                </div>
+                {{ $homeParams := .Params }}
+                <div class="container">
+                  <div class="row">
+                    {{ range $homeParams.highlighted_cards }}
+                      {{ $main_url := .main_url}}
+                      <div class="col-12 col-md-6 mb-2">
+                        <div class="card highlighted-card shadow-sm">
+                          <div class="card-header justify-content-around">
+                            <a href="{{ $main_url }}">
+                              <img src="{{ .icon }}" alt="{{ .title }}" />
+                            </a>
+                          </div>
+                          <div class="card-body">
+                            <ul>
+                            {{ range .links }}
+                              <li>
+                                {{ $url := .url }}
+                                {{ if (not ((hasPrefix $url "/") | or (hasPrefix $url "http://") | or (hasPrefix $url "https://"))) }}
+                                  {{ $url = path.Join $main_url .url}}
+                                {{ end }}
+                                <a href="{{ $url }}">{{ .name }}</a>
+                              </li>
+                            {{ end }}
+                            </ul>
+                          </div>
+                        </div>
+                      </div>
+                    {{ end }}
+                  </div>
+                </div>
+                {{ if $homeParams.cards }}
+                <div class="container mt-6">
+                  <div class="row justify-content-around">
+                  {{ range $homeParams.cards }}
+                    <div class="col-12 col-md-4">
+                      <div class="card small-card shadow-sm">
+                        <div class="card-header">
+                          <img src="{{ default "/images/book-open-outline.svg" .icon }}" {{ if .name }}alt="{{ .name }}"{{ end }} />
+                          {{ if (not .icon) | and .name }}
+                            <h4>{{ .name }}</h4>
+                          {{ end }}
+                        </div>
+                        <div class="card-body">
+                          {{ if .description }}
+                          <p>
+                            {{ .description }}
+                          </p>
+                          {{ end }}
+                          <a href="{{ .url }}" class="read-more" aria-label="Read more about {{ .name }}">Read more
+                            <svg class="btn-arrow__icon" viewBox="0 0 12 15">
+                              <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="/images/arrow.svg#arrow"></use>
+                            </svg>
+                          </a>
+                        </div>
+                      </div>
+                    </div>
+                  {{ end }}
+                  </div>
+                </div>
+                {{ end }}
+              </div>
+            </section>
+        </main>
+
+        {{ partial "footer.html" . }}
+
+        {{ block "scripts" . }}
+            {{ $common := resources.Get "js/common.js" }}
+
+            {{ $js := slice $common | resources.Concat "js/bundle.js" }}
+
+            <script src="{{ $js.Permalink }}"></script>
+        {{ end }}
+    </body>
+</html>

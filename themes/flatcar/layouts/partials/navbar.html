@@ -1,61 +1,59 @@
-<!-- Navigation -->
-{{ $isHome := eq "/" ((.URL | relURL) | string) }}
-<nav class="navbar navbar-expand-sm navbar-dark">
-    <!-- Collect the nav links, forms, and other content for toggling -->
-    <!-- <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-    </button> -->
-    <div class="navbar-collapse justify-content-beginning">
-        <ul class="navbar-nav">
-            {{ range .Site.Menus.left }}
-                {{ if .HasChildren }}
-                <li class="nav-item dropdown mx-1 mt-1 px-2" id="menu-{{ .Identifier }}">
-                    <a class="nav-link dropdown-toggle" href="#" role="button" id="dropdownMenu{{ .Name }}" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        {{ .Name }}
-                    </a>
-                    <div class="dropdown-menu" aria-labelledby="dropdownMenu{{ .Name }}">
-                        {{ range .Children }}
-                            <a class="dropdown-item" href="{{ .URL }}">{{ .Name }}</a>
-                        {{ end }}
-                    </div>
-                </li>
-                {{ else }}
-                <li class="nav-item mx-1 mt-1 px-2" id="menu-{{ .Identifier }}">
-                    <a class="nav-link" href="{{ .URL }}">{{ .Name }}</a>
-                </li>
-                {{ end }}
-            {{ end }}
-        </ul>
-    </div>
-    <!-- /.navbar-collapse -->
+    <ul class="navbar-nav align-items-center">
+      {{ $currentPage := . }}
+      {{ range .Site.Menus.main }}
+          {{ if .HasChildren }}
+              <li class="nav-item dropdown">
 
-{{ if not $isHome }}
-    <a class="navbar-brand d-none d-sm-block" href="{{ .Site.BaseURL }}">
-        <img src="{{ .Site.BaseURL }}media/brand-logo.svg" alt="{{ .Site.Title }}" />
-    </a>
-{{ end }}
+                <a href="{{ .URL }}" class="nav-link dropdown-toggle">
+                  {{ .Name }}
+                  <span class="navbar__link-underline"></span>
+                </a>
 
-    <div class="navbar-collapse justify-content-end">
-        <ul class="navbar-nav">
-            {{ range .Site.Menus.main }}
-                {{ if .HasChildren }}
-                <li class="nav-item dropdown mx-1 mt-1 px-2" id="menu-{{ .Identifier }}">
-                    <a class="nav-link dropdown-toggle" href="#" role="button" id="dropdownMenu{{ .Name }}" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        {{ .Name }}
-                    </a>
-                    <div class="dropdown-menu" aria-labelledby="dropdownMenu{{ .Name }}">
-                        {{ range .Children }}
-                            <a class="dropdown-item" href="{{ .URL }}">{{ .Name }}</a>
-                        {{ end }}
-                    </div>
-                </li>
-                {{ else }}
-                <li class="nav-item mx-1 mt-1 px-2" id="menu-{{ .Identifier }}">
-                    <a class="nav-link" href="{{ .URL }}">{{ .Name }}</a>
-                </li>
+                {{ $scratch := newScratch }}
+                {{ range .Children }}
+                  {{ $scratch.Add "itemLogo" .Pre }}
                 {{ end }}
-            {{ end }}
-        </ul>
-    </div>
-    <!-- /.navbar-collapse -->
-</nav>
+
+                  <div class="dropdown-menu row {{ if (gt (len ($scratch.Get "itemLogo")) 0) }}dropdown-menu_lg{{ end }}">
+                      {{ if .Pre }}
+                        <div class="dropdown-item-pre" style="color: white">
+                          {{ .Pre|markdownify }}
+                        </div>
+                      {{ end }}
+                      <div {{ if (gt (len ($scratch.Get "itemLogo")) 0) }}class="d-md-flex"{{ end }}>
+                        {{ range $index, $elem := .Children }}
+                          {{ $careers := $.GetPage "careers" }}
+                          {{ if ($careers.Params.hiring) | or (not (eq $elem.Identifier "careers")) }}
+                          <a href="{{ $elem.URL }}" class="dropdown-item">
+                            {{ if gt (len .Pre) 0 }}
+                            <div class="dropdown-item__icon">
+                              {{ $elem.Pre }}
+                            </div>
+                            {{ end }}
+                            <div class="dropdown-item__description">
+                              <div class="dropdown-item__title">{{ $elem.Name }}</div>
+                              {{ with  $elem.Title }}
+                              <p class="dropdown-item__text">{{ $elem.Title }}</p>
+                              {{ end }}
+                            </div>
+                          </a>
+                          {{ end }}
+                        {{ end }}
+                      </div>
+                      {{ if .Post }}
+                        <div class="dropdown-item-post " style="color: white">
+                          {{ .Post|markdownify }}
+                        </div>
+                      {{ end }}
+                  </div>
+              </li>
+          {{ else }}
+              <li class="nav-item">
+                  <a href="{{ .URL }}" {{- if .Pre -}}title="{{ .Name }}"{{- end -}} class="nav-link">
+                    {{- if .Pre -}}{{ .Pre }}{{- else -}}{{ .Name }}{{- end -}}
+                    <span class="navbar__link-underline"></span>
+                  </a>
+              </li>
+          {{ end }}
+      {{ end }}
+    </ul>

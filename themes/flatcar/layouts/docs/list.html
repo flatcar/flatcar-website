@@ -1,0 +1,20 @@
+{{ define "main" }}
+	<div class="td-content">
+		{{ $hasContent := false }}
+		{{ $shouldList := true }}
+		{{ with .File }}
+			{{ if ne .Filename "" }}
+				{{ $hasContent =  (ge (len $.Content) 1) }}
+			{{ end }}
+		{{ end }}
+		{{ if $hasContent }}
+			{{ partial "docs/content-page" (dict "ctx" $ "page" $ ) }}
+		{{ else }}
+			<h1>{{ .Title }}</h1>
+			{{ with .Params.description }}<div class="lead">{{ . | markdownify }}</div>{{ end }}
+		{{ end }}
+		<div class="{{ if $hasContent }}d-md-none{{ end }}">
+			{{ partial "section-index.html" . }}
+		</div>
+	</div>
+{{ end }}

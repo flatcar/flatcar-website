@@ -1,1 +1,242 @@
-@import "./bootstrap/bootstrap.scss";
+// This file should only contain variables and elements
+// overridden from the Bootstrap defaults.
+
+// Variable overrides
+
+// Corners
+$enable-rounded: false;
+
+$enable-validation-icons: false;
+
+// Fonts
+$font-family-sans-serif: "Overpass", sans-serif;
+$font-family-monospace:  "Overpass Mono", monospace;
+
+$font-weight-extra-light: 200;
+$font-weight-light: 300;
+$font-weight-semi-bold: 600;
+$font-weight-bold: 700;
+$font-weight-extra-bold: 800;
+
+$list-inline-padding: 1.25rem;
+
+// Text
+
+$headings-font-weight: 600;
+
+$h2-font-size:  2.25rem;
+$h3-font-size:  2rem;
+$h5-font-size:  1.125rem;
+
+$headings-line-height:  1.47em;
+$headings-margin-bottom:  0.31em;
+$headings-font-weight:   $font-weight-bold;
+
+// Colors
+$blue:    #09bac8;
+$pink:    #de1040;
+$red:     #eb1a45;
+$green:   #198806;
+$darkergreen: #168203;
+$yellow:  #fff200;
+$cyan:    #23ecfa;
+$black:   #000000;
+$white:   #ffffff;
+$gray:    #c4c4c4;
+$gold:   #BE8900;
+
+
+$flatcar-darker-blue: #007d88;
+$flatcar-dark-blue: #12172c;
+$flatcar-bg-blue: $flatcar-dark-blue;
+$flatcar-blue: #08a2af;
+
+$primary: $black;
+$success: $flatcar-blue;
+$info:    $cyan;
+$warning: $yellow;
+$danger:  $red;
+
+// Body
+
+$body-color: $black;
+
+// Links
+
+$link-hover-color:  $green;
+$link-hover-decoration: none;
+
+// Paragraphs
+
+$paragraph-margin-bottom:   0;
+
+// Grid breakpoints
+
+$grid-breakpoints: (
+  xs: 0,
+  sm: 576px,
+  md: 768px,
+  lg: 992px,
+  xl: 1440px,
+  xxl: 1920px
+);
+
+// Grid containers
+
+$container-max-widths: (
+  sm: 740px,
+  md: 920px,
+  lg: 1160px
+);
+
+// Grid columns
+
+$grid-gutter-width: 40px;
+
+// Buttons
+
+$btn-font-size: 1rem;
+$btn-line-height: 1em;
+
+$btn-padding-y: 1.33em;
+$btn-padding-x: 1.68em;
+
+$btn-border-radius: 0;
+$btn-border-radius-lg: 0;
+$btn-border-radius-md: 0;
+$btn-border-radius-sm: 0;
+
+$btn-font-weight: $font-weight-extra-bold;
+
+$btn-border-width: 0;
+
+$btn-padding-y-sm:  1.33em;
+$btn-padding-x-sm:  1.68em;
+$btn-font-size-sm:  0.75rem;
+$btn-line-height-sm:  1em;
+
+$btn-padding-y-md:  1.33em;
+$btn-padding-x-md:  1.875em;
+$btn-font-size-md:  1rem;
+$btn-line-height-md:  1em;
+
+$btn-padding-y-lg:  1.33em;
+$btn-padding-x-lg:  2.44em;
+$btn-font-size-lg:  1rem;
+$btn-line-height-lg:  1em;
+
+// Forms
+
+$label-margin-bottom: 0;
+
+$input-padding-y: 0.625em;
+$input-padding-x: 1.25em;
+$input-font-size: 16px;
+$input-line-height: 1.875em;
+$input-border-width:  1px;
+$input-color: $black;
+$input-border-color:  #E5E5E5;
+$input-border-radius: 0;
+$input-focus-border-color: #CCCCCC;
+$input-focus-box-shadow: none;
+
+$input-box-shadow: none;
+
+$input-height:   $input-line-height + $input-padding-y * 2;
+
+$input-placeholder-color: $black;
+
+$form-group-margin-bottom:  1.875rem;
+
+// Form validation
+
+// Navbar
+
+$navbar-brand-padding-y:  0;
+$nav-link-padding-y:  0;
+$nav-link-padding-x:  6px;
+
+$navbar-nav-link-padding-x: 0.5em;
+
+// Dropdowns
+
+$dropdown-padding-y:  1em;
+$dropdown-padding-y-lg: 1em;
+$dropdown-bg: $black;
+$dropdown-border-width:   0;
+$dropdown-spacer: 0;
+
+$dropdown-box-shadow: none;
+$dropdown-link-color: $white;
+$dropdown-link-hover-color: $black;
+$dropdown-link-hover-color-lg: $white;
+$dropdown-link-hover-bg: $yellow;
+$dropdown-link-hover-bg-lg: none;
+
+$dropdown-item-padding-y:  0.57em;
+$dropdown-item-padding-x:  1em;
+$dropdown-item-padding-x-lg:  1em;
+
+// Cards
+
+$card-spacer-x:  0;
+$card-spacer-x-sm:  0;
+$card-spacer-y:  30px;
+$card-spacer-y-sm:  20px;
+$card-border-width:  0;
+$card-cap-bg: rgba($white, 0);
+$card-bg:  rgba($white, 0);
+
+// Spacing
+
+$spacer: 1rem;
+$spacers: ();
+
+$spacers: map-merge(
+  (
+    0: 0,
+    1: ($spacer * .25),
+    2: ($spacer * .5),
+    3: $spacer,
+    4: ($spacer * 1.5),
+    5: ($spacer * 3.75),
+    6: ($spacer * 4.375),
+    7: ($spacer * 5)
+  ),
+  $spacers
+);
+
+// Carousel
+
+$carousel-indicator-width:           0.625rem;
+$carousel-indicator-height:          0.625rem;
+$carousel-indicator-hit-area-height: 0px;
+$carousel-indicator-spacer:          0.625rem;
+$carousel-indicator-active-bg:       $gray;
+$carousel-indicator-bg:              $gold;
+$carousel-indicator-transition:      background-color .6s ease;
+
+// Pagination
+
+$pagination-padding-y:  .875em;
+$pagination-padding-x:  .585em;
+$pagination-line-height: 0em;
+$pagination-color:                  $black;
+$pagination-bg:                     $white;
+$pagination-border-width:           0;
+$pagination-border-color:           $gray;
+$pagination-focus-box-shadow:       none;
+$pagination-hover-color:            $white;
+$pagination-hover-bg:               $green;
+$pagination-active-color:           $white;
+$pagination-active-bg:              $green;
+$pagination-disabled-bg:            $gray !important;
+
+// Let's start by bring in all of bootstrap
+// Later we canbring in only what we need:
+// https://getbootstrap.com/docs/4.0/getting-started/theming/#importing
+@import "./bootstrap/bootstrap";
+
+// Elements overrides
+
+@import "./styles";

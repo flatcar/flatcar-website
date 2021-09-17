@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+    {{- partial "head.html" . -}}
+    <body>
+        <a class="sr-only sr-only-focusable" href="#content">Skip to content</a>
+        {{- partial "header.html" . -}}
+
+        <main class="main" id="content" role="main">
+            {{ block "main" . }}{{ .Render "common-page" }}{{ end }}
+            {{ block "unique-content" . }}{{ end }}
+            {{ block "bottom" . }}{{ end }}
+        </main>
+
+        {{ partial "footer.html" . }}
+
+        {{ block "scripts" . }}
+            {{ $common := resources.Get "js/common.js" }}
+
+            {{ $js := slice $common | resources.Concat "js/bundle.js" }}
+
+            <script src="{{ $js.Permalink }}"></script>
+        {{ end }}
+    </body>
+</html>

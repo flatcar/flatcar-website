@@ -1,0 +1,22 @@
+{{ if not .page.Params.notitle }}
+  <h1>{{ .page.Title }}</h1>
+  {{ $desc := .page.Description }}
+{{ end }}
+
+{{/* Replace images' relative paths with absolute ones */}}
+
+{{ $imgs := findRE "src=\"(.*?)\"" .page.Content }}
+{{ $link := replace .page.Permalink .page.Site.BaseURL "" }}
+{{ $resources := .page.Resources }}
+{{ $scratch := newScratch }}
+{{ $scratch.Set "Content" .page.Content }}
+{{ $dirPath := path.Dir .page.File.Path }}
+{{ range $imgs }}
+  {{ $imgRef := strings.TrimRight "\"" (substr . 5) }}
+
+  {{ if (not (hasPrefix $imgRef "/")) | and (not (hasPrefix $imgRef "http")) }}
+    {{ $replace := $imgRef | printf "/%s/%s" $dirPath }}
+    {{ $scratch.Set "Content" (replace (string ($scratch.Get "Content")) $imgRef $replace) }}
+  {{ end }}
+{{ end }}
+{{ safeHTML ($scratch.Get "Content") }}

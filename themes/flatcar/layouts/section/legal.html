@@ -1,0 +1,11 @@
+{{ define "unique-content" }}
+  <div class="container">
+    <div class="row mx-4 mb-4">
+      {{ range .Data.Pages }}
+        <div class="col-12 col-md-6">
+          {{ .Render "li"}}
+        </div>
+      {{ end }}
+    </div>
+  </div>
+{{ end }}

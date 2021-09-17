@@ -17,8 +17,8 @@
                 </a>
             </div>
             <div class="card-body">
-                <a href="{{ .Permalink }}" class="post__title card-title mb-2">
-                    {{ .Title }}
+                <a href="{{ .Permalink }}" class="post__title">
+                    <h4 class="card-title mb-2">{{ .Title }}</h4>
                 </a>
                 <p>
                     <span class="post__date">{{ .Params.PublishDate.Format "Jan 2, 2006" }}</span>

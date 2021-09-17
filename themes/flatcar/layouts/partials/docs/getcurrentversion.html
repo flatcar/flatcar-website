@@ -1,0 +1,12 @@
+{{ $version := "" }}
+{{ if .Parent }}
+  {{ if .Parent.Params.children_are_versions | and .Parent }}
+    {{ $version = partial "docs/dirversion" . }}
+  {{ else }}
+    {{ if .Parent }}
+      {{ $version = partial "docs/getcurrentversion" .Parent }}
+    {{ end }}
+  {{ end }}
+{{ end}}
+
+{{ return $version }}
