@@ -115,7 +115,7 @@ grid_statements:
 
     Flatcar Container Linux is directly derived from CoreOS, enabling seamless in-place migration.
 
-    ## [Learn more »](/coreos-eol)'
+    ## [Learn more »](/blog/2020/03/steps-to-migrate-from-coreos-to-flatcar-container-linux/)'
     - '# <span style="color: #12172c">Migrating from CoreOS Container Linux</span>
 
     Upgrading to Flatcar Container Linux is the same as a CoreOS update.'
