@@ -97,8 +97,8 @@
                   <div class="tab-pane fade {{ if eq $chan.current.channel "stable" }} active show {{ end }}" id="{{ $chan.current.channel }}-release"
                       role="tabpanel" aria-labelledby="{{ $chan.current.channel }}-release-tab">
                       <div style="text-align: right;">
-                      <a href="/{{ $section }}/releases-feed/releases-{{ $chan.current.channel }}.xml" class="small" style="box-shadow: 0 0 0 white; border: none;"><span class="fa fa-rss"></span> ATOM feed ({{ $channel.title }})</a>
-                      <a href="/{{ $section }}/releases-json/releases-{{ $chan.current.channel }}.json" class="small" style="box-shadow: 0 0 0 white; border: none;"><span class="fa"></span> JSON feed ({{ $channel.title }})</a>
+                      <a href="/releases-feed/releases-{{ $chan.current.channel }}.xml" class="small" style="box-shadow: 0 0 0 white; border: none;"><span class="fa fa-rss"></span> ATOM feed ({{ $channel.title }})</a>
+                      <a href="/releases-json/releases-{{ $chan.current.channel }}.json" class="small" style="box-shadow: 0 0 0 white; border: none;"><span class="fa"></span> JSON feed ({{ $channel.title }})</a>
                       </div>
                       {{ range $pkg, $ver := $chan.current.image_packages }}
                       {{ $.Scratch.SetInMap "pkgPkgMap" $pkg $pkg }}
