@@ -2033,13 +2033,13 @@
     },
     "release_notes": "**Update to CGroupsV2**\n\nAs of Alpha version 2969.0.0, Flatcar Container Linux migrates to the unified cgroup hierarchy (aka CGroupsV2)! New nodes will utilize CGroupsV2 by default. Existing nodes remain on CGroupsV1 and need to be manually migrated to CGroupsV2. To learn more about CGroupsV2 on Flatcar Container Linux and the migration guide, please refer to [https://kinvolk.io/docs/flatcar-container-linux/latest/container-runtimes/switching-to-unified-cgroups/](https://kinvolk.io/docs/flatcar-container-linux/latest/container-runtimes/switching-to-unified-cgroups/) \n\n\nNew **Alpha** release **3005.0.0**\n\n_Changes since **Alpha 2983.0.0**_\n\n**Security fixes**\n\n\n\n* Linux ([CVE-2021-3753](https://nvd.nist.gov/vuln/detail/CVE-2021-3753),[ CVE-2021-3739](https://nvd.nist.gov/vuln/detail/CVE-2021-3739), [CVE-2021-40490](https://nvd.nist.gov/vuln/detail/CVE-2021-40490))\n* Go ([CVE-2021-39293](https://nvd.nist.gov/vuln/detail/CVE-2021-39293))\n* binutils ([CVE-2021-3530](https://nvd.nist.gov/vuln/detail/CVE-2021-3530),[ CVE-2021-3549](https://nvd.nist.gov/vuln/detail/CVE-2021-3549))\n* glibc ([CVE-2021-38604](https://nvd.nist.gov/vuln/detail/CVE-2021-38604))\n* nettle ([CVE-2021-20305](https://nvd.nist.gov/vuln/detail/CVE-2021-20305),[ CVE-2021-3580](https://nvd.nist.gov/vuln/detail/CVE-2021-3580))\n* sssd ([CVE-2021-3621](https://nvd.nist.gov/vuln/detail/CVE-2021-3621))\n\n**Bug Fixes**\n\n\n\n* Randomize OEM filesystem UUID if mounting fails ([init#47](https://github.com/flatcar-linux/init/pull/47))\n* Run emergency.target on ignition/torcx service unit failure in dracut ([bootengine#28](https://github.com/flatcar-linux/bootengine/pull/28))\n\n**Changes**\n\n\n\n* Added GPIO support ([coreos-overlay#1236](https://github.com/flatcar-linux/coreos-overlay/pull/1236))\n* Enabled SELinux in permissive mode on ARM64 ([coreos-overlay#1245](https://github.com/flatcar-linux/coreos-overlay/pull/1245))\n\n**Updates**\n\n\n\n* Linux ([5.10.67](https://lwn.net/Articles/869749/))\n* binutils ([2.37](https://sourceware.org/pipermail/binutils/2021-July/117384.html))\n* ebtables ([2.0.11](https://lwn.net/Articles/806179/))\n* iptables ([1.8.7](https://lwn.net/Articles/843069/))\n* ldb ([2.3.0](https://gitlab.com/samba-team/samba/-/tags/ldb-2.3.0))\n* libmnl ([1.0.4](https://marc.info/?l=netfilter-devel&m=146745072727070&w=2))\n* libnftnl ([1.2.0](https://marc.info/?l=netfilter&m=162194376520385&w=2))\n* nettle ([3.7.3](https://lists.gnu.org/archive/html/info-gnu/2021-06/msg00002.html))\n* nftables ([0.9.9](https://lwn.net/Articles/857369/))\n* openssh ([8.7_p1-r1](https://www.openssh.com/txt/release-8.7))\n* talloc ([2.3.2](https://gitlab.com/samba-team/samba/-/tags/talloc-2.3.2))\n* xenstore ([4.14.2](https://xenproject.org/downloads/xen-project-archives/xen-project-4-14-series/xen-project-4-14-2/))\n* Go ([1.16.8](https://go.googlesource.com/go/+/refs/tags/go1.16.8))\n* SDK: Rust ([1.55.0](https://blog.rust-lang.org/2021/09/09/Rust-1.55.0.html))\n\nNote: Please note that ARM images remain experimental for now."
   },
-  "current": {
+  "3005.0.1": {
     "channel": "alpha",
     "architectures": [
       "amd64",
       "arm64"
     ],
-    "release_date": "2021-09-27 08:30:30 +0000",
+    "release_date": "2021-09-30 16:22:29 +0000",
     "major_software": {
       "docker": [
         "20.10.8"
@@ -2048,12 +2048,35 @@
         "0.34.0"
       ],
       "kernel": [
-        "5.10.67"
+        "5.10.69"
       ],
       "systemd": [
         "247"
       ]
     },
-    "release_notes": "**Update to CGroupsV2**\n\nAs of Alpha version 2969.0.0, Flatcar Container Linux migrates to the unified cgroup hierarchy (aka CGroupsV2)! New nodes will utilize CGroupsV2 by default. Existing nodes remain on CGroupsV1 and need to be manually migrated to CGroupsV2. To learn more about CGroupsV2 on Flatcar Container Linux and the migration guide, please refer to [https://kinvolk.io/docs/flatcar-container-linux/latest/container-runtimes/switching-to-unified-cgroups/](https://kinvolk.io/docs/flatcar-container-linux/latest/container-runtimes/switching-to-unified-cgroups/) \n\n\nNew **Alpha** release **3005.0.0**\n\n_Changes since **Alpha 2983.0.0**_\n\n**Security fixes**\n\n\n\n* Linux ([CVE-2021-3753](https://nvd.nist.gov/vuln/detail/CVE-2021-3753),[ CVE-2021-3739](https://nvd.nist.gov/vuln/detail/CVE-2021-3739), [CVE-2021-40490](https://nvd.nist.gov/vuln/detail/CVE-2021-40490))\n* Go ([CVE-2021-39293](https://nvd.nist.gov/vuln/detail/CVE-2021-39293))\n* binutils ([CVE-2021-3530](https://nvd.nist.gov/vuln/detail/CVE-2021-3530),[ CVE-2021-3549](https://nvd.nist.gov/vuln/detail/CVE-2021-3549))\n* glibc ([CVE-2021-38604](https://nvd.nist.gov/vuln/detail/CVE-2021-38604))\n* nettle ([CVE-2021-20305](https://nvd.nist.gov/vuln/detail/CVE-2021-20305),[ CVE-2021-3580](https://nvd.nist.gov/vuln/detail/CVE-2021-3580))\n* sssd ([CVE-2021-3621](https://nvd.nist.gov/vuln/detail/CVE-2021-3621))\n\n**Bug Fixes**\n\n\n\n* Randomize OEM filesystem UUID if mounting fails ([init#47](https://github.com/flatcar-linux/init/pull/47))\n* Run emergency.target on ignition/torcx service unit failure in dracut ([bootengine#28](https://github.com/flatcar-linux/bootengine/pull/28))\n\n**Changes**\n\n\n\n* Added GPIO support ([coreos-overlay#1236](https://github.com/flatcar-linux/coreos-overlay/pull/1236))\n* Enabled SELinux in permissive mode on ARM64 ([coreos-overlay#1245](https://github.com/flatcar-linux/coreos-overlay/pull/1245))\n\n**Updates**\n\n\n\n* Linux ([5.10.67](https://lwn.net/Articles/869749/))\n* binutils ([2.37](https://sourceware.org/pipermail/binutils/2021-July/117384.html))\n* ebtables ([2.0.11](https://lwn.net/Articles/806179/))\n* iptables ([1.8.7](https://lwn.net/Articles/843069/))\n* ldb ([2.3.0](https://gitlab.com/samba-team/samba/-/tags/ldb-2.3.0))\n* libmnl ([1.0.4](https://marc.info/?l=netfilter-devel&m=146745072727070&w=2))\n* libnftnl ([1.2.0](https://marc.info/?l=netfilter&m=162194376520385&w=2))\n* nettle ([3.7.3](https://lists.gnu.org/archive/html/info-gnu/2021-06/msg00002.html))\n* nftables ([0.9.9](https://lwn.net/Articles/857369/))\n* openssh ([8.7_p1-r1](https://www.openssh.com/txt/release-8.7))\n* talloc ([2.3.2](https://gitlab.com/samba-team/samba/-/tags/talloc-2.3.2))\n* xenstore ([4.14.2](https://xenproject.org/downloads/xen-project-archives/xen-project-4-14-series/xen-project-4-14-2/))\n* Go ([1.16.8](https://go.googlesource.com/go/+/refs/tags/go1.16.8))\n* SDK: Rust ([1.55.0](https://blog.rust-lang.org/2021/09/09/Rust-1.55.0.html))\n\nNote: Please note that ARM images remain experimental for now."
+    "release_notes": "**Update to CGroupsV2**\n\nAs of Alpha version 2969.0.0, Flatcar Container Linux migrates to the unified cgroup hierarchy (aka CGroupsV2)! New nodes will utilize CGroupsV2 by default. Existing nodes remain on CGroupsV1 and need to be manually migrated to CGroupsV2. To learn more about CGroupsV2 on Flatcar Container Linux and the migration guide, please refer to [https://kinvolk.io/docs/flatcar-container-linux/latest/container-runtimes/switching-to-unified-cgroups/](https://kinvolk.io/docs/flatcar-container-linux/latest/container-runtimes/switching-to-unified-cgroups/) \n\nNew **Alpha** release **3005.0.1**\n\n_Changes since **Alpha 3005.0.0**_\n\n**Security fixes**\n\n* Linux ([CVE-2021-41073](https://nvd.nist.gov/vuln/detail/CVE-2021-41073), [CVE-2020-16119](https://nvd.nist.gov/vuln/detail/CVE-2020-16119))\n\n**Bug fixes**\n\n* The Mellanox NIC Linux driver issue introduced in the previous release was fixed ([Flatcar#520](https://github.com/flatcar-linux/Flatcar/issues/520))\n\n**Updates**\n\n* Linux ([5.10.69](https://lwn.net/Articles/870544/))\n\nNote: Please note that ARM images remain experimental for now.\n"
+  },
+  "current": {
+    "channel": "alpha",
+    "architectures": [
+      "amd64",
+      "arm64"
+    ],
+    "release_date": "2021-09-30 16:22:29 +0000",
+    "major_software": {
+      "docker": [
+        "20.10.8"
+      ],
+      "ignition": [
+        "0.34.0"
+      ],
+      "kernel": [
+        "5.10.69"
+      ],
+      "systemd": [
+        "247"
+      ]
+    },
+    "release_notes": "**Update to CGroupsV2**\n\nAs of Alpha version 2969.0.0, Flatcar Container Linux migrates to the unified cgroup hierarchy (aka CGroupsV2)! New nodes will utilize CGroupsV2 by default. Existing nodes remain on CGroupsV1 and need to be manually migrated to CGroupsV2. To learn more about CGroupsV2 on Flatcar Container Linux and the migration guide, please refer to [https://kinvolk.io/docs/flatcar-container-linux/latest/container-runtimes/switching-to-unified-cgroups/](https://kinvolk.io/docs/flatcar-container-linux/latest/container-runtimes/switching-to-unified-cgroups/) \n\nNew **Alpha** release **3005.0.1**\n\n_Changes since **Alpha 3005.0.0**_\n\n**Security fixes**\n\n* Linux ([CVE-2021-41073](https://nvd.nist.gov/vuln/detail/CVE-2021-41073), [CVE-2020-16119](https://nvd.nist.gov/vuln/detail/CVE-2020-16119))\n\n**Bug fixes**\n\n* The Mellanox NIC Linux driver issue introduced in the previous release was fixed ([Flatcar#520](https://github.com/flatcar-linux/Flatcar/issues/520))\n\n**Updates**\n\n* Linux ([5.10.69](https://lwn.net/Articles/870544/))\n\nNote: Please note that ARM images remain experimental for now.\n"
   }
 }
