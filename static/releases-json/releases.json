@@ -2056,12 +2056,35 @@
     },
     "release_notes": "**Update to CGroupsV2**\n\nAs of Alpha version 2969.0.0, Flatcar Container Linux migrates to the unified cgroup hierarchy (aka CGroupsV2)! New nodes will utilize CGroupsV2 by default. Existing nodes remain on CGroupsV1 and need to be manually migrated to CGroupsV2. To learn more about CGroupsV2 on Flatcar Container Linux and the migration guide, please refer to [https://kinvolk.io/docs/flatcar-container-linux/latest/container-runtimes/switching-to-unified-cgroups/](https://kinvolk.io/docs/flatcar-container-linux/latest/container-runtimes/switching-to-unified-cgroups/) \n\nNew **Alpha** release **3005.0.1**\n\n_Changes since **Alpha 3005.0.0**_\n\n**Security fixes**\n\n* Linux ([CVE-2021-41073](https://nvd.nist.gov/vuln/detail/CVE-2021-41073), [CVE-2020-16119](https://nvd.nist.gov/vuln/detail/CVE-2020-16119))\n\n**Bug fixes**\n\n* The Mellanox NIC Linux driver issue introduced in the previous release was fixed ([Flatcar#520](https://github.com/flatcar-linux/Flatcar/issues/520))\n\n**Updates**\n\n* Linux ([5.10.69](https://lwn.net/Articles/870544/))\n\nNote: Please note that ARM images remain experimental for now.\n"
   },
+  "3033.0.0": {
+    "channel": "alpha",
+    "architectures": [
+      "amd64",
+      "arm64"
+    ],
+    "release_date": "2021-10-25 15:54:45 +0000",
+    "major_software": {
+      "docker": [
+        "20.10.9"
+      ],
+      "ignition": [
+        "0.34.0"
+      ],
+      "kernel": [
+        "5.10.75"
+      ],
+      "systemd": [
+        "249"
+      ]
+    },
+    "release_notes": "**Update to CGroupsV2**\n\nAs of Alpha version 2969.0.0, Flatcar Container Linux migrates to the unified cgroup hierarchy (aka CGroupsV2)! New nodes will utilize CGroupsV2 by default. Existing nodes remain on CGroupsV1 and need to be manually migrated to CGroupsV2. To learn more about CGroupsV2 on Flatcar Container Linux and the migration guide, please refer to[ https://kinvolk.io/docs/flatcar-container-linux/latest/container-runtimes/switching-to-unified-cgroups/](https://kinvolk.io/docs/flatcar-container-linux/latest/container-runtimes/switching-to-unified-cgroups/)\n\n\nNew **Alpha** release **3033.0.0**\n\n_Changes since **Alpha 3005.0.0**_\n\n**Security fixes**\n\n\n\n* Linux ([CVE-2021-3764](https://nvd.nist.gov/vuln/detail/CVE-2021-3764), [CVE-2021-3744](https://nvd.nist.gov/vuln/detail/CVE-2021-3744), [CVE-2021-38300](https://nvd.nist.gov/vuln/detail/CVE-2021-38300), [CVE-2021-20321](https://nvd.nist.gov/vuln/detail/CVE-2021-20321), [CVE-2021-41864](https://nvd.nist.gov/vuln/detail/CVE-2021-41864))\n* Go ([CVE-2021-29923](https://nvd.nist.gov/vuln/detail/CVE-2021-29923), [CVE-2021-39293](https://nvd.nist.gov/vuln/detail/CVE-2021-39293), [CVE-2021-38297](https://nvd.nist.gov/vuln/detail/CVE-2021-38297))\n* bash ([CVE-2019-9924](https://nvd.nist.gov/vuln/detail/CVE-2019-9924),[ CVE-2019-18276](https://nvd.nist.gov/vuln/detail/CVE-2019-18276))\n* containerd ([CVE-2021-41103](https://nvd.nist.gov/vuln/detail/CVE-2021-41103))\n* curl ([CVE-2021-22945](https://nvd.nist.gov/vuln/detail/CVE-2021-22945),[ CVE-2021-22946](https://nvd.nist.gov/vuln/detail/CVE-2021-22946),[ CVE-2021-22947](https://nvd.nist.gov/vuln/detail/CVE-2021-22947))\n* Docker ([CVE-2021-41092](https://nvd.nist.gov/vuln/detail/CVE-2021-41092), [CVE-2021-41089](https://nvd.nist.gov/vuln/detail/CVE-2021-41089),[ CVE-2021-41091](https://nvd.nist.gov/vuln/detail/CVE-2021-41091))\n* git ([CVE-2021-40330](https://nvd.nist.gov/vuln/detail/CVE-2021-40330))\n* gnupg ([CVE-2020-25125](https://nvd.nist.gov/vuln/detail/CVE-2020-25125))\n* libgcrypt ([CVE-2021-40528](https://nvd.nist.gov/vuln/detail/CVE-2021-40528))\n* polkit ([CVE-2021-3560](https://nvd.nist.gov/vuln/detail/CVE-2021-3560))\n* util-linux ([CVE-2021-37600](https://nvd.nist.gov/vuln/detail/CVE-2021-37600))\n* vim ([CVE-2021-3770](https://nvd.nist.gov/vuln/detail/CVE-2021-3770),[ CVE-2021-3778](https://nvd.nist.gov/vuln/detail/CVE-2021-3778),[ CVE-2021-3796](https://nvd.nist.gov/vuln/detail/CVE-2021-3796))\n* SDK: bison ([CVE-2020-14150](https://nvd.nist.gov/vuln/detail/CVE-2020-14150),[ CVE-2020-24240](https://nvd.nist.gov/vuln/detail/CVE-2020-24240))\n* SDK: perl ([CVE-2020-10878](https://nvd.nist.gov/vuln/detail/CVE-2020-10878))\n\n**Bux fixes**\n\n\n\n* The tcsd service for TPM 1 is not started on machines with TPM 2 anymore where it fails and isn\u2019t necessary. ([flatcar-linux/coreos-overlay#1365](https://github.com/flatcar-linux/coreos-overlay/pull/1365))\n* arm64: the Polkit service does not crash anymore. ([flatcar-linux/Flatcar#156](https://github.com/flatcar-linux/Flatcar/issues/156))\n* toolbox: fixed support for multi-layered docker images ([toolbox#5](https://github.com/flatcar-linux/toolbox/pull/5))\n\n**Updates**\n\n\n\n* Linux ([5.10.75](https://lwn.net/Articles/873465/))\n* Linux Firmware ([20210919](https://git.kernel.org/pub/scm/linux/kernel/git/firmware/linux-firmware.git/tag/?h=20210919))\n* Docker ([20.10.9](https://docs.docker.com/engine/release-notes/#20109))\n* Go ([1.17.2](https://go.googlesource.com/go/+/refs/tags/go1.17.2))\n* systemd ([249.4](https://github.com/systemd/systemd-stable/blob/v249.4/NEWS))\n* bash ([5.1_p8](https://lists.gnu.org/archive/html/info-gnu/2020-12/msg00003.html))\n* ca-certificates ([3.69.1](https://firefox-source-docs.mozilla.org/security/nss/releases/nss_3_69_1.html#nss-3-69-1-release-notes))\n* containerd ([1.5.7](https://github.com/containerd/containerd/releases/tag/v1.5.7))\n* curl ([7.79.1](https://curl.se/changes.html#7_79_1))\n* duktape ([2.6.0](https://github.com/svaarala/duktape/blob/master/doc/release-notes-v2-6.rst))\n* git ([2.32.0](https://github.com/git/git/blob/master/Documentation/RelNotes/2.32.0.txt))\n* gnupg ([2.2.29](https://lists.gnupg.org/pipermail/gnupg-announce/2021q3/000461.html))\n* keyutils ([1.6.1](https://git.kernel.org/pub/scm/linux/kernel/git/dhowells/keyutils.git/tag/?h=v1.6.1))\n* libgcrypt ([1.9.4](https://dev.gnupg.org/T5402))\n* libtirpc ([1.3.2](https://www.spinics.net/lists/linux-nfs/msg84129.html))\n* lvm2 ([2.02.188](https://github.com/lvmteam/lvm2/releases/tag/v2_02_188))\n* net-tools ([2.10](https://sourceforge.net/p/net-tools/code/ci/v2.10/tree/))\n* open-vm-tools ([11.3.5](https://github.com/vmware/open-vm-tools/releases/tag/stable-11.3.5))\n* polkit ([0.119](https://gitlab.freedesktop.org/polkit/polkit/-/blob/0.119/NEWS))\n* realmd ([0.17.0](https://gitlab.freedesktop.org/realmd/realmd/-/tags/0.17.0))\n* util-linux ([2.37.2](https://github.com/karelzak/util-linux/blob/v2.37.2/NEWS))\n* vim ([8.2.3428](https://github.com/vim/vim/releases/tag/v8.2.3428))\n* SDK: bison (3.7.6)\n* SDK: bc (1.07.1)\n* SDK: gawk (5.1.0)\n* SDK: gnuconfig (20210107)\n* SDK: google-cloud-sdk ([355.0.0](https://groups.google.com/g/google-cloud-sdk-announce/c/HoJuttxnzNQ))\n* SDK: meson (0.57.2)\n* SDK: mtools (4.0.35)\n* SDK: perl ([5.34.0](https://perldoc.perl.org/perl5340delta))\n* SDK: texinfo ([6.8](https://github.com/debian-tex/texinfo/releases/tag/upstream%2F6.8))\n\nNote: Please note that ARM images remain experimental for now.\n"
+  },
   "current": {
     "channel": "stable",
     "architectures": [
       "amd64"
     ],
-    "release_date": "2021-09-30 16:21:29 +0000",
+    "release_date": "2021-10-25 15:56:47 +0000",
     "major_software": {
       "docker": [
         "19.03.15"
@@ -2070,13 +2093,13 @@
         "0.34.0"
       ],
       "kernel": [
-        "5.10.69"
+        "5.10.75"
       ],
       "systemd": [
         "247"
       ]
     },
-    "release_notes": "New **Stable** release **2905.2.5**\n\n_Changes since **Stable 2905.2.4**_\n\n**Security fixes**\n\n* Linux ([CVE-2021-41073](https://nvd.nist.gov/vuln/detail/CVE-2021-41073), [CVE-2020-16119](https://nvd.nist.gov/vuln/detail/CVE-2020-16119))\n\n**Bug fixes**\n\n* The Mellanox NIC Linux driver issue introduced in the previous release was fixed ([Flatcar#520](https://github.com/flatcar-linux/Flatcar/issues/520))\n\n**Updates**\n\n* Linux ([5.10.69](https://lwn.net/Articles/870544/))"
+    "release_notes": "New **Stable** release **2905.2.6**\n\n_Changes since **Stable 2905.2.5**_\n\n**Security fixes**\n\n\n\n* Linux ([CVE-2021-3764](https://nvd.nist.gov/vuln/detail/CVE-2021-3764), [CVE-2021-3744](https://nvd.nist.gov/vuln/detail/CVE-2021-3744), [CVE-2021-38300](https://nvd.nist.gov/vuln/detail/CVE-2021-38300), [CVE-2021-20321](https://nvd.nist.gov/vuln/detail/CVE-2021-20321), [CVE-2021-41864](https://nvd.nist.gov/vuln/detail/CVE-2021-41864))\n* containerd ([CVE-2021-41103](https://nvd.nist.gov/vuln/detail/CVE-2021-41103))\n\n**Bux fixes**\n\n\n\n* The tcsd service for TPM 1 is not started on machines with TPM 2 anymore where it fails and isn\u2019t necessary ([flatcar-linux/coreos-overlay#1364](https://github.com/flatcar-linux/coreos-overlay/pull/1364))\n\n**Updates**\n\n\n\n* Linux ([5.10.75](https://lwn.net/Articles/873465/))\n* ca-certificates ([3.69.1](https://firefox-source-docs.mozilla.org/security/nss/releases/nss_3_69_1.html#nss-3-69-1-release-notes))\n* containerd ([1.5.7](https://github.com/containerd)"
   },
   "1722.2.0": {
     "channel": "beta",
@@ -3892,6 +3915,28 @@
     },
     "release_notes": "New **Beta** release **2983.1.1**\n\n_Changes since **Beta 2983.1.0**_\n\n**Security fixes**\n\n* Linux ([CVE-2021-41073](https://nvd.nist.gov/vuln/detail/CVE-2021-41073), [CVE-2020-16119](https://nvd.nist.gov/vuln/detail/CVE-2020-16119))\n\n**Updates**\n\n* Linux ([5.10.69](https://lwn.net/Articles/870544/))"
   },
+  "2983.1.2": {
+    "channel": "beta",
+    "architectures": [
+      "amd64"
+    ],
+    "release_date": "2021-10-25 15:56:14 +0000",
+    "major_software": {
+      "docker": [
+        "20.10.9"
+      ],
+      "ignition": [
+        "0.34.0"
+      ],
+      "kernel": [
+        "5.10.75"
+      ],
+      "systemd": [
+        "247"
+      ]
+    },
+    "release_notes": "**Update to CGroupsV2**\n\nAs of Alpha version 2969.0.0, Flatcar Container Linux migrates to the unified cgroup hierarchy (aka CGroupsV2)! New nodes will utilize CGroupsV2 by default. Existing nodes remain on CGroupsV1 and need to be manually migrated to CGroupsV2. To learn more about CGroupsV2 on Flatcar Container Linux and the migration guide, please refer to[ https://kinvolk.io/docs/flatcar-container-linux/latest/container-runtimes/switching-to-unified-cgroups/](https://kinvolk.io/docs/flatcar-container-linux/latest/container-runtimes/switching-to-unified-cgroups/)\n\nNew **Beta** release **2983.1.2**\n\n_Changes since **Beta 2983.1.1**_\n\n**Security fixes**\n\n\n\n* Linux ([CVE-2021-3764](https://nvd.nist.gov/vuln/detail/CVE-2021-3764), [CVE-2021-3744](https://nvd.nist.gov/vuln/detail/CVE-2021-3744), [CVE-2021-38300](https://nvd.nist.gov/vuln/detail/CVE-2021-38300), [CVE-2021-20321](https://nvd.nist.gov/vuln/detail/CVE-2021-20321), [CVE-2021-41864](https://nvd.nist.gov/vuln/detail/CVE-2021-41864))\n* Docker ([CVE-2021-41092](https://nvd.nist.gov/vuln/detail/CVE-2021-41092), [CVE-2021-41089](https://nvd.nist.gov/vuln/detail/CVE-2021-41089),[ CVE-2021-41091](https://nvd.nist.gov/vuln/detail/CVE-2021-41091))\n* containerd ([CVE-2021-41103](https://nvd.nist.gov/vuln/detail/CVE-2021-41103))\n\n**Bux fixes**\n\n\n\n* The tcsd service for TPM 1 is not started on machines with TPM 2 anymore where it fails and isn\u2019t necessary ([flatcar-linux/coreos-overlay#1364](https://github.com/flatcar-linux/coreos-overlay/pull/1364))\n\n**Updates**\n\n\n\n* Linux ([5.10.75](https://lwn.net/Articles/873465/))\n* Docker ([20.10.9](https://docs.docker.com/engine/release-notes/#20109))\n* ca-certificates ([3.69.1](https://firefox-source-docs.mozilla.org/security/nss/releases/nss_3_69_1.html#nss-3-69-1-release-notes))\n* containerd ([1.5.7](https://github.com/containerd/containerd/releases/tag/v1.5.7))"
+  },
   "2051.99.1": {
     "channel": "edge",
     "architectures": [
@@ -4746,12 +4791,12 @@
     },
     "release_notes": "New **LTS** release **2605.21.1**\n\n_Changes since **LTS 2605.20.1**_\n\n**Security fixes**\n\n\n\n* Linux ([CVE-2021-3753](https://nvd.nist.gov/vuln/detail/CVE-2021-3753),[ CVE-2021-3739](https://nvd.nist.gov/vuln/detail/CVE-2021-3739), [CVE-2021-40490](https://nvd.nist.gov/vuln/detail/CVE-2021-40490), [CVE-2021-34556](https://nvd.nist.gov/vuln/detail/CVE-2021-34556), [CVE-2021-35477](https://nvd.nist.gov/vuln/detail/CVE-2021-35477))\n\n**Updates**\n\n\n\n* Linux ([5.4.147](https://lwn.net/Articles/869407/))"
   },
-  "current-2021": {
+  "2605.22.1": {
     "channel": "lts",
     "architectures": [
       "amd64"
     ],
-    "release_date": "2021-09-27 08:32:37 +0000",
+    "release_date": "2021-10-25 15:57:52 +0000",
     "major_software": {
       "docker": [
         "19.03.15"
@@ -4760,13 +4805,35 @@
         "0.34.0"
       ],
       "kernel": [
-        "5.4.147"
+        "5.4.155"
       ],
       "systemd": [
         "246"
       ]
     },
-    "release_notes": "New **LTS** release **2605.21.1**\n\n_Changes since **LTS 2605.20.1**_\n\n**Security fixes**\n\n\n\n* Linux ([CVE-2021-3753](https://nvd.nist.gov/vuln/detail/CVE-2021-3753),[ CVE-2021-3739](https://nvd.nist.gov/vuln/detail/CVE-2021-3739), [CVE-2021-40490](https://nvd.nist.gov/vuln/detail/CVE-2021-40490), [CVE-2021-34556](https://nvd.nist.gov/vuln/detail/CVE-2021-34556), [CVE-2021-35477](https://nvd.nist.gov/vuln/detail/CVE-2021-35477))\n\n**Updates**\n\n\n\n* Linux ([5.4.147](https://lwn.net/Articles/869407/))"
+    "release_notes": "\nNew **LTS** release **2605.22.1**\n\n_Changes since **LTS 2605.21.1**_\n\n**Security fixes**\n\n\n\n* Linux ([CVE-2021-42252](https://nvd.nist.gov/vuln/detail/CVE-2021-42252), [CVE-2021-20320](https://nvd.nist.gov/vuln/detail/CVE-2021-20320), [CVE-2020-16119](https://nvd.nist.gov/vuln/detail/CVE-2020-16119), [CVE-2021-37159](https://nvd.nist.gov/vuln/detail/CVE-2021-37159), [CVE-2021-3764](https://nvd.nist.gov/vuln/detail/CVE-2021-3764), [CVE-2021-3744](https://nvd.nist.gov/vuln/detail/CVE-2021-3744), [CVE-2021-38300](https://nvd.nist.gov/vuln/detail/CVE-2021-38300), [CVE-2021-20321](https://nvd.nist.gov/vuln/detail/CVE-2021-20321), [CVE-2021-41864](https://nvd.nist.gov/vuln/detail/CVE-2021-41864))\n\n**Bux fixes**\n\n\n\n* The tcsd service for TPM 1 is not started on machines with TPM 2 anymore where it fails and isn\u2019t necessary ([flatcar-linux/coreos-overlay#1364](https://github.com/flatcar-linux/coreos-overlay/pull/1364))\n\n**Updates**\n\n\n\n* Linux ([5.4.155](https://lwn.net/Articles/873466/))\n* ca-certificates ([3.69.1](https://firefox-source-docs.mozilla.org/security/nss/releases/nss_3_69_1.html#nss-3-69-1-release-notes))"
+  },
+  "current-2021": {
+    "channel": "lts",
+    "architectures": [
+      "amd64"
+    ],
+    "release_date": "2021-10-25 15:57:52 +0000",
+    "major_software": {
+      "docker": [
+        "19.03.15"
+      ],
+      "ignition": [
+        "0.34.0"
+      ],
+      "kernel": [
+        "5.4.155"
+      ],
+      "systemd": [
+        "246"
+      ]
+    },
+    "release_notes": "\nNew **LTS** release **2605.22.1**\n\n_Changes since **LTS 2605.21.1**_\n\n**Security fixes**\n\n\n\n* Linux ([CVE-2021-42252](https://nvd.nist.gov/vuln/detail/CVE-2021-42252), [CVE-2021-20320](https://nvd.nist.gov/vuln/detail/CVE-2021-20320), [CVE-2020-16119](https://nvd.nist.gov/vuln/detail/CVE-2020-16119), [CVE-2021-37159](https://nvd.nist.gov/vuln/detail/CVE-2021-37159), [CVE-2021-3764](https://nvd.nist.gov/vuln/detail/CVE-2021-3764), [CVE-2021-3744](https://nvd.nist.gov/vuln/detail/CVE-2021-3744), [CVE-2021-38300](https://nvd.nist.gov/vuln/detail/CVE-2021-38300), [CVE-2021-20321](https://nvd.nist.gov/vuln/detail/CVE-2021-20321), [CVE-2021-41864](https://nvd.nist.gov/vuln/detail/CVE-2021-41864))\n\n**Bux fixes**\n\n\n\n* The tcsd service for TPM 1 is not started on machines with TPM 2 anymore where it fails and isn\u2019t necessary ([flatcar-linux/coreos-overlay#1364](https://github.com/flatcar-linux/coreos-overlay/pull/1364))\n\n**Updates**\n\n\n\n* Linux ([5.4.155](https://lwn.net/Articles/873466/))\n* ca-certificates ([3.69.1](https://firefox-source-docs.mozilla.org/security/nss/releases/nss_3_69_1.html#nss-3-69-1-release-notes))"
   },
   "2605.15.1": {
     "channel": "lts",
@@ -6322,5 +6389,27 @@
       ]
     },
     "release_notes": "New **Stable** release **2905.2.5**\n\n_Changes since **Stable 2905.2.4**_\n\n**Security fixes**\n\n* Linux ([CVE-2021-41073](https://nvd.nist.gov/vuln/detail/CVE-2021-41073), [CVE-2020-16119](https://nvd.nist.gov/vuln/detail/CVE-2020-16119))\n\n**Bug fixes**\n\n* The Mellanox NIC Linux driver issue introduced in the previous release was fixed ([Flatcar#520](https://github.com/flatcar-linux/Flatcar/issues/520))\n\n**Updates**\n\n* Linux ([5.10.69](https://lwn.net/Articles/870544/))"
+  },
+  "2905.2.6": {
+    "channel": "stable",
+    "architectures": [
+      "amd64"
+    ],
+    "release_date": "2021-10-25 15:56:47 +0000",
+    "major_software": {
+      "docker": [
+        "19.03.15"
+      ],
+      "ignition": [
+        "0.34.0"
+      ],
+      "kernel": [
+        "5.10.75"
+      ],
+      "systemd": [
+        "247"
+      ]
+    },
+    "release_notes": "New **Stable** release **2905.2.6**\n\n_Changes since **Stable 2905.2.5**_\n\n**Security fixes**\n\n\n\n* Linux ([CVE-2021-3764](https://nvd.nist.gov/vuln/detail/CVE-2021-3764), [CVE-2021-3744](https://nvd.nist.gov/vuln/detail/CVE-2021-3744), [CVE-2021-38300](https://nvd.nist.gov/vuln/detail/CVE-2021-38300), [CVE-2021-20321](https://nvd.nist.gov/vuln/detail/CVE-2021-20321), [CVE-2021-41864](https://nvd.nist.gov/vuln/detail/CVE-2021-41864))\n* containerd ([CVE-2021-41103](https://nvd.nist.gov/vuln/detail/CVE-2021-41103))\n\n**Bux fixes**\n\n\n\n* The tcsd service for TPM 1 is not started on machines with TPM 2 anymore where it fails and isn\u2019t necessary ([flatcar-linux/coreos-overlay#1364](https://github.com/flatcar-linux/coreos-overlay/pull/1364))\n\n**Updates**\n\n\n\n* Linux ([5.10.75](https://lwn.net/Articles/873465/))\n* ca-certificates ([3.69.1](https://firefox-source-docs.mozilla.org/security/nss/releases/nss_3_69_1.html#nss-3-69-1-release-notes))\n* containerd ([1.5.7](https://github.com/containerd)"
   }
 }

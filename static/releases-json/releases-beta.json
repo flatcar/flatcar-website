@@ -1813,26 +1813,48 @@
     },
     "release_notes": "New **Beta** release **2983.1.1**\n\n_Changes since **Beta 2983.1.0**_\n\n**Security fixes**\n\n* Linux ([CVE-2021-41073](https://nvd.nist.gov/vuln/detail/CVE-2021-41073), [CVE-2020-16119](https://nvd.nist.gov/vuln/detail/CVE-2020-16119))\n\n**Updates**\n\n* Linux ([5.10.69](https://lwn.net/Articles/870544/))"
   },
-  "current": {
+  "2983.1.2": {
     "channel": "beta",
     "architectures": [
       "amd64"
     ],
-    "release_date": "2021-09-30 16:22:00 +0000",
+    "release_date": "2021-10-25 15:56:14 +0000",
     "major_software": {
       "docker": [
-        "20.10.8"
+        "20.10.9"
       ],
       "ignition": [
         "0.34.0"
       ],
       "kernel": [
-        "5.10.69"
+        "5.10.75"
       ],
       "systemd": [
         "247"
       ]
     },
-    "release_notes": "New **Beta** release **2983.1.1**\n\n_Changes since **Beta 2983.1.0**_\n\n**Security fixes**\n\n* Linux ([CVE-2021-41073](https://nvd.nist.gov/vuln/detail/CVE-2021-41073), [CVE-2020-16119](https://nvd.nist.gov/vuln/detail/CVE-2020-16119))\n\n**Updates**\n\n* Linux ([5.10.69](https://lwn.net/Articles/870544/))"
+    "release_notes": "**Update to CGroupsV2**\n\nAs of Alpha version 2969.0.0, Flatcar Container Linux migrates to the unified cgroup hierarchy (aka CGroupsV2)! New nodes will utilize CGroupsV2 by default. Existing nodes remain on CGroupsV1 and need to be manually migrated to CGroupsV2. To learn more about CGroupsV2 on Flatcar Container Linux and the migration guide, please refer to[ https://kinvolk.io/docs/flatcar-container-linux/latest/container-runtimes/switching-to-unified-cgroups/](https://kinvolk.io/docs/flatcar-container-linux/latest/container-runtimes/switching-to-unified-cgroups/)\n\nNew **Beta** release **2983.1.2**\n\n_Changes since **Beta 2983.1.1**_\n\n**Security fixes**\n\n\n\n* Linux ([CVE-2021-3764](https://nvd.nist.gov/vuln/detail/CVE-2021-3764), [CVE-2021-3744](https://nvd.nist.gov/vuln/detail/CVE-2021-3744), [CVE-2021-38300](https://nvd.nist.gov/vuln/detail/CVE-2021-38300), [CVE-2021-20321](https://nvd.nist.gov/vuln/detail/CVE-2021-20321), [CVE-2021-41864](https://nvd.nist.gov/vuln/detail/CVE-2021-41864))\n* Docker ([CVE-2021-41092](https://nvd.nist.gov/vuln/detail/CVE-2021-41092), [CVE-2021-41089](https://nvd.nist.gov/vuln/detail/CVE-2021-41089),[ CVE-2021-41091](https://nvd.nist.gov/vuln/detail/CVE-2021-41091))\n* containerd ([CVE-2021-41103](https://nvd.nist.gov/vuln/detail/CVE-2021-41103))\n\n**Bux fixes**\n\n\n\n* The tcsd service for TPM 1 is not started on machines with TPM 2 anymore where it fails and isn\u2019t necessary ([flatcar-linux/coreos-overlay#1364](https://github.com/flatcar-linux/coreos-overlay/pull/1364))\n\n**Updates**\n\n\n\n* Linux ([5.10.75](https://lwn.net/Articles/873465/))\n* Docker ([20.10.9](https://docs.docker.com/engine/release-notes/#20109))\n* ca-certificates ([3.69.1](https://firefox-source-docs.mozilla.org/security/nss/releases/nss_3_69_1.html#nss-3-69-1-release-notes))\n* containerd ([1.5.7](https://github.com/containerd/containerd/releases/tag/v1.5.7))"
+  },
+  "current": {
+    "channel": "beta",
+    "architectures": [
+      "amd64"
+    ],
+    "release_date": "2021-10-25 15:56:14 +0000",
+    "major_software": {
+      "docker": [
+        "20.10.9"
+      ],
+      "ignition": [
+        "0.34.0"
+      ],
+      "kernel": [
+        "5.10.75"
+      ],
+      "systemd": [
+        "247"
+      ]
+    },
+    "release_notes": "**Update to CGroupsV2**\n\nAs of Alpha version 2969.0.0, Flatcar Container Linux migrates to the unified cgroup hierarchy (aka CGroupsV2)! New nodes will utilize CGroupsV2 by default. Existing nodes remain on CGroupsV1 and need to be manually migrated to CGroupsV2. To learn more about CGroupsV2 on Flatcar Container Linux and the migration guide, please refer to[ https://kinvolk.io/docs/flatcar-container-linux/latest/container-runtimes/switching-to-unified-cgroups/](https://kinvolk.io/docs/flatcar-container-linux/latest/container-runtimes/switching-to-unified-cgroups/)\n\nNew **Beta** release **2983.1.2**\n\n_Changes since **Beta 2983.1.1**_\n\n**Security fixes**\n\n\n\n* Linux ([CVE-2021-3764](https://nvd.nist.gov/vuln/detail/CVE-2021-3764), [CVE-2021-3744](https://nvd.nist.gov/vuln/detail/CVE-2021-3744), [CVE-2021-38300](https://nvd.nist.gov/vuln/detail/CVE-2021-38300), [CVE-2021-20321](https://nvd.nist.gov/vuln/detail/CVE-2021-20321), [CVE-2021-41864](https://nvd.nist.gov/vuln/detail/CVE-2021-41864))\n* Docker ([CVE-2021-41092](https://nvd.nist.gov/vuln/detail/CVE-2021-41092), [CVE-2021-41089](https://nvd.nist.gov/vuln/detail/CVE-2021-41089),[ CVE-2021-41091](https://nvd.nist.gov/vuln/detail/CVE-2021-41091))\n* containerd ([CVE-2021-41103](https://nvd.nist.gov/vuln/detail/CVE-2021-41103))\n\n**Bux fixes**\n\n\n\n* The tcsd service for TPM 1 is not started on machines with TPM 2 anymore where it fails and isn\u2019t necessary ([flatcar-linux/coreos-overlay#1364](https://github.com/flatcar-linux/coreos-overlay/pull/1364))\n\n**Updates**\n\n\n\n* Linux ([5.10.75](https://lwn.net/Articles/873465/))\n* Docker ([20.10.9](https://docs.docker.com/engine/release-notes/#20109))\n* ca-certificates ([3.69.1](https://firefox-source-docs.mozilla.org/security/nss/releases/nss_3_69_1.html#nss-3-69-1-release-notes))\n* containerd ([1.5.7](https://github.com/containerd/containerd/releases/tag/v1.5.7))"
   }
 }

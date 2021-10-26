@@ -1,9 +1,9 @@
 architectures:
 - amd64
-channel: stable
+channel: beta
 github_release:
   assets: []
-  assets_url: https://api.github.com/repos/kinvolk/manifest/releases/51990178/assets
+  assets_url: https://api.github.com/repos/kinvolk/manifest/releases/51990121/assets
   author:
     avatar_url: https://avatars.githubusercontent.com/u/500628?v=4
     events_url: https://api.github.com/users/sayanchowdhury/events{/privacy}
@@ -23,34 +23,42 @@ github_release:
     subscriptions_url: https://api.github.com/users/sayanchowdhury/subscriptions
     type: User
     url: https://api.github.com/users/sayanchowdhury
-  body: "New **Stable** release **2905.2.6**\r\n\r\n_Changes since **Stable 2905.2.5**_\r\
+  body: "**Update to CGroupsV2**\r\n\r\nAs of Alpha version 2969.0.0, Flatcar Container\
+    \ Linux migrates to the unified cgroup hierarchy (aka CGroupsV2)! New nodes will\
+    \ utilize CGroupsV2 by default. Existing nodes remain on CGroupsV1 and need to\
+    \ be manually migrated to CGroupsV2. To learn more about CGroupsV2 on Flatcar\
+    \ Container Linux and the migration guide, please refer to[ https://kinvolk.io/docs/flatcar-container-linux/latest/container-runtimes/switching-to-unified-cgroups/](https://kinvolk.io/docs/flatcar-container-linux/latest/container-runtimes/switching-to-unified-cgroups/)\r\
+    \n\r\nNew **Beta** release **2983.1.2**\r\n\r\n_Changes since **Beta 2983.1.1**_\r\
     \n\r\n**Security fixes**\r\n\r\n\r\n\r\n* Linux ([CVE-2021-3764](https://nvd.nist.gov/vuln/detail/CVE-2021-3764),\
     \ [CVE-2021-3744](https://nvd.nist.gov/vuln/detail/CVE-2021-3744), [CVE-2021-38300](https://nvd.nist.gov/vuln/detail/CVE-2021-38300),\
     \ [CVE-2021-20321](https://nvd.nist.gov/vuln/detail/CVE-2021-20321), [CVE-2021-41864](https://nvd.nist.gov/vuln/detail/CVE-2021-41864))\r\
+    \n* Docker ([CVE-2021-41092](https://nvd.nist.gov/vuln/detail/CVE-2021-41092),\
+    \ [CVE-2021-41089](https://nvd.nist.gov/vuln/detail/CVE-2021-41089),[ CVE-2021-41091](https://nvd.nist.gov/vuln/detail/CVE-2021-41091))\r\
     \n* containerd ([CVE-2021-41103](https://nvd.nist.gov/vuln/detail/CVE-2021-41103))\r\
     \n\r\n**Bux fixes**\r\n\r\n\r\n\r\n* The tcsd service for TPM 1 is not started\
     \ on machines with TPM 2 anymore where it fails and isn\u2019t necessary ([flatcar-linux/coreos-overlay#1364](https://github.com/flatcar-linux/coreos-overlay/pull/1364))\r\
     \n\r\n**Updates**\r\n\r\n\r\n\r\n* Linux ([5.10.75](https://lwn.net/Articles/873465/))\r\
-    \n* ca-certificates ([3.69.1](https://firefox-source-docs.mozilla.org/security/nss/releases/nss_3_69_1.html#nss-3-69-1-release-notes))\r\
-    \n* containerd ([1.5.7](https://github.com/containerd)"
-  created_at: '2021-10-20T12:12:35Z'
+    \n* Docker ([20.10.9](https://docs.docker.com/engine/release-notes/#20109))\r\n\
+    * ca-certificates ([3.69.1](https://firefox-source-docs.mozilla.org/security/nss/releases/nss_3_69_1.html#nss-3-69-1-release-notes))\r\
+    \n* containerd ([1.5.7](https://github.com/containerd/containerd/releases/tag/v1.5.7))"
+  created_at: '2021-10-20T11:00:37Z'
   draft: false
-  html_url: https://github.com/kinvolk/manifest/releases/tag/v2905.2.6
-  id: 51990178
+  html_url: https://github.com/kinvolk/manifest/releases/tag/v2983.1.2
+  id: 51990121
   name: ''
-  node_id: RE_kwDOB2MTRc4DGU6i
+  node_id: RE_kwDOB2MTRc4DGU5p
   prerelease: false
-  published_at: '2021-10-25T15:56:47Z'
-  tag_name: v2905.2.6
-  tarball_url: https://api.github.com/repos/kinvolk/manifest/tarball/v2905.2.6
+  published_at: '2021-10-25T15:56:14Z'
+  tag_name: v2983.1.2
+  tarball_url: https://api.github.com/repos/kinvolk/manifest/tarball/v2983.1.2
   target_commitish: flatcar-master
-  upload_url: https://uploads.github.com/repos/kinvolk/manifest/releases/51990178/assets{?name,label}
-  url: https://api.github.com/repos/kinvolk/manifest/releases/51990178
-  zipball_url: https://api.github.com/repos/kinvolk/manifest/zipball/v2905.2.6
+  upload_url: https://uploads.github.com/repos/kinvolk/manifest/releases/51990121/assets{?name,label}
+  url: https://api.github.com/repos/kinvolk/manifest/releases/51990121
+  zipball_url: https://api.github.com/repos/kinvolk/manifest/zipball/v2983.1.2
 image_packages:
-  docker: 19.03.15
+  docker: 20.10.9
   ignition: 0.34.0
   kernel: 5.10.75
   systemd: '247'
-release: current
-version: 2905.2.6
+release: 2983.1.2
+version: 2983.1.2
