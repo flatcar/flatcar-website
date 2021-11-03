@@ -12,4 +12,5 @@ docs:
 	python3 ./tools/docs-fetcher.py ./config.yaml
 
 run:
-	hugo server --theme=flatcar --buildFuture --watch --disableFastRender
+run:
+	hugo server --theme=flatcar --buildFuture --watch --disableFastRender --config ./config.yaml\,./tmp_modules.yaml
