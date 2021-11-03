@@ -1,4 +1,5 @@
 all: getdeps docs
+	hugo --theme=flatcar
 
 getdeps:
 	pip3 install --upgrade pyyaml
