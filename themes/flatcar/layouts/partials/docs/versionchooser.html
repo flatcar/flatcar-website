@@ -1,0 +1,16 @@
+{{ $versions := partial "docs/getversions" . }}
+<select class="custom-select custom-select-lg mb-3"
+  onchange="if (this.value) window.location.href=this.value"
+  title="Version"
+>
+  {{ $current := partial "docs/getcurrentversion" . }}
+  {{ range $versions }}
+    {{ $version := partial "docs/dirversion" . }}
+    <option
+      value={{ .Permalink }}
+      {{ if eq $version $current }}selected{{ end }}
+    >
+      {{ $version }}
+    </option>
+  {{ end }}
+</select>
