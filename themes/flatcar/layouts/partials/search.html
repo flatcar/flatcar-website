@@ -1,10 +1,11 @@
 <div id="fastSearch">
     <div class="search-contents">
-        <input id="searchInput" autocomplete="off" tabindex="0" {{ if .Params.search.domain }}data-search-domain="{{ .Params.search.domain }}"{{ end }} placeholder="{{ default "Search…" .Params.search.inputPlaceholder }}"/>
+        <input id="searchInput" autocomplete="off" tabindex="0" data-search-version="{{ partial "docs/getcurrentversion" . }}" placeholder="{{ default "Search…" .Params.search.inputPlaceholder }}"/>
         <div id="searchResults">
             <ul id="searchResultsList"></ul>
         </div>
     </div>
 </div>
 <script src="/js/fuse-6.4.6.min.js"></script>
+<script src="/js/lunr.js"></script>
 <script src="/js/fastsearch.js"></script>
