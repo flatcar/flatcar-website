@@ -2,6 +2,12 @@
 
 {{ $shouldDelayActive := ge (len .Site.Pages) 2000 }}
 <div id="td-sidebar-menu" class="td-sidebar__inner{{ if $shouldDelayActive }} d-none{{ end }}">
+  {{- $versions := partial "docs/getversions" . -}}
+  {{- if gt (len $versions) 1 -}}
+  <div class="text-center mb-0 mx-4 d-none d-md-block">
+    {{ partial "docs/versionchooser" . }}
+  </div>
+  {{- end -}}
   {{ if not .Site.Params.ui.sidebar_search_disable }}
   <form class="td-sidebar__search d-flex align-items-center text-center">
     {{/* partial "search-input.html" . */}}
@@ -31,27 +37,26 @@
 {{ $show := or (eq $s $p.FirstSection) (and (not $p.Site.Params.ui.sidebar_menu_compact) ($p.IsDescendant $s)) }}
 {{ $sid := $s.RelPermalink | anchorize }}
 <ul class="td-sidebar-nav__section">
+  {{ $link := $s.RelPermalink }}
+  {{ if $s.Params.sidebar.link }}
+    {{ $link = path.Join $s.RelPermalink $s.Params.sidebar.link }}
+  {{ end }}
+  {{ if $parent }}
+  {{ $useCollapse := not $parent.Params.children_are_versions }}
   <li class="td-sidebar-nav__section-title">
-    {{ $link := $s.RelPermalink }}
-    {{ if $s.Params.sidebar.link }}
-      {{ $link = path.Join $s.RelPermalink $s.Params.sidebar.link }}
-    {{ end }}
-    {{ if not $parent }}
-      <a href="/docs">{{ $s.LinkTitle }}</a>
-    {{ else }}
-      <a  href="#{{ $sid }}" role="" data-toggle="collapse" class="align-left pl-0 pr-2{{ if not $show }} collapsed{{ end }}{{ if $active}} active{{ end }} td-sidebar-link td-sidebar-link__section">
-        {{ $title := default $s.Title $s.LinkTitle }}
-        {{ if $s.Params.use_dir_name | or $parent.Params.children_are_versions }}
-          {{ $title = partial "docs/dirversion" $s }}
-        {{ end }}
+    <a  href="#{{ $sid }}" role="" {{ if $useCollapse }}data-toggle="collapse"{{ end }} class="align-left pl-0 pr-2{{ if not $show }} collapsed{{ end }}{{ if $active}} active{{ end }} td-sidebar-link {{ if $useCollapse }}td-sidebar-link__section{{ end }}">
+      {{ $title := default $s.Title $s.LinkTitle }}
+      {{ if $s.Params.use_dir_name | or $parent.Params.children_are_versions }}
+        {{ $tit2le := partial "docs/dirversion" $s }}
+      {{ end }}
 
-        {{ $title }}
-        {{ if $s.Parent.Params.children_are_versions }}
-          <span style="margin-left: 1rem;" class="badge badge-pill badge-dark">{{ partial "docs/getcurrentversion" $s }}</span>
-        {{ end }}
-      </a>
-    {{ end }}
+      {{ $title }}
+      {{ if $s.Parent.Params.children_are_versions }}
+        <span style="margin-left: 1rem;" class="badge badge-pill badge-dark">{{ partial "docs/getcurrentversion" $s }}</span>
+      {{ end }}
+    </a>
   </li>
+  {{ end }}
   <li class="p-0">
   <ul class="collapse {{ if $show }}show{{ end }}" id="{{ $sid }}">
     {{ if $parent }}
@@ -61,49 +66,16 @@
       </a>
     </li>
     {{ end }}
-    {{ $pages := where (union $s.Pages $s.Sections).ByWeight ".Params.toc_hide" "!=" true }}
-    {{ with site.Params.language_alternatives }}
-      {{ range . }}
-        {{ with (where $.section.Translations ".Lang" . ) }}
-          {{ $p := index . 0 }}
-          {{ $pages =  $pages | lang.Merge (union $p.Pages $p.Sections) }}
-        {{ end }}
-      {{ end }}
-    {{ end }}
-    {{ $pages := $pages | first 50 }}
-    {{ range $pages }}
-      {{ if .IsPage }}
-        {{/* Don't show page if there's no title */}}
-        {{ if .Title }}
-        {{ $mid := printf "m-%s" (.RelPermalink | anchorize) }}
-        {{ $active := eq . $p }}
-        {{ $isForeignLanguage := (ne (string .Lang) (string $.currentLang)) }}
-        <li class="show">
-          <a class="td-sidebar-link td-sidebar-link__page {{ if and (not $shouldDelayActive) $active }} active{{ end }}" id="{{ $mid }}" {{ if $isForeignLanguage }}target="_blank"{{ end }}  href="{{ .RelPermalink }}">
-            {{ .LinkTitle }}{{ if $isForeignLanguage }} <small>({{ .Lang | upper }})</small>{{ end }}
-          </a>
-        </li>
-        {{ end }}
-      {{ else }}
-        {{ $isSectionOpen := ($p.IsDescendant .)}}
-        {{/* If a section should be skipped, this means we show the children sections/pages instead */}}
-        {{ if .Params.sidebar.skip }}
-          {{ $subSections := slice }}
-          {{ $currentSection := . }}
-          {{ $allSubSections := (where (union .Pages .Sections).ByWeight ".Params.toc_hide" "!=" true) }}
-          {{ range $allSubSections }}
-            {{/* In "skip" sections, the children are only shown if they're open or their a first section */}}
-            {{ $isSectionOpen := ($p.IsDescendant .)}}
-            {{ if $isSectionOpen | or (eq . $p.FirstSection) }}
-              {{ $subSections = append . $subSections }}
-            {{ end }}
-          {{ end }}
 
-          {{/* If the subsections are empty, then we check if there's a subsection that is the latest version */}}
-          {{ if eq (len $subSections) 0 }}
+    {{ with $s }}
+      {{ if .Params.sidebar.skip }}
+            {{ $subSections := slice }}
+            {{ $currentSection := . }}
+            {{ $allSubSections := (where (union .Pages .Sections).ByWeight ".Params.toc_hide" "!=" true) }}
+            {{ if eq (len $subSections) 0 }}
             {{ range $allSubSections }}
-              {{ if $currentSection.Params.external_docs }}
-                {{ $defaultVersion := partial "docs/getlatestversion" $currentSection }}
+              {{ if $currentSection.Params.children_are_versions }}
+                {{ $defaultVersion := partial "docs/getcurrentversion" $p }}
                 {{ $dirName := partial "docs/dirversion" . }}
                 {{ if eq $dirName $defaultVersion }}
                   {{ $subSections = append . $subSections }}
@@ -111,20 +83,40 @@
               {{ end }}
             {{ end }}
           {{ end }}
-
-          {{/* If subsections are still empty, then we show this section */}}
-          {{ if eq (len $subSections) 0 }}
-            {{ $subSections = append . $subSections }}
-          {{ end }}
           {{ range $subSections }}
             <li class="p-0">
               {{ template "section-tree-nav-section" (dict "page" $p "section" . "currentLang" $.currentLang "parent" $s ) }}
             </li>
           {{ end }}
-        {{ else }}
-          <li class="p-0">
-            {{ template "section-tree-nav-section" (dict "page" $p "section" . "currentLang" $.currentLang "parent" $s ) }}
-          </li>
+      {{ else  }}
+        {{ $pages := where (union $s.Pages $s.Sections).ByWeight ".Params.toc_hide" "!=" true }}
+        {{ with site.Params.language_alternatives }}
+          {{ range . }}
+            {{ with (where $.section.Translations ".Lang" . ) }}
+              {{ $p := index . 0 }}
+              {{ $pages =  $pages | lang.Merge (union $p.Pages $p.Sections) }}
+            {{ end }}
+          {{ end }}
+        {{ end }}
+        {{ $pages := $pages | first 50 }}
+        {{ range $pages }}
+          {{ if .IsPage }}
+            {{/* Don't show page if there's no title */}}
+            {{ if .Title }}
+            {{ $mid := printf "m-%s" (.RelPermalink | anchorize) }}
+            {{ $active := eq . $p }}
+            {{ $isForeignLanguage := (ne (string .Lang) (string $.currentLang)) }}
+            <li class="show">
+              <a class="td-sidebar-link td-sidebar-link__page {{ if and (not $shouldDelayActive) $active }} active{{ end }}" id="{{ $mid }}" {{ if $isForeignLanguage }}target="_blank"{{ end }}  href="{{ .RelPermalink }}">
+                {{ .LinkTitle }}{{ if $isForeignLanguage }} <small>({{ .Lang | upper }})</small>{{ end }}
+              </a>
+            </li>
+            {{ end }}
+          {{ else }}
+              <li class="p-0">
+                {{ template "section-tree-nav-section" (dict "page" $p "section" . "currentLang" $.currentLang "parent" $s ) }}
+              </li>
+          {{ end }}
         {{ end }}
       {{ end }}
     {{ end }}

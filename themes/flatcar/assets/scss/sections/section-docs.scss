@@ -1,5 +1,5 @@
 $paddingLeft: 1.5rem;
-$topElemsVPadding: .8rem;
+$topElemsVPadding: 1.4rem;
 
 .docs {
   .header {
@@ -8,8 +8,10 @@ $topElemsVPadding: .8rem;
 }
 
 .td-sidebar__inner {
+  padding-top: calc(.8 + .2rem);
   position: relative;
   @include media-breakpoint-up(md) {
+    padding-top: calc(#{$topElemsVPadding} + .2rem);
     position: -webkit-sticky; /* Safari */
     position: sticky;
     top: 0;
@@ -80,7 +82,6 @@ $topElemsVPadding: .8rem;
 
         & > li {
             padding-left: $paddingLeft;
-            padding-top: calc(#{$topElemsVPadding} + .2rem);
 
             & > a {
               color: #474747;
