@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    {{- $redirectURL := default "" .Params.redirect_url -}}
+    {{- if .Params.external_docs -}}
+      {{- $docs := default (dict "name" "") (print "/docs/" (index .Params.external_docs 0)) -}}
+      {{- $redirectURL = $docs.name -}}
+    {{- end -}}
+    {{- if $redirectURL -}}
+    <meta http-equiv="refresh" content="0; url='{{ $redirectURL }}'" />
+    {{- end -}}
+  </head>
+  <body>
+    {{- if $redirectURL -}}
+    <p>Please follow <a href="{{ $redirectURL }}">this link</a>.</p>
+    {{- else -}}
+    <p>No redirect found.</p>
+    {{- end -}}
+  </body>
+</html>
