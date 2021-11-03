@@ -14,13 +14,11 @@
             {{ partial "sidebar.html" . }}
           </div>
           <div class="col-12 col-md-9 col-xl-8 pl-md-5 docs-reader" role="main">
-            {{ if not (eq .Params.search.domain nil) }}
             <div class="row mt-2">
               <div class="col-12">
                 {{ partial "search" . }}
               </div>
             </div>
-            {{ end }}
             <div class="row">
               {{ $currentVersion := partial "docs/getcurrentversion" . }}
               {{ $latestVersion := partial "docs/getlatestversion" . }}
