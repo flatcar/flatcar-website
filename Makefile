@@ -12,5 +12,7 @@ docs:
 	python3 ./tools/docs-fetcher.py ./config.yaml
 
 run:
-run:
 	hugo server --theme=flatcar --buildFuture --watch --disableFastRender --config ./config.yaml\,./tmp_modules.yaml
+
+build-preview: getdeps docs
+	hugo --theme=flatcar -F -b ${DEPLOY_PRIME_URL}
