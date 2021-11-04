@@ -1,6 +1,6 @@
 [build]
 publish = "public"
-command = "hugo --theme=flatcar -b $URL/"
+command = "make"
 
 [context.production.environment]
 GO_VERSION = "1.12"
@@ -10,7 +10,7 @@ HUGO_ENV = "production"
 HUGO_ENABLEGITINFO = "true"
 
 [context.deploy-preview]
-command = "hugo --theme=flatcar -F -b $DEPLOY_PRIME_URL"
+command = "make build-preview"
 
 [context.deploy-preview.environment]
 GO_VERSION = "1.12"

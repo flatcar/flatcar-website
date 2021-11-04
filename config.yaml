@@ -23,6 +23,14 @@ params:
       url: 'https://github.com/flatcar-linux'
       image: 'github-icon'
   favicon: "/media/brand-logo.svg"
+  docs:
+    github_edit_url: https://github.com/flatcar-linux/flatcar-docs/edit/main/docs/
+    issues_url: https://github.com/kinvolk/flatcar/issues/new?labels=kind/docs
+    external_docs:
+    - repo: https://github.com/flatcar-linux/flatcar-docs.git
+      name: "latest"
+      branch: "main"
+      dir: "docs"
 
 
 pygmentsCodefences: true
@@ -36,6 +44,11 @@ markup:
       unsafe: true
 
 assetDir: static
+
+outputs:
+  home:
+  - json
+  - html
 
 privacy:
   youtube:
@@ -59,7 +72,8 @@ menu:
       url: /releases
       identifier: releases
       weight: -400
-    - name: Docs »
-      url: https://kinvolk.io/docs/flatcar-container-linux/latest
+    - name: Docs
+      url: /docs
       identifier: docs
       weight: -200
+

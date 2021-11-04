@@ -1,0 +1,11 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    {{- $docs := default (dict "name" "") (index .Site.Params.docs.external_docs 0) -}}
+    {{- $redirectURL := $docs.name -}}
+    <meta http-equiv="refresh" content="0; url='/docs/{{ $redirectURL }}'" />
+  </head>
+  <body>
+    <p>Please follow <a href="{{ $redirectURL }}">this link</a>.</p>
+  </body>
+</html>

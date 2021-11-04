@@ -1,9 +1,17 @@
 $paddingLeft: 1.5rem;
-$topElemsVPadding: .8rem;
+$topElemsVPadding: 1.4rem;
+
+.docs {
+  .header {
+    background: $black !important;
+  }
+}
 
 .td-sidebar__inner {
+  padding-top: calc(.8 + .2rem);
   position: relative;
   @include media-breakpoint-up(md) {
+    padding-top: calc(#{$topElemsVPadding} + .2rem);
     position: -webkit-sticky; /* Safari */
     position: sticky;
     top: 0;
@@ -74,7 +82,6 @@ $topElemsVPadding: .8rem;
 
         & > li {
             padding-left: $paddingLeft;
-            padding-top: calc(#{$topElemsVPadding} + .2rem);
 
             & > a {
               color: #474747;
@@ -246,7 +253,7 @@ $sideBarWidth: 350px;
   }
 
   & > *:first-child {
-    padding-top: 150px !important;
+    padding-top: 160px !important;
     @include media-breakpoint-up(md) {
       padding-top: 130px !important;
     }

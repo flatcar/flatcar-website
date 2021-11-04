@@ -14,13 +14,11 @@
             {{ partial "sidebar.html" . }}
           </div>
           <div class="col-12 col-md-9 col-xl-8 pl-md-5 docs-reader" role="main">
-            {{ if not (eq .Params.search.domain nil) }}
             <div class="row mt-2">
               <div class="col-12">
                 {{ partial "search" . }}
               </div>
             </div>
-            {{ end }}
             <div class="row">
               {{ $currentVersion := partial "docs/getcurrentversion" . }}
               {{ $latestVersion := partial "docs/getlatestversion" . }}
@@ -39,8 +37,8 @@
               </div>
               {{ $versions := partial "docs/getversions" . }}
               {{ if gt (len $versions) 1 }}
-              <div class="col-12 offset-sm-6 col-sm-6 offset-lg-0 col-lg-3 order-first order-lg-last text-right">
-                {{ template "versionchooser" . }}
+              <div class="d-block d-md-none col-12 offset-sm-6 col-sm-6 offset-lg-0 col-lg-3 order-first order-lg-last text-right">
+                {{ partial "docs/versionchooser" . }}
               </div>
               {{ end }}
 
@@ -52,7 +50,7 @@
 
             <div class="github-footer">
               <hr class="panel-line" />
-              {{ $gitthubEditUrl := .Params.github_edit_url }}
+              {{ $gitthubEditUrl := default .Site.Params.docs.github_edit_url .Params.github_edit_url }}
               {{ if $gitthubEditUrl }}
                 {{ $filepath := .File.Path }}
                 {{ $versionFilePath := "" }}
@@ -71,7 +69,7 @@
                 </a>
               {{ end }}
 
-              {{ $issuesUrl := .Params.issues_url}}
+              {{ $issuesUrl := default .Site.Params.docs.issues_url .Params.issues_url }}
               {{ if $issuesUrl }}
               <a
                 href="{{ $issuesUrl }}"
@@ -107,22 +105,3 @@
     {{ end }}
   </body>
 </html>
-
-{{ define "versionchooser" }}
-{{ $versions := partial "docs/getversions" . }}
-<select class="custom-select custom-select-lg mb-3"
-  onchange="if (this.value) window.location.href=this.value"
-  title="Version"
->
-  {{ $current := partial "docs/getcurrentversion" . }}
-  {{ range $versions }}
-    {{ $version := partial "docs/dirversion" . }}
-    <option
-      value={{ .Permalink }}
-      {{ if eq $version $current }}selected{{ end }}
-    >
-      {{ $version }}
-    </option>
-  {{ end }}
-</select>
-{{ end }}
