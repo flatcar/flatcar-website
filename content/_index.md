@@ -12,7 +12,7 @@ aliases:
   - /flatcar
 display_on_home: true
 docs:
-  link: https://kinvolk.io/docs/flatcar-container-linux/latest/
+  link: https://flatcar-linux.org/docs/latest/
   action_text: Get Started
 support:
   link: https://flatcar-linux.org
@@ -181,7 +181,7 @@ cascade:
         link: /blog/2019/07/how-pubnative-is-saving-30-on-infrastructure-costs-with-kinvolk-packet-and-kubernetes/
       - title: Documentation
         icon: page-chart
-        link: https://kinvolk.io/docs/flatcar-container-linux/latest/
+        link: https://flatcar-linux.org/docs/latest/
       - title: Security
         icon: lock-black
         link: /flatcar-container-linux/security
