@@ -197,12 +197,12 @@
     },
     "release_notes": "\nNew **LTS** release **2605.22.1**\n\n_Changes since **LTS 2605.21.1**_\n\n**Security fixes**\n\n\n\n* Linux ([CVE-2021-42252](https://nvd.nist.gov/vuln/detail/CVE-2021-42252), [CVE-2021-20320](https://nvd.nist.gov/vuln/detail/CVE-2021-20320), [CVE-2020-16119](https://nvd.nist.gov/vuln/detail/CVE-2020-16119), [CVE-2021-37159](https://nvd.nist.gov/vuln/detail/CVE-2021-37159), [CVE-2021-3764](https://nvd.nist.gov/vuln/detail/CVE-2021-3764), [CVE-2021-3744](https://nvd.nist.gov/vuln/detail/CVE-2021-3744), [CVE-2021-38300](https://nvd.nist.gov/vuln/detail/CVE-2021-38300), [CVE-2021-20321](https://nvd.nist.gov/vuln/detail/CVE-2021-20321), [CVE-2021-41864](https://nvd.nist.gov/vuln/detail/CVE-2021-41864))\n\n**Bux fixes**\n\n\n\n* The tcsd service for TPM 1 is not started on machines with TPM 2 anymore where it fails and isn\u2019t necessary ([flatcar-linux/coreos-overlay#1364](https://github.com/flatcar-linux/coreos-overlay/pull/1364))\n\n**Updates**\n\n\n\n* Linux ([5.4.155](https://lwn.net/Articles/873466/))\n* ca-certificates ([3.69.1](https://firefox-source-docs.mozilla.org/security/nss/releases/nss_3_69_1.html#nss-3-69-1-release-notes))"
   },
-  "current": {
+  "2605.23.1": {
     "channel": "lts",
     "architectures": [
       "amd64"
     ],
-    "release_date": "2021-10-25 15:57:52 +0000",
+    "release_date": "2021-11-09 08:12:13 +0000",
     "major_software": {
       "docker": [
         "19.03.15"
@@ -211,12 +211,34 @@
         "0.34.0"
       ],
       "kernel": [
-        "5.4.155"
+        "5.4.157"
       ],
       "systemd": [
         "246"
       ]
     },
-    "release_notes": "\nNew **LTS** release **2605.22.1**\n\n_Changes since **LTS 2605.21.1**_\n\n**Security fixes**\n\n\n\n* Linux ([CVE-2021-42252](https://nvd.nist.gov/vuln/detail/CVE-2021-42252), [CVE-2021-20320](https://nvd.nist.gov/vuln/detail/CVE-2021-20320), [CVE-2020-16119](https://nvd.nist.gov/vuln/detail/CVE-2020-16119), [CVE-2021-37159](https://nvd.nist.gov/vuln/detail/CVE-2021-37159), [CVE-2021-3764](https://nvd.nist.gov/vuln/detail/CVE-2021-3764), [CVE-2021-3744](https://nvd.nist.gov/vuln/detail/CVE-2021-3744), [CVE-2021-38300](https://nvd.nist.gov/vuln/detail/CVE-2021-38300), [CVE-2021-20321](https://nvd.nist.gov/vuln/detail/CVE-2021-20321), [CVE-2021-41864](https://nvd.nist.gov/vuln/detail/CVE-2021-41864))\n\n**Bux fixes**\n\n\n\n* The tcsd service for TPM 1 is not started on machines with TPM 2 anymore where it fails and isn\u2019t necessary ([flatcar-linux/coreos-overlay#1364](https://github.com/flatcar-linux/coreos-overlay/pull/1364))\n\n**Updates**\n\n\n\n* Linux ([5.4.155](https://lwn.net/Articles/873466/))\n* ca-certificates ([3.69.1](https://firefox-source-docs.mozilla.org/security/nss/releases/nss_3_69_1.html#nss-3-69-1-release-notes))"
+    "release_notes": "\nNew **LTS** release **2605.23.1**\n\n_Changes since **LTS 2605.22.1**_\n\n**Security fixes**\n\n\n\n* Linux ([CVE-2021-3760](https://nvd.nist.gov/vuln/detail/CVE-2021-3760), [CVE-2021-3772](https://nvd.nist.gov/vuln/detail/CVE-2021-3772), [CVE-2021-43056](https://nvd.nist.gov/vuln/detail/CVE-2021-43056), [CVE-2021-43389](https://nvd.nist.gov/vuln/detail/CVE-2021-43389))\n\n**Bug fixes**\n\n\n\n* Use https protocol instead of git for Github URLs ([flatcar-linux/coreos-overlay#1394](https://github.com/flatcar-linux/coreos-overlay/pull/1394))\n\n**Updates**\n\n\n\n* Linux ([5.4.157](https://lwn.net/Articles/874853/))"
+  },
+  "current": {
+    "channel": "lts",
+    "architectures": [
+      "amd64"
+    ],
+    "release_date": "2021-11-09 08:12:13 +0000",
+    "major_software": {
+      "docker": [
+        "19.03.15"
+      ],
+      "ignition": [
+        "0.34.0"
+      ],
+      "kernel": [
+        "5.4.157"
+      ],
+      "systemd": [
+        "246"
+      ]
+    },
+    "release_notes": "\nNew **LTS** release **2605.23.1**\n\n_Changes since **LTS 2605.22.1**_\n\n**Security fixes**\n\n\n\n* Linux ([CVE-2021-3760](https://nvd.nist.gov/vuln/detail/CVE-2021-3760), [CVE-2021-3772](https://nvd.nist.gov/vuln/detail/CVE-2021-3772), [CVE-2021-43056](https://nvd.nist.gov/vuln/detail/CVE-2021-43056), [CVE-2021-43389](https://nvd.nist.gov/vuln/detail/CVE-2021-43389))\n\n**Bug fixes**\n\n\n\n* Use https protocol instead of git for Github URLs ([flatcar-linux/coreos-overlay#1394](https://github.com/flatcar-linux/coreos-overlay/pull/1394))\n\n**Updates**\n\n\n\n* Linux ([5.4.157](https://lwn.net/Articles/874853/))"
   }
 }
