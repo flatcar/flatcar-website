@@ -84,13 +84,5 @@
         </main>
 
         {{ partial "footer.html" . }}
-
-        {{ block "scripts" . }}
-            {{ $common := resources.Get "js/common.js" }}
-
-            {{ $js := slice $common | resources.Concat "js/bundle.js" }}
-
-            <script src="{{ $js.Permalink }}"></script>
-        {{ end }}
     </body>
 </html>

@@ -2,9 +2,7 @@
   {{ range .Site.Params.social }}
   <li class="list-inline-item socials__item">
     <a href="{{ .url }}" class="socials__link" target="_blank" rel="noopener" aria-label="Flatcar Container Linux's {{ .title }}">
-      <svg class="socials__icon {{ .image }}" fill="none">
-          <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#{{ .image }}"></use>
-      </svg>
+      <i class="fab fa-{{ .title }}-square"></i>
     </a>
   </li>
   {{ end }}
