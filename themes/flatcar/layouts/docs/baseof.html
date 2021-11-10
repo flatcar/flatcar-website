@@ -94,14 +94,12 @@
     </main>
 
     {{ partial "footer.html" . }}
-
     {{ block "scripts" . }}
-      {{ $common := resources.Get "js/common.js" }}
-      {{ $anchor := resources.Get "js/anchor.js" }}
-
-      {{ $js := slice $common $anchor | resources.Concat "js/bundle-docs.js" }}
-
-      <script src="{{ $js.Permalink }}"></script>
+    {{- $jsFiles := slice -}}
+    {{- range (slice "js/fastsearch.js" "js/lunr.js" "js/anchor.js") -}}
+    {{- $jsFile := resources.GetMatch . | resources.Minify -}}
+    <script src="{{ $jsFile.Permalink }}"></script>
+    {{ end }}
     {{ end }}
   </body>
 </html>
