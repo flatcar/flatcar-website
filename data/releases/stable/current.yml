@@ -3,166 +3,53 @@ architectures:
 channel: stable
 github_release:
   assets: []
-  assets_url: https://api.github.com/repos/kinvolk/manifest/releases/52980940/assets
+  assets_url: https://api.github.com/repos/kinvolk/manifest/releases/54065380/assets
   author:
-    avatar_url: https://avatars.githubusercontent.com/u/500628?v=4
-    events_url: https://api.github.com/users/sayanchowdhury/events{/privacy}
-    followers_url: https://api.github.com/users/sayanchowdhury/followers
-    following_url: https://api.github.com/users/sayanchowdhury/following{/other_user}
-    gists_url: https://api.github.com/users/sayanchowdhury/gists{/gist_id}
+    avatar_url: https://avatars.githubusercontent.com/u/10096906?v=4
+    events_url: https://api.github.com/users/dongsupark/events{/privacy}
+    followers_url: https://api.github.com/users/dongsupark/followers
+    following_url: https://api.github.com/users/dongsupark/following{/other_user}
+    gists_url: https://api.github.com/users/dongsupark/gists{/gist_id}
     gravatar_id: ''
-    html_url: https://github.com/sayanchowdhury
-    id: 500628
-    login: sayanchowdhury
-    node_id: MDQ6VXNlcjUwMDYyOA==
-    organizations_url: https://api.github.com/users/sayanchowdhury/orgs
-    received_events_url: https://api.github.com/users/sayanchowdhury/received_events
-    repos_url: https://api.github.com/users/sayanchowdhury/repos
+    html_url: https://github.com/dongsupark
+    id: 10096906
+    login: dongsupark
+    node_id: MDQ6VXNlcjEwMDk2OTA2
+    organizations_url: https://api.github.com/users/dongsupark/orgs
+    received_events_url: https://api.github.com/users/dongsupark/received_events
+    repos_url: https://api.github.com/users/dongsupark/repos
     site_admin: false
-    starred_url: https://api.github.com/users/sayanchowdhury/starred{/owner}{/repo}
-    subscriptions_url: https://api.github.com/users/sayanchowdhury/subscriptions
+    starred_url: https://api.github.com/users/dongsupark/starred{/owner}{/repo}
+    subscriptions_url: https://api.github.com/users/dongsupark/subscriptions
     type: User
-    url: https://api.github.com/users/sayanchowdhury
-  body: "New **Stable** release **2983.2.0**\r\n\r\nUpdate to CGroupsV2\r\n\r\nCGroups\
-    \ V2 is coming to Stable! Introduced in Alpha 2969.0.0, the feature has been stabilising\
-    \ for almost three months now and will be included in Stable 2983.2.0. \\\r\n\
-    NOTE that only new nodes will utilize CGroupsV2 by default. Existing nodes remain\
-    \ on CGroupsV1 and need to be manually migrated to CGroupsV2. To learn more about\
-    \ CGroupsV2 on Flatcar Container Linux and the migration guide, please refer to[\
-    \ https://kinvolk.io/docs/flatcar-container-linux/latest/container-runtimes/switching-to-unified-cgroups/](https://kinvolk.io/docs/flatcar-container-linux/latest/container-runtimes/switching-to-unified-cgroups/)\r\
-    \n\r\n_Changes since **Beta 2983.1.2**_\r\n\r\n**Security fixes**\r\n\r\n\r\n\r\
-    \n* Linux ([CVE-2021-3760](https://nvd.nist.gov/vuln/detail/CVE-2021-3760), [CVE-2021-3772](https://nvd.nist.gov/vuln/detail/CVE-2021-3772),\
-    \ [CVE-2021-42327](https://nvd.nist.gov/vuln/detail/CVE-2021-42327), [CVE-2021-43056](https://nvd.nist.gov/vuln/detail/CVE-2021-43056),\
-    \ [CVE-2021-43267](https://nvd.nist.gov/vuln/detail/CVE-2021-43267), [CVE-2021-43389](https://nvd.nist.gov/vuln/detail/CVE-2021-43389))\r\
-    \n* Go ([CVE-2021-41771](https://nvd.nist.gov/vuln/detail/CVE-2021-41771),[ CVE-2021-41772](https://nvd.nist.gov/vuln/detail/CVE-2021-41772))\r\
-    \n\r\n**Bug fixes**\r\n\r\n\r\n\r\n* Use https protocol instead of git for Github\
-    \ URLs ([flatcar-linux/coreos-overlay#1394](https://github.com/flatcar-linux/coreos-overlay/pull/1394))\r\
-    \n\r\n**Updates**\r\n\r\n\r\n\r\n* Linux ([5.10.77](https://lwn.net/Articles/874852/))\r\
-    \n* Go ([1.16.10](https://go.googlesource.com/go/+/refs/tags/go1.16.10))\r\n\r\
-    \n_Changes since **Stable 2905.2.6**_\r\n\r\n**Security fixes**\r\n\r\n\r\n\r\n\
-    * Linux (CVE-2021-3609, [CVE-2021-3653](https://nvd.nist.gov/vuln/detail/CVE-2021-3653),\
-    \ CVE-2021-3655, [CVE-2021-3656](https://nvd.nist.gov/vuln/detail/CVE-2021-3656),\
-    \ [CVE-2021-3760](https://nvd.nist.gov/vuln/detail/CVE-2021-3760), [CVE-2021-3772](https://nvd.nist.gov/vuln/detail/CVE-2021-3772),\
-    \ [CVE-2020-26541](https://nvd.nist.gov/vuln/detail/CVE-2020-26541), [CVE-2021-35039](https://nvd.nist.gov/vuln/detail/CVE-2021-35039),\
-    \ [CVE-2021-37576](https://nvd.nist.gov/vuln/detail/CVE-2021-37576), [CVE-2021-22543](https://nvd.nist.gov/vuln/detail/CVE-2021-22543),\
-    \ [CVE-2021-33909](https://nvd.nist.gov/vuln/detail/CVE-2021-33909), [CVE-2021-34556](https://nvd.nist.gov/vuln/detail/CVE-2021-34556),\
-    \ [CVE-2021-35477](https://nvd.nist.gov/vuln/detail/CVE-2021-35477), [CVE-2021-38166](https://nvd.nist.gov/vuln/detail/CVE-2021-38166),\
-    \ [CVE-2021-38205](https://nvd.nist.gov/vuln/detail/CVE-2021-38205), [CVE-2021-42327](https://nvd.nist.gov/vuln/detail/CVE-2021-42327),\
-    \ [CVE-2021-43056](https://nvd.nist.gov/vuln/detail/CVE-2021-43056), [CVE-2021-43267](https://nvd.nist.gov/vuln/detail/CVE-2021-43267),\
-    \ [CVE-2021-43389](https://nvd.nist.gov/vuln/detail/CVE-2021-43389))\r\n* Go ([CVE-2021-34558](https://nvd.nist.gov/vuln/detail/CVE-2021-34558),\
-    \ [CVE-2021-41771](https://nvd.nist.gov/vuln/detail/CVE-2021-41771),[ CVE-2021-41772](https://nvd.nist.gov/vuln/detail/CVE-2021-41772))\r\
-    \n* c-ares ([CVE-2021-3672](https://nvd.nist.gov/vuln/detail/CVE-2021-3672))\r\
-    \n* containerd ([CVE-2021-32760](https://nvd.nist.gov/vuln/detail/CVE-2021-32760))\r\
-    \n* curl (CVE-2021-22922, CVE-2021-22923, CVE-2021-22924, CVE-2021-22925, CVE-2021-22926)\r\
-    \n* dnsmasq ([CVE-2021-3448](https://nvd.nist.gov/vuln/detail/CVE-2021-3448))\r\
-    \n* expat ([CVE-2013-0340](https://nvd.nist.gov/vuln/detail/CVE-2013-0340))\r\n\
-    * glibc ([CVE-2020-29562](https://nvd.nist.gov/vuln/detail/CVE-2020-29562), [CVE-2019-25013](https://nvd.nist.gov/vuln/detail/CVE-2019-25013),\
-    \ [CVE-2020-27618](https://nvd.nist.gov/vuln/detail/https://cve.circl.lu/cve/CVE-2020-27618),\
-    \ [CVE-2021-27645](https://nvd.nist.gov/vuln/detail/CVE-2021-27645), [CVE-2021-33574](https://nvd.nist.gov/vuln/detail/CVE-2021-33574),\
-    \ [CVE-2021-35942](https://nvd.nist.gov/vuln/detail/CVE-2021-35942))\r\n* libgcrypt\
-    \ ([CVE-2021-33560](https://nvd.nist.gov/vuln/detail/CVE-2021-33560))\r\n* libpcre\
-    \ ([CVE-2019-20838](https://nvd.nist.gov/vuln/detail/CVE-2019-20838), [CVE-2020-14155](https://nvd.nist.gov/vuln/detail/CVE-2020-14155))\r\
-    \n* libuv ([CVE-2021-22918](https://nvd.nist.gov/vuln/detail/CVE-2021-22918))\r\
-    \n* mit-krb5 ([CVE-2021-36222](https://nvd.nist.gov/vuln/detail/CVE-2021-36222))\r\
-    \n* NVIDIA Drivers ([CVE-2021-1090](https://nvd.nist.gov/vuln/detail/CVE-2021-1090),\
-    \ [CVE-2021-1093](https://nvd.nist.gov/vuln/detail/CVE-2021-1093), [CVE-2021-1094](https://nvd.nist.gov/vuln/detail/CVE-2021-1094),\
-    \ [CVE-2021-1095](https://nvd.nist.gov/vuln/detail/CVE-2021-1095))\r\n* systemd\
-    \ ([CVE-2020-13529](https://nvd.nist.gov/vuln/detail/CVE-2020-13529), [CVE-2021-33910](https://nvd.nist.gov/vuln/detail/CVE-2021-33910))\r\
-    \n* tar ([CVE-2021-20193](https://nvd.nist.gov/vuln/detail/CVE-2021-20193))\r\n\
-    \r\n**Bug fixes**\r\n\r\n\r\n\r\n* Use https protocol instead of git for Github\
-    \ URLs ([flatcar-linux/coreos-overlay#1394](https://github.com/flatcar-linux/coreos-overlay/pull/1394))\r\
-    \n* Skip tcsd.service for TPM2 devices to fix failures on c3.small.x86 instances\
-    \ of Equinix Metal ([Flatcar#208](https://github.com/flatcar-linux/Flatcar/issues/208))\r\
-    \n* Fixed containerd config after introduction of CGroupsV2 ([coreos-overlay#1214](https://github.com/flatcar-linux/coreos-overlay/pull/1214))\r\
-    \n* Fixed path for amazon-ssm-agent in base-ec2.ign ([coreos-overlay#1228](https://github.com/flatcar-linux/coreos-overlay/pull/1228))\r\
-    \n* Fixed locksmith adhering to reboot window when getting the etcd lock ([locksmith#10](https://github.com/flatcar-linux/locksmith/pull/10))\r\
-    \n* Add the systemd tag in udev for Azure storage devices, to fix /boot automount\
-    \ ([init#41](https://github.com/flatcar-linux/init/pull/41))\r\n\r\n**Changes**\r\
-    \n\r\n\r\n\r\n* Added Azure[ Generation 2 VM](https://docs.microsoft.com/en-us/azure/virtual-machines/generation-2)\
-    \ support ([coreos-overlay#1198](https://github.com/flatcar-linux/coreos-overlay/pull/1198))\r\
-    \n* cgroups v2 by default for new nodes ([coreos-overlay#931](https://github.com/flatcar-linux/coreos-overlay/pull/931)).\r\
-    \n* Upgrade Docker to 20.10 ([coreos-overlay#931](https://github.com/flatcar-linux/coreos-overlay/pull/931))\r\
-    \n* Switched Docker ecosystem packages to go1.16 ([coreos-overlay#1217](https://github.com/flatcar-linux/coreos-overlay/pull/1217))\r\
-    \n* Added lbzip2 binary to the image ([coreos-overlay#1221](https://github.com/flatcar-linux/coreos-overlay/pull/1221))\r\
-    \n* flatcar-install uses lbzip2 if present, falls back on bzip2 if not ([init#46](https://github.com/flatcar-linux/init/pull/46))\r\
-    \n* Added Intel E800 series network adapter driver ([coreos-overlay#1237](https://github.com/flatcar-linux/coreos-overlay/pull/1237))\r\
-    \n* Enabled \u2018audit\u2019 use flag for sys-libs/pam ([coreos-overlay#1233](https://github.com/flatcar-linux/coreos-overlay/pull/1233))\r\
-    \n* Bumped etcd and flannel to respectively 3.5.0, 0.14.0 to get multiarch images\
-    \ for arm64 support. _Note for users of the old etcd v2 support_: ETCDCTL_API=2\
-    \ must be set to use v2 store as well as ETCD_ENABLE_V2=true in the etcd-member.service\
-    \ - this support will be removed in 3.6.0 ([coreos-overlay#1179](https://github.com/flatcar-linux/coreos-overlay/pull/1179))\r\
-    \n* Support BTRFS in OEM and /usr partitions, but only used it for the OEM partition\
-    \ for now. Ignition configurations that refer to the OEM partition will work with\
-    \ any filesystem format specified, a mismatch is not resulting in a boot error.\
-    \ ([coreos-overlay#1106](https://github.com/flatcar-linux/coreos-overlay/pull/1106))\r\
-    \n* Switched the arm64 kernel to use a 4k page size instead of 64k\r\n* Switched\
-    \ dm-verity corruption detection to issue a kernel panic (a panic results in a\
-    \ reboot after 1 minute, this was the case before already) instead of merely failing\
-    \ certain syscalls that try to use the corrupted data\r\n* Enabled ARM64 SDK bootstrap\
-    \ ([flatcar-linux/scripts#134](https://github.com/flatcar-linux/scripts/pull/134))\r\
-    \n* SDK: enabled experimental ARM64 SDK usage ([flatcar-linux/scripts#134](https://github.com/flatcar-linux/scripts/pull/134))\
-    \ ([flatcar-linux/scripts#141](https://github.com/flatcar-linux/scripts/pull/141))\r\
-    \n* AWS: Added amazon-ssm-agent ([coreos-overlay#1162](https://github.com/flatcar-linux/coreos-overlay/pull/1162))\r\
-    \n* Azure: Compile OEM contents for all architectures ([coreos-overlay#1196](https://github.com/flatcar-linux/coreos-overlay/pull/1196))\r\
-    \n* update_engine: add postinstall hook to stay on cgroupv1 ([update_engine#13](https://github.com/flatcar-linux/update_engine/pull/13))\r\
-    \n* Enable telnet support for curl ([coreos-overlay#1099](https://github.com/flatcar-linux/coreos-overlay/pull/1099))\r\
-    \n* Enable ssl USE flag for wget ([coreos-overlay#932](https://github.com/flatcar-linux/coreos-overlay/pull/932))\r\
-    \n* Enable MDIO_BCM_UNIMAC for arm64 ([coreos-overlay#929](https://github.com/flatcar-linux/coreos-overlay/pull/929))\r\
-    \n\r\n**Updates**\r\n\r\n\r\n\r\n* Linux ([5.10.77](https://lwn.net/Articles/874852/))\r\
-    \n* Linux firmware ([20210818](https://git.kernel.org/pub/scm/linux/kernel/git/firmware/linux-firmware.git/tag/?h=20210818))\r\
-    \n* Go ([1.16.10](https://go.googlesource.com/go/+/refs/tags/go1.16.10))\r\n*\
-    \ c-ares ([1.17.2](https://c-ares.haxx.se/changelog.html#1_17_2))\r\n* containerd\
-    \ ([1.5.7](https://github.com/containerd/containerd/releases/tag/v1.5.7))\r\n\
-    * cryptsetup ([2.3.6](https://gitlab.com/cryptsetup/cryptsetup/-/tags/v2.3.6))\r\
-    \n* curl ([7.78](https://curl.se/changes.html#7_78_0))\r\n* dbus ([1.12.20](https://github.com/freedesktop/dbus/blob/ab88811768f750777d1a8b9d9ab12f13390bfd3a/NEWS#L1))\r\
-    \n* docker ([20.10.10](https://docs.docker.com/engine/release-notes/#201010))\r\
-    \n* docker CLI ([20.10.10](https://github.com/docker/cli/releases/tag/v20.10.10))\r\
-    \n* docker proxy ([0.8.0_p20210525](https://github.com/moby/libnetwork/commit/64b7a4574d1426139437d20e81c0b6d391130ec8))\r\
-    \n* dracut ([053](https://github.com/dracutdevs/dracut/releases/tag/053))\r\n\
-    * etcd ([3.5.0](https://github.com/etcd-io/etcd/releases/tag/v3.5.0))\r\n* expat\
-    \ ([2.4.1](https://www.xml.com/news/2021-05-expat-240-and-241/))\r\n* gettext\
-    \ ([0.21-r1](https://lists.gnu.org/archive/html/info-gnu/2020-07/msg00009.html))\r\
-    \n* glibc ([2.33-r5](https://gitweb.gentoo.org/repo/gentoo.git/commit/?id=7dfddd056de5f23bc29591d212f4051ed9d0634e))\r\
-    \n* gptfdisk (1.0.7)\r\n* flannel ([0.14.0](https://github.com/flannel-io/flannel/releases/tag/v0.14.0))\r\
-    \n* intel-microcode ([20210608](https://github.com/intel/Intel-Linux-Processor-Microcode-Data-Files/releases/tag/microcode-20210608))\r\
-    \n* libarchive ([3.5.1](https://github.com/libarchive/libarchive/releases/tag/3.5.1))\r\
-    \n* libev (4.33)\r\n* libpcre (8.44)\r\n* libuv ([1.41.1](https://github.com/libuv/libuv/releases/tag/v1.41.1))\r\
-    \n* libverto ([0.3.1](https://github.com/latchset/libverto/releases/tag/0.3.1))\r\
-    \n* lz4 ([1.9.3-r1](https://github.com/lz4/lz4/releases/tag/v1.9.3))\r\n* mit-krb5\
-    \ ([1.19.2](https://github.com/krb5/krb5/tree/krb5-1.19.2-final))\r\n* NVIDIA\
-    \ Drivers ([470.57.02](https://docs.nvidia.com/datacenter/tesla/tesla-release-notes-470-57-02/index.html))\r\
-    \n* pax-utils (1.3.1)\r\n* portage-utils ([0.90](https://github.com/gentoo/portage-utils/releases/tag/v0.90))\r\
-    \n* readline ([8.1_p1](https://tiswww.case.edu/php/chet/readline/CHANGES))\r\n\
-    * runc ([1.0.2](https://github.com/opencontainers/runc/releases/tag/v1.0.2))\r\
-    \n* selinux ([3.1](https://github.com/SELinuxProject/selinux/releases/tag/20200710))\r\
-    \n* selinux-refpolicy ([2.20200818](https://github.com/SELinuxProject/refpolicy/releases/tag/RELEASE_2_20200818))\r\
-    \n* strace ([5.12](https://github.com/strace/strace/releases/tag/v5.12))\r\n*\
-    \ systemd ([247.9](https://github.com/systemd/systemd-stable/releases/tag/v247.9))\r\
-    \n* tar ([1.34](https://savannah.gnu.org/forum/forum.php?forum_id=9935))\r\n*\
-    \ tini ([0.19](https://github.com/krallin/tini/releases/tag/v0.19.0))\r\n* wa-linux-agent\
-    \ ([2.3.1.1](https://github.com/Azure/WALinuxAgent/releases/tag/v2.3.1.1))\r\n\
-    * xz-utils ([5.2.5](https://git.tukaani.org/?p=xz.git;a=blob;f=NEWS;h=aade49443ad7ddba13bbfd9da188c99664736d80;hb=3247e95115acb95bc27f41e8cf4501db5b0b4309#l16))\r\
-    \n* SDK: dnsmasq ([2.85](https://thekelleys.org.uk/dnsmasq/CHANGELOG))\r\n* SDK:\
-    \ rust ([1.54](https://github.com/rust-lang/rust/releases/tag/1.54.0))\r\n* VMWare:\
-    \ open-vm-tools ([11.3.0](https://github.com/vmware/open-vm-tools/releases/tag/stable-11.3.0))"
-  created_at: '2021-11-02T18:01:49Z'
+    url: https://api.github.com/users/dongsupark
+  body: "New **Stable** Release **2983.2.1**\r\n\r\n_Changes since **Stable 2983.2.0**_\r\
+    \n\r\n**Security fixes**\r\n\r\n* Linux ([CVE-2021-42739](https://nvd.nist.gov/vuln/detail/CVE-2021-42739))\r\
+    \n* Docker, containerd ([CVE-2021-41190](https://nvd.nist.gov/vuln/detail/CVE-2021-41190))\r\
+    \n\r\n**Updates**\r\n\r\n* Linux ([5.10.80](https://lwn.net/Articles/876426/))\r\
+    \n* Docker ([20.10.11](https://docs.docker.com/engine/release-notes/#20111))\r\
+    \n* containerd ([1.5.8](https://github.com/containerd/containerd/releases/tag/v1.5.8))\r\
+    \n* ca-certificates ([3.72](https://groups.google.com/a/mozilla.org/g/dev-tech-crypto/c/7O6a4NlaI2A))\r\
+    \n\r\n**Changes**\r\n\r\n* Added missing SELinux rule as initial step to resolve\
+    \ Torcx unpacking issue ([coreos-overlay#1426](https://github.com/flatcar-linux/coreos-overlay/pull/1426))"
+  created_at: '2021-11-19T17:04:32Z'
   draft: false
-  html_url: https://github.com/kinvolk/manifest/releases/tag/v2983.2.0
-  id: 52980940
-  name: v2983.2.0
-  node_id: RE_kwDOB2MTRc4DKGzM
+  html_url: https://github.com/kinvolk/manifest/releases/tag/v2983.2.1
+  id: 54065380
+  name: v2983.2.1
+  node_id: RE_kwDOB2MTRc4DOPjk
   prerelease: false
-  published_at: '2021-11-09T08:18:14Z'
-  tag_name: v2983.2.0
-  tarball_url: https://api.github.com/repos/kinvolk/manifest/tarball/v2983.2.0
+  published_at: '2021-11-25T11:10:38Z'
+  tag_name: v2983.2.1
+  tarball_url: https://api.github.com/repos/kinvolk/manifest/tarball/v2983.2.1
   target_commitish: flatcar-master
-  upload_url: https://uploads.github.com/repos/kinvolk/manifest/releases/52980940/assets{?name,label}
-  url: https://api.github.com/repos/kinvolk/manifest/releases/52980940
-  zipball_url: https://api.github.com/repos/kinvolk/manifest/zipball/v2983.2.0
+  upload_url: https://uploads.github.com/repos/kinvolk/manifest/releases/54065380/assets{?name,label}
+  url: https://api.github.com/repos/kinvolk/manifest/releases/54065380
+  zipball_url: https://api.github.com/repos/kinvolk/manifest/zipball/v2983.2.1
 image_packages:
-  docker: 20.10.10
+  docker: 20.10.11
   ignition: 0.34.0
-  kernel: 5.10.77
+  kernel: 5.10.80
   systemd: '247'
 release: current
-version: 2983.2.0
+version: 2983.2.1
