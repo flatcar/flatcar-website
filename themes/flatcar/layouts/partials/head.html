@@ -32,7 +32,7 @@
         {{ $ogImageHeight = 0 }}
     {{ end }}
 
-    {{ $ogImage := default (print $.Site.BaseURL "/images/social-card.png") $postImage }}
+    {{ $ogImage := default "https://flatcar-linux.org/images/social-card.png" $postImage }}
 
     {{ $title := "" }}
     {{ if not (.Section | eq "") }}
