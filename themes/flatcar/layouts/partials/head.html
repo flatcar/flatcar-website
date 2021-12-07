@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <title>{{ if eq .Kind "term" }}{{ .Data.Singular }} {{ .Title }}{{ else }}{{ .Title }} | {{ $.Site.Title }}{{ end }}</title>
-    <meta name="description" content="Kinvolk builds 100% open source cloud native infrastructure." />
+    <meta name="description" content="Flatcar Linux" />
 
     <link rel="preconnect" href="https://fonts.gstatic.com" />
     <link href="https://fonts.googleapis.com/css2?family=Overpass+Mono:wght@300;400;600;700&family=Overpass:ital,wght@0,100;0,200;0,300;0,400;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet" />
@@ -19,7 +19,7 @@
         <meta name="googlebot" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
         <meta name="bingbot" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
     {{ end }}
-    <link rel="canonical" href="https://kinvolk.io/" />
+    <link rel="canonical" href="https://flatcar-linux.org/" />
     {{ hugo.Generator }}
 
     {{ $postImage := .Params.postimage }}
@@ -27,7 +27,7 @@
     {{ $ogImageHeight := 600 }}
 
     {{ if $postImage }}
-        {{ $postImage = printf "https://kinvolk.io/media/%s" $postImage }}
+        {{ $postImage = printf "https://flatcar-linux.org/media/%s" $postImage }}
         {{ $ogImageWidth = 0 }}
         {{ $ogImageHeight = 0 }}
     {{ end }}
@@ -48,7 +48,7 @@
     <meta property="og:title" content="{{ $ogTitle }}" />
     <meta property="og:description" content="{{ $ogDescription }}" />
     <meta property="og:url" content="{{ .Permalink }}" />
-    <meta property="og:site_name" content="Kinvolk" />
+    <meta property="og:site_name" content="Flatcar" />
     <meta property="article:modified_time" content="{{ hugo.BuildDate }}" />
     <meta property="og:image" content="{{ $ogImage }}" />
     {{ if gt $ogImageWidth 0 }}
@@ -59,8 +59,8 @@
     <!-- Twitter meta tags -->
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:image" content="{{ $ogImage }}" />
-    <meta name="twitter:creator" content="@kinvolkio" />
-    <meta name="twitter:site" content="@kinvolkio" />
+    <meta name="twitter:creator" content="@flatcar" />
+    <meta name="twitter:site" content="@flatcar" />
 
     <link rel="stylesheet" href="/css/font-awesome.min.css">
 
