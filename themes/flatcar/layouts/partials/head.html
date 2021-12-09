@@ -32,7 +32,7 @@
         {{- if $image -}}
             {{- $imagePath := path.Join "/media/splash/" .Params.postImage -}}
             {{- if in (slice "image/jpeg" "image/jpg" "image/png") (string $image.MediaType) -}}
-                {{- $imagePath = ($image.Resize "920x webp q100").RelPermalink -}}
+                {{- $imagePath = ($image.Resize "1200x jpeg q100").RelPermalink -}}
             {{- end -}}
             {{- $postImage = printf "https://flatcar-linux.org/%s" $imagePath -}}
             {{- $ogImageWidth = 0 -}}
