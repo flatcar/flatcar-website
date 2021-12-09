@@ -42,13 +42,10 @@
 
     {{ $ogImage := default "https://www.flatcar-linux.org/images/social-card.png" $postImage }}
 
-    {{ $title := "" }}
-    {{ if not (.Section | eq "") }}
-        {{ $title = printf "Kinvolk: %s" .Title }}
-    {{ end }}
+    {{ $title := .Title }}
 
-    {{ $ogTitle := default "100% open source cloud native infrastructure | Kinvolk" $title }}
-    {{ $ogDescription := default "Kinvolk builds 100% open source cloud native infrastructure." (default .Params.description .Params.tagline) }}
+    {{ $ogTitle := default "Flatcar Container Linux" $title }}
+    {{ $ogDescription := default $ogTitle (default .Params.description .Params.tagline) }}
 
     <!-- Open Graph meta tags -->
     <meta property="og:locale" content="en_US" />
