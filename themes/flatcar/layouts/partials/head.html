@@ -53,6 +53,10 @@
 
     {{ $title := .Title }}
 
+    {{- with .OutputFormats.Get "rss" -}}
+        {{ printf `<link rel="%s" type="%s" href="%s" title="%s" />` .Rel .MediaType.Type .Permalink $title | safeHTML }}
+    {{- end -}}
+
     {{ $ogTitle := default "Flatcar Container Linux" $title }}
     {{ $ogDescription := default $ogTitle (default .Params.description .Params.tagline) }}
 
