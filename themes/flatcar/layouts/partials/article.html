@@ -10,7 +10,7 @@
 
       {{- $path := print "**/" .Params.postImage -}}
       {{- $image := resources.GetMatch $path -}}
-      {{- $imagePath := path.Join "/media/" .Params.postImage -}}
+      {{- $imagePath := path.Join "/media/splash" .Params.postImage -}}
       {{- $scaleImage := true -}}
       {{- if eq (index .Params "scaleImage") false -}}
         {{- $scaleImage = false -}}
