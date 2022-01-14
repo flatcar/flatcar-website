@@ -25,8 +25,8 @@ github_release:
     type: User
     url: https://api.github.com/users/sayanchowdhury
   body: "New **Alpha** release **3115.0.0**\r\n\r\n_Changes since **Alpha 3066.0.0**_\r\
-    \n\r\n#### Known issues\r\n\r\n- `calico` is crashing with Kubernetes 1.23 and\
-    \ Linux 5.15 - it's recommended to switch over `iptables` instead of `ipvs` for\
+    \n\r\n#### Known issues\r\n\r\n- With Kubernetes 1.23 and Linux 5.15 outgoing connects from `calico` pods fail\
+    \ - it's recommended to switch over `iptables` instead of `ipvs` for\
     \ `kube-proxy` mode. ([projectcalico/calico#5011](https://github.com/projectcalico/calico/issues/5011))\r\
     \n- The SELinux policy store update fix resulted in some files leaked to the root\
     \ filesystem top directory ([Flatcar#596](https://github.com/flatcar-linux/Flatcar/issues/596))\r\
