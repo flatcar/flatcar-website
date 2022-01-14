@@ -4,7 +4,7 @@ topics = ["Linux", "cgroups"]
 authors = ["jeremi-piotrowski"]
 title = "Containerd cgroup2 inotify leak"
 draft = false
-description = "Containerd running on cgroup2 leaks inotifies file handles. Here's how we found out about it"
+description = "Containerd running on cgroup2 leaks inotify file handles. Here's how we found out about it"
 date = "2021-12-11T20:00:00+02:00"
 postImage = "/TODO.jpg"
 +++
@@ -65,14 +65,59 @@ frozen 0
 
 Both the legacy and inotify based mechanisms work fine to observe OOM events.
 
-Here's the code for cgroup v1: https://github.com/containerd/containerd/blob/release/1.5/pkg/oom/v1/v1.go. An `epoll` instance is created for the whole containerd-shim process. Each spawned container registers an `eventfd` file descriptor with the kernel for OOM notifications and polls it through `epoll_wait`.
+Here's the code for cgroup v1 (https://github.com/containerd/containerd/blob/release/1.5/pkg/oom/v1/v1.go).
+```go
+// New returns an epoll implementation that listens to OOM events
+// from a container's cgroups.
+func New(publisher shim.Publisher) (oom.Watcher, error) {
+	fd, err := unix.EpollCreate1(unix.EPOLL_CLOEXEC)
+	if err != nil {
+		return nil, err
+	}
+	return &epoller{
+		fd:        fd,
+		publisher: publisher,
+		set:       make(map[uintptr]*item),
+	}, nil
+}
+
+// Add cgroups.Cgroup to the epoll monitor
+func (e *epoller) Add(id string, cgx interface{}) error {
+	cg, ok := cgx.(cgroups.Cgroup)
+	if !ok {
+		return errors.Errorf("expected cgroups.Cgroup, got: %T", cgx)
+	}
+	e.mu.Lock()
+	defer e.mu.Unlock()
+	fd, err := cg.OOMEventFD()
+	if err != nil {
+		return err
+	}
+	e.set[fd] = &item{
+		id: id,
+		cg: cg,
+	}
+	event := unix.EpollEvent{
+		Fd:     int32(fd),
+		Events: unix.EPOLLHUP | unix.EPOLLIN | unix.EPOLLERR,
+	}
+	return unix.EpollCtl(e.fd, unix.EPOLL_CTL_ADD, int(fd), &event)
+}
+```
+
+An `epoll` instance is created for the whole containerd-shim process. Each spawned container registers an `eventfd` file descriptor with the kernel for OOM notifications and polls it through `epoll_wait`.
 
 The code for the cgroup2 case has more layers of abstractions and is seen [here](https://github.com/containerd/cgroups/blob/v1.0.2/v2/manager.go#L563-L605). Now every container has one inotify instance, which is subscribed to `memory.events` modification events and sends them through a Go channel.
 
 Unfortunately, there is a difference in behavior when a cgroup gets removed. For cgroup v1 we have this code in the kernel https://github.com/torvalds/linux/blob/v5.15/mm/memcontrol.c#L4665
 ```c
+static void memcg_event_remove(struct work_struct *work)
+{
+	...
 	/* Notify userspace the event is going away. */
 	eventfd_signal(event->eventfd, 1);
+	...
+}
 ```
 and this https://github.com/containerd/containerd/blob/release/1.5/pkg/oom/v1/v1.go#L123-L129 containerd code to handle such a notification:
 ```go
