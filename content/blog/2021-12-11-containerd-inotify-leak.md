@@ -1,5 +1,5 @@
 +++
-tags = ["flatcar", "containerst", "cgroups"]
+tags = ["flatcar", "containers", "cgroups"]
 topics = ["Linux", "cgroups"]
 authors = ["jeremi-piotrowski"]
 title = "Containerd cgroup2 inotify leak"
@@ -11,13 +11,13 @@ postImage = "/TODO.jpg"
 
 Flatcar has enabled cgroup2 by default since release 2969. We chose to keep nodes that are updating on cgroupv1 so that existing deployments are not impacted, we wrote about this on our [blog](https://www.flatcar-linux.org/blog/2021/09/flatcar-container-linux-is-moving-to-cgroupsv2/).
 
-Recently a user reported [issue 56](https://github.com/flatcar-linux/Flatcar/issues/563) on our public bug tracker. We decided to dive-in, see what's happening. This is a going to be a technical blog post.
+Recently a user reported [issue 563](https://github.com/flatcar-linux/Flatcar/issues/563) on our public bug tracker. We decided to dive-in, see what's happening. This is going to be a technical blog post.
 
-Kubernets relies on a container runtime to create and run pods and containers. On Flatcar this is ultimately done using containerd. Containerd can emit events throughout the lifecycle of a container, as can be seen using `ctr events`:
+Kubernetes relies on a container runtime to create and run pods and containers. On Flatcar this is ultimately done using containerd. Containerd can emit events throughout the lifecycle of a container, as can be seen using `ctr events`:
 
 TODO: insert ctr events example
 
-One of these events is `/tasks/oom`. containerd-shim subscribes to out-of-memory (OOM) notifications from the kernel for every container it creates, and publishes the event to higher layers like k8s.
+One of these events is `/tasks/oom`: containerd-shim subscribes to out-of-memory (OOM) notifications from the kernel for every container it creates, and publishes the event to higher layers like Kubernetes.
 
 The kernel reports an OOM notification when processes exceed the memory limits configured for their cgroup. The way these notifications are reported to userspace is different for legacy cgroup and cgroup2.
 
@@ -25,7 +25,7 @@ The kernel reports an OOM notification when processes exceed the memory limits c
 
 Legacy cgroups has custom notification mechanisms, different than all other unix notification APIs. For OOM notifications, one needs to:
 
-- create an eventfd using [eventfd(2)](https://man7.org/linux/man-pages/man2/eventfd.2.html)
+- create an `eventfd` using [eventfd(2)](https://man7.org/linux/man-pages/man2/eventfd.2.html)
 - open `memory.oom_control` file
 - write string like "<event_fd> <fd of memory.oom_control>" to
   `cgroup.event_control`
@@ -45,7 +45,7 @@ while (read(fd)) {
     // handle changes to memory.events
 }
 ```
-The `memory.events` file contains counters of times when different threshols are hit:
+The `memory.events` file contains counters of times when different thresholds are hit:
 ```
 low 0
 high 0
@@ -65,9 +65,9 @@ frozen 0
 
 Both the legacy and inotify based mechanisms work fine to observe OOM events.
 
-Here's the code for cgroup v1: https://github.com/containerd/containerd/blob/release/1.5/pkg/oom/v1/v1.go. An `epoll` instance is created for the whole containerd-shim process, each spawned container registers an `eventfd` file descriptor with the kernel for OOM notifications and polls it through `epoll_wait`.
+Here's the code for cgroup v1: https://github.com/containerd/containerd/blob/release/1.5/pkg/oom/v1/v1.go. An `epoll` instance is created for the whole containerd-shim process. Each spawned container registers an `eventfd` file descriptor with the kernel for OOM notifications and polls it through `epoll_wait`.
 
-The code for the cgroup2 case has more layers of abstractions and is here https://github.com/containerd/cgroups/blob/v1.0.2/v2/manager.go#L563-L605. Now every container has one inotify instance, which is subscribed to `memory.events` modification events and sends them through a go channel.
+The code for the cgroup2 case has more layers of abstractions and is seen [here](https://github.com/containerd/cgroups/blob/v1.0.2/v2/manager.go#L563-L605). Now every container has one inotify instance, which is subscribed to `memory.events` modification events and sends them through a Go channel.
 
 Unfortunately, there is a difference in behavior cgroup gets removed. For cgroup v1 we have this code in the kernel https://github.com/torvalds/linux/blob/v5.15/mm/memcontrol.c#L4665
 ```c
@@ -96,12 +96,12 @@ fs.inotify.max_user_instances = 128
 
 # the solution
 
-The solution for cgroup2 involves subscribing to both OOM events and `populated` `cgroup.events`. This way the goroutine will be notified when a cgroup has been de-populated, and can cleanup the inotify instance.
+The solution for cgroup2 involves subscribing to both OOM events: `populated` and `cgroup.events`. This way the goroutine will be notified when a cgroup has been de-populated, and can cleanup the inotify instance.
 
 
 # what this means for users
 
-Unfortunately there is no quick way to workaround this issue. We have submitted a PR to fix this upstream https://github.com/containerd/cgroups/pull/212, and as soon as it is merged we will be updating containerd to include the fix. For the time being, affected users can increase the sysctl `fs.inotify.max_user_instances` to a value that will take longer to exhaust, or will need to revert to cgroupv1.
+Unfortunately, there is no quick way to workaround this issue. We have submitted a PR to fix this upstream https://github.com/containerd/cgroups/pull/212, and as soon as it is merged we will be updating containerd to include the fix. For the time being, affected users can increase the sysctl `fs.inotify.max_user_instances` to a value that will take longer to exhaust, or will need to revert to cgroup v1.
 
 # bonus
 
