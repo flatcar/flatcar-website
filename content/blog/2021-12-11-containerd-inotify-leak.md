@@ -69,7 +69,7 @@ Here's the code for cgroup v1: https://github.com/containerd/containerd/blob/rel
 
 The code for the cgroup2 case has more layers of abstractions and is seen [here](https://github.com/containerd/cgroups/blob/v1.0.2/v2/manager.go#L563-L605). Now every container has one inotify instance, which is subscribed to `memory.events` modification events and sends them through a Go channel.
 
-Unfortunately, there is a difference in behavior cgroup gets removed. For cgroup v1 we have this code in the kernel https://github.com/torvalds/linux/blob/v5.15/mm/memcontrol.c#L4665
+Unfortunately, there is a difference in behavior when a cgroup gets removed. For cgroup v1 we have this code in the kernel https://github.com/torvalds/linux/blob/v5.15/mm/memcontrol.c#L4665
 ```c
 	/* Notify userspace the event is going away. */
 	eventfd_signal(event->eventfd, 1);
@@ -112,4 +112,4 @@ If you liked this post and enjoy working on all layers of the stack, we are curr
 * https://careers.microsoft.com/professionals/us/en/job/1217422/Senior-Software-Engineer-Remote
 * https://careers.microsoft.com/professionals/us/en/job/1217453/Principal-Software-Engineer-Remote
 
-[^1]: The kernel function responsible for cgroup2 notification is called `cgroup_file_notify` https://github.com/torvalds/linux/blob/v5.15/kernel/cgroup/cgroup.c#L4222. Excercise for the reader: find out where it is called from.
+[^1]: The kernel function responsible for cgroup2 notification is called `cgroup_file_notify` https://github.com/torvalds/linux/blob/v5.15/kernel/cgroup/cgroup.c#L4222. Exercise for the reader: find out where it is called from.
