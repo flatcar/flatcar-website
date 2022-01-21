@@ -9,15 +9,26 @@ date = "2021-12-11T20:00:00+02:00"
 postImage = "/flatcar-containerd.jpg"
 +++
 
-Flatcar has enabled cgroup2 by default since release 2969. We chose to keep nodes that are updating on cgroupv1 so that existing deployments are not impacted, we wrote about this on our [blog](https://www.flatcar-linux.org/blog/2021/09/flatcar-container-linux-is-moving-to-cgroupsv2/).
+Flatcar has enabled cgroup2 by default since release version 2969.0.0. We chose to keep nodes that are updating on cgroupv1 so that existing deployments are not impacted, we wrote about this on our [blog](https://www.flatcar-linux.org/blog/2021/09/flatcar-container-linux-is-moving-to-cgroupsv2/).
 
 Recently a user reported [issue 563](https://github.com/flatcar-linux/Flatcar/issues/563) on our public bug tracker. We decided to dive-in, see what's happening. This is going to be a technical blog post.
 
-Kubernetes relies on a container runtime to create and run pods and containers. On Flatcar this is ultimately done using containerd. Containerd can emit events throughout the lifecycle of a container, as can be seen using `ctr events`:
+Kubernetes relies on a container runtime to create and run pods and containers. On Flatcar this is ultimately done using containerd through the CRI (container runtime interface) plugin.
 
-TODO: insert ctr events example
+{{< figure src="/media/containerd-2021/containerd-diagram-1.png" alt="Diagram showing the container stack in kubernetes: kubelet, containerd and CRI, containerd-shim, runc, container." >}}
 
-One of these events is `/tasks/oom`: containerd-shim subscribes to out-of-memory (OOM) notifications from the kernel for every container it creates, and publishes the event to higher layers like Kubernetes.
+Containerd can emit events throughout the lifecycle of a container, as can be seen using `ctr events`:
+
+```
+moby /containers/create {"id":"efdc0c13a23ed36819af834d41727dabf07052298dc46d0a8243089a6f448a70","runtime":{"name":"io.containerd.runc.v2","options":{"type_url":"containerd.runc.v1.Options","value":"MgRydW5jOhwvdmFyL3J1bi9kb2NrZXIvcnVudGltZS1ydW5jSAE="}}}
+moby /tasks/create {"container_id":"efdc0c13a23ed36819af834d41727dabf07052298dc46d0a8243089a6f448a70","bundle":"/run/containerd/io.containerd.runtime.v2.task/moby/efdc0c13a23ed36819af834d41727dabf07052298dc46d0a8243089a6f448a70","io":{"stdin":"/var/run/docker/containerd/efdc0c13a23ed36819af834d41727dabf07052298dc46d0a8243089a6f448a70/init-stdin","stdout":"/var/run/docker/containerd/efdc0c13a23ed36819af834d41727dabf07052298dc46d0a8243089a6f448a70/init-stdout","terminal":true},"pid":1298}
+moby /tasks/start {"container_id":"efdc0c13a23ed36819af834d41727dabf07052298dc46d0a8243089a6f448a70","pid":1298}
+moby /tasks/exit {"container_id":"efdc0c13a23ed36819af834d41727dabf07052298dc46d0a8243089a6f448a70","id":"efdc0c13a23ed36819af834d41727dabf07052298dc46d0a8243089a6f448a70","pid":1298,"exited_at":"2022-01-21T15:09:50.01186572Z"}
+moby /tasks/delete {"container_id":"efdc0c13a23ed36819af834d41727dabf07052298dc46d0a8243089a6f448a70","pid":1298,"exited_at":"2022-01-21T15:09:50.01186572Z"}
+moby /containers/delete {"id":"efdc0c13a23ed36819af834d41727dabf07052298dc46d0a8243089a6f448a70"}
+```
+
+One of these events is `/tasks/oom`: containerd-shim subscribes to out-of-memory (OOM) notifications from the kernel for every container it creates, and publishes that event to higher layers like Kubernetes.
 
 The kernel reports an OOM notification when processes exceed the memory limits configured for their cgroup. The way these notifications are reported to userspace is different for legacy cgroup and cgroup2.
 
