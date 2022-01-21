@@ -6,7 +6,7 @@ title = "Containerd cgroup2 inotify leak"
 draft = false
 description = "Containerd running on cgroup2 leaks inotify file handles. Here's how we found out about it"
 date = "2021-12-11T20:00:00+02:00"
-postImage = "/TODO.jpg"
+postImage = "/flatcar-containerd.jpg"
 +++
 
 Flatcar has enabled cgroup2 by default since release 2969. We chose to keep nodes that are updating on cgroupv1 so that existing deployments are not impacted, we wrote about this on our [blog](https://www.flatcar-linux.org/blog/2021/09/flatcar-container-linux-is-moving-to-cgroupsv2/).
