@@ -15,7 +15,7 @@ Recently a user reported [issue 563](https://github.com/flatcar-linux/Flatcar/is
 
 Kubernetes relies on a container runtime to create and run pods and containers. On Flatcar this is ultimately done using containerd through the CRI (container runtime interface) plugin.
 
-{{< figure src="/media/containerd-2021/containerd-diagram-1.png" alt="Diagram showing the container stack in kubernetes: kubelet, containerd and CRI, containerd-shim, runc, container." >}}
+{{< figure src="/media/containerd-2021/containerd-diagram-1.png" width="50%" alt="Diagram showing the container stack in kubernetes: kubelet, containerd and CRI, containerd-shim, runc, container." >}}
 
 Containerd can emit events throughout the lifecycle of a container, as can be seen using `ctr events`:
 
