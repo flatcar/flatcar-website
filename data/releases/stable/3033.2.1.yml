@@ -1,10 +1,10 @@
 architectures:
 - amd64
 - arm64
-channel: beta
+channel: stable
 github_release:
   assets: []
-  assets_url: https://api.github.com/repos/kinvolk/manifest/releases/57988725/assets
+  assets_url: https://api.github.com/repos/kinvolk/manifest/releases/57988913/assets
   author:
     avatar_url: https://avatars.githubusercontent.com/u/500628?v=4
     events_url: https://api.github.com/users/sayanchowdhury/events{/privacy}
@@ -24,7 +24,7 @@ github_release:
     subscriptions_url: https://api.github.com/users/sayanchowdhury/subscriptions
     type: User
     url: https://api.github.com/users/sayanchowdhury
-  body: "New **Beta** release **3066.1.1**\r\n\r\n_Changes since **Beta 3066.1.0**_\r\
+  body: "New **Stable** release **3033.2.1**\r\n\r\n_Changes since **Stable 3033.2.0**_\r\
     \n\r\n#### Known issues:\r\n- The SELinux policy store update fix resulted in\
     \ some files leaked to the root filesystem top directory ([flatcar-linux/Flatcar#596](https://github.com/flatcar-linux/Flatcar/issues/596))\r\
     \n\r\n#### Security fixes:\r\n\r\n- Linux ([CVE-2021-4135](https://nvd.nist.gov/vuln/detail/CVE-2021-4135),\
@@ -43,9 +43,6 @@ github_release:
     \ Bug fixes:\r\n\r\n- Ensured that the `/run/xtables.lock` coordination file exists\
     \ for modifications of the xtables backend from containers (must be bind-mounted)\
     \ or the `iptables-legacy` binaries on the host ([flatcar-linux/init#57](https://github.com/flatcar-linux/init/pull/57))\r\
-    \n- Excluded the Kubenet cbr0 interface from networkd\u2019s DHCP config and set\
-    \ it to Unmanaged to prevent interference and ensure that it is not part of the\
-    \ network online check ([flatcar-linux/init#55](https://github.com/flatcar-linux/init/pull/55))\r\
     \n- dev container: Fix github URL for coreos-overlay and portage-stable to use\
     \ repos from flatcar-linux org directly instead of relying on redirects from the\
     \ kinvolk org. This fixes checkouts with emerge-gitclone inside dev-container.\
@@ -59,24 +56,24 @@ github_release:
     \n- containerd ([1.5.9](https://github.com/containerd/containerd/releases/tag/v1.5.9))\r\
     \n- expat ([2.4.3](https://github.com/libexpat/libexpat/blob/R_2_4_3/expat/Changes))\r\
     \n"
-  created_at: '2022-01-24T14:54:36Z'
+  created_at: '2022-01-24T14:55:29Z'
   draft: false
-  html_url: https://github.com/kinvolk/manifest/releases/tag/v3066.1.1
-  id: 57988725
-  name: v3066.1.1
-  node_id: RE_kwDOB2MTRc4DdNZ1
+  html_url: https://github.com/kinvolk/manifest/releases/tag/v3033.2.1
+  id: 57988913
+  name: v3033.2.1
+  node_id: RE_kwDOB2MTRc4DdNcx
   prerelease: false
-  published_at: '2022-01-26T08:13:36Z'
-  tag_name: v3066.1.1
-  tarball_url: https://api.github.com/repos/kinvolk/manifest/tarball/v3066.1.1
+  published_at: '2022-01-26T08:17:16Z'
+  tag_name: v3033.2.1
+  tarball_url: https://api.github.com/repos/kinvolk/manifest/tarball/v3033.2.1
   target_commitish: flatcar-master
-  upload_url: https://uploads.github.com/repos/kinvolk/manifest/releases/57988725/assets{?name,label}
-  url: https://api.github.com/repos/kinvolk/manifest/releases/57988725
-  zipball_url: https://api.github.com/repos/kinvolk/manifest/zipball/v3066.1.1
+  upload_url: https://uploads.github.com/repos/kinvolk/manifest/releases/57988913/assets{?name,label}
+  url: https://api.github.com/repos/kinvolk/manifest/releases/57988913
+  zipball_url: https://api.github.com/repos/kinvolk/manifest/zipball/v3033.2.1
 image_packages:
   docker: 20.10.12
-  ignition: 0.36.1
+  ignition: 0.34.0
   kernel: 5.10.93
   systemd: '249'
-release: current
-version: 3066.1.1
+release: 3033.2.1
+version: 3033.2.1

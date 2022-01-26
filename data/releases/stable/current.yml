@@ -4,7 +4,7 @@ architectures:
 channel: stable
 github_release:
   assets: []
-  assets_url: https://api.github.com/repos/kinvolk/manifest/releases/55396244/assets
+  assets_url: https://api.github.com/repos/kinvolk/manifest/releases/57988913/assets
   author:
     avatar_url: https://avatars.githubusercontent.com/u/500628?v=4
     events_url: https://api.github.com/users/sayanchowdhury/events{/privacy}
@@ -24,114 +24,56 @@ github_release:
     subscriptions_url: https://api.github.com/users/sayanchowdhury/subscriptions
     type: User
     url: https://api.github.com/users/sayanchowdhury
-  body: "New **Stable** release **3033.2.0**\r\n\r\n_Changes since **Stable 2983.2.1**_\r\
-    \n\r\n**Security fixes**\r\n\r\n\r\n\r\n* Linux ([CVE-2021-4002](https://nvd.nist.gov/vuln/detail/CVE-2021-4002),\
-    \ [CVE-2020-27820](https://nvd.nist.gov/vuln/detail/CVE-2020-27820), [CVE-2021-4001](https://nvd.nist.gov/vuln/detail/CVE-2021-4001),\
-    \ [CVE-2021-43975](https://nvd.nist.gov/vuln/detail/CVE-2021-43975))\r\n* Go ([CVE-2021-29923](https://nvd.nist.gov/vuln/detail/CVE-2021-29923),[\
-    \ CVE-2021-39293](https://nvd.nist.gov/vuln/detail/CVE-2021-39293),[ CVE-2021-38297](https://nvd.nist.gov/vuln/detail/CVE-2021-38297),[CVE-2021-39293](https://nvd.nist.gov/vuln/detail/CVE-2021-39293),\
-    \ [CVE-2021-44717](https://nvd.nist.gov/vuln/detail/CVE-2021-44717), [CVE-2021-44716](https://nvd.nist.gov/vuln/detail/CVE-2021-44716))\r\
-    \n* bash ([CVE-2019-9924](https://nvd.nist.gov/vuln/detail/CVE-2019-9924),[ CVE-2019-18276](https://nvd.nist.gov/vuln/detail/CVE-2019-18276))\r\
-    \n* binutils ([CVE-2021-3530](https://nvd.nist.gov/vuln/detail/CVE-2021-3530),[\
-    \ CVE-2021-3549](https://nvd.nist.gov/vuln/detail/CVE-2021-3549))\r\n* ca-certificates\
-    \ ([CVE-2021-43527](https://nvd.nist.gov/vuln/detail/CVE-2021-43527))\r\n* containerd\
-    \ ([CVE-2021-41103](https://nvd.nist.gov/vuln/detail/CVE-2021-41103))\r\n* curl\
-    \ ([CVE-2021-22945](https://nvd.nist.gov/vuln/detail/CVE-2021-22945),[ CVE-2021-22946](https://nvd.nist.gov/vuln/detail/CVE-2021-22946),[\
-    \ CVE-2021-22947](https://nvd.nist.gov/vuln/detail/CVE-2021-22947))\r\n* Docker\
-    \ ([CVE-2021-41092](https://nvd.nist.gov/vuln/detail/CVE-2021-41092),[ CVE-2021-41089](https://nvd.nist.gov/vuln/detail/CVE-2021-41089),[\
-    \ CVE-2021-41091](https://nvd.nist.gov/vuln/detail/CVE-2021-41091))\r\n* git ([CVE-2021-40330](https://nvd.nist.gov/vuln/detail/CVE-2021-40330))\r\
-    \n* glibc ([CVE-2021-38604](https://nvd.nist.gov/vuln/detail/CVE-2021-38604))\r\
-    \n* gnupg ([CVE-2020-25125](https://nvd.nist.gov/vuln/detail/CVE-2020-25125))\r\
-    \n* libgcrypt ([CVE-2021-40528](https://nvd.nist.gov/vuln/detail/CVE-2021-40528))\r\
-    \n* nettle ([CVE-2021-20305](https://nvd.nist.gov/vuln/detail/CVE-2021-20305),[\
-    \ CVE-2021-3580](https://nvd.nist.gov/vuln/detail/CVE-2021-3580))\r\n* polkit\
-    \ ([CVE-2021-3560](https://nvd.nist.gov/vuln/detail/CVE-2021-3560))\r\n* sssd\
-    \ ([CVE-2021-3621](https://nvd.nist.gov/vuln/detail/CVE-2021-3621))\r\n* util-linux\
-    \ ([CVE-2021-37600](https://nvd.nist.gov/vuln/detail/CVE-2021-37600))\r\n* vim\
-    \ ([CVE-2021-3770](https://nvd.nist.gov/vuln/detail/CVE-2021-3770),[ CVE-2021-3778](https://nvd.nist.gov/vuln/detail/CVE-2021-3778),[\
-    \ CVE-2021-3796](https://nvd.nist.gov/vuln/detail/CVE-2021-3796))\r\n* SDK: bison\
-    \ ([CVE-2020-14150](https://nvd.nist.gov/vuln/detail/CVE-2020-14150),[ CVE-2020-24240](https://nvd.nist.gov/vuln/detail/CVE-2020-24240))\r\
-    \n* SDK: perl ([CVE-2020-10878](https://nvd.nist.gov/vuln/detail/CVE-2020-10878))\r\
-    \n\r\n**Bug fixes**\r\n\r\n\r\n\r\n* arm64: the Polkit service does not crash\
-    \ anymore. ([flatcar-linux/Flatcar#156](https://github.com/flatcar-linux/Flatcar/issues/156))\r\
-    \n* toolbox: fixed support for multi-layered docker images ([toolbox#5](https://github.com/flatcar-linux/toolbox/pull/5))\r\
-    \n* Run emergency.target on ignition/torcx service unit failure in dracut ([bootengine#28](https://github.com/flatcar-linux/bootengine/pull/28))\r\
-    \n* Fix vim warnings on missing file, when built with USE=\u201Dminimal\u201D\
-    \ ([portage-stable#260](https://github.com/flatcar-linux/portage-stable/pull/260))\r\
-    \n* The Torcx profile `docker-1.12-no` got fixed to reference the current Docker\
-    \ version instead of 19.03 which wasn't found on the image, causing Torcx to fail\
-    \ to provide Docker ([PR#1456](https://github.com/flatcar-linux/coreos-overlay/pull/1456))\r\
-    \n\r\n**Changes**\r\n\r\n\r\n\r\n* Added GPIO support ([coreos-overlay#1236](https://github.com/flatcar-linux/coreos-overlay/pull/1236))\r\
-    \n* Enabled SELinux in permissive mode on ARM64 ([coreos-overlay#1245](https://github.com/flatcar-linux/coreos-overlay/pull/1245))\r\
-    \n* The `iptables` command uses the nftables kernel backend instead of the iptables\
-    \ backend, you can also migrate to using the `nft` tool instead of `iptables`.\
-    \ Containers with `iptables` binaries that use the iptables backend will result\
-    \ in [mixing both kernel backends](https://wiki.nftables.org/wiki-nftables/index.php/Troubleshooting#Question_4._How_do_nftables_and_iptables_interact_when_used_on_the_same_system.3F)\
-    \ which is supported but you have to look up the rules separately (on the host\
-    \ you can use the `iptables-legacy` and friends).\r\n\r\n**Updates**\r\n\r\n\r\
-    \n\r\n* Linux ([5.10.84](https://lwn.net/Articles/878041/))\r\n* Linux Firmware\
-    \ ([20210919](https://git.kernel.org/pub/scm/linux/kernel/git/firmware/linux-firmware.git/tag/?h=20210919))\r\
-    \n* Docker ([20.10.9](https://docs.docker.com/engine/release-notes/#20109))\r\n\
-    * Go ([1.17.5](https://go.googlesource.com/go/+/refs/tags/go1.17.5))\r\n* containerd\
-    \ ([1.5.8](https://github.com/containerd/containerd/releases/tag/v1.5.8))\r\n\
-    * systemd ([249.4](https://github.com/systemd/systemd-stable/blob/v249.4/NEWS))\r\
-    \n* bash ([5.1_p8](https://lists.gnu.org/archive/html/info-gnu/2020-12/msg00003.html))\r\
-    \n* binutils ([2.37](https://sourceware.org/pipermail/binutils/2021-July/117384.html))\r\
-    \n* curl ([7.79.1](https://curl.se/changes.html#7_79_1))\r\n* ca-certificates\
-    \ ([3.73](https://groups.google.com/a/mozilla.org/g/dev-tech-crypto/c/vy9284s8APM))\r\
-    \n* duktape ([2.6.0](https://github.com/svaarala/duktape/blob/master/doc/release-notes-v2-6.rst))\r\
-    \n* ebtables ([2.0.11](https://lwn.net/Articles/806179/))\r\n* git ([2.32.0](https://github.com/git/git/blob/master/Documentation/RelNotes/2.32.0.txt))\r\
-    \n* gnupg ([2.2.29](https://lists.gnupg.org/pipermail/gnupg-announce/2021q3/000461.html))\r\
-    \n* iptables ([1.8.7](https://lwn.net/Articles/843069/))\r\n* keyutils ([1.6.1](https://git.kernel.org/pub/scm/linux/kernel/git/dhowells/keyutils.git/tag/?h=v1.6.1))\r\
-    \n* ldb ([2.3.0](https://gitlab.com/samba-team/samba/-/tags/ldb-2.3.0))\r\n* libgcrypt\
-    \ ([1.9.4](https://dev.gnupg.org/T5402))\r\n* libmnl ([1.0.4](https://marc.info/?l=netfilter-devel&m=146745072727070&w=2))\r\
-    \n* libnftnl ([1.2.0](https://marc.info/?l=netfilter&m=162194376520385&w=2))\r\
-    \n* libtirpc ([1.3.2](https://www.spinics.net/lists/linux-nfs/msg84129.html))\r\
-    \n* lvm2 ([2.02.188](https://github.com/lvmteam/lvm2/releases/tag/v2_02_188))\r\
-    \n* nettle ([3.7.3](https://lists.gnu.org/archive/html/info-gnu/2021-06/msg00002.html))\r\
-    \n* nftables ([0.9.9](https://lwn.net/Articles/857369/))\r\n* net-tools ([2.10](https://sourceforge.net/p/net-tools/code/ci/v2.10/tree/))\r\
-    \n* openssh ([8.7_p1-r1](https://www.openssh.com/txt/release-8.7))\r\n* open-vm-tools\
-    \ ([11.3.5](https://github.com/vmware/open-vm-tools/releases/tag/stable-11.3.5))\r\
-    \n* polkit ([0.119](https://gitlab.freedesktop.org/polkit/polkit/-/blob/0.119/NEWS))\r\
-    \n* realmd ([0.17.0](https://gitlab.freedesktop.org/realmd/realmd/-/tags/0.17.0))\r\
-    \n* runc ([1.0.3](https://github.com/opencontainers/runc/releases/tag/v1.0.3))\r\
-    \n* talloc ([2.3.2](https://gitlab.com/samba-team/samba/-/tags/talloc-2.3.2))\r\
-    \n* util-linux ([2.37.2](https://github.com/karelzak/util-linux/blob/v2.37.2/NEWS))\r\
-    \n* vim ([8.2.3428](https://github.com/vim/vim/releases/tag/v8.2.3428))\r\n* xenstore\
-    \ ([4.14.2](https://xenproject.org/downloads/xen-project-archives/xen-project-4-14-series/xen-project-4-14-2/))\r\
-    \n* SDK: gnuconfig (20210107)\r\n* SDK: google-cloud-sdk ([355.0.0](https://groups.google.com/g/google-cloud-sdk-announce/c/HoJuttxnzNQ))\r\
-    \n* SDK: meson (0.57.2)\r\n* SDK: mtools (4.0.35)\r\n* SDK: perl ([5.34.0](https://perldoc.perl.org/perl5340delta))\r\
-    \n* SDK: Rust ([1.55.0](https://blog.rust-lang.org/2021/09/09/Rust-1.55.0.html))\r\
-    \n* SDK: texinfo ([6.8](https://github.com/debian-tex/texinfo/releases/tag/upstream%2F6.8))\r\
-    \n\r\n_Changes since **Beta 3033.1.1**_\r\n\r\n**Security fixes**\r\n\r\n\r\n\r\
-    \n* Linux ([CVE-2021-4002](https://nvd.nist.gov/vuln/detail/CVE-2021-4002), [CVE-2020-27820](https://nvd.nist.gov/vuln/detail/CVE-2020-27820),\
-    \ [CVE-2021-4001](https://nvd.nist.gov/vuln/detail/CVE-2021-4001), [CVE-2021-43975](https://nvd.nist.gov/vuln/detail/CVE-2021-43975))\r\
-    \n* Go ([CVE-2021-29923](https://nvd.nist.gov/vuln/detail/CVE-2021-29923),[ CVE-2021-39293](https://nvd.nist.gov/vuln/detail/CVE-2021-39293),[\
-    \ CVE-2021-38297](https://nvd.nist.gov/vuln/detail/CVE-2021-38297),[CVE-2021-39293](https://nvd.nist.gov/vuln/detail/CVE-2021-39293),\
-    \ [CVE-2021-44717](https://nvd.nist.gov/vuln/detail/CVE-2021-44717), [CVE-2021-44716](https://nvd.nist.gov/vuln/detail/CVE-2021-44716))\r\
-    \n* ca-certificates ([CVE-2021-43527](https://nvd.nist.gov/vuln/detail/CVE-2021-43527))\r\
-    \n\r\n**Bug fixes**\r\n\r\n\r\n\r\n* Fix vim warnings on missing file, when built\
-    \ with USE=\u201Dminimal\u201D ([portage-stable#260](https://github.com/flatcar-linux/portage-stable/pull/260))\r\
-    \n\r\n**Updates**\r\n\r\n\r\n\r\n* Linux ([5.10.84](https://lwn.net/Articles/878041/))\r\
-    \n* Go ([1.17.5](https://go.googlesource.com/go/+/refs/tags/go1.17.5))\r\n* ca-certificates\
-    \ ([3.73](https://groups.google.com/a/mozilla.org/g/dev-tech-crypto/c/vy9284s8APM))"
-  created_at: '2021-12-10T15:06:53Z'
+  body: "New **Stable** release **3033.2.1**\r\n\r\n_Changes since **Stable 3033.2.0**_\r\
+    \n\r\n#### Known issues:\r\n- The SELinux policy store update fix resulted in\
+    \ some files leaked to the root filesystem top directory ([flatcar-linux/Flatcar#596](https://github.com/flatcar-linux/Flatcar/issues/596))\r\
+    \n\r\n#### Security fixes:\r\n\r\n- Linux ([CVE-2021-4135](https://nvd.nist.gov/vuln/detail/CVE-2021-4135),\
+    \ [CVE-2021-4155](https://nvd.nist.gov/vuln/detail/CVE-2021-4155), [CVE-2021-28711](https://nvd.nist.gov/vuln/detail/CVE-2021-28711),\
+    \ [CVE-2021-28712](https://nvd.nist.gov/vuln/detail/CVE-2021-28712), [CVE-2021-28713](https://nvd.nist.gov/vuln/detail/CVE-2021-28713),\
+    \ [CVE-2021-28714](https://nvd.nist.gov/vuln/detail/CVE-2021-28714), [CVE-2021-28715](https://nvd.nist.gov/vuln/detail/CVE-2021-28715),\
+    \ [CVE-2021-39685](https://nvd.nist.gov/vuln/detail/CVE-2021-39685), [CVE-2021-44733](https://nvd.nist.gov/vuln/detail/CVE-2021-44733),\
+    \ [CVE-2021-45095](https://nvd.nist.gov/vuln/detail/CVE-2021-45095), [CVE-2022-0185](https://nvd.nist.gov/vuln/detail/CVE-2022-0185))\r\
+    \n- ca-certificates ([CVE-2021-43527](https://nvd.nist.gov/vuln/detail/CVE-2021-43527))\r\
+    \n- containerd ([CVE-2021-43816](https://nvd.nist.gov/vuln/detail/CVE-2021-43816))\r\
+    \n- expat ([CVE-2021-45960](https://nvd.nist.gov/vuln/detail/CVE-2021-45960),\
+    \ [CVE-2021-46143](https://nvd.nist.gov/vuln/detail/CVE-2021-46143), [CVE-2022-22822](https://nvd.nist.gov/vuln/detail/CVE-2022-22822),\
+    \ [CVE-2022-22823](https://nvd.nist.gov/vuln/detail/CVE-2022-22823), [CVE-2022-22824](https://nvd.nist.gov/vuln/detail/CVE-2022-22824),\
+    \ [CVE-2022-22825](https://nvd.nist.gov/vuln/detail/CVE-2022-22825), [CVE-2022-22826](https://nvd.nist.gov/vuln/detail/CVE-2022-22826),\
+    \ [CVE-2022-22827](https://nvd.nist.gov/vuln/detail/CVE-2022-22827))\r\n\r\n####\
+    \ Bug fixes:\r\n\r\n- Ensured that the `/run/xtables.lock` coordination file exists\
+    \ for modifications of the xtables backend from containers (must be bind-mounted)\
+    \ or the `iptables-legacy` binaries on the host ([flatcar-linux/init#57](https://github.com/flatcar-linux/init/pull/57))\r\
+    \n- dev container: Fix github URL for coreos-overlay and portage-stable to use\
+    \ repos from flatcar-linux org directly instead of relying on redirects from the\
+    \ kinvolk org. This fixes checkouts with emerge-gitclone inside dev-container.\
+    \ ([flatcar-linux/scripts#194](https://github.com/flatcar-linux/scripts/pull/194))\r\
+    \n- SDK: Fixed build error popping up in the new SDK Container because `policycoreutils`\
+    \ used the wrong ROOT to update the SELinux store ([flatcar-linux/coreos-overlay#1502](https://github.com/flatcar-linux/coreos-overlay/pull/1502))\r\
+    \n\r\n#### Changes:\r\n\r\n- Backported `elf` support for `iproute2` ([flatcar-linux/coreos-overlay#1256](https://github.com/flatcar-linux/coreos-overlay/pull/1526))\r\
+    \n\r\n#### Updates:\r\n\r\n- Linux ([5.10.93](https://lwn.net/Articles/881964))\
+    \ (from 5.10.84)\r\n- ca-certificates ([3.74](https://firefox-source-docs.mozilla.org/security/nss/releases/nss_3_74.html))\r\
+    \n- Docker ([20.10.12](https://docs.docker.com/engine/release-notes/#201012))\r\
+    \n- containerd ([1.5.9](https://github.com/containerd/containerd/releases/tag/v1.5.9))\r\
+    \n- expat ([2.4.3](https://github.com/libexpat/libexpat/blob/R_2_4_3/expat/Changes))\r\
+    \n"
+  created_at: '2022-01-24T14:55:29Z'
   draft: false
-  html_url: https://github.com/kinvolk/manifest/releases/tag/v3033.2.0
-  id: 55396244
-  name: v3033.2.0
-  node_id: RE_kwDOB2MTRc4DTUeU
+  html_url: https://github.com/kinvolk/manifest/releases/tag/v3033.2.1
+  id: 57988913
+  name: v3033.2.1
+  node_id: RE_kwDOB2MTRc4DdNcx
   prerelease: false
-  published_at: '2021-12-15T19:36:24Z'
-  tag_name: v3033.2.0
-  tarball_url: https://api.github.com/repos/kinvolk/manifest/tarball/v3033.2.0
+  published_at: '2022-01-26T08:17:16Z'
+  tag_name: v3033.2.1
+  tarball_url: https://api.github.com/repos/kinvolk/manifest/tarball/v3033.2.1
   target_commitish: flatcar-master
-  upload_url: https://uploads.github.com/repos/kinvolk/manifest/releases/55396244/assets{?name,label}
-  url: https://api.github.com/repos/kinvolk/manifest/releases/55396244
-  zipball_url: https://api.github.com/repos/kinvolk/manifest/zipball/v3033.2.0
+  upload_url: https://uploads.github.com/repos/kinvolk/manifest/releases/57988913/assets{?name,label}
+  url: https://api.github.com/repos/kinvolk/manifest/releases/57988913
+  zipball_url: https://api.github.com/repos/kinvolk/manifest/zipball/v3033.2.1
 image_packages:
-  docker: 20.10.11
+  docker: 20.10.12
   ignition: 0.34.0
-  kernel: 5.10.84
+  kernel: 5.10.93
   systemd: '249'
 release: current
-version: 3033.2.0
+version: 3033.2.1

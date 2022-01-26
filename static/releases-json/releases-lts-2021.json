@@ -241,12 +241,12 @@
     },
     "release_notes": "\n\nNew **LTS** release **2605.24.1**\n\n_Changes since **LTS 2605.23.1**_\n\n**Security Fixes**\n\n\n\n* Linux ([CVE-2021-42739](https://nvd.nist.gov/vuln/detail/CVE-2021-42739), [CVE-2021-3640](https://nvd.nist.gov/vuln/detail/CVE-2021-3640), [CVE-2021-4002](https://nvd.nist.gov/vuln/detail/CVE-2021-4002), [CVE-2020-27820](https://nvd.nist.gov/vuln/detail/CVE-2020-27820), [CVE-2021-43975](https://nvd.nist.gov/vuln/detail/CVE-2021-43975))\n* ca-certificates ([CVE-2021-43527](https://nvd.nist.gov/vuln/detail/CVE-2021-43527))\n\n**Updates**\n\n\n\n* Linux ([5.4.164](https://lwn.net/Articles/878042))\n* ca-certificates ([3.73](https://groups.google.com/a/mozilla.org/g/dev-tech-crypto/c/vy9284s8APM))\n* repo ([2.8](https://gerrit.googlesource.com/git-repo/+/refs/tags/v2.8))"
   },
-  "current-2021": {
+  "2605.25.1": {
     "channel": "lts",
     "architectures": [
       "amd64"
     ],
-    "release_date": "2021-12-15 19:41:33 +0000",
+    "release_date": "2022-01-26 08:39:00 +0000",
     "major_software": {
       "docker": [
         "19.03.15"
@@ -255,20 +255,42 @@
         "0.34.0"
       ],
       "kernel": [
-        "5.4.164"
+        "5.4.173"
       ],
       "systemd": [
         "246"
       ]
     },
-    "release_notes": "\n\nNew **LTS** release **2605.24.1**\n\n_Changes since **LTS 2605.23.1**_\n\n**Security Fixes**\n\n\n\n* Linux ([CVE-2021-42739](https://nvd.nist.gov/vuln/detail/CVE-2021-42739), [CVE-2021-3640](https://nvd.nist.gov/vuln/detail/CVE-2021-3640), [CVE-2021-4002](https://nvd.nist.gov/vuln/detail/CVE-2021-4002), [CVE-2020-27820](https://nvd.nist.gov/vuln/detail/CVE-2020-27820), [CVE-2021-43975](https://nvd.nist.gov/vuln/detail/CVE-2021-43975))\n* ca-certificates ([CVE-2021-43527](https://nvd.nist.gov/vuln/detail/CVE-2021-43527))\n\n**Updates**\n\n\n\n* Linux ([5.4.164](https://lwn.net/Articles/878042))\n* ca-certificates ([3.73](https://groups.google.com/a/mozilla.org/g/dev-tech-crypto/c/vy9284s8APM))\n* repo ([2.8](https://gerrit.googlesource.com/git-repo/+/refs/tags/v2.8))"
+    "release_notes": "New **LTS** release **2605.25.1**\n\n_Changes since **LTS 2605.24.1**_\n\n#### Security fixes\n- Linux ([CVE-2021-4135](https://nvd.nist.gov/vuln/detail/CVE-2021-4135), [CVE-2021-4155](https://nvd.nist.gov/vuln/detail/CVE-2021-4155), [CVE-2021-28711](https://nvd.nist.gov/vuln/detail/CVE-2021-28711), [CVE-2021-28712](https://nvd.nist.gov/vuln/detail/CVE-2021-28712), [CVE-2021-28713](https://nvd.nist.gov/vuln/detail/CVE-2021-28713), [CVE-2021-28714](https://nvd.nist.gov/vuln/detail/CVE-2021-28714), [CVE-2021-28715](https://nvd.nist.gov/vuln/detail/CVE-2021-28715), [CVE-2021-39685](https://nvd.nist.gov/vuln/detail/CVE-2021-39685), [CVE-2021-44733](https://nvd.nist.gov/vuln/detail/CVE-2021-44733), [CVE-2021-45095](https://nvd.nist.gov/vuln/detail/CVE-2021-45095), [CVE-2022-0185](https://nvd.nist.gov/vuln/detail/CVE-2022-0185))\n- ca-certificates ([CVE-2021-43527](https://nvd.nist.gov/vuln/detail/CVE-2021-43527))\n\n#### Updates\n- Linux ([5.4.173](https://lwn.net/Articles/881965)) (includes [5.4.165](https://lwn.net/Articles/878633), [5.4.166](https://lwn.net/Articles/878900), [5.4.167](https://lwn.net/Articles/879025), [5.4.168](https://lwn.net/Articles/879498), [5.4.169](https://lwn.net/Articles/879999), [5.4.170](https://lwn.net/Articles/880467), [5.4.171](https://lwn.net/Articles/881016), [5.4.172](https://lwn.net/Articles/881550))\n- ca-certificates ([3.74](https://firefox-source-docs.mozilla.org/security/nss/releases/nss_3_74.html)) (includes [3.73.1](https://firefox-source-docs.mozilla.org/security/nss/releases/nss_3_73_1.html))"
+  },
+  "current-2021": {
+    "channel": "lts",
+    "architectures": [
+      "amd64"
+    ],
+    "release_date": "2022-01-26 08:39:00 +0000",
+    "major_software": {
+      "docker": [
+        "19.03.15"
+      ],
+      "ignition": [
+        "0.34.0"
+      ],
+      "kernel": [
+        "5.4.173"
+      ],
+      "systemd": [
+        "246"
+      ]
+    },
+    "release_notes": "New **LTS** release **2605.25.1**\n\n_Changes since **LTS 2605.24.1**_\n\n#### Security fixes\n- Linux ([CVE-2021-4135](https://nvd.nist.gov/vuln/detail/CVE-2021-4135), [CVE-2021-4155](https://nvd.nist.gov/vuln/detail/CVE-2021-4155), [CVE-2021-28711](https://nvd.nist.gov/vuln/detail/CVE-2021-28711), [CVE-2021-28712](https://nvd.nist.gov/vuln/detail/CVE-2021-28712), [CVE-2021-28713](https://nvd.nist.gov/vuln/detail/CVE-2021-28713), [CVE-2021-28714](https://nvd.nist.gov/vuln/detail/CVE-2021-28714), [CVE-2021-28715](https://nvd.nist.gov/vuln/detail/CVE-2021-28715), [CVE-2021-39685](https://nvd.nist.gov/vuln/detail/CVE-2021-39685), [CVE-2021-44733](https://nvd.nist.gov/vuln/detail/CVE-2021-44733), [CVE-2021-45095](https://nvd.nist.gov/vuln/detail/CVE-2021-45095), [CVE-2022-0185](https://nvd.nist.gov/vuln/detail/CVE-2022-0185))\n- ca-certificates ([CVE-2021-43527](https://nvd.nist.gov/vuln/detail/CVE-2021-43527))\n\n#### Updates\n- Linux ([5.4.173](https://lwn.net/Articles/881965)) (includes [5.4.165](https://lwn.net/Articles/878633), [5.4.166](https://lwn.net/Articles/878900), [5.4.167](https://lwn.net/Articles/879025), [5.4.168](https://lwn.net/Articles/879498), [5.4.169](https://lwn.net/Articles/879999), [5.4.170](https://lwn.net/Articles/880467), [5.4.171](https://lwn.net/Articles/881016), [5.4.172](https://lwn.net/Articles/881550))\n- ca-certificates ([3.74](https://firefox-source-docs.mozilla.org/security/nss/releases/nss_3_74.html)) (includes [3.73.1](https://firefox-source-docs.mozilla.org/security/nss/releases/nss_3_73_1.html))"
   },
   "current": {
     "channel": "lts",
     "architectures": [
       "amd64"
     ],
-    "release_date": "2021-12-15 19:41:33 +0000",
+    "release_date": "2022-01-26 08:39:00 +0000",
     "major_software": {
       "docker": [
         "19.03.15"
@@ -277,12 +299,12 @@
         "0.34.0"
       ],
       "kernel": [
-        "5.4.164"
+        "5.4.173"
       ],
       "systemd": [
         "246"
       ]
     },
-    "release_notes": "\n\nNew **LTS** release **2605.24.1**\n\n_Changes since **LTS 2605.23.1**_\n\n**Security Fixes**\n\n\n\n* Linux ([CVE-2021-42739](https://nvd.nist.gov/vuln/detail/CVE-2021-42739), [CVE-2021-3640](https://nvd.nist.gov/vuln/detail/CVE-2021-3640), [CVE-2021-4002](https://nvd.nist.gov/vuln/detail/CVE-2021-4002), [CVE-2020-27820](https://nvd.nist.gov/vuln/detail/CVE-2020-27820), [CVE-2021-43975](https://nvd.nist.gov/vuln/detail/CVE-2021-43975))\n* ca-certificates ([CVE-2021-43527](https://nvd.nist.gov/vuln/detail/CVE-2021-43527))\n\n**Updates**\n\n\n\n* Linux ([5.4.164](https://lwn.net/Articles/878042))\n* ca-certificates ([3.73](https://groups.google.com/a/mozilla.org/g/dev-tech-crypto/c/vy9284s8APM))\n* repo ([2.8](https://gerrit.googlesource.com/git-repo/+/refs/tags/v2.8))"
+    "release_notes": "New **LTS** release **2605.25.1**\n\n_Changes since **LTS 2605.24.1**_\n\n#### Security fixes\n- Linux ([CVE-2021-4135](https://nvd.nist.gov/vuln/detail/CVE-2021-4135), [CVE-2021-4155](https://nvd.nist.gov/vuln/detail/CVE-2021-4155), [CVE-2021-28711](https://nvd.nist.gov/vuln/detail/CVE-2021-28711), [CVE-2021-28712](https://nvd.nist.gov/vuln/detail/CVE-2021-28712), [CVE-2021-28713](https://nvd.nist.gov/vuln/detail/CVE-2021-28713), [CVE-2021-28714](https://nvd.nist.gov/vuln/detail/CVE-2021-28714), [CVE-2021-28715](https://nvd.nist.gov/vuln/detail/CVE-2021-28715), [CVE-2021-39685](https://nvd.nist.gov/vuln/detail/CVE-2021-39685), [CVE-2021-44733](https://nvd.nist.gov/vuln/detail/CVE-2021-44733), [CVE-2021-45095](https://nvd.nist.gov/vuln/detail/CVE-2021-45095), [CVE-2022-0185](https://nvd.nist.gov/vuln/detail/CVE-2022-0185))\n- ca-certificates ([CVE-2021-43527](https://nvd.nist.gov/vuln/detail/CVE-2021-43527))\n\n#### Updates\n- Linux ([5.4.173](https://lwn.net/Articles/881965)) (includes [5.4.165](https://lwn.net/Articles/878633), [5.4.166](https://lwn.net/Articles/878900), [5.4.167](https://lwn.net/Articles/879025), [5.4.168](https://lwn.net/Articles/879498), [5.4.169](https://lwn.net/Articles/879999), [5.4.170](https://lwn.net/Articles/880467), [5.4.171](https://lwn.net/Articles/881016), [5.4.172](https://lwn.net/Articles/881550))\n- ca-certificates ([3.74](https://firefox-source-docs.mozilla.org/security/nss/releases/nss_3_74.html)) (includes [3.73.1](https://firefox-source-docs.mozilla.org/security/nss/releases/nss_3_73_1.html))"
   }
 }
