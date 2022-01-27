@@ -1,0 +1,91 @@
+architectures:
+- amd64
+- arm64
+channel: alpha
+github_release:
+  assets: []
+  assets_url: https://api.github.com/repos/kinvolk/manifest/releases/38226456/assets
+  author:
+    avatar_url: https://avatars.githubusercontent.com/u/500628?v=4
+    events_url: https://api.github.com/users/sayanchowdhury/events{/privacy}
+    followers_url: https://api.github.com/users/sayanchowdhury/followers
+    following_url: https://api.github.com/users/sayanchowdhury/following{/other_user}
+    gists_url: https://api.github.com/users/sayanchowdhury/gists{/gist_id}
+    gravatar_id: ''
+    html_url: https://github.com/sayanchowdhury
+    id: 500628
+    login: sayanchowdhury
+    node_id: MDQ6VXNlcjUwMDYyOA==
+    organizations_url: https://api.github.com/users/sayanchowdhury/orgs
+    received_events_url: https://api.github.com/users/sayanchowdhury/received_events
+    repos_url: https://api.github.com/users/sayanchowdhury/repos
+    site_admin: false
+    starred_url: https://api.github.com/users/sayanchowdhury/starred{/owner}{/repo}
+    subscriptions_url: https://api.github.com/users/sayanchowdhury/subscriptions
+    type: User
+    url: https://api.github.com/users/sayanchowdhury
+  body: "**Security fixes**\r\n\r\n\r\n\r\n*   Linux ([CVE-2021-3347](https://nvd.nist.gov/vuln/detail/CVE-2021-3347),\
+    \ [CVE-2021-3348](https://nvd.nist.gov/vuln/detail/CVE-2021-3348), [CVE-2021-26708](https://nvd.nist.gov/vuln/detail/CVE-2021-26708),\
+    \ [CVE-2021-20194](https://nvd.nist.gov/vuln/detail/CVE-2021-20194))\r\n*   Docker\
+    \ ([CVE-2021-21285](https://nvd.nist.gov/vuln/detail/CVE-2021-21285), [CVE-2021-21284](https://nvd.nist.gov/vuln/detail/CVE-2021-21284))\r\
+    \n*   samba ([CVE-2020-14318](https://nvd.nist.gov/vuln/detail/CVE-2020-14318),\
+    \ [CVE-2020-14323](https://nvd.nist.gov/vuln/detail/CVE-2020-14323), [CVE-2020-14383](https://nvd.nist.gov/vuln/detail/CVE-2020-14383))\r\
+    \n*   openldap ([CVE-2020-36221](https://nvd.nist.gov/vuln/detail/CVE-2020-36221),[\
+    \ CVE-2020-36222](https://nvd.nist.gov/vuln/detail/CVE-2020-36222),[ CVE-2020-36223](https://nvd.nist.gov/vuln/detail/CVE-2020-36223),[\
+    \ CVE-2020-36224](https://nvd.nist.gov/vuln/detail/-2020-36224),[ CVE-2020-36225](https://nvd.nist.gov/vuln/detail/CVE-2020-36225),[\
+    \ CVE-2020-36226](https://nvd.nist.gov/vuln/detail/CVE-2020-36226),[ CVE-2020-36227](https://nvd.nist.gov/vuln/detail/CVE-2020-36227),[\
+    \ CVE-2020-36228](https://nvd.nist.gov/vuln/detail/CVE-2020-36228),[ CVE-2020-36229](https://nvd.nist.gov/vuln/detail/CVE-2020-36229),[\
+    \ CVE-2020-36230](https://nvd.nist.gov/vuln/detail/CVE-2020-36230))\r\n*   c-ares\
+    \ ([CVE-2020-8277](https://nvd.nist.gov/vuln/detail/CVE-2020-8277))\r\n*   coreutils\
+    \ ([CVE-2017-7476](https://nvd.nist.gov/vuln/detail/CVE-2017-7476))\r\n*   intel-microcode\
+    \ ([CVE-2020-8698](https://nvd.nist.gov/vuln/detail/CVE-2020-8698), [CVE-2020-8694](https://nvd.nist.gov/vuln/detail/CVE-2020-8694),\
+    \ [CVE-2020-8695](https://nvd.nist.gov/vuln/detail/CVE-2020-8695), [CVE-2020-8696](https://nvd.nist.gov/vuln/detail/CVE-2020-8696))\r\
+    \n\r\n**Bug fixes**\r\n\r\n\r\n\r\n*   profile: filter out bullet point when parsing\
+    \ failed units ([baselayout#16](https://github.com/kinvolk/baselayout/pull/16))\r\
+    \n*   app-crypt/trousers: use correct file permissions ([coreos-overlay#809](https://github.com/kinvolk/coreos-overlay/pull/809))\r\
+    \n*   sys-apps/systemd: Fix unit installation ([coreos-overlay#810](https://github.com/kinvolk/coreos-overlay/pull/810))\r\
+    \n*   passwd: use correct GID for tss([baselayout#15](https://github.com/kinvolk/baselayout/pull/15))\r\
+    \n*   flatcar-eks: add missing mkdir and update to latest versions([coreos-overlay#817](https://github.com/kinvolk/coreos-overlay/pull/817))\r\
+    \n*   coreos-base/gmerge: Stop installing gmerge script ([coreos-overlay#828](https://github.com/kinvolk/coreos-overlay/pull/828))\r\
+    \n*   Update sys-apps/coreutils and make sure they have split-usr disabled for\
+    \ generic images ([coreos-overlay#829](https://github.com/kinvolk/coreos-overlay/pull/829))\r\
+    \n\r\n**Changes**\r\n\r\n\r\n\r\n*   dev-lang/go: delete go 1.6 ([coreos-overlay#827](https://github.com/kinvolk/coreos-overlay/pull/827))\r\
+    \n*   sys-block/open-iscsi: Command substitution in iscsi-init system service\
+    \ ([coreos-overlay#801](https://github.com/kinvolk/coreos-overlay/pull/801))\r\
+    \n*   scripts/motdgen: Add OEM information to motd output ([init#34](https://github.com/kinvolk/init/pull/34))\r\
+    \n*   torcx: delete Docker 1.12 ([coreos-overlay#826](https://github.com/kinvolk/coreos-overlay/pull/826))\r\
+    \n*   portage update: update portage and related packages to newer versions ([coreos-overlay#840](https://github.com/kinvolk/coreos-overlay/pull/840))\r\
+    \n*   bin/flatcar-install: add parameters to make wget more resilient ([init#35](https://github.com/kinvolk/init/pull/35))\r\
+    \n\r\n**Updates**\r\n\r\n\r\n\r\n*   Linux ([5.10.16](https://lwn.net/Articles/846116/))\r\
+    \n*   Docker ([19.03.15](https://docs.docker.com/engine/release-notes/19.03/#190315))\r\
+    \n*   go ([1.15.8](https://go.googlesource.com/go/+/refs/tags/go1.15.8))\r\n*\
+    \   c-ares ([1.17.1](https://c-ares.haxx.se/changelog.html#1_17_1))\r\n*   cri-tools\
+    \ ([1.19.0](https://github.com/kubernetes-sigs/cri-tools/releases/tag/v1.19.0))\r\
+    \n*   samba ([4.12.9](https://www.samba.org/samba/history/samba-4.12.9.html))\r\
+    \n*   openldap ([2.4.57](https://www.openldap.org/software/release/announce.html))\r\
+    \n*   coreutils ([8.32](https://git.savannah.gnu.org/cgit/coreutils.git/tree/NEWS?h=v8.32))\r\
+    \n*   intel-microcode ([20201112](https://github.com/intel/Intel-Linux-Processor-Microcode-Data-Files/releases/tag/microcode-20201112))\r\
+    \n\r\n**Deprecation**\r\n\r\n\r\n\r\n*   Docker 1.12 will be deprecated from Alpha,\
+    \ also from other channels in the future.\r\n\r\nNote: Please note that ARM images\
+    \ remain experimental for now.\r\n"
+  created_at: '2021-02-12T19:09:00Z'
+  draft: false
+  html_url: https://github.com/kinvolk/manifest/releases/tag/v2783.0.0
+  id: 38226456
+  name: v2783.0.0
+  node_id: MDc6UmVsZWFzZTM4MjI2NDU2
+  prerelease: false
+  published_at: '2021-02-18T12:43:43Z'
+  tag_name: v2783.0.0
+  tarball_url: https://api.github.com/repos/kinvolk/manifest/tarball/v2783.0.0
+  target_commitish: flatcar-master
+  upload_url: https://uploads.github.com/repos/kinvolk/manifest/releases/38226456/assets{?name,label}
+  url: https://api.github.com/repos/kinvolk/manifest/releases/38226456
+  zipball_url: https://api.github.com/repos/kinvolk/manifest/zipball/v2783.0.0
+image_packages:
+  docker: 19.03.15
+  ignition: 0.34.0
+  kernel: 5.10.16
+  systemd: '247'
+release: 2783.0.0
+version: 2783.0.0
