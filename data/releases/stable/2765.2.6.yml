@@ -1,0 +1,61 @@
+architectures:
+- amd64
+channel: stable
+github_release:
+  assets: []
+  assets_url: https://api.github.com/repos/kinvolk/manifest/releases/44785772/assets
+  author:
+    avatar_url: https://avatars.githubusercontent.com/u/500628?v=4
+    events_url: https://api.github.com/users/sayanchowdhury/events{/privacy}
+    followers_url: https://api.github.com/users/sayanchowdhury/followers
+    following_url: https://api.github.com/users/sayanchowdhury/following{/other_user}
+    gists_url: https://api.github.com/users/sayanchowdhury/gists{/gist_id}
+    gravatar_id: ''
+    html_url: https://github.com/sayanchowdhury
+    id: 500628
+    login: sayanchowdhury
+    node_id: MDQ6VXNlcjUwMDYyOA==
+    organizations_url: https://api.github.com/users/sayanchowdhury/orgs
+    received_events_url: https://api.github.com/users/sayanchowdhury/received_events
+    repos_url: https://api.github.com/users/sayanchowdhury/repos
+    site_admin: false
+    starred_url: https://api.github.com/users/sayanchowdhury/starred{/owner}{/repo}
+    subscriptions_url: https://api.github.com/users/sayanchowdhury/subscriptions
+    type: User
+    url: https://api.github.com/users/sayanchowdhury
+  body: "\r\n**Security fixes**\r\n\r\n\r\n\r\n*   Linux ([CVE-2020-26558](https://nvd.nist.gov/vuln/detail/CVE-2020-26558),\
+    \ [CVE-2021-0129](https://nvd.nist.gov/vuln/detail/CVE-2021-0129), [CVE-2020-24587](https://nvd.nist.gov/vuln/detail/CVE-2020-24587),\
+    \ [CVE-2020-24586](https://nvd.nist.gov/vuln/detail/CVE-2020-24586), [CVE-2020-24588](https://nvd.nist.gov/vuln/detail/CVE-2020-24588),\
+    \ [CVE-2020-26139](https://nvd.nist.gov/vuln/detail/CVE-2020-26139), [CVE-2020-26145](https://nvd.nist.gov/vuln/detail/CVE-2020-26145),\
+    \ [CVE-2020-26147](https://nvd.nist.gov/vuln/detail/CVE-2020-26147), [CVE-2020-26141](https://nvd.nist.gov/vuln/detail/CVE-2020-26141),\
+    \ [CVE-2021-3564](https://nvd.nist.gov/vuln/detail/CVE-2021-3564), [CVE-2021-28691](https://nvd.nist.gov/vuln/detail/CVE-2021-28691),\
+    \ [CVE-2021-3587](https://nvd.nist.gov/vuln/detail/CVE-2021-3587), [CVE-2021-3573](https://nvd.nist.gov/vuln/detail/CVE-2021-3573))\r\
+    \n\r\n**Bug fixes**\r\n\r\n\r\n\r\n*   Update-engine sent empty requests when\
+    \ restarted before a pending reboot ([Flatcar#388](https://github.com/kinvolk/Flatcar/issues/388))\r\
+    \n*   motd login prompt list of failed services: The output of \"systemctl list-units\
+    \ --state=failed --no-legend\" contains a bullet point which is not expected and\
+    \ ended up being taken as the unit name of failed units which was previously on\
+    \ the start of the line. Filtered the bullet point out to stay compatible with\
+    \ the old behavior in case upstream would remove the bullet point again. ([coreos-overlay#1042](https://github.com/kinvolk/coreos-overlay/pull/1042))\r\
+    \n\r\n**Updates**\r\n\r\n\r\n\r\n*   Linux ([5.10.43](https://lwn.net/Articles/859022/))"
+  created_at: '2021-06-15T16:10:15Z'
+  draft: false
+  html_url: https://github.com/kinvolk/manifest/releases/tag/v2765.2.6
+  id: 44785772
+  name: v2765.2.6
+  node_id: MDc6UmVsZWFzZTQ0Nzg1Nzcy
+  prerelease: false
+  published_at: '2021-06-17T10:32:06Z'
+  tag_name: v2765.2.6
+  tarball_url: https://api.github.com/repos/kinvolk/manifest/tarball/v2765.2.6
+  target_commitish: flatcar-master
+  upload_url: https://uploads.github.com/repos/kinvolk/manifest/releases/44785772/assets{?name,label}
+  url: https://api.github.com/repos/kinvolk/manifest/releases/44785772
+  zipball_url: https://api.github.com/repos/kinvolk/manifest/zipball/v2765.2.6
+image_packages:
+  docker: 19.03.15
+  ignition: 0.34.0
+  kernel: 5.10.43
+  systemd: '247'
+release: 2765.2.6
+version: 2765.2.6

@@ -1,0 +1,79 @@
+architectures:
+- amd64
+- arm64
+channel: alpha
+github_release:
+  assets: []
+  assets_url: https://api.github.com/repos/kinvolk/manifest/releases/46887118/assets
+  author:
+    avatar_url: https://avatars.githubusercontent.com/u/500628?v=4
+    events_url: https://api.github.com/users/sayanchowdhury/events{/privacy}
+    followers_url: https://api.github.com/users/sayanchowdhury/followers
+    following_url: https://api.github.com/users/sayanchowdhury/following{/other_user}
+    gists_url: https://api.github.com/users/sayanchowdhury/gists{/gist_id}
+    gravatar_id: ''
+    html_url: https://github.com/sayanchowdhury
+    id: 500628
+    login: sayanchowdhury
+    node_id: MDQ6VXNlcjUwMDYyOA==
+    organizations_url: https://api.github.com/users/sayanchowdhury/orgs
+    received_events_url: https://api.github.com/users/sayanchowdhury/received_events
+    repos_url: https://api.github.com/users/sayanchowdhury/repos
+    site_admin: false
+    starred_url: https://api.github.com/users/sayanchowdhury/starred{/owner}{/repo}
+    subscriptions_url: https://api.github.com/users/sayanchowdhury/subscriptions
+    type: User
+    url: https://api.github.com/users/sayanchowdhury
+  body: "**Security Fixes**\r\n\r\n\r\n\r\n* containerd ([CVE-2021-32760](https://nvd.nist.gov/vuln/detail/CVE-2021-32760))\r\
+    \n* curl (CVE-2021-22922, CVE-2021-22923, CVE-2021-22924, CVE-2021-22925, CVE-2021-22926)\r\
+    \n* glibc ([CVE-2020-29562](https://nvd.nist.gov/vuln/detail/CVE-2020-29562),\
+    \ [CVE-2019-25013](https://nvd.nist.gov/vuln/detail/CVE-2019-25013), [CVE-2020-27618](https://nvd.nist.gov/vuln/detail/https://cve.circl.lu/cve/CVE-2020-27618),\
+    \ [CVE-2021-27645](https://nvd.nist.gov/vuln/detail/CVE-2021-27645), [CVE-2021-33574](https://nvd.nist.gov/vuln/detail/CVE-2021-33574))\r\
+    \n* Go ([CVE-2021-34558](https://nvd.nist.gov/vuln/detail/CVE-2021-34558))\r\n\
+    * libgcrypt ([CVE-2021-33560](https://nvd.nist.gov/vuln/detail/CVE-2021-33560))\r\
+    \n* libpcre ([CVE-2019-20838](https://nvd.nist.gov/vuln/detail/CVE-2019-20838),\
+    \ [CVE-2020-14155](https://nvd.nist.gov/vuln/detail/CVE-2020-14155))\r\n* Linux\
+    \ ([CVE-2020-26541](https://nvd.nist.gov/vuln/detail/CVE-2020-26541), [CVE-2021-35039](https://nvd.nist.gov/vuln/detail/CVE-2021-35039),\
+    \ [CVE-2021-22543](https://nvd.nist.gov/vuln/detail/CVE-2021-22543), CVE-2021-3609,\
+    \ CVE-2021-3655, [CVE-2021-33909](https://nvd.nist.gov/vuln/detail/CVE-2021-33909))\r\
+    \n\r\n**Bug Fixes**\r\n\r\n\r\n\r\n* Add the systemd tag in udev for Azure storage\
+    \ devices, to fix /boot automount ([init#41](https://github.com/kinvolk/init/pull/41))\r\
+    \n\r\n**Changes**\r\n\r\n\r\n\r\n* Enable telnet support for curl ([coreos-overlay#1099](https://github.com/kinvolk/coreos-overlay/pull/1099))\r\
+    \n* Enable ssl USE flag for wget ([coreos-overlay#932](https://github.com/kinvolk/coreos-overlay/pull/932))\r\
+    \n* Enable MDIO_BCM_UNIMAC for arm64 ([coreos-overlay#929](https://github.com/kinvolk/coreos-overlay/pull/929))\r\
+    \n\r\n**Updates**\r\n\r\n\r\n\r\n* Linux ([5.10.52](https://lwn.net/Articles/863648/))\r\
+    \n* containerd ([1.5.4](https://github.com/containerd/containerd/releases/tag/v1.5.4))\r\
+    \n* curl ([7.78](https://curl.se/changes.html#7_78_0))\r\n* dbus ([1.12.20](https://github.com/freedesktop/dbus/blob/ab88811768f750777d1a8b9d9ab12f13390bfd3a/NEWS#L1))\r\
+    \n* dracut ([053](https://github.com/dracutdevs/dracut/releases/tag/053))\r\n\
+    * glibc ([2.33](https://sourceware.org/pipermail/libc-alpha/2021-February/122207.html))\r\
+    \n* go ([1.16.6](https://golang.org/doc/devel/release#go1.16.minor)) \r\n* libev\
+    \ (4.33)\r\n* libgcrypt ([1.9.3](https://github.com/gpg/libgcrypt/blob/cb78627203705365d24b48ec4fc4cf2fc804b277/NEWS#L1))\r\
+    \n* libpcre (8.44)\r\n* libverto ([0.3.1](https://github.com/latchset/libverto/releases/tag/0.3.1))\r\
+    \n* pax-utils (1.3.1)\r\n* readline ([8.1_p1](https://tiswww.case.edu/php/chet/readline/CHANGES))\r\
+    \n* rust ([1.53.0](https://blog.rust-lang.org/2021/06/17/Rust-1.53.0.html))\r\n\
+    * selinux ([3.1](https://github.com/SELinuxProject/selinux/releases/tag/20200710))\r\
+    \n* selinux-refpolicy ([2.20200818](https://github.com/SELinuxProject/refpolicy/releases/tag/RELEASE_2_20200818))\r\
+    \n* systemd ([247.7](https://github.com/systemd/systemd-stable/releases/tag/v247.7))\r\
+    \n* VMWare: open-vm-tools ([11.3.0](https://github.com/vmware/open-vm-tools/releases/tag/stable-11.3.0))\r\
+    \n\r\nNote: Please note that ARM images remain experimental for now."
+  created_at: '2021-07-21T13:28:18Z'
+  draft: false
+  html_url: https://github.com/kinvolk/manifest/releases/tag/v2942.0.0
+  id: 46887118
+  name: v2942.0.0
+  node_id: MDc6UmVsZWFzZTQ2ODg3MTE4
+  prerelease: false
+  published_at: '2021-07-28T08:20:14Z'
+  tag_name: v2942.0.0
+  tarball_url: https://api.github.com/repos/kinvolk/manifest/tarball/v2942.0.0
+  target_commitish: flatcar-master
+  upload_url: https://uploads.github.com/repos/kinvolk/manifest/releases/46887118/assets{?name,label}
+  url: https://api.github.com/repos/kinvolk/manifest/releases/46887118
+  zipball_url: https://api.github.com/repos/kinvolk/manifest/zipball/v2942.0.0
+image_packages:
+  docker: 19.03.15
+  ignition: 0.34.0
+  kernel: 5.10.52
+  systemd: '247'
+release: 2942.0.0
+version: 2942.0.0

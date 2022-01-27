@@ -1,0 +1,92 @@
+architectures:
+- amd64
+- arm64
+channel: alpha
+github_release:
+  assets: []
+  assets_url: https://api.github.com/repos/kinvolk/manifest/releases/40423987/assets
+  author:
+    avatar_url: https://avatars.githubusercontent.com/u/500628?v=4
+    events_url: https://api.github.com/users/sayanchowdhury/events{/privacy}
+    followers_url: https://api.github.com/users/sayanchowdhury/followers
+    following_url: https://api.github.com/users/sayanchowdhury/following{/other_user}
+    gists_url: https://api.github.com/users/sayanchowdhury/gists{/gist_id}
+    gravatar_id: ''
+    html_url: https://github.com/sayanchowdhury
+    id: 500628
+    login: sayanchowdhury
+    node_id: MDQ6VXNlcjUwMDYyOA==
+    organizations_url: https://api.github.com/users/sayanchowdhury/orgs
+    received_events_url: https://api.github.com/users/sayanchowdhury/received_events
+    repos_url: https://api.github.com/users/sayanchowdhury/repos
+    site_admin: false
+    starred_url: https://api.github.com/users/sayanchowdhury/starred{/owner}{/repo}
+    subscriptions_url: https://api.github.com/users/sayanchowdhury/subscriptions
+    type: User
+    url: https://api.github.com/users/sayanchowdhury
+  body: "**Security fixes**\r\n\r\n\r\n\r\n*   Linux ([CVE-2021-27365](https://nvd.nist.gov/vuln/detail/CVE-2021-27365),\
+    \ [CVE-2021-27364](https://nvd.nist.gov/vuln/detail/CVE-2021-27364), [CVE-2021-27363](https://nvd.nist.gov/vuln/detail/CVE-2021-27363),\
+    \ [CVE-2021-28038](https://nvd.nist.gov/vuln/detail/CVE-2021-28038), [CVE-2021-28039](https://nvd.nist.gov/vuln/detail/CVE-2021-28039),\
+    \ [CVE-2021-28375](https://nvd.nist.gov/vuln/detail/CVE-2021-28375), [CVE-2021-28660](https://nvd.nist.gov/vuln/detail/CVE-2021-28660),\
+    \ [CVE-2021-27218](https://nvd.nist.gov/vuln/detail/CVE-2021-27218), [CVE-2021-27219](https://nvd.nist.gov/vuln/detail/CVE-2021-27219))\r\
+    \n*   Go ([CVE-2021-27918](https://nvd.nist.gov/vuln/detail/CVE-2021-27918),[\
+    \ CVE-2021-27919](https://nvd.nist.gov/vuln/detail/CVE-2021-27919)) \r\n*   boost\
+    \ ([CVE-2012-2677](https://nvd.nist.gov/vuln/detail/CVE-2012-2677))\r\n*   glib\
+    \ ([CVE-2021-28153](https://nvd.nist.gov/vuln/detail/CVE-2021-28153),[ CVE-2021-27218](https://nvd.nist.gov/vuln/detail/CVE-2021-27218),[\
+    \ CVE-2021-27219](https://nvd.nist.gov/vuln/detail/CVE-2021-27219)) \r\n*   ncurses\
+    \ ([CVE-2019-17594](https://nvd.nist.gov/vuln/detail/CVE-2019-17594),[ CVE-2019-17595](https://nvd.nist.gov/vuln/detail/CVE-2019-17595))\r\
+    \n*   openssl ([CVE-2021-3449](https://nvd.nist.gov/vuln/detail/CVE-2021-3449),[\
+    \ CVE-2021-3450](https://nvd.nist.gov/vuln/detail/CVE-2021-3450))\r\n*   zstd\
+    \ ([CVE-2021-24032](https://nvd.nist.gov/vuln/detail/CVE-2021-24032))\r\n\r\n\
+    **Bug Fixes**\r\n\r\n\r\n\r\n*   GCE: The old interface name ens4v1 which was\
+    \ replaced by eth0 due to a broken udev rule was restored, but now as alternative\
+    \ interface name, and eth0 will stay the primary name for consistency across cloud\
+    \ environments. ([init#38](https://github.com/kinvolk/init/pull/38))\r\n\r\n**Changes**\r\
+    \n\r\n\r\n\r\n*   The virtio network interfaces got predictable interface names\
+    \ as alternative interface names, and thus these names can also be used to match\
+    \ for a specific interface in case there is more than one and the eth0 and eth1\
+    \ name assignment is not stable. ([init#38](https://github.com/kinvolk/init/pull/38))\r\
+    \n*   The pam_faillock PAM module was enabled as replacement for the removed pam_tally2\
+    \ module and will temporarily lock an account if there were login attempts with\
+    \ a wrong password. The faillock command can be used to show the current state.\
+    \ With pam_tally2 there was no limit for wrong password login attempts but with\
+    \ faillock the default is already restricting the attempts. The default behavior\
+    \ was relaxed to allow 5 wrong passwords per two minutes, and a one minute account\
+    \ lock time. This does not apply to logins with an SSH key. ([baselayout#17](https://github.com/kinvolk/baselayout/pull/17))\r\
+    \n*   The etcd and flannel services are now run with Docker and any rkt-based\
+    \ customizations of the etcd-member and flanneld services not supported anymore.\
+    \ Also, because the flanneld service relies on Docker and will restart Docker\
+    \ after applying the new configuration, it is not possible anymore to set Requires=flanneld.service\
+    \ for docker.service and instead it\u2019s enough to have flanneld.service enabled.\
+    \ ([coreos-overlay#857](https://github.com/kinvolk/coreos-overlay/pull/857))\r\
+    \n\r\n**Updates**\r\n\r\n\r\n\r\n*   Linux ([5.10.25](https://lwn.net/Articles/849951/))\r\
+    \n*   Linux firmware ([20210315](https://git.kernel.org/pub/scm/linux/kernel/git/firmware/linux-firmware.git/tag/?h=20210315))\r\
+    \n*   Go ([1.15.10](https://go.googlesource.com/go/+/refs/tags/go1.15.10))\r\n\
+    *   boost ([1.75.0](https://www.boost.org/users/history/version_1_75_0.html))\r\
+    \n*   glib ([2.66.8](https://gitlab.gnome.org/GNOME/glib/-/releases/2.66.8))\r\
+    \n*   ncurses ([6.2](https://invisible-island.net/ncurses/announce-6.2.html))\r\
+    \n*   openssl ([1.1.1k](https://mta.openssl.org/pipermail/openssl-announce/2021-March/000197.html))\r\
+    \n*   open-iscsi ([2.1.4](https://github.com/open-iscsi/open-iscsi/releases/tag/2.1.4))\r\
+    \n*   zstd ([1.4.9](https://github.com/facebook/zstd/releases/tag/v1.4.9))\r\n\
+    \r\nNote: Please note that ARM images remain experimental for now."
+  created_at: '2021-03-24T11:42:19Z'
+  draft: false
+  html_url: https://github.com/kinvolk/manifest/releases/tag/v2823.0.0
+  id: 40423987
+  name: v2823.0.0
+  node_id: MDc6UmVsZWFzZTQwNDIzOTg3
+  prerelease: false
+  published_at: '2021-03-25T15:36:49Z'
+  tag_name: v2823.0.0
+  tarball_url: https://api.github.com/repos/kinvolk/manifest/tarball/v2823.0.0
+  target_commitish: flatcar-master
+  upload_url: https://uploads.github.com/repos/kinvolk/manifest/releases/40423987/assets{?name,label}
+  url: https://api.github.com/repos/kinvolk/manifest/releases/40423987
+  zipball_url: https://api.github.com/repos/kinvolk/manifest/zipball/v2823.0.0
+image_packages:
+  docker: 19.03.15
+  ignition: 0.34.0
+  kernel: 5.10.25
+  systemd: '247'
+release: 2823.0.0
+version: 2823.0.0
