@@ -4,7 +4,7 @@ architectures:
 channel: beta
 github_release:
   assets: []
-  assets_url: https://api.github.com/repos/kinvolk/manifest/releases/57988725/assets
+  assets_url: https://api.github.com/repos/kinvolk/manifest/releases/59103269/assets
   author:
     avatar_url: https://avatars.githubusercontent.com/u/500628?v=4
     events_url: https://api.github.com/users/sayanchowdhury/events{/privacy}
@@ -24,59 +24,40 @@ github_release:
     subscriptions_url: https://api.github.com/users/sayanchowdhury/subscriptions
     type: User
     url: https://api.github.com/users/sayanchowdhury
-  body: "New **Beta** release **3066.1.1**\r\n\r\n_Changes since **Beta 3066.1.0**_\r\
-    \n\r\n#### Known issues:\r\n- The SELinux policy store update fix resulted in\
-    \ some files leaked to the root filesystem top directory ([flatcar-linux/Flatcar#596](https://github.com/flatcar-linux/Flatcar/issues/596))\r\
-    \n\r\n#### Security fixes:\r\n\r\n- Linux ([CVE-2021-4135](https://nvd.nist.gov/vuln/detail/CVE-2021-4135),\
-    \ [CVE-2021-4155](https://nvd.nist.gov/vuln/detail/CVE-2021-4155), [CVE-2021-28711](https://nvd.nist.gov/vuln/detail/CVE-2021-28711),\
-    \ [CVE-2021-28712](https://nvd.nist.gov/vuln/detail/CVE-2021-28712), [CVE-2021-28713](https://nvd.nist.gov/vuln/detail/CVE-2021-28713),\
-    \ [CVE-2021-28714](https://nvd.nist.gov/vuln/detail/CVE-2021-28714), [CVE-2021-28715](https://nvd.nist.gov/vuln/detail/CVE-2021-28715),\
-    \ [CVE-2021-39685](https://nvd.nist.gov/vuln/detail/CVE-2021-39685), [CVE-2021-44733](https://nvd.nist.gov/vuln/detail/CVE-2021-44733),\
-    \ [CVE-2021-45095](https://nvd.nist.gov/vuln/detail/CVE-2021-45095), [CVE-2022-0185](https://nvd.nist.gov/vuln/detail/CVE-2022-0185))\r\
-    \n- ca-certificates ([CVE-2021-43527](https://nvd.nist.gov/vuln/detail/CVE-2021-43527))\r\
-    \n- containerd ([CVE-2021-43816](https://nvd.nist.gov/vuln/detail/CVE-2021-43816))\r\
-    \n- expat ([CVE-2021-45960](https://nvd.nist.gov/vuln/detail/CVE-2021-45960),\
-    \ [CVE-2021-46143](https://nvd.nist.gov/vuln/detail/CVE-2021-46143), [CVE-2022-22822](https://nvd.nist.gov/vuln/detail/CVE-2022-22822),\
-    \ [CVE-2022-22823](https://nvd.nist.gov/vuln/detail/CVE-2022-22823), [CVE-2022-22824](https://nvd.nist.gov/vuln/detail/CVE-2022-22824),\
-    \ [CVE-2022-22825](https://nvd.nist.gov/vuln/detail/CVE-2022-22825), [CVE-2022-22826](https://nvd.nist.gov/vuln/detail/CVE-2022-22826),\
-    \ [CVE-2022-22827](https://nvd.nist.gov/vuln/detail/CVE-2022-22827))\r\n\r\n####\
-    \ Bug fixes:\r\n\r\n- Ensured that the `/run/xtables.lock` coordination file exists\
-    \ for modifications of the xtables backend from containers (must be bind-mounted)\
-    \ or the `iptables-legacy` binaries on the host ([flatcar-linux/init#57](https://github.com/flatcar-linux/init/pull/57))\r\
-    \n- Excluded the Kubenet cbr0 interface from networkd\u2019s DHCP config and set\
-    \ it to Unmanaged to prevent interference and ensure that it is not part of the\
-    \ network online check ([flatcar-linux/init#55](https://github.com/flatcar-linux/init/pull/55))\r\
-    \n- dev container: Fix github URL for coreos-overlay and portage-stable to use\
-    \ repos from flatcar-linux org directly instead of relying on redirects from the\
-    \ kinvolk org. This fixes checkouts with emerge-gitclone inside dev-container.\
-    \ ([flatcar-linux/scripts#194](https://github.com/flatcar-linux/scripts/pull/194))\r\
-    \n- SDK: Fixed build error popping up in the new SDK Container because `policycoreutils`\
-    \ used the wrong ROOT to update the SELinux store ([flatcar-linux/coreos-overlay#1502](https://github.com/flatcar-linux/coreos-overlay/pull/1502))\r\
-    \n\r\n#### Changes:\r\n\r\n- Backported `elf` support for `iproute2` ([flatcar-linux/coreos-overlay#1256](https://github.com/flatcar-linux/coreos-overlay/pull/1526))\r\
-    \n\r\n#### Updates:\r\n\r\n- Linux ([5.10.93](https://lwn.net/Articles/881964))\
-    \ (from 5.10.84)\r\n- ca-certificates ([3.74](https://firefox-source-docs.mozilla.org/security/nss/releases/nss_3_74.html))\r\
-    \n- Docker ([20.10.12](https://docs.docker.com/engine/release-notes/#201012))\r\
-    \n- containerd ([1.5.9](https://github.com/containerd/containerd/releases/tag/v1.5.9))\r\
-    \n- expat ([2.4.3](https://github.com/libexpat/libexpat/blob/R_2_4_3/expat/Changes))\r\
-    \n"
-  created_at: '2022-01-24T14:54:36Z'
+  body: "New **Beta** Release **3066.1.2**\r\n\r\n_Changes since **Beta 3066.1.1**_\r\
+    \n\r\n#### Security fixes\r\n- Linux ([CVE-2021-43976](https://nvd.nist.gov/vuln/detail/CVE-2021-43976),\
+    \ [CVE-2022-0330](https://nvd.nist.gov/vuln/detail/CVE-2022-0330), [CVE-2022-22942](https://nvd.nist.gov/vuln/detail/CVE-2022-22942))\r\
+    \n- expat ([CVE-2022-23852](https://nvd.nist.gov/vuln/detail/CVE-2022-23852),\
+    \ [CVE-2022-23990](https://nvd.nist.gov/vuln/detail/CVE-2022-23990))\r\n- glibc\
+    \ ([CVE-2021-3998](https://nvd.nist.gov/vuln/detail/CVE-2021-3998), [CVE-2021-3999](https://nvd.nist.gov/vuln/detail/CVE-2021-3999),\
+    \ [CVE-2022-23218](https://nvd.nist.gov/vuln/detail/CVE-2022-23218), [CVE-2022-23219](https://nvd.nist.gov/vuln/detail/CVE-2022-23219))\r\
+    \n- polkit ([CVE-2021-4034](https://nvd.nist.gov/vuln/detail/CVE-2021-4034))\r\
+    \n\r\n\r\n#### Bug fixes\r\n- SDK: Fixed build error popping up in the new SDK\
+    \ Container because `policycoreutils` used the wrong ROOT to update the SELinux\
+    \ store ([flatcar-linux/coreos-overlay#1502](https://github.com/flatcar-linux/coreos-overlay/pull/1502))\r\
+    \n- Fixed leak of SELinux policy store to the root filesystem top directory due\
+    \ to wrong store path in `policycoreutils` instead of `/var/lib/selinux` ([flatcar-linux/Flatcar#596](https://github.com/flatcar-linux/Flatcar/issues/596))\r\
+    \n\r\n#### Updates\r\n- Linux ([5.10.96](https://lwn.net/Articles/883442)) (from\
+    \ 5.10.93)\r\n- Linux Firmware ([20211216](https://git.kernel.org/pub/scm/linux/kernel/git/firmware/linux-firmware.git/tag/?h=20211216))\r\
+    \n- expat ([2.4.4](https://github.com/libexpat/libexpat/blob/R_2_4_4/expat/Changes))"
+  created_at: '2022-02-03T17:18:04Z'
   draft: false
-  html_url: https://github.com/kinvolk/manifest/releases/tag/v3066.1.1
-  id: 57988725
-  name: v3066.1.1
-  node_id: RE_kwDOB2MTRc4DdNZ1
+  html_url: https://github.com/kinvolk/manifest/releases/tag/v3066.1.2
+  id: 59103269
+  name: v3066.1.2
+  node_id: RE_kwDOB2MTRc4Dhdgl
   prerelease: false
-  published_at: '2022-01-26T08:13:36Z'
-  tag_name: v3066.1.1
-  tarball_url: https://api.github.com/repos/kinvolk/manifest/tarball/v3066.1.1
+  published_at: '2022-02-09T10:02:57Z'
+  tag_name: v3066.1.2
+  tarball_url: https://api.github.com/repos/kinvolk/manifest/tarball/v3066.1.2
   target_commitish: flatcar-master
-  upload_url: https://uploads.github.com/repos/kinvolk/manifest/releases/57988725/assets{?name,label}
-  url: https://api.github.com/repos/kinvolk/manifest/releases/57988725
-  zipball_url: https://api.github.com/repos/kinvolk/manifest/zipball/v3066.1.1
+  upload_url: https://uploads.github.com/repos/kinvolk/manifest/releases/59103269/assets{?name,label}
+  url: https://api.github.com/repos/kinvolk/manifest/releases/59103269
+  zipball_url: https://api.github.com/repos/kinvolk/manifest/zipball/v3066.1.2
 image_packages:
   docker: 20.10.12
   ignition: 0.36.1
-  kernel: 5.10.93
+  kernel: 5.10.96
   systemd: '249'
 release: current
-version: 3066.1.1
+version: 3066.1.2
