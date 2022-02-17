@@ -45,7 +45,7 @@ To get notified about the last process in a cgroup exiting, one needs to write "
 
 These solutions ended up being hard to manage for both systemd and container runtimes. One of the goals of cgroup2 was to improve the notification facilities.
 
-# cgroup2 notifications
+# Cgroup2 notifications
 
 The Linux API for filesystem notifications is [inotify](https://www.man7.org/linux/man-pages/man7/inotify.7.html). cgroup2 is  pseudo-filesystem that comes with support for inotify notifications. The pseudo-code to watch for OOM notification now looks like this:
 
@@ -72,7 +72,7 @@ populated 1
 frozen 0
 ```
 
-# where things go wrong
+# Where things go wrong
 
 Both the legacy and inotify based mechanisms work fine to observe OOM events.
 
@@ -143,28 +143,27 @@ and this https://github.com/containerd/containerd/blob/release/1.5/pkg/oom/v1/v1
 
 cgroup2 does not notify `memory.events` when the last process exits right before the cgroup is removed [^1]. This means that a process waiting for inotify events will wait indefinitely. In the case of containerd-shim, this process is a goroutine, and blocking indefinitely means never releasing an `inotify` file descriptor for each started container.
 
-How bad is this? It turns out that orchestrators like Kubernetes like to restart processes when they exit or crash. Restarts are delegated to containerd-shim, which spins up a new container with a new identifier and cgroup. Each such cgroup is a new inotify instance. Yikes. This is compounded by the default limits on number of inotify instances.
+How bad is this? It turns out that orchestrators like Kubernetes like to restart processes when they exit or crash. Restarts are delegated to containerd-shim, which spins up a new container with a new identifier and cgroup. Each such cgroup is a new inotify instance. Yikes. This is compounded by the default limit on number of inotify instances.
 
 ```
 $ sysctl fs.inotify.max_user_instances
 fs.inotify.max_user_instances = 128
 ```
 
-# the solution
+# The solution
 
-The solution for cgroup2 involves subscribing to both OOM events: `populated` and `cgroup.events`. This way the goroutine will be notified when a cgroup has been de-populated, and can cleanup the inotify instance.
+The solution for cgroup2 involves subscribing to both events: `memory.events` and `cgroup.events`. This way the goroutine will be notified when a cgroup has been de-populated, and can cleanup the inotify instance. This takes advantage of the fact that systemd is managing cgroups system wide. Systemd will automatically remove managed cgroups as soon as they become empty. The details can be found in the PR that we submitted upstream and that has since been merged: https://github.com/containerd/cgroups/pull/212.
 
+# What this means for users
 
-# what this means for users
+Users on systems with cgroup2 should update to [containerd 1.6.0](https://github.com/containerd/containerd/releases/tag/v1.6.0) which contains the fix for the inotify leak. Flatcar will be including that version in the next alpha release after 3139.0.0, and in beta/stable not long after that.
 
-Unfortunately, there is no quick way to workaround this issue. We have submitted a PR to fix this upstream https://github.com/containerd/cgroups/pull/212, and as soon as it is merged we will be updating containerd to include the fix. For the time being, affected users can increase the sysctl `fs.inotify.max_user_instances` to a value that will take longer to exhaust, or will need to revert to cgroup v1.
+We also recommend that all operators increase the value of `fs.inotify.max_user_instances` sysctl to a greater value, like `8192`. On cgroup2 systems, Kubernetes consumes at least 2 inotify instances per pod (for 1 container in the pod, plus the pause container), and the kernel default of 128 is quickly consumed.
 
-# bonus
+# Bonus
 
-If you liked this post and enjoy working on all layers of the stack, we are currently hiring remote software engineers at all experience levels to join our team to work on open-source projects. Come join us:
+If you liked this post and enjoy working on all layers of the container stack, we are currently hiring remote software engineers at all experience levels to join our team to work on open-source projects. Come join us:
 
-* https://careers.microsoft.com/professionals/us/en/job/1217407/Software-Engineer-remote.
-* https://careers.microsoft.com/professionals/us/en/job/1217420/Software-Engineer-II-Remote
 * https://careers.microsoft.com/professionals/us/en/job/1217422/Senior-Software-Engineer-Remote
 * https://careers.microsoft.com/professionals/us/en/job/1217453/Principal-Software-Engineer-Remote
 
