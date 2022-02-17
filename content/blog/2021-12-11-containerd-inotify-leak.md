@@ -2,14 +2,14 @@
 tags = ["flatcar", "containers", "cgroups"]
 topics = ["Linux", "cgroups"]
 authors = ["jeremi-piotrowski"]
-title = "Containerd cgroup2 inotify leak"
+title = "Containerd CGroupsV2 inotify leak"
 draft = false
-description = "Containerd running on cgroup2 leaks inotify file handles. Here's how we found out about it"
+description = "Containerd running on CGroupsV2 leaks inotify file handles. Here's how we found out about it"
 date = "2021-12-11T20:00:00+02:00"
 postImage = "/flatcar-containerd.jpg"
 +++
 
-Flatcar has enabled cgroup2 by default since release version 2969.0.0. We chose to keep nodes that are updating on cgroupv1 so that existing deployments are not impacted, we wrote about this on our [blog](https://www.flatcar-linux.org/blog/2021/09/flatcar-container-linux-is-moving-to-cgroupsv2/).
+Flatcar has enabled CGroupsV2 by default since release version 2969.0.0. We chose to keep nodes that are updating on CGroupsV1 so that existing deployments are not impacted, we wrote about this on our [blog](https://www.flatcar-linux.org/blog/2021/09/flatcar-container-linux-is-moving-to-cgroupsv2/).
 
 Recently a user reported [issue 563](https://github.com/flatcar-linux/Flatcar/issues/563) on our public bug tracker. We decided to dive-in, see what's happening. This is going to be a technical blog post.
 
@@ -34,7 +34,7 @@ The kernel reports an OOM notification when processes exceed the memory limits c
 
 # Legacy cgroup notifications
 
-Legacy cgroups has custom notification mechanisms, different than all other unix notification APIs. For OOM notifications, one needs to:
+Legacy cgroup has custom notification mechanisms, different than all other unix notification APIs. For OOM notifications, one needs to:
 
 - create an `eventfd` using [eventfd(2)](https://man7.org/linux/man-pages/man2/eventfd.2.html)
 - open `memory.oom_control` file
@@ -76,7 +76,7 @@ frozen 0
 
 Both the legacy and inotify based mechanisms work fine to observe OOM events.
 
-Here's the code for cgroup v1 (https://github.com/containerd/containerd/blob/release/1.5/pkg/oom/v1/v1.go).
+Here's the code for legacy cgroup (https://github.com/containerd/containerd/blob/release/1.5/pkg/oom/v1/v1.go).
 ```go
 // New returns an epoll implementation that listens to OOM events
 // from a container's cgroups.
@@ -120,7 +120,7 @@ An `epoll` instance is created for the whole containerd-shim process. Each spawn
 
 The code for the cgroup2 case has more layers of abstractions and is seen [here](https://github.com/containerd/cgroups/blob/v1.0.2/v2/manager.go#L563-L605). Now every container has one inotify instance, which is subscribed to `memory.events` modification events and sends them through a Go channel.
 
-Unfortunately, there is a difference in behavior when a cgroup gets removed. For cgroup v1 we have this code in the kernel https://github.com/torvalds/linux/blob/v5.15/mm/memcontrol.c#L4665
+Unfortunately, there is a difference in behavior when a cgroup gets removed. For legacy cgroup we have this code in the kernel https://github.com/torvalds/linux/blob/v5.15/mm/memcontrol.c#L4665
 ```c
 static void memcg_event_remove(struct work_struct *work)
 {
@@ -152,7 +152,7 @@ fs.inotify.max_user_instances = 128
 
 # The solution
 
-The solution for cgroup2 involves subscribing to both events: `memory.events` and `cgroup.events`. This way the goroutine will be notified when a cgroup has been de-populated, and can cleanup the inotify instance. This takes advantage of the fact that systemd is managing cgroups system wide. Systemd will automatically remove managed cgroups as soon as they become empty. The details can be found in the PR that we submitted upstream and that has since been merged: https://github.com/containerd/cgroups/pull/212.
+The solution for cgroup2 involves subscribing to both events: `memory.events` and `cgroup.events`. This way the goroutine will be notified when a cgroup has been de-populated, and can cleanup the inotify instance. This takes advantage of the fact that systemd is managing cgroup2 system wide. Systemd will automatically remove managed control groups as soon as they become empty. The details can be found in the PR that we submitted upstream and that has since been merged: https://github.com/containerd/cgroups/pull/212.
 
 # What this means for users
 
