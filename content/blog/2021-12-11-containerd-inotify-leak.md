@@ -5,7 +5,7 @@ authors = ["jeremi-piotrowski"]
 title = "Containerd CGroupsV2 inotify leak"
 draft = false
 description = "Containerd running on CGroupsV2 leaks inotify file handles. Here's how we found out about it"
-date = "2021-12-11T20:00:00+02:00"
+date = "2022-02-18T20:00:00+02:00"
 postImage = "/flatcar-containerd.jpg"
 +++
 
