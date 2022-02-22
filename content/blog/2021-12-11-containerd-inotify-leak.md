@@ -160,11 +160,4 @@ Users on systems with cgroup2 should update to [containerd 1.6.0](https://github
 
 We also recommend that all operators increase the value of `fs.inotify.max_user_instances` sysctl to a greater value, like `8192`. On cgroup2 systems, Kubernetes consumes at least 2 inotify instances per pod (for 1 container in the pod, plus the pause container), and the kernel default of 128 is quickly consumed.
 
-# Bonus
-
-If you liked this post and enjoy working on all layers of the container stack, we are currently hiring remote software engineers at all experience levels to join our team to work on open-source projects. Come join us:
-
-* https://careers.microsoft.com/professionals/us/en/job/1217422/Senior-Software-Engineer-Remote
-* https://careers.microsoft.com/professionals/us/en/job/1217453/Principal-Software-Engineer-Remote
-
 [^1]: The kernel function responsible for cgroup2 notification is called `cgroup_file_notify` https://github.com/torvalds/linux/blob/v5.15/kernel/cgroup/cgroup.c#L4222. Exercise for the reader: find out where it is called from.
