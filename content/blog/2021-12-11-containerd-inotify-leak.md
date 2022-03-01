@@ -2,18 +2,20 @@
 tags = ["flatcar", "containers", "cgroups"]
 topics = ["Linux", "cgroups"]
 authors = ["jeremi-piotrowski"]
-title = "Containerd CGroupsV2 inotify leak"
+title = "Some learnings from switching to CGroupsV2 for containerd"
 draft = true
 description = "Containerd running on CGroupsV2 leaks inotify file handles. Here's how we found out about it"
 date = "2022-02-18T20:00:00+02:00"
 postImage = "/flatcar-containerd.jpg"
 +++
 
-Flatcar has enabled CGroupsV2 by default since release version 2969.0.0. We chose to keep nodes that are updating on CGroupsV1 so that existing deployments are not impacted, we wrote about this on our [blog](https://www.flatcar-linux.org/blog/2021/09/flatcar-container-linux-is-moving-to-cgroupsv2/).
+The recent Flatcar update to [enable CGroupsV2 by default](https://www.flatcar-linux.org/blog/2021/09/flatcar-container-linux-is-moving-to-cgroupsv2/) has mostly gone smoothly, but as is usual for any significant change, there have have been some "interesting" experiences reported by users. For example, one user recently reported [issue 563](https://github.com/flatcar-linux/Flatcar/issues/563) ("containerd-shim processes are leaking inotify instances with cgroups v2"). 
 
-Recently a user reported [issue 563](https://github.com/flatcar-linux/Flatcar/issues/563) on our public bug tracker. We decided to dive-in, see what's happening. This is going to be a technical blog post.
+This blog post is a technical write-up of the details of how we dived in, found out what's happening, and resolved the issue. We wrap up with a couple of key recommendations for operators, specifically to update their version of containerd (to pick up our fix for the issue) and increase the value of the `fs.inotify.max_user_instances` kernel parameter.
 
-Kubernetes relies on a container runtime to create and run pods and containers. On Flatcar this is ultimately done using containerd through the CRI (container runtime interface) plugin.
+# Background: containerd
+
+Kubernetes relies on a container runtime to create and run pods and containers. On a standard Flatcar installation, this is ultimately done using containerd through the CRI (container runtime interface) plugin.
 
 {{< figure src="/media/containerd-2021/containerd-diagram-1.png" alt="Diagram showing the container stack in kubernetes: kubelet, containerd and CRI, containerd-shim, runc, container." >}}
 
@@ -34,7 +36,7 @@ The kernel reports an OOM notification when processes exceed the memory limits c
 
 # Legacy cgroup notifications
 
-Legacy cgroup has custom notification mechanisms, different than all other unix notification APIs. For OOM notifications, one needs to:
+Legacy cgroup has custom notification mechanisms, different from all other unix notification APIs. For OOM notifications, one needs to:
 
 - create an `eventfd` using [eventfd(2)](https://man7.org/linux/man-pages/man2/eventfd.2.html)
 - open `memory.oom_control` file
