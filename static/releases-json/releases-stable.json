@@ -1822,13 +1822,13 @@
     },
     "release_notes": "New **Stable** Release **3033.2.3**\n\n_Changes since **Stable 3033.2.2**_\n\n#### Security fixes\n- Linux ([CVE-2022-24448](https://nvd.nist.gov/vuln/detail/CVE-2022-24448), [CVE-2022-0617](https://nvd.nist.gov/vuln/detail/CVE-2022-0617), [CVE-2022-24959](https://nvd.nist.gov/vuln/detail/CVE-2022-24959), [CVE-2022-0492](https://nvd.nist.gov/vuln/detail/CVE-2022-0492), [CVE-2022-0516](https://nvd.nist.gov/vuln/detail/CVE-2022-0516), [CVE-2022-0435](https://nvd.nist.gov/vuln/detail/CVE-2022-0435), [CVE-2022-0487](https://nvd.nist.gov/vuln/detail/CVE-2022-0487), [CVE-2022-25375](https://nvd.nist.gov/vuln/detail/CVE-2022-25375), [CVE-2022-25258](https://nvd.nist.gov/vuln/detail/CVE-2022-25258), [CVE-2022-0847](https://nvd.nist.gov/vuln/detail/CVE-2022-0847))\n- go ([CVE-2022-23806](https://nvd.nist.gov/vuln/detail/CVE-2022-23806), [CVE-2022-23772](https://nvd.nist.gov/vuln/detail/CVE-2022-23772), [CVE-2022-23773](https://nvd.nist.gov/vuln/detail/CVE-2022-23773))\n- ignition ([CVE-2020-14040](https://nvd.nist.gov/vuln/detail/CVE-2020-14040))\n- expat ([CVE-2022-25235](https://nvd.nist.gov/vuln/detail/CVE-2022-25235), [CVE-2022-25236](https://nvd.nist.gov/vuln/detail/CVE-2022-25236), [CVE-2022-25313](https://nvd.nist.gov/vuln/detail/CVE-2022-25313), [CVE-2022-25314](https://nvd.nist.gov/vuln/detail/CVE-2022-25314), [CVE-2022-25315](https://nvd.nist.gov/vuln/detail/CVE-2022-25315))\n\n#### Bug fixes\n- Disabled the systemd-networkd settings `ManageForeignRoutes` and `ManageForeignRoutingPolicyRules` by default to ensure that CNIs like Cilium don't get their routes or routing policy rules discarded on network reconfiguration events ([Flatcar#620](https://github.com/flatcar-linux/Flatcar/issues/620)).\n- Prevented hitting races when creating filesystems in Ignition, these races caused boot failures like `fsck[1343]: Failed to stat /dev/disk/by-label/ROOT: No such file or directory` when creating a btrfs root filesystem ([ignition#35](https://github.com/flatcar-linux/ignition/pull/35))\n- Reverted the Linux kernel change to forbid xfrm id 0 for IPSec state because it broke Cilium ([Flatcar#626](https://github.com/flatcar-linux/Flatcar/issues/626), [coreos-overlay#1682](https://github.com/flatcar-linux/coreos-overlay/pull/1682))\n\n#### Updates\n- Linux ([5.10.102](https://lwn.net/Articles/885896)) (from 5.10.96)\n- Go ([1.17.7](https://go.googlesource.com/go/+/refs/tags/go1.17.7) (includes [1.17.6](https://go.googlesource.com/go/+/refs/tags/go1.17.6)))\n- expat ([2.4.6](https://github.com/libexpat/libexpat/blob/R_2_4_6/expat/Changes))\n- ca-certificates ([3.75](https://firefox-source-docs.mozilla.org/security/nss/releases/nss_3_75.html))\n"
   },
-  "current": {
+  "3033.2.4": {
     "channel": "stable",
     "architectures": [
       "amd64",
       "arm64"
     ],
-    "release_date": "2022-03-07 13:12:34 +0000",
+    "release_date": "2022-03-23 13:33:43 +0000",
     "major_software": {
       "docker": [
         "20.10.12"
@@ -1837,12 +1837,35 @@
         "0.36.1"
       ],
       "kernel": [
-        "5.10.102"
+        "5.10.107"
       ],
       "systemd": [
         "249"
       ]
     },
-    "release_notes": "New **Stable** Release **3033.2.3**\n\n_Changes since **Stable 3033.2.2**_\n\n#### Security fixes\n- Linux ([CVE-2022-24448](https://nvd.nist.gov/vuln/detail/CVE-2022-24448), [CVE-2022-0617](https://nvd.nist.gov/vuln/detail/CVE-2022-0617), [CVE-2022-24959](https://nvd.nist.gov/vuln/detail/CVE-2022-24959), [CVE-2022-0492](https://nvd.nist.gov/vuln/detail/CVE-2022-0492), [CVE-2022-0516](https://nvd.nist.gov/vuln/detail/CVE-2022-0516), [CVE-2022-0435](https://nvd.nist.gov/vuln/detail/CVE-2022-0435), [CVE-2022-0487](https://nvd.nist.gov/vuln/detail/CVE-2022-0487), [CVE-2022-25375](https://nvd.nist.gov/vuln/detail/CVE-2022-25375), [CVE-2022-25258](https://nvd.nist.gov/vuln/detail/CVE-2022-25258), [CVE-2022-0847](https://nvd.nist.gov/vuln/detail/CVE-2022-0847))\n- go ([CVE-2022-23806](https://nvd.nist.gov/vuln/detail/CVE-2022-23806), [CVE-2022-23772](https://nvd.nist.gov/vuln/detail/CVE-2022-23772), [CVE-2022-23773](https://nvd.nist.gov/vuln/detail/CVE-2022-23773))\n- ignition ([CVE-2020-14040](https://nvd.nist.gov/vuln/detail/CVE-2020-14040))\n- expat ([CVE-2022-25235](https://nvd.nist.gov/vuln/detail/CVE-2022-25235), [CVE-2022-25236](https://nvd.nist.gov/vuln/detail/CVE-2022-25236), [CVE-2022-25313](https://nvd.nist.gov/vuln/detail/CVE-2022-25313), [CVE-2022-25314](https://nvd.nist.gov/vuln/detail/CVE-2022-25314), [CVE-2022-25315](https://nvd.nist.gov/vuln/detail/CVE-2022-25315))\n\n#### Bug fixes\n- Disabled the systemd-networkd settings `ManageForeignRoutes` and `ManageForeignRoutingPolicyRules` by default to ensure that CNIs like Cilium don't get their routes or routing policy rules discarded on network reconfiguration events ([Flatcar#620](https://github.com/flatcar-linux/Flatcar/issues/620)).\n- Prevented hitting races when creating filesystems in Ignition, these races caused boot failures like `fsck[1343]: Failed to stat /dev/disk/by-label/ROOT: No such file or directory` when creating a btrfs root filesystem ([ignition#35](https://github.com/flatcar-linux/ignition/pull/35))\n- Reverted the Linux kernel change to forbid xfrm id 0 for IPSec state because it broke Cilium ([Flatcar#626](https://github.com/flatcar-linux/Flatcar/issues/626), [coreos-overlay#1682](https://github.com/flatcar-linux/coreos-overlay/pull/1682))\n\n#### Updates\n- Linux ([5.10.102](https://lwn.net/Articles/885896)) (from 5.10.96)\n- Go ([1.17.7](https://go.googlesource.com/go/+/refs/tags/go1.17.7) (includes [1.17.6](https://go.googlesource.com/go/+/refs/tags/go1.17.6)))\n- expat ([2.4.6](https://github.com/libexpat/libexpat/blob/R_2_4_6/expat/Changes))\n- ca-certificates ([3.75](https://firefox-source-docs.mozilla.org/security/nss/releases/nss_3_75.html))\n"
+    "release_notes": "New **Stable** Release **3033.2.4**\n\n**Changes since Stable-3033.2.3**\n\n#### Security fixes\n- Linux ([CVE-2022-25636](https://nvd.nist.gov/vuln/detail/CVE-2022-25636))\n- Go ([CVE-2022-24921](https://nvd.nist.gov/vuln/detail/CVE-2022-24921))\n- systemd ([CVE-2021-3997](https://nvd.nist.gov/vuln/detail/CVE-2021-3997))\n- containerd ([CVE-2022-23648](https://nvd.nist.gov/vuln/detail/CVE-2022-23648))\n- openssl ([CVE-2022-0778](https://nvd.nist.gov/vuln/detail/CVE-2022-0778))\n\n#### Bug fixes\n- Reverted the Linux kernel commit which broke networking on AWS instances which use Intel 82559 NIC (c4/m4) ([Flatcar#665](https://github.com/flatcar-linux/Flatcar/issues/665), [coreos-overlay#1720](https://github.com/flatcar-linux/coreos-overlay/pull/1720))\n\n#### Changes\n- Added support for switching back to CGroupsV1 without requiring a reboot. Create `/etc/flatcar-cgroupv1` through ignition. ([coreos-overlay#1666](https://github.com/flatcar-linux/coreos-overlay/pull/1666))\n\n#### Updates\n- Linux ([5.10.107](https://lwn.net/Articles/888522) (from 5.10.102, includes [5.10.103](https://lwn.net/Articles/886570), [5.10.104](https://lwn.net/Articles/887220), [5.10.105](https://lwn.net/Articles/887639), [5.10.106](https://lwn.net/Articles/888115)))\n- Go ([1.17.8](https://go.googlesource.com/go/+/refs/tags/go1.17.8))\n- systemd ([249.10](https://github.com/systemd/systemd-stable/releases/tag/v249.10))\n- ca-certificates ([3.76](https://firefox-source-docs.mozilla.org/security/nss/releases/nss_3_76.html))\n- containerd ([1.5.10](https://github.com/containerd/containerd/releases/tag/v1.5.10))\n- openssl ([1.1.1n](https://www.openssl.org/news/changelog.html#openssl-111))\n"
+  },
+  "current": {
+    "channel": "stable",
+    "architectures": [
+      "amd64",
+      "arm64"
+    ],
+    "release_date": "2022-03-23 13:33:43 +0000",
+    "major_software": {
+      "docker": [
+        "20.10.12"
+      ],
+      "ignition": [
+        "0.36.1"
+      ],
+      "kernel": [
+        "5.10.107"
+      ],
+      "systemd": [
+        "249"
+      ]
+    },
+    "release_notes": "New **Stable** Release **3033.2.4**\n\n**Changes since Stable-3033.2.3**\n\n#### Security fixes\n- Linux ([CVE-2022-25636](https://nvd.nist.gov/vuln/detail/CVE-2022-25636))\n- Go ([CVE-2022-24921](https://nvd.nist.gov/vuln/detail/CVE-2022-24921))\n- systemd ([CVE-2021-3997](https://nvd.nist.gov/vuln/detail/CVE-2021-3997))\n- containerd ([CVE-2022-23648](https://nvd.nist.gov/vuln/detail/CVE-2022-23648))\n- openssl ([CVE-2022-0778](https://nvd.nist.gov/vuln/detail/CVE-2022-0778))\n\n#### Bug fixes\n- Reverted the Linux kernel commit which broke networking on AWS instances which use Intel 82559 NIC (c4/m4) ([Flatcar#665](https://github.com/flatcar-linux/Flatcar/issues/665), [coreos-overlay#1720](https://github.com/flatcar-linux/coreos-overlay/pull/1720))\n\n#### Changes\n- Added support for switching back to CGroupsV1 without requiring a reboot. Create `/etc/flatcar-cgroupv1` through ignition. ([coreos-overlay#1666](https://github.com/flatcar-linux/coreos-overlay/pull/1666))\n\n#### Updates\n- Linux ([5.10.107](https://lwn.net/Articles/888522) (from 5.10.102, includes [5.10.103](https://lwn.net/Articles/886570), [5.10.104](https://lwn.net/Articles/887220), [5.10.105](https://lwn.net/Articles/887639), [5.10.106](https://lwn.net/Articles/888115)))\n- Go ([1.17.8](https://go.googlesource.com/go/+/refs/tags/go1.17.8))\n- systemd ([249.10](https://github.com/systemd/systemd-stable/releases/tag/v249.10))\n- ca-certificates ([3.76](https://firefox-source-docs.mozilla.org/security/nss/releases/nss_3_76.html))\n- containerd ([1.5.10](https://github.com/containerd/containerd/releases/tag/v1.5.10))\n- openssl ([1.1.1n](https://www.openssl.org/news/changelog.html#openssl-111))\n"
   }
 }
