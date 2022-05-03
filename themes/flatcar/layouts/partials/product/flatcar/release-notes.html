@@ -10,11 +10,7 @@
     <p class="date small">Release Date: {{ dateFormat "Jan 2, 2006" $release.github_release.published_at }}&nbsp;
       <span class="ml-1">
         {{ range $j, $arch := $release.architectures }}
-        {{ if ne $release.channel "lts" }}
           <a class="arch font-weight-light" href="https://{{ $release.channel }}.release.flatcar-linux.net/{{ $arch }}-usr/{{ $release.version }}/">{{ $arch }}</a>
-        {{ else }}
-          <span class="arch font-weight-light">{{ $arch }}</span>
-        {{ end }}
         {{ end }}
       </span>
     </p>
