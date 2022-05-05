@@ -28,12 +28,8 @@
                   </div>
                   <div class="pull-left text-left">
                   {{ range $j, $arch := $chan.current.architectures }}
-                  {{ if ne $chan.current.channel "lts" }}
                     <a class="arch small font-weight-light" href="https://{{ $chan.current.channel }}.release.flatcar-linux.net/{{ $arch }}-usr/current/">
                       {{ $arch }}</a>
-                  {{ else }}
-                    <span class="arch small font-weight-light">{{ $arch }}</span>
-                  {{ end }}
                   {{ end }}
                   </div>
                   <div>
