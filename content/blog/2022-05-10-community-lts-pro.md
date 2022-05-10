@@ -23,14 +23,14 @@ The specific details of how LTS releases are managed is as follows:
 - New LTS releases are always branched off a “golden” stable release, i.e. have passed our regular alpha-beta-stable maturity process and spent additional soak time in the stable channel.
 
 We have been publishing LTS sources since 2020, but install images and updates were previously only available to subscription customers.
-Starting with the [LTS-2022 (3033.3.0)](https://www.flatcar.org/releases/#release-3033.3.0) release, images and update channels will be available to the community for free alongside other channels (alpha, beta, stable).
+Starting with the [LTS-2022 (3033.3.0)](https://www.flatcar.org/releases/#release-3033.3.0) release, images and update channels will be available to the community for free alongside other channels (Alpha, Beta, Stable).
 
 In addition to LTS, we are also now shipping some new advanced features in community images:
 - Built-in drivers for Azure GPU-enabled instances, enabling access to accelerated graphics hardware for workloads such as machine learning.
 - Out-of-the-box support for Elastic Kubernetes Service (EKS).
   This massively simplifies the creation of Flatcar-based EKS worker nodes as the AWS specific Flatcar image now includes scripts that deploy the EKS runtime at deploy time.
   See our [earlier blog post](https://kinvolk.io/blog/2021/02/deploying-an-eks-cluster-with-flatcar-workers/) for details of how to use this feature.
-- Support for Federal Information Processing Standards (FIPS mode), potentially enabling compliance with federal encryption requirements, depending on corequisite support in deployed user space packages.
+- Support for Federal Information Processing Standards (FIPS) mode, potentially enabling compliance with federal encryption requirements, depending on corequisite support in deployed user space packages.
 
 These features were previously only included in the (paid) “Pro” images in cloud marketplaces, and are now available to the community for free in all release channels (including LTS-2022).
 We are excited at this significant expansion of the deployment options and capabilities available to the Flatcar user community.
