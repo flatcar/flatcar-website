@@ -4,7 +4,7 @@ architectures:
 channel: alpha
 github_release:
   assets: []
-  assets_url: https://api.github.com/repos/kinvolk/manifest/releases/63851712/assets
+  assets_url: https://api.github.com/repos/kinvolk/manifest/releases/66380704/assets
   author:
     avatar_url: https://avatars.githubusercontent.com/u/500628?v=4
     events_url: https://api.github.com/users/sayanchowdhury/events{/privacy}
@@ -24,66 +24,65 @@ github_release:
     subscriptions_url: https://api.github.com/users/sayanchowdhury/subscriptions
     type: User
     url: https://api.github.com/users/sayanchowdhury
-  body: "New **Alpha** Release **3200.0.0**\r\n\r\n_Changes since **Alpha 3185.0.0**_\r\
-    \n\r\n#### Security fixes:\r\n\r\n- Linux ([CVE-2022-1015](https://nvd.nist.gov/vuln/detail/CVE-2022-1015),\
-    \ [CVE-2022-1016](https://nvd.nist.gov/vuln/detail/CVE-2022-1016))\r\n- containerd\
-    \ ([CVE-2022-24769](https://nvd.nist.gov/vuln/detail/CVE-2022-24769))\r\n- util-linux\
-    \ ([CVE-2021-3995](https://nvd.nist.gov/vuln/detail/CVE-2021-3995), [CVE-2021-3996](https://nvd.nist.gov/vuln/detail/CVE-2021-3996),\
-    \ [CVE-2022-0563](https://nvd.nist.gov/vuln/detail/CVE-2022-0563))\r\n- gnutls\
-    \ ([CVE-2021-4209](https://nvd.nist.gov/vuln/detail/CVE-2021-4209), [GNUTLS-SA-2022-01-17](https://gitlab.com/gnutls/gnutls/-/issues/1277))\r\
-    \n- zlib ([CVE-2018-25032](https://nvd.nist.gov/vuln/detail/CVE-2018-25032))\r\
-    \n\r\n#### Bug fixes:\r\n\r\n- Made Ignition write the SSH keys into a file under\
-    \ `authorized_keys.d/ignition` again and added a call to `update-ssh-keys` after\
-    \ Ignition ran to create the merged `authorized_keys` file, which fixes the problem\
-    \ that keys added by Ignition get lost when `update-ssh-keys` runs ([init#66](https://github.com/flatcar-linux/init/pull/66))\r\
-    \n\r\n#### Changes:\r\n\r\n- Enabled FIPS mode for cryptsetup ([flatcar-linux/coreos-overlay#1747](https://github.com/flatcar-linux/coreos-overlay/pull/1747))\r\
-    \n- Added `cryptsetup` to the initramfs for the Ignition `luks` directive ([flatcar-linux/coreos-overlay#1760](https://github.com/flatcar-linux/coreos-overlay/pull/1760))\r\
-    \n\r\n#### Updates:\r\n\r\n- Linux ([5.15.32](https://lwn.net/Articles/889438))\
-    \ (from 5.15.30)\r\n- Docker ([20.10.14](https://docs.docker.com/engine/release-notes/#201014))\r\
-    \n- bind-tools ([9.16.27](https://gitlab.isc.org/isc-projects/bind9/-/blob/v9_16_27/CHANGES))\r\
-    \n- ca-certificates ([3.77](https://firefox-source-docs.mozilla.org/security/nss/releases/nss_3_77.html))\r\
-    \n- conntrack-tools ([1.4.6](https://lists.netfilter.org/pipermail/netfilter-announce/2020/000240.html))\r\
-    \n- containerd ([1.6.2](https://github.com/containerd/containerd/releases/tag/v1.6.2))\r\
-    \n- e2fsprogs ([1.46.4](http://e2fsprogs.sourceforge.net/e2fsprogs-release.html#1.46.4))\r\
-    \n- elfutils ([0.186](https://sourceware.org/git/?p=elfutils.git;a=blob;f=NEWS;h=490932ae4ef9b5a3af01d2c8c616f14d57586046;hb=983e86fd89e8bf02f2d27ba5dce5bf078af4ceda))\r\
-    \n- gnutls ([3.7.3](https://gitlab.com/gnutls/gnutls/-/merge_requests/1517))\r\
-    \n- gzip ([1.11](https://lists.gnu.org/archive/html/info-gnu/2021-09/msg00002.html))\r\
-    \n- jansson ([2.14](https://github.com/akheron/jansson/blob/v2.14/CHANGES))\r\n\
-    - libbsd ([0.11.3](https://gitlab.freedesktop.org/libbsd/libbsd/-/commits/0.11.3/))\r\
-    \n- libnetfilter_queue ([1.0.5](https://git.netfilter.org/libnetfilter_queue/log/?h=libnetfilter_queue-1.0.5))\r\
-    \n- libpcap ([1.10.1](https://git.tcpdump.org/libpcap/blob/c7642e2cc0c5bd65754685b160d25dc23c76c6bd:/CHANGES))\r\
-    \n- libtasn1 ([4.17.0](https://gitlab.com/gnutls/libtasn1/-/blob/v4.17.0/NEWS))\r\
-    \n- liburing ([2.1](https://github.com/axboe/liburing/commits/liburing-2.1))\r\
-    \n- mdadm ([4.2](https://lore.kernel.org/all/28fdbc45-96ca-7cdb-3ced-a5f65d978048@trained-monkey.org/T/))\r\
-    \n- multipath-tools ([0.8.7](https://github.com/opensvc/multipath-tools/commits/0.8.7))\r\
-    \n- nghttp2 ([1.45.1](https://github.com/nghttp2/nghttp2/releases/tag/v1.45.1))\r\
-    \n- oniguruma ([6.9.7.1](https://github.com/kkos/oniguruma/releases/tag/v6.9.7.1))\r\
-    \n- open-isns ([0.101](https://github.com/open-iscsi/open-isns/blob/v0.101/ChangeLog))\r\
-    \n- pcre2 ([10.39](https://github.com/PhilipHazel/pcre2/blob/pcre2-10.39/NEWS))\r\
-    \n- runc ([1.1.1](https://github.com/opencontainers/runc/releases/tag/v1.1.1))\r\
-    \n- tcpdump ([4.99.1](https://git.tcpdump.org/tcpdump/blob/5f552b5e6e9fe05f7ad9681d51d0303233daba6a:/CHANGES))\r\
-    \n- unzip ([6.0_p26](https://metadata.ftp-master.debian.org/changelogs//main/u/unzip/unzip_6.0-26_changelog))\r\
-    \n- util-linux ([2.37.4](https://mirrors.edge.kernel.org/pub/linux/utils/util-linux/v2.37/v2.37.4-ChangeLog))\r\
-    \n- zlib ([1.2.12](https://github.com/madler/zlib/blob/21767c654d31d2dccdde4330529775c6c5fd5389/ChangeLog#L4))\r\
-    \n"
-  created_at: '2022-04-05T14:46:50Z'
+  body: "New **Alpha** Release **3227.0.0**\r\n\r\n_Changes since **Alpha 3200.0.0**_\r\
+    \n\r\n#### Security fixes:\r\n\r\n- Linux ([CVE-2022-28390](https://nvd.nist.gov/vuln/detail/CVE-2022-28390),\
+    \ [CVE-2022-0168](https://nvd.nist.gov/vuln/detail/CVE-2022-0168), [CVE-2022-1158](https://nvd.nist.gov/vuln/detail/CVE-2022-1158),\
+    \ [CVE-2022-1353](https://nvd.nist.gov/vuln/detail/CVE-2022-1353), [CVE-2022-1198](https://nvd.nist.gov/vuln/detail/CVE-2022-1198),\
+    \ [CVE-2022-28389](https://nvd.nist.gov/vuln/detail/CVE-2022-28389), [CVE-2022-28388](https://nvd.nist.gov/vuln/detail/CVE-2022-28388),\
+    \ [CVE-2022-1516](https://nvd.nist.gov/vuln/detail/CVE-2022-1516), [CVE-2022-1263](https://nvd.nist.gov/vuln/detail/CVE-2022-1263),\
+    \ [CVE-2022-29582](https://nvd.nist.gov/vuln/detail/CVE-2022-29582), [CVE-2022-1204](https://nvd.nist.gov/vuln/detail/CVE-2022-1204),\
+    \ [CVE-2022-1205](https://nvd.nist.gov/vuln/detail/CVE-2022-1205), [CVE-2022-0500](https://nvd.nist.gov/vuln/detail/CVE-2022-0500),\
+    \ [CVE-2022-23222](https://nvd.nist.gov/vuln/detail/CVE-2022-23222))\r\n- Go ([CVE-2022-24675](https://nvd.nist.gov/vuln/detail/CVE-2022-24675))\r\
+    \n- libarchive ([CVE-2022-26280](https://nvd.nist.gov/vuln/detail/CVE-2022-26280))\r\
+    \n- gzip,xz-utils ([CVE-2022-1271](https://nvd.nist.gov/vuln/detail/CVE-2022-1271))\r\
+    \n\r\n#### Bug fixes:\r\n\r\n- GCE: Restored oem-gce.service functionality on\
+    \ GCP ([coreos-overlay#1813](https://github.com/flatcar-linux/coreos-overlay/pull/1813))\r\
+    \n- Skipped starting `ensure-sysext.service` if `systemd-sysext.service` won't\
+    \ be started, to prevent reporting a dependency failure ([Flatcar#710](https://github.com/flatcar-linux/Flatcar/issues/710))\r\
+    \n- Added a remount action as `systemd-sysext.service` drop-in unit to restore\
+    \ the OEM partition mount after the overlay mounts in `/usr` are done ([init#69](https://github.com/flatcar-linux/init/pull/69))\r\
+    \n- Added pahole to developer container, without it kernel modules built against\
+    \ /usr/src/linux may fail to probe with an 'invalid relocation target' error ([coreos-overlay#1839](https://github.com/flatcar-linux/coreos-overlay/pull/1839))\r\
+    \n\r\n#### Changes:\r\n\r\n- GCE: Enabled GVE kernel driver, which adds support\
+    \ for Google Virtual NIC on GCP ([coreos-overlay#1802](https://github.com/flatcar-linux/coreos-overlay/pull/1802))\r\
+    \n- Enabled `CONFIG_INTEL_RAPL` on AMD64 Kernel config to compile `intel_rapl_common`\
+    \ module in order to allow power monitoring on modern Intel processors ([coreos-overlay#1801](https://github.com/flatcar-linux/coreos-overlay/pull/1801))\r\
+    \n- Azure: Set up `/etc/hostname` from instance metadata with Afterburn\r\n- AWS\
+    \ EC2: Removed the setup of `/etc/hostname` from the instance metadata because\
+    \ it used a long FQDN but we can just use use the hostname set via DHCP ([Flatcar#707](https://github.com/flatcar-linux/Flatcar/issues/707))\r\
+    \n- SDK: Dropped the mantle binaries (kola, ore, etc.) from the SDK, they are\
+    \ now provided by the `ghcr.io/flatcar-linux/mantle` image ([coreos-overlay#1827](https://github.com/flatcar-linux/coreos-overlay/pull/1827),\
+    \ [scripts#275](https://github.com/flatcar-linux/scripts/pull/275))\r\n\r\n####\
+    \ Updates:\r\n\r\n- Linux ([5.15.37](https://lwn.net/Articles/893264) (includes\
+    \ [5.15.36](https://lwn.net/Articles/892812), [5.15.35](https://lwn.net/Articles/892002),\
+    \ [5.15.34](https://lwn.net/Articles/891251), [5.15.33](https://lwn.net/Articles/890722)))\r\
+    \n- Linux Firmware ([20220411](https://git.kernel.org/pub/scm/linux/kernel/git/firmware/linux-firmware.git/tag/?h=20220411))\r\
+    \n- Go ([1.17.9](https://go.googlesource.com/go/+/refs/tags/go1.17.9))\r\n- afterburn\
+    \ ([5.2.0](https://github.com/coreos/afterburn/releases/tag/v5.2.0))\r\n- ca-certificates\
+    \ ([3.78](https://firefox-source-docs.mozilla.org/security/nss/releases/nss_3_78.html))\r\
+    \n- containerd ([1.6.3](https://github.com/containerd/containerd/releases/tag/v1.6.3))\r\
+    \n- gzip ([1.12](https://savannah.gnu.org/forum/forum.php?forum_id=10157))\r\n\
+    - libarchive ([3.6.1](https://github.com/libarchive/libarchive/releases/tag/v3.6.1))\r\
+    \n- GCE: google compute-image-packages ([20190124](https://github.com/GoogleCloudPlatform/compute-image-packages/releases/tag/20190124))\r\
+    \n- SDK: Rust ([1.60.0](https://github.com/rust-lang/rust/releases/tag/1.60.0))"
+  created_at: '2022-05-04T10:05:15Z'
   draft: false
-  html_url: https://github.com/kinvolk/manifest/releases/tag/v3200.0.0
-  id: 63851712
-  name: v3200.0.0
-  node_id: RE_kwDOB2MTRc4DzkzA
+  html_url: https://github.com/kinvolk/manifest/releases/tag/v3227.0.0
+  id: 66380704
+  name: ''
+  node_id: RE_kwDOB2MTRc4D9OOg
   prerelease: false
-  published_at: '2022-04-07T12:03:58Z'
-  tag_name: v3200.0.0
-  tarball_url: https://api.github.com/repos/kinvolk/manifest/tarball/v3200.0.0
+  published_at: '2022-05-09T14:40:33Z'
+  tag_name: v3227.0.0
+  tarball_url: https://api.github.com/repos/kinvolk/manifest/tarball/v3227.0.0
   target_commitish: flatcar-master
-  upload_url: https://uploads.github.com/repos/kinvolk/manifest/releases/63851712/assets{?name,label}
-  url: https://api.github.com/repos/kinvolk/manifest/releases/63851712
-  zipball_url: https://api.github.com/repos/kinvolk/manifest/zipball/v3200.0.0
+  upload_url: https://uploads.github.com/repos/kinvolk/manifest/releases/66380704/assets{?name,label}
+  url: https://api.github.com/repos/kinvolk/manifest/releases/66380704
+  zipball_url: https://api.github.com/repos/kinvolk/manifest/zipball/v3227.0.0
 image_packages:
   docker: 20.10.14
   ignition: 2.13.0
-  kernel: 5.15.32
+  kernel: 5.15.37
   systemd: '250'
 release: current
-version: 3200.0.0
+version: 3227.0.0

@@ -1,10 +1,10 @@
 architectures:
 - amd64
 - arm64
-channel: beta
+channel: stable
 github_release:
   assets: []
-  assets_url: https://api.github.com/repos/kinvolk/manifest/releases/66380851/assets
+  assets_url: https://api.github.com/repos/kinvolk/manifest/releases/66380938/assets
   author:
     avatar_url: https://avatars.githubusercontent.com/u/500628?v=4
     events_url: https://api.github.com/users/sayanchowdhury/events{/privacy}
@@ -24,7 +24,7 @@ github_release:
     subscriptions_url: https://api.github.com/users/sayanchowdhury/subscriptions
     type: User
     url: https://api.github.com/users/sayanchowdhury
-  body: "New **Beta** Release **3185.1.1**\r\n\r\n_Changes since **Beta 3185.1.0**_\r\
+  body: "New **Stable** Release **3139.2.1**\r\n\r\n_Changes since **Stable 3139.2.0**_\r\
     \n\r\n#### Security fixes:\r\n\r\n- Linux ([CVE-2022-28390](https://nvd.nist.gov/vuln/detail/CVE-2022-28390),\
     \ [CVE-2022-0168](https://nvd.nist.gov/vuln/detail/CVE-2022-0168), [CVE-2022-1158](https://nvd.nist.gov/vuln/detail/CVE-2022-1158),\
     \ [CVE-2022-1353](https://nvd.nist.gov/vuln/detail/CVE-2022-1353), [CVE-2022-1198](https://nvd.nist.gov/vuln/detail/CVE-2022-1198),\
@@ -32,20 +32,18 @@ github_release:
     \ [CVE-2022-1516](https://nvd.nist.gov/vuln/detail/CVE-2022-1516), [CVE-2022-1263](https://nvd.nist.gov/vuln/detail/CVE-2022-1263),\
     \ [CVE-2022-29582](https://nvd.nist.gov/vuln/detail/CVE-2022-29582), [CVE-2022-1204](https://nvd.nist.gov/vuln/detail/CVE-2022-1204),\
     \ [CVE-2022-1205](https://nvd.nist.gov/vuln/detail/CVE-2022-1205), [CVE-2022-0500](https://nvd.nist.gov/vuln/detail/CVE-2022-0500),\
-    \ [CVE-2022-23222](https://nvd.nist.gov/vuln/detail/CVE-2022-23222))\r\n- Go ([CVE-2022-24675](https://nvd.nist.gov/vuln/detail/CVE-2022-24675))\r\
-    \n\r\n#### Bug fixes:\r\n\r\n- GCE: Restored oem-gce.service functionality on\
-    \ GCP ([coreos-overlay#1813](https://github.com/flatcar-linux/coreos-overlay/pull/1813))\r\
-    \n- Skipped starting `ensure-sysext.service` if `systemd-sysext.service` won't\
-    \ be started, to prevent reporting a dependency failure ([Flatcar#710](https://github.com/flatcar-linux/Flatcar/issues/710))\r\
-    \n- Added a remount action as `systemd-sysext.service` drop-in unit to restore\
-    \ the OEM partition mount after the overlay mounts in `/usr` are done ([init#69](https://github.com/flatcar-linux/init/pull/69))\r\
+    \ [CVE-2022-23222](https://nvd.nist.gov/vuln/detail/CVE-2022-23222))\r\n- nvidia-drivers\
+    \ ([CVE-2022-21814](https://nvd.nist.gov/vuln/detail/CVE-2022-21814), [CVE-2022-21813](https://nvd.nist.gov/vuln/detail/CVE-2022-21813))\r\
+    \n- Go ([CVE-2022-24675](https://nvd.nist.gov/vuln/detail/CVE-2022-24675))\r\n\
+    \r\n#### Bug fixes:\r\n\r\n- AWS: specify correct console (ttyS0) on kernel command\
+    \ line for ARM64 instances ([coreos-overlay#1628](https://github.com/flatcar-linux/coreos-overlay/pull/1628))\r\
+    \n- GCE: Restored oem-gce.service functionality on GCP ([coreos-overlay#1813](https://github.com/flatcar-linux/coreos-overlay/pull/1813))\r\
     \n- Added pahole to developer container, without it kernel modules built against\
     \ /usr/src/linux may fail to probe with an 'invalid relocation target' error ([coreos-overlay#1839](https://github.com/flatcar-linux/coreos-overlay/pull/1839))\r\
-    \n\r\n#### Changes:\r\n\r\n- GCE: Enabled GVE kernel driver, which adds support\
-    \ for Google Virtual NIC on GCP ([coreos-overlay#1802](https://github.com/flatcar-linux/coreos-overlay/pull/1802))\r\
-    \n- Azure: Set up `/etc/hostname` from instance metadata with Afterburn\r\n- AWS\
-    \ EC2: Removed the setup of `/etc/hostname` from the instance metadata because\
-    \ it used a long FQDN but we can just use use the hostname set via DHCP ([Flatcar#707](https://github.com/flatcar-linux/Flatcar/issues/707))\r\
+    \n\r\n#### Changes:\r\n\r\n- Merge the Flatcar Pro features into the regular Flatcar\
+    \ images ([coreos-overlay#1679](https://github.com/flatcar-linux/coreos-overlay/pull/1679))\
+    \ \r\n- GCE: Enabled GVE kernel driver, which adds support for Google Virtual\
+    \ NIC on GCP ([coreos-overlay#1802](https://github.com/flatcar-linux/coreos-overlay/pull/1802))\r\
     \n- SDK: Dropped the mantle binaries (kola, ore, etc.) from the SDK, they are\
     \ now provided by the `ghcr.io/flatcar-linux/mantle` image ([coreos-overlay#1827](https://github.com/flatcar-linux/coreos-overlay/pull/1827),\
     \ [scripts#275](https://github.com/flatcar-linux/scripts/pull/275))\r\n\r\n####\
@@ -54,25 +52,26 @@ github_release:
     \ [5.15.34](https://lwn.net/Articles/891251), [5.15.33](https://lwn.net/Articles/890722)))\r\
     \n- Go ([1.17.9](https://go.googlesource.com/go/+/refs/tags/go1.17.9))\r\n- ca-certificates\
     \ ([3.78](https://firefox-source-docs.mozilla.org/security/nss/releases/nss_3_78.html))\r\
-    \n- GCE: google compute-image-packages ([20190124](https://github.com/GoogleCloudPlatform/compute-image-packages/releases/tag/20190124))"
-  created_at: '2022-05-04T11:24:06Z'
+    \n- nvidia-drivers ([510.47.03](https://docs.nvidia.com/datacenter/tesla/tesla-release-notes-510-47-03/index.html))\
+    \ \r\n- GCE: google compute-image-packages ([20190124](https://github.com/GoogleCloudPlatform/compute-image-packages/releases/tag/20190124))"
+  created_at: '2022-05-04T11:37:41Z'
   draft: false
-  html_url: https://github.com/kinvolk/manifest/releases/tag/v3185.1.1
-  id: 66380851
+  html_url: https://github.com/kinvolk/manifest/releases/tag/v3139.2.1
+  id: 66380938
   name: ''
-  node_id: RE_kwDOB2MTRc4D9OQz
+  node_id: RE_kwDOB2MTRc4D9OSK
   prerelease: false
-  published_at: '2022-05-09T14:42:03Z'
-  tag_name: v3185.1.1
-  tarball_url: https://api.github.com/repos/kinvolk/manifest/tarball/v3185.1.1
+  published_at: '2022-05-09T14:42:58Z'
+  tag_name: v3139.2.1
+  tarball_url: https://api.github.com/repos/kinvolk/manifest/tarball/v3139.2.1
   target_commitish: flatcar-master
-  upload_url: https://uploads.github.com/repos/kinvolk/manifest/releases/66380851/assets{?name,label}
-  url: https://api.github.com/repos/kinvolk/manifest/releases/66380851
-  zipball_url: https://api.github.com/repos/kinvolk/manifest/zipball/v3185.1.1
+  upload_url: https://uploads.github.com/repos/kinvolk/manifest/releases/66380938/assets{?name,label}
+  url: https://api.github.com/repos/kinvolk/manifest/releases/66380938
+  zipball_url: https://api.github.com/repos/kinvolk/manifest/zipball/v3139.2.1
 image_packages:
-  docker: 20.10.13
-  ignition: 2.13.0
+  docker: 20.10.12
+  ignition: 0.36.1
   kernel: 5.15.37
-  systemd: '250'
-release: current
-version: 3185.1.1
+  systemd: '249'
+release: 3139.2.1
+version: 3139.2.1
