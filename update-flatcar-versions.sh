@@ -19,7 +19,6 @@ FLATCAR_DATA="$WEBSITE_DIR"/data
 CHANNELS=(
     alpha
     beta
-    edge
     lts
     lts-2021
     lts-2022
