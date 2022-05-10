@@ -6,7 +6,7 @@ title = "Flatcar Container Linux Long-Term Support (LTS) channel and advanced fe
 draft = false
 description = "Flatcar Container Linux community images now include a Long-Term Support (LTS) channel, along with support for Azure GPU instances, EKS workers, and FIPS mode"
 date = "2022-05-10T14:00:00+02:00"
-postImage = "/flatcar-linux-public-release.png"
+postImage = "/flatcar-linux-lts-community.jpg"
 +++
 
 We are pleased to announce some significant enhancements to Flatcar Container Linux community images, with a Long-Term Support (LTS) channel and some advanced features that were previously only available to Kinvolk subscription customers.
