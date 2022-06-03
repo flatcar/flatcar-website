@@ -1891,13 +1891,13 @@
     },
     "release_notes": "New **Stable** Release **3139.2.1**\n\n_Changes since **Stable 3139.2.0**_\n\n#### Security fixes:\n\n- Linux ([CVE-2022-28390](https://nvd.nist.gov/vuln/detail/CVE-2022-28390), [CVE-2022-0168](https://nvd.nist.gov/vuln/detail/CVE-2022-0168), [CVE-2022-1158](https://nvd.nist.gov/vuln/detail/CVE-2022-1158), [CVE-2022-1353](https://nvd.nist.gov/vuln/detail/CVE-2022-1353), [CVE-2022-1198](https://nvd.nist.gov/vuln/detail/CVE-2022-1198), [CVE-2022-28389](https://nvd.nist.gov/vuln/detail/CVE-2022-28389), [CVE-2022-28388](https://nvd.nist.gov/vuln/detail/CVE-2022-28388), [CVE-2022-1516](https://nvd.nist.gov/vuln/detail/CVE-2022-1516), [CVE-2022-1263](https://nvd.nist.gov/vuln/detail/CVE-2022-1263), [CVE-2022-29582](https://nvd.nist.gov/vuln/detail/CVE-2022-29582), [CVE-2022-1204](https://nvd.nist.gov/vuln/detail/CVE-2022-1204), [CVE-2022-1205](https://nvd.nist.gov/vuln/detail/CVE-2022-1205), [CVE-2022-0500](https://nvd.nist.gov/vuln/detail/CVE-2022-0500), [CVE-2022-23222](https://nvd.nist.gov/vuln/detail/CVE-2022-23222))\n- nvidia-drivers ([CVE-2022-21814](https://nvd.nist.gov/vuln/detail/CVE-2022-21814), [CVE-2022-21813](https://nvd.nist.gov/vuln/detail/CVE-2022-21813))\n- Go ([CVE-2022-24675](https://nvd.nist.gov/vuln/detail/CVE-2022-24675))\n\n#### Bug fixes:\n\n- AWS: specify correct console (ttyS0) on kernel command line for ARM64 instances ([coreos-overlay#1628](https://github.com/flatcar-linux/coreos-overlay/pull/1628))\n- GCE: Restored oem-gce.service functionality on GCP ([coreos-overlay#1813](https://github.com/flatcar-linux/coreos-overlay/pull/1813))\n- Added pahole to developer container, without it kernel modules built against /usr/src/linux may fail to probe with an 'invalid relocation target' error ([coreos-overlay#1839](https://github.com/flatcar-linux/coreos-overlay/pull/1839))\n\n#### Changes:\n\n- Merge the Flatcar Pro features into the regular Flatcar images ([coreos-overlay#1679](https://github.com/flatcar-linux/coreos-overlay/pull/1679)) \n- GCE: Enabled GVE kernel driver, which adds support for Google Virtual NIC on GCP ([coreos-overlay#1802](https://github.com/flatcar-linux/coreos-overlay/pull/1802))\n- SDK: Dropped the mantle binaries (kola, ore, etc.) from the SDK, they are now provided by the `ghcr.io/flatcar-linux/mantle` image ([coreos-overlay#1827](https://github.com/flatcar-linux/coreos-overlay/pull/1827), [scripts#275](https://github.com/flatcar-linux/scripts/pull/275))\n\n#### Updates:\n\n- Linux ([5.15.37](https://lwn.net/Articles/893264) (includes [5.15.36](https://lwn.net/Articles/892812), [5.15.35](https://lwn.net/Articles/892002), [5.15.34](https://lwn.net/Articles/891251), [5.15.33](https://lwn.net/Articles/890722)))\n- Go ([1.17.9](https://go.googlesource.com/go/+/refs/tags/go1.17.9))\n- ca-certificates ([3.78](https://firefox-source-docs.mozilla.org/security/nss/releases/nss_3_78.html))\n- nvidia-drivers ([510.47.03](https://docs.nvidia.com/datacenter/tesla/tesla-release-notes-510-47-03/index.html)) \n- GCE: google compute-image-packages ([20190124](https://github.com/GoogleCloudPlatform/compute-image-packages/releases/tag/20190124))"
   },
-  "current": {
+  "3139.2.2": {
     "channel": "stable",
     "architectures": [
       "amd64",
       "arm64"
     ],
-    "release_date": "2022-05-09 14:42:58 +0000",
+    "release_date": "2022-06-02 15:09:15 +0000",
     "major_software": {
       "docker": [
         "20.10.12"
@@ -1906,12 +1906,35 @@
         "0.36.1"
       ],
       "kernel": [
-        "5.15.37"
+        "5.15.43"
       ],
       "systemd": [
         "249"
       ]
     },
-    "release_notes": "New **Stable** Release **3139.2.1**\n\n_Changes since **Stable 3139.2.0**_\n\n#### Security fixes:\n\n- Linux ([CVE-2022-28390](https://nvd.nist.gov/vuln/detail/CVE-2022-28390), [CVE-2022-0168](https://nvd.nist.gov/vuln/detail/CVE-2022-0168), [CVE-2022-1158](https://nvd.nist.gov/vuln/detail/CVE-2022-1158), [CVE-2022-1353](https://nvd.nist.gov/vuln/detail/CVE-2022-1353), [CVE-2022-1198](https://nvd.nist.gov/vuln/detail/CVE-2022-1198), [CVE-2022-28389](https://nvd.nist.gov/vuln/detail/CVE-2022-28389), [CVE-2022-28388](https://nvd.nist.gov/vuln/detail/CVE-2022-28388), [CVE-2022-1516](https://nvd.nist.gov/vuln/detail/CVE-2022-1516), [CVE-2022-1263](https://nvd.nist.gov/vuln/detail/CVE-2022-1263), [CVE-2022-29582](https://nvd.nist.gov/vuln/detail/CVE-2022-29582), [CVE-2022-1204](https://nvd.nist.gov/vuln/detail/CVE-2022-1204), [CVE-2022-1205](https://nvd.nist.gov/vuln/detail/CVE-2022-1205), [CVE-2022-0500](https://nvd.nist.gov/vuln/detail/CVE-2022-0500), [CVE-2022-23222](https://nvd.nist.gov/vuln/detail/CVE-2022-23222))\n- nvidia-drivers ([CVE-2022-21814](https://nvd.nist.gov/vuln/detail/CVE-2022-21814), [CVE-2022-21813](https://nvd.nist.gov/vuln/detail/CVE-2022-21813))\n- Go ([CVE-2022-24675](https://nvd.nist.gov/vuln/detail/CVE-2022-24675))\n\n#### Bug fixes:\n\n- AWS: specify correct console (ttyS0) on kernel command line for ARM64 instances ([coreos-overlay#1628](https://github.com/flatcar-linux/coreos-overlay/pull/1628))\n- GCE: Restored oem-gce.service functionality on GCP ([coreos-overlay#1813](https://github.com/flatcar-linux/coreos-overlay/pull/1813))\n- Added pahole to developer container, without it kernel modules built against /usr/src/linux may fail to probe with an 'invalid relocation target' error ([coreos-overlay#1839](https://github.com/flatcar-linux/coreos-overlay/pull/1839))\n\n#### Changes:\n\n- Merge the Flatcar Pro features into the regular Flatcar images ([coreos-overlay#1679](https://github.com/flatcar-linux/coreos-overlay/pull/1679)) \n- GCE: Enabled GVE kernel driver, which adds support for Google Virtual NIC on GCP ([coreos-overlay#1802](https://github.com/flatcar-linux/coreos-overlay/pull/1802))\n- SDK: Dropped the mantle binaries (kola, ore, etc.) from the SDK, they are now provided by the `ghcr.io/flatcar-linux/mantle` image ([coreos-overlay#1827](https://github.com/flatcar-linux/coreos-overlay/pull/1827), [scripts#275](https://github.com/flatcar-linux/scripts/pull/275))\n\n#### Updates:\n\n- Linux ([5.15.37](https://lwn.net/Articles/893264) (includes [5.15.36](https://lwn.net/Articles/892812), [5.15.35](https://lwn.net/Articles/892002), [5.15.34](https://lwn.net/Articles/891251), [5.15.33](https://lwn.net/Articles/890722)))\n- Go ([1.17.9](https://go.googlesource.com/go/+/refs/tags/go1.17.9))\n- ca-certificates ([3.78](https://firefox-source-docs.mozilla.org/security/nss/releases/nss_3_78.html))\n- nvidia-drivers ([510.47.03](https://docs.nvidia.com/datacenter/tesla/tesla-release-notes-510-47-03/index.html)) \n- GCE: google compute-image-packages ([20190124](https://github.com/GoogleCloudPlatform/compute-image-packages/releases/tag/20190124))"
+    "release_notes": "New **Stable** Release **3139.2.2**\n\n_Changes since **Stable 3139.2.1**_\n\n#### Security fixes:\n\n- Linux ([CVE-2022-1734](https://nvd.nist.gov/vuln/detail/CVE-2022-1734), [CVE-2022-28893](https://nvd.nist.gov/vuln/detail/CVE-2022-28893), [CVE-2022-1012](https://nvd.nist.gov/vuln/detail/CVE-2022-1012), [CVE-2022-1729](https://nvd.nist.gov/vuln/detail/CVE-2022-1729))\n- Go ([CVE-2022-29526](https://nvd.nist.gov/vuln/detail/CVE-2022-29526))\n\n#### Bug fixes:\n\n- Ensured `/etc/flatcar/update.conf` exists because it happens to be used as flag file for Ansible ([init#71](https://github.com/flatcar-linux/init/pull/71))\n- GCP: Fixed shutdown script execution ([coreos-overlay#1912](https://github.com/flatcar-linux/coreos-overlay/pull/1912), [flatcar#743](https://github.com/flatcar-linux/Flatcar/issues/743))\n\n\n#### Updates:\n\n- Linux ([5.15.43](https://lwn.net/Articles/896231/) (includes [5.15.42](https://lwn.net/Articles/896226), [5.15.41](https://lwn.net/Articles/895645), [5.15.40](https://lwn.net/Articles/895318), [5.15.39](https://lwn.net/Articles/895070), [5.15.38](https://lwn.net/Articles/894357)))\n- Go ([1.17.10](https://go.googlesource.com/go/+/refs/tags/go1.17.10))"
+  },
+  "current": {
+    "channel": "stable",
+    "architectures": [
+      "amd64",
+      "arm64"
+    ],
+    "release_date": "2022-06-02 15:09:15 +0000",
+    "major_software": {
+      "docker": [
+        "20.10.12"
+      ],
+      "ignition": [
+        "0.36.1"
+      ],
+      "kernel": [
+        "5.15.43"
+      ],
+      "systemd": [
+        "249"
+      ]
+    },
+    "release_notes": "New **Stable** Release **3139.2.2**\n\n_Changes since **Stable 3139.2.1**_\n\n#### Security fixes:\n\n- Linux ([CVE-2022-1734](https://nvd.nist.gov/vuln/detail/CVE-2022-1734), [CVE-2022-28893](https://nvd.nist.gov/vuln/detail/CVE-2022-28893), [CVE-2022-1012](https://nvd.nist.gov/vuln/detail/CVE-2022-1012), [CVE-2022-1729](https://nvd.nist.gov/vuln/detail/CVE-2022-1729))\n- Go ([CVE-2022-29526](https://nvd.nist.gov/vuln/detail/CVE-2022-29526))\n\n#### Bug fixes:\n\n- Ensured `/etc/flatcar/update.conf` exists because it happens to be used as flag file for Ansible ([init#71](https://github.com/flatcar-linux/init/pull/71))\n- GCP: Fixed shutdown script execution ([coreos-overlay#1912](https://github.com/flatcar-linux/coreos-overlay/pull/1912), [flatcar#743](https://github.com/flatcar-linux/Flatcar/issues/743))\n\n\n#### Updates:\n\n- Linux ([5.15.43](https://lwn.net/Articles/896231/) (includes [5.15.42](https://lwn.net/Articles/896226), [5.15.41](https://lwn.net/Articles/895645), [5.15.40](https://lwn.net/Articles/895318), [5.15.39](https://lwn.net/Articles/895070), [5.15.38](https://lwn.net/Articles/894357)))\n- Go ([1.17.10](https://go.googlesource.com/go/+/refs/tags/go1.17.10))"
   }
 }
