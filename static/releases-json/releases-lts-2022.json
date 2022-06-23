@@ -45,13 +45,13 @@
     },
     "release_notes": "New **LTS-2022** Release **3033.3.1**\n\n_Changes since **LTS-2022 3033.3.0**_\n\n#### Security fixes:\n\n- Linux ([CVE-2022-28390](https://nvd.nist.gov/vuln/detail/CVE-2022-28390), [CVE-2022-0168](https://nvd.nist.gov/vuln/detail/CVE-2022-0168), [CVE-2022-1158](https://nvd.nist.gov/vuln/detail/CVE-2022-1158), [CVE-2022-1353](https://nvd.nist.gov/vuln/detail/CVE-2022-1353), [CVE-2022-30594](https://nvd.nist.gov/vuln/detail/CVE-2022-30594), [CVE-2022-1198](https://nvd.nist.gov/vuln/detail/CVE-2022-1198), [CVE-2022-28389](https://nvd.nist.gov/vuln/detail/CVE-2022-28389), [CVE-2022-28388](https://nvd.nist.gov/vuln/detail/CVE-2022-28388), [CVE-2022-1516](https://nvd.nist.gov/vuln/detail/CVE-2022-1516), [CVE-2022-29582](https://nvd.nist.gov/vuln/detail/CVE-2022-29582), [CVE-2021-4197](https://nvd.nist.gov/vuln/detail/CVE-2021-4197), [CVE-2022-1204](https://nvd.nist.gov/vuln/detail/CVE-2022-1204), [CVE-2022-1205](https://nvd.nist.gov/vuln/detail/CVE-2022-1205), [CVE-2022-29581](https://nvd.nist.gov/vuln/detail/CVE-2022-29581), [CVE-2022-1836](https://nvd.nist.gov/vuln/detail/CVE-2022-1836), [CVE-2022-1734](https://nvd.nist.gov/vuln/detail/CVE-2022-1734), [CVE-2022-0494](https://nvd.nist.gov/vuln/detail/CVE-2022-0494), [CVE-2022-28893](https://nvd.nist.gov/vuln/detail/CVE-2022-28893), [CVE-2022-1729](https://nvd.nist.gov/vuln/detail/CVE-2022-1729), [CVE-2022-0854](https://nvd.nist.gov/vuln/detail/CVE-2022-0854))\n\n#### Bug fixes:\n\n- Ensured `/etc/flatcar/update.conf` exists because it happens to be used as flag file for Ansible ([init#71](https://github.com/flatcar-linux/init/pull/71))\n\n#### Updates:\n\n- Linux ([5.10.118](https://lwn.net/Articles/896225/) (includes [5.10.117](https://lwn.net/Articles/895646), [5.10.116](https://lwn.net/Articles/895319), [5.10.115](https://lwn.net/Articles/895071), [5.10.114](https://lwn.net/Articles/894358), [5.10.113](https://lwn.net/Articles/892813), [5.10.112](https://lwn.net/Articles/891997), [5.10.111](https://lwn.net/Articles/891252), [5.10.110](https://lwn.net/Articles/890723)))\n- ca-certificates ([3.78](https://firefox-source-docs.mozilla.org/security/nss/releases/nss_3_78.html))"
   },
-  "current-2022": {
+  "3033.3.2": {
     "channel": "lts",
     "architectures": [
       "amd64",
       "arm64"
     ],
-    "release_date": "2022-06-02 15:10:04 +0000",
+    "release_date": "2022-06-23 11:49:00 +0000",
     "major_software": {
       "docker": [
         "20.10.12"
@@ -60,13 +60,36 @@
         "0.36.1"
       ],
       "kernel": [
-        "5.10.118"
+        "5.10.123"
       ],
       "systemd": [
         "249"
       ]
     },
-    "release_notes": "New **LTS-2022** Release **3033.3.1**\n\n_Changes since **LTS-2022 3033.3.0**_\n\n#### Security fixes:\n\n- Linux ([CVE-2022-28390](https://nvd.nist.gov/vuln/detail/CVE-2022-28390), [CVE-2022-0168](https://nvd.nist.gov/vuln/detail/CVE-2022-0168), [CVE-2022-1158](https://nvd.nist.gov/vuln/detail/CVE-2022-1158), [CVE-2022-1353](https://nvd.nist.gov/vuln/detail/CVE-2022-1353), [CVE-2022-30594](https://nvd.nist.gov/vuln/detail/CVE-2022-30594), [CVE-2022-1198](https://nvd.nist.gov/vuln/detail/CVE-2022-1198), [CVE-2022-28389](https://nvd.nist.gov/vuln/detail/CVE-2022-28389), [CVE-2022-28388](https://nvd.nist.gov/vuln/detail/CVE-2022-28388), [CVE-2022-1516](https://nvd.nist.gov/vuln/detail/CVE-2022-1516), [CVE-2022-29582](https://nvd.nist.gov/vuln/detail/CVE-2022-29582), [CVE-2021-4197](https://nvd.nist.gov/vuln/detail/CVE-2021-4197), [CVE-2022-1204](https://nvd.nist.gov/vuln/detail/CVE-2022-1204), [CVE-2022-1205](https://nvd.nist.gov/vuln/detail/CVE-2022-1205), [CVE-2022-29581](https://nvd.nist.gov/vuln/detail/CVE-2022-29581), [CVE-2022-1836](https://nvd.nist.gov/vuln/detail/CVE-2022-1836), [CVE-2022-1734](https://nvd.nist.gov/vuln/detail/CVE-2022-1734), [CVE-2022-0494](https://nvd.nist.gov/vuln/detail/CVE-2022-0494), [CVE-2022-28893](https://nvd.nist.gov/vuln/detail/CVE-2022-28893), [CVE-2022-1729](https://nvd.nist.gov/vuln/detail/CVE-2022-1729), [CVE-2022-0854](https://nvd.nist.gov/vuln/detail/CVE-2022-0854))\n\n#### Bug fixes:\n\n- Ensured `/etc/flatcar/update.conf` exists because it happens to be used as flag file for Ansible ([init#71](https://github.com/flatcar-linux/init/pull/71))\n\n#### Updates:\n\n- Linux ([5.10.118](https://lwn.net/Articles/896225/) (includes [5.10.117](https://lwn.net/Articles/895646), [5.10.116](https://lwn.net/Articles/895319), [5.10.115](https://lwn.net/Articles/895071), [5.10.114](https://lwn.net/Articles/894358), [5.10.113](https://lwn.net/Articles/892813), [5.10.112](https://lwn.net/Articles/891997), [5.10.111](https://lwn.net/Articles/891252), [5.10.110](https://lwn.net/Articles/890723)))\n- ca-certificates ([3.78](https://firefox-source-docs.mozilla.org/security/nss/releases/nss_3_78.html))"
+    "release_notes": "New **LTS-2022** Release **3033.3.2**\n\nChanges since **LTS 3033.3.1**\n\n#### Security fixes:\n\n- Linux ([CVE-2022-1012](https://nvd.nist.gov/vuln/detail/CVE-2022-1012), [CVE-2022-1789](https://nvd.nist.gov/vuln/detail/CVE-2022-1789), [CVE-2022-1852](https://nvd.nist.gov/vuln/detail/CVE-2022-1852), [CVE-2022-1972](https://nvd.nist.gov/vuln/detail/CVE-2022-1972), [CVE-2022-2078](https://nvd.nist.gov/vuln/detail/CVE-2022-2078), [CVE-2022-21499](https://nvd.nist.gov/vuln/detail/CVE-2022-21499), [CVE-2022-32250](https://nvd.nist.gov/vuln/detail/CVE-2022-32250), [CVE-2022-32981](https://nvd.nist.gov/vuln/detail/CVE-2022-32981))\n- libpcre2 ([CVE-2022-1586](https://nvd.nist.gov/vuln/detail/CVE-2022-1586), [CVE-2022-1587](https://nvd.nist.gov/vuln/detail/CVE-2022-1587))\n\n#### Updates:\n\n- Linux ([5.10.123](https://lwn.net/Articles/898125) (includes [5.10.122](https://lwn.net/Articles/897903), [5.10.121](https://lwn.net/Articles/897378), [5.10.120](https://lwn.net/Articles/897168), [5.10.119](https://lwn.net/Articles/896648))\n- ca-certificates ([3.79](https://firefox-source-docs.mozilla.org/security/nss/releases/nss_3_79.html))\n- libpcre2 ([10.40](https://github.com/PCRE2Project/pcre2/blob/pcre2-10.40/NEWS))"
+  },
+  "current-2022": {
+    "channel": "lts",
+    "architectures": [
+      "amd64",
+      "arm64"
+    ],
+    "release_date": "2022-06-23 11:49:00 +0000",
+    "major_software": {
+      "docker": [
+        "20.10.12"
+      ],
+      "ignition": [
+        "0.36.1"
+      ],
+      "kernel": [
+        "5.10.123"
+      ],
+      "systemd": [
+        "249"
+      ]
+    },
+    "release_notes": "New **LTS-2022** Release **3033.3.2**\n\nChanges since **LTS 3033.3.1**\n\n#### Security fixes:\n\n- Linux ([CVE-2022-1012](https://nvd.nist.gov/vuln/detail/CVE-2022-1012), [CVE-2022-1789](https://nvd.nist.gov/vuln/detail/CVE-2022-1789), [CVE-2022-1852](https://nvd.nist.gov/vuln/detail/CVE-2022-1852), [CVE-2022-1972](https://nvd.nist.gov/vuln/detail/CVE-2022-1972), [CVE-2022-2078](https://nvd.nist.gov/vuln/detail/CVE-2022-2078), [CVE-2022-21499](https://nvd.nist.gov/vuln/detail/CVE-2022-21499), [CVE-2022-32250](https://nvd.nist.gov/vuln/detail/CVE-2022-32250), [CVE-2022-32981](https://nvd.nist.gov/vuln/detail/CVE-2022-32981))\n- libpcre2 ([CVE-2022-1586](https://nvd.nist.gov/vuln/detail/CVE-2022-1586), [CVE-2022-1587](https://nvd.nist.gov/vuln/detail/CVE-2022-1587))\n\n#### Updates:\n\n- Linux ([5.10.123](https://lwn.net/Articles/898125) (includes [5.10.122](https://lwn.net/Articles/897903), [5.10.121](https://lwn.net/Articles/897378), [5.10.120](https://lwn.net/Articles/897168), [5.10.119](https://lwn.net/Articles/896648))\n- ca-certificates ([3.79](https://firefox-source-docs.mozilla.org/security/nss/releases/nss_3_79.html))\n- libpcre2 ([10.40](https://github.com/PCRE2Project/pcre2/blob/pcre2-10.40/NEWS))"
   },
   "current": {
     "channel": "lts",
@@ -74,7 +97,7 @@
       "amd64",
       "arm64"
     ],
-    "release_date": "2022-06-02 15:10:04 +0000",
+    "release_date": "2022-06-23 11:49:00 +0000",
     "major_software": {
       "docker": [
         "20.10.12"
@@ -83,12 +106,12 @@
         "0.36.1"
       ],
       "kernel": [
-        "5.10.118"
+        "5.10.123"
       ],
       "systemd": [
         "249"
       ]
     },
-    "release_notes": "New **LTS-2022** Release **3033.3.1**\n\n_Changes since **LTS-2022 3033.3.0**_\n\n#### Security fixes:\n\n- Linux ([CVE-2022-28390](https://nvd.nist.gov/vuln/detail/CVE-2022-28390), [CVE-2022-0168](https://nvd.nist.gov/vuln/detail/CVE-2022-0168), [CVE-2022-1158](https://nvd.nist.gov/vuln/detail/CVE-2022-1158), [CVE-2022-1353](https://nvd.nist.gov/vuln/detail/CVE-2022-1353), [CVE-2022-30594](https://nvd.nist.gov/vuln/detail/CVE-2022-30594), [CVE-2022-1198](https://nvd.nist.gov/vuln/detail/CVE-2022-1198), [CVE-2022-28389](https://nvd.nist.gov/vuln/detail/CVE-2022-28389), [CVE-2022-28388](https://nvd.nist.gov/vuln/detail/CVE-2022-28388), [CVE-2022-1516](https://nvd.nist.gov/vuln/detail/CVE-2022-1516), [CVE-2022-29582](https://nvd.nist.gov/vuln/detail/CVE-2022-29582), [CVE-2021-4197](https://nvd.nist.gov/vuln/detail/CVE-2021-4197), [CVE-2022-1204](https://nvd.nist.gov/vuln/detail/CVE-2022-1204), [CVE-2022-1205](https://nvd.nist.gov/vuln/detail/CVE-2022-1205), [CVE-2022-29581](https://nvd.nist.gov/vuln/detail/CVE-2022-29581), [CVE-2022-1836](https://nvd.nist.gov/vuln/detail/CVE-2022-1836), [CVE-2022-1734](https://nvd.nist.gov/vuln/detail/CVE-2022-1734), [CVE-2022-0494](https://nvd.nist.gov/vuln/detail/CVE-2022-0494), [CVE-2022-28893](https://nvd.nist.gov/vuln/detail/CVE-2022-28893), [CVE-2022-1729](https://nvd.nist.gov/vuln/detail/CVE-2022-1729), [CVE-2022-0854](https://nvd.nist.gov/vuln/detail/CVE-2022-0854))\n\n#### Bug fixes:\n\n- Ensured `/etc/flatcar/update.conf` exists because it happens to be used as flag file for Ansible ([init#71](https://github.com/flatcar-linux/init/pull/71))\n\n#### Updates:\n\n- Linux ([5.10.118](https://lwn.net/Articles/896225/) (includes [5.10.117](https://lwn.net/Articles/895646), [5.10.116](https://lwn.net/Articles/895319), [5.10.115](https://lwn.net/Articles/895071), [5.10.114](https://lwn.net/Articles/894358), [5.10.113](https://lwn.net/Articles/892813), [5.10.112](https://lwn.net/Articles/891997), [5.10.111](https://lwn.net/Articles/891252), [5.10.110](https://lwn.net/Articles/890723)))\n- ca-certificates ([3.78](https://firefox-source-docs.mozilla.org/security/nss/releases/nss_3_78.html))"
+    "release_notes": "New **LTS-2022** Release **3033.3.2**\n\nChanges since **LTS 3033.3.1**\n\n#### Security fixes:\n\n- Linux ([CVE-2022-1012](https://nvd.nist.gov/vuln/detail/CVE-2022-1012), [CVE-2022-1789](https://nvd.nist.gov/vuln/detail/CVE-2022-1789), [CVE-2022-1852](https://nvd.nist.gov/vuln/detail/CVE-2022-1852), [CVE-2022-1972](https://nvd.nist.gov/vuln/detail/CVE-2022-1972), [CVE-2022-2078](https://nvd.nist.gov/vuln/detail/CVE-2022-2078), [CVE-2022-21499](https://nvd.nist.gov/vuln/detail/CVE-2022-21499), [CVE-2022-32250](https://nvd.nist.gov/vuln/detail/CVE-2022-32250), [CVE-2022-32981](https://nvd.nist.gov/vuln/detail/CVE-2022-32981))\n- libpcre2 ([CVE-2022-1586](https://nvd.nist.gov/vuln/detail/CVE-2022-1586), [CVE-2022-1587](https://nvd.nist.gov/vuln/detail/CVE-2022-1587))\n\n#### Updates:\n\n- Linux ([5.10.123](https://lwn.net/Articles/898125) (includes [5.10.122](https://lwn.net/Articles/897903), [5.10.121](https://lwn.net/Articles/897378), [5.10.120](https://lwn.net/Articles/897168), [5.10.119](https://lwn.net/Articles/896648))\n- ca-certificates ([3.79](https://firefox-source-docs.mozilla.org/security/nss/releases/nss_3_79.html))\n- libpcre2 ([10.40](https://github.com/PCRE2Project/pcre2/blob/pcre2-10.40/NEWS))"
   }
 }
