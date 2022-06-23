@@ -17,7 +17,6 @@ channels:
       The Alpha channel follows a more frequent release cadence and is where new updates are introduced. Users can try the new versions of the Linux kernel, systemd and other core packages.
   - name: lts
     title: LTS
-    style: special
     description: >
       LTS release streams will be maintained for an extended lifetime of 18 months. The yearly LTS streams have an overlap of 6 months.
 menu:
