@@ -1,6 +1,6 @@
 {{ $ctx := .ctx }}
 {{ $pkgs := .pkgs }}
-{{ range $i, $release := sort .chan "github_release.published_at" "desc" }}
+{{ range $i, $release := sort .chan "version" "desc" }}
 {{ if not (hasPrefix $release.release "current") }}
 <div class="row">
   <div class="col-12 col-md-auto">
