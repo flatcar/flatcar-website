@@ -1,7 +1,7 @@
 {{ $ctx := .ctx }}
 {{ $pkgs := .pkgs }}
-{{ range $i, $release := sort .chan "github_release.published_at" "desc" }}
-{{ if ne $release.release "current" }}
+{{ range $i, $release := sort .chan "version" "desc" }}
+{{ if not (hasPrefix $release.release "current") }}
 <div class="row">
   <div class="col-12 col-md-auto">
     <a class="btn btn-black" id="release-{{ $release.version }}" href="#release-{{ $release.version }}">{{ $release.version }}</a>
