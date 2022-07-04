@@ -104,12 +104,7 @@
                       </div>
                       {{ end }}
                       {{ end }}
-                      {{ range $pkg, $ver := $chan.current.image_packages }}
-                      {{ $.Scratch.SetInMap "pkgPkgMap" $pkg $pkg }}
-                      {{ end }}
-                      {{ $pkgSorted := $.Scratch.GetSortedMapValues "pkgPkgMap" }}
-                      {{ partial "product/flatcar/release-notes.html" (dict "ctx" . "chan" $chan "pkgs" $pkgSorted) }}
-                      {{ $.Scratch.Delete "pkgPkgMap" }}
+                      {{ partial "product/flatcar/release-notes.html" (dict "ctx" . "chan" $chan) }}
                   </div>
                   {{ end }}
               </div>

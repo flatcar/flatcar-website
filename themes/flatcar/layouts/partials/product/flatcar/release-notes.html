@@ -1,5 +1,4 @@
 {{ $ctx := .ctx }}
-{{ $pkgs := .pkgs }}
 {{ range $i, $release := sort .chan "version" "desc" }}
 {{ if not (hasPrefix $release.release "current") }}
 <div class="row">
@@ -17,8 +16,8 @@
   </div>
   <div class="col-12 mt-3">
       <div class="small packages mb-3">
-        {{ range $i, $ver := sort $release.image_packages "" }}
-        <span class="font-weight-bold">{{ index $pkgs $i }}</span> - {{ $ver }}<br/>
+        {{ range $pkg, $ver := $release.image_packages }}
+        <span class="font-weight-bold">{{ $pkg }}</span> - {{ $ver }}<br/>
         {{ end }}
       </div>
       <div class="release-notes">
