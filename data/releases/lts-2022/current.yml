@@ -4,7 +4,7 @@ architectures:
 channel: lts
 github_release:
   assets: []
-  assets_url: https://api.github.com/repos/kinvolk/manifest/releases/70381417/assets
+  assets_url: https://api.github.com/repos/kinvolk/manifest/releases/72542488/assets
   author:
     avatar_url: https://avatars.githubusercontent.com/u/500628?v=4
     events_url: https://api.github.com/users/sayanchowdhury/events{/privacy}
@@ -24,36 +24,51 @@ github_release:
     subscriptions_url: https://api.github.com/users/sayanchowdhury/subscriptions
     type: User
     url: https://api.github.com/users/sayanchowdhury
-  body: "New **LTS-2022** Release **3033.3.2**\r\n\r\nChanges since **LTS 3033.3.1**\r\
-    \n\r\n#### Security fixes:\r\n\r\n- Linux ([CVE-2022-1012](https://nvd.nist.gov/vuln/detail/CVE-2022-1012),\
-    \ [CVE-2022-1789](https://nvd.nist.gov/vuln/detail/CVE-2022-1789), [CVE-2022-1852](https://nvd.nist.gov/vuln/detail/CVE-2022-1852),\
-    \ [CVE-2022-1972](https://nvd.nist.gov/vuln/detail/CVE-2022-1972), [CVE-2022-2078](https://nvd.nist.gov/vuln/detail/CVE-2022-2078),\
-    \ [CVE-2022-21499](https://nvd.nist.gov/vuln/detail/CVE-2022-21499), [CVE-2022-32250](https://nvd.nist.gov/vuln/detail/CVE-2022-32250),\
-    \ [CVE-2022-32981](https://nvd.nist.gov/vuln/detail/CVE-2022-32981))\r\n- libpcre2\
-    \ ([CVE-2022-1586](https://nvd.nist.gov/vuln/detail/CVE-2022-1586), [CVE-2022-1587](https://nvd.nist.gov/vuln/detail/CVE-2022-1587))\r\
-    \n\r\n#### Updates:\r\n\r\n- Linux ([5.10.123](https://lwn.net/Articles/898125)\
-    \ (includes [5.10.122](https://lwn.net/Articles/897903), [5.10.121](https://lwn.net/Articles/897378),\
-    \ [5.10.120](https://lwn.net/Articles/897168), [5.10.119](https://lwn.net/Articles/896648))\r\
-    \n- ca-certificates ([3.79](https://firefox-source-docs.mozilla.org/security/nss/releases/nss_3_79.html))\r\
-    \n- libpcre2 ([10.40](https://github.com/PCRE2Project/pcre2/blob/pcre2-10.40/NEWS))"
-  created_at: '2022-06-20T22:41:04Z'
+  body: "New **LTS-2022** Release **3033.3.3**\r\n\r\n_Changes since **LTS 3033.3.2**_\r\
+    \n\r\n#### Security fixes:\r\n\r\n- Linux ([CVE-2021-33655](https://nvd.nist.gov/vuln/detail/CVE-2021-33655),\
+    \ [CVE-2021-33656](https://nvd.nist.gov/vuln/detail/CVE-2021-33656), [CVE-2022-2318](https://nvd.nist.gov/vuln/detail/CVE-2022-2318),\
+    \ [CVE-2022-26365](https://nvd.nist.gov/vuln/detail/CVE-2022-26365), [CVE-2022-32296](https://nvd.nist.gov/vuln/detail/CVE-2022-32296),\
+    \ [CVE-2022-33740](https://nvd.nist.gov/vuln/detail/CVE-2022-33740), [CVE-2022-33741](https://nvd.nist.gov/vuln/detail/CVE-2022-33741),\
+    \ [CVE-2022-33742](https://nvd.nist.gov/vuln/detail/CVE-2022-33742), [CVE-2022-33743](https://nvd.nist.gov/vuln/detail/CVE-2022-33743),\
+    \ [CVE-2022-33744](https://nvd.nist.gov/vuln/detail/CVE-2022-33744), [CVE-2022-34918](https://nvd.nist.gov/vuln/detail/CVE-2022-34918))\r\
+    \n- containerd ([CVE-2022-31030](https://nvd.nist.gov/vuln/detail/CVE-2022-31030))\r\
+    \n\r\n#### Bug fixes:\r\n\r\n- Removed outdated LTS channel information printed\
+    \ on login ([init#75](https://github.com/flatcar-linux/init/pull/75))\r\n\r\n\
+    #### Changes:\r\n\r\n- Enabled `containerd.service` unit, `br_netfilter` and `overlay`\
+    \ modules by default to follow Kubernetes requirements ([coreos-overlay#1944](https://github.com/flatcar-linux/coreos-overlay/pull/1944),\
+    \ [init#72](https://github.com/flatcar-linux/init/pull/72))\r\n- DigitalOcean:\
+    \ In addition to the `bz2` image, a `gz` compressed image is published. This helps\
+    \ against hitting the compression timeout that sometimes lets the image import\
+    \ fail.\r\n- OpenStack: In addition to the `bz2` image, a `gz` compressed image\
+    \ is published. This allows Glance to directly consume the images by simply passing\
+    \ in the URL of the image.\r\n- SDK: The image compression format is now configurable.\
+    \ Supported formats are: `bz2`, `gz`, `zip`, `none`, `zst`. Selecting the image\
+    \ format can now be done by passing the `--image_compression_formats` option.\
+    \ This flag gets a comma separated list of formats.\r\n\r\n#### Updates:\r\n\r\
+    \n- Linux ([5.10.131](https://lwn.net/Articles/901381/) (includes [5.10.130](https://lwn.net/Articles/900910),\
+    \ [5.10.129](https://lwn.net/Articles/900322), [5.10.128](https://lwn.net/Articles/899789),\
+    \ [5.10.127](https://lwn.net/Articles/899371), [5.10.126](https://lwn.net/Articles/899121),\
+    \ [5.10.125](https://lwn.net/Articles/899090), [5.10.124](https://lwn.net/Articles/898623)))\r\
+    \n- ca-certificates ([3.80](https://firefox-source-docs.mozilla.org/security/nss/releases/nss_3_80.html))\r\
+    \n- containerd ([1.5.13](https://github.com/containerd/containerd/releases/tag/v1.5.13))"
+  created_at: '2022-07-19T10:11:11Z'
   draft: false
-  html_url: https://github.com/kinvolk/manifest/releases/tag/v3033.3.2
-  id: 70381417
-  name: v3033.3.2
-  node_id: RE_kwDOB2MTRc4EMe9p
+  html_url: https://github.com/kinvolk/manifest/releases/tag/v3033.3.3
+  id: 72542488
+  name: ''
+  node_id: RE_kwDOB2MTRc4EUukY
   prerelease: false
-  published_at: '2022-06-23T11:49:00Z'
-  tag_name: v3033.3.2
-  tarball_url: https://api.github.com/repos/kinvolk/manifest/tarball/v3033.3.2
+  published_at: '2022-07-21T15:46:59Z'
+  tag_name: v3033.3.3
+  tarball_url: https://api.github.com/repos/kinvolk/manifest/tarball/v3033.3.3
   target_commitish: flatcar-master
-  upload_url: https://uploads.github.com/repos/kinvolk/manifest/releases/70381417/assets{?name,label}
-  url: https://api.github.com/repos/kinvolk/manifest/releases/70381417
-  zipball_url: https://api.github.com/repos/kinvolk/manifest/zipball/v3033.3.2
+  upload_url: https://uploads.github.com/repos/kinvolk/manifest/releases/72542488/assets{?name,label}
+  url: https://api.github.com/repos/kinvolk/manifest/releases/72542488
+  zipball_url: https://api.github.com/repos/kinvolk/manifest/zipball/v3033.3.3
 image_packages:
   docker: 20.10.12
   ignition: 0.36.1
-  kernel: 5.10.123
+  kernel: 5.10.131
   systemd: '249'
 release: current
-version: 3033.3.2
+version: 3033.3.3
