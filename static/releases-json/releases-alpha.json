@@ -2545,13 +2545,13 @@
     },
     "release_notes": "New **Alpha** Release **3305.0.0**\n\n_Changes since **Alpha 3277.0.0**_\n\n#### Security fixes:\n\n- Linux ([CVE-2021-33655](https://nvd.nist.gov/vuln/detail/CVE-2021-33655), [CVE-2022-2318](https://nvd.nist.gov/vuln/detail/CVE-2022-2318), [CVE-2022-26365](https://nvd.nist.gov/vuln/detail/CVE-2022-26365), [CVE-2022-33740](https://nvd.nist.gov/vuln/detail/CVE-2022-33740), [CVE-2022-33741](https://nvd.nist.gov/vuln/detail/CVE-2022-33741), [CVE-2022-33742](https://nvd.nist.gov/vuln/detail/CVE-2022-33742), [CVE-2022-33743](https://nvd.nist.gov/vuln/detail/CVE-2022-33743), [CVE-2022-33744](https://nvd.nist.gov/vuln/detail/CVE-2022-33744), [CVE-2022-34918](https://nvd.nist.gov/vuln/detail/CVE-2022-34918))\n- cifs-utils ([CVE-2022-27239](https://nvd.nist.gov/vuln/detail/CVE-2022-27239), [CVE-2022-29869](https://nvd.nist.gov/vuln/detail/CVE-2022-29869))\n- curl ([CVE-2022-32205](https://nvd.nist.gov/vuln/detail/CVE-2022-32205), [CVE-2022-32206](https://nvd.nist.gov/vuln/detail/CVE-2022-32206), [CVE-2022-32207](https://nvd.nist.gov/vuln/detail/CVE-2022-32207), [CVE-2022-32208](https://nvd.nist.gov/vuln/detail/CVE-2022-32208))\n- gnupg ([CVE-2022-34903](https://nvd.nist.gov/vuln/detail/CVE-2022-34903))\n- Go ([CVE-2022-1705](https://nvd.nist.gov/vuln/detail/CVE-2022-1705), [CVE-2022-1962](https://nvd.nist.gov/vuln/detail/CVE-2022-1962), [CVE-2022-28131](https://nvd.nist.gov/vuln/detail/CVE-2022-28131), [CVE-2022-30630](https://nvd.nist.gov/vuln/detail/CVE-2022-30630), [CVE-2022-30631](https://nvd.nist.gov/vuln/detail/CVE-2022-30631), [CVE-2022-30632](https://nvd.nist.gov/vuln/detail/CVE-2022-30632), [CVE-2022-30633](https://nvd.nist.gov/vuln/detail/CVE-2022-30633), [CVE-2022-30635](https://nvd.nist.gov/vuln/detail/CVE-2022-30635), [CVE-2022-32148](https://nvd.nist.gov/vuln/detail/CVE-2022-32148))\n\n#### Bug fixes:\n\n- Removed outdated LTS channel information printed on login ([init#75](https://github.com/flatcar-linux/init/pull/75))\n- The Ignition v3 kargs directive failed before when used with the generic image where no `grub.cfg` exists, this was fixed by creating it first ([bootengine#47](https://github.com/flatcar-linux/bootengine/pull/47))\n\n#### Updates:\n\n- Linux ([5.15.54](https://lwn.net/Articles/900911) (includes [5.15.53](https://lwn.net/Articles/900321), [5.15.52](https://lwn.net/Articles/899788), [5.15.51](https://lwn.net/Articles/899370), [5.15.50](https://lwn.net/Articles/899091), [5.15.49](https://lwn.net/Articles/898622)))\n- Linux Firmware ([20220708](https://git.kernel.org/pub/scm/linux/kernel/git/firmware/linux-firmware.git/tag/?h=20220708))\n- adcli ([0.9.1](https://gitlab.freedesktop.org/realmd/adcli/-/releases#0.9.1))\n- ca-certificates ([3.80](https://firefox-source-docs.mozilla.org/security/nss/releases/nss_3_80.html))\n- cifs-utils ([6.15](https://lists.samba.org/archive/samba-technical/2022-April/137335.html))\n- curl ([7.84.0](https://github.com/curl/curl/releases/tag/curl-7_84_0))\n- gdb ([11.2](https://lists.gnu.org/archive/html/info-gnu/2022-01/msg00009.html))\n- gnupg ([2.2.35](https://dev.gnupg.org/T5928))\n- Go ([1.18.4](https://go.dev/doc/devel/release#go1.18.4))\n- sudo ([1.9.10](https://github.com/sudo-project/sudo/releases/tag/SUDO_1_9_10))\n- SDK: Rust ([1.62.0](https://github.com/rust-lang/rust/releases/tag/1.62.0))"
   },
-  "current": {
+  "3305.0.1": {
     "channel": "alpha",
     "architectures": [
       "amd64",
       "arm64"
     ],
-    "release_date": "2022-07-21 15:28:28 +0000",
+    "release_date": "2022-08-04 12:09:27 +0000",
     "major_software": {
       "containerd": [
         "1.6.6"
@@ -2563,12 +2563,38 @@
         "2.14.0"
       ],
       "kernel": [
-        "5.15.54"
+        "5.15.58"
       ],
       "systemd": [
         "250"
       ]
     },
-    "release_notes": "New **Alpha** Release **3305.0.0**\n\n_Changes since **Alpha 3277.0.0**_\n\n#### Security fixes:\n\n- Linux ([CVE-2021-33655](https://nvd.nist.gov/vuln/detail/CVE-2021-33655), [CVE-2022-2318](https://nvd.nist.gov/vuln/detail/CVE-2022-2318), [CVE-2022-26365](https://nvd.nist.gov/vuln/detail/CVE-2022-26365), [CVE-2022-33740](https://nvd.nist.gov/vuln/detail/CVE-2022-33740), [CVE-2022-33741](https://nvd.nist.gov/vuln/detail/CVE-2022-33741), [CVE-2022-33742](https://nvd.nist.gov/vuln/detail/CVE-2022-33742), [CVE-2022-33743](https://nvd.nist.gov/vuln/detail/CVE-2022-33743), [CVE-2022-33744](https://nvd.nist.gov/vuln/detail/CVE-2022-33744), [CVE-2022-34918](https://nvd.nist.gov/vuln/detail/CVE-2022-34918))\n- cifs-utils ([CVE-2022-27239](https://nvd.nist.gov/vuln/detail/CVE-2022-27239), [CVE-2022-29869](https://nvd.nist.gov/vuln/detail/CVE-2022-29869))\n- curl ([CVE-2022-32205](https://nvd.nist.gov/vuln/detail/CVE-2022-32205), [CVE-2022-32206](https://nvd.nist.gov/vuln/detail/CVE-2022-32206), [CVE-2022-32207](https://nvd.nist.gov/vuln/detail/CVE-2022-32207), [CVE-2022-32208](https://nvd.nist.gov/vuln/detail/CVE-2022-32208))\n- gnupg ([CVE-2022-34903](https://nvd.nist.gov/vuln/detail/CVE-2022-34903))\n- Go ([CVE-2022-1705](https://nvd.nist.gov/vuln/detail/CVE-2022-1705), [CVE-2022-1962](https://nvd.nist.gov/vuln/detail/CVE-2022-1962), [CVE-2022-28131](https://nvd.nist.gov/vuln/detail/CVE-2022-28131), [CVE-2022-30630](https://nvd.nist.gov/vuln/detail/CVE-2022-30630), [CVE-2022-30631](https://nvd.nist.gov/vuln/detail/CVE-2022-30631), [CVE-2022-30632](https://nvd.nist.gov/vuln/detail/CVE-2022-30632), [CVE-2022-30633](https://nvd.nist.gov/vuln/detail/CVE-2022-30633), [CVE-2022-30635](https://nvd.nist.gov/vuln/detail/CVE-2022-30635), [CVE-2022-32148](https://nvd.nist.gov/vuln/detail/CVE-2022-32148))\n\n#### Bug fixes:\n\n- Removed outdated LTS channel information printed on login ([init#75](https://github.com/flatcar-linux/init/pull/75))\n- The Ignition v3 kargs directive failed before when used with the generic image where no `grub.cfg` exists, this was fixed by creating it first ([bootengine#47](https://github.com/flatcar-linux/bootengine/pull/47))\n\n#### Updates:\n\n- Linux ([5.15.54](https://lwn.net/Articles/900911) (includes [5.15.53](https://lwn.net/Articles/900321), [5.15.52](https://lwn.net/Articles/899788), [5.15.51](https://lwn.net/Articles/899370), [5.15.50](https://lwn.net/Articles/899091), [5.15.49](https://lwn.net/Articles/898622)))\n- Linux Firmware ([20220708](https://git.kernel.org/pub/scm/linux/kernel/git/firmware/linux-firmware.git/tag/?h=20220708))\n- adcli ([0.9.1](https://gitlab.freedesktop.org/realmd/adcli/-/releases#0.9.1))\n- ca-certificates ([3.80](https://firefox-source-docs.mozilla.org/security/nss/releases/nss_3_80.html))\n- cifs-utils ([6.15](https://lists.samba.org/archive/samba-technical/2022-April/137335.html))\n- curl ([7.84.0](https://github.com/curl/curl/releases/tag/curl-7_84_0))\n- gdb ([11.2](https://lists.gnu.org/archive/html/info-gnu/2022-01/msg00009.html))\n- gnupg ([2.2.35](https://dev.gnupg.org/T5928))\n- Go ([1.18.4](https://go.dev/doc/devel/release#go1.18.4))\n- sudo ([1.9.10](https://github.com/sudo-project/sudo/releases/tag/SUDO_1_9_10))\n- SDK: Rust ([1.62.0](https://github.com/rust-lang/rust/releases/tag/1.62.0))"
+    "release_notes": "New Alpha Release 3305.0.1\n\nChanges since Alpha 3305.0.0\n\n## Security fixes:\n\n- Linux ([CVE-2022-23816](https://nvd.nist.gov/vuln/detail/CVE-2022-23816), [CVE-2022-23825](https://nvd.nist.gov/vuln/detail/CVE-2022-23825), [CVE-2022-29900](https://nvd.nist.gov/vuln/detail/CVE-2022-29900), [CVE-2022-29901](https://nvd.nist.gov/vuln/detail/CVE-2022-29901))\n\n## Bug fixes:\n\n- Added support for Openstack for cloud-init activation ([flatcar-linux/init#76](https://github.com/flatcar-linux/init/pull/76))\n- Excluded Wireguard interface from `systemd-networkd` default management ([Flatcar#808](https://github.com/flatcar-linux/Flatcar/issues/808))\n- Fixed `/etc/resolv.conf` symlink by pointing it at `resolv.conf` instead of `stub-resolv.conf`. This bug was present since the update to systemd v250 ([coreos-overlay#2057](https://github.com/flatcar-linux/coreos-overlay/pull/2057))\n- Fixed excluded interface type from default systemd-networkd configuration ([flatcar-linux/init#78](https://github.com/flatcar-linux/init/pull/78))\n- Fixed space escaping in the `networkd` Ignition translation ([Flatcar#812](https://github.com/flatcar-linux/Flatcar/issues/812))\n\n## Changes:\n\n\n## Updates:\n\n- Linux ([5.15.58](https://lwn.net/Articles/902917) (includes [5.15.57](https://lwn.net/Articles/902317), [5.15.56](https://lwn.net/Articles/902101)))\n- ca-certificates ([3.81](https://firefox-source-docs.mozilla.org/security/nss/releases/nss_3_81.html))\n"
+  },
+  "current": {
+    "channel": "alpha",
+    "architectures": [
+      "amd64",
+      "arm64"
+    ],
+    "release_date": "2022-08-04 12:09:27 +0000",
+    "major_software": {
+      "containerd": [
+        "1.6.6"
+      ],
+      "docker": [
+        "20.10.17"
+      ],
+      "ignition": [
+        "2.14.0"
+      ],
+      "kernel": [
+        "5.15.58"
+      ],
+      "systemd": [
+        "250"
+      ]
+    },
+    "release_notes": "New Alpha Release 3305.0.1\n\nChanges since Alpha 3305.0.0\n\n## Security fixes:\n\n- Linux ([CVE-2022-23816](https://nvd.nist.gov/vuln/detail/CVE-2022-23816), [CVE-2022-23825](https://nvd.nist.gov/vuln/detail/CVE-2022-23825), [CVE-2022-29900](https://nvd.nist.gov/vuln/detail/CVE-2022-29900), [CVE-2022-29901](https://nvd.nist.gov/vuln/detail/CVE-2022-29901))\n\n## Bug fixes:\n\n- Added support for Openstack for cloud-init activation ([flatcar-linux/init#76](https://github.com/flatcar-linux/init/pull/76))\n- Excluded Wireguard interface from `systemd-networkd` default management ([Flatcar#808](https://github.com/flatcar-linux/Flatcar/issues/808))\n- Fixed `/etc/resolv.conf` symlink by pointing it at `resolv.conf` instead of `stub-resolv.conf`. This bug was present since the update to systemd v250 ([coreos-overlay#2057](https://github.com/flatcar-linux/coreos-overlay/pull/2057))\n- Fixed excluded interface type from default systemd-networkd configuration ([flatcar-linux/init#78](https://github.com/flatcar-linux/init/pull/78))\n- Fixed space escaping in the `networkd` Ignition translation ([Flatcar#812](https://github.com/flatcar-linux/Flatcar/issues/812))\n\n## Changes:\n\n\n## Updates:\n\n- Linux ([5.15.58](https://lwn.net/Articles/902917) (includes [5.15.57](https://lwn.net/Articles/902317), [5.15.56](https://lwn.net/Articles/902101)))\n- ca-certificates ([3.81](https://firefox-source-docs.mozilla.org/security/nss/releases/nss_3_81.html))\n"
   }
 }
