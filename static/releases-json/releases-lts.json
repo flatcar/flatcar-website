@@ -417,6 +417,28 @@
     },
     "release_notes": "New **LTS-2021** Release **2605.29.1**\n\nChanges since **LTS 2605.28.1**\n\n#### Security fixes:\n\n- Linux ([CVE-2022-1012](https://nvd.nist.gov/vuln/detail/CVE-2022-1012), [CVE-2022-32250](https://nvd.nist.gov/vuln/detail/CVE-2022-32250), [CVE-2022-21499](https://nvd.nist.gov/vuln/detail/CVE-2022-21499), [CVE-2022-32981](https://nvd.nist.gov/vuln/detail/CVE-2022-32981))\n\n#### Updates:\n\n- Linux ([5.4.199](https://lwn.net/Articles/898126) (includes [5.4.198](https://lwn.net/Articles/897902), [5.4.197](https://lwn.net/Articles/897169)))\n- ca-certificates ([3.79](https://firefox-source-docs.mozilla.org/security/nss/releases/nss_3_79.html))"
   },
+  "2605.30.1": {
+    "channel": "lts",
+    "architectures": [
+      "amd64"
+    ],
+    "release_date": "2022-08-04 12:03:25 +0000",
+    "major_software": {
+      "docker": [
+        "19.03.15"
+      ],
+      "ignition": [
+        "0.34.0"
+      ],
+      "kernel": [
+        "5.4.206"
+      ],
+      "systemd": [
+        "246"
+      ]
+    },
+    "release_notes": "New LTS-2021 Release 2605.30.1\n\nChanges since LTS-2021 2605.29.1\n\n## Security fixes:\n\n- Linux ([CVE-2021-33655](https://nvd.nist.gov/vuln/detail/CVE-2021-33655), [CVE-2021-33656](https://nvd.nist.gov/vuln/detail/CVE-2021-33656), [CVE-2022-2318](https://nvd.nist.gov/vuln/detail/CVE-2022-2318), [CVE-2022-26365](https://nvd.nist.gov/vuln/detail/CVE-2022-26365), [CVE-2022-32296](https://nvd.nist.gov/vuln/detail/CVE-2022-32296), [CVE-2022-33740](https://nvd.nist.gov/vuln/detail/CVE-2022-33740), [CVE-2022-33741](https://nvd.nist.gov/vuln/detail/CVE-2022-33741), [CVE-2022-33742](https://nvd.nist.gov/vuln/detail/CVE-2022-33742), [CVE-2022-33744](https://nvd.nist.gov/vuln/detail/CVE-2022-33744))\n\n## Bug fixes:\n\n- Removed outdated LTS channel information printed on login ([init#75](https://github.com/flatcar-linux/init/pull/75))\n\n## Changes:\n\n\n## Updates:\n\n- Linux ([5.4.206](https://lwn.net/Articles/901382) (includes [5.4.205](https://lwn.net/Articles/900908), [5.4.204](https://lwn.net/Articles/900323), [5.4.203](https://lwn.net/Articles/899790), [5.4.202](https://lwn.net/Articles/899372), [5.4.201](https://lwn.net/Articles/899089), [5.4.200](https://lwn.net/Articles/898624)))\n- ca-certificates ([3.80](https://firefox-source-docs.mozilla.org/security/nss/releases/nss_3_80.html))\n"
+  },
   "3033.3.0": {
     "channel": "lts",
     "architectures": [
@@ -509,12 +531,35 @@
     },
     "release_notes": "New **LTS-2022** Release **3033.3.3**\n\n_Changes since **LTS 3033.3.2**_\n\n#### Security fixes:\n\n- Linux ([CVE-2021-33655](https://nvd.nist.gov/vuln/detail/CVE-2021-33655), [CVE-2021-33656](https://nvd.nist.gov/vuln/detail/CVE-2021-33656), [CVE-2022-2318](https://nvd.nist.gov/vuln/detail/CVE-2022-2318), [CVE-2022-26365](https://nvd.nist.gov/vuln/detail/CVE-2022-26365), [CVE-2022-32296](https://nvd.nist.gov/vuln/detail/CVE-2022-32296), [CVE-2022-33740](https://nvd.nist.gov/vuln/detail/CVE-2022-33740), [CVE-2022-33741](https://nvd.nist.gov/vuln/detail/CVE-2022-33741), [CVE-2022-33742](https://nvd.nist.gov/vuln/detail/CVE-2022-33742), [CVE-2022-33743](https://nvd.nist.gov/vuln/detail/CVE-2022-33743), [CVE-2022-33744](https://nvd.nist.gov/vuln/detail/CVE-2022-33744), [CVE-2022-34918](https://nvd.nist.gov/vuln/detail/CVE-2022-34918))\n- containerd ([CVE-2022-31030](https://nvd.nist.gov/vuln/detail/CVE-2022-31030))\n\n#### Bug fixes:\n\n- Removed outdated LTS channel information printed on login ([init#75](https://github.com/flatcar-linux/init/pull/75))\n\n#### Changes:\n\n- Enabled `containerd.service` unit, `br_netfilter` and `overlay` modules by default to follow Kubernetes requirements ([coreos-overlay#1944](https://github.com/flatcar-linux/coreos-overlay/pull/1944), [init#72](https://github.com/flatcar-linux/init/pull/72))\n- DigitalOcean: In addition to the `bz2` image, a `gz` compressed image is published. This helps against hitting the compression timeout that sometimes lets the image import fail.\n- OpenStack: In addition to the `bz2` image, a `gz` compressed image is published. This allows Glance to directly consume the images by simply passing in the URL of the image.\n- SDK: The image compression format is now configurable. Supported formats are: `bz2`, `gz`, `zip`, `none`, `zst`. Selecting the image format can now be done by passing the `--image_compression_formats` option. This flag gets a comma separated list of formats.\n\n#### Updates:\n\n- Linux ([5.10.131](https://lwn.net/Articles/901381/) (includes [5.10.130](https://lwn.net/Articles/900910), [5.10.129](https://lwn.net/Articles/900322), [5.10.128](https://lwn.net/Articles/899789), [5.10.127](https://lwn.net/Articles/899371), [5.10.126](https://lwn.net/Articles/899121), [5.10.125](https://lwn.net/Articles/899090), [5.10.124](https://lwn.net/Articles/898623)))\n- ca-certificates ([3.80](https://firefox-source-docs.mozilla.org/security/nss/releases/nss_3_80.html))\n- containerd ([1.5.13](https://github.com/containerd/containerd/releases/tag/v1.5.13))"
   },
+  "3033.3.4": {
+    "channel": "lts",
+    "architectures": [
+      "amd64",
+      "arm64"
+    ],
+    "release_date": "2022-08-04 12:04:45 +0000",
+    "major_software": {
+      "docker": [
+        "20.10.12"
+      ],
+      "ignition": [
+        "0.36.1"
+      ],
+      "kernel": [
+        "5.10.134"
+      ],
+      "systemd": [
+        "249"
+      ]
+    },
+    "release_notes": "New LTS-2022 Release 3033.3.4\n\nChanges since LTS-2022 3033.3.3\n\n## Security fixes:\n\n- Linux ([CVE-2022-23816](https://nvd.nist.gov/vuln/detail/CVE-2022-23816), [CVE-2022-23825](https://nvd.nist.gov/vuln/detail/CVE-2022-23825), [CVE-2022-29900](https://nvd.nist.gov/vuln/detail/CVE-2022-29900), [CVE-2022-29901](https://nvd.nist.gov/vuln/detail/CVE-2022-29901))\n\n## Bug fixes:\n\n\n## Changes:\n\n\n## Updates:\n\n- Linux ([5.10.134](https://lwn.net/Articles/902918) (includes [5.10.133](https://lwn.net/Articles/902372), [5.10.132](https://lwn.net/Articles/902102)))\n- ca-certificates ([3.81](https://firefox-source-docs.mozilla.org/security/nss/releases/nss_3_81.html))\n"
+  },
   "current-2021": {
     "channel": "lts",
     "architectures": [
       "amd64"
     ],
-    "release_date": "2022-06-23 11:56:51 +0000",
+    "release_date": "2022-08-04 12:03:25 +0000",
     "major_software": {
       "docker": [
         "19.03.15"
@@ -523,13 +568,13 @@
         "0.34.0"
       ],
       "kernel": [
-        "5.4.199"
+        "5.4.206"
       ],
       "systemd": [
         "246"
       ]
     },
-    "release_notes": "New **LTS-2021** Release **2605.29.1**\n\nChanges since **LTS 2605.28.1**\n\n#### Security fixes:\n\n- Linux ([CVE-2022-1012](https://nvd.nist.gov/vuln/detail/CVE-2022-1012), [CVE-2022-32250](https://nvd.nist.gov/vuln/detail/CVE-2022-32250), [CVE-2022-21499](https://nvd.nist.gov/vuln/detail/CVE-2022-21499), [CVE-2022-32981](https://nvd.nist.gov/vuln/detail/CVE-2022-32981))\n\n#### Updates:\n\n- Linux ([5.4.199](https://lwn.net/Articles/898126) (includes [5.4.198](https://lwn.net/Articles/897902), [5.4.197](https://lwn.net/Articles/897169)))\n- ca-certificates ([3.79](https://firefox-source-docs.mozilla.org/security/nss/releases/nss_3_79.html))"
+    "release_notes": "New LTS-2021 Release 2605.30.1\n\nChanges since LTS-2021 2605.29.1\n\n## Security fixes:\n\n- Linux ([CVE-2021-33655](https://nvd.nist.gov/vuln/detail/CVE-2021-33655), [CVE-2021-33656](https://nvd.nist.gov/vuln/detail/CVE-2021-33656), [CVE-2022-2318](https://nvd.nist.gov/vuln/detail/CVE-2022-2318), [CVE-2022-26365](https://nvd.nist.gov/vuln/detail/CVE-2022-26365), [CVE-2022-32296](https://nvd.nist.gov/vuln/detail/CVE-2022-32296), [CVE-2022-33740](https://nvd.nist.gov/vuln/detail/CVE-2022-33740), [CVE-2022-33741](https://nvd.nist.gov/vuln/detail/CVE-2022-33741), [CVE-2022-33742](https://nvd.nist.gov/vuln/detail/CVE-2022-33742), [CVE-2022-33744](https://nvd.nist.gov/vuln/detail/CVE-2022-33744))\n\n## Bug fixes:\n\n- Removed outdated LTS channel information printed on login ([init#75](https://github.com/flatcar-linux/init/pull/75))\n\n## Changes:\n\n\n## Updates:\n\n- Linux ([5.4.206](https://lwn.net/Articles/901382) (includes [5.4.205](https://lwn.net/Articles/900908), [5.4.204](https://lwn.net/Articles/900323), [5.4.203](https://lwn.net/Articles/899790), [5.4.202](https://lwn.net/Articles/899372), [5.4.201](https://lwn.net/Articles/899089), [5.4.200](https://lwn.net/Articles/898624)))\n- ca-certificates ([3.80](https://firefox-source-docs.mozilla.org/security/nss/releases/nss_3_80.html))\n"
   },
   "current-2022": {
     "channel": "lts",
@@ -537,7 +582,7 @@
       "amd64",
       "arm64"
     ],
-    "release_date": "2022-07-21 15:46:59 +0000",
+    "release_date": "2022-08-04 12:04:45 +0000",
     "major_software": {
       "docker": [
         "20.10.12"
@@ -546,13 +591,13 @@
         "0.36.1"
       ],
       "kernel": [
-        "5.10.131"
+        "5.10.134"
       ],
       "systemd": [
         "249"
       ]
     },
-    "release_notes": "New **LTS-2022** Release **3033.3.3**\n\n_Changes since **LTS 3033.3.2**_\n\n#### Security fixes:\n\n- Linux ([CVE-2021-33655](https://nvd.nist.gov/vuln/detail/CVE-2021-33655), [CVE-2021-33656](https://nvd.nist.gov/vuln/detail/CVE-2021-33656), [CVE-2022-2318](https://nvd.nist.gov/vuln/detail/CVE-2022-2318), [CVE-2022-26365](https://nvd.nist.gov/vuln/detail/CVE-2022-26365), [CVE-2022-32296](https://nvd.nist.gov/vuln/detail/CVE-2022-32296), [CVE-2022-33740](https://nvd.nist.gov/vuln/detail/CVE-2022-33740), [CVE-2022-33741](https://nvd.nist.gov/vuln/detail/CVE-2022-33741), [CVE-2022-33742](https://nvd.nist.gov/vuln/detail/CVE-2022-33742), [CVE-2022-33743](https://nvd.nist.gov/vuln/detail/CVE-2022-33743), [CVE-2022-33744](https://nvd.nist.gov/vuln/detail/CVE-2022-33744), [CVE-2022-34918](https://nvd.nist.gov/vuln/detail/CVE-2022-34918))\n- containerd ([CVE-2022-31030](https://nvd.nist.gov/vuln/detail/CVE-2022-31030))\n\n#### Bug fixes:\n\n- Removed outdated LTS channel information printed on login ([init#75](https://github.com/flatcar-linux/init/pull/75))\n\n#### Changes:\n\n- Enabled `containerd.service` unit, `br_netfilter` and `overlay` modules by default to follow Kubernetes requirements ([coreos-overlay#1944](https://github.com/flatcar-linux/coreos-overlay/pull/1944), [init#72](https://github.com/flatcar-linux/init/pull/72))\n- DigitalOcean: In addition to the `bz2` image, a `gz` compressed image is published. This helps against hitting the compression timeout that sometimes lets the image import fail.\n- OpenStack: In addition to the `bz2` image, a `gz` compressed image is published. This allows Glance to directly consume the images by simply passing in the URL of the image.\n- SDK: The image compression format is now configurable. Supported formats are: `bz2`, `gz`, `zip`, `none`, `zst`. Selecting the image format can now be done by passing the `--image_compression_formats` option. This flag gets a comma separated list of formats.\n\n#### Updates:\n\n- Linux ([5.10.131](https://lwn.net/Articles/901381/) (includes [5.10.130](https://lwn.net/Articles/900910), [5.10.129](https://lwn.net/Articles/900322), [5.10.128](https://lwn.net/Articles/899789), [5.10.127](https://lwn.net/Articles/899371), [5.10.126](https://lwn.net/Articles/899121), [5.10.125](https://lwn.net/Articles/899090), [5.10.124](https://lwn.net/Articles/898623)))\n- ca-certificates ([3.80](https://firefox-source-docs.mozilla.org/security/nss/releases/nss_3_80.html))\n- containerd ([1.5.13](https://github.com/containerd/containerd/releases/tag/v1.5.13))"
+    "release_notes": "New LTS-2022 Release 3033.3.4\n\nChanges since LTS-2022 3033.3.3\n\n## Security fixes:\n\n- Linux ([CVE-2022-23816](https://nvd.nist.gov/vuln/detail/CVE-2022-23816), [CVE-2022-23825](https://nvd.nist.gov/vuln/detail/CVE-2022-23825), [CVE-2022-29900](https://nvd.nist.gov/vuln/detail/CVE-2022-29900), [CVE-2022-29901](https://nvd.nist.gov/vuln/detail/CVE-2022-29901))\n\n## Bug fixes:\n\n\n## Changes:\n\n\n## Updates:\n\n- Linux ([5.10.134](https://lwn.net/Articles/902918) (includes [5.10.133](https://lwn.net/Articles/902372), [5.10.132](https://lwn.net/Articles/902102)))\n- ca-certificates ([3.81](https://firefox-source-docs.mozilla.org/security/nss/releases/nss_3_81.html))\n"
   },
   "current": {
     "channel": "lts",
@@ -560,7 +605,7 @@
       "amd64",
       "arm64"
     ],
-    "release_date": "2022-07-21 15:46:59 +0000",
+    "release_date": "2022-08-04 12:04:45 +0000",
     "major_software": {
       "docker": [
         "20.10.12"
@@ -569,12 +614,12 @@
         "0.36.1"
       ],
       "kernel": [
-        "5.10.131"
+        "5.10.134"
       ],
       "systemd": [
         "249"
       ]
     },
-    "release_notes": "New **LTS-2022** Release **3033.3.3**\n\n_Changes since **LTS 3033.3.2**_\n\n#### Security fixes:\n\n- Linux ([CVE-2021-33655](https://nvd.nist.gov/vuln/detail/CVE-2021-33655), [CVE-2021-33656](https://nvd.nist.gov/vuln/detail/CVE-2021-33656), [CVE-2022-2318](https://nvd.nist.gov/vuln/detail/CVE-2022-2318), [CVE-2022-26365](https://nvd.nist.gov/vuln/detail/CVE-2022-26365), [CVE-2022-32296](https://nvd.nist.gov/vuln/detail/CVE-2022-32296), [CVE-2022-33740](https://nvd.nist.gov/vuln/detail/CVE-2022-33740), [CVE-2022-33741](https://nvd.nist.gov/vuln/detail/CVE-2022-33741), [CVE-2022-33742](https://nvd.nist.gov/vuln/detail/CVE-2022-33742), [CVE-2022-33743](https://nvd.nist.gov/vuln/detail/CVE-2022-33743), [CVE-2022-33744](https://nvd.nist.gov/vuln/detail/CVE-2022-33744), [CVE-2022-34918](https://nvd.nist.gov/vuln/detail/CVE-2022-34918))\n- containerd ([CVE-2022-31030](https://nvd.nist.gov/vuln/detail/CVE-2022-31030))\n\n#### Bug fixes:\n\n- Removed outdated LTS channel information printed on login ([init#75](https://github.com/flatcar-linux/init/pull/75))\n\n#### Changes:\n\n- Enabled `containerd.service` unit, `br_netfilter` and `overlay` modules by default to follow Kubernetes requirements ([coreos-overlay#1944](https://github.com/flatcar-linux/coreos-overlay/pull/1944), [init#72](https://github.com/flatcar-linux/init/pull/72))\n- DigitalOcean: In addition to the `bz2` image, a `gz` compressed image is published. This helps against hitting the compression timeout that sometimes lets the image import fail.\n- OpenStack: In addition to the `bz2` image, a `gz` compressed image is published. This allows Glance to directly consume the images by simply passing in the URL of the image.\n- SDK: The image compression format is now configurable. Supported formats are: `bz2`, `gz`, `zip`, `none`, `zst`. Selecting the image format can now be done by passing the `--image_compression_formats` option. This flag gets a comma separated list of formats.\n\n#### Updates:\n\n- Linux ([5.10.131](https://lwn.net/Articles/901381/) (includes [5.10.130](https://lwn.net/Articles/900910), [5.10.129](https://lwn.net/Articles/900322), [5.10.128](https://lwn.net/Articles/899789), [5.10.127](https://lwn.net/Articles/899371), [5.10.126](https://lwn.net/Articles/899121), [5.10.125](https://lwn.net/Articles/899090), [5.10.124](https://lwn.net/Articles/898623)))\n- ca-certificates ([3.80](https://firefox-source-docs.mozilla.org/security/nss/releases/nss_3_80.html))\n- containerd ([1.5.13](https://github.com/containerd/containerd/releases/tag/v1.5.13))"
+    "release_notes": "New LTS-2022 Release 3033.3.4\n\nChanges since LTS-2022 3033.3.3\n\n## Security fixes:\n\n- Linux ([CVE-2022-23816](https://nvd.nist.gov/vuln/detail/CVE-2022-23816), [CVE-2022-23825](https://nvd.nist.gov/vuln/detail/CVE-2022-23825), [CVE-2022-29900](https://nvd.nist.gov/vuln/detail/CVE-2022-29900), [CVE-2022-29901](https://nvd.nist.gov/vuln/detail/CVE-2022-29901))\n\n## Bug fixes:\n\n\n## Changes:\n\n\n## Updates:\n\n- Linux ([5.10.134](https://lwn.net/Articles/902918) (includes [5.10.133](https://lwn.net/Articles/902372), [5.10.132](https://lwn.net/Articles/902102)))\n- ca-certificates ([3.81](https://firefox-source-docs.mozilla.org/security/nss/releases/nss_3_81.html))\n"
   }
 }

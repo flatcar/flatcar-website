@@ -395,12 +395,12 @@
     },
     "release_notes": "New **LTS-2021** Release **2605.29.1**\n\nChanges since **LTS 2605.28.1**\n\n#### Security fixes:\n\n- Linux ([CVE-2022-1012](https://nvd.nist.gov/vuln/detail/CVE-2022-1012), [CVE-2022-32250](https://nvd.nist.gov/vuln/detail/CVE-2022-32250), [CVE-2022-21499](https://nvd.nist.gov/vuln/detail/CVE-2022-21499), [CVE-2022-32981](https://nvd.nist.gov/vuln/detail/CVE-2022-32981))\n\n#### Updates:\n\n- Linux ([5.4.199](https://lwn.net/Articles/898126) (includes [5.4.198](https://lwn.net/Articles/897902), [5.4.197](https://lwn.net/Articles/897169)))\n- ca-certificates ([3.79](https://firefox-source-docs.mozilla.org/security/nss/releases/nss_3_79.html))"
   },
-  "current-2021": {
+  "2605.30.1": {
     "channel": "lts",
     "architectures": [
       "amd64"
     ],
-    "release_date": "2022-06-23 11:56:51 +0000",
+    "release_date": "2022-08-04 12:03:25 +0000",
     "major_software": {
       "docker": [
         "19.03.15"
@@ -409,20 +409,42 @@
         "0.34.0"
       ],
       "kernel": [
-        "5.4.199"
+        "5.4.206"
       ],
       "systemd": [
         "246"
       ]
     },
-    "release_notes": "New **LTS-2021** Release **2605.29.1**\n\nChanges since **LTS 2605.28.1**\n\n#### Security fixes:\n\n- Linux ([CVE-2022-1012](https://nvd.nist.gov/vuln/detail/CVE-2022-1012), [CVE-2022-32250](https://nvd.nist.gov/vuln/detail/CVE-2022-32250), [CVE-2022-21499](https://nvd.nist.gov/vuln/detail/CVE-2022-21499), [CVE-2022-32981](https://nvd.nist.gov/vuln/detail/CVE-2022-32981))\n\n#### Updates:\n\n- Linux ([5.4.199](https://lwn.net/Articles/898126) (includes [5.4.198](https://lwn.net/Articles/897902), [5.4.197](https://lwn.net/Articles/897169)))\n- ca-certificates ([3.79](https://firefox-source-docs.mozilla.org/security/nss/releases/nss_3_79.html))"
+    "release_notes": "New LTS-2021 Release 2605.30.1\n\nChanges since LTS-2021 2605.29.1\n\n## Security fixes:\n\n- Linux ([CVE-2021-33655](https://nvd.nist.gov/vuln/detail/CVE-2021-33655), [CVE-2021-33656](https://nvd.nist.gov/vuln/detail/CVE-2021-33656), [CVE-2022-2318](https://nvd.nist.gov/vuln/detail/CVE-2022-2318), [CVE-2022-26365](https://nvd.nist.gov/vuln/detail/CVE-2022-26365), [CVE-2022-32296](https://nvd.nist.gov/vuln/detail/CVE-2022-32296), [CVE-2022-33740](https://nvd.nist.gov/vuln/detail/CVE-2022-33740), [CVE-2022-33741](https://nvd.nist.gov/vuln/detail/CVE-2022-33741), [CVE-2022-33742](https://nvd.nist.gov/vuln/detail/CVE-2022-33742), [CVE-2022-33744](https://nvd.nist.gov/vuln/detail/CVE-2022-33744))\n\n## Bug fixes:\n\n- Removed outdated LTS channel information printed on login ([init#75](https://github.com/flatcar-linux/init/pull/75))\n\n## Changes:\n\n\n## Updates:\n\n- Linux ([5.4.206](https://lwn.net/Articles/901382) (includes [5.4.205](https://lwn.net/Articles/900908), [5.4.204](https://lwn.net/Articles/900323), [5.4.203](https://lwn.net/Articles/899790), [5.4.202](https://lwn.net/Articles/899372), [5.4.201](https://lwn.net/Articles/899089), [5.4.200](https://lwn.net/Articles/898624)))\n- ca-certificates ([3.80](https://firefox-source-docs.mozilla.org/security/nss/releases/nss_3_80.html))\n"
+  },
+  "current-2021": {
+    "channel": "lts",
+    "architectures": [
+      "amd64"
+    ],
+    "release_date": "2022-08-04 12:03:25 +0000",
+    "major_software": {
+      "docker": [
+        "19.03.15"
+      ],
+      "ignition": [
+        "0.34.0"
+      ],
+      "kernel": [
+        "5.4.206"
+      ],
+      "systemd": [
+        "246"
+      ]
+    },
+    "release_notes": "New LTS-2021 Release 2605.30.1\n\nChanges since LTS-2021 2605.29.1\n\n## Security fixes:\n\n- Linux ([CVE-2021-33655](https://nvd.nist.gov/vuln/detail/CVE-2021-33655), [CVE-2021-33656](https://nvd.nist.gov/vuln/detail/CVE-2021-33656), [CVE-2022-2318](https://nvd.nist.gov/vuln/detail/CVE-2022-2318), [CVE-2022-26365](https://nvd.nist.gov/vuln/detail/CVE-2022-26365), [CVE-2022-32296](https://nvd.nist.gov/vuln/detail/CVE-2022-32296), [CVE-2022-33740](https://nvd.nist.gov/vuln/detail/CVE-2022-33740), [CVE-2022-33741](https://nvd.nist.gov/vuln/detail/CVE-2022-33741), [CVE-2022-33742](https://nvd.nist.gov/vuln/detail/CVE-2022-33742), [CVE-2022-33744](https://nvd.nist.gov/vuln/detail/CVE-2022-33744))\n\n## Bug fixes:\n\n- Removed outdated LTS channel information printed on login ([init#75](https://github.com/flatcar-linux/init/pull/75))\n\n## Changes:\n\n\n## Updates:\n\n- Linux ([5.4.206](https://lwn.net/Articles/901382) (includes [5.4.205](https://lwn.net/Articles/900908), [5.4.204](https://lwn.net/Articles/900323), [5.4.203](https://lwn.net/Articles/899790), [5.4.202](https://lwn.net/Articles/899372), [5.4.201](https://lwn.net/Articles/899089), [5.4.200](https://lwn.net/Articles/898624)))\n- ca-certificates ([3.80](https://firefox-source-docs.mozilla.org/security/nss/releases/nss_3_80.html))\n"
   },
   "current": {
     "channel": "lts",
     "architectures": [
       "amd64"
     ],
-    "release_date": "2022-06-23 11:56:51 +0000",
+    "release_date": "2022-08-04 12:03:25 +0000",
     "major_software": {
       "docker": [
         "19.03.15"
@@ -431,12 +453,12 @@
         "0.34.0"
       ],
       "kernel": [
-        "5.4.199"
+        "5.4.206"
       ],
       "systemd": [
         "246"
       ]
     },
-    "release_notes": "New **LTS-2021** Release **2605.29.1**\n\nChanges since **LTS 2605.28.1**\n\n#### Security fixes:\n\n- Linux ([CVE-2022-1012](https://nvd.nist.gov/vuln/detail/CVE-2022-1012), [CVE-2022-32250](https://nvd.nist.gov/vuln/detail/CVE-2022-32250), [CVE-2022-21499](https://nvd.nist.gov/vuln/detail/CVE-2022-21499), [CVE-2022-32981](https://nvd.nist.gov/vuln/detail/CVE-2022-32981))\n\n#### Updates:\n\n- Linux ([5.4.199](https://lwn.net/Articles/898126) (includes [5.4.198](https://lwn.net/Articles/897902), [5.4.197](https://lwn.net/Articles/897169)))\n- ca-certificates ([3.79](https://firefox-source-docs.mozilla.org/security/nss/releases/nss_3_79.html))"
+    "release_notes": "New LTS-2021 Release 2605.30.1\n\nChanges since LTS-2021 2605.29.1\n\n## Security fixes:\n\n- Linux ([CVE-2021-33655](https://nvd.nist.gov/vuln/detail/CVE-2021-33655), [CVE-2021-33656](https://nvd.nist.gov/vuln/detail/CVE-2021-33656), [CVE-2022-2318](https://nvd.nist.gov/vuln/detail/CVE-2022-2318), [CVE-2022-26365](https://nvd.nist.gov/vuln/detail/CVE-2022-26365), [CVE-2022-32296](https://nvd.nist.gov/vuln/detail/CVE-2022-32296), [CVE-2022-33740](https://nvd.nist.gov/vuln/detail/CVE-2022-33740), [CVE-2022-33741](https://nvd.nist.gov/vuln/detail/CVE-2022-33741), [CVE-2022-33742](https://nvd.nist.gov/vuln/detail/CVE-2022-33742), [CVE-2022-33744](https://nvd.nist.gov/vuln/detail/CVE-2022-33744))\n\n## Bug fixes:\n\n- Removed outdated LTS channel information printed on login ([init#75](https://github.com/flatcar-linux/init/pull/75))\n\n## Changes:\n\n\n## Updates:\n\n- Linux ([5.4.206](https://lwn.net/Articles/901382) (includes [5.4.205](https://lwn.net/Articles/900908), [5.4.204](https://lwn.net/Articles/900323), [5.4.203](https://lwn.net/Articles/899790), [5.4.202](https://lwn.net/Articles/899372), [5.4.201](https://lwn.net/Articles/899089), [5.4.200](https://lwn.net/Articles/898624)))\n- ca-certificates ([3.80](https://firefox-source-docs.mozilla.org/security/nss/releases/nss_3_80.html))\n"
   }
 }
