@@ -2275,13 +2275,13 @@
     },
     "release_notes": "New Beta Release 3277.1.1\n\nChanges since Beta 3277.1.0\n\n## Security fixes:\n\n- Linux ([CVE-2022-23816](https://nvd.nist.gov/vuln/detail/CVE-2022-23816), [CVE-2022-23825](https://nvd.nist.gov/vuln/detail/CVE-2022-23825), [CVE-2022-29900](https://nvd.nist.gov/vuln/detail/CVE-2022-29900), [CVE-2022-29901](https://nvd.nist.gov/vuln/detail/CVE-2022-29901))\n\n## Bug fixes:\n\n- Added support for Openstack for cloud-init activation ([flatcar-linux/init#76](https://github.com/flatcar-linux/init/pull/76))\n- Excluded Wireguard interface from `systemd-networkd` default management ([Flatcar#808](https://github.com/flatcar-linux/Flatcar/issues/808))\n- Fixed `/etc/resolv.conf` symlink by pointing it at `resolv.conf` instead of `stub-resolv.conf`. This bug was present since the update to systemd v250 ([coreos-overlay#2057](https://github.com/flatcar-linux/coreos-overlay/pull/2057))\n- Fixed excluded interface type from default systemd-networkd configuration ([flatcar-linux/init#78](https://github.com/flatcar-linux/init/pull/78))\n- Fixed space escaping in the `networkd` Ignition translation ([Flatcar#812](https://github.com/flatcar-linux/Flatcar/issues/812))\n\n## Changes:\n\n\n## Updates:\n\n- Linux ([5.15.58](https://lwn.net/Articles/902917) (includes [5.15.57](https://lwn.net/Articles/902317), [5.15.56](https://lwn.net/Articles/902101)))\n- ca-certificates ([3.81](https://firefox-source-docs.mozilla.org/security/nss/releases/nss_3_81.html))\n"
   },
-  "current": {
+  "3277.1.2": {
     "channel": "beta",
     "architectures": [
       "amd64",
       "arm64"
     ],
-    "release_date": "2022-08-04 12:08:33 +0000",
+    "release_date": "2022-09-01 13:01:56 +0000",
     "major_software": {
       "containerd": [
         "1.6.6"
@@ -2293,12 +2293,38 @@
         "2.14.0"
       ],
       "kernel": [
-        "5.15.58"
+        "5.15.63"
       ],
       "systemd": [
         "250"
       ]
     },
-    "release_notes": "New Beta Release 3277.1.1\n\nChanges since Beta 3277.1.0\n\n## Security fixes:\n\n- Linux ([CVE-2022-23816](https://nvd.nist.gov/vuln/detail/CVE-2022-23816), [CVE-2022-23825](https://nvd.nist.gov/vuln/detail/CVE-2022-23825), [CVE-2022-29900](https://nvd.nist.gov/vuln/detail/CVE-2022-29900), [CVE-2022-29901](https://nvd.nist.gov/vuln/detail/CVE-2022-29901))\n\n## Bug fixes:\n\n- Added support for Openstack for cloud-init activation ([flatcar-linux/init#76](https://github.com/flatcar-linux/init/pull/76))\n- Excluded Wireguard interface from `systemd-networkd` default management ([Flatcar#808](https://github.com/flatcar-linux/Flatcar/issues/808))\n- Fixed `/etc/resolv.conf` symlink by pointing it at `resolv.conf` instead of `stub-resolv.conf`. This bug was present since the update to systemd v250 ([coreos-overlay#2057](https://github.com/flatcar-linux/coreos-overlay/pull/2057))\n- Fixed excluded interface type from default systemd-networkd configuration ([flatcar-linux/init#78](https://github.com/flatcar-linux/init/pull/78))\n- Fixed space escaping in the `networkd` Ignition translation ([Flatcar#812](https://github.com/flatcar-linux/Flatcar/issues/812))\n\n## Changes:\n\n\n## Updates:\n\n- Linux ([5.15.58](https://lwn.net/Articles/902917) (includes [5.15.57](https://lwn.net/Articles/902317), [5.15.56](https://lwn.net/Articles/902101)))\n- ca-certificates ([3.81](https://firefox-source-docs.mozilla.org/security/nss/releases/nss_3_81.html))\n"
+    "release_notes": "_Changes since **Beta 3277.1.1**_\n\n#### Security fixes:\n\n- Linux ([CVE-2022-1679](https://nvd.nist.gov/vuln/detail/CVE-2022-1679), [CVE-2022-2585](https://nvd.nist.gov/vuln/detail/CVE-2022-2585), [CVE-2022-2586](https://nvd.nist.gov/vuln/detail/CVE-2022-2586), [CVE-2022-2588](https://nvd.nist.gov/vuln/detail/CVE-2022-2588), [CVE-2022-26373](https://nvd.nist.gov/vuln/detail/CVE-2022-26373), [CVE-2022-36946](https://nvd.nist.gov/vuln/detail/CVE-2022-36946))\n\n#### Bug fixes:\n\n- AWS: added EKS support for version 1.22 and 1.23. ([coreos-overlay#2110](https://github.com/flatcar-linux/coreos-overlay/pull/2110), [Flatcar#829](https://github.com/flatcar-linux/Flatcar/issues/829))\n- VMWare: excluded `wireguard` (and others) from `systemd-networkd` management. ([init#80](https://github.com/flatcar-linux/init/pull/80))\n\n#### Changes:\n\n- The new image signing subkey was added to the public key embedded into `flatcar-install` (the old expired on 10th August 2022), only an updated `flatcar-install` script can verify releases signed with the new key ([init#79](https://github.com/flatcar-linux/init/pull/79))\n- AWS: Added AWS IMDSv2 support to coreos-cloudinit ([flatcar-linux/coreos-cloudinit#13](https://github.com/flatcar-linux/coreos-cloudinit/pull/13))\n\n#### Updates:\n\n- Linux ([5.15.63](https://lwn.net/Articles/906061) (includes [5.15.62](https://lwn.net/Articles/905533), [5.15.61](https://lwn.net/Articles/904959), [5.15.60](https://lwn.net/Articles/904461), [5.15.59](https://lwn.net/Articles/903688))\n- ca-certificates ([3.82](https://firefox-source-docs.mozilla.org/security/nss/releases/nss_3_82.html))\n"
+  },
+  "current": {
+    "channel": "beta",
+    "architectures": [
+      "amd64",
+      "arm64"
+    ],
+    "release_date": "2022-09-01 13:01:56 +0000",
+    "major_software": {
+      "containerd": [
+        "1.6.6"
+      ],
+      "docker": [
+        "20.10.17"
+      ],
+      "ignition": [
+        "2.14.0"
+      ],
+      "kernel": [
+        "5.15.63"
+      ],
+      "systemd": [
+        "250"
+      ]
+    },
+    "release_notes": "_Changes since **Beta 3277.1.1**_\n\n#### Security fixes:\n\n- Linux ([CVE-2022-1679](https://nvd.nist.gov/vuln/detail/CVE-2022-1679), [CVE-2022-2585](https://nvd.nist.gov/vuln/detail/CVE-2022-2585), [CVE-2022-2586](https://nvd.nist.gov/vuln/detail/CVE-2022-2586), [CVE-2022-2588](https://nvd.nist.gov/vuln/detail/CVE-2022-2588), [CVE-2022-26373](https://nvd.nist.gov/vuln/detail/CVE-2022-26373), [CVE-2022-36946](https://nvd.nist.gov/vuln/detail/CVE-2022-36946))\n\n#### Bug fixes:\n\n- AWS: added EKS support for version 1.22 and 1.23. ([coreos-overlay#2110](https://github.com/flatcar-linux/coreos-overlay/pull/2110), [Flatcar#829](https://github.com/flatcar-linux/Flatcar/issues/829))\n- VMWare: excluded `wireguard` (and others) from `systemd-networkd` management. ([init#80](https://github.com/flatcar-linux/init/pull/80))\n\n#### Changes:\n\n- The new image signing subkey was added to the public key embedded into `flatcar-install` (the old expired on 10th August 2022), only an updated `flatcar-install` script can verify releases signed with the new key ([init#79](https://github.com/flatcar-linux/init/pull/79))\n- AWS: Added AWS IMDSv2 support to coreos-cloudinit ([flatcar-linux/coreos-cloudinit#13](https://github.com/flatcar-linux/coreos-cloudinit/pull/13))\n\n#### Updates:\n\n- Linux ([5.15.63](https://lwn.net/Articles/906061) (includes [5.15.62](https://lwn.net/Articles/905533), [5.15.61](https://lwn.net/Articles/904959), [5.15.60](https://lwn.net/Articles/904461), [5.15.59](https://lwn.net/Articles/903688))\n- ca-certificates ([3.82](https://firefox-source-docs.mozilla.org/security/nss/releases/nss_3_82.html))\n"
   }
 }
