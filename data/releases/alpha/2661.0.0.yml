@@ -29,21 +29,21 @@ github_release:
     \n\r\nBug fixes:\r\n- Ensured that the `/etc/coreos` to `/etc/flatcar` symlink\
     \ always exists, relevant for the Container Linux Config transpiler (ct) when\
     \ specifying directives for `update:` or `locksmith:` while also reformatting\
-    \ the rootfs ([baselayout PR#7](https://github.com/flatcar-linux/baselayout/pull/7))\r\
+    \ the rootfs ([baselayout PR#7](https://github.com/flatcar/baselayout/pull/7))\r\
     \n- Azure: Exclude bonded SR-IOV network interfaces with newer drivers from networkd\
     \ (in addition to the old drivers) to prevent them being configured instead of\
-    \ just the bond interface ([init PR#29](https://github.com/flatcar-linux/init/pull/29),\
-    \ [bootengine PR#19](https://github.com/flatcar-linux/bootengine/pull/19))\r\n\
-    \r\nChanges:\r\n- Compress kernel modules with xz ([overlay PR#628](https://github.com/flatcar-linux/coreos-overlay/pull/628))\r\
+    \ just the bond interface ([init PR#29](https://github.com/flatcar/init/pull/29),\
+    \ [bootengine PR#19](https://github.com/flatcar/bootengine/pull/19))\r\n\
+    \r\nChanges:\r\n- Compress kernel modules with xz ([overlay PR#628](https://github.com/flatcar/coreos-overlay/pull/628))\r\
     \n- Add containerd-runc-shim-v* binaries required by kubelet custom CRI endpoints\
-    \ ([overlay PR#623](https://github.com/flatcar-linux/coreos-overlay/pull/623))\r\
-    \n- AWS arm64: Enable elastic network adapter module ([overlay PR#631](https://github.com/flatcar-linux/coreos-overlay/pull/631))\r\
+    \ ([overlay PR#623](https://github.com/flatcar/coreos-overlay/pull/623))\r\
+    \n- AWS arm64: Enable elastic network adapter module ([overlay PR#631](https://github.com/flatcar/coreos-overlay/pull/631))\r\
     \n- Equinix Metal (Packet): Exclude unused network interfaces from networkd, disregard\
     \ the state of the bonded interfaces for the `network-online.target` and only\
     \ require the bond interface itself to have at least one active link instead of\
-    \ `routable` which requires both links to be active ([afterburn PR#10](https://github.com/flatcar-linux/afterburn/pull/10))\r\
+    \ `routable` which requires both links to be active ([afterburn PR#10](https://github.com/flatcar/afterburn/pull/10))\r\
     \n- QEMU: Use flatcar.autologin kernel command line parameter for auto login on\
-    \ the console ([Flatcar #71](https://github.com/flatcar-linux/Flatcar/issues/71))\r\
+    \ the console ([Flatcar #71](https://github.com/flatcar/Flatcar/issues/71))\r\
     \n\r\nUpdates:\r\n- Linux [5.8.14](https://lwn.net/Articles/833689/)\r\n- systemd\
     \ [246](https://lwn.net/Articles/827675/)\r\n- tini [0.18](https://github.com/krallin/tini/releases/tag/v0.18.0)\r\
     \n- libseccomp [2.5.0](https://github.com/seccomp/libseccomp/releases/tag/v2.5.0)\r\
@@ -51,7 +51,7 @@ github_release:
     \n- dracut [050](https://github.com/dracutdevs/dracut/releases/tag/050)"
   created_at: '2020-10-13T15:15:28Z'
   draft: false
-  html_url: https://github.com/flatcar-linux/manifest/releases/tag/v2661.0.0
+  html_url: https://github.com/flatcar/manifest/releases/tag/v2661.0.0
   id: 32658559
   name: v2661.0.0
   node_id: MDc6UmVsZWFzZTMyNjU4NTU5

@@ -38,18 +38,18 @@ github_release:
     \ ([CVE-2021-3995](https://nvd.nist.gov/vuln/detail/CVE-2021-3995), [CVE-2021-3996](https://nvd.nist.gov/vuln/detail/CVE-2021-3996),\
     \ [CVE-2022-0563](https://nvd.nist.gov/vuln/detail/CVE-2022-0563))\r\n- zlib ([CVE-2018-25032](https://nvd.nist.gov/vuln/detail/CVE-2018-25032))\r\
     \n\r\n#### Bug fixes:\r\n\r\n- Ensured `/etc/flatcar/update.conf` exists because\
-    \ it happens to be used as flag file for Ansible ([init#71](https://github.com/flatcar-linux/init/pull/71))\r\
+    \ it happens to be used as flag file for Ansible ([init#71](https://github.com/flatcar/init/pull/71))\r\
     \n- Fixed Ignition's OEM ID to be `metal` to follow the Ignition upstream change\
     \ which otherwise resulted in a broken boot when the Flatcar OEM ID `pxe` was\
-    \ used ([bootengine#45](https://github.com/flatcar-linux/bootengine/pull/45))\r\
+    \ used ([bootengine#45](https://github.com/flatcar/bootengine/pull/45))\r\
     \n- Added `networkd` translation to `files` section when converting from Ignition\
-    \ 2.x to Ignition 3.x ([coreos-overlay#1910](https://github.com/flatcar-linux/coreos-overlay/pull/1910),\
-    \ [flatcar#741](https://github.com/flatcar-linux/Flatcar/issues/741))\r\n- GCP:\
-    \ Fixed shutdown script execution ([coreos-overlay#1912](https://github.com/flatcar-linux/coreos-overlay/pull/1912),\
-    \ [flatcar#743](https://github.com/flatcar-linux/Flatcar/issues/743))\r\n\r\n\
+    \ 2.x to Ignition 3.x ([coreos-overlay#1910](https://github.com/flatcar/coreos-overlay/pull/1910),\
+    \ [flatcar#741](https://github.com/flatcar/Flatcar/issues/741))\r\n- GCP:\
+    \ Fixed shutdown script execution ([coreos-overlay#1912](https://github.com/flatcar/coreos-overlay/pull/1912),\
+    \ [flatcar#743](https://github.com/flatcar/Flatcar/issues/743))\r\n\r\n\
     #### Changes:\r\n\r\n- Enabled `CONFIG_INTEL_RAPL` on AMD64 Kernel config to compile\
     \ `intel_rapl_common` module in order to allow power monitoring on modern Intel\
-    \ processors ([flatcar#coreos-overlay#1801](https://github.com/flatcar-linux/coreos-overlay/pull/1801))\r\
+    \ processors ([flatcar#coreos-overlay#1801](https://github.com/flatcar/coreos-overlay/pull/1801))\r\
     \n\r\n#### Updates:\r\n\r\n- Linux ([5.15.43](https://lwn.net/Articles/896231/)\
     \ (includes [5.15.42](https://lwn.net/Articles/896226), [5.15.41](https://lwn.net/Articles/895645),\
     \ [5.15.40](https://lwn.net/Articles/895318), [5.15.39](https://lwn.net/Articles/895070),\
@@ -94,15 +94,15 @@ github_release:
     \ [CVE-2022-28183](https://nvd.nist.gov/vuln/detail/CVE-2022-28183), [CVE-2022-28184](https://nvd.nist.gov/vuln/detail/CVE-2022-28184),\
     \ [CVE-2022-28185](https://nvd.nist.gov/vuln/detail/CVE-2022-28185))\r\n\r\n####\
     \ Bug fixes:\r\n\r\n- Ensured `/etc/flatcar/update.conf` exists because it happens\
-    \ to be used as flag file for Ansible ([init#71](https://github.com/flatcar-linux/init/pull/71))\r\
+    \ to be used as flag file for Ansible ([init#71](https://github.com/flatcar/init/pull/71))\r\
     \n- Fixed Ignition's OEM ID to be `metal` to follow the Ignition upstream change\
     \ which otherwise resulted in a broken boot when the Flatcar OEM ID `pxe` was\
-    \ used ([bootengine#45](https://github.com/flatcar-linux/bootengine/pull/45))\r\
+    \ used ([bootengine#45](https://github.com/flatcar/bootengine/pull/45))\r\
     \n- Added `networkd` translation to `files` section when converting from Ignition\
-    \ 2.x to Ignition 3.x ([coreos-overlay#1910](https://github.com/flatcar-linux/coreos-overlay/pull/1910),\
-    \ [flatcar#741](https://github.com/flatcar-linux/Flatcar/issues/741))\r\n- GCP:\
-    \ Fixed shutdown script execution ([coreos-overlay#1912](https://github.com/flatcar-linux/coreos-overlay/pull/1912),\
-    \ [flatcar#743](https://github.com/flatcar-linux/Flatcar/issues/743))\r\n\r\n\r\
+    \ 2.x to Ignition 3.x ([coreos-overlay#1910](https://github.com/flatcar/coreos-overlay/pull/1910),\
+    \ [flatcar#741](https://github.com/flatcar/Flatcar/issues/741))\r\n- GCP:\
+    \ Fixed shutdown script execution ([coreos-overlay#1912](https://github.com/flatcar/coreos-overlay/pull/1912),\
+    \ [flatcar#743](https://github.com/flatcar/Flatcar/issues/743))\r\n\r\n\r\
     \n#### Updates:\r\n\r\n- Linux ([5.15.43](https://lwn.net/Articles/896231/) (includes\
     \ [5.15.42](https://lwn.net/Articles/896226), [5.15.41](https://lwn.net/Articles/895645),\
     \ [5.15.40](https://lwn.net/Articles/895318), [5.15.39](https://lwn.net/Articles/895070),\

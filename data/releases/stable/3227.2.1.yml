@@ -28,13 +28,13 @@ github_release:
     ## Security fixes:\r\n\r\n- Linux ([CVE-2022-23816](https://nvd.nist.gov/vuln/detail/CVE-2022-23816),\
     \ [CVE-2022-23825](https://nvd.nist.gov/vuln/detail/CVE-2022-23825), [CVE-2022-29900](https://nvd.nist.gov/vuln/detail/CVE-2022-29900),\
     \ [CVE-2022-29901](https://nvd.nist.gov/vuln/detail/CVE-2022-29901))\r\n\r\n##\
-    \ Bug fixes:\r\n\r\n- Added support for Openstack for cloud-init activation ([flatcar-linux/init#76](https://github.com/flatcar-linux/init/pull/76))\r\
-    \n- Excluded Wireguard interface from `systemd-networkd` default management ([Flatcar#808](https://github.com/flatcar-linux/Flatcar/issues/808))\r\
+    \ Bug fixes:\r\n\r\n- Added support for Openstack for cloud-init activation ([flatcar-linux/init#76](https://github.com/flatcar/init/pull/76))\r\
+    \n- Excluded Wireguard interface from `systemd-networkd` default management ([Flatcar#808](https://github.com/flatcar/Flatcar/issues/808))\r\
     \n- Fixed `/etc/resolv.conf` symlink by pointing it at `resolv.conf` instead of\
-    \ `stub-resolv.conf`. This bug was present since the update to systemd v250 ([coreos-overlay#2057](https://github.com/flatcar-linux/coreos-overlay/pull/2057))\r\
+    \ `stub-resolv.conf`. This bug was present since the update to systemd v250 ([coreos-overlay#2057](https://github.com/flatcar/coreos-overlay/pull/2057))\r\
     \n- Fixed excluded interface type from default systemd-networkd configuration\
-    \ ([flatcar-linux/init#78](https://github.com/flatcar-linux/init/pull/78))\r\n\
-    - Fixed space escaping in the `networkd` Ignition translation ([Flatcar#812](https://github.com/flatcar-linux/Flatcar/issues/812))\r\
+    \ ([flatcar-linux/init#78](https://github.com/flatcar/init/pull/78))\r\n\
+    - Fixed space escaping in the `networkd` Ignition translation ([Flatcar#812](https://github.com/flatcar/Flatcar/issues/812))\r\
     \n\r\n## Changes:\r\n\r\n\r\n## Updates:\r\n\r\n- Linux ([5.15.58](https://lwn.net/Articles/902917)\
     \ (includes [5.15.57](https://lwn.net/Articles/902317), [5.15.56](https://lwn.net/Articles/902101)))\r\
     \n- ca-certificates ([3.81](https://firefox-source-docs.mozilla.org/security/nss/releases/nss_3_81.html))\r\

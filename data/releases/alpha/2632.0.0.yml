@@ -25,16 +25,16 @@ github_release:
     type: User
     url: https://api.github.com/users/sayanchowdhury
   body: "Bug fixes:\r\n\r\n- Fix resetting of DNS nameservers in systemd-networkd\
-    \ units ([PR#12](https://github.com/flatcar-linux/systemd/pull/12))\r\n\r\nChanges:\r\
+    \ units ([PR#12](https://github.com/flatcar/systemd/pull/12))\r\n\r\nChanges:\r\
     \n\r\n- Disable TX checksum offloading for the IP-in-IP tunl0 interface used by\
-    \ Calico ([PR#26](https://github.com/flatcar-linux/init/pull/26)). This is a workaround\
-    \ for a Mellanox driver issue, currently tracked in [Flatcar#183](https://github.com/flatcar-linux/Flatcar/issues/183)\r\
+    \ Calico ([PR#26](https://github.com/flatcar/init/pull/26)). This is a workaround\
+    \ for a Mellanox driver issue, currently tracked in [Flatcar#183](https://github.com/flatcar/Flatcar/issues/183)\r\
     \n- Set `sysctl net.ipv4.conf.(all|*).rp_filter` to 0 (instead of the systemd\
     \ upstream value 2) to be less restrictive which some network solutions rely on\
-    \ ([PR#11](https://github.com/flatcar-linux/systemd/pull/11))\r\n- Update-engine\
-    \ now detects rollbacks and reports them as errors to the update server ([PR#6](https://github.com/flatcar-linux/update_engine/pull/6))\r\
-    \n- `flatcar-install` allows installation to a multipath drive ([PR#24](https://github.com/flatcar-linux/init/pull/24))\r\
-    \n- Support the `lockdown` kernel command line parameter ([PR#533](https://github.com/flatcar-linux/coreos-overlay/pull/553))\r\
+    \ ([PR#11](https://github.com/flatcar/systemd/pull/11))\r\n- Update-engine\
+    \ now detects rollbacks and reports them as errors to the update server ([PR#6](https://github.com/flatcar/update_engine/pull/6))\r\
+    \n- `flatcar-install` allows installation to a multipath drive ([PR#24](https://github.com/flatcar/init/pull/24))\r\
+    \n- Support the `lockdown` kernel command line parameter ([PR#533](https://github.com/flatcar/coreos-overlay/pull/553))\r\
     \n- Update public key to include a [new subkey](https://www.flatcar-linux.org/security/image-signing-key/)\r\
     \n\r\nUpdates:\r\n\r\n- Linux [5.8.9](https://lwn.net/Articles/831365/)\r\n- linux-firmware\
     \ [20200817](https://git.kernel.org/pub/scm/linux/kernel/git/firmware/linux-firmware.git/tag/?h=20200817)\r\
@@ -42,7 +42,7 @@ github_release:
     \n\r\nNote: Please note that ARM images remain experimental for now.\r\n"
   created_at: '2020-09-14T15:27:38Z'
   draft: false
-  html_url: https://github.com/flatcar-linux/manifest/releases/tag/v2632.0.0
+  html_url: https://github.com/flatcar/manifest/releases/tag/v2632.0.0
   id: 31377936
   name: v2632.0.0
   node_id: MDc6UmVsZWFzZTMxMzc3OTM2

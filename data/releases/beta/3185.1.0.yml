@@ -54,43 +54,43 @@ github_release:
     \ [CVE-2022-0443](https://nvd.nist.gov/vuln/detail/CVE-2022-0443))\r\n- SDK: squashfs-tools\
     \ ([CVE-2021-40153](https://nvd.nist.gov/vuln/detail/CVE-2021-40153), [CVE-2021-41072](https://nvd.nist.gov/vuln/detail/CVE-2021-41072))\r\
     \n\r\n#### Bug fixes:\r\n\r\n- AWS: specify correct console (ttyS0) on kernel\
-    \ command line for ARM64 instances ([coreos-overlay#1628](https://github.com/flatcar-linux/coreos-overlay/pull/1628))\r\
+    \ command line for ARM64 instances ([coreos-overlay#1628](https://github.com/flatcar/coreos-overlay/pull/1628))\r\
     \n- Made Ignition write the SSH keys into a file under `authorized_keys.d/ignition`\
     \ again and added a call to `update-ssh-keys` after Ignition ran to create the\
     \ merged `authorized_keys` file, which fixes the problem that keys added by Ignition\
-    \ get lost when `update-ssh-keys` runs ([init#66](https://github.com/flatcar-linux/init/pull/66))\r\
+    \ get lost when `update-ssh-keys` runs ([init#66](https://github.com/flatcar/init/pull/66))\r\
     \n\r\n#### Changes:\r\n\r\n- Added `auditd.service` but left it disabled by default,\
     \ a custom configuration can be created by removing `/etc/audit/auditd.conf` and\
-    \ replacing it with an own file ([coreos-overlay#1636](https://github.com/flatcar-linux/coreos-overlay/pull/1636))\r\
+    \ replacing it with an own file ([coreos-overlay#1636](https://github.com/flatcar/coreos-overlay/pull/1636))\r\
     \n- The systemd-networkd `ManageForeignRoutes` and `ManageForeignRoutingPolicyRules`\
     \ settings are now disabled through a drop-in file and thus can only be enabled\
     \ again by a drop-in file under `/etc/systemd/networkd.conf.d/` because drop-in\
-    \ files take precedence over `/etc/systemd/networkd.conf` ([init#61](https://github.com/flatcar-linux/init/pull/61))\r\
+    \ files take precedence over `/etc/systemd/networkd.conf` ([init#61](https://github.com/flatcar/init/pull/61))\r\
     \n- Bring in dependencies for NFS4 with Kerberos both in kernel and userspace.\
-    \ Tested against NFS4.1 server. ([coreos-overlay#1664](https://github.com/flatcar-linux/coreos-overlay/pull/1664))\r\
-    \n- Merge the Flatcar Pro features into the regular Flatcar images ([coreos-overlay#1679](https://github.com/flatcar-linux/coreos-overlay/pull/1679))\r\
+    \ Tested against NFS4.1 server. ([coreos-overlay#1664](https://github.com/flatcar/coreos-overlay/pull/1664))\r\
+    \n- Merge the Flatcar Pro features into the regular Flatcar images ([coreos-overlay#1679](https://github.com/flatcar/coreos-overlay/pull/1679))\r\
     \n- Besides Ignition v1 and v2 configurations, Ignition configurations with specification\
     \ v3 (up to 3.3.0) are now supported, see the [docs section for details](https://www.flatcar.org/docs/latest/provisioning/ignition/specification/#ignition-v3)\r\
     \n- Made SELinux enabled by default in default containerd configuration file.\
-    \ ([coreos-overlay#1699](https://github.com/flatcar-linux/coreos-overlay/pull/1699))\r\
+    \ ([coreos-overlay#1699](https://github.com/flatcar/coreos-overlay/pull/1699))\r\
     \n- Removed rngd.service because it is not essential anymore for the kernel to\
-    \ boot fast in VM environments ([coreos-overlay#1700](https://github.com/flatcar-linux/coreos-overlay/pull/1700))\r\
+    \ boot fast in VM environments ([coreos-overlay#1700](https://github.com/flatcar/coreos-overlay/pull/1700))\r\
     \n- Enabled `systemd-sysext.service` to activate systemd-sysext images on boot,\
     \ to disable you will need to mask it. Also added a helper service `ensure-sysext.service`\
     \ which reloads the systemd units to reevaluate the `sockets`, `timers`, and `multi-user`\
     \ targets when `systemd-sysext.service` is (re)started, making it possible to\
-    \ enable units that are part of a sysext image ([coreos-overlay#65](https://github.com/flatcar-linux/init/pull/65))\r\
+    \ enable units that are part of a sysext image ([coreos-overlay#65](https://github.com/flatcar/init/pull/65))\r\
     \n- For amd64 `/usr/lib` used to be a symlink to `/usr/lib64` but now they became\
     \ two separate folders as common in other distributions (and was the case for\
     \ arm64 already). Compatibility symlinks exist in case `/usr/lib64` was used to\
-    \ access, e.g., the `modules` folder or the `systemd` folder ([coreos-overlay#1713](https://github.com/flatcar-linux/coreos-overlay/pull/1713),\
-    \ [scripts#255](https://github.com/flatcar-linux/scripts/pull/255))\r\n- Enabled\
-    \ FIPS mode for cryptsetup ([coreos-overlay#1747](https://github.com/flatcar-linux/coreos-overlay/pull/1747))\r\
-    \n- Added `cryptsetup` to the initramfs for the Ignition `luks` directive ([flatcar-linux/coreos-overlay#1760](https://github.com/flatcar-linux/coreos-overlay/pull/1760))\r\
-    \n- Enabled FIPS mode for cryptsetup ([portage-stable#312](https://github.com/flatcar-linux/portage-stable/pull/312))\r\
+    \ access, e.g., the `modules` folder or the `systemd` folder ([coreos-overlay#1713](https://github.com/flatcar/coreos-overlay/pull/1713),\
+    \ [scripts#255](https://github.com/flatcar/scripts/pull/255))\r\n- Enabled\
+    \ FIPS mode for cryptsetup ([coreos-overlay#1747](https://github.com/flatcar/coreos-overlay/pull/1747))\r\
+    \n- Added `cryptsetup` to the initramfs for the Ignition `luks` directive ([flatcar-linux/coreos-overlay#1760](https://github.com/flatcar/coreos-overlay/pull/1760))\r\
+    \n- Enabled FIPS mode for cryptsetup ([portage-stable#312](https://github.com/flatcar/portage-stable/pull/312))\r\
     \n- Defined a systemd-sysext level that sysext images can match for instead of\
     \ the OS version when they don't have a strong coupling, meaning the only metadata\
-    \ required is `SYSEXT_LEVEL=1.0` and `ID=flatcar` ([Flatcar#643](https://github.com/flatcar-linux/Flatcar/issues/643))\r\
+    \ required is `SYSEXT_LEVEL=1.0` and `ID=flatcar` ([Flatcar#643](https://github.com/flatcar/Flatcar/issues/643))\r\
     \n- Azure: Azure VHD disks are now created using subformat=fixed, which makes\
     \ them suitable for immediate upload to Azure using any tool.\r\n- DigitalOcean:\
     \ In addition to the `bz2` image, a `gz` compressed image is published. This helps\
@@ -148,10 +148,10 @@ github_release:
     \n\r\n#### Bug fixes:\r\n\r\n- Made Ignition write the SSH keys into a file under\
     \ `authorized_keys.d/ignition` again and added a call to `update-ssh-keys` after\
     \ Ignition ran to create the merged `authorized_keys` file, which fixes the problem\
-    \ that keys added by Ignition get lost when `update-ssh-keys` runs ([init#66](https://github.com/flatcar-linux/init/pull/66))\r\
-    \n\r\n#### Changes:\r\n\r\n- Enabled FIPS mode for cryptsetup ([flatcar-linux/coreos-overlay#1747](https://github.com/flatcar-linux/coreos-overlay/pull/1747))\r\
-    \n- Added `cryptsetup` to the initramfs for the Ignition `luks` directive ([flatcar-linux/coreos-overlay#1760](https://github.com/flatcar-linux/coreos-overlay/pull/1760))\r\
-    \n- Enabled FIPS mode for cryptsetup ([portage-stable#312](https://github.com/flatcar-linux/portage-stable/pull/312))\r\
+    \ that keys added by Ignition get lost when `update-ssh-keys` runs ([init#66](https://github.com/flatcar/init/pull/66))\r\
+    \n\r\n#### Changes:\r\n\r\n- Enabled FIPS mode for cryptsetup ([flatcar-linux/coreos-overlay#1747](https://github.com/flatcar/coreos-overlay/pull/1747))\r\
+    \n- Added `cryptsetup` to the initramfs for the Ignition `luks` directive ([flatcar-linux/coreos-overlay#1760](https://github.com/flatcar/coreos-overlay/pull/1760))\r\
+    \n- Enabled FIPS mode for cryptsetup ([portage-stable#312](https://github.com/flatcar/portage-stable/pull/312))\r\
     \n\r\n#### Updates:\r\n\r\n- Linux ([5.15.32](https://lwn.net/Articles/889438))\
     \ (from 5.15.30)\r\n- ca-certificates ([3.77](https://firefox-source-docs.mozilla.org/security/nss/releases/nss_3_77.html))\r\
     \n"

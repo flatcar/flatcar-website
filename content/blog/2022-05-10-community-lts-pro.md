@@ -41,4 +41,4 @@ These features were previously only included in the (paid) “Pro” images in c
 
 We are excited at this significant expansion of the deployment options and capabilities available to the Flatcar user community.
 To try Flatcar out, please check out our [Getting Started guide](https://www.flatcar.org/docs/latest/installing/).
-If you’d like to get involved in the project, why not join our next monthly [Community Meeting](https://github.com/flatcar-linux/Flatcar/#monthly-community-meeting-and-release-planning)?
+If you’d like to get involved in the project, why not join our next monthly [Community Meeting](https://github.com/flatcar/Flatcar/#monthly-community-meeting-and-release-planning)?

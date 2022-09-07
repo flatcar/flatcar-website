@@ -58,26 +58,26 @@ github_release:
     \n\r\n#### Bug fixes\r\n- Disabled the systemd-networkd settings `ManageForeignRoutes`\
     \ and `ManageForeignRoutingPolicyRules` by default to ensure that CNIs like Cilium\
     \ don't get their routes or routing policy rules discarded on network reconfiguration\
-    \ events ([Flatcar#620](https://github.com/flatcar-linux/Flatcar/issues/620)).\r\
+    \ events ([Flatcar#620](https://github.com/flatcar/Flatcar/issues/620)).\r\
     \n- AWS: specify correct console (ttyS0) on kernel command line for ARM64 instances\
-    \ ([coreos-overlay#1628](https://github.com/flatcar-linux/coreos-overlay/pull/1628))\r\
+    \ ([coreos-overlay#1628](https://github.com/flatcar/coreos-overlay/pull/1628))\r\
     \n- Prevented hitting races when creating filesystems in Ignition, these races\
     \ caused boot failures like `fsck[1343]: Failed to stat /dev/disk/by-label/ROOT:\
-    \ No such file or directory` when creating a btrfs root filesystem ([ignition#35](https://github.com/flatcar-linux/ignition/pull/35))\r\
+    \ No such file or directory` when creating a btrfs root filesystem ([ignition#35](https://github.com/flatcar/ignition/pull/35))\r\
     \n- Reverted the Linux kernel change to forbid xfrm id 0 for IPSec state because\
-    \ it broke Cilium ([Flatcar#626](https://github.com/flatcar-linux/Flatcar/issues/626),\
-    \ [coreos-overlay#1682](https://github.com/flatcar-linux/coreos-overlay/pull/1682))\r\
+    \ it broke Cilium ([Flatcar#626](https://github.com/flatcar/Flatcar/issues/626),\
+    \ [coreos-overlay#1682](https://github.com/flatcar/coreos-overlay/pull/1682))\r\
     \n- Added `auditd.service` but left it disabled by default, a custom configuration\
     \ can be created by removing `/etc/audit/auditd.conf` and replacing it with an\
-    \ own file ([coreos-overlay#1636](https://github.com/flatcar-linux/coreos-overlay/pull/1636))\r\
+    \ own file ([coreos-overlay#1636](https://github.com/flatcar/coreos-overlay/pull/1636))\r\
     \n\r\n#### Changes\r\n- The systemd-networkd `ManageForeignRoutes` and `ManageForeignRoutingPolicyRules`\
     \ settings are now disabled through a drop-in file and thus can only be enabled\
     \ again by a drop-in file under `/etc/systemd/networkd.conf.d/` because drop-in\
-    \ files take precedence over `/etc/systemd/networkd.conf` ([init#61](https://github.com/flatcar-linux/init/pull/61))\r\
+    \ files take precedence over `/etc/systemd/networkd.conf` ([init#61](https://github.com/flatcar/init/pull/61))\r\
     \n- Bring in dependencies for NFS4 with Kerberos both in kernel and userspace.\
-    \ Tested against NFS4.1 server. ([coreos-overlay#1664](https://github.com/flatcar-linux/coreos-overlay/pull/1664))\r\
+    \ Tested against NFS4.1 server. ([coreos-overlay#1664](https://github.com/flatcar/coreos-overlay/pull/1664))\r\
     \n- Added support for switching back to CGroupsV1 without requiring a reboot.\
-    \ Create `/etc/flatcar-cgroupv1` through ignition. ([coreos-overlay#1666](https://github.com/flatcar-linux/coreos-overlay/pull/1666))\r\
+    \ Create `/etc/flatcar-cgroupv1` through ignition. ([coreos-overlay#1666](https://github.com/flatcar/coreos-overlay/pull/1666))\r\
     \n- Azure VHD disks are now created using subformat=fixed, which makes them suitable\
     \ for immediate upload to Azure using any tool.\r\n\r\n#### Updates\r\n\r\n- Linux\
     \ ([5.15.25](https://lwn.net/Articles/885895)) (from 5.15.19)\r\n- Linux Firmware\

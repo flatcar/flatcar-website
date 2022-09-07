@@ -39,13 +39,13 @@ github_release:
     \n\r\n#### Bug fixes\r\n- Disabled the systemd-networkd settings `ManageForeignRoutes`\
     \ and `ManageForeignRoutingPolicyRules` by default to ensure that CNIs like Cilium\
     \ don't get their routes or routing policy rules discarded on network reconfiguration\
-    \ events ([Flatcar#620](https://github.com/flatcar-linux/Flatcar/issues/620)).\r\
+    \ events ([Flatcar#620](https://github.com/flatcar/Flatcar/issues/620)).\r\
     \n- Prevented hitting races when creating filesystems in Ignition, these races\
     \ caused boot failures like `fsck[1343]: Failed to stat /dev/disk/by-label/ROOT:\
-    \ No such file or directory` when creating a btrfs root filesystem ([ignition#35](https://github.com/flatcar-linux/ignition/pull/35))\r\
+    \ No such file or directory` when creating a btrfs root filesystem ([ignition#35](https://github.com/flatcar/ignition/pull/35))\r\
     \n- Reverted the Linux kernel change to forbid xfrm id 0 for IPSec state because\
-    \ it broke Cilium ([Flatcar#626](https://github.com/flatcar-linux/Flatcar/issues/626),\
-    \ [coreos-overlay#1682](https://github.com/flatcar-linux/coreos-overlay/pull/1682))\r\
+    \ it broke Cilium ([Flatcar#626](https://github.com/flatcar/Flatcar/issues/626),\
+    \ [coreos-overlay#1682](https://github.com/flatcar/coreos-overlay/pull/1682))\r\
     \n\r\n#### Updates\r\n- Linux ([5.10.102](https://lwn.net/Articles/885896)) (from\
     \ 5.10.96)\r\n- Go ([1.17.7](https://go.googlesource.com/go/+/refs/tags/go1.17.7)\
     \ (includes [1.17.6](https://go.googlesource.com/go/+/refs/tags/go1.17.6)))\r\n\

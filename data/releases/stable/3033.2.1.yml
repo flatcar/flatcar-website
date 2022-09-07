@@ -26,7 +26,7 @@ github_release:
     url: https://api.github.com/users/sayanchowdhury
   body: "New **Stable** release **3033.2.1**\r\n\r\n_Changes since **Stable 3033.2.0**_\r\
     \n\r\n#### Known issues:\r\n- The SELinux policy store update fix resulted in\
-    \ some files leaked to the root filesystem top directory ([flatcar-linux/Flatcar#596](https://github.com/flatcar-linux/Flatcar/issues/596))\r\
+    \ some files leaked to the root filesystem top directory ([flatcar-linux/Flatcar#596](https://github.com/flatcar/Flatcar/issues/596))\r\
     \n\r\n#### Security fixes:\r\n\r\n- Linux ([CVE-2021-4135](https://nvd.nist.gov/vuln/detail/CVE-2021-4135),\
     \ [CVE-2021-4155](https://nvd.nist.gov/vuln/detail/CVE-2021-4155), [CVE-2021-28711](https://nvd.nist.gov/vuln/detail/CVE-2021-28711),\
     \ [CVE-2021-28712](https://nvd.nist.gov/vuln/detail/CVE-2021-28712), [CVE-2021-28713](https://nvd.nist.gov/vuln/detail/CVE-2021-28713),\
@@ -42,14 +42,14 @@ github_release:
     \ [CVE-2022-22827](https://nvd.nist.gov/vuln/detail/CVE-2022-22827))\r\n\r\n####\
     \ Bug fixes:\r\n\r\n- Ensured that the `/run/xtables.lock` coordination file exists\
     \ for modifications of the xtables backend from containers (must be bind-mounted)\
-    \ or the `iptables-legacy` binaries on the host ([flatcar-linux/init#57](https://github.com/flatcar-linux/init/pull/57))\r\
+    \ or the `iptables-legacy` binaries on the host ([flatcar-linux/init#57](https://github.com/flatcar/init/pull/57))\r\
     \n- dev container: Fix github URL for coreos-overlay and portage-stable to use\
     \ repos from flatcar-linux org directly instead of relying on redirects from the\
     \ kinvolk org. This fixes checkouts with emerge-gitclone inside dev-container.\
-    \ ([flatcar-linux/scripts#194](https://github.com/flatcar-linux/scripts/pull/194))\r\
+    \ ([flatcar-linux/scripts#194](https://github.com/flatcar/scripts/pull/194))\r\
     \n- SDK: Fixed build error popping up in the new SDK Container because `policycoreutils`\
-    \ used the wrong ROOT to update the SELinux store ([flatcar-linux/coreos-overlay#1502](https://github.com/flatcar-linux/coreos-overlay/pull/1502))\r\
-    \n\r\n#### Changes:\r\n\r\n- Backported `elf` support for `iproute2` ([flatcar-linux/coreos-overlay#1256](https://github.com/flatcar-linux/coreos-overlay/pull/1526))\r\
+    \ used the wrong ROOT to update the SELinux store ([flatcar-linux/coreos-overlay#1502](https://github.com/flatcar/coreos-overlay/pull/1502))\r\
+    \n\r\n#### Changes:\r\n\r\n- Backported `elf` support for `iproute2` ([flatcar-linux/coreos-overlay#1256](https://github.com/flatcar/coreos-overlay/pull/1526))\r\
     \n\r\n#### Updates:\r\n\r\n- Linux ([5.10.93](https://lwn.net/Articles/881964))\
     \ (from 5.10.84)\r\n- ca-certificates ([3.74](https://firefox-source-docs.mozilla.org/security/nss/releases/nss_3_74.html))\r\
     \n- Docker ([20.10.12](https://docs.docker.com/engine/release-notes/#201012))\r\

@@ -31,10 +31,10 @@ github_release:
     - containerd ([CVE-2022-23648](https://nvd.nist.gov/vuln/detail/CVE-2022-23648))\r\
     \n- openssl ([CVE-2022-0778](https://nvd.nist.gov/vuln/detail/CVE-2022-0778))\r\
     \n\r\n#### Bug fixes\r\n- Reverted the Linux kernel commit which broke networking\
-    \ on AWS instances which use Intel 82559 NIC (c4/m4) ([Flatcar#665](https://github.com/flatcar-linux/Flatcar/issues/665),\
-    \ [coreos-overlay#1720](https://github.com/flatcar-linux/coreos-overlay/pull/1720))\r\
+    \ on AWS instances which use Intel 82559 NIC (c4/m4) ([Flatcar#665](https://github.com/flatcar/Flatcar/issues/665),\
+    \ [coreos-overlay#1720](https://github.com/flatcar/coreos-overlay/pull/1720))\r\
     \n\r\n#### Changes\r\n- Added support for switching back to CGroupsV1 without\
-    \ requiring a reboot. Create `/etc/flatcar-cgroupv1` through ignition. ([coreos-overlay#1666](https://github.com/flatcar-linux/coreos-overlay/pull/1666))\r\
+    \ requiring a reboot. Create `/etc/flatcar-cgroupv1` through ignition. ([coreos-overlay#1666](https://github.com/flatcar/coreos-overlay/pull/1666))\r\
     \n\r\n#### Updates\r\n- Linux ([5.10.107](https://lwn.net/Articles/888522) (from\
     \ 5.10.102, includes [5.10.103](https://lwn.net/Articles/886570), [5.10.104](https://lwn.net/Articles/887220),\
     \ [5.10.105](https://lwn.net/Articles/887639), [5.10.106](https://lwn.net/Articles/888115)))\r\

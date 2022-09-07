@@ -37,15 +37,15 @@ github_release:
     \ Bug fixes\r\n- Disabled the systemd-networkd settings `ManageForeignRoutes`\
     \ and `ManageForeignRoutingPolicyRules` by default to ensure that CNIs like Cilium\
     \ don't get their routes or routing policy rules discarded on network reconfiguration\
-    \ events ([Flatcar#620](https://github.com/flatcar-linux/Flatcar/issues/620)).\r\
+    \ events ([Flatcar#620](https://github.com/flatcar/Flatcar/issues/620)).\r\
     \n- Prevented hitting races when creating filesystems in Ignition, these races\
     \ caused boot failures like `fsck[1343]: Failed to stat /dev/disk/by-label/ROOT:\
-    \ No such file or directory` when creating a btrfs root filesystem ([ignition#35](https://github.com/flatcar-linux/ignition/pull/35))\r\
+    \ No such file or directory` when creating a btrfs root filesystem ([ignition#35](https://github.com/flatcar/ignition/pull/35))\r\
     \n- Reverted the Linux kernel change to forbid xfrm id 0 for IPSec state because\
-    \ it broke Cilium ([Flatcar#626](https://github.com/flatcar-linux/Flatcar/issues/626),\
-    \ [coreos-overlay#1682](https://github.com/flatcar-linux/coreos-overlay/pull/1682))\r\
+    \ it broke Cilium ([Flatcar#626](https://github.com/flatcar/Flatcar/issues/626),\
+    \ [coreos-overlay#1682](https://github.com/flatcar/coreos-overlay/pull/1682))\r\
     \n\r\n#### Changes\r\n- Added support for switching back to CGroupsV1 without\
-    \ requiring a reboot. Create `/etc/flatcar-cgroupv1` through ignition. ([coreos-overlay#1666](https://github.com/flatcar-linux/coreos-overlay/pull/1666))\r\
+    \ requiring a reboot. Create `/etc/flatcar-cgroupv1` through ignition. ([coreos-overlay#1666](https://github.com/flatcar/coreos-overlay/pull/1666))\r\
     \n\r\n#### Updates\r\n- Linux ([5.15.25](https://lwn.net/Articles/885896)) (from\
     \ 5.15.19)\r\n- ca-certificates ([3.75](https://firefox-source-docs.mozilla.org/security/nss/releases/nss_3_75.html))\r\
     \n- Go ([1.17.7](https://go.googlesource.com/go/+/refs/tags/go1.17.7))\r\n- expat\
@@ -89,40 +89,40 @@ github_release:
     \ [CVE-2021-3682](https://nvd.nist.gov/vuln/detail/CVE-2021-3682))\r\n\r\n####\
     \ Bug fixes\r\n- Excluded the Kubenet cbr0 interface from networkd's DHCP config\
     \ and set it to Unmanaged to prevent interference and ensure that it is not part\
-    \ of the network online check ([init#55](https://github.com/flatcar-linux/init/pull/55))\r\
+    \ of the network online check ([init#55](https://github.com/flatcar/init/pull/55))\r\
     \n- Fixed the dracut emergency Ignition log printing that had a scripting error\
-    \ causing the cat command to fail ([bootengine#33](https://github.com/flatcar-linux/bootengine/pull/33))\r\
+    \ causing the cat command to fail ([bootengine#33](https://github.com/flatcar/bootengine/pull/33))\r\
     \n- network: Accept ICMPv6 Router Advertisements to fix IPv6 address assignment\
-    \ in the default DHCP setting ([init#51](https://github.com/flatcar-linux/init/pull/51),\
-    \ [coreos-cloudinit#12](https://github.com/flatcar-linux/coreos-cloudinit/pull/12),\
-    \ [bootengine#30](https://github.com/flatcar-linux/bootengine/pull/30))\r\n- flatcar-update:\
+    \ in the default DHCP setting ([init#51](https://github.com/flatcar/init/pull/51),\
+    \ [coreos-cloudinit#12](https://github.com/flatcar/coreos-cloudinit/pull/12),\
+    \ [bootengine#30](https://github.com/flatcar/bootengine/pull/30))\r\n- flatcar-update:\
     \ Stopped checking for the `USER` environment variable which may not be set in\
     \ all environments, causing the script to fail unless a workaround was used like\
-    \ prepending an additional `sudo` invocation ([init#58](https://github.com/flatcar-linux/init/pull/58))\r\
+    \ prepending an additional `sudo` invocation ([init#58](https://github.com/flatcar/init/pull/58))\r\
     \n- Disabled the systemd-networkd settings `ManageForeignRoutes` and `ManageForeignRoutingPolicyRules`\
     \ by default to ensure that CNIs like Cilium don't get their routes or routing\
-    \ policy rules discarded on network reconfiguration events ([Flatcar#620](https://github.com/flatcar-linux/Flatcar/issues/620)).\r\
+    \ policy rules discarded on network reconfiguration events ([Flatcar#620](https://github.com/flatcar/Flatcar/issues/620)).\r\
     \n- Prevented hitting races when creating filesystems in Ignition, these races\
     \ caused boot failures like `fsck[1343]: Failed to stat /dev/disk/by-label/ROOT:\
-    \ No such file or directory` when creating a btrfs root filesystem ([ignition#35](https://github.com/flatcar-linux/ignition/pull/35))\r\
+    \ No such file or directory` when creating a btrfs root filesystem ([ignition#35](https://github.com/flatcar/ignition/pull/35))\r\
     \n- Reverted the Linux kernel change to forbid xfrm id 0 for IPSec state because\
-    \ it broke Cilium ([Flatcar#626](https://github.com/flatcar-linux/Flatcar/issues/626),\
-    \ [coreos-overlay#1682](https://github.com/flatcar-linux/coreos-overlay/pull/1682))\r\
+    \ it broke Cilium ([Flatcar#626](https://github.com/flatcar/Flatcar/issues/626),\
+    \ [coreos-overlay#1682](https://github.com/flatcar/coreos-overlay/pull/1682))\r\
     \n\r\n#### Changes\r\n- Update-engine now creates the `/run/reboot-required` flag\
-    \ file for [kured](https://github.com/weaveworks/kured) ([update_engine#15](https://github.com/flatcar-linux/update_engine/pull/15))\r\
+    \ file for [kured](https://github.com/weaveworks/kured) ([update_engine#15](https://github.com/flatcar/update_engine/pull/15))\r\
     \n- Excluded special network interface devices like bridge, tunnel, vxlan, and\
     \ veth devices from the default DHCP configuration to prevent networkd interference\
-    \ ([init#56](https://github.com/flatcar-linux/init/pull/56))\r\n- Added CONFIG_NF_CT_NETLINK_HELPER\
+    \ ([init#56](https://github.com/flatcar/init/pull/56))\r\n- Added CONFIG_NF_CT_NETLINK_HELPER\
     \ (for libnetfilter_cthelper), CONFIG_NET_VRF (for virtual routing and forwarding)\
-    \ and CONFIG_KEY_DH_OPERATIONS (for keyutils) to the kernel config ([coreos-overlay#1524](https://github.com/flatcar-linux/coreos-overlay/pull/1524))\r\
+    \ and CONFIG_KEY_DH_OPERATIONS (for keyutils) to the kernel config ([coreos-overlay#1524](https://github.com/flatcar/coreos-overlay/pull/1524))\r\
     \n- Enabled the FIPS support for the Linux kernel, which users can now choose\
     \ through a kernel parameter in `grub.cfg` (check it taking effect with `cat /proc/sys/crypto/fips_enabled`)\
-    \ ([coreos-overlay#1602](https://github.com/flatcar-linux/coreos-overlay/pull/1602))\r\
+    \ ([coreos-overlay#1602](https://github.com/flatcar/coreos-overlay/pull/1602))\r\
     \n- Added support for switching back to CGroupsV1 without requiring a reboot.\
-    \ Create `/etc/flatcar-cgroupv1` through ignition. ([coreos-overlay#1666](https://github.com/flatcar-linux/coreos-overlay/pull/1666))\r\
+    \ Create `/etc/flatcar-cgroupv1` through ignition. ([coreos-overlay#1666](https://github.com/flatcar/coreos-overlay/pull/1666))\r\
     \n- Removed the pre-shipped `/etc/flatcar/update.conf` file, leaving it totally\
     \ to the user to define the contents as it was unnecessarily overwriting the `/use/share/flatcar/update.conf`\
-    \ ([flatcar-linux/scripts#212](https://github.com/flatcar-linux/scripts/pull/212))\r\
+    \ ([flatcar-linux/scripts#212](https://github.com/flatcar/scripts/pull/212))\r\
     \n\r\n#### Updates\r\n- Linux ([5.15.25](https://lwn.net/Articles/885895)) (from\
     \ 5.10.96)\r\n- GCC ([9.4.0](https://lists.gnu.org/archive/html/info-gnu/2021-06/msg00000.html))\r\
     \n- Go ([1.17.7](https://go.googlesource.com/go/+/refs/tags/go1.17.7))\r\n- ca-certificates\
@@ -164,7 +164,7 @@ github_release:
     \ ([202105](https://github.com/tianocore/edk2/releases/tag/edk2-stable202105))\r\
     \n- SDK: file ([5.40](https://mailman.astron.com/pipermail/file/2021-March/000478.html))\r\
     \n- SDK: ipxe ([1.21.1](https://github.com/ipxe/ipxe/releases/tag/v1.21.1))\r\n\
-    - SDK: mantle ([0.18.0](https://github.com/flatcar-linux/mantle/releases/tag/v0.18.0))\r\
+    - SDK: mantle ([0.18.0](https://github.com/flatcar/mantle/releases/tag/v0.18.0))\r\
     \n- SDK: perf ([5.15](https://kernelnewbies.org/LinuxChanges#Linux_5.15.Tracing.2C_perf_and_BPF))\r\
     \n- SDK: Python ([3.9.8](https://www.python.org/downloads/release/python-398/))\r\
     \n- SDK: Rust ([1.58.1](https://github.com/rust-lang/rust/releases/tag/1.58.1))\r\

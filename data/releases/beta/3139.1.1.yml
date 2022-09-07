@@ -31,11 +31,11 @@ github_release:
     - containerd ([CVE-2022-23648](https://nvd.nist.gov/vuln/detail/CVE-2022-23648))\r\
     \n- openssl ([CVE-2022-0778](https://nvd.nist.gov/vuln/detail/CVE-2022-0778))\r\
     \n\r\n#### Bug fixes\r\n- Reverted the Linux kernel commit which broke networking\
-    \ on AWS instances which use Intel 82559 NIC (c4/m4) ([Flatcar#665](https://github.com/flatcar-linux/Flatcar/issues/665),\
-    \ [coreos-overlay#1723](https://github.com/flatcar-linux/coreos-overlay/pull/1723))\r\
+    \ on AWS instances which use Intel 82559 NIC (c4/m4) ([Flatcar#665](https://github.com/flatcar/Flatcar/issues/665),\
+    \ [coreos-overlay#1723](https://github.com/flatcar/coreos-overlay/pull/1723))\r\
     \n- Re-added the `brd drbd nbd rbd xen-blkfront zram libarc4 lru_cache zsmalloc`\
     \ kernel modules to the initramfs since they were missing compared to the Flatcar\
-    \ 3033.2.x releases where the 5.10 kernel is used ([bootengine#40](https://github.com/flatcar-linux/bootengine/pull/40))\r\
+    \ 3033.2.x releases where the 5.10 kernel is used ([bootengine#40](https://github.com/flatcar/bootengine/pull/40))\r\
     \n\r\n#### Changes\r\n- (none)\r\n\r\n#### Updates\r\n- Linux ([5.15.30](https://lwn.net/Articles/888521)\
     \ (from 5.15.25, includes [5.15.26](https://lwn.net/Articles/886569), [5.15.27](https://lwn.net/Articles/887219),\
     \ [5.15.28](https://lwn.net/Articles/887638), [5.15.29](https://lwn.net/Articles/888116)))\r\

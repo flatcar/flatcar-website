@@ -25,17 +25,17 @@ github_release:
     type: User
     url: https://api.github.com/users/sayanchowdhury
   body: "Bug Fixes:\r\n- Improved logic for GPT disk UUID randomization to fix booting\
-    \ on Packet c3.medium.x86 machines ([flatcar-linux/bootengine#17](https://github.com/flatcar-linux/bootengine/pull/17))\r\
-    \n- gpg: add patches for accepting keys without UIDs ([flatcar-linux/coreos-overlay#381](https://github.com/flatcar-linux/coreos-overlay/pull/381))\r\
+    \ on Packet c3.medium.x86 machines ([flatcar-linux/bootengine#17](https://github.com/flatcar/bootengine/pull/17))\r\
+    \n- gpg: add patches for accepting keys without UIDs ([flatcar-linux/coreos-overlay#381](https://github.com/flatcar/coreos-overlay/pull/381))\r\
     \n- The static IP address configuration in the initramfs works again in the format\
-    \ `ip=<ip>::<gateway>:<netmask>:<hostname>:<iface>:none[:<dns1>[:<dns2>]]` ([flatcar-linux/bootengine#15](https://github.com/flatcar-linux/bootengine/pull/15))\r\
+    \ `ip=<ip>::<gateway>:<netmask>:<hostname>:<iface>:none[:<dns1>[:<dns2>]]` ([flatcar-linux/bootengine#15](https://github.com/flatcar/bootengine/pull/15))\r\
     \n\r\n\r\nChanges:\r\n- Since [version 245](https://github.com/systemd/systemd-stable/blob/v245-stable/NEWS#L267)\
     \ systemd-networkd ignores network unit files with an empty `[Match]` section.\
     \ Add a `Name=*` entry to match all interfaces.\r\n- Weave network interfaces\
-    \ are excluded from systemd-networkd ([flatcar-linux/init#22](https://github.com/flatcar-linux/init/pull/22))\r\
-    \n- Enabled the mmio and vsock virtio kernel modules for Firecracker ([flatcar-linux/coreos-overlay#485](https://github.com/flatcar-linux/coreos-overlay/pull/485))\r\
+    \ are excluded from systemd-networkd ([flatcar-linux/init#22](https://github.com/flatcar/init/pull/22))\r\
+    \n- Enabled the mmio and vsock virtio kernel modules for Firecracker ([flatcar-linux/coreos-overlay#485](https://github.com/flatcar/coreos-overlay/pull/485))\r\
     \n- Enabled CONFIG_IKHEADERS to expose kernel headers under `/sys/kernel/kheaders.tar.xz`\r\
-    \n- Vultr support in Ignition ([flatcar-linux/ignition#13](https://github.com/flatcar-linux/ignition/pull/13))\r\
+    \n- Vultr support in Ignition ([flatcar-linux/ignition#13](https://github.com/flatcar/ignition/pull/13))\r\
     \n- VMware OVF settings default to ESXi 6.5 and Linux 3.x\r\n\r\n\r\nUpdates:\r\
     \n- Linux [5.4.55](https://lwn.net/Articles/827718/)\r\n- systemd [v245](https://github.com/systemd/systemd-stable/blob/v245-stable/NEWS)\r\
     \n- Docker [19.03.12](https://docs.docker.com/engine/release-notes/#190312)\r\n\
@@ -47,7 +47,7 @@ github_release:
     \nNote: Please note that ARM images remain experimental for now."
   created_at: '2020-08-05T10:11:13Z'
   draft: false
-  html_url: https://github.com/flatcar-linux/manifest/releases/tag/v2592.0.0
+  html_url: https://github.com/flatcar/manifest/releases/tag/v2592.0.0
   id: 29412722
   name: v2592.0.0
   node_id: MDc6UmVsZWFzZTI5NDEyNzIy

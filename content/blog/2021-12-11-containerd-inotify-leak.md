@@ -9,7 +9,7 @@ date = "2022-02-18T20:00:00+02:00"
 postImage = "/flatcar-containerd.jpg"
 +++
 
-The recent Flatcar update to [enable CGroupsV2 by default](https://www.flatcar-linux.org/blog/2021/09/flatcar-container-linux-is-moving-to-cgroupsv2/) has mostly gone smoothly, but as is usual for any significant change, there have have been some "interesting" experiences reported by users. For example, one user recently reported [issue 563](https://github.com/flatcar-linux/Flatcar/issues/563) ("containerd-shim processes are leaking inotify instances with cgroups v2"). 
+The recent Flatcar update to [enable CGroupsV2 by default](https://www.flatcar-linux.org/blog/2021/09/flatcar-container-linux-is-moving-to-cgroupsv2/) has mostly gone smoothly, but as is usual for any significant change, there have have been some "interesting" experiences reported by users. For example, one user recently reported [issue 563](https://github.com/flatcar/Flatcar/issues/563) ("containerd-shim processes are leaking inotify instances with cgroups v2"). 
 
 This blog post is a technical write-up of the details of how we dived in, found out what's happening, and resolved the issue. We wrap up with a couple of key recommendations for operators, specifically to update their version of containerd (to pick up our fix for the issue) and increase the value of the `fs.inotify.max_user_instances` kernel parameter.
 

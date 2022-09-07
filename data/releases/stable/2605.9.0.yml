@@ -85,18 +85,18 @@ github_release:
     \n*   Make the automatic filesystem resizing more robust against a race and add\
     \ more logging ([kinvolk/init#31](https://github.com/kinvolk/init/pull/31))\r\n\
     *   Allow inactive network interfaces to be bound to a bonding interface, by encoding\
-    \ additional configuration for systemd-networkd-wait-online ([afterburn PR #10](https://github.com/flatcar-linux/afterburn/pull/10))\r\
-    \n*   Do not configure ccache in Jenkins ([scripts PR #100](https://github.com/flatcar-linux/scripts/pull/100))\r\
+    \ additional configuration for systemd-networkd-wait-online ([afterburn PR #10](https://github.com/flatcar/afterburn/pull/10))\r\
+    \n*   Do not configure ccache in Jenkins ([scripts PR #100](https://github.com/flatcar/scripts/pull/100))\r\
     \n*   Azure: Exclude bonded SR-IOV network interfaces with newer drivers from\
     \ networkd (in addition to the old drivers) to prevent them being configured instead\
-    \ of just the bond interface ([init PR#29](https://github.com/flatcar-linux/init/pull/29),[\
-    \ bootengine PR#19](https://github.com/flatcar-linux/bootengine/pull/19))\r\n\r\
+    \ of just the bond interface ([init PR#29](https://github.com/flatcar/init/pull/29),[\
+    \ bootengine PR#19](https://github.com/flatcar/bootengine/pull/19))\r\n\r\
     \nChanges:\r\n\r\n*   Update-engine now detects rollbacks and reports them as\
-    \ errors to the update server ([PR#6](https://github.com/flatcar-linux/update_engine/pull/6))\r\
+    \ errors to the update server ([PR#6](https://github.com/flatcar/update_engine/pull/6))\r\
     \n*   The zstd tools were added (version 1.4.4)\r\n*   The kernel config CONFIG_PSI\
     \ was set to support[ Pressure Stall Information](https://www.kernel.org/doc/html/latest/accounting/psi.html),\
     \ more information also under[ https://facebookmicrosites.github.io/psi/docs/overview](https://facebookmicrosites.github.io/psi/docs/overview)\
-    \ ([Flatcar#162](https://github.com/flatcar-linux/Flatcar/issues/162))\r\n*  \
+    \ ([Flatcar#162](https://github.com/flatcar/Flatcar/issues/162))\r\n*  \
     \ The kernel config CONFIG_BPF_JIT_ALWAYS_ON was set to use the BPF just-in-time\
     \ compiler by default for faster execution\r\n*   The kernel config CONFIG_POWER_SUPPLY\
     \ was set\r\n*   The kernel configs CONFIG_OVERLAY_FS_METACOPY and CONFIG_OVERLAY_FS_REDIRECT_DIR\
@@ -105,16 +105,16 @@ github_release:
     \ when the file is opened for write operations. With the second, which is equivalent\
     \ to setting \"redirect_dir=on\" in the kernel command-line, overlayfs will copy\
     \ up the directory first before the actual content ([Flatcar#170](https://github.com/kinvolk/Flatcar/issues/170)).\r\
-    \n*   Remove unnecessary kernel module nf-conntrack-ipv4 ([overlay PR#649](https://github.com/flatcar-linux/coreos-overlay/pull/649))\r\
-    \n*   Compress kernel modules with xz ([overlay PR#628](https://github.com/flatcar-linux/coreos-overlay/pull/628))\r\
+    \n*   Remove unnecessary kernel module nf-conntrack-ipv4 ([overlay PR#649](https://github.com/flatcar/coreos-overlay/pull/649))\r\
+    \n*   Compress kernel modules with xz ([overlay PR#628](https://github.com/flatcar/coreos-overlay/pull/628))\r\
     \n*   Add containerd-runc-shim-v* binaries required by kubelet custom CRI endpoints\
-    \ ([overlay PR#623](https://github.com/flatcar-linux/coreos-overlay/pull/623))\r\
+    \ ([overlay PR#623](https://github.com/flatcar/coreos-overlay/pull/623))\r\
     \n*   Equinix Metal (Packet): Exclude unused network interfaces from networkd,\
     \ disregard the state of the bonded interfaces for the network-online.target and\
     \ only require the bond interface itself to have at least one active link instead\
-    \ of routable which requires both links to be active ([afterburn PR#10](https://github.com/flatcar-linux/afterburn/pull/10))\r\
+    \ of routable which requires both links to be active ([afterburn PR#10](https://github.com/flatcar/afterburn/pull/10))\r\
     \n*   QEMU: Use flatcar.autologin kernel command line parameter for auto login\
-    \ on the console ([Flatcar #71](https://github.com/flatcar-linux/Flatcar/issues/71))\r\
+    \ on the console ([Flatcar #71](https://github.com/flatcar/Flatcar/issues/71))\r\
     \n\r\nUpdates:\r\n\r\n*   Linux ([5.4.81](https://lwn.net/Articles/838790/))\r\
     \n*   Linux firmware ([20200918](https://git.kernel.org/pub/scm/linux/kernel/git/firmware/linux-firmware.git/tag/?h=20200918))\r\
     \n*   systemd ([246.6](https://github.com/systemd/systemd-stable/releases/tag/v246.6))\r\

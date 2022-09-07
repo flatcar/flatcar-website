@@ -21,7 +21,7 @@ For information about release and signing keys, please see the new [Releases](ht
 
 ### Filing issues or feature requests
 
-You can use the [Flatcar repository](https://github.com/flatcar-linux/Flatcar/issues) to file any issue or feature request you may have.
+You can use the [Flatcar repository](https://github.com/flatcar/Flatcar/issues) to file any issue or feature request you may have.
 
 ### Flatcar Linux documentation
 

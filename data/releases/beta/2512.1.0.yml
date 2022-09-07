@@ -50,11 +50,11 @@ github_release:
     \ [CVE-2019-13232](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2019-13232))\r\
     \n- Fix vim arbitrary command execution via crafted file ([CVE-2019-12735](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2019-12735))\r\
     \n\r\nBug fixes:\r\n- When writing the update kernel, prefer `/boot/coreos` only\
-    \ if `/boot/coreos/vmlinux-*` exists (https://github.com/flatcar-linux/update_engine/pull/5)\r\
+    \ if `/boot/coreos/vmlinux-*` exists (https://github.com/flatcar/update_engine/pull/5)\r\
     \n- Fixed sysroot-boot initramfs service race which resulted in a warning that\
     \ this service failed\r\n- Use the correct `BINHOST` URLs in the development container\
     \ to download binary packages\r\n\r\nChanges:\r\n- Support the CoreOS GRUB `/boot/coreos/first_boot`\
-    \ flag file (https://github.com/flatcar-linux/bootengine/pull/13)\r\n- Fetch container\
+    \ flag file (https://github.com/flatcar/bootengine/pull/13)\r\n- Fetch container\
     \ images in docker format rather than ACI by default in `etcd-member.service`,\
     \ `flanneld.service`, and `kubelet-wrapper`\r\n- Use `flatcar.autologin` kernel\
     \ command line parameter on Azure and VMware for auto login on the serial console\r\
@@ -69,7 +69,7 @@ github_release:
     \n- vim [8.2.0360](http://ftp.vim.org/pub/vim/patches/8.2/README)\r\n"
   created_at: '2020-05-25T13:27:38Z'
   draft: false
-  html_url: https://github.com/flatcar-linux/manifest/releases/tag/v2512.1.0
+  html_url: https://github.com/flatcar/manifest/releases/tag/v2512.1.0
   id: 26909035
   name: v2512.1.0
   node_id: MDc6UmVsZWFzZTI2OTA5MDM1

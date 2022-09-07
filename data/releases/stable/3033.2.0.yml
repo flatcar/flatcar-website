@@ -52,16 +52,16 @@ github_release:
     \ ([CVE-2020-14150](https://nvd.nist.gov/vuln/detail/CVE-2020-14150),[ CVE-2020-24240](https://nvd.nist.gov/vuln/detail/CVE-2020-24240))\r\
     \n* SDK: perl ([CVE-2020-10878](https://nvd.nist.gov/vuln/detail/CVE-2020-10878))\r\
     \n\r\n**Bug fixes**\r\n\r\n\r\n\r\n* arm64: the Polkit service does not crash\
-    \ anymore. ([flatcar-linux/Flatcar#156](https://github.com/flatcar-linux/Flatcar/issues/156))\r\
-    \n* toolbox: fixed support for multi-layered docker images ([toolbox#5](https://github.com/flatcar-linux/toolbox/pull/5))\r\
-    \n* Run emergency.target on ignition/torcx service unit failure in dracut ([bootengine#28](https://github.com/flatcar-linux/bootengine/pull/28))\r\
+    \ anymore. ([flatcar-linux/Flatcar#156](https://github.com/flatcar/Flatcar/issues/156))\r\
+    \n* toolbox: fixed support for multi-layered docker images ([toolbox#5](https://github.com/flatcar/toolbox/pull/5))\r\
+    \n* Run emergency.target on ignition/torcx service unit failure in dracut ([bootengine#28](https://github.com/flatcar/bootengine/pull/28))\r\
     \n* Fix vim warnings on missing file, when built with USE=\u201Dminimal\u201D\
-    \ ([portage-stable#260](https://github.com/flatcar-linux/portage-stable/pull/260))\r\
+    \ ([portage-stable#260](https://github.com/flatcar/portage-stable/pull/260))\r\
     \n* The Torcx profile `docker-1.12-no` got fixed to reference the current Docker\
     \ version instead of 19.03 which wasn't found on the image, causing Torcx to fail\
-    \ to provide Docker ([PR#1456](https://github.com/flatcar-linux/coreos-overlay/pull/1456))\r\
-    \n\r\n**Changes**\r\n\r\n\r\n\r\n* Added GPIO support ([coreos-overlay#1236](https://github.com/flatcar-linux/coreos-overlay/pull/1236))\r\
-    \n* Enabled SELinux in permissive mode on ARM64 ([coreos-overlay#1245](https://github.com/flatcar-linux/coreos-overlay/pull/1245))\r\
+    \ to provide Docker ([PR#1456](https://github.com/flatcar/coreos-overlay/pull/1456))\r\
+    \n\r\n**Changes**\r\n\r\n\r\n\r\n* Added GPIO support ([coreos-overlay#1236](https://github.com/flatcar/coreos-overlay/pull/1236))\r\
+    \n* Enabled SELinux in permissive mode on ARM64 ([coreos-overlay#1245](https://github.com/flatcar/coreos-overlay/pull/1245))\r\
     \n* The `iptables` command uses the nftables kernel backend instead of the iptables\
     \ backend, you can also migrate to using the `nft` tool instead of `iptables`.\
     \ Containers with `iptables` binaries that use the iptables backend will result\
@@ -110,7 +110,7 @@ github_release:
     \ [CVE-2021-44717](https://nvd.nist.gov/vuln/detail/CVE-2021-44717), [CVE-2021-44716](https://nvd.nist.gov/vuln/detail/CVE-2021-44716))\r\
     \n* ca-certificates ([CVE-2021-43527](https://nvd.nist.gov/vuln/detail/CVE-2021-43527))\r\
     \n\r\n**Bug fixes**\r\n\r\n\r\n\r\n* Fix vim warnings on missing file, when built\
-    \ with USE=\u201Dminimal\u201D ([portage-stable#260](https://github.com/flatcar-linux/portage-stable/pull/260))\r\
+    \ with USE=\u201Dminimal\u201D ([portage-stable#260](https://github.com/flatcar/portage-stable/pull/260))\r\
     \n\r\n**Updates**\r\n\r\n\r\n\r\n* Linux ([5.10.84](https://lwn.net/Articles/878041/))\r\
     \n* Go ([1.17.5](https://go.googlesource.com/go/+/refs/tags/go1.17.5))\r\n* ca-certificates\
     \ ([3.73](https://groups.google.com/a/mozilla.org/g/dev-tech-crypto/c/vy9284s8APM))"

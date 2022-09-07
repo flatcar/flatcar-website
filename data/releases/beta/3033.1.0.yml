@@ -32,7 +32,7 @@ github_release:
     \ ([CVE-2021-41092](https://nvd.nist.gov/vuln/detail/CVE-2021-41092), [CVE-2021-41089](https://nvd.nist.gov/vuln/detail/CVE-2021-41089),[\
     \ CVE-2021-41091](https://nvd.nist.gov/vuln/detail/CVE-2021-41091))\r\n* Go ([CVE-2021-41771](https://nvd.nist.gov/vuln/detail/CVE-2021-41771),[\
     \ CVE-2021-41772](https://nvd.nist.gov/vuln/detail/CVE-2021-41772))\r\n\r\n**Changes**\r\
-    \n\r\n\r\n\r\n* Use https protocol instead of git for Github URLs ([flatcar-linux/coreos-overlay#1394](https://github.com/flatcar-linux/coreos-overlay/pull/1394))\r\
+    \n\r\n\r\n\r\n* Use https protocol instead of git for Github URLs ([flatcar-linux/coreos-overlay#1394](https://github.com/flatcar/coreos-overlay/pull/1394))\r\
     \n\r\n**Updates**\r\n\r\n\r\n\r\n* Linux ([5.10.77](https://lwn.net/Articles/874852/))\r\
     \n* docker ([20.10.10](https://docs.docker.com/engine/release-notes/#201010))\r\
     \n* Go ([1.17.3](https://go.googlesource.com/go/+/refs/tags/go1.17.3))\r\n\r\n\
@@ -69,17 +69,17 @@ github_release:
     \ ([CVE-2020-14150](https://nvd.nist.gov/vuln/detail/CVE-2020-14150),[ CVE-2020-24240](https://nvd.nist.gov/vuln/detail/CVE-2020-24240))\r\
     \n* SDK: perl ([CVE-2020-10878](https://nvd.nist.gov/vuln/detail/CVE-2020-10878))\r\
     \n\r\n**Bug fixes**\r\n\r\n\r\n\r\n* toolbox: fixed support for multi-layered\
-    \ docker images ([flatcar-linux/toolbox#5](https://github.com/flatcar-linux/toolbox/pull/5))\r\
-    \n* arm64: the Polkit service does not crash anymore. ([flatcar-linux/Flatcar#156](https://github.com/flatcar-linux/Flatcar/issues/156))\r\
+    \ docker images ([flatcar-linux/toolbox#5](https://github.com/flatcar/toolbox/pull/5))\r\
+    \n* arm64: the Polkit service does not crash anymore. ([flatcar-linux/Flatcar#156](https://github.com/flatcar/Flatcar/issues/156))\r\
     \n* The tcsd service for TPM 1 is not started on machines with TPM 2 anymore where\
-    \ it fails and isn\u2019t necessary. ([flatcar-linux/coreos-overlay#1365](https://github.com/flatcar-linux/coreos-overlay/pull/1365))\r\
+    \ it fails and isn\u2019t necessary. ([flatcar-linux/coreos-overlay#1365](https://github.com/flatcar/coreos-overlay/pull/1365))\r\
     \n* Skip tcsd.service for TPM2 devices to fix failures on c3.small.x86 instances\
-    \ of Equinix Metal ([Flatcar#208](https://github.com/flatcar-linux/Flatcar/issues/208))\r\
-    \n* Fixed locksmith adhering to reboot window when getting the etcd lock ([flatcar-linux/locksmith#10](https://github.com/flatcar-linux/locksmith/pull/10))\r\
-    \n* Run emergency.target on `ignition/torcx` service unit failure in dracut ([bootengine#28](https://github.com/flatcar-linux/bootengine/pull/28))\r\
-    \n\r\n**Changes**\r\n\r\n\r\n\r\n* Added GPIO support ([coreos-overlay#1236](https://github.com/flatcar-linux/coreos-overlay/pull/1236))\r\
-    \n* Enabled SELinux in permissive mode on ARM64 ([coreos-overlay#1245](https://github.com/flatcar-linux/coreos-overlay/pull/1245))\r\
-    \n* Added support for some alias commands from `bcc` ([flatcar-linux/coreos-overlay#1278](https://github.com/flatcar-linux/coreos-overlay/pull/1278))\r\
+    \ of Equinix Metal ([Flatcar#208](https://github.com/flatcar/Flatcar/issues/208))\r\
+    \n* Fixed locksmith adhering to reboot window when getting the etcd lock ([flatcar-linux/locksmith#10](https://github.com/flatcar/locksmith/pull/10))\r\
+    \n* Run emergency.target on `ignition/torcx` service unit failure in dracut ([bootengine#28](https://github.com/flatcar/bootengine/pull/28))\r\
+    \n\r\n**Changes**\r\n\r\n\r\n\r\n* Added GPIO support ([coreos-overlay#1236](https://github.com/flatcar/coreos-overlay/pull/1236))\r\
+    \n* Enabled SELinux in permissive mode on ARM64 ([coreos-overlay#1245](https://github.com/flatcar/coreos-overlay/pull/1245))\r\
+    \n* Added support for some alias commands from `bcc` ([flatcar-linux/coreos-overlay#1278](https://github.com/flatcar/coreos-overlay/pull/1278))\r\
     \n\r\n**Updates**\r\n\r\n\r\n\r\n* Linux ([5.10.77](https://lwn.net/Articles/874852/))\r\
     \n* Linux firmware ([20210919](https://git.kernel.org/pub/scm/linux/kernel/git/firmware/linux-firmware.git/tag/?h=20210919))\r\
     \n* Go ([1.17.3](https://go.googlesource.com/go/+/refs/tags/go1.17.3))\r\n* bash\

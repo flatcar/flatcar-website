@@ -34,15 +34,15 @@ github_release:
     \n- polkit ([CVE-2021-4034](https://nvd.nist.gov/vuln/detail/CVE-2021-4034))\r\
     \n- SDK: Rust ([CVE-2022-21658](https://nvd.nist.gov/vuln/detail/CVE-2022-21658))\r\
     \n\r\n\r\n#### Bug fixes\r\n- network: Accept ICMPv6 Router Advertisements to\
-    \ fix IPv6 address assignment in the default DHCP setting ([flatcar-linux/init#51](https://github.com/flatcar-linux/init/pull/51),\
-    \ [flatcar-linux/cloudinit#12](https://github.com/flatcar-linux/coreos-cloudinit/pull/12),\
-    \ [flatcar-linux/bootengine#30](https://github.com/flatcar-linux/bootengine/pull/30))\r\
+    \ fix IPv6 address assignment in the default DHCP setting ([flatcar-linux/init#51](https://github.com/flatcar/init/pull/51),\
+    \ [flatcar-linux/cloudinit#12](https://github.com/flatcar/coreos-cloudinit/pull/12),\
+    \ [flatcar-linux/bootengine#30](https://github.com/flatcar/bootengine/pull/30))\r\
     \n- flatcar-update: Stopped checking for the `USER` environment variable which\
     \ may not be set in all environments, causing the script to fail unless a workaround\
-    \ was used like prepending an additional `sudo` invocation ([flatcar-linux/init#58](https://github.com/flatcar-linux/init/pull/58))\r\
+    \ was used like prepending an additional `sudo` invocation ([flatcar-linux/init#58](https://github.com/flatcar/init/pull/58))\r\
     \n\r\n#### Changes\r\n- Enabled the FIPS support for the Linux kernel, which users\
     \ can now choose through a kernel parameter in `grub.cfg` (check it taking effect\
-    \ with `cat /proc/sys/crypto/fips_enabled`) ([flatcar-linux/coreos-overlay#1602](https://github.com/flatcar-linux/coreos-overlay/pull/1602))\r\
+    \ with `cat /proc/sys/crypto/fips_enabled`) ([flatcar-linux/coreos-overlay#1602](https://github.com/flatcar/coreos-overlay/pull/1602))\r\
     \n\r\n#### Updates\r\n- Linux ([5.15.19](https://lwn.net/Articles/883441)) (from\
     \ 5.15.16)\r\n- expat ([2.4.4](https://github.com/libexpat/libexpat/blob/R_2_4_4/expat/Changes))\r\
     \n- polkit ([0.120](https://gitlab.freedesktop.org/polkit/polkit/-/blob/0.120/NEWS))\r\

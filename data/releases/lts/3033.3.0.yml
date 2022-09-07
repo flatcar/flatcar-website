@@ -175,82 +175,82 @@ github_release:
     \ [CVE-2021-28879](https://nvd.nist.gov/vuln/detail/CVE-2021-28879), [CVE-2021-31162](https://nvd.nist.gov/vuln/detail/CVE-2021-31162))\r\
     \n\r\n\r\n### Bug fixes:\r\n\r\n- The Torcx profile `docker-1.12-no` got fixed\
     \ to reference the current Docker version instead of 19.03 which wasn't found\
-    \ on the image, causing Torcx to fail to provide Docker ([coreos-overlay#1456](https://github.com/flatcar-linux/coreos-overlay/pull/1456))\r\
+    \ on the image, causing Torcx to fail to provide Docker ([coreos-overlay#1456](https://github.com/flatcar/coreos-overlay/pull/1456))\r\
     \n- Ensured that the `/run/xtables.lock` coordination file exists for modifications\
     \ of the xtables backend from containers (must be bind-mounted) or the `iptables-legacy`\
-    \ binaries on the host ([init#57](https://github.com/flatcar-linux/init/pull/57))\r\
+    \ binaries on the host ([init#57](https://github.com/flatcar/init/pull/57))\r\
     \n- SDK: Fixed build error popping up in the new SDK Container because `policycoreutils`\
-    \ used the wrong ROOT to update the SELinux store ([coreos-overlay#1502](https://github.com/flatcar-linux/coreos-overlay/pull/1502))\r\
+    \ used the wrong ROOT to update the SELinux store ([coreos-overlay#1502](https://github.com/flatcar/coreos-overlay/pull/1502))\r\
     \n- Fixed leak of SELinux policy store to the root filesystem top directory due\
-    \ to wrong store path in `policycoreutils` instead of `/var/lib/selinux` ([flatcar-linux/Flatcar#596](https://github.com/flatcar-linux/Flatcar/issues/596))\r\
+    \ to wrong store path in `policycoreutils` instead of `/var/lib/selinux` ([flatcar-linux/Flatcar#596](https://github.com/flatcar/Flatcar/issues/596))\r\
     \n- Disabled the systemd-networkd settings `ManageForeignRoutes` and `ManageForeignRoutingPolicyRules`\
     \ by default to ensure that CNIs like Cilium don't get their routes or routing\
-    \ policy rules discarded on network reconfiguration events ([Flatcar#620](https://github.com/flatcar-linux/Flatcar/issues/620)).\r\
+    \ policy rules discarded on network reconfiguration events ([Flatcar#620](https://github.com/flatcar/Flatcar/issues/620)).\r\
     \n- AWS: specify correct console (ttyS0) on kernel command line for ARM64 instances\
-    \ ([coreos-overlay#1628](https://github.com/flatcar-linux/coreos-overlay/pull/1628))\r\
+    \ ([coreos-overlay#1628](https://github.com/flatcar/coreos-overlay/pull/1628))\r\
     \n- Prevented hitting races when creating filesystems in Ignition, these races\
     \ caused boot failures like `fsck[1343]: Failed to stat /dev/disk/by-label/ROOT:\
-    \ No such file or directory` when creating a btrfs root filesystem ([ignition#35](https://github.com/flatcar-linux/ignition/pull/35))\r\
+    \ No such file or directory` when creating a btrfs root filesystem ([ignition#35](https://github.com/flatcar/ignition/pull/35))\r\
     \n- Reverted the Linux kernel change to forbid xfrm id 0 for IPSec state because\
-    \ it broke Cilium ([Flatcar#626](https://github.com/flatcar-linux/Flatcar/issues/626),\
-    \ [coreos-overlay#1682](https://github.com/flatcar-linux/coreos-overlay/pull/1682))\r\
+    \ it broke Cilium ([Flatcar#626](https://github.com/flatcar/Flatcar/issues/626),\
+    \ [coreos-overlay#1682](https://github.com/flatcar/coreos-overlay/pull/1682))\r\
     \n- Reverted the Linux kernel commit which broke networking on AWS instances which\
-    \ use Intel 82559 NIC (c4/m4) ([Flatcar#665](https://github.com/flatcar-linux/Flatcar/issues/665),\
-    \ [coreos-overlay#1720](https://github.com/flatcar-linux/coreos-overlay/pull/1720))\r\
+    \ use Intel 82559 NIC (c4/m4) ([Flatcar#665](https://github.com/flatcar/Flatcar/issues/665),\
+    \ [coreos-overlay#1720](https://github.com/flatcar/coreos-overlay/pull/1720))\r\
     \n- Added pahole to developer container, without it kernel modules built against\
-    \ /usr/src/linux may fail to probe with an 'invalid relocation target' error ([coreos-overlay#1839](https://github.com/flatcar-linux/coreos-overlay/pull/1839))\r\
-    \n- vim with USE=minimal was fixed to run without warning in the beginning [portage-stable#260](https://github.com/flatcar-linux/portage-stable/pull/260)\r\
+    \ /usr/src/linux may fail to probe with an 'invalid relocation target' error ([coreos-overlay#1839](https://github.com/flatcar/coreos-overlay/pull/1839))\r\
+    \n- vim with USE=minimal was fixed to run without warning in the beginning [portage-stable#260](https://github.com/flatcar/portage-stable/pull/260)\r\
     \n- dev container: Fix github URL for coreos-overlay and portage-stable to use\
     \ repos from flatcar-linux org directly instead of relying on redirects from the\
     \ kinvolk org. This fixes checkouts with emerge-gitclone inside dev-container.\
-    \ [scripts#194](https://github.com/flatcar-linux/scripts/pull/194)\r\n- Added\
-    \ missing SELinux rule as initial step to resolve Torcx unpacking issue ([coreos-overlay#1426](https://github.com/flatcar-linux/coreos-overlay/pull/1426))\r\
-    \n- Randomize OEM filesystem UUID if mounting fails ([init#47](https://github.com/flatcar-linux/init/pull/47))\r\
-    \n- Run emergency.target on ignition/torcx service unit failure in dracut ([bootengine#28](https://github.com/flatcar-linux/bootengine/pull/28))\r\
-    \n- Re-enabled kernel config FS_ENCRYPTION ([coreos-overlay#1212](https://github.com/flatcar-linux/coreos-overlay/pull/1212/))\r\
-    \n- Fixed Perl in dev-container ([coreos-overlay#1238](https://github.com/flatcar-linux/coreos-overlay/pull/1238/))\r\
-    \n- Fixed containerd config after introduction of CGroupsV2 ([coreos-overlay#1214](https://github.com/flatcar-linux/coreos-overlay/pull/1214))\r\
-    \n- Fixed path for amazon-ssm-agent in base-ec2.ign ([coreos-overlay#1228](https://github.com/flatcar-linux/coreos-overlay/pull/1228))\r\
-    \n- flatcar-install: randomized OEM filesystem UUID if mounting fails ([init#47](https://github.com/flatcar-linux/init/pull/47))\r\
+    \ [scripts#194](https://github.com/flatcar/scripts/pull/194)\r\n- Added\
+    \ missing SELinux rule as initial step to resolve Torcx unpacking issue ([coreos-overlay#1426](https://github.com/flatcar/coreos-overlay/pull/1426))\r\
+    \n- Randomize OEM filesystem UUID if mounting fails ([init#47](https://github.com/flatcar/init/pull/47))\r\
+    \n- Run emergency.target on ignition/torcx service unit failure in dracut ([bootengine#28](https://github.com/flatcar/bootengine/pull/28))\r\
+    \n- Re-enabled kernel config FS_ENCRYPTION ([coreos-overlay#1212](https://github.com/flatcar/coreos-overlay/pull/1212/))\r\
+    \n- Fixed Perl in dev-container ([coreos-overlay#1238](https://github.com/flatcar/coreos-overlay/pull/1238/))\r\
+    \n- Fixed containerd config after introduction of CGroupsV2 ([coreos-overlay#1214](https://github.com/flatcar/coreos-overlay/pull/1214))\r\
+    \n- Fixed path for amazon-ssm-agent in base-ec2.ign ([coreos-overlay#1228](https://github.com/flatcar/coreos-overlay/pull/1228))\r\
+    \n- flatcar-install: randomized OEM filesystem UUID if mounting fails ([init#47](https://github.com/flatcar/init/pull/47))\r\
     \n- Fixed null-pointer deref crash in Ignition when specifying the OEM filesystem\
-    \ without a label ([ignition#25](https://github.com/flatcar-linux/ignition/pull/25))\r\
-    \n- Fixed locksmith adhering to reboot window when getting the etcd lock ([locksmith#10](https://github.com/flatcar-linux/locksmith/pull/10))\r\
-    \n- Fixed pam.d sssd LDAP auth with sudo ([coreos-overlay#1170](https://github.com/flatcar-linux/coreos-overlay/pull/1170))\r\
-    \n- Let network-cleanup.service finish before entering rootfs ([coreos-overlay#1182](https://github.com/flatcar-linux/coreos-overlay/pull/1182))\r\
-    \n- Fixed SELinux policy for Flannel CNI ([coreos-overlay#1181](https://github.com/flatcar-linux/coreos-overlay/pull/1181))\r\
+    \ without a label ([ignition#25](https://github.com/flatcar/ignition/pull/25))\r\
+    \n- Fixed locksmith adhering to reboot window when getting the etcd lock ([locksmith#10](https://github.com/flatcar/locksmith/pull/10))\r\
+    \n- Fixed pam.d sssd LDAP auth with sudo ([coreos-overlay#1170](https://github.com/flatcar/coreos-overlay/pull/1170))\r\
+    \n- Let network-cleanup.service finish before entering rootfs ([coreos-overlay#1182](https://github.com/flatcar/coreos-overlay/pull/1182))\r\
+    \n- Fixed SELinux policy for Flannel CNI ([coreos-overlay#1181](https://github.com/flatcar/coreos-overlay/pull/1181))\r\
     \n- Set the cilium_vxlan interface to be not managed by networkd\u2019s default\
-    \ setup with DHCP as it\u2019s managed by Cilium. ([init#43](https://github.com/flatcar-linux/init/pull/43))\r\
-    \n- Disabled SELinux by default on dockerd wrapper script ([coreos-overlay#1149](https://github.com/flatcar-linux/coreos-overlay/pull/1149))\r\
+    \ setup with DHCP as it\u2019s managed by Cilium. ([init#43](https://github.com/flatcar/init/pull/43))\r\
+    \n- Disabled SELinux by default on dockerd wrapper script ([coreos-overlay#1149](https://github.com/flatcar/coreos-overlay/pull/1149))\r\
     \n- Fixed the network-cleanup service race in the initramfs which resulted in\
     \ a failure being reported\r\n- GCE: Granted CAP_NET_ADMIN to set routes for the\
-    \ TCP LB when starting oem-gce.service ([coreos-overlay#1146](https://github.com/flatcar-linux/coreos-overlay/pull/1146))\r\
+    \ TCP LB when starting oem-gce.service ([coreos-overlay#1146](https://github.com/flatcar/coreos-overlay/pull/1146))\r\
     \n- Add the systemd tag in udev for Azure storage devices, to fix /boot automount\
-    \ ([init#41](https://github.com/flatcar-linux/init/pull/41))\r\n- Update-engine\
-    \ sent empty requests when restarted before a pending reboot ([Flatcar#388](https://github.com/flatcar-linux/Flatcar/issues/388))\r\
-    \n- systemd-networkd: Do not manage loopback network interface ([bootengine#24](https://github.com/flatcar-linux/bootengine/pull/24)\
-    \ [init#40](https://github.com/flatcar-linux/init/pull/40))\r\n- flatcar-install:\
+    \ ([init#41](https://github.com/flatcar/init/pull/41))\r\n- Update-engine\
+    \ sent empty requests when restarted before a pending reboot ([Flatcar#388](https://github.com/flatcar/Flatcar/issues/388))\r\
+    \n- systemd-networkd: Do not manage loopback network interface ([bootengine#24](https://github.com/flatcar/bootengine/pull/24)\
+    \ [init#40](https://github.com/flatcar/init/pull/40))\r\n- flatcar-install:\
     \ Detect device mapper (e.g., LVM/LUKS) usage when searching for free drives with\
-    \ the -s flag ([Flatcar#332](https://github.com/flatcar-linux/Flatcar/issues/332))\r\
+    \ the -s flag ([Flatcar#332](https://github.com/flatcar/Flatcar/issues/332))\r\
     \n- GCE: The old interface name ens4v1 which was replaced by eth0 due to a broken\
     \ udev rule was restored, but now as alternative interface name, and eth0 will\
-    \ stay the primary name for consistency across cloud environments. ([init#38](https://github.com/flatcar-linux/init/pull/38))\r\
-    \n- Include firmware files for all modules shipped in our image ([Issue #359](https://github.com/flatcar-linux/Flatcar/issues/359),\
-    \ [coreos-overlay#887](https://github.com/flatcar-linux/coreos-overlay/pull/887))\r\
+    \ stay the primary name for consistency across cloud environments. ([init#38](https://github.com/flatcar/init/pull/38))\r\
+    \n- Include firmware files for all modules shipped in our image ([Issue #359](https://github.com/flatcar/Flatcar/issues/359),\
+    \ [coreos-overlay#887](https://github.com/flatcar/coreos-overlay/pull/887))\r\
     \n- Add explicit path to the binary call in the coreos-metadata unit file ([Issue\
-    \ #360](https://github.com/flatcar-linux/Flatcar/issues/360))\r\n- sys-apps/systemd:\
-    \ Fix unit installation ([coreos-overlay#810](https://github.com/flatcar-linux/coreos-overlay/pull/810))\r\
-    \n- passwd: use correct GID for tss ([baselayout#15](https://github.com/flatcar-linux/baselayout/pull/15))\r\
-    \n- coreos-base/gmerge: Stop installing gmerge script ([coreos-overlay#828](https://github.com/flatcar-linux/coreos-overlay/pull/828))\r\
+    \ #360](https://github.com/flatcar/Flatcar/issues/360))\r\n- sys-apps/systemd:\
+    \ Fix unit installation ([coreos-overlay#810](https://github.com/flatcar/coreos-overlay/pull/810))\r\
+    \n- passwd: use correct GID for tss ([baselayout#15](https://github.com/flatcar/baselayout/pull/15))\r\
+    \n- coreos-base/gmerge: Stop installing gmerge script ([coreos-overlay#828](https://github.com/flatcar/coreos-overlay/pull/828))\r\
     \n- Update sys-apps/coreutils and make sure they have split-usr disabled for generic\
-    \ images ([coreos-overlay#829](https://github.com/flatcar-linux/coreos-overlay/pull/829))\r\
+    \ images ([coreos-overlay#829](https://github.com/flatcar/coreos-overlay/pull/829))\r\
     \n- afterburn (coreos-metadata): Restart on failure and keep coreos-metadata unit\
-    \ active ([coreos-overlay#768](https://github.com/flatcar-linux/coreos-overlay/pull/768))\r\
+    \ active ([coreos-overlay#768](https://github.com/flatcar/coreos-overlay/pull/768))\r\
     \n- network: Accept ICMPv6 Router Advertisements to fix IPv6 address assignment\
-    \ in the default DHCP setting ([flatcar-linux/init#51](https://github.com/flatcar-linux/init/pull/51),\
-    \ [flatcar-linux/cloudinit#12](https://github.com/flatcar-linux/coreos-cloudinit/pull/12),\
-    \ [flatcar-linux/bootengine#30](https://github.com/flatcar-linux/bootengine/pull/30))\r\
+    \ in the default DHCP setting ([flatcar-linux/init#51](https://github.com/flatcar/init/pull/51),\
+    \ [flatcar-linux/cloudinit#12](https://github.com/flatcar/coreos-cloudinit/pull/12),\
+    \ [flatcar-linux/bootengine#30](https://github.com/flatcar/bootengine/pull/30))\r\
     \n- Added a new flatcar-update tool to the image to ease manual updates, rollbacks,\
-    \ channel/release jumping, and airgapped updates ([flatcar-linux/init#53](https://github.com/flatcar-linux/init/pull/53))\r\
+    \ channel/release jumping, and airgapped updates ([flatcar-linux/init#53](https://github.com/flatcar/init/pull/53))\r\
     \n- Default again to disable SELinux permissions checks in systemd which was missing\
     \ in the initial systemd 246 update\r\n- Default again to set DefaultTasksMax=100%\
     \ in systemd which was missing in the initial systemd 246 update\r\n- Make systemd\
@@ -259,94 +259,94 @@ github_release:
     \ systemd which was missing in the initial systemd 246 update\r\n- Default again\
     \ to waiting only for one network interface to be ready with systemd-networkd-wait-online\
     \ which was missing in the initial systemd 246 update\r\n\r\n### Changes:\r\n\r\
-    \n- Backported `elf` support for `iproute2` ([coreos-overlay#1256](https://github.com/flatcar-linux/coreos-overlay/pull/1526))\r\
+    \n- Backported `elf` support for `iproute2` ([coreos-overlay#1256](https://github.com/flatcar/coreos-overlay/pull/1526))\r\
     \n- Enabled the FIPS support for the Linux kernel, which users can now choose\
     \ through a kernel parameter in `grub.cfg` (check it taking effect with `cat /proc/sys/crypto/fips_enabled`)\
-    \ ([coreos-overlay#1602](https://github.com/flatcar-linux/coreos-overlay/pull/1602))\r\
-    \n- Merge the Flatcar Pro features into the regular Flatcar images ([coreos-overlay#1679](https://github.com/flatcar-linux/coreos-overlay/pull/1679))\
+    \ ([coreos-overlay#1602](https://github.com/flatcar/coreos-overlay/pull/1602))\r\
+    \n- Merge the Flatcar Pro features into the regular Flatcar images ([coreos-overlay#1679](https://github.com/flatcar/coreos-overlay/pull/1679))\
     \ \r\n- Added support for switching back to CGroupsV1 without requiring a reboot.\
-    \ Create `/etc/flatcar-cgroupv1` through ignition. ([coreos-overlay#1666](https://github.com/flatcar-linux/coreos-overlay/pull/1666))\r\
-    \n- Enabled FIPS mode for cryptsetup ([coreos-overlay#1747](https://github.com/flatcar-linux/coreos-overlay/pull/1747))\r\
+    \ Create `/etc/flatcar-cgroupv1` through ignition. ([coreos-overlay#1666](https://github.com/flatcar/coreos-overlay/pull/1666))\r\
+    \n- Enabled FIPS mode for cryptsetup ([coreos-overlay#1747](https://github.com/flatcar/coreos-overlay/pull/1747))\r\
     \n- GCE: Enabled GVE kernel driver, which adds support for Google Virtual NIC\
-    \ on GCP ([coreos-overlay#1802](https://github.com/flatcar-linux/coreos-overlay/pull/1802))\r\
-    \n- Enabled FIPS mode for cryptsetup ([portage-stable#312](https://github.com/flatcar-linux/portage-stable/pull/312))\r\
-    \n- Added GPIO support ([coreos-overlay#1236](https://github.com/flatcar-linux/coreos-overlay/pull/1236))\r\
-    \n- Added Azure Generation 2 VM support ([coreos-overlay#1198](https://github.com/flatcar-linux/coreos-overlay/pull/1198))\r\
-    \n- Switched Docker ecosystem packages to go1.16 ([coreos-overlay#1217](https://github.com/flatcar-linux/coreos-overlay/pull/1217))\r\
-    \n- Added lbzip2 binary to the image ([coreos-overlay#1221](https://github.com/flatcar-linux/coreos-overlay/pull/1221))\r\
-    \n- flatcar-install uses lbzip2 if present, falls back on bzip2 if not ([init#46](https://github.com/flatcar-linux/init/pull/46))\r\
-    \n- Added Intel E800 series network adapter driver ([coreos-overlay#1237](https://github.com/flatcar-linux/coreos-overlay/pull/1237))\r\
-    \n- Enabled \u2018audit\u2019 use flag for sys-libs/pam ([coreos-overlay#1233](https://github.com/flatcar-linux/coreos-overlay/pull/1233))\r\
+    \ on GCP ([coreos-overlay#1802](https://github.com/flatcar/coreos-overlay/pull/1802))\r\
+    \n- Enabled FIPS mode for cryptsetup ([portage-stable#312](https://github.com/flatcar/portage-stable/pull/312))\r\
+    \n- Added GPIO support ([coreos-overlay#1236](https://github.com/flatcar/coreos-overlay/pull/1236))\r\
+    \n- Added Azure Generation 2 VM support ([coreos-overlay#1198](https://github.com/flatcar/coreos-overlay/pull/1198))\r\
+    \n- Switched Docker ecosystem packages to go1.16 ([coreos-overlay#1217](https://github.com/flatcar/coreos-overlay/pull/1217))\r\
+    \n- Added lbzip2 binary to the image ([coreos-overlay#1221](https://github.com/flatcar/coreos-overlay/pull/1221))\r\
+    \n- flatcar-install uses lbzip2 if present, falls back on bzip2 if not ([init#46](https://github.com/flatcar/init/pull/46))\r\
+    \n- Added Intel E800 series network adapter driver ([coreos-overlay#1237](https://github.com/flatcar/coreos-overlay/pull/1237))\r\
+    \n- Enabled \u2018audit\u2019 use flag for sys-libs/pam ([coreos-overlay#1233](https://github.com/flatcar/coreos-overlay/pull/1233))\r\
     \n- Bumped etcd and flannel to respectively 3.5.0, 0.14.0 to get multiarch images\
     \ for arm64 support. Note for users of the old etcd v2 support: ETCDCTL_API=2\
     \ must be set to use v2 store as well as ETCD_ENABLE_V2=true in the etcd-member.service\
-    \ - this support will be removed in 3.6.0 ([coreos-overlay#1179](https://github.com/flatcar-linux/coreos-overlay/pull/1179))\r\
-    \n- cgroups v2 by default for new nodes ([coreos-overlay#931](https://github.com/flatcar-linux/coreos-overlay/pull/931))\r\
-    \n- Upgrade Docker to 20.10 ([coreos-overlay#931](https://github.com/flatcar-linux/coreos-overlay/pull/931))\r\
-    \n- update_engine: add postinstall hook to stay on cgroupv1 ([update_engine#13](https://github.com/flatcar-linux/update_engine/pull/13))\r\
-    \n- Switched to zstd compression for the initramfs ([coreos-overlay#1136](https://github.com/flatcar-linux/coreos-overlay/pull/1136))\r\
-    \n- Embedded new subkey in flatcar-install ([coreos-overlay#1180](https://github.com/flatcar-linux/coreos-overlay/pull/1180))\r\
-    \n- Azure: Compile OEM contents for all architectures ([coreos-overlay#1196](https://github.com/flatcar-linux/coreos-overlay/pull/1196))\r\
-    \n- AWS: Added amazon-ssm-agent ([coreos-overlay#1162](https://github.com/flatcar-linux/coreos-overlay/pull/1162))\r\
+    \ - this support will be removed in 3.6.0 ([coreos-overlay#1179](https://github.com/flatcar/coreos-overlay/pull/1179))\r\
+    \n- cgroups v2 by default for new nodes ([coreos-overlay#931](https://github.com/flatcar/coreos-overlay/pull/931))\r\
+    \n- Upgrade Docker to 20.10 ([coreos-overlay#931](https://github.com/flatcar/coreos-overlay/pull/931))\r\
+    \n- update_engine: add postinstall hook to stay on cgroupv1 ([update_engine#13](https://github.com/flatcar/update_engine/pull/13))\r\
+    \n- Switched to zstd compression for the initramfs ([coreos-overlay#1136](https://github.com/flatcar/coreos-overlay/pull/1136))\r\
+    \n- Embedded new subkey in flatcar-install ([coreos-overlay#1180](https://github.com/flatcar/coreos-overlay/pull/1180))\r\
+    \n- Azure: Compile OEM contents for all architectures ([coreos-overlay#1196](https://github.com/flatcar/coreos-overlay/pull/1196))\r\
+    \n- AWS: Added amazon-ssm-agent ([coreos-overlay#1162](https://github.com/flatcar/coreos-overlay/pull/1162))\r\
     \n- Switched dm-verity corruption detection to issue a kernel panic (a panic results\
     \ in a reboot after 1 minute, this was the case before already) instead of merely\
     \ failing certain syscalls that try to use the corrupted data\r\n- Support BTRFS\
     \ in OEM and /usr partitions, but only used it for the OEM partition for now.\
     \ Ignition configurations that refer to the OEM partition will work with any filesystem\
-    \ format specified, a mismatch is not resulting in a boot error. ([coreos-overlay#1106](https://github.com/flatcar-linux/coreos-overlay/pull/1106))\r\
+    \ format specified, a mismatch is not resulting in a boot error. ([coreos-overlay#1106](https://github.com/flatcar/coreos-overlay/pull/1106))\r\
     \n- Enabled zstd compression for the initramfs and for amd64 also for the kernel\
     \ because we hit the vmlinuz size limit on the /boot partition\r\n- Deleted the\
     \ unused kernel+initramfs vmlinuz file from the /usr partition\r\n- devcontainer:\
     \ added support to run on arm64 by switching to an architecture-agnostic partition\
-    \ UUID\r\n- Enabled ARM64 SDK bootstrap ([scripts#134](https://github.com/flatcar-linux/scripts/pull/134))\r\
-    \n- Enable telnet support for curl ([coreos-overlay#1099](https://github.com/flatcar-linux/coreos-overlay/pull/1099))\r\
-    \n- Enable MDIO_BCM_UNIMAC for arm64 ([coreos-overlay#929](https://github.com/flatcar-linux/coreos-overlay/pull/929))\r\
-    \n- Disabled SELinux for Docker ([coreos-overlay#1055](https://github.com/flatcar-linux/coreos-overlay/pull/1055))\r\
-    \n- flatcar-install: Add -D flag to only download the image file ([Flatcar#248](https://github.com/flatcar-linux/Flatcar/issues/248))\r\
+    \ UUID\r\n- Enabled ARM64 SDK bootstrap ([scripts#134](https://github.com/flatcar/scripts/pull/134))\r\
+    \n- Enable telnet support for curl ([coreos-overlay#1099](https://github.com/flatcar/coreos-overlay/pull/1099))\r\
+    \n- Enable MDIO_BCM_UNIMAC for arm64 ([coreos-overlay#929](https://github.com/flatcar/coreos-overlay/pull/929))\r\
+    \n- Disabled SELinux for Docker ([coreos-overlay#1055](https://github.com/flatcar/coreos-overlay/pull/1055))\r\
+    \n- flatcar-install: Add -D flag to only download the image file ([Flatcar#248](https://github.com/flatcar/Flatcar/issues/248))\r\
     \n- Make the hostname setting units optional. Having the hostname units as required\
     \ by the initrd.target meant that if the unit failed the machine wouldn\u2019\
-    t start, disrupting the whole boot. ([bootengine#23](https://github.com/flatcar-linux/bootengine/pull/23))\r\
-    \n- Enable using iSCSI netroot devices on Flatcar ([bootengine#22](https://github.com/flatcar-linux/bootengine/pull/22))\r\
+    t start, disrupting the whole boot. ([bootengine#23](https://github.com/flatcar/bootengine/pull/23))\r\
+    \n- Enable using iSCSI netroot devices on Flatcar ([bootengine#22](https://github.com/flatcar/bootengine/pull/22))\r\
     \n- The virtio network interfaces got predictable interface names as alternative\
     \ interface names, and thus these names can also be used to match for a specific\
     \ interface in case there is more than one and the eth0 and eth1 name assignment\
-    \ is not stable. ([init#38](https://github.com/flatcar-linux/init/pull/38))\r\n\
+    \ is not stable. ([init#38](https://github.com/flatcar/init/pull/38))\r\n\
     - The pam_faillock PAM module was enabled as replacement for the removed pam_tally2\
     \ module and will temporarily lock an account if there were login attempts with\
     \ a wrong password. The faillock command can be used to show the current state.\
     \ With pam_tally2 there was no limit for wrong password login attempts but with\
     \ faillock the default is already restricting the attempts. The default behavior\
     \ was relaxed to allow 5 wrong passwords per two minutes, and a one minute account\
-    \ lock time. This does not apply to logins with an SSH key. ([baselayout#17](https://github.com/flatcar-linux/baselayout/pull/17))\r\
+    \ lock time. This does not apply to logins with an SSH key. ([baselayout#17](https://github.com/flatcar/baselayout/pull/17))\r\
     \n- The etcd and flannel services are now run with Docker and any rkt-based customizations\
     \ of the etcd-member and flanneld services not supported anymore. Also, because\
     \ the flanneld service relies on Docker and will restart Docker after applying\
     \ the new configuration, it is not possible anymore to set Requires=flanneld.service\
     \ for docker.service and instead it\u2019s enough to have flanneld.service enabled.\
-    \ ([coreos-overlay#857](https://github.com/flatcar-linux/coreos-overlay/pull/857))\r\
-    \n- sshd: use secure crypto algos only ([coreos-overlay#852](https://github.com/flatcar-linux/coreos-overlay/pull/852))\r\
-    \n- samba: Update to EAPI=7, add new USE flags and remove deps on icu ([coreos-overlay#864](https://github.com/flatcar-linux/coreos-overlay/pull/864))\r\
-    \n- kernel: enable kernel config CONFIG_BPF_LSM ([coreos-overlay#846](https://github.com/flatcar-linux/coreos-overlay/pull/846))\r\
-    \n- bootengine: set hostname for EC2 and OpenStack from metadata ([coreos-overlay#848](https://github.com/flatcar-linux/coreos-overlay/pull/848))\r\
-    \n- sys-block/open-iscsi: Command substitution in iscsi-init system service ([coreos-overlay#801](https://github.com/flatcar-linux/coreos-overlay/pull/801))\r\
-    \n- scripts/motdgen: Add OEM information to motd output ([init#34](https://github.com/flatcar-linux/init/pull/34))\r\
-    \n- torcx: delete Docker 1.12 ([coreos-overlay#826](https://github.com/flatcar-linux/coreos-overlay/pull/826))\r\
-    \n- portage update: update portage and related packages to newer versions ([coreos-overlay#840](https://github.com/flatcar-linux/coreos-overlay/pull/840))\r\
-    \n- bin/flatcar-install: add parameters to make wget more resilient ([init#35](https://github.com/flatcar-linux/init/pull/35))\r\
+    \ ([coreos-overlay#857](https://github.com/flatcar/coreos-overlay/pull/857))\r\
+    \n- sshd: use secure crypto algos only ([coreos-overlay#852](https://github.com/flatcar/coreos-overlay/pull/852))\r\
+    \n- samba: Update to EAPI=7, add new USE flags and remove deps on icu ([coreos-overlay#864](https://github.com/flatcar/coreos-overlay/pull/864))\r\
+    \n- kernel: enable kernel config CONFIG_BPF_LSM ([coreos-overlay#846](https://github.com/flatcar/coreos-overlay/pull/846))\r\
+    \n- bootengine: set hostname for EC2 and OpenStack from metadata ([coreos-overlay#848](https://github.com/flatcar/coreos-overlay/pull/848))\r\
+    \n- sys-block/open-iscsi: Command substitution in iscsi-init system service ([coreos-overlay#801](https://github.com/flatcar/coreos-overlay/pull/801))\r\
+    \n- scripts/motdgen: Add OEM information to motd output ([init#34](https://github.com/flatcar/init/pull/34))\r\
+    \n- torcx: delete Docker 1.12 ([coreos-overlay#826](https://github.com/flatcar/coreos-overlay/pull/826))\r\
+    \n- portage update: update portage and related packages to newer versions ([coreos-overlay#840](https://github.com/flatcar/coreos-overlay/pull/840))\r\
+    \n- bin/flatcar-install: add parameters to make wget more resilient ([init#35](https://github.com/flatcar/init/pull/35))\r\
     \n- With the open-iscsi update to 2.1.2, the service unit name changed from iscsid\
-    \ to iscsi ([coreos-overlay#682](https://github.com/flatcar-linux/coreos-overlay/pull/682))\r\
-    \n- Updated nsswitch.conf to use systemd-resolved ([baselayout#10](https://github.com/flatcar-linux/baselayout/pull/10))\r\
-    \n- Enabled systemd-resolved stub listeners ([baselayout#11](https://github.com/flatcar-linux/baselayout/pull/11))\r\
-    \n- systemd-resolved: Disabled DNSSEC for the mean time ([baselayout#14](https://github.com/flatcar-linux/baselayout/pull/14))\r\
-    \n- kernel: enabled CONFIG_DEBUG_INFO_BTF ([coreos-overlay#753](https://github.com/flatcar-linux/coreos-overlay/pull/753))\r\
-    \n- containerd: Disabled shim debug logs ([coreos-overlay#766](https://github.com/flatcar-linux/coreos-overlay/pull/766))\r\
-    \n- Enable BCMGENET as a module on arm64_defconfig-5.9 ([coreos-overlay#717](https://github.com/flatcar-linux/coreos-overlay/pull/717))\r\
-    \n- Enable BCM7XXX_PHY as a module on arm64_defconfig-5.9 for Raspberry Pi 4 ([coreos-overlay#716](https://github.com/flatcar-linux/coreos-overlay/pull/716))\r\
-    \n- flatcar_production_qemu.sh: Use more CPUs for ARM if available ([scripts#91](https://github.com/flatcar-linux/flatcar-scripts/pull/91))\r\
+    \ to iscsi ([coreos-overlay#682](https://github.com/flatcar/coreos-overlay/pull/682))\r\
+    \n- Updated nsswitch.conf to use systemd-resolved ([baselayout#10](https://github.com/flatcar/baselayout/pull/10))\r\
+    \n- Enabled systemd-resolved stub listeners ([baselayout#11](https://github.com/flatcar/baselayout/pull/11))\r\
+    \n- systemd-resolved: Disabled DNSSEC for the mean time ([baselayout#14](https://github.com/flatcar/baselayout/pull/14))\r\
+    \n- kernel: enabled CONFIG_DEBUG_INFO_BTF ([coreos-overlay#753](https://github.com/flatcar/coreos-overlay/pull/753))\r\
+    \n- containerd: Disabled shim debug logs ([coreos-overlay#766](https://github.com/flatcar/coreos-overlay/pull/766))\r\
+    \n- Enable BCMGENET as a module on arm64_defconfig-5.9 ([coreos-overlay#717](https://github.com/flatcar/coreos-overlay/pull/717))\r\
+    \n- Enable BCM7XXX_PHY as a module on arm64_defconfig-5.9 for Raspberry Pi 4 ([coreos-overlay#716](https://github.com/flatcar/coreos-overlay/pull/716))\r\
+    \n- flatcar_production_qemu.sh: Use more CPUs for ARM if available ([scripts#91](https://github.com/flatcar/flatcar-scripts/pull/91))\r\
     \n- Enabled the kernel config HOTPLUG_PCI_ACPI for arm64 to support attaching\
-    \ EC2 volumes ([coreos-overlay#705](https://github.com/flatcar-linux/coreos-overlay/pull/705))\r\
-    \n- Support the lockdown kernel command line parameter ([coreos-overlay#533](https://github.com/flatcar-linux/coreos-overlay/pull/553))\r\
-    \n- AWS arm64: Enable elastic network adapter module ([coreos-overlay#631](https://github.com/flatcar-linux/coreos-overlay/pull/631))\r\
+    \ EC2 volumes ([coreos-overlay#705](https://github.com/flatcar/coreos-overlay/pull/705))\r\
+    \n- Support the lockdown kernel command line parameter ([coreos-overlay#533](https://github.com/flatcar/coreos-overlay/pull/553))\r\
+    \n- AWS arm64: Enable elastic network adapter module ([coreos-overlay#631](https://github.com/flatcar/coreos-overlay/pull/631))\r\
     \n- rkt and kubelet-wrapper are deprecated and removed from Alpha, also from subsequent\
     \ channels in the future. Please read the [removal announcement](https://groups.google.com/g/flatcar-linux-user/c/MeinndLqJO4)\
     \ to know more.\r\n\r\n\r\n### Updates:\r\n\r\n- Linux ([5.10.109](https://lwn.net/Articles/889439))\
@@ -371,7 +371,7 @@ github_release:
     \n- glib ([2.66.8](https://gitlab.gnome.org/GNOME/glib/-/releases/2.66.8))\r\n\
     - gnupg ([2.2.29](https://lists.gnupg.org/pipermail/gnupg-announce/2021q3/000461.html))\r\
     \n- gnutls ([3.7.1](https://github.com/gnutls/gnutls/blob/3.7.1/NEWS))\r\n- gptfdisk\
-    \ ([1.0.7](http://www.rodsbooks.com/gdisk/))\r\n- ignition ([0.36.1](https://github.com/flatcar-linux/ignition/releases/tag/v0.36.1))\r\
+    \ ([1.0.7](http://www.rodsbooks.com/gdisk/))\r\n- ignition ([0.36.1](https://github.com/flatcar/ignition/releases/tag/v0.36.1))\r\
     \n- intel-microcode ([20210608_p20210608](https://github.com/intel/Intel-Linux-Processor-Microcode-Data-Files/releases/tag/microcode-20210608))\r\
     \n- iptables ([1.8.7](https://lwn.net/Articles/843069/))\r\n- keyutils ([1.6.1](https://lwn.net/Articles/771934/))\r\
     \n- ldb ([2.3.0](https://gitlab.com/samba-team/samba/-/blob/ldb-2.3.0/WHATSNEW.txt))\r\
@@ -422,34 +422,34 @@ github_release:
     \ [CVE-2022-21813](https://nvd.nist.gov/vuln/detail/CVE-2022-21813))\r\n- containerd\
     \ ([CVE-2022-24769](https://nvd.nist.gov/vuln/detail/CVE-2022-24769))\r\n\r\n\
     ### Bug fixes:\r\n\r\n- AWS: specify correct console (ttyS0) on kernel command\
-    \ line for ARM64 instances ([coreos-overlay#1628](https://github.com/flatcar-linux/coreos-overlay/pull/1628))\r\
+    \ line for ARM64 instances ([coreos-overlay#1628](https://github.com/flatcar/coreos-overlay/pull/1628))\r\
     \n- Added pahole to developer container, without it kernel modules built against\
-    \ /usr/src/linux may fail to probe with an 'invalid relocation target' error ([coreos-overlay#1839](https://github.com/flatcar-linux/coreos-overlay/pull/1839))\r\
+    \ /usr/src/linux may fail to probe with an 'invalid relocation target' error ([coreos-overlay#1839](https://github.com/flatcar/coreos-overlay/pull/1839))\r\
     \n- network: Accept ICMPv6 Router Advertisements to fix IPv6 address assignment\
-    \ in the default DHCP setting ([flatcar-linux/init#51](https://github.com/flatcar-linux/init/pull/51),\
-    \ [flatcar-linux/cloudinit#12](https://github.com/flatcar-linux/coreos-cloudinit/pull/12),\
-    \ [flatcar-linux/bootengine#30](https://github.com/flatcar-linux/bootengine/pull/30))\r\
+    \ in the default DHCP setting ([flatcar-linux/init#51](https://github.com/flatcar/init/pull/51),\
+    \ [flatcar-linux/cloudinit#12](https://github.com/flatcar/coreos-cloudinit/pull/12),\
+    \ [flatcar-linux/bootengine#30](https://github.com/flatcar/bootengine/pull/30))\r\
     \n\r\n### Changes:\r\n\r\n- The systemd-networkd `ManageForeignRoutes` and `ManageForeignRoutingPolicyRules`\
     \ settings are now disabled through a drop-in file and thus can only be enabled\
     \ again by a drop-in file under `/etc/systemd/networkd.conf.d/` because drop-in\
-    \ files take precedence over `/etc/systemd/networkd.conf` ([init#61](https://github.com/flatcar-linux/init/pull/61))\r\
+    \ files take precedence over `/etc/systemd/networkd.conf` ([init#61](https://github.com/flatcar/init/pull/61))\r\
     \n- Excluded special network interface devices like bridge, tunnel, vxlan, and\
     \ veth devices from the default DHCP configuration to prevent networkd interference\
-    \ ([init#56](https://github.com/flatcar-linux/init/pull/56))\r\n- Added a new\
+    \ ([init#56](https://github.com/flatcar/init/pull/56))\r\n- Added a new\
     \ flatcar-update tool to the image to ease manual updates, rollbacks, channel/release\
-    \ jumping, and airgapped updates ([flatcar-linux/init#53](https://github.com/flatcar-linux/init/pull/53))\r\
-    \n- Merge the Flatcar Pro features into the regular Flatcar images ([coreos-overlay#1679](https://github.com/flatcar-linux/coreos-overlay/pull/1679))\r\
+    \ jumping, and airgapped updates ([flatcar-linux/init#53](https://github.com/flatcar/init/pull/53))\r\
+    \n- Merge the Flatcar Pro features into the regular Flatcar images ([coreos-overlay#1679](https://github.com/flatcar/coreos-overlay/pull/1679))\r\
     \n- Enabled the FIPS support for the Linux kernel, which users can now choose\
     \ through a kernel parameter in `grub.cfg` (check it taking effect with `cat /proc/sys/crypto/fips_enabled`)\
-    \ ([coreos-overlay#1602](https://github.com/flatcar-linux/coreos-overlay/pull/1602))\r\
-    \n- Merge the Flatcar Pro features into the regular Flatcar images ([coreos-overlay#1679](https://github.com/flatcar-linux/coreos-overlay/pull/1679))\
-    \ \r\n- Enabled FIPS mode for cryptsetup ([flatcar-linux/coreos-overlay#1747](https://github.com/flatcar-linux/coreos-overlay/pull/1747),\
-    \ [portage-stable#312](https://github.com/flatcar-linux/portage-stable/pull/312))\r\
+    \ ([coreos-overlay#1602](https://github.com/flatcar/coreos-overlay/pull/1602))\r\
+    \n- Merge the Flatcar Pro features into the regular Flatcar images ([coreos-overlay#1679](https://github.com/flatcar/coreos-overlay/pull/1679))\
+    \ \r\n- Enabled FIPS mode for cryptsetup ([flatcar-linux/coreos-overlay#1747](https://github.com/flatcar/coreos-overlay/pull/1747),\
+    \ [portage-stable#312](https://github.com/flatcar/portage-stable/pull/312))\r\
     \n- GCE: Enabled GVE kernel driver, which adds support for Google Virtual NIC\
-    \ on GCP ([coreos-overlay#1802](https://github.com/flatcar-linux/coreos-overlay/pull/1802))\r\
+    \ on GCP ([coreos-overlay#1802](https://github.com/flatcar/coreos-overlay/pull/1802))\r\
     \n- SDK: Dropped the mantle binaries (kola, ore, etc.) from the SDK, they are\
-    \ now provided by the `ghcr.io/flatcar-linux/mantle` image ([coreos-overlay#1827](https://github.com/flatcar-linux/coreos-overlay/pull/1827),\
-    \ [scripts#275](https://github.com/flatcar-linux/scripts/pull/275))\r\n\r\n###\
+    \ now provided by the `ghcr.io/flatcar-linux/mantle` image ([coreos-overlay#1827](https://github.com/flatcar/coreos-overlay/pull/1827),\
+    \ [scripts#275](https://github.com/flatcar/scripts/pull/275))\r\n\r\n###\
     \ Updates:\r\n\r\n- Linux ([5.10.109](https://lwn.net/Articles/889439) with [5.10.108](https://lwn.net/Articles/889002))\r\
     \n- ca-certificates ([3.77](https://firefox-source-docs.mozilla.org/security/nss/releases/nss_3_77.html))\r\
     \n- containerd ([1.5.11](https://github.com/containerd/containerd/releases/tag/v1.5.11))\r\
