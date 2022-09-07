@@ -77,10 +77,10 @@ The documentation is set under `params.docs` in [config.yaml](./config.yaml) and
 should look similar to:
 
 ```
-github_edit_url: https://github.com/flatcar-linux/flatcar-docs/edit/main/docs/
+github_edit_url: https://github.com/flatcar/flatcar-docs/edit/main/docs/
 issues_url: https://github.com/kinvolk/flatcar/issues/new?labels=kind/docs
 external_docs:
-- repo: https://github.com/flatcar-linux/flatcar-docs.git
+- repo: https://github.com/flatcar/flatcar-docs.git
     name: "latest"
     branch: "main"
     dir: "docs"
@@ -89,11 +89,11 @@ external_docs:
 If you want to add a new version of the documentation, this can be done by adding a new entry to external_docs:
 ```
 external_docs:
-- repo: https://github.com/flatcar-linux/flatcar-docs.git
+- repo: https://github.com/flatcar/flatcar-docs.git
     name: "latest"
     branch: "main"
     dir: "docs"
-- repo: https://github.com/flatcar-linux/flatcar-docs.git
+- repo: https://github.com/flatcar/flatcar-docs.git
     name: "old"
     branch: "tag-1.2.3"
     dir: "docs"
