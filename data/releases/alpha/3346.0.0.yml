@@ -52,15 +52,15 @@ github_release:
     \ [CVE-2022-2000](https://nvd.nist.gov/vuln/detail/CVE-2022-2000))\r\n- VMware:\
     \ open-vm-tools ([CVE-2022-31676](https://nvd.nist.gov/vuln/detail/CVE-2022-31676))\r\
     \n\r\n#### Bug fixes:\r\n\r\n- AWS: added EKS support for version 1.22 and 1.23.\
-    \ ([coreos-overlay#2110](https://github.com/flatcar-linux/coreos-overlay/pull/2110),\
-    \ [Flatcar#829](https://github.com/flatcar-linux/Flatcar/issues/829))\r\n- VMWare:\
-    \ excluded `wireguard` (and others) from `systemd-networkd` management. ([init#80](https://github.com/flatcar-linux/init/pull/80))\r\
+    \ ([coreos-overlay#2110](https://github.com/flatcar/coreos-overlay/pull/2110),\
+    \ [Flatcar#829](https://github.com/flatcar/Flatcar/issues/829))\r\n- VMWare:\
+    \ excluded `wireguard` (and others) from `systemd-networkd` management. ([init#80](https://github.com/flatcar/init/pull/80))\r\
     \n\r\n#### Changes:\r\n\r\n- Added symlink from `nc` to `ncat`. `-q` option is\
-    \ [not yet supported](https://github.com/nmap/nmap/issues/2422) ([flatcar#545](https://github.com/flatcar-linux/Flatcar/issues/545))\r\
+    \ [not yet supported](https://github.com/nmap/nmap/issues/2422) ([flatcar#545](https://github.com/flatcar/Flatcar/issues/545))\r\
     \n- The new image signing subkey was added to the public key embedded into `flatcar-install`\
     \ (the old expired on 10th August 2022), only an updated `flatcar-install` script\
-    \ can verify releases signed with the new key ([init#79](https://github.com/flatcar-linux/init/pull/79))\r\
-    \n- AWS: Added AWS IMDSv2 support to coreos-cloudinit ([flatcar-linux/coreos-cloudinit#13](https://github.com/flatcar-linux/coreos-cloudinit/pull/13))\r\
+    \ can verify releases signed with the new key ([init#79](https://github.com/flatcar/init/pull/79))\r\
+    \n- AWS: Added AWS IMDSv2 support to coreos-cloudinit ([flatcar-linux/coreos-cloudinit#13](https://github.com/flatcar/coreos-cloudinit/pull/13))\r\
     \n\r\n#### Updates:\r\n\r\n- Linux ([5.15.63](https://lwn.net/Articles/906061)\
     \ (includes [5.15.62](https://lwn.net/Articles/905533), [5.15.61](https://lwn.net/Articles/904959),\
     \ [5.15.60](https://lwn.net/Articles/904461), [5.15.59](https://lwn.net/Articles/903688))\r\

@@ -133,12 +133,12 @@ C0E28D0B5F7F0000:error:03000086:digital envelope routines:evp_md_init_internal:i
 
 Flatcar Container Linux aims to reduce the attack surface of the distribution by shipping just the right amount of necessary software. It's a fragile balance from a distro maintainer's point of view; FCL must offer enough flexibility to the user while ensuring the consistency of the OS: with its version 3, OpenSSL fulfills these two requirements.
 
-[issue-418]: https://github.com/flatcar-linux/Flatcar/issues/418
+[issue-418]: https://github.com/flatcar/Flatcar/issues/418
 [flatcar]: https://flatcar-linux.org
 [openssl]: https://www.openssl.org
-[update-engine]: https://github.com/flatcar-linux/update_engine
-[openssl-dependencies]: https://github.com/flatcar-linux/update_engine/blob/flatcar-master/src/update_engine/omaha_hash_calculator.cc#L10-L12
-[issue-519]: https://github.com/flatcar-linux/Flatcar/issues/519
+[update-engine]: https://github.com/flatcar/update_engine
+[openssl-dependencies]: https://github.com/flatcar/update_engine/blob/flatcar-master/src/update_engine/omaha_hash_calculator.cc#L10-L12
+[issue-519]: https://github.com/flatcar/Flatcar/issues/519
 [820173]:https://bugs.gentoo.org/820173
 [alpine-openssl]: https://ariadne.space/2021/10/01/bits-related-to-alpine-security-initiatives-in-september/
 [fips-submission]: https://www.openssl.org/blog/blog/2021/09/22/OpenSSL3-fips-submission/

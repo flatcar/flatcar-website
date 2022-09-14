@@ -56,4 +56,4 @@ As with the previous method, please heed the [set of migration notes](https://do
 
 # That’s it
 
-If you follow the simple steps above, your migration should go without a hitch. If you encounter problems, please let us know by [filing an issue](https://github.com/flatcar-linux/Flatcar/issues) or getting in touch at [hello@kinvolk.io](mailto:hello@kinvolk.io).
+If you follow the simple steps above, your migration should go without a hitch. If you encounter problems, please let us know by [filing an issue](https://github.com/flatcar/Flatcar/issues) or getting in touch at [hello@kinvolk.io](mailto:hello@kinvolk.io).

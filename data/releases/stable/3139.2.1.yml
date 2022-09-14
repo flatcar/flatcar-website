@@ -36,17 +36,17 @@ github_release:
     \ ([CVE-2022-21814](https://nvd.nist.gov/vuln/detail/CVE-2022-21814), [CVE-2022-21813](https://nvd.nist.gov/vuln/detail/CVE-2022-21813))\r\
     \n- Go ([CVE-2022-24675](https://nvd.nist.gov/vuln/detail/CVE-2022-24675))\r\n\
     \r\n#### Bug fixes:\r\n\r\n- AWS: specify correct console (ttyS0) on kernel command\
-    \ line for ARM64 instances ([coreos-overlay#1628](https://github.com/flatcar-linux/coreos-overlay/pull/1628))\r\
-    \n- GCE: Restored oem-gce.service functionality on GCP ([coreos-overlay#1813](https://github.com/flatcar-linux/coreos-overlay/pull/1813))\r\
+    \ line for ARM64 instances ([coreos-overlay#1628](https://github.com/flatcar/coreos-overlay/pull/1628))\r\
+    \n- GCE: Restored oem-gce.service functionality on GCP ([coreos-overlay#1813](https://github.com/flatcar/coreos-overlay/pull/1813))\r\
     \n- Added pahole to developer container, without it kernel modules built against\
-    \ /usr/src/linux may fail to probe with an 'invalid relocation target' error ([coreos-overlay#1839](https://github.com/flatcar-linux/coreos-overlay/pull/1839))\r\
+    \ /usr/src/linux may fail to probe with an 'invalid relocation target' error ([coreos-overlay#1839](https://github.com/flatcar/coreos-overlay/pull/1839))\r\
     \n\r\n#### Changes:\r\n\r\n- Merge the Flatcar Pro features into the regular Flatcar\
-    \ images ([coreos-overlay#1679](https://github.com/flatcar-linux/coreos-overlay/pull/1679))\
+    \ images ([coreos-overlay#1679](https://github.com/flatcar/coreos-overlay/pull/1679))\
     \ \r\n- GCE: Enabled GVE kernel driver, which adds support for Google Virtual\
-    \ NIC on GCP ([coreos-overlay#1802](https://github.com/flatcar-linux/coreos-overlay/pull/1802))\r\
+    \ NIC on GCP ([coreos-overlay#1802](https://github.com/flatcar/coreos-overlay/pull/1802))\r\
     \n- SDK: Dropped the mantle binaries (kola, ore, etc.) from the SDK, they are\
-    \ now provided by the `ghcr.io/flatcar-linux/mantle` image ([coreos-overlay#1827](https://github.com/flatcar-linux/coreos-overlay/pull/1827),\
-    \ [scripts#275](https://github.com/flatcar-linux/scripts/pull/275))\r\n\r\n####\
+    \ now provided by the `ghcr.io/flatcar/mantle` image ([coreos-overlay#1827](https://github.com/flatcar/coreos-overlay/pull/1827),\
+    \ [scripts#275](https://github.com/flatcar/scripts/pull/275))\r\n\r\n####\
     \ Updates:\r\n\r\n- Linux ([5.15.37](https://lwn.net/Articles/893264) (includes\
     \ [5.15.36](https://lwn.net/Articles/892812), [5.15.35](https://lwn.net/Articles/892002),\
     \ [5.15.34](https://lwn.net/Articles/891251), [5.15.33](https://lwn.net/Articles/890722)))\r\

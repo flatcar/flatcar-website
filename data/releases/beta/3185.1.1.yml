@@ -34,21 +34,21 @@ github_release:
     \ [CVE-2022-1205](https://nvd.nist.gov/vuln/detail/CVE-2022-1205), [CVE-2022-0500](https://nvd.nist.gov/vuln/detail/CVE-2022-0500),\
     \ [CVE-2022-23222](https://nvd.nist.gov/vuln/detail/CVE-2022-23222))\r\n- Go ([CVE-2022-24675](https://nvd.nist.gov/vuln/detail/CVE-2022-24675))\r\
     \n\r\n#### Bug fixes:\r\n\r\n- GCE: Restored oem-gce.service functionality on\
-    \ GCP ([coreos-overlay#1813](https://github.com/flatcar-linux/coreos-overlay/pull/1813))\r\
+    \ GCP ([coreos-overlay#1813](https://github.com/flatcar/coreos-overlay/pull/1813))\r\
     \n- Skipped starting `ensure-sysext.service` if `systemd-sysext.service` won't\
-    \ be started, to prevent reporting a dependency failure ([Flatcar#710](https://github.com/flatcar-linux/Flatcar/issues/710))\r\
+    \ be started, to prevent reporting a dependency failure ([Flatcar#710](https://github.com/flatcar/Flatcar/issues/710))\r\
     \n- Added a remount action as `systemd-sysext.service` drop-in unit to restore\
-    \ the OEM partition mount after the overlay mounts in `/usr` are done ([init#69](https://github.com/flatcar-linux/init/pull/69))\r\
+    \ the OEM partition mount after the overlay mounts in `/usr` are done ([init#69](https://github.com/flatcar/init/pull/69))\r\
     \n- Added pahole to developer container, without it kernel modules built against\
-    \ /usr/src/linux may fail to probe with an 'invalid relocation target' error ([coreos-overlay#1839](https://github.com/flatcar-linux/coreos-overlay/pull/1839))\r\
+    \ /usr/src/linux may fail to probe with an 'invalid relocation target' error ([coreos-overlay#1839](https://github.com/flatcar/coreos-overlay/pull/1839))\r\
     \n\r\n#### Changes:\r\n\r\n- GCE: Enabled GVE kernel driver, which adds support\
-    \ for Google Virtual NIC on GCP ([coreos-overlay#1802](https://github.com/flatcar-linux/coreos-overlay/pull/1802))\r\
+    \ for Google Virtual NIC on GCP ([coreos-overlay#1802](https://github.com/flatcar/coreos-overlay/pull/1802))\r\
     \n- Azure: Set up `/etc/hostname` from instance metadata with Afterburn\r\n- AWS\
     \ EC2: Removed the setup of `/etc/hostname` from the instance metadata because\
-    \ it used a long FQDN but we can just use use the hostname set via DHCP ([Flatcar#707](https://github.com/flatcar-linux/Flatcar/issues/707))\r\
+    \ it used a long FQDN but we can just use use the hostname set via DHCP ([Flatcar#707](https://github.com/flatcar/Flatcar/issues/707))\r\
     \n- SDK: Dropped the mantle binaries (kola, ore, etc.) from the SDK, they are\
-    \ now provided by the `ghcr.io/flatcar-linux/mantle` image ([coreos-overlay#1827](https://github.com/flatcar-linux/coreos-overlay/pull/1827),\
-    \ [scripts#275](https://github.com/flatcar-linux/scripts/pull/275))\r\n\r\n####\
+    \ now provided by the `ghcr.io/flatcar/mantle` image ([coreos-overlay#1827](https://github.com/flatcar/coreos-overlay/pull/1827),\
+    \ [scripts#275](https://github.com/flatcar/scripts/pull/275))\r\n\r\n####\
     \ Updates:\r\n\r\n- Linux ([5.15.37](https://lwn.net/Articles/893264) (includes\
     \ [5.15.36](https://lwn.net/Articles/892812), [5.15.35](https://lwn.net/Articles/892002),\
     \ [5.15.34](https://lwn.net/Articles/891251), [5.15.33](https://lwn.net/Articles/890722)))\r\

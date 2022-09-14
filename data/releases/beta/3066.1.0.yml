@@ -30,16 +30,16 @@ github_release:
     \ [CVE-2021-43975](https://nvd.nist.gov/vuln/detail/CVE-2021-43975))\r\n* Go ([CVE-2021-44716](https://nvd.nist.gov/vuln/detail/CVE-2021-44716),\
     \ [CVE-2021-44717](https://nvd.nist.gov/vuln/detail/CVE-2021-44717))\r\n* ca-certificates\
     \ ([CVE-2021-43527](https://nvd.nist.gov/vuln/detail/CVE-2021-43527))\r\n\r\n\
-    **Bug Fixes**\r\n\r\n\r\n\r\n* Added configuration files for logrotate ([flatcar-linux/coreos-overlay#1442](https://github.com/flatcar-linux/coreos-overlay/pull/1442))\r\
-    \n* Fixed `ETCD_NAME` conflicting with `--name` for `etcd-member` to start ([flatcar-linux/coreos-overlay#1444](https://github.com/flatcar-linux/coreos-overlay/pull/1444))\r\
+    **Bug Fixes**\r\n\r\n\r\n\r\n* Added configuration files for logrotate ([flatcar-linux/coreos-overlay#1442](https://github.com/flatcar/coreos-overlay/pull/1442))\r\
+    \n* Fixed `ETCD_NAME` conflicting with `--name` for `etcd-member` to start ([flatcar-linux/coreos-overlay#1444](https://github.com/flatcar/coreos-overlay/pull/1444))\r\
     \n* The Torcx profile docker-1.12-no got fixed to reference the current Docker\
     \ version instead of 19.03 which wasn't found on the image, causing Torcx to fail\
-    \ to provide Docker [flatcar-linux/coreos-overlay#1456](https://github.com/flatcar-linux/coreos-overlay/pull/1456)\r\
+    \ to provide Docker [flatcar-linux/coreos-overlay#1456](https://github.com/flatcar/coreos-overlay/pull/1456)\r\
     \n* Fix vim warnings on missing file, when built with USE=\u201Dminimal\u201D\
-    \ ([portage-stable#260](https://github.com/flatcar-linux/portage-stable/pull/260))\r\
+    \ ([portage-stable#260](https://github.com/flatcar/portage-stable/pull/260))\r\
     \n\r\n**Changes**\r\n\r\n\r\n\r\n* Added a new `flatcar-update` tool to the image\
     \ to ease manual updates, rollbacks, channel/release jumping, and airgapped updates\
-    \ ([flatcar-linux/init#53](https://github.com/flatcar-linux/init/pull/53))\r\n\
+    \ ([flatcar-linux/init#53](https://github.com/flatcar/init/pull/53))\r\n\
     \r\n**Updates**\r\n\r\n\r\n\r\n* ca-certificates ([3.73](https://firefox-source-docs.mozilla.org/security/nss/releases/nss_3_73.html))\r\
     \n* runc ([1.0.3](https://github.com/opencontainers/runc/releases/tag/v1.0.3))\r\
     \n* Go ([1.17.5](https://go.googlesource.com/go/+/refs/tags/go1.17.5))\r\n* Linux\
@@ -53,19 +53,19 @@ github_release:
     \n* rsync ([CVE-2020-14387](https://nvd.nist.gov/vuln/detail/CVE-2020-14387))\r\
     \n* SDK: u-boot-tools ([CVE-2021-27097](https://nvd.nist.gov/vuln/detail/CVE-2021-27097),[CVE-2021-27138](https://nvd.nist.gov/vuln/detail/CVE-2021-27138))\r\
     \n\r\n**Changes:**\r\n\r\n\r\n\r\n* Added sgx group to /etc/group in baselayout\
-    \ ([baselayout#20](https://github.com/flatcar-linux/baselayout/pull/20))\r\n*\
+    \ ([baselayout#20](https://github.com/flatcar/baselayout/pull/20))\r\n*\
     \ Added missing SELinux rule as initial step to resolve Torcx unpacking issue\
-    \ ([coreos-overlay#1426](https://github.com/flatcar-linux/coreos-overlay/pull/1426))\r\
-    \n\r\n**Bug Fixes**\r\n\r\n\r\n\r\n* Skip `tcsd` for machine with TPM 2.0 ([flatcar-linux/coreos-overlay#1364](https://github.com/flatcar-linux/coreos-overlay/pull/1364),[flatcar-linux/coreos-overlay#1365](https://github.com/flatcar-linux/coreos-overlay/pull/1365))\r\
+    \ ([coreos-overlay#1426](https://github.com/flatcar/coreos-overlay/pull/1426))\r\
+    \n\r\n**Bug Fixes**\r\n\r\n\r\n\r\n* Skip `tcsd` for machine with TPM 2.0 ([flatcar-linux/coreos-overlay#1364](https://github.com/flatcar/coreos-overlay/pull/1364),[flatcar-linux/coreos-overlay#1365](https://github.com/flatcar/coreos-overlay/pull/1365))\r\
     \n* Fix vim warnings on missing file, when built with USE=\u201Dminimal\u201D\
-    \ ([portage-stable#260](https://github.com/flatcar-linux/portage-stable/pull/260))\r\
-    \n* SDK: Add missing arm64 SDK keywords to profiles ([coreos-overlay#1407](https://github.com/flatcar-linux/coreos-overlay/pull/1407))\r\
+    \ ([portage-stable#260](https://github.com/flatcar/portage-stable/pull/260))\r\
+    \n* SDK: Add missing arm64 SDK keywords to profiles ([coreos-overlay#1407](https://github.com/flatcar/coreos-overlay/pull/1407))\r\
     \n\r\n**Updates**\r\n\r\n\r\n\r\n* Openssl ([3.0.0](https://www.openssl.org/news/cl30.txt))\r\
     \n* Docker ([20.10.11](https://docs.docker.com/engine/release-notes/#20111))\r\
     \n* containerd ([1.5.8](https://github.com/containerd/containerd/releases/tag/v1.5.8))\r\
     \n* btrfs-progs ([5.10.1](https://btrfs.wiki.kernel.org/index.php/Changelog#btrfs-progs_v5.10_.28Jan_2021.29))\r\
     \n* dbus-glib ([0.112](https://gitlab.freedesktop.org/dbus/dbus-glib/-/tags/dbus-glib-0.112))\r\
-    \n* gmp ([6.2.1](https://gmplib.org/gmp6.2))\r\n* ignition ([0.36.1](https://github.com/flatcar-linux/ignition/releases/tag/v0.36.1))\r\
+    \n* gmp ([6.2.1](https://gmplib.org/gmp6.2))\r\n* ignition ([0.36.1](https://github.com/flatcar/ignition/releases/tag/v0.36.1))\r\
     \n* json-c ([0.15](https://github.com/json-c/json-c/wiki/Notes-for-v0.15-release))\r\
     \n* libgpg-error ([1.42](https://dev.gnupg.org/T5194))\r\n* logrotate ([3.18.1](https://github.com/logrotate/logrotate/releases/tag/3.18.1))\r\
     \n* p11-kit ([0.23.22](https://github.com/p11-glue/p11-kit/releases/tag/0.23.22))\r\

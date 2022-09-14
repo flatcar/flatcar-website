@@ -36,15 +36,15 @@ github_release:
     \n\r\n- Ensured that the `/etc/coreos` to `/etc/flatcar` symlink always exists,\
     \ relevant for the Container Linux Config transpiler (ct) when specifying directives\
     \ for `update:` or `locksmith:` while also reformatting the rootfs ([baselayout\
-    \ PR#7](https://github.com/flatcar-linux/baselayout/pull/7))\r\n- Allow inactive\
+    \ PR#7](https://github.com/flatcar/baselayout/pull/7))\r\n- Allow inactive\
     \ network interfaces to be bound to a bonding interface, by encoding additional\
-    \ configuration for systemd-networkd-wait-online ([afterburn PR #10](https://github.com/flatcar-linux/afterburn/pull/10))\r\
+    \ configuration for systemd-networkd-wait-online ([afterburn PR #10](https://github.com/flatcar/afterburn/pull/10))\r\
     \n- Azure: Exclude bonded SR-IOV driver mlx5-core from network interfaces managed\
-    \ by systemd-networkd ([bootengine PR #19](https://github.com/flatcar-linux/bootengine/pull/19))\
-    \ ([init PR #29](https://github.com/flatcar-linux/init/pull/29))\r\n- Do not configure\
-    \ ccache in Jenkins ([scripts PR #100](https://github.com/flatcar-linux/scripts/pull/100))\r\
+    \ by systemd-networkd ([bootengine PR #19](https://github.com/flatcar/bootengine/pull/19))\
+    \ ([init PR #29](https://github.com/flatcar/init/pull/29))\r\n- Do not configure\
+    \ ccache in Jenkins ([scripts PR #100](https://github.com/flatcar/scripts/pull/100))\r\
     \n\r\nChanges:\r\n\r\n- Remove unnecessary kernel module nf-conntrack-ipv4 ([overlay\
-    \ PR#649](https://github.com/flatcar-linux/coreos-overlay/pull/649))\r\n\r\nUpdates:\r\
+    \ PR#649](https://github.com/flatcar/coreos-overlay/pull/649))\r\n\r\nUpdates:\r\
     \n\r\n- Linux [5.8.16](https://lwn.net/Articles/834536/)\r\n- c-ares [1.61.1](https://github.com/c-ares/c-ares/releases/tag/cares-1_16_1)\r\
     \n- cryptsetup [2.3.2](https://gitlab.com/cryptsetup/cryptsetup/-/tags/v2.3.2)\r\
     \n- json-c [0.15](https://github.com/json-c/json-c/releases/tag/json-c-0.15-20200726)\r\

@@ -33,10 +33,10 @@ github_release:
     \ [CVE-2022-33744](https://nvd.nist.gov/vuln/detail/CVE-2022-33744), [CVE-2022-34918](https://nvd.nist.gov/vuln/detail/CVE-2022-34918))\r\
     \n- containerd ([CVE-2022-31030](https://nvd.nist.gov/vuln/detail/CVE-2022-31030))\r\
     \n\r\n#### Bug fixes:\r\n\r\n- Removed outdated LTS channel information printed\
-    \ on login ([init#75](https://github.com/flatcar-linux/init/pull/75))\r\n\r\n\
+    \ on login ([init#75](https://github.com/flatcar/init/pull/75))\r\n\r\n\
     #### Changes:\r\n\r\n- Enabled `containerd.service` unit, `br_netfilter` and `overlay`\
-    \ modules by default to follow Kubernetes requirements ([coreos-overlay#1944](https://github.com/flatcar-linux/coreos-overlay/pull/1944),\
-    \ [init#72](https://github.com/flatcar-linux/init/pull/72))\r\n- DigitalOcean:\
+    \ modules by default to follow Kubernetes requirements ([coreos-overlay#1944](https://github.com/flatcar/coreos-overlay/pull/1944),\
+    \ [init#72](https://github.com/flatcar/init/pull/72))\r\n- DigitalOcean:\
     \ In addition to the `bz2` image, a `gz` compressed image is published. This helps\
     \ against hitting the compression timeout that sometimes lets the image import\
     \ fail.\r\n- OpenStack: In addition to the `bz2` image, a `gz` compressed image\

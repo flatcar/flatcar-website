@@ -91,4 +91,4 @@ As with the previous method, please heed the[ set of migration notes](https://do
 
 If you’re starting from scratch or migrating to Flatcar Container Linux from CoreOS, we’ve hopefully given you what you need to get started. For further information about [running Flatcar in Azure](https://docs.flatcar-linux.org/os/booting-on-azure/) and using Flatcar Container Linux in production please consult the [documentation](https://docs.flatcar-linux.org/).
 
-If you encounter problems, please let us know by[ filing an issue](https://github.com/flatcar-linux/Flatcar/issues). For inquiries about support, you can reach us at hello@kinvolk.io.
+If you encounter problems, please let us know by[ filing an issue](https://github.com/flatcar/Flatcar/issues). For inquiries about support, you can reach us at hello@kinvolk.io.

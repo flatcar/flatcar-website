@@ -35,9 +35,9 @@ github_release:
     \n\r\n#### Bug fixes:\r\n\r\n- Made Ignition write the SSH keys into a file under\
     \ `authorized_keys.d/ignition` again and added a call to `update-ssh-keys` after\
     \ Ignition ran to create the merged `authorized_keys` file, which fixes the problem\
-    \ that keys added by Ignition get lost when `update-ssh-keys` runs ([init#66](https://github.com/flatcar-linux/init/pull/66))\r\
-    \n\r\n#### Changes:\r\n\r\n- Enabled FIPS mode for cryptsetup ([flatcar-linux/coreos-overlay#1747](https://github.com/flatcar-linux/coreos-overlay/pull/1747))\r\
-    \n- Added `cryptsetup` to the initramfs for the Ignition `luks` directive ([flatcar-linux/coreos-overlay#1760](https://github.com/flatcar-linux/coreos-overlay/pull/1760))\r\
+    \ that keys added by Ignition get lost when `update-ssh-keys` runs ([init#66](https://github.com/flatcar/init/pull/66))\r\
+    \n\r\n#### Changes:\r\n\r\n- Enabled FIPS mode for cryptsetup ([flatcar-linux/coreos-overlay#1747](https://github.com/flatcar/coreos-overlay/pull/1747))\r\
+    \n- Added `cryptsetup` to the initramfs for the Ignition `luks` directive ([flatcar-linux/coreos-overlay#1760](https://github.com/flatcar/coreos-overlay/pull/1760))\r\
     \n\r\n#### Updates:\r\n\r\n- Linux ([5.15.32](https://lwn.net/Articles/889438))\
     \ (from 5.15.30)\r\n- Docker ([20.10.14](https://docs.docker.com/engine/release-notes/#201014))\r\
     \n- bind-tools ([9.16.27](https://gitlab.isc.org/isc-projects/bind9/-/blob/v9_16_27/CHANGES))\r\

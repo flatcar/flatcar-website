@@ -37,7 +37,7 @@ github_release:
     \ [CVE-2022-32148](https://nvd.nist.gov/vuln/detail/CVE-2022-32148))\r\n\r\n####\
     \ Bug fixes:\r\n\r\n- The Ignition v3 kargs directive failed before when used\
     \ with the generic image where no `grub.cfg` exists, this was fixed by creating\
-    \ it first ([bootengine#47](https://github.com/flatcar-linux/bootengine/pull/47))\r\
+    \ it first ([bootengine#47](https://github.com/flatcar/bootengine/pull/47))\r\
     \n\r\n#### Updates:\r\n- Linux ([5.15.55](https://lwn.net/Articles/901380) (includes\
     \ [5.15.54](https://lwn.net/Articles/900911), [5.15.53](https://lwn.net/Articles/900321),\
     \ [5.15.52](https://lwn.net/Articles/899788), [5.15.51](https://lwn.net/Articles/899370),\
@@ -77,17 +77,17 @@ github_release:
     \ [CVE-2022-26354](https://nvd.nist.gov/vuln/detail/CVE-2022-26354))\r\n\r\n####\
     \ Bug fixes:\r\n\r\n- The Ignition v3 kargs directive failed before when used\
     \ with the generic image where no `grub.cfg` exists, this was fixed by creating\
-    \ it first ([bootengine#47](https://github.com/flatcar-linux/bootengine/pull/47))\r\
-    \n\r\n#### Changes:\r\n\r\n- Added efibootmgr binary to the image ([coreos-overlay#1955](https://github.com/flatcar-linux/coreos-overlay/pull/1955))\r\
+    \ it first ([bootengine#47](https://github.com/flatcar/bootengine/pull/47))\r\
+    \n\r\n#### Changes:\r\n\r\n- Added efibootmgr binary to the image ([coreos-overlay#1955](https://github.com/flatcar/coreos-overlay/pull/1955))\r\
     \n- Added VMware networking configuration in the initramfs via guestinfo settings\
-    \ ([bootengine#44](https://github.com/flatcar-linux/bootengine/pull/44), [flatcar#717](https://github.com/flatcar-linux/Flatcar/issues/717))\r\
+    \ ([bootengine#44](https://github.com/flatcar/bootengine/pull/44), [flatcar#717](https://github.com/flatcar/Flatcar/issues/717))\r\
     \n- Enabled `containerd.service` unit, `br_netfilter` and `overlay` modules by\
-    \ default to follow Kubernetes requirements ([coreos-overlay#1944](https://github.com/flatcar-linux/coreos-overlay/pull/1944),\
-    \ [init#72](https://github.com/flatcar-linux/init/pull/72))\r\n- flatcar-install:\
-    \ Added option to create UEFI boot entry ([init#74](https://github.com/flatcar-linux/init/pull/74))\r\
+    \ default to follow Kubernetes requirements ([coreos-overlay#1944](https://github.com/flatcar/coreos-overlay/pull/1944),\
+    \ [init#72](https://github.com/flatcar/init/pull/72))\r\n- flatcar-install:\
+    \ Added option to create UEFI boot entry ([init#74](https://github.com/flatcar/init/pull/74))\r\
     \n- VMWare: Added `ignition-delete-config.service` to remove Ignition config from\
     \ VM metadata, see also [here](https://coreos.github.io/ignition/operator-notes/#automatic-config-deletion)\
-    \ ([coreos-overlay#1948](https://github.com/flatcar-linux/coreos-overlay/pull/1948))\r\
+    \ ([coreos-overlay#1948](https://github.com/flatcar/coreos-overlay/pull/1948))\r\
     \n\r\n#### Updates:\r\n\r\n- Linux ([5.15.55](https://lwn.net/Articles/901380)\
     \ (includes [5.15.54](https://lwn.net/Articles/900911), [5.15.53](https://lwn.net/Articles/900321),\
     \ [5.15.52](https://lwn.net/Articles/899788), [5.15.51](https://lwn.net/Articles/899370),\

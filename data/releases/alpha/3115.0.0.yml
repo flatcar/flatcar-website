@@ -29,7 +29,7 @@ github_release:
     \ - it's recommended to switch over `iptables` instead of `ipvs` for\
     \ `kube-proxy` mode. ([projectcalico/calico#5011](https://github.com/projectcalico/calico/issues/5011))\r\
     \n- The SELinux policy store update fix resulted in some files leaked to the root\
-    \ filesystem top directory ([Flatcar#596](https://github.com/flatcar-linux/Flatcar/issues/596))\r\
+    \ filesystem top directory ([Flatcar#596](https://github.com/flatcar/Flatcar/issues/596))\r\
     \n\r\n#### Security fixes\r\n- Linux ([CVE-2020-27820](https://nvd.nist.gov/vuln/detail/CVE-2020-27820),\
     \ [CVE-2021-4001](https://nvd.nist.gov/vuln/detail/CVE-2021-4001), [CVE-2021-4002](https://nvd.nist.gov/vuln/detail/CVE-2021-4002),\
     \ [CVE-2021-4083](https://nvd.nist.gov/vuln/detail/CVE-2021-4083), [CVE-2021-4135](https://nvd.nist.gov/vuln/detail/CVE-2021-4135),\
@@ -74,40 +74,40 @@ github_release:
     \ [CVE-2021-3546](https://nvd.nist.gov/vuln/detail/CVE-2021-3546), [CVE-2021-3582](https://nvd.nist.gov/vuln/detail/CVE-2021-3582),\
     \ [CVE-2021-3607](https://nvd.nist.gov/vuln/detail/CVE-2021-3607), [CVE-2021-3608](https://nvd.nist.gov/vuln/detail/CVE-2021-3608),\
     \ [CVE-2021-3682](https://nvd.nist.gov/vuln/detail/CVE-2021-3682))\r\n\r\n####\
-    \ Bug fixes\r\n- Added configuration files for logrotate ([flatcar-linux/coreos-overlay#1442](https://github.com/flatcar-linux/coreos-overlay/pull/1442))\r\
-    \n- Fixed `ETCD_NAME` conflicting with `--name` for `etcd-member` to start ([flatcar-linux/coreos-overlay#1444](https://github.com/flatcar-linux/coreos-overlay/pull/1444))\r\
+    \ Bug fixes\r\n- Added configuration files for logrotate ([flatcar-linux/coreos-overlay#1442](https://github.com/flatcar/coreos-overlay/pull/1442))\r\
+    \n- Fixed `ETCD_NAME` conflicting with `--name` for `etcd-member` to start ([flatcar-linux/coreos-overlay#1444](https://github.com/flatcar/coreos-overlay/pull/1444))\r\
     \n- The Torcx profile `docker-1.12-no` got fixed to reference the current Docker\
     \ version instead of 19.03 which wasn't found on the image, causing Torcx to fail\
-    \ to provide Docker ([flatcar-linux/coreos-overlay#1456](https://github.com/flatcar-linux/coreos-overlay/pull/1456))\r\
+    \ to provide Docker ([flatcar-linux/coreos-overlay#1456](https://github.com/flatcar/coreos-overlay/pull/1456))\r\
     \n- Fix vim warnings on missing file, when built with USE=\u201Dminimal\u201D\
-    \ ([portage-stable#260](https://github.com/flatcar-linux/portage-stable/pull/260))\r\
+    \ ([portage-stable#260](https://github.com/flatcar/portage-stable/pull/260))\r\
     \n- Excluded the Kubenet cbr0 interface from networkd's DHCP config and set it\
     \ to Unmanaged to prevent interference and ensure that it is not part of the network\
-    \ online check ([flatcar-linux/init#55](https://github.com/flatcar-linux/init/pull/55))\r\
+    \ online check ([flatcar-linux/init#55](https://github.com/flatcar/init/pull/55))\r\
     \n- Ensured that the `/run/xtables.lock` coordination file exists for modifications\
     \ of the xtables backend from containers (must be bind-mounted) or the `iptables-legacy`\
-    \ binaries on the host ([flatcar-linux/init#57](https://github.com/flatcar-linux/init/pull/57))\r\
-    \n- AWS: Published missing arm64 AMIs for stable & beta ([flatcar-linux/scripts#188](https://github.com/flatcar-linux/scripts/pull/188),\
-    \ [flatcar-linux/scripts#189](https://github.com/flatcar-linux/scripts/pull/189))\r\
+    \ binaries on the host ([flatcar-linux/init#57](https://github.com/flatcar/init/pull/57))\r\
+    \n- AWS: Published missing arm64 AMIs for stable & beta ([flatcar-linux/scripts#188](https://github.com/flatcar/scripts/pull/188),\
+    \ [flatcar-linux/scripts#189](https://github.com/flatcar/scripts/pull/189))\r\
     \n- dev container: Fixed github URL for coreos-overlay and portage-stable to use\
     \ repos from flatcar-linux org directly instead of relying on redirects from the\
     \ kinvolk org. This fixes checkouts with emerge-gitclone inside dev-container.\
-    \ ([flatcar-linux/scripts#194](https://github.com/flatcar-linux/scripts/pull/194))\r\
+    \ ([flatcar-linux/scripts#194](https://github.com/flatcar/scripts/pull/194))\r\
     \n- SDK: Fixed build error popping up in the new SDK Container because `policycoreutils`\
-    \ used the wrong ROOT to update the SELinux store ([flatcar-linux/coreos-overlay#1502](https://github.com/flatcar-linux/coreos-overlay/pull/1502))\r\
+    \ used the wrong ROOT to update the SELinux store ([flatcar-linux/coreos-overlay#1502](https://github.com/flatcar/coreos-overlay/pull/1502))\r\
     \n\r\n#### Changes\r\n- Flatcar is in the NIST CPE dictionary. Programmatically\
-    \ build the `CPE_NAME` in the build process in order to be scanned ([flatcar-linux/Flatcar#536](https://github.com/flatcar-linux/Flatcar/issues/536))\r\
+    \ build the `CPE_NAME` in the build process in order to be scanned ([flatcar-linux/Flatcar#536](https://github.com/flatcar/Flatcar/issues/536))\r\
     \n- Added a new flatcar-update tool to the image to ease manual updates, rollbacks,\
-    \ channel/release jumping, and airgapped updates ([flatcar-linux/init#53](https://github.com/flatcar-linux/init/pull/53))\r\
+    \ channel/release jumping, and airgapped updates ([flatcar-linux/init#53](https://github.com/flatcar/init/pull/53))\r\
     \n- Update-engine now creates the `/run/reboot-required` flag file for [kured](https://github.com/weaveworks/kured)\
-    \ ([flatcar-linux/update_engine#15](https://github.com/flatcar-linux/update_engine/pull/15))\r\
+    \ ([flatcar-linux/update_engine#15](https://github.com/flatcar/update_engine/pull/15))\r\
     \n- Excluded special network interface devices like bridge, tunnel, vxlan, and\
     \ veth devices from the default DHCP configuration to prevent networkd interference\
-    \ ([flatcar-linux/init#56](https://github.com/flatcar-linux/init/pull/56))\r\n\
-    - Backported `elf` support for `iproute2` ([flatcar-linux/coreos-overlay#1256](https://github.com/flatcar-linux/coreos-overlay/pull/1526))\r\
+    \ ([flatcar-linux/init#56](https://github.com/flatcar/init/pull/56))\r\n\
+    - Backported `elf` support for `iproute2` ([flatcar-linux/coreos-overlay#1256](https://github.com/flatcar/coreos-overlay/pull/1526))\r\
     \n- Added CONFIG_NF_CT_NETLINK_HELPER (for libnetfilter_cthelper), CONFIG_NET_VRF\
     \ (for virtual routing and forwarding) and CONFIG_KEY_DH_OPERATIONS (for keyutils)\
-    \ to the kernel config ([flatcar-linux/coreos-overlay#1524](https://github.com/flatcar-linux/coreos-overlay/pull/1524))\r\
+    \ to the kernel config ([flatcar-linux/coreos-overlay#1524](https://github.com/flatcar/coreos-overlay/pull/1524))\r\
     \n\r\n\r\n#### Updates\r\n- Linux ([5.15.13](https://lwn.net/Articles/880469))\r\
     \n- Linux Firmware ([20211216](https://git.kernel.org/pub/scm/linux/kernel/git/firmware/linux-firmware.git/tag/?h=20211216))\r\
     \n- Linux Kernel headers ([5.15](https://lwn.net/Articles/874495/))\r\n- Docker\
@@ -152,7 +152,7 @@ github_release:
     \n- SDK: edk2-ovmf ([202105](https://github.com/tianocore/edk2/releases/tag/edk2-stable202105))\r\
     \n- SDK: file ([5.40](https://mailman.astron.com/pipermail/file/2021-March/000478.html))\r\
     \n- SDK: ipxe ([1.21.1](https://github.com/ipxe/ipxe/releases/tag/v1.21.1))\r\n\
-    - SDK: mantle ([0.17.0](https://github.com/flatcar-linux/mantle/releases/tag/v0.17.0))\r\
+    - SDK: mantle ([0.17.0](https://github.com/flatcar/mantle/releases/tag/v0.17.0))\r\
     \n- SDK: ninja ([1.10.2](https://groups.google.com/g/ninja-build/c/oobwq_F0PpA/m/FeJC5LoRBgAJ))\r\
     \n- SDK: pahole ([1.20](https://git.kernel.org/pub/scm/devel/pahole/pahole.git/tag/?h=v1.20))\r\
     \n- SDK: perf ([5.15](https://kernelnewbies.org/LinuxChanges#Linux_5.15.Tracing.2C_perf_and_BPF))\r\

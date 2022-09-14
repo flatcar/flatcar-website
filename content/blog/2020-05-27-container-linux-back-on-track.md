@@ -30,7 +30,7 @@ We have heard positive feedback from customers about the benefits of a slower pa
 
 Resuming pace is the first step. There have been a number of changes in the container space in the past 2+ years. For example, [rkt](https://github.com/rkt/rkt) was archived, [Ignition](https://github.com/coreos/ignition) has changed, additional container runtimes have gained wider adoption, the next kernel LTS release has progressed, BPF has become more established, cgroup v2 has advanced, etc. Over the next months, expect updates to address these deprecations and advancements.
 
-We understand well that we can only do this by ensuring the stability part of the Container Linux promise. We are here for clients and community users to make sure this process goes smoothly. Join the [mailing list](https://groups.google.com/forum/#!forum/flatcar-linux-user) or IRC. And, as always, [file issues](https://github.com/flatcar-linux/flatcar) you find. Your active use of Alpha and Beta in diverse real-world environments is what makes Stable even better for you.
+We understand well that we can only do this by ensuring the stability part of the Container Linux promise. We are here for clients and community users to make sure this process goes smoothly. Join the [mailing list](https://groups.google.com/forum/#!forum/flatcar-linux-user) or IRC. And, as always, [file issues](https://github.com/flatcar/flatcar) you find. Your active use of Alpha and Beta in diverse real-world environments is what makes Stable even better for you.
 
 ### Project roadmap
 

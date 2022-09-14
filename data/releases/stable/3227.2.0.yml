@@ -37,10 +37,10 @@ github_release:
     \ [CVE-2022-32148](https://nvd.nist.gov/vuln/detail/CVE-2022-32148))\r\n\r\n##\
     \ Bug fixes:\r\n\r\n- The Ignition v3 kargs directive failed before when used\
     \ with the generic image where no `grub.cfg` exists, this was fixed by creating\
-    \ it first ([bootengine#47](https://github.com/flatcar-linux/bootengine/pull/47))\r\
+    \ it first ([bootengine#47](https://github.com/flatcar/bootengine/pull/47))\r\
     \n\r\n## Changes:\r\n\r\n- Enabled `containerd.service` unit, `br_netfilter` and\
-    \ `overlay` modules by default to follow Kubernetes requirements ([coreos-overlay#1944](https://github.com/flatcar-linux/coreos-overlay/pull/1944),\
-    \ [init#72](https://github.com/flatcar-linux/init/pull/72))\r\n\r\n## Updates:\r\
+    \ `overlay` modules by default to follow Kubernetes requirements ([coreos-overlay#1944](https://github.com/flatcar/coreos-overlay/pull/1944),\
+    \ [init#72](https://github.com/flatcar/init/pull/72))\r\n\r\n## Updates:\r\
     \n\r\n- Linux ([5.15.55](https://lwn.net/Articles/901380) (includes [5.15.54](https://lwn.net/Articles/900911),\
     \ [5.15.53](https://lwn.net/Articles/900321), [5.15.52](https://lwn.net/Articles/899788),\
     \ [5.15.51](https://lwn.net/Articles/899370), [5.15.50](https://lwn.net/Articles/899091),\
@@ -92,61 +92,61 @@ github_release:
     \n- SDK: squashfs-tools ([CVE-2021-40153](https://nvd.nist.gov/vuln/detail/CVE-2021-40153),\
     \ [CVE-2021-41072](https://nvd.nist.gov/vuln/detail/CVE-2021-41072))\r\n\r\n####\
     \ Bug fixes:\r\n\r\n- Added `networkd` translation to `files` section when converting\
-    \ from Ignition 2.x to Ignition 3.x ([coreos-overlay#1910](https://github.com/flatcar-linux/coreos-overlay/pull/1910),\
-    \ [flatcar#741](https://github.com/flatcar-linux/Flatcar/issues/741))\r\n- Added\
+    \ from Ignition 2.x to Ignition 3.x ([coreos-overlay#1910](https://github.com/flatcar/coreos-overlay/pull/1910),\
+    \ [flatcar#741](https://github.com/flatcar/Flatcar/issues/741))\r\n- Added\
     \ a remount action as `systemd-sysext.service` drop-in unit to restore the OEM\
-    \ partition mount after the overlay mounts in `/usr` are done ([init#69](https://github.com/flatcar-linux/init/pull/69))\r\
+    \ partition mount after the overlay mounts in `/usr` are done ([init#69](https://github.com/flatcar/init/pull/69))\r\
     \n- Fixed Ignition's OEM ID to be `metal` to follow the Ignition upstream change\
     \ which otherwise resulted in a broken boot when the Flatcar OEM ID `pxe` was\
-    \ used ([bootengine#45](https://github.com/flatcar-linux/bootengine/pull/45))\r\
+    \ used ([bootengine#45](https://github.com/flatcar/bootengine/pull/45))\r\
     \n- Made Ignition write the SSH keys into a file under `authorized_keys.d/ignition`\
     \ again and added a call to `update-ssh-keys` after Ignition ran to create the\
     \ merged `authorized_keys` file, which fixes the problem that keys added by Ignition\
-    \ get lost when `update-ssh-keys` runs ([init#66](https://github.com/flatcar-linux/init/pull/66))\r\
+    \ get lost when `update-ssh-keys` runs ([init#66](https://github.com/flatcar/init/pull/66))\r\
     \n- Skipped starting `ensure-sysext.service` if `systemd-sysext.service` won't\
-    \ be started, to prevent reporting a dependency failure ([Flatcar#710](https://github.com/flatcar-linux/Flatcar/issues/710))\r\
+    \ be started, to prevent reporting a dependency failure ([Flatcar#710](https://github.com/flatcar/Flatcar/issues/710))\r\
     \n- The Ignition v3 kargs directive failed before when used with the generic image\
-    \ where no `grub.cfg` exists, this was fixed by creating it first ([bootengine#47](https://github.com/flatcar-linux/bootengine/pull/47))\r\
+    \ where no `grub.cfg` exists, this was fixed by creating it first ([bootengine#47](https://github.com/flatcar/bootengine/pull/47))\r\
     \n\r\n#### Changes:\r\n\r\n- Added `auditd.service` but left it disabled by default,\
     \ a custom configuration can be created by removing `/etc/audit/auditd.conf` and\
-    \ replacing it with an own file ([coreos-overlay#1636](https://github.com/flatcar-linux/coreos-overlay/pull/1636))\r\
-    \n- Added `cryptsetup` to the initramfs for the Ignition `luks` directive ([flatcar-linux/coreos-overlay#1760](https://github.com/flatcar-linux/coreos-overlay/pull/1760))\r\
+    \ replacing it with an own file ([coreos-overlay#1636](https://github.com/flatcar/coreos-overlay/pull/1636))\r\
+    \n- Added `cryptsetup` to the initramfs for the Ignition `luks` directive ([flatcar-linux/coreos-overlay#1760](https://github.com/flatcar/coreos-overlay/pull/1760))\r\
     \n- Besides Ignition v1 and v2 configurations, Ignition configurations with specification\
     \ v3 (up to 3.3.0) are now supported, see the [docs section for details](https://www.flatcar.org/docs/latest/provisioning/ignition/specification/#ignition-v3)\r\
     \n- Bring in dependencies for NFS4 with Kerberos both in kernel and userspace.\
-    \ Tested against NFS4.1 server. [coreos-overlay#1664](https://github.com/flatcar-linux/coreos-overlay/pull/1664)\r\
+    \ Tested against NFS4.1 server. [coreos-overlay#1664](https://github.com/flatcar/coreos-overlay/pull/1664)\r\
     \n- Enabled `CONFIG_INTEL_RAPL` on AMD64 Kernel config to compile `intel_rapl_common`\
-    \ module in order to allow power monitoring on modern Intel processors ([coreos-overlay#1801](https://github.com/flatcar-linux/coreos-overlay/pull/1801))\r\
+    \ module in order to allow power monitoring on modern Intel processors ([coreos-overlay#1801](https://github.com/flatcar/coreos-overlay/pull/1801))\r\
     \n- Enabled `containerd.service` unit, `br_netfilter` and `overlay` modules by\
-    \ default to follow Kubernetes requirements ([coreos-overlay#1944](https://github.com/flatcar-linux/coreos-overlay/pull/1944),\
-    \ [init#72](https://github.com/flatcar-linux/init/pull/72))\r\n- Enabled `systemd-sysext.service`\
+    \ default to follow Kubernetes requirements ([coreos-overlay#1944](https://github.com/flatcar/coreos-overlay/pull/1944),\
+    \ [init#72](https://github.com/flatcar/init/pull/72))\r\n- Enabled `systemd-sysext.service`\
     \ to activate systemd-sysext images on boot, to disable you will need to mask\
     \ it. Also added a helper service `ensure-sysext.service` which reloads the systemd\
     \ units to reevaluate the `sockets`, `timers`, and `multi-user` targets when `systemd-sysext.service`\
     \ is (re)started, making it possible to enable units that are part of a sysext\
-    \ image ([init#65](https://github.com/flatcar-linux/init/pull/65))\r\n- For amd64\
+    \ image ([init#65](https://github.com/flatcar/init/pull/65))\r\n- For amd64\
     \ `/usr/lib` used to be a symlink to `/usr/lib64` but now they became two separate\
     \ folders as common in other distributions (and was the case for arm64 already).\
     \ Compatibility symlinks exist in case `/usr/lib64` was used to access, e.g.,\
-    \ the `modules` folder or the `systemd` folder ([coreos-overlay#1713](https://github.com/flatcar-linux/coreos-overlay/pull/1713),\
-    \ [scripts#255](https://github.com/flatcar-linux/scripts/pull/255))\r\n- Made\
-    \ SELinux enabled by default in default containerd configuration file. ([coreos-overlay#1699](https://github.com/flatcar-linux/coreos-overlay/pull/1699))\r\
+    \ the `modules` folder or the `systemd` folder ([coreos-overlay#1713](https://github.com/flatcar/coreos-overlay/pull/1713),\
+    \ [scripts#255](https://github.com/flatcar/scripts/pull/255))\r\n- Made\
+    \ SELinux enabled by default in default containerd configuration file. ([coreos-overlay#1699](https://github.com/flatcar/coreos-overlay/pull/1699))\r\
     \n- Removed rngd.service because it is not essential anymore for the kernel to\
-    \ boot fast in VM environments ([coreos-overlay#1700](https://github.com/flatcar-linux/coreos-overlay/pull/1700))\r\
+    \ boot fast in VM environments ([coreos-overlay#1700](https://github.com/flatcar/coreos-overlay/pull/1700))\r\
     \n- The systemd-networkd `ManageForeignRoutes` and `ManageForeignRoutingPolicyRules`\
     \ settings are now disabled through a drop-in file and thus can only be enabled\
     \ again by a drop-in file under `/etc/systemd/networkd.conf.d/` because drop-in\
-    \ files take precedence over `/etc/systemd/networkd.conf` ([init#61](https://github.com/flatcar-linux/init/pull/61))\r\
+    \ files take precedence over `/etc/systemd/networkd.conf` ([init#61](https://github.com/flatcar/init/pull/61))\r\
     \n- Azure VHD disks are now created using subformat=fixed, which makes them suitable\
     \ for immediate upload to Azure using any tool.\r\n- Defined a systemd-sysext\
     \ level that sysext images can match for instead of the OS version when they don't\
     \ have a strong coupling, meaning the only metadata required is `SYSEXT_LEVEL=1.0`\
-    \ and `ID=flatcar` ([Flatcar#643](https://github.com/flatcar-linux/Flatcar/issues/643))\r\
+    \ and `ID=flatcar` ([Flatcar#643](https://github.com/flatcar/Flatcar/issues/643))\r\
     \n- ARM64: Added [cifs-utils](https://wiki.samba.org/index.php/LinuxCIFS_utils)\
     \ for ARM64\r\n- ARM64: Added [sssd](https://sssd.io/), [adcli](https://www.freedesktop.org/software/realmd/adcli/adcli.html)\
     \ and realmd for ARM64\r\n- AWS EC2: Removed the setup of `/etc/hostname` from\
     \ the instance metadata because it used a long FQDN but we can just use use the\
-    \ hostname set via DHCP ([Flatcar#707](https://github.com/flatcar-linux/Flatcar/issues/707))\r\
+    \ hostname set via DHCP ([Flatcar#707](https://github.com/flatcar/Flatcar/issues/707))\r\
     \n- Azure: Set up `/etc/hostname` from instance metadata with Afterburn\r\n- DigitalOcean:\
     \ In addition to the `bz2` image, a `gz` compressed image is published. This helps\
     \ against hitting the compression timeout that sometimes lets the image import\

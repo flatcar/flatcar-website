@@ -61,35 +61,35 @@ github_release:
     \ ([CVE-2022-21658](https://nvd.nist.gov/vuln/detail/CVE-2022-21658))\r\n\r\n\
     #### Bug fixes:\r\n\r\n- Excluded the Kubenet cbr0 interface from networkd's DHCP\
     \ config and set it to Unmanaged to prevent interference and ensure that it is\
-    \ not part of the network online check ([init#55](https://github.com/flatcar-linux/init/pull/55))\r\
+    \ not part of the network online check ([init#55](https://github.com/flatcar/init/pull/55))\r\
     \n- Fixed the dracut emergency Ignition log printing that had a scripting error\
-    \ causing the cat command to fail ([bootengine#33](https://github.com/flatcar-linux/bootengine/pull/33))\r\
+    \ causing the cat command to fail ([bootengine#33](https://github.com/flatcar/bootengine/pull/33))\r\
     \n- network: Accept ICMPv6 Router Advertisements to fix IPv6 address assignment\
-    \ in the default DHCP setting ([init#51](https://github.com/flatcar-linux/init/pull/51),\
-    \ [coreos-cloudinit#12](https://github.com/flatcar-linux/coreos-cloudinit/pull/12),\
-    \ [bootengine#30](https://github.com/flatcar-linux/bootengine/pull/30))\r\n- flatcar-update:\
+    \ in the default DHCP setting ([init#51](https://github.com/flatcar/init/pull/51),\
+    \ [coreos-cloudinit#12](https://github.com/flatcar/coreos-cloudinit/pull/12),\
+    \ [bootengine#30](https://github.com/flatcar/bootengine/pull/30))\r\n- flatcar-update:\
     \ Stopped checking for the `USER` environment variable which may not be set in\
     \ all environments, causing the script to fail unless a workaround was used like\
-    \ prepending an additional `sudo` invocation ([init#58](https://github.com/flatcar-linux/init/pull/58))\r\
+    \ prepending an additional `sudo` invocation ([init#58](https://github.com/flatcar/init/pull/58))\r\
     \n- Reverted the Linux kernel commit which broke networking on AWS instances which\
-    \ use Intel 82559 NIC (c4/m4) ([Flatcar#665](https://github.com/flatcar-linux/Flatcar/issues/665),\
-    \ [coreos-overlay#1723](https://github.com/flatcar-linux/coreos-overlay/pull/1723))\r\
+    \ use Intel 82559 NIC (c4/m4) ([Flatcar#665](https://github.com/flatcar/Flatcar/issues/665),\
+    \ [coreos-overlay#1723](https://github.com/flatcar/coreos-overlay/pull/1723))\r\
     \n- Re-added the `brd drbd nbd rbd xen-blkfront zram libarc4 lru_cache zsmalloc`\
     \ kernel modules to the initramfs since they were missing compared to the Flatcar\
-    \ 3033.2.x releases where the 5.10 kernel is used ([bootengine#40](https://github.com/flatcar-linux/bootengine/pull/40))\r\
+    \ 3033.2.x releases where the 5.10 kernel is used ([bootengine#40](https://github.com/flatcar/bootengine/pull/40))\r\
     \n\r\n#### Changes:\r\n\r\n- Added a new flatcar-update tool to the image to ease\
-    \ manual updates, rollbacks, channel/release jumping, and airgapped updates ([init#53](https://github.com/flatcar-linux/init/pull/53))\r\
+    \ manual updates, rollbacks, channel/release jumping, and airgapped updates ([init#53](https://github.com/flatcar/init/pull/53))\r\
     \n- Update-engine now creates the `/run/reboot-required` flag file for [kured](https://github.com/weaveworks/kured)\
-    \ ([update_engine#15](https://github.com/flatcar-linux/update_engine/pull/15))\r\
+    \ ([update_engine#15](https://github.com/flatcar/update_engine/pull/15))\r\
     \n- Excluded special network interface devices like bridge, tunnel, vxlan, and\
     \ veth devices from the default DHCP configuration to prevent networkd interference\
-    \ ([init#56](https://github.com/flatcar-linux/init/pull/56))\r\n- Added CONFIG_NF_CT_NETLINK_HELPER\
+    \ ([init#56](https://github.com/flatcar/init/pull/56))\r\n- Added CONFIG_NF_CT_NETLINK_HELPER\
     \ (for libnetfilter_cthelper), CONFIG_NET_VRF (for virtual routing and forwarding)\
-    \ and CONFIG_KEY_DH_OPERATIONS (for keyutils) to the kernel config ([coreos-overlay#1524](https://github.com/flatcar-linux/coreos-overlay/pull/1524))\r\
+    \ and CONFIG_KEY_DH_OPERATIONS (for keyutils) to the kernel config ([coreos-overlay#1524](https://github.com/flatcar/coreos-overlay/pull/1524))\r\
     \n- Enabled the FIPS support for the Linux kernel, which users can now choose\
     \ through a kernel parameter in `grub.cfg` (check it taking effect with `cat /proc/sys/crypto/fips_enabled`)\
-    \ ([coreos-overlay#1602](https://github.com/flatcar-linux/coreos-overlay/pull/1602))\r\
-    \n- Enabled FIPS mode for cryptsetup ([portage-stable#312](https://github.com/flatcar-linux/portage-stable/pull/312))\r\
+    \ ([coreos-overlay#1602](https://github.com/flatcar/coreos-overlay/pull/1602))\r\
+    \n- Enabled FIPS mode for cryptsetup ([portage-stable#312](https://github.com/flatcar/portage-stable/pull/312))\r\
     \n- Rework the way we set up the default python intepreter in SDK - it is now\
     \ without specifying a version. This should work fine as long as we keep having\
     \ one version of python in SDK.\r\n- Add a way to remove packages that are hard-blockers\
@@ -97,7 +97,7 @@ github_release:
     \ with `emerge -C`) before an update can happen.\r\n- Removed the pre-shipped\
     \ `/etc/flatcar/update.conf` file, leaving it totally to the user to define the\
     \ contents as it was unnecessarily overwriting the `/use/share/flatcar/update.conf`\
-    \ ([scripts#212](https://github.com/flatcar-linux/scripts/pull/212))\r\n\r\n####\
+    \ ([scripts#212](https://github.com/flatcar/scripts/pull/212))\r\n\r\n####\
     \ Updates:\r\n\r\n- Linux ([5.15.32](https://lwn.net/Articles/889438)) (from 5.15.30)\r\
     \n- Linux headers ([5.15](https://lwn.net/Articles/876611/))\r\n- GCC [9.4.0](https://lists.gnu.org/archive/html/info-gnu/2021-06/msg00000.html)\r\
     \n- acl ([2.3.1](https://git.savannah.nongnu.org/cgit/acl.git/log/?h=v2.3.1))\r\
@@ -137,7 +137,7 @@ github_release:
     \n- SDK: edk2-ovmf [202105](https://github.com/tianocore/edk2/releases/tag/edk2-stable202105)\r\
     \n- SDK: file ([5.40](https://mailman.astron.com/pipermail/file/2021-March/000478.html))\r\
     \n- SDK: ipxe [1.21.1](https://github.com/ipxe/ipxe/releases/tag/v1.21.1)\r\n\
-    - SDK: mantle ([0.18.0](https://github.com/flatcar-linux/mantle/releases/tag/v0.18.0))\r\
+    - SDK: mantle ([0.18.0](https://github.com/flatcar/mantle/releases/tag/v0.18.0))\r\
     \n- SDK: perf ([5.15](https://kernelnewbies.org/LinuxChanges#Linux_5.15.Tracing.2C_perf_and_BPF))\r\
     \n- SDK: Python ([3.9.8](https://www.python.org/downloads/release/python-398/))\r\
     \n- SDK: qemu ([6.1.0](https://wiki.qemu.org/ChangeLog/6.1)\r\n- SDK: Rust ([1.58.1](https://github.com/rust-lang/rust/releases/tag/1.58.1))\r\
@@ -146,7 +146,7 @@ github_release:
     \n\r\n_Changes since **Beta 3139.1.1**_\r\n\r\n#### Security fixes:\r\n\r\n- Linux\
     \ ([CVE-2022-1015](https://nvd.nist.gov/vuln/detail/CVE-2022-1015), [CVE-2022-1016](https://nvd.nist.gov/vuln/detail/CVE-2022-1016))\r\
     \n- containerd ([CVE-2022-24769](https://nvd.nist.gov/vuln/detail/CVE-2022-24769))\r\
-    \n\r\n#### Changes:\r\n\r\n- Enabled FIPS mode for cryptsetup ([portage-stable#312](https://github.com/flatcar-linux/portage-stable/pull/312))\r\
+    \n\r\n#### Changes:\r\n\r\n- Enabled FIPS mode for cryptsetup ([portage-stable#312](https://github.com/flatcar/portage-stable/pull/312))\r\
     \n\r\n#### Updates:\r\n\r\n- Linux ([5.15.32](https://lwn.net/Articles/889438))\
     \ (from 5.15.30)\r\n- ca-certificates ([3.77](https://firefox-source-docs.mozilla.org/security/nss/releases/nss_3_77.html))\r\
     \n- containerd ([1.5.11](https://github.com/containerd/containerd/releases/tag/v1.5.11))\r\

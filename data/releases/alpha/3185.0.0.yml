@@ -34,33 +34,33 @@ github_release:
     \ ([CVE-2022-21814](https://nvd.nist.gov/vuln/detail/CVE-2022-21814), [CVE-2022-21813](https://nvd.nist.gov/vuln/detail/CVE-2022-21813))\r\
     \n- openssl ([CVE-2022-0778](https://nvd.nist.gov/vuln/detail/CVE-2022-0778))\r\
     \n\r\n#### Bug fixes\r\n- Reverted the Linux kernel commit which broke networking\
-    \ on AWS instances which use Intel 82559 NIC (c4/m4) ([Flatcar#665](https://github.com/flatcar-linux/Flatcar/issues/665),\
-    \ [coreos-overlay#1723](https://github.com/flatcar-linux/coreos-overlay/pull/1723))\r\
+    \ on AWS instances which use Intel 82559 NIC (c4/m4) ([Flatcar#665](https://github.com/flatcar/Flatcar/issues/665),\
+    \ [coreos-overlay#1723](https://github.com/flatcar/coreos-overlay/pull/1723))\r\
     \n- Re-added the `brd drbd nbd rbd xen-blkfront zram libarc4 lru_cache zsmalloc`\
     \ kernel modules to the initramfs since they were missing compared to the Flatcar\
-    \ 3033.2.x releases where the 5.10 kernel is used ([bootengine#40](https://github.com/flatcar-linux/bootengine/pull/40))\r\
+    \ 3033.2.x releases where the 5.10 kernel is used ([bootengine#40](https://github.com/flatcar/bootengine/pull/40))\r\
     \n\r\n#### Changes\r\n- Merge the Flatcar Pro features into the regular Flatcar\
-    \ images ([coreos-overlay#1679](https://github.com/flatcar-linux/coreos-overlay/pull/1679))\
+    \ images ([coreos-overlay#1679](https://github.com/flatcar/coreos-overlay/pull/1679))\
     \ \r\n- Besides Ignition v1 and v2 configurations, Ignition configurations with\
     \ specification v3 (up to 3.3.0) are now supported, see the [docs section for\
     \ details](https://www.flatcar.org/docs/latest/provisioning/ignition/specification/#ignition-v3)\r\
     \n- Made SELinux enabled by default in default containerd configuration file.\
-    \ ([coreos-overlay#1699](https://github.com/flatcar-linux/coreos-overlay/pull/1699))\r\
+    \ ([coreos-overlay#1699](https://github.com/flatcar/coreos-overlay/pull/1699))\r\
     \n- Removed `rngd.service` because it is not essential anymore for the kernel\
-    \ to boot fast in VM environments ([coreos-overlay#1700](https://github.com/flatcar-linux/coreos-overlay/pull/1700))\r\
+    \ to boot fast in VM environments ([coreos-overlay#1700](https://github.com/flatcar/coreos-overlay/pull/1700))\r\
     \n- Enabled `systemd-sysext.service` to activate systemd-sysext images on boot,\
     \ to disable you will need to mask it. Also added a helper service `ensure-sysext.service`\
     \ which reloads the systemd units to reevaluate the `sockets`, `timers`, and `multi-user`\
     \ targets when `systemd-sysext.service` is (re)started, making it possible to\
-    \ enable units that are part of a sysext image ([init#65](https://github.com/flatcar-linux/init/pull/65))\r\
+    \ enable units that are part of a sysext image ([init#65](https://github.com/flatcar/init/pull/65))\r\
     \n- For amd64 `/usr/lib` used to be a symlink to `/usr/lib64` but now they became\
     \ two separate folders as common in other distributions (and was the case for\
     \ arm64 already). Compatibility symlinks exist in case `/usr/lib64` was used to\
-    \ access, e.g., the `modules` folder or the `systemd` folder ([coreos-overlay#1713](https://github.com/flatcar-linux/coreos-overlay/pull/1713),\
-    \ [flatcar-scripts#255](https://github.com/flatcar-linux/scripts/pull/255))\r\n\
+    \ access, e.g., the `modules` folder or the `systemd` folder ([coreos-overlay#1713](https://github.com/flatcar/coreos-overlay/pull/1713),\
+    \ [flatcar-scripts#255](https://github.com/flatcar/scripts/pull/255))\r\n\
     - Defined a systemd-sysext level that sysext images can match for instead of the\
     \ OS version when they don't have a strong coupling, meaning the only metadata\
-    \ required is `SYSEXT_LEVEL=1.0` and `ID=flatcar` ([#643](https://github.com/flatcar-linux/Flatcar/issues/643))\r\
+    \ required is `SYSEXT_LEVEL=1.0` and `ID=flatcar` ([#643](https://github.com/flatcar/Flatcar/issues/643))\r\
     \n- OpenStack: In addition to the `bz2` image, a `gz` compressed image is published.\
     \ This allows Glance to directly consume the images by simply passing in the URL\
     \ of the image.\r\n- DigitalOcean: In addition to the `bz2` image, a `gz` compressed\

@@ -35,12 +35,12 @@ github_release:
     \n- mit-krb5 ([CVE-2021-37750](https://nvd.nist.gov/vuln/detail/CVE-2021-37750))\r\
     \n- openssl ([CVE-2021-4044](https://nvd.nist.gov/vuln/detail/CVE-2021-4044))\r\
     \n\r\n#### Bug fixes:\r\n\r\n- Fixed the dracut emergency Ignition log printing\
-    \ that had a scripting error causing the print command to fail ([flatcar-linux/bootengine#33](https://github.com/flatcar-linux/bootengine/pull/33))\r\
+    \ that had a scripting error causing the print command to fail ([flatcar-linux/bootengine#33](https://github.com/flatcar/bootengine/pull/33))\r\
     \n- Fixed leak of SELinux policy store to the root filesystem top directory due\
-    \ to wrong store path in `policycoreutils` instead of `/var/lib/selinux` ([flatcar-linux/Flatcar#596](https://github.com/flatcar-linux/Flatcar/issues/596))\r\
+    \ to wrong store path in `policycoreutils` instead of `/var/lib/selinux` ([flatcar-linux/Flatcar#596](https://github.com/flatcar/Flatcar/issues/596))\r\
     \n\r\n#### Changes:\r\n\r\n- Removed the pre-shipped `/etc/flatcar/update.conf`\
     \ file, leaving it totally to the user to define the contents as it was unnecessarily\
-    \ overwriting the `/use/share/flatcar/update.conf` ([flatcar-linux/scripts#212](https://github.com/flatcar-linux/scripts/pull/212))\r\
+    \ overwriting the `/use/share/flatcar/update.conf` ([flatcar-linux/scripts#212](https://github.com/flatcar/scripts/pull/212))\r\
     \n- Moved `tracepath` and `traceroute6` from `/usr/sbin` to `/usr/bin`\r\n\r\n\
     #### Updates:\r\n\r\n- Linux ([5.15.16](https://lwn.net/Articles/881963)) (includes\
     \ [5.15.14](https://lwn.net/Articles/881018), [5.15.15](https://lwn.net/Articles/881548))\r\
@@ -52,7 +52,7 @@ github_release:
     \ ([3.7.0](https://github.com/pciutils/pciutils/releases/tag/v3.7.0))\r\n- runc\
     \ ([1.1.0](https://github.com/opencontainers/runc/releases/tag/v1.1.0))\r\n- sed\
     \ ([4.8](https://savannah.gnu.org/forum/forum.php?forum_id=9647))\r\n- SDK: mantle\
-    \ ([0.18.0](https://github.com/flatcar-linux/mantle/releases/tag/v0.18.0))"
+    \ ([0.18.0](https://github.com/flatcar/mantle/releases/tag/v0.18.0))"
   created_at: '2022-01-24T14:53:59Z'
   draft: false
   html_url: https://github.com/kinvolk/manifest/releases/tag/v3127.0.0

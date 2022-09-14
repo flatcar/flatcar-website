@@ -36,7 +36,7 @@ github_release:
     \ [CVE-2021-43267](https://nvd.nist.gov/vuln/detail/CVE-2021-43267), [CVE-2021-43389](https://nvd.nist.gov/vuln/detail/CVE-2021-43389))\r\
     \n* Go ([CVE-2021-41771](https://nvd.nist.gov/vuln/detail/CVE-2021-41771),[ CVE-2021-41772](https://nvd.nist.gov/vuln/detail/CVE-2021-41772))\r\
     \n\r\n**Bug fixes**\r\n\r\n\r\n\r\n* Use https protocol instead of git for Github\
-    \ URLs ([flatcar-linux/coreos-overlay#1394](https://github.com/flatcar-linux/coreos-overlay/pull/1394))\r\
+    \ URLs ([flatcar-linux/coreos-overlay#1394](https://github.com/flatcar/coreos-overlay/pull/1394))\r\
     \n\r\n**Updates**\r\n\r\n\r\n\r\n* Linux ([5.10.77](https://lwn.net/Articles/874852/))\r\
     \n* Go ([1.16.10](https://go.googlesource.com/go/+/refs/tags/go1.16.10))\r\n\r\
     \n_Changes since **Stable 2905.2.6**_\r\n\r\n**Security fixes**\r\n\r\n\r\n\r\n\
@@ -70,44 +70,44 @@ github_release:
     \ ([CVE-2020-13529](https://nvd.nist.gov/vuln/detail/CVE-2020-13529), [CVE-2021-33910](https://nvd.nist.gov/vuln/detail/CVE-2021-33910))\r\
     \n* tar ([CVE-2021-20193](https://nvd.nist.gov/vuln/detail/CVE-2021-20193))\r\n\
     \r\n**Bug fixes**\r\n\r\n\r\n\r\n* Use https protocol instead of git for Github\
-    \ URLs ([flatcar-linux/coreos-overlay#1394](https://github.com/flatcar-linux/coreos-overlay/pull/1394))\r\
+    \ URLs ([flatcar-linux/coreos-overlay#1394](https://github.com/flatcar/coreos-overlay/pull/1394))\r\
     \n* Skip tcsd.service for TPM2 devices to fix failures on c3.small.x86 instances\
-    \ of Equinix Metal ([Flatcar#208](https://github.com/flatcar-linux/Flatcar/issues/208))\r\
-    \n* Fixed containerd config after introduction of CGroupsV2 ([coreos-overlay#1214](https://github.com/flatcar-linux/coreos-overlay/pull/1214))\r\
-    \n* Fixed path for amazon-ssm-agent in base-ec2.ign ([coreos-overlay#1228](https://github.com/flatcar-linux/coreos-overlay/pull/1228))\r\
-    \n* Fixed locksmith adhering to reboot window when getting the etcd lock ([locksmith#10](https://github.com/flatcar-linux/locksmith/pull/10))\r\
+    \ of Equinix Metal ([Flatcar#208](https://github.com/flatcar/Flatcar/issues/208))\r\
+    \n* Fixed containerd config after introduction of CGroupsV2 ([coreos-overlay#1214](https://github.com/flatcar/coreos-overlay/pull/1214))\r\
+    \n* Fixed path for amazon-ssm-agent in base-ec2.ign ([coreos-overlay#1228](https://github.com/flatcar/coreos-overlay/pull/1228))\r\
+    \n* Fixed locksmith adhering to reboot window when getting the etcd lock ([locksmith#10](https://github.com/flatcar/locksmith/pull/10))\r\
     \n* Add the systemd tag in udev for Azure storage devices, to fix /boot automount\
-    \ ([init#41](https://github.com/flatcar-linux/init/pull/41))\r\n\r\n**Changes**\r\
+    \ ([init#41](https://github.com/flatcar/init/pull/41))\r\n\r\n**Changes**\r\
     \n\r\n\r\n\r\n* Added Azure[ Generation 2 VM](https://docs.microsoft.com/en-us/azure/virtual-machines/generation-2)\
-    \ support ([coreos-overlay#1198](https://github.com/flatcar-linux/coreos-overlay/pull/1198))\r\
-    \n* cgroups v2 by default for new nodes ([coreos-overlay#931](https://github.com/flatcar-linux/coreos-overlay/pull/931)).\r\
-    \n* Upgrade Docker to 20.10 ([coreos-overlay#931](https://github.com/flatcar-linux/coreos-overlay/pull/931))\r\
-    \n* Switched Docker ecosystem packages to go1.16 ([coreos-overlay#1217](https://github.com/flatcar-linux/coreos-overlay/pull/1217))\r\
-    \n* Added lbzip2 binary to the image ([coreos-overlay#1221](https://github.com/flatcar-linux/coreos-overlay/pull/1221))\r\
-    \n* flatcar-install uses lbzip2 if present, falls back on bzip2 if not ([init#46](https://github.com/flatcar-linux/init/pull/46))\r\
-    \n* Added Intel E800 series network adapter driver ([coreos-overlay#1237](https://github.com/flatcar-linux/coreos-overlay/pull/1237))\r\
-    \n* Enabled \u2018audit\u2019 use flag for sys-libs/pam ([coreos-overlay#1233](https://github.com/flatcar-linux/coreos-overlay/pull/1233))\r\
+    \ support ([coreos-overlay#1198](https://github.com/flatcar/coreos-overlay/pull/1198))\r\
+    \n* cgroups v2 by default for new nodes ([coreos-overlay#931](https://github.com/flatcar/coreos-overlay/pull/931)).\r\
+    \n* Upgrade Docker to 20.10 ([coreos-overlay#931](https://github.com/flatcar/coreos-overlay/pull/931))\r\
+    \n* Switched Docker ecosystem packages to go1.16 ([coreos-overlay#1217](https://github.com/flatcar/coreos-overlay/pull/1217))\r\
+    \n* Added lbzip2 binary to the image ([coreos-overlay#1221](https://github.com/flatcar/coreos-overlay/pull/1221))\r\
+    \n* flatcar-install uses lbzip2 if present, falls back on bzip2 if not ([init#46](https://github.com/flatcar/init/pull/46))\r\
+    \n* Added Intel E800 series network adapter driver ([coreos-overlay#1237](https://github.com/flatcar/coreos-overlay/pull/1237))\r\
+    \n* Enabled \u2018audit\u2019 use flag for sys-libs/pam ([coreos-overlay#1233](https://github.com/flatcar/coreos-overlay/pull/1233))\r\
     \n* Bumped etcd and flannel to respectively 3.5.0, 0.14.0 to get multiarch images\
     \ for arm64 support. _Note for users of the old etcd v2 support_: ETCDCTL_API=2\
     \ must be set to use v2 store as well as ETCD_ENABLE_V2=true in the etcd-member.service\
-    \ - this support will be removed in 3.6.0 ([coreos-overlay#1179](https://github.com/flatcar-linux/coreos-overlay/pull/1179))\r\
+    \ - this support will be removed in 3.6.0 ([coreos-overlay#1179](https://github.com/flatcar/coreos-overlay/pull/1179))\r\
     \n* Support BTRFS in OEM and /usr partitions, but only used it for the OEM partition\
     \ for now. Ignition configurations that refer to the OEM partition will work with\
     \ any filesystem format specified, a mismatch is not resulting in a boot error.\
-    \ ([coreos-overlay#1106](https://github.com/flatcar-linux/coreos-overlay/pull/1106))\r\
+    \ ([coreos-overlay#1106](https://github.com/flatcar/coreos-overlay/pull/1106))\r\
     \n* Switched the arm64 kernel to use a 4k page size instead of 64k\r\n* Switched\
     \ dm-verity corruption detection to issue a kernel panic (a panic results in a\
     \ reboot after 1 minute, this was the case before already) instead of merely failing\
     \ certain syscalls that try to use the corrupted data\r\n* Enabled ARM64 SDK bootstrap\
-    \ ([flatcar-linux/scripts#134](https://github.com/flatcar-linux/scripts/pull/134))\r\
-    \n* SDK: enabled experimental ARM64 SDK usage ([flatcar-linux/scripts#134](https://github.com/flatcar-linux/scripts/pull/134))\
-    \ ([flatcar-linux/scripts#141](https://github.com/flatcar-linux/scripts/pull/141))\r\
-    \n* AWS: Added amazon-ssm-agent ([coreos-overlay#1162](https://github.com/flatcar-linux/coreos-overlay/pull/1162))\r\
-    \n* Azure: Compile OEM contents for all architectures ([coreos-overlay#1196](https://github.com/flatcar-linux/coreos-overlay/pull/1196))\r\
-    \n* update_engine: add postinstall hook to stay on cgroupv1 ([update_engine#13](https://github.com/flatcar-linux/update_engine/pull/13))\r\
-    \n* Enable telnet support for curl ([coreos-overlay#1099](https://github.com/flatcar-linux/coreos-overlay/pull/1099))\r\
-    \n* Enable ssl USE flag for wget ([coreos-overlay#932](https://github.com/flatcar-linux/coreos-overlay/pull/932))\r\
-    \n* Enable MDIO_BCM_UNIMAC for arm64 ([coreos-overlay#929](https://github.com/flatcar-linux/coreos-overlay/pull/929))\r\
+    \ ([flatcar-linux/scripts#134](https://github.com/flatcar/scripts/pull/134))\r\
+    \n* SDK: enabled experimental ARM64 SDK usage ([flatcar-linux/scripts#134](https://github.com/flatcar/scripts/pull/134))\
+    \ ([flatcar-linux/scripts#141](https://github.com/flatcar/scripts/pull/141))\r\
+    \n* AWS: Added amazon-ssm-agent ([coreos-overlay#1162](https://github.com/flatcar/coreos-overlay/pull/1162))\r\
+    \n* Azure: Compile OEM contents for all architectures ([coreos-overlay#1196](https://github.com/flatcar/coreos-overlay/pull/1196))\r\
+    \n* update_engine: add postinstall hook to stay on cgroupv1 ([update_engine#13](https://github.com/flatcar/update_engine/pull/13))\r\
+    \n* Enable telnet support for curl ([coreos-overlay#1099](https://github.com/flatcar/coreos-overlay/pull/1099))\r\
+    \n* Enable ssl USE flag for wget ([coreos-overlay#932](https://github.com/flatcar/coreos-overlay/pull/932))\r\
+    \n* Enable MDIO_BCM_UNIMAC for arm64 ([coreos-overlay#929](https://github.com/flatcar/coreos-overlay/pull/929))\r\
     \n\r\n**Updates**\r\n\r\n\r\n\r\n* Linux ([5.10.77](https://lwn.net/Articles/874852/))\r\
     \n* Linux firmware ([20210818](https://git.kernel.org/pub/scm/linux/kernel/git/firmware/linux-firmware.git/tag/?h=20210818))\r\
     \n* Go ([1.16.10](https://go.googlesource.com/go/+/refs/tags/go1.16.10))\r\n*\
