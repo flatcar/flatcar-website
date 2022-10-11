@@ -11,7 +11,7 @@ As such, we place top priority on making sure that Flatcar gets security updates
 
 ## Disclosure
 
-To reporting found security issues or concerns in Flatcar, please email security@kinvolk.io
+To reporting found security issues or concerns in Flatcar, please email security@flatcar-linux.org
 
 Please include:
 
