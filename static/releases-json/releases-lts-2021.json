@@ -439,12 +439,12 @@
     },
     "release_notes": "**NOTE** LTS-2021 is near the designated end of its 18 month lifespan and will only receive 1 more update by the end of September. If you use a fixed LTS channel please switch to LTS-2022, the new LTS which has been published in May. After the next update by end of September  there will be no more releases for the LTS-2021 channel. Please check your nodes' `GROUP=` setting in `/etc/flatcar/update.conf` to determine if you need to take action. Please refer to the Flatcar documentation on [switching channels](https://flatcar-linux.org/docs/latest/setup/releases/switching-channels/#freezing-an-lts-stream) to switch to LTS-2022.\n\n\n_Changes since **LTS 2605.30.1**_\n\n#### Security fixes:\n\n- Linux ([CVE-2021-4159](https://nvd.nist.gov/vuln/detail/CVE-2021-4159), [CVE-2022-1462](https://nvd.nist.gov/vuln/detail/CVE-2022-1462), [CVE-2022-20369](https://nvd.nist.gov/vuln/detail/CVE-2022-20369), [CVE-2022-21505](https://nvd.nist.gov/vuln/detail/CVE-2022-21505), [CVE-2022-26373](https://nvd.nist.gov/vuln/detail/CVE-2022-26373), [CVE-2022-36123](https://nvd.nist.gov/vuln/detail/CVE-2022-36123), [CVE-2022-36879](https://nvd.nist.gov/vuln/detail/CVE-2022-36879), [CVE-2022-36946](https://nvd.nist.gov/vuln/detail/CVE-2022-36946))\n\n#### Changes:\n\n- The new image signing subkey was added to the public key embedded into `flatcar-install` (the old expired on 10th August 2022), only an updated `flatcar-install` script can verify releases signed with the new key ([init#79](https://github.com/flatcar/init/pull/79))\n\n#### Updates:\n\n- Linux ([5.4.210](https://lwn.net/Articles/904463) (includes [5.4.209](https://lwn.net/Articles/903690), [5.4.208](https://lwn.net/Articles/902919), [5.4.207](https://lwn.net/Articles/902103)))\n- ca-certificates ([3.82](https://firefox-source-docs.mozilla.org/security/nss/releases/nss_3_82.html))\n\nNote: LTS 2605.32.1 i.e the next release to be release in the month of September would be the last release for LTS-2021. Post that there will be no more releases for the channel. Please upgrade your workloads to LTS-2022 as soon as possible.\n"
   },
-  "current-2021": {
+  "2605.32.1": {
     "channel": "lts",
     "architectures": [
       "amd64"
     ],
-    "release_date": "2022-09-01 12:57:10 +0000",
+    "release_date": "2022-10-17 15:09:11 +0000",
     "major_software": {
       "docker": [
         "19.03.15"
@@ -459,14 +459,36 @@
         "246"
       ]
     },
-    "release_notes": "**NOTE** LTS-2021 is near the designated end of its 18 month lifespan and will only receive 1 more update by the end of September. If you use a fixed LTS channel please switch to LTS-2022, the new LTS which has been published in May. After the next update by end of September  there will be no more releases for the LTS-2021 channel. Please check your nodes' `GROUP=` setting in `/etc/flatcar/update.conf` to determine if you need to take action. Please refer to the Flatcar documentation on [switching channels](https://flatcar-linux.org/docs/latest/setup/releases/switching-channels/#freezing-an-lts-stream) to switch to LTS-2022.\n\n\n_Changes since **LTS 2605.30.1**_\n\n#### Security fixes:\n\n- Linux ([CVE-2021-4159](https://nvd.nist.gov/vuln/detail/CVE-2021-4159), [CVE-2022-1462](https://nvd.nist.gov/vuln/detail/CVE-2022-1462), [CVE-2022-20369](https://nvd.nist.gov/vuln/detail/CVE-2022-20369), [CVE-2022-21505](https://nvd.nist.gov/vuln/detail/CVE-2022-21505), [CVE-2022-26373](https://nvd.nist.gov/vuln/detail/CVE-2022-26373), [CVE-2022-36123](https://nvd.nist.gov/vuln/detail/CVE-2022-36123), [CVE-2022-36879](https://nvd.nist.gov/vuln/detail/CVE-2022-36879), [CVE-2022-36946](https://nvd.nist.gov/vuln/detail/CVE-2022-36946))\n\n#### Changes:\n\n- The new image signing subkey was added to the public key embedded into `flatcar-install` (the old expired on 10th August 2022), only an updated `flatcar-install` script can verify releases signed with the new key ([init#79](https://github.com/flatcar/init/pull/79))\n\n#### Updates:\n\n- Linux ([5.4.210](https://lwn.net/Articles/904463) (includes [5.4.209](https://lwn.net/Articles/903690), [5.4.208](https://lwn.net/Articles/902919), [5.4.207](https://lwn.net/Articles/902103)))\n- ca-certificates ([3.82](https://firefox-source-docs.mozilla.org/security/nss/releases/nss_3_82.html))\n\nNote: LTS 2605.32.1 i.e the next release to be release in the month of September would be the last release for LTS-2021. Post that there will be no more releases for the channel. Please upgrade your workloads to LTS-2022 as soon as possible.\n"
+    "release_notes": "_Changes since **LTS 2605.31.1**_\n\n#### Updates:\n\n- ca-certificates ([3.83](https://firefox-source-docs.mozilla.org/security/nss/releases/nss_3_83.html))"
+  },
+  "current-2021": {
+    "channel": "lts",
+    "architectures": [
+      "amd64"
+    ],
+    "release_date": "2022-10-17 15:09:11 +0000",
+    "major_software": {
+      "docker": [
+        "19.03.15"
+      ],
+      "ignition": [
+        "0.34.0"
+      ],
+      "kernel": [
+        "5.4.210"
+      ],
+      "systemd": [
+        "246"
+      ]
+    },
+    "release_notes": "_Changes since **LTS 2605.31.1**_\n\n#### Updates:\n\n- ca-certificates ([3.83](https://firefox-source-docs.mozilla.org/security/nss/releases/nss_3_83.html))"
   },
   "current": {
     "channel": "lts",
     "architectures": [
       "amd64"
     ],
-    "release_date": "2022-09-01 12:57:10 +0000",
+    "release_date": "2022-10-17 15:09:11 +0000",
     "major_software": {
       "docker": [
         "19.03.15"
@@ -481,6 +503,6 @@
         "246"
       ]
     },
-    "release_notes": "**NOTE** LTS-2021 is near the designated end of its 18 month lifespan and will only receive 1 more update by the end of September. If you use a fixed LTS channel please switch to LTS-2022, the new LTS which has been published in May. After the next update by end of September  there will be no more releases for the LTS-2021 channel. Please check your nodes' `GROUP=` setting in `/etc/flatcar/update.conf` to determine if you need to take action. Please refer to the Flatcar documentation on [switching channels](https://flatcar-linux.org/docs/latest/setup/releases/switching-channels/#freezing-an-lts-stream) to switch to LTS-2022.\n\n\n_Changes since **LTS 2605.30.1**_\n\n#### Security fixes:\n\n- Linux ([CVE-2021-4159](https://nvd.nist.gov/vuln/detail/CVE-2021-4159), [CVE-2022-1462](https://nvd.nist.gov/vuln/detail/CVE-2022-1462), [CVE-2022-20369](https://nvd.nist.gov/vuln/detail/CVE-2022-20369), [CVE-2022-21505](https://nvd.nist.gov/vuln/detail/CVE-2022-21505), [CVE-2022-26373](https://nvd.nist.gov/vuln/detail/CVE-2022-26373), [CVE-2022-36123](https://nvd.nist.gov/vuln/detail/CVE-2022-36123), [CVE-2022-36879](https://nvd.nist.gov/vuln/detail/CVE-2022-36879), [CVE-2022-36946](https://nvd.nist.gov/vuln/detail/CVE-2022-36946))\n\n#### Changes:\n\n- The new image signing subkey was added to the public key embedded into `flatcar-install` (the old expired on 10th August 2022), only an updated `flatcar-install` script can verify releases signed with the new key ([init#79](https://github.com/flatcar/init/pull/79))\n\n#### Updates:\n\n- Linux ([5.4.210](https://lwn.net/Articles/904463) (includes [5.4.209](https://lwn.net/Articles/903690), [5.4.208](https://lwn.net/Articles/902919), [5.4.207](https://lwn.net/Articles/902103)))\n- ca-certificates ([3.82](https://firefox-source-docs.mozilla.org/security/nss/releases/nss_3_82.html))\n\nNote: LTS 2605.32.1 i.e the next release to be release in the month of September would be the last release for LTS-2021. Post that there will be no more releases for the channel. Please upgrade your workloads to LTS-2022 as soon as possible.\n"
+    "release_notes": "_Changes since **LTS 2605.31.1**_\n\n#### Updates:\n\n- ca-certificates ([3.83](https://firefox-source-docs.mozilla.org/security/nss/releases/nss_3_83.html))"
   }
 }
