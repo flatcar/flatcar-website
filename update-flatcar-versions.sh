@@ -15,13 +15,16 @@ fi
 git -C $FCL_RELEASE_SCRIPTS checkout master
 git -C $FCL_RELEASE_SCRIPTS pull
 
+LTS_INFO=$(curl -sSfL https://lts.release.flatcar-linux.net/lts-info)
+LTS_SUPPORTED=$(echo "${LTS_INFO}" | { grep -v unsupported || true ; } | cut -d : -f 2 | sed 's/^/lts-/')
+
 FLATCAR_DATA="$WEBSITE_DIR"/data
+# stable must be last
 CHANNELS=(
     alpha
     beta
     lts
-    lts-2021
-    lts-2022
+    ${LTS_SUPPORTED}
     stable
 )
 
