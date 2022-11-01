@@ -32,7 +32,7 @@ If for any reason something goes wrong during the boot process, the system autom
 
 ### How do I get started with Flatcar Container Linux?
 
-You can deploy Flatcar Container Linux on a wide array of platforms. Consult [the documentation](https://kinvolk.io/docs/flatcar-container-linux) on how to use Flatcar Container Linux.
+You can deploy Flatcar Container Linux on a wide array of platforms. Consult [the documentation](https://flatcar-linux.org/docs/latest/) on how to use Flatcar Container Linux.
 
 Check out our [release page](https://flatcar-linux.org/releases/) to see the latest changes on each channel.
 
