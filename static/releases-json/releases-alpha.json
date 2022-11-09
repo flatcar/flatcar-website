@@ -2675,30 +2675,56 @@
     },
     "release_notes": "_Changes since **Alpha 3402.0.0**_\n\n#### Security fixes:\n- OpenSSL ([CVE-2022-3602](https://nvd.nist.gov/vuln/detail/CVE-2022-3602), [CVE-2022-3786](https://nvd.nist.gov/vuln/detail/CVE-2022-3786))\n"
   },
+  "3417.0.0": {
+    "channel": "alpha",
+    "architectures": [
+      "amd64",
+      "arm64"
+    ],
+    "release_date": "2022-11-09 12:52:02 +0000",
+    "major_software": {
+      "containerd": [
+        "1.6.9"
+      ],
+      "docker": [
+        "20.10.21"
+      ],
+      "ignition": [
+        "2.14.0"
+      ],
+      "kernel": [
+        "5.15.77"
+      ],
+      "systemd": [
+        "250"
+      ]
+    },
+    "release_notes": " _Changes since **Alpha 3402.0.1**_\n \n #### Security fixes:\n \n - Linux ([CVE-2022-2602](https://nvd.nist.gov/vuln/detail/CVE-2022-2602), [CVE-2022-3535](https://nvd.nist.gov/vuln/detail/CVE-2022-3535), [CVE-2022-3542](https://nvd.nist.gov/vuln/detail/CVE-2022-3542), [CVE-2022-3565](https://nvd.nist.gov/vuln/detail/CVE-2022-3565), [CVE-2022-3594](https://nvd.nist.gov/vuln/detail/CVE-2022-3594))\n - git ([CVE-2022-39253](https://nvd.nist.gov/vuln/detail/CVE-2022-39253), [CVE-2022-39260](https://nvd.nist.gov/vuln/detail/CVE-2022-39260))\n - multipath-tools ([CVE-2022-41973](https://nvd.nist.gov/vuln/detail/CVE-2022-41973), [CVE-2022-41974](https://nvd.nist.gov/vuln/detail/CVE-2022-41974))\n \n \n #### Changes:\n \n - Toolbox now uses containerd to download and mount the image ([toolbox#7](https://github.com/flatcar/toolbox/pull/7))\n \n #### Updates:\n \n  - Linux ([5.15.77](https://lwn.net/Articles/913681) (includes [5.15.76](https://lwn.net/Articles/912997), [5.15.75](https://lwn.net/Articles/912500)))\n - Docker ([20.10.21](https://docs.docker.com/engine/release-notes/#201021))\n - Go ([1.19.3](https://go.dev/doc/devel/release#go1.19.3))\n - OpenSSL ([3.0.7](https://www.openssl.org/news/openssl-3.0-notes.html))\n - containerd ([1.6.9](https://github.com/containerd/containerd/releases/tag/v1.6.9))\n - glibc ([2.35](https://savannah.gnu.org/forum/forum.php?forum_id=10111))\n - bpftool ([5.19.8](https://lwn.net/Articles/907523/))\n - git ([2.37.4](https://github.com/git/git/blob/master/Documentation/RelNotes/2.37.4.txt))\n - iputils ([20211215](https://github.com/iputils/iputils/releases/tag/20211215))\n - libcap ([2.65](https://sites.google.com/site/fullycapable/release-notes-for-libcap?authuser=0#h.wfblevfzkj0))\n - multipath-tools ([0.9.3](https://github.com/opensvc/multipath-tools/releases/tag/0.9.3)\n - wget ([1.21.3](https://lists.gnu.org/archive/html/info-gnu/2022-02/msg00017.html))\n - whois ([5.5.13](https://github.com/rfc1036/whois/blob/v5.5.13/debian/changelog))\n - xz-utils ([5.2.6](https://git.tukaani.org/?p=xz.git;a=blob;f=NEWS;h=4c79b18ff26a1c479a920b21f07d050599c04c9e;hb=8dfed05bdaa4873833ba24279f02ad2db25effea))\n"
+  },
   "current": {
     "channel": "alpha",
     "architectures": [
       "amd64",
       "arm64"
     ],
-    "release_date": "2022-11-01 13:16:15 +0000",
+    "release_date": "2022-11-09 12:52:02 +0000",
     "major_software": {
       "containerd": [
-        "1.6.8"
+        "1.6.9"
       ],
       "docker": [
-        "20.10.20"
+        "20.10.21"
       ],
       "ignition": [
         "2.14.0"
       ],
       "kernel": [
-        "5.15.74"
+        "5.15.77"
       ],
       "systemd": [
         "250"
       ]
     },
-    "release_notes": "_Changes since **Alpha 3402.0.0**_\n\n#### Security fixes:\n- OpenSSL ([CVE-2022-3602](https://nvd.nist.gov/vuln/detail/CVE-2022-3602), [CVE-2022-3786](https://nvd.nist.gov/vuln/detail/CVE-2022-3786))\n"
+    "release_notes": " _Changes since **Alpha 3402.0.1**_\n \n #### Security fixes:\n \n - Linux ([CVE-2022-2602](https://nvd.nist.gov/vuln/detail/CVE-2022-2602), [CVE-2022-3535](https://nvd.nist.gov/vuln/detail/CVE-2022-3535), [CVE-2022-3542](https://nvd.nist.gov/vuln/detail/CVE-2022-3542), [CVE-2022-3565](https://nvd.nist.gov/vuln/detail/CVE-2022-3565), [CVE-2022-3594](https://nvd.nist.gov/vuln/detail/CVE-2022-3594))\n - git ([CVE-2022-39253](https://nvd.nist.gov/vuln/detail/CVE-2022-39253), [CVE-2022-39260](https://nvd.nist.gov/vuln/detail/CVE-2022-39260))\n - multipath-tools ([CVE-2022-41973](https://nvd.nist.gov/vuln/detail/CVE-2022-41973), [CVE-2022-41974](https://nvd.nist.gov/vuln/detail/CVE-2022-41974))\n \n \n #### Changes:\n \n - Toolbox now uses containerd to download and mount the image ([toolbox#7](https://github.com/flatcar/toolbox/pull/7))\n \n #### Updates:\n \n  - Linux ([5.15.77](https://lwn.net/Articles/913681) (includes [5.15.76](https://lwn.net/Articles/912997), [5.15.75](https://lwn.net/Articles/912500)))\n - Docker ([20.10.21](https://docs.docker.com/engine/release-notes/#201021))\n - Go ([1.19.3](https://go.dev/doc/devel/release#go1.19.3))\n - OpenSSL ([3.0.7](https://www.openssl.org/news/openssl-3.0-notes.html))\n - containerd ([1.6.9](https://github.com/containerd/containerd/releases/tag/v1.6.9))\n - glibc ([2.35](https://savannah.gnu.org/forum/forum.php?forum_id=10111))\n - bpftool ([5.19.8](https://lwn.net/Articles/907523/))\n - git ([2.37.4](https://github.com/git/git/blob/master/Documentation/RelNotes/2.37.4.txt))\n - iputils ([20211215](https://github.com/iputils/iputils/releases/tag/20211215))\n - libcap ([2.65](https://sites.google.com/site/fullycapable/release-notes-for-libcap?authuser=0#h.wfblevfzkj0))\n - multipath-tools ([0.9.3](https://github.com/opensvc/multipath-tools/releases/tag/0.9.3)\n - wget ([1.21.3](https://lists.gnu.org/archive/html/info-gnu/2022-02/msg00017.html))\n - whois ([5.5.13](https://github.com/rfc1036/whois/blob/v5.5.13/debian/changelog))\n - xz-utils ([5.2.6](https://git.tukaani.org/?p=xz.git;a=blob;f=NEWS;h=4c79b18ff26a1c479a920b21f07d050599c04c9e;hb=8dfed05bdaa4873833ba24279f02ad2db25effea))\n"
   }
 }
