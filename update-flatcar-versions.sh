@@ -38,7 +38,7 @@ generate-release-feeds() {
 
     # releases/*/ will resolve stable as last one so that it wins for the "current" entry
     $FCL_RELEASE_SCRIPTS/releases_as_json.py $FLATCAR_DATA/releases/*/*.yml > $RELEASES_DIR/releases-json/releases.json
-    $FCL_RELEASE_SCRIPTS/releases_as_feed.py $FLATCAR_DATA/releases/*/*.yml > $RELEASES_DIR/releases-feed/releases.xml
+    FEED="all" $FCL_RELEASE_SCRIPTS/releases_as_feed.py $FLATCAR_DATA/releases/*/*.yml > $RELEASES_DIR/releases-feed/releases.xml
 
     echo "Updated feeds"
 }
