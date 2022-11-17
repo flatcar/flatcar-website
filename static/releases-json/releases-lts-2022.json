@@ -160,13 +160,13 @@
     },
     "release_notes": "_Changes since **LTS 3033.3.5**_\n\n#### Security fixes:\n\n- Linux ([CVE-2022-2905](https://nvd.nist.gov/vuln/detail/CVE-2022-2905), [CVE-2022-3028](https://nvd.nist.gov/vuln/detail/CVE-2022-3028), [CVE-2022-39190](https://nvd.nist.gov/vuln/detail/CVE-2022-39190))\n- torcx ([CVE-2021-38561](https://nvd.nist.gov/vuln/detail/CVE-2021-38561), [CVE-2021-43565](https://nvd.nist.gov/vuln/detail/CVE-2021-43565), [CVE-2022-27191](https://nvd.nist.gov/vuln/detail/CVE-2022-27191))\n\n#### Bug fixes:\n\n- Equinix Metal: Fixed serial console settings for the `m3.small.x86` instance by expanding the GRUB check for `i386` to `x86_64` [coreos-overlay#2122](https://github.com/flatcar-linux/coreos-overlay/pull/2122)\n\n#### Changes:\n\n- emerge-gitclone: Migrate emerge-gitclone to use scripts repo tags and submodule refs\n\n#### Updates:\n\n- Linux ([5.10.142](https://lwn.net/Articles/907525) (includes [5.10.141](https://lwn.net/Articles/907205), [5.10.140](https://lwn.net/Articles/906628), [5.10.139](https://lwn.net/Articles/906359), [5.10.138](https://lwn.net/Articles/906062)))\n- ca-certificates ([3.83](https://firefox-source-docs.mozilla.org/security/nss/releases/nss_3_83.html))\n- locksmith([0.7.0](https://github.com/flatcar/locksmith/blob/v0.7.0/CHANGELOG.md#v070--30112021))\n"
   },
-  "current-2022": {
+  "3033.3.7": {
     "channel": "lts",
     "architectures": [
       "amd64",
       "arm64"
     ],
-    "release_date": "2022-10-17 14:39:29 +0000",
+    "release_date": "2022-11-17 12:03:56 +0000",
     "major_software": {
       "docker": [
         "20.10.12"
@@ -175,13 +175,36 @@
         "0.36.1"
       ],
       "kernel": [
-        "5.10.142"
+        "5.10.154"
       ],
       "systemd": [
         "249"
       ]
     },
-    "release_notes": "_Changes since **LTS 3033.3.5**_\n\n#### Security fixes:\n\n- Linux ([CVE-2022-2905](https://nvd.nist.gov/vuln/detail/CVE-2022-2905), [CVE-2022-3028](https://nvd.nist.gov/vuln/detail/CVE-2022-3028), [CVE-2022-39190](https://nvd.nist.gov/vuln/detail/CVE-2022-39190))\n- torcx ([CVE-2021-38561](https://nvd.nist.gov/vuln/detail/CVE-2021-38561), [CVE-2021-43565](https://nvd.nist.gov/vuln/detail/CVE-2021-43565), [CVE-2022-27191](https://nvd.nist.gov/vuln/detail/CVE-2022-27191))\n\n#### Bug fixes:\n\n- Equinix Metal: Fixed serial console settings for the `m3.small.x86` instance by expanding the GRUB check for `i386` to `x86_64` [coreos-overlay#2122](https://github.com/flatcar-linux/coreos-overlay/pull/2122)\n\n#### Changes:\n\n- emerge-gitclone: Migrate emerge-gitclone to use scripts repo tags and submodule refs\n\n#### Updates:\n\n- Linux ([5.10.142](https://lwn.net/Articles/907525) (includes [5.10.141](https://lwn.net/Articles/907205), [5.10.140](https://lwn.net/Articles/906628), [5.10.139](https://lwn.net/Articles/906359), [5.10.138](https://lwn.net/Articles/906062)))\n- ca-certificates ([3.83](https://firefox-source-docs.mozilla.org/security/nss/releases/nss_3_83.html))\n- locksmith([0.7.0](https://github.com/flatcar/locksmith/blob/v0.7.0/CHANGELOG.md#v070--30112021))\n"
+    "release_notes": " _Changes since **LTS 3033.3.6**_\n \n #### Security fixes:\n \n - Linux ([CVE-2021-4037](https://nvd.nist.gov/vuln/detail/CVE-2021-4037), [CVE-2022-0171](https://nvd.nist.gov/vuln/detail/CVE-2022-0171), [CVE-2022-2602](https://nvd.nist.gov/vuln/detail/CVE-2022-2602), [CVE-2022-2663](https://nvd.nist.gov/vuln/detail/CVE-2022-2663), [CVE-2022-3061](https://nvd.nist.gov/vuln/detail/CVE-2022-3061), [CVE-2022-3303](https://nvd.nist.gov/vuln/detail/CVE-2022-3303), [CVE-2022-3535](https://nvd.nist.gov/vuln/detail/CVE-2022-3535), [CVE-2022-3542](https://nvd.nist.gov/vuln/detail/CVE-2022-3542), [CVE-2022-3565](https://nvd.nist.gov/vuln/detail/CVE-2022-3565), [CVE-2022-3586](https://nvd.nist.gov/vuln/detail/CVE-2022-3586), [CVE-2022-3594](https://nvd.nist.gov/vuln/detail/CVE-2022-3594), [CVE-2022-3621](https://nvd.nist.gov/vuln/detail/CVE-2022-3621), [CVE-2022-3646](https://nvd.nist.gov/vuln/detail/CVE-2022-3646), [CVE-2022-3649](https://nvd.nist.gov/vuln/detail/CVE-2022-3649), [CVE-2022-39842](https://nvd.nist.gov/vuln/detail/CVE-2022-39842), [CVE-2022-40307](https://nvd.nist.gov/vuln/detail/CVE-2022-40307), [CVE-2022-40768](https://nvd.nist.gov/vuln/detail/CVE-2022-40768), [CVE-2022-41674](https://nvd.nist.gov/vuln/detail/CVE-2022-41674), [CVE-2022-42719](https://nvd.nist.gov/vuln/detail/CVE-2022-42719), [CVE-2022-42720](https://nvd.nist.gov/vuln/detail/CVE-2022-42720), [CVE-2022-42721](https://nvd.nist.gov/vuln/detail/CVE-2022-42721), [CVE-2022-42722](https://nvd.nist.gov/vuln/detail/CVE-2022-42722), [CVE-2022-43750](https://nvd.nist.gov/vuln/detail/CVE-2022-43750))\n \n #### Updates:\n \n - Linux ([5.10.154](https://lwn.net/Articles/914423) (includes [5.10.153](https://lwn.net/Articles/913682) [5.10.152](https://lwn.net/Articles/913110), [5.10.151](https://lwn.net/Articles/912993), [5.10.150](https://lwn.net/Articles/912501), [5.10.149](https://lwn.net/Articles/911488), [5.10.148](https://lwn.net/Articles/911276), [5.10.147](https://lwn.net/Articles/910399), [5.10.146](https://lwn.net/Articles/909680), [5.10.145](https://lwn.net/Articles/909213), [5.10.144](https://lwn.net/Articles/908783), [5.10.143](https://lwn.net/Articles/908141)))\n - ca-certificates ([3.84](https://firefox-source-docs.mozilla.org/security/nss/releases/nss_3_84.html))\n"
+  },
+  "current-2022": {
+    "channel": "lts",
+    "architectures": [
+      "amd64",
+      "arm64"
+    ],
+    "release_date": "2022-11-17 12:03:56 +0000",
+    "major_software": {
+      "docker": [
+        "20.10.12"
+      ],
+      "ignition": [
+        "0.36.1"
+      ],
+      "kernel": [
+        "5.10.154"
+      ],
+      "systemd": [
+        "249"
+      ]
+    },
+    "release_notes": " _Changes since **LTS 3033.3.6**_\n \n #### Security fixes:\n \n - Linux ([CVE-2021-4037](https://nvd.nist.gov/vuln/detail/CVE-2021-4037), [CVE-2022-0171](https://nvd.nist.gov/vuln/detail/CVE-2022-0171), [CVE-2022-2602](https://nvd.nist.gov/vuln/detail/CVE-2022-2602), [CVE-2022-2663](https://nvd.nist.gov/vuln/detail/CVE-2022-2663), [CVE-2022-3061](https://nvd.nist.gov/vuln/detail/CVE-2022-3061), [CVE-2022-3303](https://nvd.nist.gov/vuln/detail/CVE-2022-3303), [CVE-2022-3535](https://nvd.nist.gov/vuln/detail/CVE-2022-3535), [CVE-2022-3542](https://nvd.nist.gov/vuln/detail/CVE-2022-3542), [CVE-2022-3565](https://nvd.nist.gov/vuln/detail/CVE-2022-3565), [CVE-2022-3586](https://nvd.nist.gov/vuln/detail/CVE-2022-3586), [CVE-2022-3594](https://nvd.nist.gov/vuln/detail/CVE-2022-3594), [CVE-2022-3621](https://nvd.nist.gov/vuln/detail/CVE-2022-3621), [CVE-2022-3646](https://nvd.nist.gov/vuln/detail/CVE-2022-3646), [CVE-2022-3649](https://nvd.nist.gov/vuln/detail/CVE-2022-3649), [CVE-2022-39842](https://nvd.nist.gov/vuln/detail/CVE-2022-39842), [CVE-2022-40307](https://nvd.nist.gov/vuln/detail/CVE-2022-40307), [CVE-2022-40768](https://nvd.nist.gov/vuln/detail/CVE-2022-40768), [CVE-2022-41674](https://nvd.nist.gov/vuln/detail/CVE-2022-41674), [CVE-2022-42719](https://nvd.nist.gov/vuln/detail/CVE-2022-42719), [CVE-2022-42720](https://nvd.nist.gov/vuln/detail/CVE-2022-42720), [CVE-2022-42721](https://nvd.nist.gov/vuln/detail/CVE-2022-42721), [CVE-2022-42722](https://nvd.nist.gov/vuln/detail/CVE-2022-42722), [CVE-2022-43750](https://nvd.nist.gov/vuln/detail/CVE-2022-43750))\n \n #### Updates:\n \n - Linux ([5.10.154](https://lwn.net/Articles/914423) (includes [5.10.153](https://lwn.net/Articles/913682) [5.10.152](https://lwn.net/Articles/913110), [5.10.151](https://lwn.net/Articles/912993), [5.10.150](https://lwn.net/Articles/912501), [5.10.149](https://lwn.net/Articles/911488), [5.10.148](https://lwn.net/Articles/911276), [5.10.147](https://lwn.net/Articles/910399), [5.10.146](https://lwn.net/Articles/909680), [5.10.145](https://lwn.net/Articles/909213), [5.10.144](https://lwn.net/Articles/908783), [5.10.143](https://lwn.net/Articles/908141)))\n - ca-certificates ([3.84](https://firefox-source-docs.mozilla.org/security/nss/releases/nss_3_84.html))\n"
   },
   "current": {
     "channel": "lts",
@@ -189,7 +212,7 @@
       "amd64",
       "arm64"
     ],
-    "release_date": "2022-10-17 14:39:29 +0000",
+    "release_date": "2022-11-17 12:03:56 +0000",
     "major_software": {
       "docker": [
         "20.10.12"
@@ -198,12 +221,12 @@
         "0.36.1"
       ],
       "kernel": [
-        "5.10.142"
+        "5.10.154"
       ],
       "systemd": [
         "249"
       ]
     },
-    "release_notes": "_Changes since **LTS 3033.3.5**_\n\n#### Security fixes:\n\n- Linux ([CVE-2022-2905](https://nvd.nist.gov/vuln/detail/CVE-2022-2905), [CVE-2022-3028](https://nvd.nist.gov/vuln/detail/CVE-2022-3028), [CVE-2022-39190](https://nvd.nist.gov/vuln/detail/CVE-2022-39190))\n- torcx ([CVE-2021-38561](https://nvd.nist.gov/vuln/detail/CVE-2021-38561), [CVE-2021-43565](https://nvd.nist.gov/vuln/detail/CVE-2021-43565), [CVE-2022-27191](https://nvd.nist.gov/vuln/detail/CVE-2022-27191))\n\n#### Bug fixes:\n\n- Equinix Metal: Fixed serial console settings for the `m3.small.x86` instance by expanding the GRUB check for `i386` to `x86_64` [coreos-overlay#2122](https://github.com/flatcar-linux/coreos-overlay/pull/2122)\n\n#### Changes:\n\n- emerge-gitclone: Migrate emerge-gitclone to use scripts repo tags and submodule refs\n\n#### Updates:\n\n- Linux ([5.10.142](https://lwn.net/Articles/907525) (includes [5.10.141](https://lwn.net/Articles/907205), [5.10.140](https://lwn.net/Articles/906628), [5.10.139](https://lwn.net/Articles/906359), [5.10.138](https://lwn.net/Articles/906062)))\n- ca-certificates ([3.83](https://firefox-source-docs.mozilla.org/security/nss/releases/nss_3_83.html))\n- locksmith([0.7.0](https://github.com/flatcar/locksmith/blob/v0.7.0/CHANGELOG.md#v070--30112021))\n"
+    "release_notes": " _Changes since **LTS 3033.3.6**_\n \n #### Security fixes:\n \n - Linux ([CVE-2021-4037](https://nvd.nist.gov/vuln/detail/CVE-2021-4037), [CVE-2022-0171](https://nvd.nist.gov/vuln/detail/CVE-2022-0171), [CVE-2022-2602](https://nvd.nist.gov/vuln/detail/CVE-2022-2602), [CVE-2022-2663](https://nvd.nist.gov/vuln/detail/CVE-2022-2663), [CVE-2022-3061](https://nvd.nist.gov/vuln/detail/CVE-2022-3061), [CVE-2022-3303](https://nvd.nist.gov/vuln/detail/CVE-2022-3303), [CVE-2022-3535](https://nvd.nist.gov/vuln/detail/CVE-2022-3535), [CVE-2022-3542](https://nvd.nist.gov/vuln/detail/CVE-2022-3542), [CVE-2022-3565](https://nvd.nist.gov/vuln/detail/CVE-2022-3565), [CVE-2022-3586](https://nvd.nist.gov/vuln/detail/CVE-2022-3586), [CVE-2022-3594](https://nvd.nist.gov/vuln/detail/CVE-2022-3594), [CVE-2022-3621](https://nvd.nist.gov/vuln/detail/CVE-2022-3621), [CVE-2022-3646](https://nvd.nist.gov/vuln/detail/CVE-2022-3646), [CVE-2022-3649](https://nvd.nist.gov/vuln/detail/CVE-2022-3649), [CVE-2022-39842](https://nvd.nist.gov/vuln/detail/CVE-2022-39842), [CVE-2022-40307](https://nvd.nist.gov/vuln/detail/CVE-2022-40307), [CVE-2022-40768](https://nvd.nist.gov/vuln/detail/CVE-2022-40768), [CVE-2022-41674](https://nvd.nist.gov/vuln/detail/CVE-2022-41674), [CVE-2022-42719](https://nvd.nist.gov/vuln/detail/CVE-2022-42719), [CVE-2022-42720](https://nvd.nist.gov/vuln/detail/CVE-2022-42720), [CVE-2022-42721](https://nvd.nist.gov/vuln/detail/CVE-2022-42721), [CVE-2022-42722](https://nvd.nist.gov/vuln/detail/CVE-2022-42722), [CVE-2022-43750](https://nvd.nist.gov/vuln/detail/CVE-2022-43750))\n \n #### Updates:\n \n - Linux ([5.10.154](https://lwn.net/Articles/914423) (includes [5.10.153](https://lwn.net/Articles/913682) [5.10.152](https://lwn.net/Articles/913110), [5.10.151](https://lwn.net/Articles/912993), [5.10.150](https://lwn.net/Articles/912501), [5.10.149](https://lwn.net/Articles/911488), [5.10.148](https://lwn.net/Articles/911276), [5.10.147](https://lwn.net/Articles/910399), [5.10.146](https://lwn.net/Articles/909680), [5.10.145](https://lwn.net/Articles/909213), [5.10.144](https://lwn.net/Articles/908783), [5.10.143](https://lwn.net/Articles/908141)))\n - ca-certificates ([3.84](https://firefox-source-docs.mozilla.org/security/nss/releases/nss_3_84.html))\n"
   }
 }
