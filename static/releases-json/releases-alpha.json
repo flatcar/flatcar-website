@@ -2701,16 +2701,16 @@
     },
     "release_notes": " _Changes since **Alpha 3402.0.1**_\n \n #### Security fixes:\n \n - Linux ([CVE-2022-2602](https://nvd.nist.gov/vuln/detail/CVE-2022-2602), [CVE-2022-3535](https://nvd.nist.gov/vuln/detail/CVE-2022-3535), [CVE-2022-3542](https://nvd.nist.gov/vuln/detail/CVE-2022-3542), [CVE-2022-3565](https://nvd.nist.gov/vuln/detail/CVE-2022-3565), [CVE-2022-3594](https://nvd.nist.gov/vuln/detail/CVE-2022-3594))\n - git ([CVE-2022-39253](https://nvd.nist.gov/vuln/detail/CVE-2022-39253), [CVE-2022-39260](https://nvd.nist.gov/vuln/detail/CVE-2022-39260))\n - multipath-tools ([CVE-2022-41973](https://nvd.nist.gov/vuln/detail/CVE-2022-41973), [CVE-2022-41974](https://nvd.nist.gov/vuln/detail/CVE-2022-41974))\n \n \n #### Changes:\n \n - Toolbox now uses containerd to download and mount the image ([toolbox#7](https://github.com/flatcar/toolbox/pull/7))\n \n #### Updates:\n \n  - Linux ([5.15.77](https://lwn.net/Articles/913681) (includes [5.15.76](https://lwn.net/Articles/912997), [5.15.75](https://lwn.net/Articles/912500)))\n - Docker ([20.10.21](https://docs.docker.com/engine/release-notes/#201021))\n - Go ([1.19.3](https://go.dev/doc/devel/release#go1.19.3))\n - OpenSSL ([3.0.7](https://www.openssl.org/news/openssl-3.0-notes.html))\n - containerd ([1.6.9](https://github.com/containerd/containerd/releases/tag/v1.6.9))\n - glibc ([2.35](https://savannah.gnu.org/forum/forum.php?forum_id=10111))\n - bpftool ([5.19.8](https://lwn.net/Articles/907523/))\n - git ([2.37.4](https://github.com/git/git/blob/master/Documentation/RelNotes/2.37.4.txt))\n - iputils ([20211215](https://github.com/iputils/iputils/releases/tag/20211215))\n - libcap ([2.65](https://sites.google.com/site/fullycapable/release-notes-for-libcap?authuser=0#h.wfblevfzkj0))\n - multipath-tools ([0.9.3](https://github.com/opensvc/multipath-tools/releases/tag/0.9.3)\n - wget ([1.21.3](https://lists.gnu.org/archive/html/info-gnu/2022-02/msg00017.html))\n - whois ([5.5.13](https://github.com/rfc1036/whois/blob/v5.5.13/debian/changelog))\n - xz-utils ([5.2.6](https://git.tukaani.org/?p=xz.git;a=blob;f=NEWS;h=4c79b18ff26a1c479a920b21f07d050599c04c9e;hb=8dfed05bdaa4873833ba24279f02ad2db25effea))\n"
   },
-  "current": {
+  "3432.0.0": {
     "channel": "alpha",
     "architectures": [
       "amd64",
       "arm64"
     ],
-    "release_date": "2022-11-09 12:52:02 +0000",
+    "release_date": "2022-11-24 15:10:03 +0000",
     "major_software": {
       "containerd": [
-        "1.6.9"
+        "1.6.10"
       ],
       "docker": [
         "20.10.21"
@@ -2719,12 +2719,38 @@
         "2.14.0"
       ],
       "kernel": [
-        "5.15.77"
+        "5.15.79"
       ],
       "systemd": [
         "250"
       ]
     },
-    "release_notes": " _Changes since **Alpha 3402.0.1**_\n \n #### Security fixes:\n \n - Linux ([CVE-2022-2602](https://nvd.nist.gov/vuln/detail/CVE-2022-2602), [CVE-2022-3535](https://nvd.nist.gov/vuln/detail/CVE-2022-3535), [CVE-2022-3542](https://nvd.nist.gov/vuln/detail/CVE-2022-3542), [CVE-2022-3565](https://nvd.nist.gov/vuln/detail/CVE-2022-3565), [CVE-2022-3594](https://nvd.nist.gov/vuln/detail/CVE-2022-3594))\n - git ([CVE-2022-39253](https://nvd.nist.gov/vuln/detail/CVE-2022-39253), [CVE-2022-39260](https://nvd.nist.gov/vuln/detail/CVE-2022-39260))\n - multipath-tools ([CVE-2022-41973](https://nvd.nist.gov/vuln/detail/CVE-2022-41973), [CVE-2022-41974](https://nvd.nist.gov/vuln/detail/CVE-2022-41974))\n \n \n #### Changes:\n \n - Toolbox now uses containerd to download and mount the image ([toolbox#7](https://github.com/flatcar/toolbox/pull/7))\n \n #### Updates:\n \n  - Linux ([5.15.77](https://lwn.net/Articles/913681) (includes [5.15.76](https://lwn.net/Articles/912997), [5.15.75](https://lwn.net/Articles/912500)))\n - Docker ([20.10.21](https://docs.docker.com/engine/release-notes/#201021))\n - Go ([1.19.3](https://go.dev/doc/devel/release#go1.19.3))\n - OpenSSL ([3.0.7](https://www.openssl.org/news/openssl-3.0-notes.html))\n - containerd ([1.6.9](https://github.com/containerd/containerd/releases/tag/v1.6.9))\n - glibc ([2.35](https://savannah.gnu.org/forum/forum.php?forum_id=10111))\n - bpftool ([5.19.8](https://lwn.net/Articles/907523/))\n - git ([2.37.4](https://github.com/git/git/blob/master/Documentation/RelNotes/2.37.4.txt))\n - iputils ([20211215](https://github.com/iputils/iputils/releases/tag/20211215))\n - libcap ([2.65](https://sites.google.com/site/fullycapable/release-notes-for-libcap?authuser=0#h.wfblevfzkj0))\n - multipath-tools ([0.9.3](https://github.com/opensvc/multipath-tools/releases/tag/0.9.3)\n - wget ([1.21.3](https://lists.gnu.org/archive/html/info-gnu/2022-02/msg00017.html))\n - whois ([5.5.13](https://github.com/rfc1036/whois/blob/v5.5.13/debian/changelog))\n - xz-utils ([5.2.6](https://git.tukaani.org/?p=xz.git;a=blob;f=NEWS;h=4c79b18ff26a1c479a920b21f07d050599c04c9e;hb=8dfed05bdaa4873833ba24279f02ad2db25effea))\n"
+    "release_notes": " _Changes since **Alpha 3417.0.0**_\n \n #### Security fixes:\n \n - Linux ([CVE-2022-3543](https://nvd.nist.gov/vuln/detail/CVE-2022-3543), [CVE-2022-3564](https://nvd.nist.gov/vuln/detail/CVE-2022-3564), [CVE-2022-3619](https://nvd.nist.gov/vuln/detail/CVE-2022-3619), [CVE-2022-3623](https://nvd.nist.gov/vuln/detail/CVE-2022-3623), [CVE-2022-3628](https://nvd.nist.gov/vuln/detail/CVE-2022-3628), [CVE-2022-42895](https://nvd.nist.gov/vuln/detail/CVE-2022-42895), [CVE-2022-42896](https://nvd.nist.gov/vuln/detail/CVE-2022-42896))\n - cpio ([CVE-2021-38185](https://nvd.nist.gov/vuln/detail/CVE-2021-38185))\n - curl ([CVE-2022-32221](https://nvd.nist.gov/vuln/detail/CVE-2022-32221), [CVE-2022-35260](https://nvd.nist.gov/vuln/detail/CVE-2022-32221), [CVE-2022-42915](https://nvd.nist.gov/vuln/detail/CVE-2022-32221), [CVE-2022-42916](https://nvd.nist.gov/vuln/detail/CVE-2022-32221))\n - expat ([CVE-2022-43680](https://nvd.nist.gov/vuln/detail/CVE-2022-43680))\n - libksba ([CVE-2022-3515](https://nvd.nist.gov/vuln/detail/CVE-2022-3515))\n - vim ([CVE-2022-3705](https://nvd.nist.gov/vuln/detail/CVE-2022-3705))\n \n #### Bug fixes:\n \n - Added support for hardware security keys in update-ssh-keys ([update-ssh-keys#7](https://github.com/flatcar/update-ssh-keys/pull/7))\n - Fixed Ignition btrfs forced formatting for OEM partition ([coreos-overlay#2277](https://github.com/flatcar/coreos-overlay/pull/2277))\n \n #### Updates:\n \n - Linux ([5.15.79](https://lwn.net/Articles/915100) (includes [5.15.78](https://lwn.net/Articles/914423)))\n - Linux Firmware ([20221109](https://git.kernel.org/pub/scm/linux/kernel/git/firmware/linux-firmware.git/tag/?h=20221109))\n - ca-certificates ([3.85](https://firefox-source-docs.mozilla.org/security/nss/releases/nss_3_85.html))\n - containerd ([1.6.10](https://github.com/containerd/containerd/releases/tag/v1.6.10))\n - Expat ([2.5.0](https://github.com/libexpat/libexpat/blob/R_2_5_0/expat/Changes))\n - cpio ([2.13](https://lists.gnu.org/archive/html/bug-cpio/2019-11/msg00000.html))\n - curl ([7.86](https://curl.se/changes.html#7_86_0))\n - glib ([2.74.1](https://gitlab.gnome.org/GNOME/glib/-/tags/2.74.1))\n - libcap ([2.66](https://sites.google.com/site/fullycapable/release-notes-for-libcap#h.d9ygdose5kw))\n - libksba ([1.6.2](https://dev.gnupg.org/T6230))\n - openssh ([9.1](http://www.openssh.com/releasenotes.html#9.1))\n - sqlite ([3.39.4](https://sqlite.org/releaselog/3_39_4.html))\n - vim ([9.0.0828](https://github.com/vim/vim/releases/tag/v9.0.0828))\n - whois ([5.5.14](https://github.com/rfc1036/whois/commit/ab10466cf2e1ec4887f6a44375c3e29c1720157f))\n - XZ utils ([5.2.7](https://git.tukaani.org/?p=xz.git;a=blob;f=NEWS;h=0205423e79ce8297102096b0fc8b030ddf5b2023;hb=d24a57b7fc7e5e9267b84367cb0788d3acf7f569))\n - SDK: Rust ([1.65.0](https://github.com/rust-lang/rust/releases/tag/1.65.0))"
+  },
+  "current": {
+    "channel": "alpha",
+    "architectures": [
+      "amd64",
+      "arm64"
+    ],
+    "release_date": "2022-11-24 15:10:03 +0000",
+    "major_software": {
+      "containerd": [
+        "1.6.10"
+      ],
+      "docker": [
+        "20.10.21"
+      ],
+      "ignition": [
+        "2.14.0"
+      ],
+      "kernel": [
+        "5.15.79"
+      ],
+      "systemd": [
+        "250"
+      ]
+    },
+    "release_notes": " _Changes since **Alpha 3417.0.0**_\n \n #### Security fixes:\n \n - Linux ([CVE-2022-3543](https://nvd.nist.gov/vuln/detail/CVE-2022-3543), [CVE-2022-3564](https://nvd.nist.gov/vuln/detail/CVE-2022-3564), [CVE-2022-3619](https://nvd.nist.gov/vuln/detail/CVE-2022-3619), [CVE-2022-3623](https://nvd.nist.gov/vuln/detail/CVE-2022-3623), [CVE-2022-3628](https://nvd.nist.gov/vuln/detail/CVE-2022-3628), [CVE-2022-42895](https://nvd.nist.gov/vuln/detail/CVE-2022-42895), [CVE-2022-42896](https://nvd.nist.gov/vuln/detail/CVE-2022-42896))\n - cpio ([CVE-2021-38185](https://nvd.nist.gov/vuln/detail/CVE-2021-38185))\n - curl ([CVE-2022-32221](https://nvd.nist.gov/vuln/detail/CVE-2022-32221), [CVE-2022-35260](https://nvd.nist.gov/vuln/detail/CVE-2022-32221), [CVE-2022-42915](https://nvd.nist.gov/vuln/detail/CVE-2022-32221), [CVE-2022-42916](https://nvd.nist.gov/vuln/detail/CVE-2022-32221))\n - expat ([CVE-2022-43680](https://nvd.nist.gov/vuln/detail/CVE-2022-43680))\n - libksba ([CVE-2022-3515](https://nvd.nist.gov/vuln/detail/CVE-2022-3515))\n - vim ([CVE-2022-3705](https://nvd.nist.gov/vuln/detail/CVE-2022-3705))\n \n #### Bug fixes:\n \n - Added support for hardware security keys in update-ssh-keys ([update-ssh-keys#7](https://github.com/flatcar/update-ssh-keys/pull/7))\n - Fixed Ignition btrfs forced formatting for OEM partition ([coreos-overlay#2277](https://github.com/flatcar/coreos-overlay/pull/2277))\n \n #### Updates:\n \n - Linux ([5.15.79](https://lwn.net/Articles/915100) (includes [5.15.78](https://lwn.net/Articles/914423)))\n - Linux Firmware ([20221109](https://git.kernel.org/pub/scm/linux/kernel/git/firmware/linux-firmware.git/tag/?h=20221109))\n - ca-certificates ([3.85](https://firefox-source-docs.mozilla.org/security/nss/releases/nss_3_85.html))\n - containerd ([1.6.10](https://github.com/containerd/containerd/releases/tag/v1.6.10))\n - Expat ([2.5.0](https://github.com/libexpat/libexpat/blob/R_2_5_0/expat/Changes))\n - cpio ([2.13](https://lists.gnu.org/archive/html/bug-cpio/2019-11/msg00000.html))\n - curl ([7.86](https://curl.se/changes.html#7_86_0))\n - glib ([2.74.1](https://gitlab.gnome.org/GNOME/glib/-/tags/2.74.1))\n - libcap ([2.66](https://sites.google.com/site/fullycapable/release-notes-for-libcap#h.d9ygdose5kw))\n - libksba ([1.6.2](https://dev.gnupg.org/T6230))\n - openssh ([9.1](http://www.openssh.com/releasenotes.html#9.1))\n - sqlite ([3.39.4](https://sqlite.org/releaselog/3_39_4.html))\n - vim ([9.0.0828](https://github.com/vim/vim/releases/tag/v9.0.0828))\n - whois ([5.5.14](https://github.com/rfc1036/whois/commit/ab10466cf2e1ec4887f6a44375c3e29c1720157f))\n - XZ utils ([5.2.7](https://git.tukaani.org/?p=xz.git;a=blob;f=NEWS;h=0205423e79ce8297102096b0fc8b030ddf5b2023;hb=d24a57b7fc7e5e9267b84367cb0788d3acf7f569))\n - SDK: Rust ([1.65.0](https://github.com/rust-lang/rust/releases/tag/1.65.0))"
   }
 }
