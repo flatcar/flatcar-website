@@ -1,6 +1,6 @@
 # Flatcar Website
 
-Flatcar's website is built with [Hugo](https://gohugo.io/) and is deployed via [Netlify](https://netlify.com).
+Flatcar's website is built with [Hugo](https://gohugo.io/).
 
 ## Installing Hugo
 
@@ -19,7 +19,7 @@ Currently, you'll need to edit the text files under `content` in this repo to mo
 
 In order to add content for the blog you can use the `hugo new` command. The format is as follow.
 
-`hugo new blog/YEAR-MONTH-DAY-example-content.md`
+`hugo new blog/YEAR-MONTH-DAY-example-content/index.md`
 
 The following command will create a new blog post with the [front matter](https://gohugo.io/content-management/front-matter/) defined in the default [archetype](https://gohugo.io/content-management/archetypes/) from the `./archetype` directory.
 
