@@ -2753,13 +2753,39 @@
     },
     "release_notes": "_Changes since **Alpha 3432.0.0**_\n \n#### Security fixes:\n \n- Linux ([CVE-2022-3169](https://nvd.nist.gov/vuln/detail/CVE-2022-3169), [CVE-2022-3521](https://nvd.nist.gov/vuln/detail/CVE-2022-3521))\n- sudo ([CVE-2022-43995](https://nvd.nist.gov/vuln/detail/CVE-2022-43995))\n \n#### Bug fixes:\n \n- Fix \"ext4 deadlock under heavy I/O load\" kernel issue. The patch for this is included provisionally while we wait for it to be merged upstream ([Flatcar#847](https://github.com/flatcar/Flatcar/issues/847), [coreos-overlay#2315](https://github.com/flatcar/coreos-overlay/pull/2315))\n \n#### Updates:\n \n- Linux ([5.15.81](https://lwn.net/Articles/916763) (includes [5.15.80](https://lwn.net/Articles/916003)))\n- gettext ([0.21.1](https://git.savannah.gnu.org/gitweb/?p=gettext.git;a=blob;f=NEWS;h=cdbb16746c23555e70bb1e16917f5c349ce92d9e;hb=8b38ee827251cadbb90cb6cb576ae98702566288))\n- GnuTLS ([3.7.8](https://lists.gnupg.org/pipermail/gnutls-help/2022-September/004765.html))\n- sudo ([1.9.12_p1](https://github.com/sudo-project/sudo/releases/tag/SUDO_1_9_12p1))\n- XZ utils ([5.2.8](https://git.tukaani.org/?p=xz.git;a=blob;f=NEWS;h=c244b42a6771a6e8af206318dfc500d78929fd6f;hb=5476089d9c42b9b04e92b80e1800b384a98265cb))\n- VMware: open-vm-tools ([12.1.5](https://github.com/vmware/open-vm-tools/releases/tag/stable-12.1.5))"
   },
+  "3480.0.0": {
+    "channel": "alpha",
+    "architectures": [
+      "amd64",
+      "arm64"
+    ],
+    "release_date": "2023-01-11 13:33:59 +0000",
+    "major_software": {
+      "containerd": [
+        "1.6.15"
+      ],
+      "docker": [
+        "20.10.22"
+      ],
+      "ignition": [
+        "2.14.0"
+      ],
+      "kernel": [
+        "5.15.86"
+      ],
+      "systemd": [
+        "251"
+      ]
+    },
+    "release_notes": "_Changes since **Alpha 3446.0.0**_\n\n#### Security fixes:\n\n- Linux ([CVE-2022-3424](https://nvd.nist.gov/vuln/detail/CVE-2022-3424), [CVE-2022-3534](https://nvd.nist.gov/vuln/detail/CVE-2022-3534), [CVE-2022-3545](https://nvd.nist.gov/vuln/detail/CVE-2022-3545), [CVE-2022-3643](https://nvd.nist.gov/vuln/detail/CVE-2022-3643), [CVE-2022-4378](https://nvd.nist.gov/vuln/detail/CVE-2022-4378), [CVE-2022-45869](https://nvd.nist.gov/vuln/detail/CVE-2022-45869), [CVE-2022-45934](https://nvd.nist.gov/vuln/detail/CVE-2022-45934))\n- Go ([CVE-2022-41717](https://nvd.nist.gov/vuln/detail/CVE-2022-41717))\n- containerd ([CVE-2022-23471](https://nvd.nist.gov/vuln/detail/CVE-2022-23471))\n- systemd ([CVE-2022-3821](https://nvd.nist.gov/vuln/detail/CVE-2022-3821), [CVE-2022-4415](https://nvd.nist.gov/vuln/detail/CVE-2022-4415))\n- Python ([CVE-2015-20107](https://nvd.nist.gov/vuln/detail/CVE-2015-20107), [CVE-2020-10735](https://nvd.nist.gov/vuln/detail/CVE-2020-10735), [CVE-2021-3654](https://nvd.nist.gov/vuln/detail/CVE-2021-3654), [CVE-2022-37454](https://nvd.nist.gov/vuln/detail/CVE-2022-37454), [CVE-2022-42919](https://nvd.nist.gov/vuln/detail/CVE-2022-42919), [CVE-2022-45061](https://nvd.nist.gov/vuln/detail/CVE-2022-45061))\n- libarchive ([CVE-2022-36227](https://nvd.nist.gov/vuln/detail/CVE-2022-36227))\n- libksba ([CVE-2022-47629](https://nvd.nist.gov/vuln/detail/CVE-2022-47629))\n\n#### Bug fixes:\n\n- Added back Ignition support for Vagrant ([coreos-overlay#2351](https://github.com/flatcar/coreos-overlay/pull/2351))\n- The rootfs setup in the initrd now runs systemd-tmpfiles on every boot, not only when Ignition runs, to fix a dbus failure due to missing files ([Flatcar#944](https://github.com/flatcar/Flatcar/issues/944))\n\n\n#### Updates:\n\n- Linux ([5.15.86](https://lwn.net/Articles/918808) (includes [5.15.85](https://lwn.net/Articles/918329), [5.15.84](https://lwn.net/Articles/918206), [5.15.83](https://lwn.net/Articles/917896), [5.15.82](https://lwn.net/Articles/917400)))\n- Linux Firmware ([20221214](https://git.kernel.org/pub/scm/linux/kernel/git/firmware/linux-firmware.git/tag/?h=20221214))\n- Docker ([20.10.22](https://docs.docker.com/engine/release-notes/#201022))\n- GNU C Library ([2.36](https://sourceware.org/pipermail/libc-alpha/2022-August/141193.html))\n- Go ([1.19.4](https://go.dev/doc/devel/release#go1.19.4))\n- Rust ([1.66.0](https://github.com/rust-lang/rust/releases/tag/1.66.0))\n- ca-certificates ([3.87](https://firefox-source-docs.mozilla.org/security/nss/releases/nss_3_87.html))\n- containerd ([1.6.15](https://github.com/containerd/containerd/releases/tag/v1.6.15))\n- systemd ([251.10](https://github.com/systemd/systemd-stable/commits/v251.10) (includes [251](https://github.com/systemd/systemd/releases/tag/v251)))\n- MIT Kerberos V ([1.20.1](https://web.mit.edu/kerberos/krb5-1.20/krb5-1.20.1.html))\n- XZ utils ([5.2.9](https://git.tukaani.org/?p=xz.git;a=blob;f=NEWS;h=ebb303084403445088ec97dfedf0461a6e5b5077;hb=d8a898eb9974683bc725c49ec76722f9a8758f48))\n- libksba ([1.6.3](https://dev.gnupg.org/T6304))\n"
+  },
   "current": {
     "channel": "stable",
     "architectures": [
       "amd64",
       "arm64"
     ],
-    "release_date": "2022-12-09 09:46:15 +0000",
+    "release_date": "2023-01-11 13:31:35 +0000",
     "major_software": {
       "containerd": [
         "1.6.8"
@@ -2771,13 +2797,13 @@
         "2.14.0"
       ],
       "kernel": [
-        "5.15.77"
+        "5.15.79"
       ],
       "systemd": [
         "250"
       ]
     },
-    "release_notes": "_Changes since **Stable 3374.2.0**_\n\n#### Security fixes:\n\n- Linux ([CVE-2022-2602](https://nvd.nist.gov/vuln/detail/CVE-2022-2602), [CVE-2022-3524](https://nvd.nist.gov/vuln/detail/CVE-2022-3524), [CVE-2022-3535](https://nvd.nist.gov/vuln/detail/CVE-2022-3535), [CVE-2022-3542](https://nvd.nist.gov/vuln/detail/CVE-2022-3542), [CVE-2022-3565](https://nvd.nist.gov/vuln/detail/CVE-2022-3565), [CVE-2022-3594](https://nvd.nist.gov/vuln/detail/CVE-2022-3594), [CVE-2022-41849](https://nvd.nist.gov/vuln/detail/CVE-2022-41849), [CVE-2022-41850](https://nvd.nist.gov/vuln/detail/CVE-2022-41850), [CVE-2022-43945](https://nvd.nist.gov/vuln/detail/CVE-2022-43945))\n \n #### Updates:\n \n - Linux ([5.15.77](https://lwn.net/Articles/913681) (includes [5.15.76](https://lwn.net/Articles/912997), [5.15.75](https://lwn.net/Articles/912500)))\n - ca-certificates ([3.85](https://firefox-source-docs.mozilla.org/security/nss/releases/nss_3_85.html))"
+    "release_notes": "_Changes since **Stable 3374.2.1**_\n\n#### Security fixes:\n\n- Linux ([CVE-2022-3543](https://nvd.nist.gov/vuln/detail/CVE-2022-3543), [CVE-2022-3564](https://nvd.nist.gov/vuln/detail/CVE-2022-3564), [CVE-2022-3619](https://nvd.nist.gov/vuln/detail/CVE-2022-3619), [CVE-2022-3623](https://nvd.nist.gov/vuln/detail/CVE-2022-3623), [CVE-2022-3628](https://nvd.nist.gov/vuln/detail/CVE-2022-3628), [CVE-2022-42895](https://nvd.nist.gov/vuln/detail/CVE-2022-42895), [CVE-2022-42896](https://nvd.nist.gov/vuln/detail/CVE-2022-42896))\n\n#### Updates:\n\n- Linux ([5.15.79](https://lwn.net/Articles/915100) (includes [5.15.78](https://lwn.net/Articles/914423), [5.15.77](https://lwn.net/Articles/913681), [5.15.76](https://lwn.net/Articles/912997), [5.15.75](https://lwn.net/Articles/912500)))\n- ca-certificates ([3.87](https://firefox-source-docs.mozilla.org/security/nss/releases/nss_3_87.html))\n"
   },
   "1722.2.0": {
     "channel": "beta",
@@ -5236,6 +5262,32 @@
       ]
     },
     "release_notes": "_Changes since **Beta 3417.1.0**_\n\n#### Security fixes:\n\n- Linux ([CVE-2022-3169](https://nvd.nist.gov/vuln/detail/CVE-2022-169), [CVE-2022-3521](https://nvd.nist.gov/vuln/detail/CVE-2022-521))\n- cpio ([CVE-2021-38185](https://nvd.nist.gov/vuln/detail/CVE-2021-8185))\n- curl ([CVE-2022-32221](https://nvd.nist.gov/vuln/detail/CVE-2022-2221), [CVE-2022-35260](https://nvd.nist.gov/vuln/detail/CVE-2022-2221), [CVE-2022-42915](https://nvd.nist.gov/vuln/detail/CVE-2022-2221), [CVE-2022-42916](https://nvd.nist.gov/vuln/detail/CVE-2022-2221))\n- expat ([CVE-2022-43680](https://nvd.nist.gov/vuln/detail/CVE-2022-3680))\n- libksba ([CVE-2022-3515](https://nvd.nist.gov/vuln/detail/CVE-2022-515))\n- vim ([CVE-2022-3705](https://nvd.nist.gov/vuln/detail/CVE-2022-705))\n\n#### Bug fixes:\n\n- Added support for hardware security keys in update-ssh-keys ([update-ssh-keys#7](https://github.com/flatcar/update-ssh-eys/pull/7))\n- Fix \"ext4 deadlock under heavy I/O load\" kernel issue. The patch for this is included provisionally while we wait for it to be merged pstream ([Flatcar#847](https://github.com/flatcar/Flatcar/issues/847), [coreos-overlay#2315](https://github.com/flatcar/coreos-overlay/pull/2315))\n\n#### Updates:\n\n- Linux ([5.15.81](https://lwn.net/Articles/916763) (includes [5.15.80](https://lwn.net/Articles/916003)))\n- Linux Firmware ([20221109](https://git.kernel.org/pub/scm/linux/kernel/git/firmware/linux-firmware.git/tag/?h=20221109))\n- OpenSSH ([9.1](http://www.openssh.com/releasenotes.html#9.1))\n- containerd ([1.6.10](https://github.com/containerd/containerd/releases/tag/v1.6.10))\n- cpio ([2.13](https://lists.gnu.org/archive/html/bug-cpio/2019-11/msg00000.html))\n- curl ([7.86](https://curl.se/changes.html#7_86_0))\n- Expat ([2.5.0](https://github.com/libexpat/libexpat/blob/R_2_5_0/expat/Changes))\n- glib ([2.74.1](https://gitlab.gnome.org/GNOME/glib/-/tags/2.74.1))\n- libcap ([2.66](https://sites.google.com/site/fullycapable/release-notes-for-libcap#h.d9ygdose5kw))\n- libksba ([1.6.2](https://dev.gnupg.org/T6230))\n- sqlite ([3.39.4](https://sqlite.org/releaselog/3_39_4.html))\n- vim ([9.0.0828](https://github.com/vim/vim/releases/tag/v9.0.0828))\n- whois ([5.5.14](https://github.com/rfc1036/whois/commit/ab10466cf2e1ec4887f6a44375c3e29c1720157f))\n- XZ utils ([5.2.7](https://git.tukaani.org/?p=xz.git;a=blob;f=NEWS;h=0205423e79ce8297102096b0fc8b030ddf5b2023;hb=d24a57b7fc7e5e9267b84367cb0788d3acf7f569))\n- SDK: Rust ([1.65.0](https://github.com/rust-ang/rust/releases/tag/1.65.0))\n\n_Changes since **Alpha 3432.0.0**_\n \n#### Security fixes:\n \n- Linux ([CVE-2022-3169](https://nvd.nist.gov/vuln/detail/CVE-2022-3169), [CVE-2022-3521](https://nvd.nist.gov/vuln/detail/CVE-2022-3521))\n \n#### Bug fixes:\n \n- Fix \"ext4 deadlock under heavy I/O load\" kernel issue. The patch for this is included provisionally while we wait for it to be merged upstream ([Flatcar#847](https://github.com/flatcar/Flatcar/issues/847), [coreos-overlay#2315](https://github.com/flatcar/coreos-overlay/pull/2315))\n \n #### Updates:\n \n- Linux ([5.15.81](https://lwn.net/Articles/916763) (includes [5.15.80](https://lwn.net/Articles/916003)))"
+  },
+  "3446.1.0": {
+    "channel": "beta",
+    "architectures": [
+      "amd64",
+      "arm64"
+    ],
+    "release_date": "2023-01-11 13:32:59 +0000",
+    "major_software": {
+      "containerd": [
+        "1.6.10"
+      ],
+      "docker": [
+        "20.10.21"
+      ],
+      "ignition": [
+        "2.14.0"
+      ],
+      "kernel": [
+        "5.15.86"
+      ],
+      "systemd": [
+        "250"
+      ]
+    },
+    "release_notes": "_Changes since **Beta 3432.1.0**_\n\n#### Security fixes:\n\n- Linux ([CVE-2022-3424](https://nvd.nist.gov/vuln/detail/CVE-2022-3424), [CVE-2022-3534](https://nvd.nist.gov/vuln/detail/CVE-2022-3534), [CVE-2022-3545](https://nvd.nist.gov/vuln/detail/CVE-2022-3545), [CVE-2022-3643](https://nvd.nist.gov/vuln/detail/CVE-2022-3643), [CVE-2022-4378](https://nvd.nist.gov/vuln/detail/CVE-2022-4378), [CVE-2022-45869](https://nvd.nist.gov/vuln/detail/CVE-2022-45869), [CVE-2022-45934](https://nvd.nist.gov/vuln/detail/CVE-2022-45934))\n- sudo ([CVE-2022-43995](https://nvd.nist.gov/vuln/detail/CVE-2022-43995))\n- libksba ([CVE-2022-47629](https://nvd.nist.gov/vuln/detail/CVE-2022-47629))\n\n#### Bug fixes:\n\n- Added back Ignition support for Vagrant ([coreos-overlay#2351](https://github.com/flatcar/coreos-overlay/pull/2351))\n- The rootfs setup in the initrd now runs systemd-tmpfiles on every boot, not only when Ignition runs, to fix a dbus failure due to missing files ([Flatcar#944](https://github.com/flatcar/Flatcar/issues/944))\n\n#### Updates:\n\n- Linux ([5.15.86](https://lwn.net/Articles/918808) (includes [5.15.85](https://lwn.net/Articles/918329), [5.15.84](https://lwn.net/Articles/918206), [5.15.83](https://lwn.net/Articles/917896), [5.15.82](https://lwn.net/Articles/917400)))\n- ca-certificates ([3.87](https://firefox-source-docs.mozilla.org/security/nss/releases/nss_3_87.html))\n- sudo ([1.9.12_p1](https://github.com/sudo-project/sudo/releases/tag/SUDO_1_9_12p1))\n- GnuTLS ([3.7.8](https://lists.gnupg.org/pipermail/gnutls-help/2022-September/004765.html))\n- XZ utils ([5.2.8](https://git.tukaani.org/?p=xz.git;a=blob;f=NEWS;h=c244b42a6771a6e8af206318dfc500d78929fd6f;hb=5476089d9c42b9b04e92b80e1800b384a98265cb))\n- gettext ([0.21.1](https://git.savannah.gnu.org/gitweb/?p=gettext.git;a=blob;f=NEWS;h=cdbb16746c23555e70bb1e16917f5c349ce92d9e;hb=8b38ee827251cadbb90cb6cb576ae98702566288))\n- libksba ([1.6.3](https://dev.gnupg.org/T6304))\n- VMware: open-vm-tools ([12.1.5](https://github.com/vmware/open-vm-tools/releases/tag/stable-12.1.5))\n\n_Changes since **Alpha 3446.0.0**_\n\n#### Security fixes:\n\n- Linux ([CVE-2022-3424](https://nvd.nist.gov/vuln/detail/CVE-2022-3424), [CVE-2022-3534](https://nvd.nist.gov/vuln/detail/CVE-2022-3534), [CVE-2022-3545](https://nvd.nist.gov/vuln/detail/CVE-2022-3545), [CVE-2022-3643](https://nvd.nist.gov/vuln/detail/CVE-2022-3643), [CVE-2022-4378](https://nvd.nist.gov/vuln/detail/CVE-2022-4378), [CVE-2022-45869](https://nvd.nist.gov/vuln/detail/CVE-2022-45869), [CVE-2022-45934](https://nvd.nist.gov/vuln/detail/CVE-2022-45934))\n- libksba ([CVE-2022-47629](https://nvd.nist.gov/vuln/detail/CVE-2022-47629))\n\n#### Bug fixes:\n\n- Added back Ignition support for Vagrant ([coreos-overlay#2351](https://github.com/flatcar/coreos-overlay/pull/2351))\n- The rootfs setup in the initrd now runs systemd-tmpfiles on every boot, not only when Ignition runs, to fix a dbus failure due to missing files ([Flatcar#944](https://github.com/flatcar/Flatcar/issues/944))\n\n#### Updates:\n\n- Linux ([5.15.86](https://lwn.net/Articles/918808) (includes [5.15.85](https://lwn.net/Articles/918329), [5.15.84](https://lwn.net/Articles/918206), [5.15.83](https://lwn.net/Articles/917896), [5.15.82](https://lwn.net/Articles/917400)))\n- ca-certificates ([3.87](https://firefox-source-docs.mozilla.org/security/nss/releases/nss_3_87.html))\n- libksba ([1.6.3](https://dev.gnupg.org/T6304))\n"
   },
   "2051.99.1": {
     "channel": "edge",
@@ -8773,5 +8825,31 @@
       ]
     },
     "release_notes": "_Changes since **Stable 3374.2.0**_\n\n#### Security fixes:\n\n- Linux ([CVE-2022-2602](https://nvd.nist.gov/vuln/detail/CVE-2022-2602), [CVE-2022-3524](https://nvd.nist.gov/vuln/detail/CVE-2022-3524), [CVE-2022-3535](https://nvd.nist.gov/vuln/detail/CVE-2022-3535), [CVE-2022-3542](https://nvd.nist.gov/vuln/detail/CVE-2022-3542), [CVE-2022-3565](https://nvd.nist.gov/vuln/detail/CVE-2022-3565), [CVE-2022-3594](https://nvd.nist.gov/vuln/detail/CVE-2022-3594), [CVE-2022-41849](https://nvd.nist.gov/vuln/detail/CVE-2022-41849), [CVE-2022-41850](https://nvd.nist.gov/vuln/detail/CVE-2022-41850), [CVE-2022-43945](https://nvd.nist.gov/vuln/detail/CVE-2022-43945))\n \n #### Updates:\n \n - Linux ([5.15.77](https://lwn.net/Articles/913681) (includes [5.15.76](https://lwn.net/Articles/912997), [5.15.75](https://lwn.net/Articles/912500)))\n - ca-certificates ([3.85](https://firefox-source-docs.mozilla.org/security/nss/releases/nss_3_85.html))"
+  },
+  "3374.2.2": {
+    "channel": "stable",
+    "architectures": [
+      "amd64",
+      "arm64"
+    ],
+    "release_date": "2023-01-11 13:31:35 +0000",
+    "major_software": {
+      "containerd": [
+        "1.6.8"
+      ],
+      "docker": [
+        "20.10.18"
+      ],
+      "ignition": [
+        "2.14.0"
+      ],
+      "kernel": [
+        "5.15.79"
+      ],
+      "systemd": [
+        "250"
+      ]
+    },
+    "release_notes": "_Changes since **Stable 3374.2.1**_\n\n#### Security fixes:\n\n- Linux ([CVE-2022-3543](https://nvd.nist.gov/vuln/detail/CVE-2022-3543), [CVE-2022-3564](https://nvd.nist.gov/vuln/detail/CVE-2022-3564), [CVE-2022-3619](https://nvd.nist.gov/vuln/detail/CVE-2022-3619), [CVE-2022-3623](https://nvd.nist.gov/vuln/detail/CVE-2022-3623), [CVE-2022-3628](https://nvd.nist.gov/vuln/detail/CVE-2022-3628), [CVE-2022-42895](https://nvd.nist.gov/vuln/detail/CVE-2022-42895), [CVE-2022-42896](https://nvd.nist.gov/vuln/detail/CVE-2022-42896))\n\n#### Updates:\n\n- Linux ([5.15.79](https://lwn.net/Articles/915100) (includes [5.15.78](https://lwn.net/Articles/914423), [5.15.77](https://lwn.net/Articles/913681), [5.15.76](https://lwn.net/Articles/912997), [5.15.75](https://lwn.net/Articles/912500)))\n- ca-certificates ([3.87](https://firefox-source-docs.mozilla.org/security/nss/releases/nss_3_87.html))\n"
   }
 }
