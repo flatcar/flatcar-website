@@ -2483,13 +2483,13 @@
     },
     "release_notes": "_Changes since **Beta 3432.1.0**_\n\n#### Security fixes:\n\n- Linux ([CVE-2022-3424](https://nvd.nist.gov/vuln/detail/CVE-2022-3424), [CVE-2022-3534](https://nvd.nist.gov/vuln/detail/CVE-2022-3534), [CVE-2022-3545](https://nvd.nist.gov/vuln/detail/CVE-2022-3545), [CVE-2022-3643](https://nvd.nist.gov/vuln/detail/CVE-2022-3643), [CVE-2022-4378](https://nvd.nist.gov/vuln/detail/CVE-2022-4378), [CVE-2022-45869](https://nvd.nist.gov/vuln/detail/CVE-2022-45869), [CVE-2022-45934](https://nvd.nist.gov/vuln/detail/CVE-2022-45934))\n- sudo ([CVE-2022-43995](https://nvd.nist.gov/vuln/detail/CVE-2022-43995))\n- libksba ([CVE-2022-47629](https://nvd.nist.gov/vuln/detail/CVE-2022-47629))\n\n#### Bug fixes:\n\n- Added back Ignition support for Vagrant ([coreos-overlay#2351](https://github.com/flatcar/coreos-overlay/pull/2351))\n- The rootfs setup in the initrd now runs systemd-tmpfiles on every boot, not only when Ignition runs, to fix a dbus failure due to missing files ([Flatcar#944](https://github.com/flatcar/Flatcar/issues/944))\n\n#### Updates:\n\n- Linux ([5.15.86](https://lwn.net/Articles/918808) (includes [5.15.85](https://lwn.net/Articles/918329), [5.15.84](https://lwn.net/Articles/918206), [5.15.83](https://lwn.net/Articles/917896), [5.15.82](https://lwn.net/Articles/917400)))\n- ca-certificates ([3.87](https://firefox-source-docs.mozilla.org/security/nss/releases/nss_3_87.html))\n- sudo ([1.9.12_p1](https://github.com/sudo-project/sudo/releases/tag/SUDO_1_9_12p1))\n- GnuTLS ([3.7.8](https://lists.gnupg.org/pipermail/gnutls-help/2022-September/004765.html))\n- XZ utils ([5.2.8](https://git.tukaani.org/?p=xz.git;a=blob;f=NEWS;h=c244b42a6771a6e8af206318dfc500d78929fd6f;hb=5476089d9c42b9b04e92b80e1800b384a98265cb))\n- gettext ([0.21.1](https://git.savannah.gnu.org/gitweb/?p=gettext.git;a=blob;f=NEWS;h=cdbb16746c23555e70bb1e16917f5c349ce92d9e;hb=8b38ee827251cadbb90cb6cb576ae98702566288))\n- libksba ([1.6.3](https://dev.gnupg.org/T6304))\n- VMware: open-vm-tools ([12.1.5](https://github.com/vmware/open-vm-tools/releases/tag/stable-12.1.5))\n\n_Changes since **Alpha 3446.0.0**_\n\n#### Security fixes:\n\n- Linux ([CVE-2022-3424](https://nvd.nist.gov/vuln/detail/CVE-2022-3424), [CVE-2022-3534](https://nvd.nist.gov/vuln/detail/CVE-2022-3534), [CVE-2022-3545](https://nvd.nist.gov/vuln/detail/CVE-2022-3545), [CVE-2022-3643](https://nvd.nist.gov/vuln/detail/CVE-2022-3643), [CVE-2022-4378](https://nvd.nist.gov/vuln/detail/CVE-2022-4378), [CVE-2022-45869](https://nvd.nist.gov/vuln/detail/CVE-2022-45869), [CVE-2022-45934](https://nvd.nist.gov/vuln/detail/CVE-2022-45934))\n- libksba ([CVE-2022-47629](https://nvd.nist.gov/vuln/detail/CVE-2022-47629))\n\n#### Bug fixes:\n\n- Added back Ignition support for Vagrant ([coreos-overlay#2351](https://github.com/flatcar/coreos-overlay/pull/2351))\n- The rootfs setup in the initrd now runs systemd-tmpfiles on every boot, not only when Ignition runs, to fix a dbus failure due to missing files ([Flatcar#944](https://github.com/flatcar/Flatcar/issues/944))\n\n#### Updates:\n\n- Linux ([5.15.86](https://lwn.net/Articles/918808) (includes [5.15.85](https://lwn.net/Articles/918329), [5.15.84](https://lwn.net/Articles/918206), [5.15.83](https://lwn.net/Articles/917896), [5.15.82](https://lwn.net/Articles/917400)))\n- ca-certificates ([3.87](https://firefox-source-docs.mozilla.org/security/nss/releases/nss_3_87.html))\n- libksba ([1.6.3](https://dev.gnupg.org/T6304))\n"
   },
-  "current": {
+  "3446.1.1": {
     "channel": "beta",
     "architectures": [
       "amd64",
       "arm64"
     ],
-    "release_date": "2023-01-11 13:32:59 +0000",
+    "release_date": "2023-01-24 13:16:19 +0000",
     "major_software": {
       "containerd": [
         "1.6.10"
@@ -2501,12 +2501,38 @@
         "2.14.0"
       ],
       "kernel": [
-        "5.15.86"
+        "5.15.89"
       ],
       "systemd": [
         "250"
       ]
     },
-    "release_notes": "_Changes since **Beta 3432.1.0**_\n\n#### Security fixes:\n\n- Linux ([CVE-2022-3424](https://nvd.nist.gov/vuln/detail/CVE-2022-3424), [CVE-2022-3534](https://nvd.nist.gov/vuln/detail/CVE-2022-3534), [CVE-2022-3545](https://nvd.nist.gov/vuln/detail/CVE-2022-3545), [CVE-2022-3643](https://nvd.nist.gov/vuln/detail/CVE-2022-3643), [CVE-2022-4378](https://nvd.nist.gov/vuln/detail/CVE-2022-4378), [CVE-2022-45869](https://nvd.nist.gov/vuln/detail/CVE-2022-45869), [CVE-2022-45934](https://nvd.nist.gov/vuln/detail/CVE-2022-45934))\n- sudo ([CVE-2022-43995](https://nvd.nist.gov/vuln/detail/CVE-2022-43995))\n- libksba ([CVE-2022-47629](https://nvd.nist.gov/vuln/detail/CVE-2022-47629))\n\n#### Bug fixes:\n\n- Added back Ignition support for Vagrant ([coreos-overlay#2351](https://github.com/flatcar/coreos-overlay/pull/2351))\n- The rootfs setup in the initrd now runs systemd-tmpfiles on every boot, not only when Ignition runs, to fix a dbus failure due to missing files ([Flatcar#944](https://github.com/flatcar/Flatcar/issues/944))\n\n#### Updates:\n\n- Linux ([5.15.86](https://lwn.net/Articles/918808) (includes [5.15.85](https://lwn.net/Articles/918329), [5.15.84](https://lwn.net/Articles/918206), [5.15.83](https://lwn.net/Articles/917896), [5.15.82](https://lwn.net/Articles/917400)))\n- ca-certificates ([3.87](https://firefox-source-docs.mozilla.org/security/nss/releases/nss_3_87.html))\n- sudo ([1.9.12_p1](https://github.com/sudo-project/sudo/releases/tag/SUDO_1_9_12p1))\n- GnuTLS ([3.7.8](https://lists.gnupg.org/pipermail/gnutls-help/2022-September/004765.html))\n- XZ utils ([5.2.8](https://git.tukaani.org/?p=xz.git;a=blob;f=NEWS;h=c244b42a6771a6e8af206318dfc500d78929fd6f;hb=5476089d9c42b9b04e92b80e1800b384a98265cb))\n- gettext ([0.21.1](https://git.savannah.gnu.org/gitweb/?p=gettext.git;a=blob;f=NEWS;h=cdbb16746c23555e70bb1e16917f5c349ce92d9e;hb=8b38ee827251cadbb90cb6cb576ae98702566288))\n- libksba ([1.6.3](https://dev.gnupg.org/T6304))\n- VMware: open-vm-tools ([12.1.5](https://github.com/vmware/open-vm-tools/releases/tag/stable-12.1.5))\n\n_Changes since **Alpha 3446.0.0**_\n\n#### Security fixes:\n\n- Linux ([CVE-2022-3424](https://nvd.nist.gov/vuln/detail/CVE-2022-3424), [CVE-2022-3534](https://nvd.nist.gov/vuln/detail/CVE-2022-3534), [CVE-2022-3545](https://nvd.nist.gov/vuln/detail/CVE-2022-3545), [CVE-2022-3643](https://nvd.nist.gov/vuln/detail/CVE-2022-3643), [CVE-2022-4378](https://nvd.nist.gov/vuln/detail/CVE-2022-4378), [CVE-2022-45869](https://nvd.nist.gov/vuln/detail/CVE-2022-45869), [CVE-2022-45934](https://nvd.nist.gov/vuln/detail/CVE-2022-45934))\n- libksba ([CVE-2022-47629](https://nvd.nist.gov/vuln/detail/CVE-2022-47629))\n\n#### Bug fixes:\n\n- Added back Ignition support for Vagrant ([coreos-overlay#2351](https://github.com/flatcar/coreos-overlay/pull/2351))\n- The rootfs setup in the initrd now runs systemd-tmpfiles on every boot, not only when Ignition runs, to fix a dbus failure due to missing files ([Flatcar#944](https://github.com/flatcar/Flatcar/issues/944))\n\n#### Updates:\n\n- Linux ([5.15.86](https://lwn.net/Articles/918808) (includes [5.15.85](https://lwn.net/Articles/918329), [5.15.84](https://lwn.net/Articles/918206), [5.15.83](https://lwn.net/Articles/917896), [5.15.82](https://lwn.net/Articles/917400)))\n- ca-certificates ([3.87](https://firefox-source-docs.mozilla.org/security/nss/releases/nss_3_87.html))\n- libksba ([1.6.3](https://dev.gnupg.org/T6304))\n"
+    "release_notes": "_Changes since **Beta 3446.1.0**_\n\n#### Security fixes:\n\n- Linux ([CVE-2022-36280](https://nvd.nist.gov/vuln/detail/CVE-2022-36280), [CVE-2022-41218](https://nvd.nist.gov/vuln/detail/CVE-2022-41218), [CVE-2022-47929](https://nvd.nist.gov/vuln/detail/CVE-2022-47929), [CVE-2023-0210](https://nvd.nist.gov/vuln/detail/CVE-2023-0210), [CVE-2023-0266](https://nvd.nist.gov/vuln/detail/CVE-2023-0266), [CVE-2023-0394](https://nvd.nist.gov/vuln/detail/CVE-2023-0394), [CVE-2023-23454](https://nvd.nist.gov/vuln/detail/CVE-2023-23454), [CVE-2023-23455](https://nvd.nist.gov/vuln/detail/CVE-2023-23455))\n- git ([CVE-2022-23521](https://nvd.nist.gov/vuln/detail/CVE-2022-23521), [CVE-2022-41903](https://nvd.nist.gov/vuln/detail/CVE-2022-41903))\n\n#### Bug fixes:\n\n- Fixed a regression (in Alpha/Beta) where machines failed to boot if they didn't have the `core` user or group in `/etc/passwd` or `/etc/group` ([baselayout#26](https://github.com/flatcar/baselayout/pull/26))\n\n#### Changes:\n\n\n#### Updates:\n\n- Linux ([5.15.89](https://lwn.net/Articles/920321) (includes [5.15.88](https://lwn.net/Articles/920012), [5.15.87](https://lwn.net/Articles/919793)))\n- git ([2.37.5](https://github.com/git/git/blob/v2.37.5/Documentation/RelNotes/2.37.5.txt))\n"
+  },
+  "current": {
+    "channel": "beta",
+    "architectures": [
+      "amd64",
+      "arm64"
+    ],
+    "release_date": "2023-01-24 13:16:19 +0000",
+    "major_software": {
+      "containerd": [
+        "1.6.10"
+      ],
+      "docker": [
+        "20.10.21"
+      ],
+      "ignition": [
+        "2.14.0"
+      ],
+      "kernel": [
+        "5.15.89"
+      ],
+      "systemd": [
+        "250"
+      ]
+    },
+    "release_notes": "_Changes since **Beta 3446.1.0**_\n\n#### Security fixes:\n\n- Linux ([CVE-2022-36280](https://nvd.nist.gov/vuln/detail/CVE-2022-36280), [CVE-2022-41218](https://nvd.nist.gov/vuln/detail/CVE-2022-41218), [CVE-2022-47929](https://nvd.nist.gov/vuln/detail/CVE-2022-47929), [CVE-2023-0210](https://nvd.nist.gov/vuln/detail/CVE-2023-0210), [CVE-2023-0266](https://nvd.nist.gov/vuln/detail/CVE-2023-0266), [CVE-2023-0394](https://nvd.nist.gov/vuln/detail/CVE-2023-0394), [CVE-2023-23454](https://nvd.nist.gov/vuln/detail/CVE-2023-23454), [CVE-2023-23455](https://nvd.nist.gov/vuln/detail/CVE-2023-23455))\n- git ([CVE-2022-23521](https://nvd.nist.gov/vuln/detail/CVE-2022-23521), [CVE-2022-41903](https://nvd.nist.gov/vuln/detail/CVE-2022-41903))\n\n#### Bug fixes:\n\n- Fixed a regression (in Alpha/Beta) where machines failed to boot if they didn't have the `core` user or group in `/etc/passwd` or `/etc/group` ([baselayout#26](https://github.com/flatcar/baselayout/pull/26))\n\n#### Changes:\n\n\n#### Updates:\n\n- Linux ([5.15.89](https://lwn.net/Articles/920321) (includes [5.15.88](https://lwn.net/Articles/920012), [5.15.87](https://lwn.net/Articles/919793)))\n- git ([2.37.5](https://github.com/git/git/blob/v2.37.5/Documentation/RelNotes/2.37.5.txt))\n"
   }
 }
