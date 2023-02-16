@@ -2174,13 +2174,13 @@
     },
     "release_notes": "_Changes since **Stable 3374.2.2**_\n\n#### Security fixes:\n\n- Linux ([CVE-2022-3169](https://nvd.nist.gov/vuln/detail/CVE-2022-3169), [CVE-2022-3344](https://nvd.nist.gov/vuln/detail/CVE-2022-3344), [CVE-2022-3424](https://nvd.nist.gov/vuln/detail/CVE-2022-3424), [CVE-2022-3521](https://nvd.nist.gov/vuln/detail/CVE-2022-3521), [CVE-2022-3534](https://nvd.nist.gov/vuln/detail/CVE-2022-3534), [CVE-2022-3545](https://nvd.nist.gov/vuln/detail/CVE-2022-3545), [CVE-2022-3643](https://nvd.nist.gov/vuln/detail/CVE-2022-3643), [CVE-2022-4378](https://nvd.nist.gov/vuln/detail/CVE-2022-4378), [CVE-2022-45869](https://nvd.nist.gov/vuln/detail/CVE-2022-45869), [CVE-2022-45934](https://nvd.nist.gov/vuln/detail/CVE-2022-45934), [CVE-2022-47518](https://nvd.nist.gov/vuln/detail/CVE-2022-47518), [CVE-2022-47519](https://nvd.nist.gov/vuln/detail/CVE-2022-47519), [CVE-2022-47520](https://nvd.nist.gov/vuln/detail/CVE-2022-47520), [CVE-2022-47521](https://nvd.nist.gov/vuln/detail/CVE-2022-47521))\n- git ([CVE-2022-23521](https://nvd.nist.gov/vuln/detail/CVE-2022-23521), [CVE-2022-41903](https://nvd.nist.gov/vuln/detail/CVE-2022-41903))\n\n#### Bug fixes:\n\n- Fix \"ext4 deadlock under heavy I/O load\" kernel issue. The patch for this is included provisionally while we stay with Kernel 5.15.86. ([Flatcar#847](https://github.com/flatcar/Flatcar/issues/847), [coreos-overlay#2402](https://github.com/flatcar/coreos-overlay/pull/2402))\n\n#### Changes:\n\n\n#### Updates:\n\n- Linux ([5.15.86](https://lwn.net/Articles/918808) (includes [5.15.85](https://lwn.net/Articles/918329), [5.15.84](https://lwn.net/Articles/918206), [5.15.83](https://lwn.net/Articles/917896), [5.15.82](https://lwn.net/Articles/917400), [5.15.81](https://lwn.net/Articles/916763), [5.15.80](https://lwn.net/Articles/916003)))\n- git ([2.37.5](https://github.com/git/git/blob/v2.37.5/Documentation/RelNotes/2.37.5.txt))\n"
   },
-  "current": {
+  "3374.2.4": {
     "channel": "stable",
     "architectures": [
       "amd64",
       "arm64"
     ],
-    "release_date": "2023-01-24 13:15:20 +0000",
+    "release_date": "2023-02-16 13:06:44 +0000",
     "major_software": {
       "containerd": [
         "1.6.8"
@@ -2192,12 +2192,38 @@
         "2.14.0"
       ],
       "kernel": [
-        "5.15.86"
+        "5.15.89"
       ],
       "systemd": [
         "250"
       ]
     },
-    "release_notes": "_Changes since **Stable 3374.2.2**_\n\n#### Security fixes:\n\n- Linux ([CVE-2022-3169](https://nvd.nist.gov/vuln/detail/CVE-2022-3169), [CVE-2022-3344](https://nvd.nist.gov/vuln/detail/CVE-2022-3344), [CVE-2022-3424](https://nvd.nist.gov/vuln/detail/CVE-2022-3424), [CVE-2022-3521](https://nvd.nist.gov/vuln/detail/CVE-2022-3521), [CVE-2022-3534](https://nvd.nist.gov/vuln/detail/CVE-2022-3534), [CVE-2022-3545](https://nvd.nist.gov/vuln/detail/CVE-2022-3545), [CVE-2022-3643](https://nvd.nist.gov/vuln/detail/CVE-2022-3643), [CVE-2022-4378](https://nvd.nist.gov/vuln/detail/CVE-2022-4378), [CVE-2022-45869](https://nvd.nist.gov/vuln/detail/CVE-2022-45869), [CVE-2022-45934](https://nvd.nist.gov/vuln/detail/CVE-2022-45934), [CVE-2022-47518](https://nvd.nist.gov/vuln/detail/CVE-2022-47518), [CVE-2022-47519](https://nvd.nist.gov/vuln/detail/CVE-2022-47519), [CVE-2022-47520](https://nvd.nist.gov/vuln/detail/CVE-2022-47520), [CVE-2022-47521](https://nvd.nist.gov/vuln/detail/CVE-2022-47521))\n- git ([CVE-2022-23521](https://nvd.nist.gov/vuln/detail/CVE-2022-23521), [CVE-2022-41903](https://nvd.nist.gov/vuln/detail/CVE-2022-41903))\n\n#### Bug fixes:\n\n- Fix \"ext4 deadlock under heavy I/O load\" kernel issue. The patch for this is included provisionally while we stay with Kernel 5.15.86. ([Flatcar#847](https://github.com/flatcar/Flatcar/issues/847), [coreos-overlay#2402](https://github.com/flatcar/coreos-overlay/pull/2402))\n\n#### Changes:\n\n\n#### Updates:\n\n- Linux ([5.15.86](https://lwn.net/Articles/918808) (includes [5.15.85](https://lwn.net/Articles/918329), [5.15.84](https://lwn.net/Articles/918206), [5.15.83](https://lwn.net/Articles/917896), [5.15.82](https://lwn.net/Articles/917400), [5.15.81](https://lwn.net/Articles/916763), [5.15.80](https://lwn.net/Articles/916003)))\n- git ([2.37.5](https://github.com/git/git/blob/v2.37.5/Documentation/RelNotes/2.37.5.txt))\n"
+    "release_notes": " _Changes since **Stable 3374.2.3**_\n \n #### Security fixes:\n \n - Linux ([CVE-2022-36280](https://nvd.nist.gov/vuln/detail/CVE-2022-36280), [CVE-2022-41218](https://nvd.nist.gov/vuln/detail/CVE-2022-41218), [CVE-2022-47929](https://nvd.nist.gov/vuln/detail/CVE-2022-47929), [CVE-2023-0045](https://nvd.nist.gov/vuln/detail/CVE-2023-0045), [CVE-2023-0179](https://nvd.nist.gov/vuln/detail/CVE-2023-0179), [CVE-2023-0210](https://nvd.nist.gov/vuln/detail/CVE-2023-0210), [CVE-2023-0266](https://nvd.nist.gov/vuln/detail/CVE-2023-0266), [CVE-2023-0394](https://nvd.nist.gov/vuln/detail/CVE-2023-0394), [CVE-2023-23454](https://nvd.nist.gov/vuln/detail/CVE-2023-23454), [CVE-2023-23455](https://nvd.nist.gov/vuln/detail/CVE-2023-23455))\n\n \n #### Updates:\n \n - Linux ([5.15.89](https://lwn.net/Articles/920321) (includes [5.15.88](https://lwn.net/Articles/920012), [5.15.87](https://lwn.net/Articles/919793)))\n - ca-certificates ([3.88.1](https://firefox-source-docs.mozilla.org/security/nss/releases/nss_3_88_1.html))\n - cri-tools ([1.24.2](https://github.com/kubernetes-sigs/cri-tools/releases/tag/v1.24.2))\n"
+  },
+  "current": {
+    "channel": "stable",
+    "architectures": [
+      "amd64",
+      "arm64"
+    ],
+    "release_date": "2023-02-16 13:06:44 +0000",
+    "major_software": {
+      "containerd": [
+        "1.6.8"
+      ],
+      "docker": [
+        "20.10.18"
+      ],
+      "ignition": [
+        "2.14.0"
+      ],
+      "kernel": [
+        "5.15.89"
+      ],
+      "systemd": [
+        "250"
+      ]
+    },
+    "release_notes": " _Changes since **Stable 3374.2.3**_\n \n #### Security fixes:\n \n - Linux ([CVE-2022-36280](https://nvd.nist.gov/vuln/detail/CVE-2022-36280), [CVE-2022-41218](https://nvd.nist.gov/vuln/detail/CVE-2022-41218), [CVE-2022-47929](https://nvd.nist.gov/vuln/detail/CVE-2022-47929), [CVE-2023-0045](https://nvd.nist.gov/vuln/detail/CVE-2023-0045), [CVE-2023-0179](https://nvd.nist.gov/vuln/detail/CVE-2023-0179), [CVE-2023-0210](https://nvd.nist.gov/vuln/detail/CVE-2023-0210), [CVE-2023-0266](https://nvd.nist.gov/vuln/detail/CVE-2023-0266), [CVE-2023-0394](https://nvd.nist.gov/vuln/detail/CVE-2023-0394), [CVE-2023-23454](https://nvd.nist.gov/vuln/detail/CVE-2023-23454), [CVE-2023-23455](https://nvd.nist.gov/vuln/detail/CVE-2023-23455))\n\n \n #### Updates:\n \n - Linux ([5.15.89](https://lwn.net/Articles/920321) (includes [5.15.88](https://lwn.net/Articles/920012), [5.15.87](https://lwn.net/Articles/919793)))\n - ca-certificates ([3.88.1](https://firefox-source-docs.mozilla.org/security/nss/releases/nss_3_88_1.html))\n - cri-tools ([1.24.2](https://github.com/kubernetes-sigs/cri-tools/releases/tag/v1.24.2))\n"
   }
 }
