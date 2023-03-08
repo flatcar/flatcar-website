@@ -2200,13 +2200,13 @@
     },
     "release_notes": " _Changes since **Stable 3374.2.3**_\n \n #### Security fixes:\n \n - Linux ([CVE-2022-36280](https://nvd.nist.gov/vuln/detail/CVE-2022-36280), [CVE-2022-41218](https://nvd.nist.gov/vuln/detail/CVE-2022-41218), [CVE-2022-47929](https://nvd.nist.gov/vuln/detail/CVE-2022-47929), [CVE-2023-0045](https://nvd.nist.gov/vuln/detail/CVE-2023-0045), [CVE-2023-0179](https://nvd.nist.gov/vuln/detail/CVE-2023-0179), [CVE-2023-0210](https://nvd.nist.gov/vuln/detail/CVE-2023-0210), [CVE-2023-0266](https://nvd.nist.gov/vuln/detail/CVE-2023-0266), [CVE-2023-0394](https://nvd.nist.gov/vuln/detail/CVE-2023-0394), [CVE-2023-23454](https://nvd.nist.gov/vuln/detail/CVE-2023-23454), [CVE-2023-23455](https://nvd.nist.gov/vuln/detail/CVE-2023-23455))\n\n \n #### Updates:\n \n - Linux ([5.15.89](https://lwn.net/Articles/920321) (includes [5.15.88](https://lwn.net/Articles/920012), [5.15.87](https://lwn.net/Articles/919793)))\n - ca-certificates ([3.88.1](https://firefox-source-docs.mozilla.org/security/nss/releases/nss_3_88_1.html))\n - cri-tools ([1.24.2](https://github.com/kubernetes-sigs/cri-tools/releases/tag/v1.24.2))\n"
   },
-  "current": {
+  "3374.2.5": {
     "channel": "stable",
     "architectures": [
       "amd64",
       "arm64"
     ],
-    "release_date": "2023-02-16 13:06:44 +0000",
+    "release_date": "2023-03-07 15:24:37 +0000",
     "major_software": {
       "containerd": [
         "1.6.8"
@@ -2218,12 +2218,38 @@
         "2.14.0"
       ],
       "kernel": [
-        "5.15.89"
+        "5.15.92"
       ],
       "systemd": [
         "250"
       ]
     },
-    "release_notes": " _Changes since **Stable 3374.2.3**_\n \n #### Security fixes:\n \n - Linux ([CVE-2022-36280](https://nvd.nist.gov/vuln/detail/CVE-2022-36280), [CVE-2022-41218](https://nvd.nist.gov/vuln/detail/CVE-2022-41218), [CVE-2022-47929](https://nvd.nist.gov/vuln/detail/CVE-2022-47929), [CVE-2023-0045](https://nvd.nist.gov/vuln/detail/CVE-2023-0045), [CVE-2023-0179](https://nvd.nist.gov/vuln/detail/CVE-2023-0179), [CVE-2023-0210](https://nvd.nist.gov/vuln/detail/CVE-2023-0210), [CVE-2023-0266](https://nvd.nist.gov/vuln/detail/CVE-2023-0266), [CVE-2023-0394](https://nvd.nist.gov/vuln/detail/CVE-2023-0394), [CVE-2023-23454](https://nvd.nist.gov/vuln/detail/CVE-2023-23454), [CVE-2023-23455](https://nvd.nist.gov/vuln/detail/CVE-2023-23455))\n\n \n #### Updates:\n \n - Linux ([5.15.89](https://lwn.net/Articles/920321) (includes [5.15.88](https://lwn.net/Articles/920012), [5.15.87](https://lwn.net/Articles/919793)))\n - ca-certificates ([3.88.1](https://firefox-source-docs.mozilla.org/security/nss/releases/nss_3_88_1.html))\n - cri-tools ([1.24.2](https://github.com/kubernetes-sigs/cri-tools/releases/tag/v1.24.2))\n"
+    "release_notes": " _Changes since **Stable 3374.2.4**_\n \n #### Security fixes:\n \n - Linux ([CVE-2022-4129](https://nvd.nist.gov/vuln/detail/CVE-2022-4129), [CVE-2022-4382](https://nvd.nist.gov/vuln/detail/CVE-2022-4382), [CVE-2022-4842](https://nvd.nist.gov/vuln/detail/CVE-2022-4842), [CVE-2023-1073](https://nvd.nist.gov/vuln/detail/CVE-2023-1073), [CVE-2023-1074](https://nvd.nist.gov/vuln/detail/CVE-2023-1074), [CVE-2023-23559](https://nvd.nist.gov/vuln/detail/CVE-2023-23559))\n \n #### Bug fixes:\n \n - Excluded the special Kubernetes network interfaces `nodelocaldns` and `kube-ipvs0` from being managed with systemd-networkd which interfered with the setup ([init#89](https://github.com/flatcar/init/pull/89)).\n \n #### Updates:\n \n - Linux ([5.15.92](https://lwn.net/Articles/922340) (includes [5.15.91](https://lwn.net/Articles/921851), [5.15.90](https://lwn.net/Articles/921029)))\n"
+  },
+  "current": {
+    "channel": "stable",
+    "architectures": [
+      "amd64",
+      "arm64"
+    ],
+    "release_date": "2023-03-07 15:24:37 +0000",
+    "major_software": {
+      "containerd": [
+        "1.6.8"
+      ],
+      "docker": [
+        "20.10.18"
+      ],
+      "ignition": [
+        "2.14.0"
+      ],
+      "kernel": [
+        "5.15.92"
+      ],
+      "systemd": [
+        "250"
+      ]
+    },
+    "release_notes": " _Changes since **Stable 3374.2.4**_\n \n #### Security fixes:\n \n - Linux ([CVE-2022-4129](https://nvd.nist.gov/vuln/detail/CVE-2022-4129), [CVE-2022-4382](https://nvd.nist.gov/vuln/detail/CVE-2022-4382), [CVE-2022-4842](https://nvd.nist.gov/vuln/detail/CVE-2022-4842), [CVE-2023-1073](https://nvd.nist.gov/vuln/detail/CVE-2023-1073), [CVE-2023-1074](https://nvd.nist.gov/vuln/detail/CVE-2023-1074), [CVE-2023-23559](https://nvd.nist.gov/vuln/detail/CVE-2023-23559))\n \n #### Bug fixes:\n \n - Excluded the special Kubernetes network interfaces `nodelocaldns` and `kube-ipvs0` from being managed with systemd-networkd which interfered with the setup ([init#89](https://github.com/flatcar/init/pull/89)).\n \n #### Updates:\n \n - Linux ([5.15.92](https://lwn.net/Articles/922340) (includes [5.15.91](https://lwn.net/Articles/921851), [5.15.90](https://lwn.net/Articles/921029)))\n"
   }
 }
