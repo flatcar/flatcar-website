@@ -107,7 +107,7 @@ features:
         description: With Flatcar Container Linux's automated updates, you'll benefit from always running the most stable, secure and feature-rich version of the OS.
       - icon: flatcar-update
         title: Managed updates
-        description: The Kinvolk Update Service allows for defining instance groups, assigning update channels and controlling the frequency, time of day and rate of updates.
+        description: The Nebraska update server allows for defining instance groups, assigning update channels and controlling the frequency, time of day and rate of updates.
 grid_statements:
   title: Migrating from CoreOS Container Linux
   statements:
