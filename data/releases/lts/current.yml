@@ -4,7 +4,7 @@ architectures:
 channel: lts
 github_release:
   assets: []
-  assets_url: https://api.github.com/repos/flatcar/scripts/releases/94793239/assets
+  assets_url: https://api.github.com/repos/flatcar/scripts/releases/99748062/assets
   author:
     avatar_url: https://avatars.githubusercontent.com/u/500628?v=4
     events_url: https://api.github.com/users/sayanchowdhury/events{/privacy}
@@ -24,35 +24,41 @@ github_release:
     subscriptions_url: https://api.github.com/users/sayanchowdhury/subscriptions
     type: User
     url: https://api.github.com/users/sayanchowdhury
-  body: " _Changes since **LTS 3033.3.9**_\r\n \r\n #### Security fixes:\r\n \r\n\
-    \ - Linux ([CVE-2022-2196](https://nvd.nist.gov/vuln/detail/CVE-2022-2196), [CVE-2022-3707](https://nvd.nist.gov/vuln/detail/CVE-2022-3707),\
-    \ [CVE-2022-4129](https://nvd.nist.gov/vuln/detail/CVE-2022-4129), [CVE-2022-4382](https://nvd.nist.gov/vuln/detail/CVE-2022-4382),\
-    \ [CVE-2023-1073](https://nvd.nist.gov/vuln/detail/CVE-2023-1073), [CVE-2023-1074](https://nvd.nist.gov/vuln/detail/CVE-2023-1074),\
-    \ [CVE-2023-1078](https://nvd.nist.gov/vuln/detail/CVE-2023-1078), [CVE-2023-22998](https://nvd.nist.gov/vuln/detail/CVE-2023-22998),\
-    \ [CVE-2023-23559](https://nvd.nist.gov/vuln/detail/CVE-2023-23559), [CVE-2023-26545](https://nvd.nist.gov/vuln/detail/CVE-2023-26545))\r\
-    \n \r\n #### Updates:\r\n \r\n - Linux ([5.10.172](https://lwn.net/Articles/925079)\
-    \ (includes [5.10.171](https://lwn.net/Articles/925065), [5.10.170](https://lwn.net/Articles/924440),\
-    \ [5.10.169](https://lwn.net/Articles/924074), [5.10.168](https://lwn.net/Articles/923395),\
-    \ [5.10.167](https://lwn.net/Articles/922341), [5.10.166](https://lwn.net/Articles/921852),\
-    \ [5.10.165](https://lwn.net/Articles/921030)))\r\n - ca-certificates ([3.88.1](https://firefox-source-docs.mozilla.org/security/nss/releases/nss_3_88_1.html))"
-  created_at: '2023-03-06T21:02:52Z'
+  body: "_Changes since **LTS 3033.3.10**_\r\n\r\n#### Security fixes:\r\n\r\n- Linux\
+    \ ([CVE-2022-4379](https://nvd.nist.gov/vuln/detail/CVE-2022-4379), [CVE-2023-1076](https://nvd.nist.gov/vuln/detail/CVE-2023-1076),\
+    \ [CVE-2023-1077](https://nvd.nist.gov/vuln/detail/CVE-2023-1077), [CVE-2023-1079](https://nvd.nist.gov/vuln/detail/CVE-2023-1079),\
+    \ [CVE-2023-1118](https://nvd.nist.gov/vuln/detail/CVE-2023-1118), [CVE-2023-1611](https://nvd.nist.gov/vuln/detail/CVE-2023-1611),\
+    \ [CVE-2023-1670](https://nvd.nist.gov/vuln/detail/CVE-2023-1670), [CVE-2023-1829](https://nvd.nist.gov/vuln/detail/CVE-2023-1829),\
+    \ [CVE-2023-1855](https://nvd.nist.gov/vuln/detail/CVE-2023-1855), [CVE-2023-1989](https://nvd.nist.gov/vuln/detail/CVE-2023-1989),\
+    \ [CVE-2023-1990](https://nvd.nist.gov/vuln/detail/CVE-2023-1990), [CVE-2023-23004](https://nvd.nist.gov/vuln/detail/CVE-2023-23004),\
+    \ [CVE-2023-25012](https://nvd.nist.gov/vuln/detail/CVE-2023-25012), [CVE-2023-28466](https://nvd.nist.gov/vuln/detail/CVE-2023-28466),\
+    \ [CVE-2023-30456](https://nvd.nist.gov/vuln/detail/CVE-2023-30456), [CVE-2023-30772](https://nvd.nist.gov/vuln/detail/CVE-2023-30772))\r\
+    \n\r\n#### Bug fixes:\r\n\r\n\r\n#### Changes:\r\n\r\n- Added new image signing\
+    \ pub key to `flatcar-install`, needed for download verification of releases built\
+    \ from July 2023 onwards, if you have copies of `flatcar-install` or the image\
+    \ signing pub key, you need to update them as well ([init#92](https://github.com/flatcar/init/pull/92))\r\
+    \n\r\n#### Updates:\r\n\r\n- ca-certificates ([3.89](https://firefox-source-docs.mozilla.org/security/nss/releases/nss_3_89.html))\r\
+    \n- Linux ([5.10.177](https://lwn.net/Articles/928342) (includes [5.10.176](https://lwn.net/Articles/926874),\
+    \ [5.10.175](https://lwn.net/Articles/926416), [5.10.174](https://lwn.net/Articles/925992),\
+    \ [5.10.173](https://lwn.net/Articles/925935)))\r\n"
+  created_at: '2023-04-13T09:16:25Z'
   draft: false
-  html_url: https://github.com/flatcar/scripts/releases/tag/lts-3033.3.10
-  id: 94793239
+  html_url: https://github.com/flatcar/scripts/releases/tag/lts-3033.3.11
+  id: 99748062
   name: ''
-  node_id: RE_kwDOB2MTHs4Fpm4X
+  node_id: RE_kwDOB2MTHs4F8gje
   prerelease: false
-  published_at: '2023-03-07T15:25:03Z'
-  tag_name: lts-3033.3.10
-  tarball_url: https://api.github.com/repos/flatcar/scripts/tarball/lts-3033.3.10
+  published_at: '2023-04-17T13:20:00Z'
+  tag_name: lts-3033.3.11
+  tarball_url: https://api.github.com/repos/flatcar/scripts/tarball/lts-3033.3.11
   target_commitish: main
-  upload_url: https://uploads.github.com/repos/flatcar/scripts/releases/94793239/assets{?name,label}
-  url: https://api.github.com/repos/flatcar/scripts/releases/94793239
-  zipball_url: https://api.github.com/repos/flatcar/scripts/zipball/lts-3033.3.10
+  upload_url: https://uploads.github.com/repos/flatcar/scripts/releases/99748062/assets{?name,label}
+  url: https://api.github.com/repos/flatcar/scripts/releases/99748062
+  zipball_url: https://api.github.com/repos/flatcar/scripts/zipball/lts-3033.3.11
 image_packages:
   docker: 20.10.12
   ignition: 0.36.1
-  kernel: 5.10.172
+  kernel: 5.10.177
   systemd: '249'
 release: current
-version: 3033.3.10
+version: 3033.3.11
