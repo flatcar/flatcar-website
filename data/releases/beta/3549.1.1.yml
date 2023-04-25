@@ -1,10 +1,10 @@
 architectures:
 - amd64
 - arm64
-channel: alpha
+channel: beta
 github_release:
   assets: []
-  assets_url: https://api.github.com/repos/flatcar/scripts/releases/100812799/assets
+  assets_url: https://api.github.com/repos/flatcar/scripts/releases/100812930/assets
   author:
     avatar_url: https://avatars.githubusercontent.com/u/500628?v=4
     events_url: https://api.github.com/users/sayanchowdhury/events{/privacy}
@@ -24,7 +24,7 @@ github_release:
     subscriptions_url: https://api.github.com/users/sayanchowdhury/subscriptions
     type: User
     url: https://api.github.com/users/sayanchowdhury
-  body: "_Changes since **Alpha 3572.0.0**_\r\n\r\n#### Security fixes:\r\n\r\n- nvidia-drivers\
+  body: "_Changes since **Beta 3549.1.0**_\r\n\r\n#### Security fixes:\r\n\r\n- nvidia-drivers\
     \ ([CVE-2022-31607](https://nvd.nist.gov/vuln/detail/CVE-2022-31607), [CVE-2022-31608](https://nvd.nist.gov/vuln/detail/CVE-2022-31608),\
     \ [CVE-2022-31615](https://nvd.nist.gov/vuln/detail/CVE-2022-31615), [CVE-2022-34665](https://nvd.nist.gov/vuln/detail/CVE-2022-34665),\
     \ [CVE-2022-34666](https://nvd.nist.gov/vuln/detail/CVE-2022-34666), [CVE-2022-34670](https://nvd.nist.gov/vuln/detail/CVE-2022-34670),\
@@ -38,34 +38,35 @@ github_release:
     \ [CVE-2022-42259](https://nvd.nist.gov/vuln/detail/CVE-2022-42259), [CVE-2022-42260](https://nvd.nist.gov/vuln/detail/CVE-2022-42260),\
     \ [CVE-2022-42261](https://nvd.nist.gov/vuln/detail/CVE-2022-42261), [CVE-2022-42263](https://nvd.nist.gov/vuln/detail/CVE-2022-42263),\
     \ [CVE-2022-42264](https://nvd.nist.gov/vuln/detail/CVE-2022-42264), [CVE-2022-42265](https://nvd.nist.gov/vuln/detail/CVE-2022-42265))\r\
-    \n\r\n#### Bug fixes:\r\n- Fixed the broken emerge-gitclone in the dev-container\
-    \ owing to the missing migration action around the unification of the Flatcar\
-    \ core repositories\r\n\r\n#### Changes:\r\n- The package upgrade for nvidia-drivers\
-    \ might result in not supporting a few of the older NVIDIA Tesla GPUs. If you\
-    \ are facing issues, set `NVIDIA_DRIVER_VERSION=460.106.00` in `/etc/flatcar/nvidia-metadata`\r\
-    \n\r\n#### Updates:\r\n\r\n- Linux ([5.15.108](https://lwn.net/Articles/929679/)\
+    \n\r\n#### Bug fixes:\r\n- Fixed systemd journal logs persistency on the first\
+    \ boot ([flatcar#1005](https://github.com/flatcar/Flatcar/issues/1005))\r\n- Fixed\
+    \ the broken emerge-gitclone in the dev-container owing to the missing migration\
+    \ action around the unification of the Flatcar core repositories\r\n\r\n#### Changes:\r\
+    \n- The package upgrade for nvidia-drivers might result in not supporting a few\
+    \ of the older NVIDIA Tesla GPUs. If you are facing issues, set `NVIDIA_DRIVER_VERSION=460.106.00`\
+    \ in `/etc/flatcar/nvidia-metadata`\r\n\r\n\r\n#### Updates:\r\n\r\n- Linux ([5.15.108](https://lwn.net/Articles/929679/)\
     \ (includes [5.15.107](https://lwn.net/Articles/929015/)))\r\n- nvidia-drivers\
     \ ([525.105.17](https://docs.nvidia.com/datacenter/tesla/tesla-release-notes-525-105-17/index.html))\r\
     \n"
-  created_at: '2023-04-24T19:09:24Z'
+  created_at: '2023-04-24T19:10:27Z'
   draft: false
-  html_url: https://github.com/flatcar/scripts/releases/tag/alpha-3572.0.1
-  id: 100812799
+  html_url: https://github.com/flatcar/scripts/releases/tag/beta-3549.1.1
+  id: 100812930
   name: ''
-  node_id: RE_kwDOB2MTHs4GAkf_
+  node_id: RE_kwDOB2MTHs4GAkiC
   prerelease: false
-  published_at: '2023-04-25T13:37:07Z'
-  tag_name: alpha-3572.0.1
-  tarball_url: https://api.github.com/repos/flatcar/scripts/tarball/alpha-3572.0.1
+  published_at: '2023-04-25T13:37:33Z'
+  tag_name: beta-3549.1.1
+  tarball_url: https://api.github.com/repos/flatcar/scripts/tarball/beta-3549.1.1
   target_commitish: main
-  upload_url: https://uploads.github.com/repos/flatcar/scripts/releases/100812799/assets{?name,label}
-  url: https://api.github.com/repos/flatcar/scripts/releases/100812799
-  zipball_url: https://api.github.com/repos/flatcar/scripts/zipball/alpha-3572.0.1
+  upload_url: https://uploads.github.com/repos/flatcar/scripts/releases/100812930/assets{?name,label}
+  url: https://api.github.com/repos/flatcar/scripts/releases/100812930
+  zipball_url: https://api.github.com/repos/flatcar/scripts/zipball/beta-3549.1.1
 image_packages:
-  containerd: 1.6.20
-  docker: 20.10.24
+  containerd: 1.6.19
+  docker: 20.10.23
   ignition: 2.15.0
   kernel: 5.15.108
   systemd: '252'
-release: current
-version: 3572.0.1
+release: 3549.1.1
+version: 3549.1.1
