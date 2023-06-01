@@ -2278,13 +2278,13 @@
     },
     "release_notes": "_Changes since **Stable 3510.2.0**_\n\n#### Security fixes:\n\n- Linux ([CVE-2022-4269](https://nvd.nist.gov/vuln/detail/CVE-2022-4269), [CVE-2022-4379](https://nvd.nist.gov/vuln/detail/CVE-2022-4379), [CVE-2023-1076](https://nvd.nist.gov/vuln/detail/CVE-2023-1076), [CVE-2023-1077](https://nvd.nist.gov/vuln/detail/CVE-2023-1077), [CVE-2023-1079](https://nvd.nist.gov/vuln/detail/CVE-2023-1079), [CVE-2023-1118](https://nvd.nist.gov/vuln/detail/CVE-2023-1118), [CVE-2023-1611](https://nvd.nist.gov/vuln/detail/CVE-2023-1611), [CVE-2023-1670](https://nvd.nist.gov/vuln/detail/CVE-2023-1670), [CVE-2023-1829](https://nvd.nist.gov/vuln/detail/CVE-2023-1829), [CVE-2023-1855](https://nvd.nist.gov/vuln/detail/CVE-2023-1855), [CVE-2023-1989](https://nvd.nist.gov/vuln/detail/CVE-2023-1989), [CVE-2023-1990](https://nvd.nist.gov/vuln/detail/CVE-2023-1990), [CVE-2023-23004](https://nvd.nist.gov/vuln/detail/CVE-2023-23004), [CVE-2023-25012](https://nvd.nist.gov/vuln/detail/CVE-2023-25012), [CVE-2023-28466](https://nvd.nist.gov/vuln/detail/CVE-2023-28466), [CVE-2023-30456](https://nvd.nist.gov/vuln/detail/CVE-2023-30456), [CVE-2023-30772](https://nvd.nist.gov/vuln/detail/CVE-2023-30772))\n- nvidia-drivers ([CVE-2022-31607](https://nvd.nist.gov/vuln/detail/CVE-2022-31607), [CVE-2022-31608](https://nvd.nist.gov/vuln/detail/CVE-2022-31608), [CVE-2022-31615](https://nvd.nist.gov/vuln/detail/CVE-2022-31615), [CVE-2022-34665](https://nvd.nist.gov/vuln/detail/CVE-2022-34665), [CVE-2022-34666](https://nvd.nist.gov/vuln/detail/CVE-2022-34666), [CVE-2022-34670](https://nvd.nist.gov/vuln/detail/CVE-2022-34670), [CVE-2022-34673](https://nvd.nist.gov/vuln/detail/CVE-2022-34673), [CVE-2022-34674](https://nvd.nist.gov/vuln/detail/CVE-2022-34674), [CVE-2022-34676](https://nvd.nist.gov/vuln/detail/CVE-2022-34676), [CVE-2022-34677](https://nvd.nist.gov/vuln/detail/CVE-2022-34677), [CVE-2022-34678](https://nvd.nist.gov/vuln/detail/CVE-2022-34678), [CVE-2022-34679](https://nvd.nist.gov/vuln/detail/CVE-2022-34679), [CVE-2022-34680](https://nvd.nist.gov/vuln/detail/CVE-2022-34680), [CVE-2022-34682](https://nvd.nist.gov/vuln/detail/CVE-2022-34682), [CVE-2022-34684](https://nvd.nist.gov/vuln/detail/CVE-2022-34684), [CVE-2022-42254](https://nvd.nist.gov/vuln/detail/CVE-2022-42254), [CVE-2022-42255](https://nvd.nist.gov/vuln/detail/CVE-2022-42255), [CVE-2022-42256](https://nvd.nist.gov/vuln/detail/CVE-2022-42256), [CVE-2022-42257](https://nvd.nist.gov/vuln/detail/CVE-2022-42257), [CVE-2022-42258](https://nvd.nist.gov/vuln/detail/CVE-2022-42258), [CVE-2022-42259](https://nvd.nist.gov/vuln/detail/CVE-2022-42259), [CVE-2022-42260](https://nvd.nist.gov/vuln/detail/CVE-2022-42260), [CVE-2022-42261](https://nvd.nist.gov/vuln/detail/CVE-2022-42261), [CVE-2022-42263](https://nvd.nist.gov/vuln/detail/CVE-2022-42263), [CVE-2022-42264](https://nvd.nist.gov/vuln/detail/CVE-2022-42264), [CVE-2022-42265](https://nvd.nist.gov/vuln/detail/CVE-2022-42265))\n\n#### Bug fixes:\n- Fixed the broken emerge-gitclone in the dev-container owing to the missing migration action around the unification of the Flatcar core repositories\n\n#### Changes:\n- The package upgrade for nvidia-drivers might result in not supporting a few of the older NVIDIA Tesla GPUs. If you are facing issues, set `NVIDIA_DRIVER_VERSION=460.106.00` in `/etc/flatcar/nvidia-metadata`\n\n#### Updates:\n\n- Linux ([5.15.106](https://lwn.net/Articles/928343) (includes [5.15.105](https://lwn.net/Articles/927860), [5.15.104](https://lwn.net/Articles/926873), [5.15.103](https://lwn.net/Articles/926415), [5.15.102](https://lwn.net/Articles/925991), [5.15.101](https://lwn.net/Articles/925939), [5.15.100](https://lwn.net/Articles/925913), [5.15.99](https://lwn.net/Articles/925844)))\n- nvidia-drivers ([525.105.17](https://docs.nvidia.com/datacenter/tesla/tesla-release-notes-525-105-17/index.html))\n"
   },
-  "current": {
+  "3510.2.2": {
     "channel": "stable",
     "architectures": [
       "amd64",
       "arm64"
     ],
-    "release_date": "2023-04-25 13:41:09 +0000",
+    "release_date": "2023-06-01 11:50:00 +0000",
     "major_software": {
       "containerd": [
         "1.6.16"
@@ -2296,12 +2296,38 @@
         "2.14.0"
       ],
       "kernel": [
-        "5.15.106"
+        "5.15.111"
       ],
       "systemd": [
         "252"
       ]
     },
-    "release_notes": "_Changes since **Stable 3510.2.0**_\n\n#### Security fixes:\n\n- Linux ([CVE-2022-4269](https://nvd.nist.gov/vuln/detail/CVE-2022-4269), [CVE-2022-4379](https://nvd.nist.gov/vuln/detail/CVE-2022-4379), [CVE-2023-1076](https://nvd.nist.gov/vuln/detail/CVE-2023-1076), [CVE-2023-1077](https://nvd.nist.gov/vuln/detail/CVE-2023-1077), [CVE-2023-1079](https://nvd.nist.gov/vuln/detail/CVE-2023-1079), [CVE-2023-1118](https://nvd.nist.gov/vuln/detail/CVE-2023-1118), [CVE-2023-1611](https://nvd.nist.gov/vuln/detail/CVE-2023-1611), [CVE-2023-1670](https://nvd.nist.gov/vuln/detail/CVE-2023-1670), [CVE-2023-1829](https://nvd.nist.gov/vuln/detail/CVE-2023-1829), [CVE-2023-1855](https://nvd.nist.gov/vuln/detail/CVE-2023-1855), [CVE-2023-1989](https://nvd.nist.gov/vuln/detail/CVE-2023-1989), [CVE-2023-1990](https://nvd.nist.gov/vuln/detail/CVE-2023-1990), [CVE-2023-23004](https://nvd.nist.gov/vuln/detail/CVE-2023-23004), [CVE-2023-25012](https://nvd.nist.gov/vuln/detail/CVE-2023-25012), [CVE-2023-28466](https://nvd.nist.gov/vuln/detail/CVE-2023-28466), [CVE-2023-30456](https://nvd.nist.gov/vuln/detail/CVE-2023-30456), [CVE-2023-30772](https://nvd.nist.gov/vuln/detail/CVE-2023-30772))\n- nvidia-drivers ([CVE-2022-31607](https://nvd.nist.gov/vuln/detail/CVE-2022-31607), [CVE-2022-31608](https://nvd.nist.gov/vuln/detail/CVE-2022-31608), [CVE-2022-31615](https://nvd.nist.gov/vuln/detail/CVE-2022-31615), [CVE-2022-34665](https://nvd.nist.gov/vuln/detail/CVE-2022-34665), [CVE-2022-34666](https://nvd.nist.gov/vuln/detail/CVE-2022-34666), [CVE-2022-34670](https://nvd.nist.gov/vuln/detail/CVE-2022-34670), [CVE-2022-34673](https://nvd.nist.gov/vuln/detail/CVE-2022-34673), [CVE-2022-34674](https://nvd.nist.gov/vuln/detail/CVE-2022-34674), [CVE-2022-34676](https://nvd.nist.gov/vuln/detail/CVE-2022-34676), [CVE-2022-34677](https://nvd.nist.gov/vuln/detail/CVE-2022-34677), [CVE-2022-34678](https://nvd.nist.gov/vuln/detail/CVE-2022-34678), [CVE-2022-34679](https://nvd.nist.gov/vuln/detail/CVE-2022-34679), [CVE-2022-34680](https://nvd.nist.gov/vuln/detail/CVE-2022-34680), [CVE-2022-34682](https://nvd.nist.gov/vuln/detail/CVE-2022-34682), [CVE-2022-34684](https://nvd.nist.gov/vuln/detail/CVE-2022-34684), [CVE-2022-42254](https://nvd.nist.gov/vuln/detail/CVE-2022-42254), [CVE-2022-42255](https://nvd.nist.gov/vuln/detail/CVE-2022-42255), [CVE-2022-42256](https://nvd.nist.gov/vuln/detail/CVE-2022-42256), [CVE-2022-42257](https://nvd.nist.gov/vuln/detail/CVE-2022-42257), [CVE-2022-42258](https://nvd.nist.gov/vuln/detail/CVE-2022-42258), [CVE-2022-42259](https://nvd.nist.gov/vuln/detail/CVE-2022-42259), [CVE-2022-42260](https://nvd.nist.gov/vuln/detail/CVE-2022-42260), [CVE-2022-42261](https://nvd.nist.gov/vuln/detail/CVE-2022-42261), [CVE-2022-42263](https://nvd.nist.gov/vuln/detail/CVE-2022-42263), [CVE-2022-42264](https://nvd.nist.gov/vuln/detail/CVE-2022-42264), [CVE-2022-42265](https://nvd.nist.gov/vuln/detail/CVE-2022-42265))\n\n#### Bug fixes:\n- Fixed the broken emerge-gitclone in the dev-container owing to the missing migration action around the unification of the Flatcar core repositories\n\n#### Changes:\n- The package upgrade for nvidia-drivers might result in not supporting a few of the older NVIDIA Tesla GPUs. If you are facing issues, set `NVIDIA_DRIVER_VERSION=460.106.00` in `/etc/flatcar/nvidia-metadata`\n\n#### Updates:\n\n- Linux ([5.15.106](https://lwn.net/Articles/928343) (includes [5.15.105](https://lwn.net/Articles/927860), [5.15.104](https://lwn.net/Articles/926873), [5.15.103](https://lwn.net/Articles/926415), [5.15.102](https://lwn.net/Articles/925991), [5.15.101](https://lwn.net/Articles/925939), [5.15.100](https://lwn.net/Articles/925913), [5.15.99](https://lwn.net/Articles/925844)))\n- nvidia-drivers ([525.105.17](https://docs.nvidia.com/datacenter/tesla/tesla-release-notes-525-105-17/index.html))\n"
+    "release_notes": " _Changes since **Stable 3510.2.1**_\n \n#### Security fixes:\n \n - Linux ([CVE-2023-1380](https://nvd.nist.gov/vuln/detail/CVE-2023-1380), [CVE-2023-1859](https://nvd.nist.gov/vuln/detail/CVE-2023-1859), [CVE-2023-2002](https://nvd.nist.gov/vuln/detail/CVE-2023-2002), [CVE-2023-2269](https://nvd.nist.gov/vuln/detail/CVE-2023-2269), [CVE-2023-31436](https://nvd.nist.gov/vuln/detail/CVE-2023-31436), [CVE-2023-32233](https://nvd.nist.gov/vuln/detail/CVE-2023-32233))\n \n#### Bug fixes:\n \n \n#### Changes:\n \n \n#### Updates:\n \n - Linux ([5.15.111](https://lwn.net/Articles/931652) (includes [5.15.110](https://lwn.net/Articles/930600), [5.15.109](https://lwn.net/Articles/930263), [5.15.108](https://lwn.net/Articles/929679), [5.15.107](https://lwn.net/Articles/929015)))\n - ca-certificates ([3.89.1](https://firefox-source-docs.mozilla.org/security/nss/releases/nss_3_89_1.html))\n"
+  },
+  "current": {
+    "channel": "stable",
+    "architectures": [
+      "amd64",
+      "arm64"
+    ],
+    "release_date": "2023-06-01 11:50:00 +0000",
+    "major_software": {
+      "containerd": [
+        "1.6.16"
+      ],
+      "docker": [
+        "20.10.23"
+      ],
+      "ignition": [
+        "2.14.0"
+      ],
+      "kernel": [
+        "5.15.111"
+      ],
+      "systemd": [
+        "252"
+      ]
+    },
+    "release_notes": " _Changes since **Stable 3510.2.1**_\n \n#### Security fixes:\n \n - Linux ([CVE-2023-1380](https://nvd.nist.gov/vuln/detail/CVE-2023-1380), [CVE-2023-1859](https://nvd.nist.gov/vuln/detail/CVE-2023-1859), [CVE-2023-2002](https://nvd.nist.gov/vuln/detail/CVE-2023-2002), [CVE-2023-2269](https://nvd.nist.gov/vuln/detail/CVE-2023-2269), [CVE-2023-31436](https://nvd.nist.gov/vuln/detail/CVE-2023-31436), [CVE-2023-32233](https://nvd.nist.gov/vuln/detail/CVE-2023-32233))\n \n#### Bug fixes:\n \n \n#### Changes:\n \n \n#### Updates:\n \n - Linux ([5.15.111](https://lwn.net/Articles/931652) (includes [5.15.110](https://lwn.net/Articles/930600), [5.15.109](https://lwn.net/Articles/930263), [5.15.108](https://lwn.net/Articles/929679), [5.15.107](https://lwn.net/Articles/929015)))\n - ca-certificates ([3.89.1](https://firefox-source-docs.mozilla.org/security/nss/releases/nss_3_89_1.html))\n"
   }
 }
