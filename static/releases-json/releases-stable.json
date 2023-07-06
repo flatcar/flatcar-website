@@ -2330,13 +2330,13 @@
     },
     "release_notes": "_Changes since **Stable 3510.2.2**_\n \n#### Security fixes:\n \n- Linux ([CVE-2022-48425](https://nvd.nist.gov/vuln/detail/CVE-2022-48425))\n \n#### Updates:\n \n- Linux ([5.15.113](https://lwn.net/Articles/932883) (includes [5.15.112](https://lwn.net/Articles/932134)))\n- ca-certificates ([3.90](https://firefox-source-docs.mozilla.org/security/nss/releases/nss_3_90.html))"
   },
-  "current": {
+  "3510.2.4": {
     "channel": "stable",
     "architectures": [
       "amd64",
       "arm64"
     ],
-    "release_date": "2023-06-21 12:18:43 +0000",
+    "release_date": "2023-07-06 12:16:13 +0000",
     "major_software": {
       "containerd": [
         "1.6.16"
@@ -2348,12 +2348,38 @@
         "2.14.0"
       ],
       "kernel": [
-        "5.15.113"
+        "5.15.117"
       ],
       "systemd": [
         "252"
       ]
     },
-    "release_notes": "_Changes since **Stable 3510.2.2**_\n \n#### Security fixes:\n \n- Linux ([CVE-2022-48425](https://nvd.nist.gov/vuln/detail/CVE-2022-48425))\n \n#### Updates:\n \n- Linux ([5.15.113](https://lwn.net/Articles/932883) (includes [5.15.112](https://lwn.net/Articles/932134)))\n- ca-certificates ([3.90](https://firefox-source-docs.mozilla.org/security/nss/releases/nss_3_90.html))"
+    "release_notes": " _Changes since **Stable 3510.2.3**_\n \n #### Security fixes:\n \n - Linux ([CVE-2023-2124](https://nvd.nist.gov/vuln/detail/CVE-2023-2124), [CVE-2023-3212](https://nvd.nist.gov/vuln/detail/CVE-2023-3212), [CVE-2023-35788](https://nvd.nist.gov/vuln/detail/CVE-2023-35788))\n \n #### Bug fixes:\n \n \n #### Changes:\n \n - Changed ext4 inode size of root partition to 256 bytes. This improves compatibility with applications and is necessary for 2038 readiness ([Flatcar#1082](https://github.com/flatcar/Flatcar/issues/1082))\n \n #### Updates:\n \n - Linux ([5.15.117](https://lwn.net/Articles/934622) (includes [5.15.116](https://lwn.net/Articles/934320), [5.15.115](https://lwn.net/Articles/933909), [5.15.114](https://lwn.net/Articles/933280)))\n - ca-certificates ([3.91](https://firefox-source-docs.mozilla.org/security/nss/releases/nss_3_91.html))"
+  },
+  "current": {
+    "channel": "stable",
+    "architectures": [
+      "amd64",
+      "arm64"
+    ],
+    "release_date": "2023-07-06 12:16:13 +0000",
+    "major_software": {
+      "containerd": [
+        "1.6.16"
+      ],
+      "docker": [
+        "20.10.23"
+      ],
+      "ignition": [
+        "2.14.0"
+      ],
+      "kernel": [
+        "5.15.117"
+      ],
+      "systemd": [
+        "252"
+      ]
+    },
+    "release_notes": " _Changes since **Stable 3510.2.3**_\n \n #### Security fixes:\n \n - Linux ([CVE-2023-2124](https://nvd.nist.gov/vuln/detail/CVE-2023-2124), [CVE-2023-3212](https://nvd.nist.gov/vuln/detail/CVE-2023-3212), [CVE-2023-35788](https://nvd.nist.gov/vuln/detail/CVE-2023-35788))\n \n #### Bug fixes:\n \n \n #### Changes:\n \n - Changed ext4 inode size of root partition to 256 bytes. This improves compatibility with applications and is necessary for 2038 readiness ([Flatcar#1082](https://github.com/flatcar/Flatcar/issues/1082))\n \n #### Updates:\n \n - Linux ([5.15.117](https://lwn.net/Articles/934622) (includes [5.15.116](https://lwn.net/Articles/934320), [5.15.115](https://lwn.net/Articles/933909), [5.15.114](https://lwn.net/Articles/933280)))\n - ca-certificates ([3.91](https://firefox-source-docs.mozilla.org/security/nss/releases/nss_3_91.html))"
   }
 }
