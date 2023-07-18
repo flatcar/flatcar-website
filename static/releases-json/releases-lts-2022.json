@@ -137,6 +137,29 @@
     },
     "release_notes": "_Changes since **LTS 3033.3.13**_\n \n#### Security fixes:\n \n- Linux ([CVE-2022-4269](https://nvd.nist.gov/vuln/detail/CVE-2022-4269))\n \n#### Updates:\n \n- Linux ([5.10.184](https://lwn.net/Articles/934624) (includes [5.10.183](https://lwn.net/Articles/934321), [5.10.182](https://lwn.net/Articles/933910), [5.10.181](https://lwn.net/Articles/933279)))\n- ca-certificates ([3.90](https://firefox-source-docs.mozilla.org/security/nss/releases/nss_3_90.html))"
   },
+  "3033.3.15": {
+    "channel": "lts",
+    "architectures": [
+      "amd64",
+      "arm64"
+    ],
+    "release_date": "2023-07-18 09:01:17 +0000",
+    "major_software": {
+      "docker": [
+        "20.10.12"
+      ],
+      "ignition": [
+        "0.36.1"
+      ],
+      "kernel": [
+        "5.10.186"
+      ],
+      "systemd": [
+        "249"
+      ]
+    },
+    "release_notes": " _Changes since **LTS 3033.3.14**_\n \n #### Security fixes:\n \n - Linux ([CVE-2023-3338](https://nvd.nist.gov/vuln/detail/CVE-2023-3338))\n \n #### Bug fixes:\n \n \n #### Changes:\n \n - Changed ext4 inode size of root partition to 256 bytes. This improves compatibility with applications and is necessary for 2038 readiness ([Flatcar#1082](https://github.com/flatcar/Flatcar/issues/1082))\n \n #### Updates:\n \n - Linux ([5.10.186](https://lwn.net/Articles/936676) (includes [5.10.185](https://lwn.net/Articles/935583)))\n - ca-certificates ([3.91](https://firefox-source-docs.mozilla.org/security/nss/releases/nss_3_91.html))\n"
+  },
   "3033.3.1": {
     "channel": "lts",
     "architectures": [
@@ -350,7 +373,7 @@
       "amd64",
       "arm64"
     ],
-    "release_date": "2023-06-21 12:18:59 +0000",
+    "release_date": "2023-07-18 09:01:17 +0000",
     "major_software": {
       "docker": [
         "20.10.12"
@@ -359,13 +382,13 @@
         "0.36.1"
       ],
       "kernel": [
-        "5.10.184"
+        "5.10.186"
       ],
       "systemd": [
         "249"
       ]
     },
-    "release_notes": "_Changes since **LTS 3033.3.13**_\n \n#### Security fixes:\n \n- Linux ([CVE-2022-4269](https://nvd.nist.gov/vuln/detail/CVE-2022-4269))\n \n#### Updates:\n \n- Linux ([5.10.184](https://lwn.net/Articles/934624) (includes [5.10.183](https://lwn.net/Articles/934321), [5.10.182](https://lwn.net/Articles/933910), [5.10.181](https://lwn.net/Articles/933279)))\n- ca-certificates ([3.90](https://firefox-source-docs.mozilla.org/security/nss/releases/nss_3_90.html))"
+    "release_notes": " _Changes since **LTS 3033.3.14**_\n \n #### Security fixes:\n \n - Linux ([CVE-2023-3338](https://nvd.nist.gov/vuln/detail/CVE-2023-3338))\n \n #### Bug fixes:\n \n \n #### Changes:\n \n - Changed ext4 inode size of root partition to 256 bytes. This improves compatibility with applications and is necessary for 2038 readiness ([Flatcar#1082](https://github.com/flatcar/Flatcar/issues/1082))\n \n #### Updates:\n \n - Linux ([5.10.186](https://lwn.net/Articles/936676) (includes [5.10.185](https://lwn.net/Articles/935583)))\n - ca-certificates ([3.91](https://firefox-source-docs.mozilla.org/security/nss/releases/nss_3_91.html))\n"
   },
   "current": {
     "channel": "lts",
@@ -373,7 +396,7 @@
       "amd64",
       "arm64"
     ],
-    "release_date": "2023-06-21 12:18:59 +0000",
+    "release_date": "2023-07-18 09:01:17 +0000",
     "major_software": {
       "docker": [
         "20.10.12"
@@ -382,12 +405,12 @@
         "0.36.1"
       ],
       "kernel": [
-        "5.10.184"
+        "5.10.186"
       ],
       "systemd": [
         "249"
       ]
     },
-    "release_notes": "_Changes since **LTS 3033.3.13**_\n \n#### Security fixes:\n \n- Linux ([CVE-2022-4269](https://nvd.nist.gov/vuln/detail/CVE-2022-4269))\n \n#### Updates:\n \n- Linux ([5.10.184](https://lwn.net/Articles/934624) (includes [5.10.183](https://lwn.net/Articles/934321), [5.10.182](https://lwn.net/Articles/933910), [5.10.181](https://lwn.net/Articles/933279)))\n- ca-certificates ([3.90](https://firefox-source-docs.mozilla.org/security/nss/releases/nss_3_90.html))"
+    "release_notes": " _Changes since **LTS 3033.3.14**_\n \n #### Security fixes:\n \n - Linux ([CVE-2023-3338](https://nvd.nist.gov/vuln/detail/CVE-2023-3338))\n \n #### Bug fixes:\n \n \n #### Changes:\n \n - Changed ext4 inode size of root partition to 256 bytes. This improves compatibility with applications and is necessary for 2038 readiness ([Flatcar#1082](https://github.com/flatcar/Flatcar/issues/1082))\n \n #### Updates:\n \n - Linux ([5.10.186](https://lwn.net/Articles/936676) (includes [5.10.185](https://lwn.net/Articles/935583)))\n - ca-certificates ([3.91](https://firefox-source-docs.mozilla.org/security/nss/releases/nss_3_91.html))\n"
   }
 }
