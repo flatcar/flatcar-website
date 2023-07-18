@@ -4,7 +4,7 @@ architectures:
 channel: lts
 github_release:
   assets: []
-  assets_url: https://api.github.com/repos/flatcar/scripts/releases/109369105/assets
+  assets_url: https://api.github.com/repos/flatcar/scripts/releases/112632057/assets
   author:
     avatar_url: https://avatars.githubusercontent.com/u/500628?v=4
     events_url: https://api.github.com/users/sayanchowdhury/events{/privacy}
@@ -24,29 +24,33 @@ github_release:
     subscriptions_url: https://api.github.com/users/sayanchowdhury/subscriptions
     type: User
     url: https://api.github.com/users/sayanchowdhury
-  body: "_Changes since **LTS 3033.3.13**_\r\n \r\n#### Security fixes:\r\n \r\n-\
-    \ Linux ([CVE-2022-4269](https://nvd.nist.gov/vuln/detail/CVE-2022-4269))\r\n\
-    \ \r\n#### Updates:\r\n \r\n- Linux ([5.10.184](https://lwn.net/Articles/934624)\
-    \ (includes [5.10.183](https://lwn.net/Articles/934321), [5.10.182](https://lwn.net/Articles/933910),\
-    \ [5.10.181](https://lwn.net/Articles/933279)))\r\n- ca-certificates ([3.90](https://firefox-source-docs.mozilla.org/security/nss/releases/nss_3_90.html))"
-  created_at: '2023-06-16T14:52:03Z'
+  body: " _Changes since **LTS 3033.3.14**_\r\n \r\n #### Security fixes:\r\n \r\n\
+    \ - Linux ([CVE-2023-3338](https://nvd.nist.gov/vuln/detail/CVE-2023-3338))\r\n\
+    \ \r\n #### Bug fixes:\r\n \r\n \r\n #### Changes:\r\n \r\n - Changed ext4 inode\
+    \ size of root partition to 256 bytes. This improves compatibility with applications\
+    \ and is necessary for 2038 readiness ([Flatcar#1082](https://github.com/flatcar/Flatcar/issues/1082))\r\
+    \n \r\n #### Updates:\r\n \r\n - Linux ([5.10.186](https://lwn.net/Articles/936676)\
+    \ (includes [5.10.185](https://lwn.net/Articles/935583)))\r\n - ca-certificates\
+    \ ([3.91](https://firefox-source-docs.mozilla.org/security/nss/releases/nss_3_91.html))\r\
+    \n"
+  created_at: '2023-07-14T15:57:38Z'
   draft: false
-  html_url: https://github.com/flatcar/scripts/releases/tag/lts-3033.3.14
-  id: 109369105
-  name: ''
-  node_id: RE_kwDOB2MTHs4GhNcR
+  html_url: https://github.com/flatcar/scripts/releases/tag/lts-3033.3.15
+  id: 112632057
+  name: lts-3033.3.15
+  node_id: RE_kwDOB2MTHs4GtqD5
   prerelease: false
-  published_at: '2023-06-21T12:18:59Z'
-  tag_name: lts-3033.3.14
-  tarball_url: https://api.github.com/repos/flatcar/scripts/tarball/lts-3033.3.14
+  published_at: '2023-07-18T09:01:17Z'
+  tag_name: lts-3033.3.15
+  tarball_url: https://api.github.com/repos/flatcar/scripts/tarball/lts-3033.3.15
   target_commitish: main
-  upload_url: https://uploads.github.com/repos/flatcar/scripts/releases/109369105/assets{?name,label}
-  url: https://api.github.com/repos/flatcar/scripts/releases/109369105
-  zipball_url: https://api.github.com/repos/flatcar/scripts/zipball/lts-3033.3.14
+  upload_url: https://uploads.github.com/repos/flatcar/scripts/releases/112632057/assets{?name,label}
+  url: https://api.github.com/repos/flatcar/scripts/releases/112632057
+  zipball_url: https://api.github.com/repos/flatcar/scripts/zipball/lts-3033.3.15
 image_packages:
   docker: 20.10.12
   ignition: 0.36.1
-  kernel: 5.10.184
+  kernel: 5.10.186
   systemd: '249'
 release: current-2022
-version: 3033.3.14
+version: 3033.3.15
