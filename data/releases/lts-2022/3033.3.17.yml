@@ -1,10 +1,10 @@
 architectures:
 - amd64
 - arm64
-channel: beta
+channel: lts
 github_release:
   assets: []
-  assets_url: https://api.github.com/repos/flatcar/scripts/releases/120117654/assets
+  assets_url: https://api.github.com/repos/flatcar/scripts/releases/120117776/assets
   author:
     avatar_url: https://avatars.githubusercontent.com/u/500628?v=4
     events_url: https://api.github.com/users/sayanchowdhury/events{/privacy}
@@ -24,35 +24,34 @@ github_release:
     subscriptions_url: https://api.github.com/users/sayanchowdhury/subscriptions
     type: User
     url: https://api.github.com/users/sayanchowdhury
-  body: " _Changes since **Beta 3602.1.4**_\r\n \r\n #### Security fixes:\r\n \r\n\
+  body: " _Changes since **LTS 3033.3.16**_\r\n \r\n #### Security fixes:\r\n \r\n\
     \ - Linux ([CVE-2022-40982](https://nvd.nist.gov/vuln/detail/CVE-2022-40982),\
     \ [CVE-2022-41804](https://nvd.nist.gov/vuln/detail/CVE-2022-41804), [CVE-2023-20569](https://nvd.nist.gov/vuln/detail/CVE-2023-20569),\
+    \ [CVE-2023-23908](https://nvd.nist.gov/vuln/detail/CVE-2023-23908), [CVE-2023-1206](https://nvd.nist.gov/vuln/detail/CVE-2023-1206),\
     \ [CVE-2023-20588](https://nvd.nist.gov/vuln/detail/CVE-2023-20588), [CVE-2023-40283](https://nvd.nist.gov/vuln/detail/CVE-2023-40283),\
-    \ [CVE-2023-4128](https://nvd.nist.gov/vuln/detail/CVE-2023-4128), [CVE-2023-23908](https://nvd.nist.gov/vuln/detail/CVE-2023-23908))\r\
-    \n \r\n #### Bug fixes:\r\n \r\n - Fixed the restart of Systemd services when\
-    \ the main process is being killed by a SIGHUP signal ([flatcar#1157](https://github.com/flatcar/Flatcar/issues/1157))\r\
-    \n \r\n #### Updates:\r\n \r\n - Linux ([5.15.129](https://lwn.net/Articles/943113)\
-    \ (includes [5.15.128](https://lwn.net/Articles/942866), [5.15.127](https://lwn.net/Articles/941775),\
-    \ [5.15.126](https://lwn.net/Articles/941296), [5.15.125](https://lwn.net/Articles/940801)))"
-  created_at: '2023-09-01T13:25:38Z'
+    \ [CVE-2023-4128](https://nvd.nist.gov/vuln/detail/CVE-2023-4128), [CVE-2023-4147](https://nvd.nist.gov/vuln/detail/CVE-2023-4147),\
+    \ [CVE-2023-4273](https://nvd.nist.gov/vuln/detail/CVE-2023-4273))\r\n \r\n ####\
+    \ Updates:\r\n \r\n - Linux ([5.10.193](https://lwn.net/Articles/943114) (includes\
+    \ [5.10.192](https://lwn.net/Articles/942867), [5.10.191](https://lwn.net/Articles/941777),[5.10.190](https://lwn.net/Articles/941276),\
+    \ [5.10.189](https://lwn.net/Articles/940802)))"
+  created_at: '2023-09-01T13:24:22Z'
   draft: false
-  html_url: https://github.com/flatcar/scripts/releases/tag/beta-3602.1.5
-  id: 120117654
+  html_url: https://github.com/flatcar/scripts/releases/tag/lts-3033.3.17
+  id: 120117776
   name: ''
-  node_id: RE_kwDOB2MTHs4HKNmW
+  node_id: RE_kwDOB2MTHs4HKNoQ
   prerelease: false
-  published_at: '2023-09-06T13:18:11Z'
-  tag_name: beta-3602.1.5
-  tarball_url: https://api.github.com/repos/flatcar/scripts/tarball/beta-3602.1.5
+  published_at: '2023-09-06T13:19:04Z'
+  tag_name: lts-3033.3.17
+  tarball_url: https://api.github.com/repos/flatcar/scripts/tarball/lts-3033.3.17
   target_commitish: main
-  upload_url: https://uploads.github.com/repos/flatcar/scripts/releases/120117654/assets{?name,label}
-  url: https://api.github.com/repos/flatcar/scripts/releases/120117654
-  zipball_url: https://api.github.com/repos/flatcar/scripts/zipball/beta-3602.1.5
+  upload_url: https://uploads.github.com/repos/flatcar/scripts/releases/120117776/assets{?name,label}
+  url: https://api.github.com/repos/flatcar/scripts/releases/120117776
+  zipball_url: https://api.github.com/repos/flatcar/scripts/zipball/lts-3033.3.17
 image_packages:
-  containerd: 1.6.21
-  docker: 20.10.24
-  ignition: 2.15.0
-  kernel: 5.15.129
-  systemd: '252'
-release: current
-version: 3602.1.5
+  docker: 20.10.12
+  ignition: 0.36.1
+  kernel: 5.10.193
+  systemd: '249'
+release: 3033.3.17
+version: 3033.3.17

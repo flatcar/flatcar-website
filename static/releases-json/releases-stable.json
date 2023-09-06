@@ -2408,13 +2408,13 @@
     },
     "release_notes": " _Changes since **Stable 3510.2.5**_\n \n #### Security fixes:\n \n - Linux ([CVE-2022-48502](https://nvd.nist.gov/vuln/detail/CVE-2022-48502), [CVE-2023-20593](https://nvd.nist.gov/vuln/detail/CVE-2023-20593), [CVE-2023-2898](https://nvd.nist.gov/vuln/detail/CVE-2023-2898), [CVE-2023-31248](https://nvd.nist.gov/vuln/detail/CVE-2023-31248), [CVE-2023-35001](https://nvd.nist.gov/vuln/detail/CVE-2023-35001), [CVE-2023-3611](https://nvd.nist.gov/vuln/detail/CVE-2023-3611), [CVE-2023-3776](https://nvd.nist.gov/vuln/detail/CVE-2023-3776), [CVE-2023-38432](https://nvd.nist.gov/vuln/detail/CVE-2023-38432), [CVE-2023-3863](https://nvd.nist.gov/vuln/detail/CVE-2023-3863))\n - linux-firmware ([CVE-2023-20593](https://nvd.nist.gov/vuln/detail/CVE-2023-20593))\n \n #### Updates:\n \n - Linux ([5.15.122](https://lwn.net/Articles/939104) (includes [5.15.121](https://lwn.net/Articles/939016), [5.15.120](https://lwn.net/Articles/937404)))\n - ca-certificates ([3.92](https://firefox-source-docs.mozilla.org/security/nss/releases/nss_3_92.html))\n - linux-firmware ([20230625](https://git.kernel.org/pub/scm/linux/kernel/git/firmware/linux-firmware.git/tag/?h=20230625))\n"
   },
-  "current": {
+  "3510.2.7": {
     "channel": "stable",
     "architectures": [
       "amd64",
       "arm64"
     ],
-    "release_date": "2023-08-09 11:42:20 +0000",
+    "release_date": "2023-09-06 13:18:41 +0000",
     "major_software": {
       "containerd": [
         "1.6.16"
@@ -2426,12 +2426,38 @@
         "2.14.0"
       ],
       "kernel": [
-        "5.15.122"
+        "5.15.125"
       ],
       "systemd": [
         "252"
       ]
     },
-    "release_notes": " _Changes since **Stable 3510.2.5**_\n \n #### Security fixes:\n \n - Linux ([CVE-2022-48502](https://nvd.nist.gov/vuln/detail/CVE-2022-48502), [CVE-2023-20593](https://nvd.nist.gov/vuln/detail/CVE-2023-20593), [CVE-2023-2898](https://nvd.nist.gov/vuln/detail/CVE-2023-2898), [CVE-2023-31248](https://nvd.nist.gov/vuln/detail/CVE-2023-31248), [CVE-2023-35001](https://nvd.nist.gov/vuln/detail/CVE-2023-35001), [CVE-2023-3611](https://nvd.nist.gov/vuln/detail/CVE-2023-3611), [CVE-2023-3776](https://nvd.nist.gov/vuln/detail/CVE-2023-3776), [CVE-2023-38432](https://nvd.nist.gov/vuln/detail/CVE-2023-38432), [CVE-2023-3863](https://nvd.nist.gov/vuln/detail/CVE-2023-3863))\n - linux-firmware ([CVE-2023-20593](https://nvd.nist.gov/vuln/detail/CVE-2023-20593))\n \n #### Updates:\n \n - Linux ([5.15.122](https://lwn.net/Articles/939104) (includes [5.15.121](https://lwn.net/Articles/939016), [5.15.120](https://lwn.net/Articles/937404)))\n - ca-certificates ([3.92](https://firefox-source-docs.mozilla.org/security/nss/releases/nss_3_92.html))\n - linux-firmware ([20230625](https://git.kernel.org/pub/scm/linux/kernel/git/firmware/linux-firmware.git/tag/?h=20230625))\n"
+    "release_notes": " _Changes since **Stable 3510.2.6**_\n \n #### Security fixes:\n \n - Linux ([CVE-2022-40982](https://nvd.nist.gov/vuln/detail/CVE-2022-40982), [CVE-2022-41804](https://nvd.nist.gov/vuln/detail/CVE-2022-41804), [CVE-2023-1206](https://nvd.nist.gov/vuln/detail/CVE-2023-1206), [CVE-2023-20569](https://nvd.nist.gov/vuln/detail/CVE-2023-20569), [CVE-2023-4004](https://nvd.nist.gov/vuln/detail/CVE-2023-4004), [CVE-2023-4147](https://nvd.nist.gov/vuln/detail/CVE-2023-4147), [CVE-2023-20569](https://nvd.nist.gov/vuln/detail/CVE-2023-20569), [CVE-2023-23908](https://nvd.nist.gov/vuln/detail/CVE-2023-23908))\n \n #### Bug fixes:\n \n - Fixed the restart of Systemd services when the main process is being killed by a SIGHUP signal ([flatcar#1157](https://github.com/flatcar/Flatcar/issues/1157))\n \n #### Updates:\n \n - Linux ([5.15.125](https://lwn.net/Articles/940801) (includes [5.15.124](https://lwn.net/Articles/940339), [5.15.123](https://lwn.net/Articles/939424)))"
+  },
+  "current": {
+    "channel": "stable",
+    "architectures": [
+      "amd64",
+      "arm64"
+    ],
+    "release_date": "2023-09-06 13:18:41 +0000",
+    "major_software": {
+      "containerd": [
+        "1.6.16"
+      ],
+      "docker": [
+        "20.10.23"
+      ],
+      "ignition": [
+        "2.14.0"
+      ],
+      "kernel": [
+        "5.15.125"
+      ],
+      "systemd": [
+        "252"
+      ]
+    },
+    "release_notes": " _Changes since **Stable 3510.2.6**_\n \n #### Security fixes:\n \n - Linux ([CVE-2022-40982](https://nvd.nist.gov/vuln/detail/CVE-2022-40982), [CVE-2022-41804](https://nvd.nist.gov/vuln/detail/CVE-2022-41804), [CVE-2023-1206](https://nvd.nist.gov/vuln/detail/CVE-2023-1206), [CVE-2023-20569](https://nvd.nist.gov/vuln/detail/CVE-2023-20569), [CVE-2023-4004](https://nvd.nist.gov/vuln/detail/CVE-2023-4004), [CVE-2023-4147](https://nvd.nist.gov/vuln/detail/CVE-2023-4147), [CVE-2023-20569](https://nvd.nist.gov/vuln/detail/CVE-2023-20569), [CVE-2023-23908](https://nvd.nist.gov/vuln/detail/CVE-2023-23908))\n \n #### Bug fixes:\n \n - Fixed the restart of Systemd services when the main process is being killed by a SIGHUP signal ([flatcar#1157](https://github.com/flatcar/Flatcar/issues/1157))\n \n #### Updates:\n \n - Linux ([5.15.125](https://lwn.net/Articles/940801) (includes [5.15.124](https://lwn.net/Articles/940339), [5.15.123](https://lwn.net/Articles/939424)))"
   }
 }
