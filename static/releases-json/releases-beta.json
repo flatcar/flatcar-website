@@ -2795,13 +2795,13 @@
     },
     "release_notes": " _Changes since **Beta 3602.1.4**_\n \n #### Security fixes:\n \n - Linux ([CVE-2022-40982](https://nvd.nist.gov/vuln/detail/CVE-2022-40982), [CVE-2022-41804](https://nvd.nist.gov/vuln/detail/CVE-2022-41804), [CVE-2023-20569](https://nvd.nist.gov/vuln/detail/CVE-2023-20569), [CVE-2023-20588](https://nvd.nist.gov/vuln/detail/CVE-2023-20588), [CVE-2023-40283](https://nvd.nist.gov/vuln/detail/CVE-2023-40283), [CVE-2023-4128](https://nvd.nist.gov/vuln/detail/CVE-2023-4128), [CVE-2023-23908](https://nvd.nist.gov/vuln/detail/CVE-2023-23908))\n \n #### Bug fixes:\n \n - Fixed the restart of Systemd services when the main process is being killed by a SIGHUP signal ([flatcar#1157](https://github.com/flatcar/Flatcar/issues/1157))\n \n #### Updates:\n \n - Linux ([5.15.129](https://lwn.net/Articles/943113) (includes [5.15.128](https://lwn.net/Articles/942866), [5.15.127](https://lwn.net/Articles/941775), [5.15.126](https://lwn.net/Articles/941296), [5.15.125](https://lwn.net/Articles/940801)))"
   },
-  "current": {
+  "3602.1.6": {
     "channel": "beta",
     "architectures": [
       "amd64",
       "arm64"
     ],
-    "release_date": "2023-09-06 13:18:11 +0000",
+    "release_date": "2023-09-21 11:36:01 +0000",
     "major_software": {
       "containerd": [
         "1.6.21"
@@ -2813,12 +2813,38 @@
         "2.15.0"
       ],
       "kernel": [
-        "5.15.129"
+        "5.15.132"
       ],
       "systemd": [
         "252"
       ]
     },
-    "release_notes": " _Changes since **Beta 3602.1.4**_\n \n #### Security fixes:\n \n - Linux ([CVE-2022-40982](https://nvd.nist.gov/vuln/detail/CVE-2022-40982), [CVE-2022-41804](https://nvd.nist.gov/vuln/detail/CVE-2022-41804), [CVE-2023-20569](https://nvd.nist.gov/vuln/detail/CVE-2023-20569), [CVE-2023-20588](https://nvd.nist.gov/vuln/detail/CVE-2023-20588), [CVE-2023-40283](https://nvd.nist.gov/vuln/detail/CVE-2023-40283), [CVE-2023-4128](https://nvd.nist.gov/vuln/detail/CVE-2023-4128), [CVE-2023-23908](https://nvd.nist.gov/vuln/detail/CVE-2023-23908))\n \n #### Bug fixes:\n \n - Fixed the restart of Systemd services when the main process is being killed by a SIGHUP signal ([flatcar#1157](https://github.com/flatcar/Flatcar/issues/1157))\n \n #### Updates:\n \n - Linux ([5.15.129](https://lwn.net/Articles/943113) (includes [5.15.128](https://lwn.net/Articles/942866), [5.15.127](https://lwn.net/Articles/941775), [5.15.126](https://lwn.net/Articles/941296), [5.15.125](https://lwn.net/Articles/940801)))"
+    "release_notes": " _Changes since **Beta 3602.1.5**_\n \n #### Changes:\n \n - Azure: Add support for Microsoft Azure Network Adapter (MANA) NICs on Azure ([scripts#1131](https://github.com/flatcar/scripts/pull/1131))\n \n #### Updates:\n \n - Linux ([5.15.132](https://lwn.net/Articles/944877) (includes [5.15.131](https://lwn.net/Articles/943755), [5.15.130](https://lwn.net/Articles/943404)))\n - ca-certificates ([3.93](https://firefox-source-docs.mozilla.org/security/nss/releases/nss_3_93.html))"
+  },
+  "current": {
+    "channel": "beta",
+    "architectures": [
+      "amd64",
+      "arm64"
+    ],
+    "release_date": "2023-09-21 11:36:01 +0000",
+    "major_software": {
+      "containerd": [
+        "1.6.21"
+      ],
+      "docker": [
+        "20.10.24"
+      ],
+      "ignition": [
+        "2.15.0"
+      ],
+      "kernel": [
+        "5.15.132"
+      ],
+      "systemd": [
+        "252"
+      ]
+    },
+    "release_notes": " _Changes since **Beta 3602.1.5**_\n \n #### Changes:\n \n - Azure: Add support for Microsoft Azure Network Adapter (MANA) NICs on Azure ([scripts#1131](https://github.com/flatcar/scripts/pull/1131))\n \n #### Updates:\n \n - Linux ([5.15.132](https://lwn.net/Articles/944877) (includes [5.15.131](https://lwn.net/Articles/943755), [5.15.130](https://lwn.net/Articles/943404)))\n - ca-certificates ([3.93](https://firefox-source-docs.mozilla.org/security/nss/releases/nss_3_93.html))"
   }
 }

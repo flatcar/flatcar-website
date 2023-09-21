@@ -3117,13 +3117,39 @@
     },
     "release_notes": " _Changes since **Alpha 3689.0.0**_\n \n #### Security fixes:\n \n - Linux ([CVE-2022-40982](https://nvd.nist.gov/vuln/detail/CVE-2022-40982), [CVE-2022-41804](https://nvd.nist.gov/vuln/detail/CVE-2022-41804), [CVE-2023-20569](https://nvd.nist.gov/vuln/detail/CVE-2023-20569), [CVE-2023-20588](https://nvd.nist.gov/vuln/detail/CVE-2023-20588), [CVE-2023-34319](https://nvd.nist.gov/vuln/detail/CVE-2023-34319), [CVE-2023-3772](https://nvd.nist.gov/vuln/detail/CVE-2023-3772), [CVE-2023-3773](https://nvd.nist.gov/vuln/detail/CVE-2023-3773), [CVE-2023-40283](https://nvd.nist.gov/vuln/detail/CVE-2023-40283), [CVE-2023-4128](https://nvd.nist.gov/vuln/detail/CVE-2023-4128), [CVE-2023-4155](https://nvd.nist.gov/vuln/detail/CVE-2023-4155), [CVE-2023-4273](https://nvd.nist.gov/vuln/detail/CVE-2023-4273), [CVE-2023-23908](https://nvd.nist.gov/vuln/detail/CVE-2023-23908))\n - grub ([CVE-2020-10713](https://nvd.nist.gov/vuln/detail/CVE-2020-10713), [CVE-2020-14372](https://nvd.nist.gov/vuln/detail/CVE-2020-14372), [CVE-2020-25632](https://nvd.nist.gov/vuln/detail/CVE-2020-25632), [CVE-2020-25647](https://nvd.nist.gov/vuln/detail/CVE-2020-25647), [CVE-2020-27749](https://nvd.nist.gov/vuln/detail/CVE-2020-27749), [CVE-2020-27779](https://nvd.nist.gov/vuln/detail/CVE-2020-27779), [CVE-2021-20225](https://nvd.nist.gov/vuln/detail/CVE-2021-20225), [CVE-2021-20233](https://nvd.nist.gov/vuln/detail/CVE-2021-20233), [CVE-2021-3981](https://nvd.nist.gov/vuln/detail/CVE-2021-3981), [CVE-2021-3695](https://nvd.nist.gov/vuln/detail/CVE-2021-3695), [CVE-2021-3696](https://nvd.nist.gov/vuln/detail/CVE-2021-3696), [CVE-2021-3697](https://nvd.nist.gov/vuln/detail/CVE-2021-3697), [CVE-2022-28733](https://nvd.nist.gov/vuln/detail/CVE-2022-28733), [CVE-2022-28734](https://nvd.nist.gov/vuln/detail/CVE-2022-28734), [CVE-2022-28735](https://nvd.nist.gov/vuln/detail/CVE-2022-28735), [CVE-2022-28736](https://nvd.nist.gov/vuln/detail/CVE-2022-28736), [CVE-2022-28737](https://nvd.nist.gov/vuln/detail/CVE-2022-28737), [CVE-2022-2601](https://nvd.nist.gov/vuln/detail/CVE-2022-2601), [CVE-2022-3775](https://nvd.nist.gov/vuln/detail/CVE-2022-3775))\n - intel-microcode ([CVE-2022-40982](https://nvd.nist.gov/vuln/detail/CVE-2022-40982), [CVE-2022-41804](https://nvd.nist.gov/vuln/detail/CVE-2022-41804), [CVE-2023-23908](https://nvd.nist.gov/vuln/detail/CVE-2023-23908))\n - libarchive ([libarchive-20230729](https://github.com/libarchive/libarchive/releases/tag/v3.7.1))\n - vim ([CVE-2023-2609](https://nvd.nist.gov/vuln/detail/CVE-2023-2609), [CVE-2023-2610](https://nvd.nist.gov/vuln/detail/CVE-2023-2610))\n - VMware: open-vm-tools ([CVE-2023-20900](https://nvd.nist.gov/vuln/detail/CVE-2023-20900))\n - SDK: qemu ([CVE-2023-0330](https://nvd.nist.gov/vuln/detail/CVE-2023-0330), [CVE-2023-2861](https://nvd.nist.gov/vuln/detail/CVE-2023-2861))\n - SDK: Rust ([CVE-2023-38497](https://nvd.nist.gov/vuln/detail/CVE-2023-38497))\n\n #### Bug fixes:\n \n - Fixed the restart of Systemd services when the main process is being killed by a SIGHUP signal ([Flatcar#1157](https://github.com/flatcar/Flatcar/issues/1157))\n \n #### Changes:\n \n - Change nvidia.service to type oneshot (from the default \"simple\") so the subsequent services (configured with \"Requires/After\") are executed after the driver installation is successfully finished ([Flatcar#1136](https://github.com/flatcar/Flatcar/issues/1136))\n \n #### Updates:\n \n - Linux ([6.1.50](https://lwn.net/Articles/943112) (includes [6.1.49](https://lwn.net/Articles/942880), [6.1.48](https://lwn.net/Articles/942865), [6.1.47](https://lwn.net/Articles/942531), [6.1.46](https://lwn.net/Articles/941774), [6.1.45](https://lwn.net/Articles/941275), [6.1.44](https://lwn.net/Articles/940800)))\n - Linux Firmware ([20230804](https://git.kernel.org/pub/scm/linux/kernel/git/firmware/linux-firmware.git/tag/?h=20230804))\n - cifs-utils ([7.0](https://lists.samba.org/archive/samba-technical/2022-August/137528.html))\n - containerd ([1.7.5](https://github.com/containerd/containerd/releases/tag/v1.7.5) (includes [1.7.4](https://github.com/containerd/containerd/releases/tag/v1.7.4)))\n - cryptsetup ([2.6.1](https://gitlab.com/cryptsetup/cryptsetup/-/blob/v2.6.1/docs/v2.6.1-ReleaseNotes) (includes [2.6.0](https://gitlab.com/cryptsetup/cryptsetup/-/blob/v2.6.0/docs/v2.6.0-ReleaseNotes) and [2.5.0](https://gitlab.com/cryptsetup/cryptsetup/-/blob/v2.5.0/docs/v2.5.0-ReleaseNotes)))\n - curl ([8.2.1](https://curl.se/changes.html#8_2_1) (includes [8.2.0](https://curl.se/changes.html#8_2_0)))\n - gdbm ([1.23](https://lists.gnu.org/archive/html/info-gnu/2022-02/msg00004.html))\n - grub ([2.06](https://lists.gnu.org/archive/html/grub-devel/2021-06/msg00022.html))\n - intel-microcode ([20230808](https://github.com/intel/Intel-Linux-Processor-Microcode-Data-Files/releases/tag/microcode-20230808) (includes [20230613](https://github.com/intel/Intel-Linux-Processor-Microcode-Data-Files/releases/tag/microcode-20230613)))\n - libarchive ([3.7.1](https://github.com/libarchive/libarchive/releases/tag/v3.7.1) (includes [3.7.0](https://github.com/libarchive/libarchive/releases/tag/v3.7.0)))\n - libassuan ([2.5.6](https://git.gnupg.org/cgi-bin/gitweb.cgi?p=libassuan.git;a=blob;f=NEWS;h=e52bb5dd36ac93ea227e53e89f82af9ccf38f339;hb=6b50ee6bcdd6aa81bd7cc3fb2379864c3ed479b8))\n - libksba ([1.6.4](https://git.gnupg.org/cgi-bin/gitweb.cgi?p=libksba.git;a=blob;f=NEWS;h=f640523209c1c9ce9855040e53914a79d24d6a67;hb=557999424ebd13e70d6fc17e648a5dd2a06f440b))\n - libmd ([1.1.0](https://git.hadrons.org/cgit/libmd.git/log/?h=1.1.0))\n - libuv ([1.46.0](https://github.com/libuv/libuv/releases/tag/v1.46.0) (includes [1.45.0](https://github.com/libuv/libuv/releases/tag/v1.45.0)))\n - lsof ([4.98.0](https://github.com/lsof-org/lsof/blob/4.98.0/00DIST#L5471))\n - open-isns ([0.102](https://github.com/open-iscsi/open-isns/blob/v0.102/ChangeLog))\n - openldap ([2.6.3](https://lists.openldap.org/hyperkitty/list/openldap-announce@openldap.org/thread/FQJM2JSSSOMLQH7XC7Q5IZJYOGCTV2LK/) (includes [2.6](https://lists.openldap.org/hyperkitty/list/openldap-announce@openldap.org/thread/IHS5V46H6NFNFUERMC6AWMPHTWRVNLFA/)))\n - parted ([3.6](https://git.savannah.gnu.org/gitweb/?p=parted.git;a=blob;f=NEWS;h=52bb11697039f70e55120c571750f9ee761a75aa;hb=3b5f327b213d21e9adb9ba933c78dd898fee5b1d))\n - psmisc ([23.6](https://gitlab.com/psmisc/psmisc/-/blob/v23.6/ChangeLog))\n - qemu guest agent ([8.0.3](https://wiki.qemu.org/ChangeLog/8.0#Guest_agent))\n - quota ([4.09](https://sourceforge.net/p/linuxquota/code/ci/87d2fd7635e4bca54fa2a00b8d5b073ba9ca521b/tree/Changelog))\n - runc ([1.1.9](https://github.com/opencontainers/runc/releases/tag/v1.1.9))\n - vim ([9.0.1678](https://github.com/vim/vim/commits/v9.0.1678) (includes [9.0.1677](https://github.com/vim/vim/commits/v9.0.1677)))\n - xfsprogs ([6.3.0](https://git.kernel.org/pub/scm/fs/xfs/xfsprogs-dev.git/tree/doc/CHANGES?h=v6.3.0))\n - VMware: open-vm-tools ([12.3.0](https://github.com/vmware/open-vm-tools/releases/tag/stable-12.3.0))\n - SDK: portage ([3.0.49](https://gitweb.gentoo.org/proj/portage.git/tree/NEWS?h=portage-3.0.49))\n - SDK: Rust ([1.72.0](https://github.com/rust-lang/rust/releases/tag/1.72.0) (includes [1.71.1](https://github.com/rust-lang/rust/releases/tag/1.71.1)))\n - SDK: qemu ([8.0.3](https://wiki.qemu.org/ChangeLog/8.0))\n"
   },
+  "3732.0.0": {
+    "channel": "alpha",
+    "architectures": [
+      "amd64",
+      "arm64"
+    ],
+    "release_date": "2023-09-21 11:35:29 +0000",
+    "major_software": {
+      "containerd": [
+        "1.7.6"
+      ],
+      "docker": [
+        "20.10.24"
+      ],
+      "ignition": [
+        "2.15.0"
+      ],
+      "kernel": [
+        "6.1.54"
+      ],
+      "systemd": [
+        "252"
+      ]
+    },
+    "release_notes": " _Changes since **Alpha 3717.0.0**_\n \n #### Known issues:\n - Regression in Kernel 6.1.54, so that a specific cgroupv1 sysfs entry for reading Kernel memory limit disappeared. Container runtimes like runc are mainly affected. The issue was already reported to the upstream Kernel community.\n \n #### Security fixes:\n \n - Linux ([CVE-2023-25775](https://nvd.nist.gov/vuln/detail/CVE-2023-25775), [CVE-2023-4623](https://nvd.nist.gov/vuln/detail/CVE-2023-4623))\n - Go ([CVE-2023-39318](https://nvd.nist.gov/vuln/detail/CVE-2023-39318), [CVE-2023-39319](https://nvd.nist.gov/vuln/detail/CVE-2023-39319), [CVE-2023-39320](https://nvd.nist.gov/vuln/detail/CVE-2023-39320), [CVE-2023-39321](https://nvd.nist.gov/vuln/detail/CVE-2023-39321), [CVE-2023-39322](https://nvd.nist.gov/vuln/detail/CVE-2023-39322))\n - nvidia-drivers ([CVE-2023-25515](https://nvd.nist.gov/vuln/detail/CVE-2023-25515), [CVE-2023-25516](https://nvd.nist.gov/vuln/detail/CVE-2023-25516))\n - torcx ([CVE-2022-28948](https://nvd.nist.gov/vuln/detail/CVE-2022-28948))\n - SDK: Python ([CVE-2023-40217](https://nvd.nist.gov/vuln/detail/CVE-2023-40217), [CVE-2023-41105](https://nvd.nist.gov/vuln/detail/CVE-2023-41105))\n \n #### Bug fixes:\n \n - Fix the RemainAfterExit clause in nvidia.service ([Flatcar#1169](https://github.com/flatcar/Flatcar/issues/1169))\n - Fixed bug in handling renamed network interfaces when generating login issue ([init#102](https://github.com/flatcar/init/pull/102))\n \n #### Changes:\n \n - OEM vendor tools are now A/B updated if they are shipped as systemd-sysext images, the migration happens when both partitions require a systemd-sysext OEM image - note that this will delete the `nvidia.service` from `/etc` on Azure because it's now part of `/usr` ([Flatcar#60](https://github.com/flatcar/Flatcar/issues/60))\n - Azure: Add support for Microsoft Azure Network Adapter (MANA) NICs on Azure ([scripts#1131](https://github.com/flatcar/scripts/pull/1131))\n \n #### Updates:\n\n - Linux ([6.1.54](https://lwn.net/Articles/944876) (includes [6.1.53](https://lwn.net/Articles/944358), [6.1.52](https://lwn.net/Articles/943754), [6.1.51](https://lwn.net/Articles/943403)))\n - Go ([1.19.13](https://go.dev/doc/devel/release#go1.19.13))\n - Go ([1.20.8](https://go.dev/doc/devel/release#go1.20.8))\n - cJSON ([1.7.16](https://github.com/DaveGamble/cJSON/releases/tag/v1.7.16))\n - ca-certificates ([3.93](https://firefox-source-docs.mozilla.org/security/nss/releases/nss_3_93.html))\n - containerd ([1.7.6](https://github.com/containerd/containerd/releases/tag/v1.7.6))\n - ethtool ([6.4](https://git.kernel.org/pub/scm/network/ethtool/ethtool.git/tree/NEWS?h=v6.4))\n - glib ([2.76.4](https://gitlab.gnome.org/GNOME/glib/-/releases/2.76.4))\n - glibc ([2.37](https://sourceware.org/git/?p=glibc.git;a=tag;h=refs/tags/glibc-2.37))\n - gmp ([6.3.0](https://gmplib.org/gmp6.3))\n - hwdata ([0.373](https://github.com/vcrhonek/hwdata/commits/v0.373) (includes [0.372](https://github.com/vcrhonek/hwdata/commits/v0.372)))\n - inih ([57](https://github.com/benhoyt/inih/releases/tag/r57))\n - iproute2 ([6.4.0](https://git.kernel.org/pub/scm/network/iproute2/iproute2.git/log/?h=v6.4.0))\n - libmicrohttpd ([0.9.77](https://gitlab.com/libmicrohttpd/libmicrohttpd/-/releases/v0.9.77))\n - libnftnl ([1.2.6](https://git.netfilter.org/libnftnl/log/?h=libnftnl-1.2.6))\n - libnvme ([1.5](https://github.com/linux-nvme/libnvme/releases/tag/v1.5))\n - nvidia-drivers ([535.104.05](https://docs.nvidia.com/datacenter/tesla/tesla-release-notes-535-104-05/index.html))\n - nvme-cli ([2.5](https://github.com/linux-nvme/nvme-cli/releases/tag/v2.5))\n - openldap ([2.6.4](https://git.openldap.org/openldap/openldap/-/blob/OPENLDAP_REL_ENG_2_6_4/CHANGES))\n - tar ([1.35](https://lists.gnu.org/archive/html/info-gnu/2023-07/msg00005.html))\n - xfsprogs ([6.4.0](https://git.kernel.org/pub/scm/fs/xfs/xfsprogs-dev.git/tree/doc/CHANGES?h=v6.4.0))\n - SDK: file ([5.45](https://github.com/file/file/blob/FILE5_45/ChangeLog))\n - SDK: gnuconfig ([20230731](https://git.savannah.gnu.org/cgit/config.git/log/?id=d4e37b5868ef910e3e52744c34408084bb13051c))\n - SDK: kbd ([2.6.1](https://github.com/legionus/kbd/releases/tag/v2.6.1) (includes [2.6.0](https://github.com/legionus/kbd/releases/tag/v2.6.0)))\n - SDK: python ([3.11.5](https://www.python.org/downloads/release/python-3115/))\n - SDK: qemu ([8.0.4](https://wiki.qemu.org/ChangeLog/8.0))"
+  },
   "current": {
     "channel": "stable",
     "architectures": [
       "amd64",
       "arm64"
     ],
-    "release_date": "2023-09-06 13:18:41 +0000",
+    "release_date": "2023-09-21 11:36:30 +0000",
     "major_software": {
       "containerd": [
         "1.6.16"
@@ -3135,13 +3161,13 @@
         "2.14.0"
       ],
       "kernel": [
-        "5.15.125"
+        "5.15.129"
       ],
       "systemd": [
         "252"
       ]
     },
-    "release_notes": " _Changes since **Stable 3510.2.6**_\n \n #### Security fixes:\n \n - Linux ([CVE-2022-40982](https://nvd.nist.gov/vuln/detail/CVE-2022-40982), [CVE-2022-41804](https://nvd.nist.gov/vuln/detail/CVE-2022-41804), [CVE-2023-1206](https://nvd.nist.gov/vuln/detail/CVE-2023-1206), [CVE-2023-20569](https://nvd.nist.gov/vuln/detail/CVE-2023-20569), [CVE-2023-4004](https://nvd.nist.gov/vuln/detail/CVE-2023-4004), [CVE-2023-4147](https://nvd.nist.gov/vuln/detail/CVE-2023-4147), [CVE-2023-20569](https://nvd.nist.gov/vuln/detail/CVE-2023-20569), [CVE-2023-23908](https://nvd.nist.gov/vuln/detail/CVE-2023-23908))\n \n #### Bug fixes:\n \n - Fixed the restart of Systemd services when the main process is being killed by a SIGHUP signal ([flatcar#1157](https://github.com/flatcar/Flatcar/issues/1157))\n \n #### Updates:\n \n - Linux ([5.15.125](https://lwn.net/Articles/940801) (includes [5.15.124](https://lwn.net/Articles/940339), [5.15.123](https://lwn.net/Articles/939424)))"
+    "release_notes": " _Changes since **Stable 3510.2.7**_\n \n #### Security fixes:\n \n - Linux ([CVE-2023-20588](https://nvd.nist.gov/vuln/detail/CVE-2023-20588), [CVE-2023-3772](https://nvd.nist.gov/vuln/detail/CVE-2023-3772), [CVE-2023-40283](https://nvd.nist.gov/vuln/detail/CVE-2023-40283), [CVE-2023-4128](https://nvd.nist.gov/vuln/detail/CVE-2023-4128), [CVE-2023-4206](https://nvd.nist.gov/vuln/detail/CVE-2023-4206), [CVE-2023-4207](https://nvd.nist.gov/vuln/detail/CVE-2023-4207), [CVE-2023-4208](https://nvd.nist.gov/vuln/detail/CVE-2023-4208), [CVE-2023-4273](https://nvd.nist.gov/vuln/detail/CVE-2023-4273), [CVE-2023-4569](https://nvd.nist.gov/vuln/detail/CVE-2023-4569))\n \n #### Changes:\n \n - Azure: Add support for Microsoft Azure Network Adapter (MANA) NICs on Azure ([scripts#1131](https://github.com/flatcar/scripts/pull/1131))\n \n #### Updates:\n \n - Linux ([5.15.129](https://lwn.net/Articles/943113) (includes [5.15.128](https://lwn.net/Articles/942866), [5.15.127](https://lwn.net/Articles/941775), [5.15.126](https://lwn.net/Articles/941296)))\n - ca-certificates ([3.93](https://firefox-source-docs.mozilla.org/security/nss/releases/nss_3_93.html))"
   },
   "1722.2.0": {
     "channel": "beta",
@@ -5938,6 +5964,32 @@
       ]
     },
     "release_notes": " _Changes since **Beta 3602.1.4**_\n \n #### Security fixes:\n \n - Linux ([CVE-2022-40982](https://nvd.nist.gov/vuln/detail/CVE-2022-40982), [CVE-2022-41804](https://nvd.nist.gov/vuln/detail/CVE-2022-41804), [CVE-2023-20569](https://nvd.nist.gov/vuln/detail/CVE-2023-20569), [CVE-2023-20588](https://nvd.nist.gov/vuln/detail/CVE-2023-20588), [CVE-2023-40283](https://nvd.nist.gov/vuln/detail/CVE-2023-40283), [CVE-2023-4128](https://nvd.nist.gov/vuln/detail/CVE-2023-4128), [CVE-2023-23908](https://nvd.nist.gov/vuln/detail/CVE-2023-23908))\n \n #### Bug fixes:\n \n - Fixed the restart of Systemd services when the main process is being killed by a SIGHUP signal ([flatcar#1157](https://github.com/flatcar/Flatcar/issues/1157))\n \n #### Updates:\n \n - Linux ([5.15.129](https://lwn.net/Articles/943113) (includes [5.15.128](https://lwn.net/Articles/942866), [5.15.127](https://lwn.net/Articles/941775), [5.15.126](https://lwn.net/Articles/941296), [5.15.125](https://lwn.net/Articles/940801)))"
+  },
+  "3602.1.6": {
+    "channel": "beta",
+    "architectures": [
+      "amd64",
+      "arm64"
+    ],
+    "release_date": "2023-09-21 11:36:01 +0000",
+    "major_software": {
+      "containerd": [
+        "1.6.21"
+      ],
+      "docker": [
+        "20.10.24"
+      ],
+      "ignition": [
+        "2.15.0"
+      ],
+      "kernel": [
+        "5.15.132"
+      ],
+      "systemd": [
+        "252"
+      ]
+    },
+    "release_notes": " _Changes since **Beta 3602.1.5**_\n \n #### Changes:\n \n - Azure: Add support for Microsoft Azure Network Adapter (MANA) NICs on Azure ([scripts#1131](https://github.com/flatcar/scripts/pull/1131))\n \n #### Updates:\n \n - Linux ([5.15.132](https://lwn.net/Articles/944877) (includes [5.15.131](https://lwn.net/Articles/943755), [5.15.130](https://lwn.net/Articles/943404)))\n - ca-certificates ([3.93](https://firefox-source-docs.mozilla.org/security/nss/releases/nss_3_93.html))"
   },
   "2051.99.1": {
     "channel": "edge",
@@ -9994,5 +10046,31 @@
       ]
     },
     "release_notes": " _Changes since **Stable 3510.2.6**_\n \n #### Security fixes:\n \n - Linux ([CVE-2022-40982](https://nvd.nist.gov/vuln/detail/CVE-2022-40982), [CVE-2022-41804](https://nvd.nist.gov/vuln/detail/CVE-2022-41804), [CVE-2023-1206](https://nvd.nist.gov/vuln/detail/CVE-2023-1206), [CVE-2023-20569](https://nvd.nist.gov/vuln/detail/CVE-2023-20569), [CVE-2023-4004](https://nvd.nist.gov/vuln/detail/CVE-2023-4004), [CVE-2023-4147](https://nvd.nist.gov/vuln/detail/CVE-2023-4147), [CVE-2023-20569](https://nvd.nist.gov/vuln/detail/CVE-2023-20569), [CVE-2023-23908](https://nvd.nist.gov/vuln/detail/CVE-2023-23908))\n \n #### Bug fixes:\n \n - Fixed the restart of Systemd services when the main process is being killed by a SIGHUP signal ([flatcar#1157](https://github.com/flatcar/Flatcar/issues/1157))\n \n #### Updates:\n \n - Linux ([5.15.125](https://lwn.net/Articles/940801) (includes [5.15.124](https://lwn.net/Articles/940339), [5.15.123](https://lwn.net/Articles/939424)))"
+  },
+  "3510.2.8": {
+    "channel": "stable",
+    "architectures": [
+      "amd64",
+      "arm64"
+    ],
+    "release_date": "2023-09-21 11:36:30 +0000",
+    "major_software": {
+      "containerd": [
+        "1.6.16"
+      ],
+      "docker": [
+        "20.10.23"
+      ],
+      "ignition": [
+        "2.14.0"
+      ],
+      "kernel": [
+        "5.15.129"
+      ],
+      "systemd": [
+        "252"
+      ]
+    },
+    "release_notes": " _Changes since **Stable 3510.2.7**_\n \n #### Security fixes:\n \n - Linux ([CVE-2023-20588](https://nvd.nist.gov/vuln/detail/CVE-2023-20588), [CVE-2023-3772](https://nvd.nist.gov/vuln/detail/CVE-2023-3772), [CVE-2023-40283](https://nvd.nist.gov/vuln/detail/CVE-2023-40283), [CVE-2023-4128](https://nvd.nist.gov/vuln/detail/CVE-2023-4128), [CVE-2023-4206](https://nvd.nist.gov/vuln/detail/CVE-2023-4206), [CVE-2023-4207](https://nvd.nist.gov/vuln/detail/CVE-2023-4207), [CVE-2023-4208](https://nvd.nist.gov/vuln/detail/CVE-2023-4208), [CVE-2023-4273](https://nvd.nist.gov/vuln/detail/CVE-2023-4273), [CVE-2023-4569](https://nvd.nist.gov/vuln/detail/CVE-2023-4569))\n \n #### Changes:\n \n - Azure: Add support for Microsoft Azure Network Adapter (MANA) NICs on Azure ([scripts#1131](https://github.com/flatcar/scripts/pull/1131))\n \n #### Updates:\n \n - Linux ([5.15.129](https://lwn.net/Articles/943113) (includes [5.15.128](https://lwn.net/Articles/942866), [5.15.127](https://lwn.net/Articles/941775), [5.15.126](https://lwn.net/Articles/941296)))\n - ca-certificates ([3.93](https://firefox-source-docs.mozilla.org/security/nss/releases/nss_3_93.html))"
   }
 }
