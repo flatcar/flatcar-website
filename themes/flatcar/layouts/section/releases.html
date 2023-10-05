@@ -97,7 +97,7 @@
                       <a href="/releases-json/releases-{{ $chan.current.channel }}.json" class="small" style="box-shadow: 0 0 0 white; border: none;"><span class="fa"></span> JSON feed ({{ $channel.title }})</a>
                       </div>
                       {{ if eq $chan.current.channel "lts" }}
-                      {{ range slice "2022" "2021" }}
+                      {{ range slice "2023" "2022" }}
                       <div style="text-align: right;">
                       <a href="/releases-feed/releases-{{ $chan.current.channel }}-{{ . }}.xml" class="small" style="box-shadow: 0 0 0 white; border: none;"><span class="fa fa-rss"></span> ATOM feed (LTS {{ . }})</a>
                       <a href="/releases-json/releases-{{ $chan.current.channel }}-{{ . }}.json" class="small" style="box-shadow: 0 0 0 white; border: none;"><span class="fa"></span> JSON feed (LTS {{ . }})</a>
