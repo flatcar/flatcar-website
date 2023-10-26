@@ -37,7 +37,7 @@ $ chmod +x flatcar-update
 $ sudo ./flatcar-update --to-version "$VER" --to-payload flatcar_production_update.gz --force-flatcar-key
 ```
 
-**Before you reboot, check that you migrated the variable names as written in [Migrating from CoreOS Container Linux](migrate-from-container-linux).**
+**Before you reboot, check that you migrated the variable names as written in [Migrating from CoreOS Container Linux][migrate-from-container-linux].**
 
 ## Going back to CoreOS Container Linux
 

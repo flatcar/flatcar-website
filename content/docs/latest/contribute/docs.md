@@ -212,7 +212,7 @@ which link will likewise have its label defined at the document's foot.
 
 Using relative URLs where possible helps portability among multiple presentation targets, as they remain valid even as the site root moves. Absolute linking is obviously necessary for resources external to the document's repository and/or the docs.flatcar-linux.org domain.
 
-For example, there are two ways to refer to the [Flatcar quick start guide][quickstart]'s location. The preferred way is a relative link from the current file's path to the target, which from this document is `os/quickstart`. An absolute link to the complete URL is less flexible, and more verbose: `https://github.com/flatcar/flatcar-docs/blob/master/os/quickstart.md`.
+For example, there are two ways to refer to the [Flatcar quick start guide][quickstart]'s location. The preferred way is a relative link from the current file's path to the target, which from this document is `../../installing`. An absolute link to the complete URL is less flexible, and more verbose: `https://github.com/flatcar/flatcar-website/blob/master/content/docs/latest/installing/_index.md`.
 
 #### Hyperlink deployment automation
 
@@ -248,7 +248,7 @@ Some file types are commonly identified with more than one file name extension. 
 
 
 [command-line-grammar]: #command-line-grammar
-[configuring-dns]: os/configuring-dns
+[configuring-dns]: ../../setup/customization/configuring-dns
 [flatcar-docs]: https://docs.flatcar-linux.org/
 [economist-hyphens]: http://www.economist.com/news/books-and-arts/21723088-hyphens-can-be-tricky-they-need-not-drive-you-crazy-hysteria-over-hyphens
 [eos]: https://faculty.washington.edu/heagerty/Courses/b572/public/StrunkWhite.pdf "The Elements of Style"
@@ -256,7 +256,7 @@ Some file types are commonly identified with more than one file name extension. 
 [headings]: #headings
 [hyperlink-considerations]: #hyperlink-considerations
 [mdhome]: https://daringfireball.net/projects/markdown/syntax
-[quickstart]: os/quickstart "Relative link from here to CoreOS Quick Start"
+[quickstart]: ../../installing "Relative link from here to Flatcar Quick Start"
 [rfc2606s3]: https://tools.ietf.org/html/rfc2606#section-3
 [rfc5737]: https://tools.ietf.org/html/rfc5737
 [style]: docs "CoreOS Documentation Style"

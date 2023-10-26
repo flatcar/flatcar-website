@@ -344,6 +344,6 @@ storage:
 ```
 
 [provisioning]: _index.md
-[dynamic-data]: ../config-transpiler/dynamic-data
+[dynamic-data]: ../dynamic-data
 [ct-config]: ../config-transpiler/configuration
 [ignition]: ../ignition

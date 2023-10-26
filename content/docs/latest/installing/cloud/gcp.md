@@ -93,7 +93,7 @@ The Dockerfile for the `quay.io/kinvolk/google-cloud-flatcar-image-upload` image
 
 ## Upgrade from CoreOS Container Linux
 
-You can also [upgrade from an existing CoreOS Container Linux system](./update-from-container-linux).
+You can also [upgrade from an existing CoreOS Container Linux system](../../migrating-from-coreos/update-from-container-linux).
 
 ## Butane Config
 

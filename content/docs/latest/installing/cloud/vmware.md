@@ -156,7 +156,7 @@ IP configuration specified via `guestinfo.interface.*` and `guestinfo.dns.*` var
 
 ### Templating with Butane Configs and setting up metadata
 
-On many cloud providers Ignition will run the [`coreos-metadata.service`](../../provisioning/ignition/metadata/#metadataconf) (which runs `afterburn`) to set up [node metadata](../../provisioning/config-transpiler/dynamic-data). This is not the case with VMware because the network setup is defined by you and nothing generic that `afterburn` would know about.
+On many cloud providers Ignition will run the [`coreos-metadata.service`](../../provisioning/ignition/dynamic-data) (which runs `afterburn`) to set up [node metadata](../../provisioning/cl-config/dynamic-data). This is not the case with VMware because the network setup is defined by you and nothing generic that `afterburn` would know about.
 
 Here's a Butane configuration example to setup an `etcd` instance with a custom `coreos-metadata.service`:
 
