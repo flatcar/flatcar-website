@@ -211,4 +211,4 @@ This example configures the Container Linux instance to be a member of the beta 
 [spec]: ../config-transpiler/configuration
 [dropins]: ../../setup/systemd/drop-in-units
 [networkd]: ../../setup/customization/network-config-with-networkd
-[dynamic-data]: ../config-transpiler/dynamic-data
+[dynamic-data]: ../dynamic-data

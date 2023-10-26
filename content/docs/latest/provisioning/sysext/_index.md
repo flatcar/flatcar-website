@@ -7,7 +7,7 @@ weight: 39
 Flatcar Container Linux bundles various software components with fixed versions together into one release.
 For users that require a particular version of a software component this means that the software needs to be supplied out of band and overwrite the built-in software copy.
 In the past Torcx was introduced as a way to switch between Docker versions.
-Another approach we recommended was to [store binaries in `/opt/bin`](../container-runtimes/use-a-custom-docker-or-containerd-version/) and prefer them in the `PATH`.
+Another approach we recommended was to [store binaries in `/opt/bin`](../../container-runtimes/use-a-custom-docker-or-containerd-version/) and prefer them in the `PATH`.
 
 The systemd project announced the portable services feature to address deploying custom services.
 However, since it only covered the service itself without making the client binaries available on the user, it didn't really fit the use case fully.

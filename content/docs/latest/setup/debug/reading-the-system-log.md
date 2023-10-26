@@ -134,5 +134,5 @@ systemd:
 
 ## More information
 
-<a class="btn btn-default" href="getting-started-with-systemd">Getting Started with systemd</a>
-<a class="btn btn-default" href="network-config-with-networkd">Network Configuration with networkd</a>
+<a class="btn btn-default" href="../../systemd/getting-started">Getting Started with systemd</a>
+<a class="btn btn-default" href="../../customization/network-config-with-networkd">Network Configuration with networkd</a>
