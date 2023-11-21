@@ -68,13 +68,13 @@ storage:
   files:
     - path: /etc/sysupdate.kubernetes.d/kubernetes.conf
       contents:
-        source: https://github.com/flatcar/sysext-bakery/releases/download/20230901/kubernetes.conf
+        source: https://github.com/flatcar/sysext-bakery/releases/download/latest/kubernetes.conf
     - path: /etc/sysupdate.d/noop.conf
       contents:
-        source: https://github.com/flatcar/sysext-bakery/releases/download/20230901/noop.conf
+        source: https://github.com/flatcar/sysext-bakery/releases/download/latest/noop.conf
     - path: /opt/extensions/kubernetes/kubernetes-v1.27.4-x86-64.raw
       contents:
-        source: https://github.com/flatcar/sysext-bakery/releases/download/20230901/kubernetes-v1.27.4-x86-64.raw
+        source: https://github.com/flatcar/sysext-bakery/releases/download/latest/kubernetes-v1.27.4-x86-64.raw
 systemd:
   units:
     - name: systemd-sysupdate.timer
@@ -233,13 +233,13 @@ storage:
   files:
     - path: /etc/sysupdate.kubernetes.d/kubernetes.conf
       contents:
-        source: https://github.com/flatcar/sysext-bakery/releases/download/20230901/kubernetes.conf
+        source: https://github.com/flatcar/sysext-bakery/releases/download/latest/kubernetes.conf
     - path: /etc/sysupdate.d/noop.conf
       contents:
-        source: https://github.com/flatcar/sysext-bakery/releases/download/20230901/noop.conf
+        source: https://github.com/flatcar/sysext-bakery/releases/download/latest/noop.conf
     - path: /opt/extensions/kubernetes/kubernetes-v1.27.4-x86-64.raw
       contents:
-        source: https://github.com/flatcar/sysext-bakery/releases/download/20230901/kubernetes-v1.27.4-x86-64.raw
+        source: https://github.com/flatcar/sysext-bakery/releases/download/latest/kubernetes-v1.27.4-x86-64.raw
 systemd:
   units:
     - name: systemd-sysupdate.timer
