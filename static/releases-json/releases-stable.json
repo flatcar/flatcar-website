@@ -2512,13 +2512,13 @@
     },
     "release_notes": "_Changes since **Stable 3602.2.0**_\n \n #### Security fixes:\n \n- Linux ([CVE-2023-31085](https://nvd.nist.gov/vuln/detail/CVE-2023-31085), [CVE-2023-34324](https://nvd.nist.gov/vuln/detail/CVE-2023-34324), [CVE-2023-4244](https://nvd.nist.gov/vuln/detail/CVE-2023-4244), [CVE-2023-42754](https://nvd.nist.gov/vuln/detail/CVE-2023-42754),  [CVE-2023-5197](https://nvd.nist.gov/vuln/detail/CVE-2023-5197))\n - curl ([CVE-2023-38545](https://nvd.nist.gov/vuln/detail/CVE-2023-38545), [CVE-2023-38546](https://nvd.nist.gov/vuln/detail/CVE-2023-38546))\n \n #### Bug fixes:\n \n - Disabled systemd-networkd's RoutesToDNS setting by default to fix provisioning failures observed in VMs with multiple network interfaces on Azure ([scripts#1206](https://github.com/flatcar/scripts/pull/1206))\n - Fixed a regression in Docker resulting in file permissions being dropped from exported container images. ([scripts#1231](https://github.com/flatcar/scripts/pull/1231))\n \n #### Changes:\n \n - To make Kubernetes work by default, `/usr/libexec/kubernetes/kubelet-plugins/volume/exec` is now a symlink to the writable folder `/var/kubernetes/kubelet-plugins/volume/exec` ([Flatcar#1193](https://github.com/flatcar/Flatcar/issues/1193))\n \n #### Updates:\n \n - Linux ([5.15.136](https://lwn.net/Articles/948297) (includes [5.15.135](https://lwn.net/Articles/947299), [5.15.134](https://lwn.net/Articles/946855)))\n - ca-certificates ([3.94](https://firefox-source-docs.mozilla.org/security/nss/releases/nss_3_94.html))"
   },
-  "current": {
+  "3602.2.2": {
     "channel": "stable",
     "architectures": [
       "amd64",
       "arm64"
     ],
-    "release_date": "2023-10-25 08:39:23 +0000",
+    "release_date": "2023-11-22 07:55:14 +0000",
     "major_software": {
       "containerd": [
         "1.6.21"
@@ -2530,12 +2530,38 @@
         "2.15.0"
       ],
       "kernel": [
-        "5.15.136"
+        "5.15.138"
       ],
       "systemd": [
         "252"
       ]
     },
-    "release_notes": "_Changes since **Stable 3602.2.0**_\n \n #### Security fixes:\n \n- Linux ([CVE-2023-31085](https://nvd.nist.gov/vuln/detail/CVE-2023-31085), [CVE-2023-34324](https://nvd.nist.gov/vuln/detail/CVE-2023-34324), [CVE-2023-4244](https://nvd.nist.gov/vuln/detail/CVE-2023-4244), [CVE-2023-42754](https://nvd.nist.gov/vuln/detail/CVE-2023-42754),  [CVE-2023-5197](https://nvd.nist.gov/vuln/detail/CVE-2023-5197))\n - curl ([CVE-2023-38545](https://nvd.nist.gov/vuln/detail/CVE-2023-38545), [CVE-2023-38546](https://nvd.nist.gov/vuln/detail/CVE-2023-38546))\n \n #### Bug fixes:\n \n - Disabled systemd-networkd's RoutesToDNS setting by default to fix provisioning failures observed in VMs with multiple network interfaces on Azure ([scripts#1206](https://github.com/flatcar/scripts/pull/1206))\n - Fixed a regression in Docker resulting in file permissions being dropped from exported container images. ([scripts#1231](https://github.com/flatcar/scripts/pull/1231))\n \n #### Changes:\n \n - To make Kubernetes work by default, `/usr/libexec/kubernetes/kubelet-plugins/volume/exec` is now a symlink to the writable folder `/var/kubernetes/kubelet-plugins/volume/exec` ([Flatcar#1193](https://github.com/flatcar/Flatcar/issues/1193))\n \n #### Updates:\n \n - Linux ([5.15.136](https://lwn.net/Articles/948297) (includes [5.15.135](https://lwn.net/Articles/947299), [5.15.134](https://lwn.net/Articles/946855)))\n - ca-certificates ([3.94](https://firefox-source-docs.mozilla.org/security/nss/releases/nss_3_94.html))"
+    "release_notes": ":warning: From Alpha 3794.0.0 Torcx has been removed - please assert that you don't rely on specific Torcx mechanism but now use systemd-sysext. See [here](https://www.flatcar.org/docs/latest/provisioning/sysext/) for more information.\n\n\n _Changes since **Stable 3602.2.1**_\n \n #### Security fixes:\n \n - Linux ([CVE-2023-46813](https://nvd.nist.gov/vuln/detail/CVE-2023-46813), [CVE-2023-5178](https://nvd.nist.gov/vuln/detail/CVE-2023-5178), [CVE-2023-5717](https://nvd.nist.gov/vuln/detail/CVE-2023-5717))\n \n\n #### Changes:\n \n - Brightbox: The regular OpenStack image should now be used, it includes Afterburn for instance metadata attributes\n - OpenStack: An uncompressed image is provided for simpler import (since the images use qcow2 inline compression, there is no benefit in using the `.gz` or `.bz2` images)\n - linux kernel: added zstd support for squashfs kernel module ([scripts#1297](https://github.com/flatcar/scripts/pull/1297))\n \n #### Updates:\n \n - Linux ([5.15.138](https://lwn.net/Articles/950714) (includes [5.15.137](https://lwn.net/Articles/948818)))"
+  },
+  "current": {
+    "channel": "stable",
+    "architectures": [
+      "amd64",
+      "arm64"
+    ],
+    "release_date": "2023-11-22 07:55:14 +0000",
+    "major_software": {
+      "containerd": [
+        "1.6.21"
+      ],
+      "docker": [
+        "20.10.24"
+      ],
+      "ignition": [
+        "2.15.0"
+      ],
+      "kernel": [
+        "5.15.138"
+      ],
+      "systemd": [
+        "252"
+      ]
+    },
+    "release_notes": ":warning: From Alpha 3794.0.0 Torcx has been removed - please assert that you don't rely on specific Torcx mechanism but now use systemd-sysext. See [here](https://www.flatcar.org/docs/latest/provisioning/sysext/) for more information.\n\n\n _Changes since **Stable 3602.2.1**_\n \n #### Security fixes:\n \n - Linux ([CVE-2023-46813](https://nvd.nist.gov/vuln/detail/CVE-2023-46813), [CVE-2023-5178](https://nvd.nist.gov/vuln/detail/CVE-2023-5178), [CVE-2023-5717](https://nvd.nist.gov/vuln/detail/CVE-2023-5717))\n \n\n #### Changes:\n \n - Brightbox: The regular OpenStack image should now be used, it includes Afterburn for instance metadata attributes\n - OpenStack: An uncompressed image is provided for simpler import (since the images use qcow2 inline compression, there is no benefit in using the `.gz` or `.bz2` images)\n - linux kernel: added zstd support for squashfs kernel module ([scripts#1297](https://github.com/flatcar/scripts/pull/1297))\n \n #### Updates:\n \n - Linux ([5.15.138](https://lwn.net/Articles/950714) (includes [5.15.137](https://lwn.net/Articles/948818)))"
   }
 }
