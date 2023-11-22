@@ -42,7 +42,7 @@ categories:
 
 ## Testing
 
-You should always test your changes locally before creating a pull request. Once you do createi a branch or a pull request, we use Netlify to create previes of the changes so that reviewers and yourself can easily review the changes.
+You should always test your changes locally before creating a pull request. Once you do createi a branch or a pull request, we use Azure Static Web Apps to create previews of the changes so that reviewers and yourself can easily review the changes.
 
 ### Testing locally
 
