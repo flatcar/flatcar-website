@@ -4,6 +4,9 @@ set -eu
 
 WEBSITE_DIR="$(git rev-parse --show-toplevel)"
 FCL_RELEASE_SCRIPTS=${FCL_RELEASE_SCRIPTS:-$WEBSITE_DIR/../flatcar-linux-release-info}
+# Note: Sice it does not pull, one should also prefix with "origin/" when overwritting
+# except if one has an own local branch
+BRANCH=${BRANCH:-origin/master}
 
 if [ ! -d "$FCL_RELEASE_SCRIPTS" ]; then
     echo "Please get the flatcar-linux-release-info project"
@@ -12,8 +15,8 @@ if [ ! -d "$FCL_RELEASE_SCRIPTS" ]; then
     echo "You can set its location by setting a FCL_RELEASE_SCRIPTS env var."
     exit 1
 fi
-git -C $FCL_RELEASE_SCRIPTS checkout master
-git -C $FCL_RELEASE_SCRIPTS pull
+git -C $FCL_RELEASE_SCRIPTS fetch
+git -C $FCL_RELEASE_SCRIPTS checkout "${BRANCH}"
 
 LTS_INFO=$(curl -sSfL https://lts.release.flatcar-linux.net/lts-info)
 LTS_SUPPORTED=$(echo "${LTS_INFO}" | { grep -v unsupported || true ; } | cut -d : -f 2 | sed 's/^/lts-/')
