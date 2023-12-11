@@ -126,7 +126,7 @@ Unfortunately systems relying on config drive are currently unsupported.
 
 ## Launch cluster
 
-Boot the machines with the `nova` CLI, referencing the image ID from the import step above and your [JSON file from ct][cl-configs]:
+Boot the machines with the `nova` CLI, referencing the image ID from the import step above and your [Ignition file from butane][butane-configs]:
 
 ```shell
 nova boot \
