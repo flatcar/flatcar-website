@@ -54,7 +54,7 @@ In Flatcar, we use squashfs images with contents merged below `/usr`.
 Example for merging a sysext image shipping `my-tool` and its library dependencies:
 ```
  +-----------------+         +------------------+            +------------------+
- |    root FS      |         |       sysext     |            |  combinbed root  |
+ |    root FS      |         |       sysext     |            |  combined root   |
  +-----------------+         +------------------+            +------------------+
  | ...             |         | /usr/            |            | ...              |
  | /usr/           |         |   /lib/          |            | /usr/            |
