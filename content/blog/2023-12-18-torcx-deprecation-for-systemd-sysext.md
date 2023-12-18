@@ -105,6 +105,7 @@ Please reach out to us via our [issue tracker](https://github.com/flatcar/Flatca
 
 To ease conversion, we supply a helper script to migrate torcx images to sysext: https://www.flatcar.org/docs/latest/provisioning/sysext/#converting-a-torcx-image.
 User-supplied sysext images can be passed at provisioning time; see https://www.flatcar.org/docs/latest/provisioning/sysext/#supplying-your-sysext-image-from-ignition for details.
+We provide prebuilt systemd-sysext images in the [sysext-bakery repository](https://github.com/flatcar/sysext-bakery).
 (Though extending Flatcar with custom sysexts is complex enough for a separate blog post - coming soon!)
 
 **Docker 24 incoming**
