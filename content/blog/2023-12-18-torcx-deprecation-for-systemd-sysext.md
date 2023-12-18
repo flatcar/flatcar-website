@@ -43,6 +43,34 @@ With the advent of systemd-sysext, we will deprecate torcx and remove it from Fl
 
 **Sysext to the rescue**
 
+[Systemd-sysext](https://www.freedesktop.org/software/systemd/man/latest/systemd-sysext.html), included in systemd releases 248 and above, offer an elegant and generic way to extend image-based operating systems.
+The concept allows "merging" of sysext images into existing OS filesystem trees via overlayfs-mounts.
+Effectively, extension images are combined with the base OS, and binaries shipped with extensions just "appear" in the base OS filesystem tree when a sysext was merged.
+Sysexts itself can be filesystem images (e.g. containing a squashfs), whole disk images following the [discoverable partitions spec](https://uapi-group.org/specifications/specs/discoverable_partitions_specification/), or simply directory trees.
+These images (or filesystem trees) contain all binaries and libraries shipped with the respective extension.
+All files must either reside in `/usr` or `/opt` (or both).
+In Flatcar, we use squashfs images with contents merged below `/usr`.
+
+Example for merging a sysext image shipping `my-tool` and its library dependencies:
+```
+ +-----------------+           +------------------+                    +------------------+
+ |    root FS      |           |       sysext     |                    |  combinbed root  |
+ +-----------------+           +------------------+                    +------------------+
+ | ...             |           | /usr/            |                    | ...              |
+ | /usr/           |           |   /lib/          |                    | /usr/            |
+ |   /lib/         |    ||     |     libdep.so    |                    |   /lib/          |
+ |     libc.so     |  ======   |     libmytool.so |  === merge === >   |     libc.so      |
+ |     libcrypt.so |    ||     |   /bin/          |                    |     libcrypt.so  |
+ |     ...         |           |     my-tool      |                    |     libdep.so    |
+ |   /bin/         |           +------------------+                    |     libmytool.so |
+ |     cat         |                                                   |     ...          | 
+ |     ls          |                                                   |   /bin/          |
+ |     ...         |                                                   |     cat          |
+ +-----------------+                                                   |     ls           |
+                                                                       |     ...          |
+                                                                       +------------------+
+```
+
 If you want to try our new sysext-based composed images yourself, have a look at the latest Alpha releases - these don't ship torcx anymore, and include docker and containerd as sysexts instead.
 
 Sysexts have the following advantages:
@@ -65,7 +93,7 @@ Instead, you'll find `containerd-flatcar.raw` and `docker-flatcar.raw` in `/usr/
 **What does this mean for Flatcar users?**
 
 We aim for a seamless transition and have invested into significant test coverage to ensure user workloads are not disrupted by the change.
-Users will continue to enjoy a robust container OS experience, and do not need to do anything to adopt to the new system.
+Users will continue to enjoy a robust container OS experience, and users not using torcx (which we believe should be virtually everybody) do not need to do anything to adopt to the new system.
 
 As stated above, it is highly unlikely anyone outside the legacy OS builds even make use of torcx (or heard of it, for that matter).
 Just to be on the safe side, we will continue to loudly announce the move to sysext throughout the next releases, i.e. when the torcx removal will go Beta, and later graduate to Stable.
@@ -76,7 +104,13 @@ Please reach out to us via our [issue tracker](https://github.com/flatcar/Flatca
 
 **Docker 24 incoming**
 
-On a closing note, moving from custom torcx docker / containerd ebuilds to upstream Gentoo ones significantly eases the maintenance burden and makes integration of major version updates significantly easier.
+Moving from custom torcx docker / containerd ebuilds to upstream Gentoo ones significantly eases the maintenance burden and makes integration of major version updates significantly easier.
 So the new Alpha versions also ship docker 24, which is a major version bump from version 20 currently in Beta and Stable, as well as the latest containerd.
 
 We also expect future releases to upgrade to new major versions significantly faster.
+
+**The future ahead**
+
+We're planning to leverage sysext to a much higher extend in the future.
+We're already tracking adding popular tools like [podman](https://github.com/flatcar/Flatcar/issues/112) and [WASM](https://github.com/flatcar/Flatcar/issues/993) as optional, but officially supported, Flatcar features.
+In the long term, Flatcar users will be empowered to compose the exact feature sets they need, at provisioning time.
