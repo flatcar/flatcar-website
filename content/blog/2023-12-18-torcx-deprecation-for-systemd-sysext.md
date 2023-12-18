@@ -53,22 +53,23 @@ In Flatcar, we use squashfs images with contents merged below `/usr`.
 
 Example for merging a sysext image shipping `my-tool` and its library dependencies:
 ```
- +-----------------+           +------------------+                    +------------------+
- |    root FS      |           |       sysext     |                    |  combinbed root  |
- +-----------------+           +------------------+                    +------------------+
- | ...             |           | /usr/            |                    | ...              |
- | /usr/           |           |   /lib/          |                    | /usr/            |
- |   /lib/         |    ||     |     libdep.so    |                    |   /lib/          |
- |     libc.so     |  ======   |     libmytool.so |  === merge === >   |     libc.so      |
- |     libcrypt.so |    ||     |   /bin/          |                    |     libcrypt.so  |
- |     ...         |           |     my-tool      |                    |     libdep.so    |
- |   /bin/         |           +------------------+                    |     libmytool.so |
- |     cat         |                                                   |     ...          | 
- |     ls          |                                                   |   /bin/          |
- |     ...         |                                                   |     cat          |
- +-----------------+                                                   |     ls           |
-                                                                       |     ...          |
-                                                                       +------------------+
+ +-----------------+         +------------------+            +------------------+
+ |    root FS      |         |       sysext     |            |  combinbed root  |
+ +-----------------+         +------------------+            +------------------+
+ | ...             |         | /usr/            |            | ...              |
+ | /usr/           |         |   /lib/          |            | /usr/            |
+ |   /lib/         |    |    |     libdep.so    |            |   /lib/          |
+ |     libc.so     |  --+--  |     libmytool.so |  merge =>  |     libc.so      |
+ |     libcrypt.so |    |    |   /bin/          |            |     libcrypt.so  |
+ |     ...         |         |     my-tool      |            |     libdep.so    |
+ |   /bin/         |         +------------------+            |     libmytool.so |
+ |     cat         |                                         |     ...          | 
+ |     ls          |                                         |   /bin/          |
+ |     ...         |                                         |     cat          |
+ +-----------------+                                         |     ls           |
+                                                             |     my-tool      |
+                                                             |     ...          |
+                                                             +------------------+
 ```
 
 If you want to try our new sysext-based composed images yourself, have a look at the latest Alpha releases - these don't ship torcx anymore, and include docker and containerd as sysexts instead.
