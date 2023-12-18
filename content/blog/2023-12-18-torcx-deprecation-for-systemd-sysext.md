@@ -102,6 +102,10 @@ If, however, you do in fact make use of torcx customisations in your deployments
 It should be really straightforward migrating the customisations to sysext, and chances are high that adapting sysext will improve your maintenance and operations experience just as it did for us.
 Please reach out to us via our [issue tracker](https://github.com/flatcar/Flatcar/issues/new/choose), [Matrix](https://app.element.io/#/room/#flatcar:matrix.org) or [Slack](https://kubernetes.slack.com/archives/C03GQ8B5XNJ) chat, or join our [office hours](https://github.com/flatcar/Flatcar/discussions/categories/flatcar-office-hours) for a face-to-face chat!
 
+To ease conversion, we supply a helper script to migrate torcx images to sysext: https://www.flatcar.org/docs/latest/provisioning/sysext/#converting-a-torcx-image.
+User-supplied sysext images can be passed at provisioning time; see https://www.flatcar.org/docs/latest/provisioning/sysext/#supplying-your-sysext-image-from-ignition for details.
+(Though extending Flatcar with custom sysexts is complex enough for a separate blog post - coming soon!)
+
 **Docker 24 incoming**
 
 Moving from custom torcx docker / containerd ebuilds to upstream Gentoo ones significantly eases the maintenance burden and makes integration of major version updates significantly easier.
