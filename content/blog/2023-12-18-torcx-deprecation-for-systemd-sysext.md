@@ -2,9 +2,9 @@
 tags = ["flatcar", "torcx", "sysext", "OS extension" ]
 topics = ["Image-Based Linux", "OS extensions"]
 authors = ["thilo-fromm"]
-title = "Extending Flatcar: Say 'Goodbye' to torcx and 'Hello' to systemd-sysext."
+title = "Extending Flatcar: Say 'Goodbye' to torcx and 'Hello' to systemd-sysext"
 draft = false
-description = "Replacing the legacy torcx OS image extension mechanism with sysext."
+description = "Replacing the legacy torcx OS image extension mechanism with sysext"
 date = "2023-12-18T10:22:13+02:00"
 postImage = "/torxes.jpg"
 aliases = ["/blog/2023/12/torcx-deprecation-for-systemd-sysext/"]
