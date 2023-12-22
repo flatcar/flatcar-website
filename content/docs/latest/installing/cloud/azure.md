@@ -634,6 +634,57 @@ When you make a change to `cl/machine-mynode.yaml.tmpl` and run `terraform apply
 
 You can find this Terraform module in the repository for [Flatcar Terraform examples](https://github.com/flatcar/flatcar-terraform/tree/main/azure).
 
+### Known issues
+
+With Terraform version 3.x it [is currently not possible to partition and format data disks](https://github.com/hashicorp/terraform-provider-azurerm/issues/6117)
+for a `azurerm_linux_virtual_machine` with ignition's storage configuration. It might be possible to use the deprecated `azurerm_virtual_machine` module.
+Another workaround is to use a systemd unit to run a script that does partitioning and formatting for you. Here is an example on how to create a
+single partition with an ext4 filesystem:
+```
+systemd:
+  units:
+    - name: partition-drive.service
+      enabled: true
+      contents: |
+        [Unit]
+        Description="Partition disk"
+        Before=docker.service
+        ConditionFirstBoot=yes
+        [Service]
+        Type=oneshot
+        RemainAfterExit=yes
+        ExecStart=/opt/bin/partition-drive.sh
+        [Install]
+        WantedBy=first-boot-complete.target
+storage:
+  files:
+    - path: /opt/bin/partition-drive.sh
+      mode: 0700
+      contents:
+        inline: |
+          #!/bin/bash
+          set -o errexit
+          set -o pipefail
+          set -o nounset
+
+          disk_device="/dev/disk/azure/scsi1/lun10"
+          partition="/dev/disk/azure/scsi1/lun10-part1"
+
+          if [[ -n $(lsblk -no NAME $disk_device | sed -n '2,$p') ]]; then
+              echo "Disk $disk_device is partitioned."
+          else
+              echo 'type=83' | sfdisk /dev/disk/azure/scsi1/lun10
+          fi
+
+          sleep 3
+
+          if [[ -n $(lsblk -no FSTYPE $partition) ]]; then
+              echo "Partition $partition already formatted."
+          else
+              mkfs.ext4 -F /dev/disk/azure/scsi1/lun10-part1
+          fi
+```
+
 [flatcar-user]: https://groups.google.com/forum/#!forum/flatcar-linux-user
 [etcd-docs]: https://etcd.io/docs
 [quickstart]: ../
