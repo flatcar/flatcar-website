@@ -647,7 +647,7 @@ systemd:
       enabled: true
       contents: |
         [Unit]
-        Description="Partition disk"
+        Description="Partition drive"
         Before=docker.service
         ConditionFirstBoot=yes
         [Service]
@@ -669,6 +669,8 @@ storage:
 
           disk_device="/dev/disk/azure/scsi1/lun10"
           partition="/dev/disk/azure/scsi1/lun10-part1"
+
+          until [[ -e $disk_device ]]; do echo "Waiting for device" && sleep 1; done
 
           if [[ -n $(lsblk -no NAME $disk_device | sed -n '2,$p') ]]; then
               echo "Disk $disk_device is partitioned."
