@@ -35,7 +35,6 @@ Tested CNIs:
 
 _Known issues_:
 * Flannel > 0.17.0 does not work with enforced SELinux ([flatcar#779][flatcar-779])
-* Cilium needs to be patched regarding SELinux labels to work (even in permissive mode) ([flatcar#891][flatcar-891])
 
 # Deploy a Kubernetes cluster with Flatcar
 
@@ -371,7 +370,6 @@ Based on users feedback, Flatcar is known to work with Kubespray - you can read 
 [capi-vsphere]: https://github.com/kubernetes-sigs/cluster-api-provider-vsphere/blob/main/docs/ignition.md
 [cilium]: https://github.com/flatcar/mantle/pull/292
 [flatcar-779]: https://github.com/flatcar/Flatcar/issues/779
-[flatcar-891]: https://github.com/flatcar/Flatcar/issues/891
 [image-builder]: https://github.com/kubernetes-sigs/image-builder
 [kubenet]: https://github.com/flatcar/Flatcar/issues/579
 [kubespray-documentation]: https://kubespray.io
