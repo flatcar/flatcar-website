@@ -185,7 +185,7 @@ rm -f /build/amd64-usr/var/lib/portage/pkgs/coreos-base/coreos-0.0.1*.tbz2
 ./build_packages
 ```
 
-## Modify or update invididual packages
+## Modify or update individual packages
 
 You can modify the package definitions in `third_party/coreos-overlay/`.
 A complete and thorough guide for modifying packages is [here][mod-cl].
