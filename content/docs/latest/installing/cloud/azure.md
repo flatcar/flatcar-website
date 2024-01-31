@@ -51,7 +51,7 @@ $ az vm image list --all -p kinvolk -f flatcar -s stable  # Query the image name
     "version": "2345.3.0"
   }
 ]
-$ az vm create --name node-1 --resource-group group-1 --admin-username core --custom-data "$(cat config.ign)" --image kinvolk:flatcar-container-linux:stable:2345.3.0
+$ az vm create --name node-1 --resource-group group-1 --admin-username core --user-data config.ign --image kinvolk:flatcar-container-linux:stable:2345.3.0
         </pre>
       </div>
     </div>
@@ -69,7 +69,7 @@ $ az vm image list --all -p kinvolk -f flatcar -s beta  # Query the image name u
     "version": "2411.1.0"
   }
 ]
-$ az vm create --name node-1 --resource-group group-1 --admin-username core --custom-data "$(cat config.ign)" --image kinvolk:flatcar-container-linux:beta:2411.1.0
+$ az vm create --name node-1 --resource-group group-1 --admin-username core --user-data config.ign --image kinvolk:flatcar-container-linux:beta:2411.1.0
         </pre>
       </div>
     </div>
@@ -88,7 +88,7 @@ $ az vm image list --all -p kinvolk -f flatcar -s alpha
     "version": "2430.0.0"
   }
 ]
-$ az vm create --name node-1 --resource-group group-1 --admin-username core --custom-data "$(cat config.ign)" --image kinvolk:flatcar-container-linux:alpha:2430.0.0
+$ az vm create --name node-1 --resource-group group-1 --admin-username core --user-data config.ign --image kinvolk:flatcar-container-linux:alpha:2430.0.0
         </pre>
       </div>
     </div>
@@ -188,8 +188,8 @@ via a Butane Config. Head over to the [provisioning docs][butane-configs] to lea
 Note that Microsoft Azure doesn't allow an instance's userdata to be modified after the instance had been launched. This
 isn't a problem since Ignition, the tool that consumes the userdata, only runs on the first boot.
 
-You can provide a raw Ignition JSON config (produced from a Butane Config) to Flatcar Container Linux via the Azure CLI using the `--custom-data` flag
-or in the web UI under _Custom Data_ (not _User Data_).
+You can provide a raw Ignition JSON config (produced from a Butane Config) to Flatcar Container Linux via the Azure CLI using the `--custom-data` or `--user-data` flag
+or in the web UI under _Custom Data_ or _User Data_.
 
 As an example, this Butane YAML config will start an NGINX Docker container:
 
@@ -220,6 +220,13 @@ Transpile it to Ignition JSON:
 
 ```shell
 cat cl.yaml | docker run --rm -i quay.io/coreos/butane:latest > ignition.json
+```
+
+Spawn a VM by passing the Ignition JSON in, and because the Ignition config didn't include the SSH keys, they are passed as VM metadata:
+
+```
+az vm create --name node-1 --resource-group group-1 --admin-username core --ssh-key-values ~/.ssh/id_rsa.pub --user-data ./ignition.json --image kinvolk:flatcar-container-linux:stable:3760.2.0
+# Alternatively, instead of '--user-data ./ignition.json' you can use: --custom-data "$(cat ./ignition.json)"
 ```
 
 ## Use the Azure Hyper-V Host for time synchronisation instead of NTP
