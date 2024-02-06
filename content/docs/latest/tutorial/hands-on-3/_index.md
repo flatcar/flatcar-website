@@ -15,7 +15,7 @@ This is a bundle of hands-on-1 and hands-on-2 but it's not a local deployment an
 # Step-by-step
 
 ```bash
-git clone https://github.com/tormath1/flatcar-tutorial; cd flatcar-tutorial/hands-on-3
+git clone https://github.com/flatcar/flatcar-tutorial; cd flatcar-tutorial/hands-on-3
 # go into the terraform directory
 cd terraform
 # update the config for creating index.html from previous hands-on
