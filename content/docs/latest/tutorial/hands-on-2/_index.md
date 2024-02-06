@@ -14,7 +14,7 @@ This is what we've done in the previous hands-on but now it's done _as code_, we
 
 # Step-by-step
 
-* Clone the tutorial repository and cd into it: `git clone https://github.com/tormath1/flatcar-tutorial ; cd flatcar-tutorial/hands-on-2`
+* Clone the tutorial repository and cd into it: `git clone https://github.com/flatcar/flatcar-tutorial ; cd flatcar-tutorial/hands-on-2`
 * Open `./config.yaml` and find the TODO section.
 * Add the following section (from https://coreos.github.io/butane/examples/#files):
 ```
