@@ -41,7 +41,7 @@ $ ./run_sdk_container -t
 </td></tr></table>
 
 Flatcar Container Linux uses a containerised SDK; pre-built container images are available via [ghcr.io][ghcr-sdk].
-The SDK itself is containerised, but it requires version information and package build instructions to build an OS image. 
+The SDK itself is containerised, but it requires version information and package build instructions to build an OS image.
 Version information and build instructions for all packages (`ebuilds`) are contained in the scripts repository:
 
 ```
@@ -159,7 +159,7 @@ This leads to `FLATCAR_BUILD_ID` being set (to the output of `git describe --tag
 
 #### A note on persistence
 
-`run_sdk_container` re-uses containers once started; containers to be re-used are identified by name (see above). 
+`run_sdk_container` re-uses containers once started; containers to be re-used are identified by name (see above).
 Persistence helps with keeping changes in your work environment across container runs.
 **Keep in mind though that a new container will be created if the working commit in the scripts repository changes**.
 This is usually desired to prevent version muddling.
@@ -447,7 +447,7 @@ We’ll first generate an image from our workspace (where we built a "stock" ima
 
 First, we add the new package to the base image packages list.
 The list of packages for the base image is an ebuild file itself - and the packages list is just a list of dependencies in that ebuild.
-Let’s add the package: 
+Let’s add the package:
 ```shell
 ~/trunk/src/scripts $ vim ../third_party/coreos-overlay/coreos-base/coreos/coreos-0.0.1.ebuild
 ```
@@ -483,9 +483,15 @@ Then `emerge` the application once more to force re-packaging, and rebuild the i
 
 ## Change the kernel configuration / add or remove a kernel module
 
-All of the following is done inside the SDK container, i.e. after running
+All of the following is done inside the SDK container, i.e. after running.
 ```shell
 $ ./run_sdk_container -t
+```
+
+You'll want to also make sure that you've run the following commands at least once in your sdk container. This will download the necessary packages and kernel source code in preparation for your changes.
+```shell
+$ ./build_packages
+$ ./build_image
 ```
 
 <table><tr><td>
@@ -539,7 +545,7 @@ The Flatcar Linux kernel build is split over multiple gentoo ebuild files which 
 
 *   `coreos-sources/` for pulling the kernel sources from git.kernel.org
 *   `coreos-kernel/` for building the main kernel (vmlinuz)
-*   `coreos-modules/` for building the modules, and - somewhat counterintuitively - containing all kernel config files. The kernel configuration in `coreos-modules/files/` is split into 
+*   `coreos-modules/` for building the modules, and - somewhat counterintuitively - containing all kernel config files. The kernel configuration in `coreos-modules/files/` is split into
     *   a platform independent part  - `commonconfig-<version>`
     *   platform dependent configs - `<arch>_defconfig-<version>`
 **NOTE** that these configuration snippets do not contain the whole kernel config but only Flatcar specific ones.
@@ -614,7 +620,7 @@ We package the kernel and kernel modules:
 ~/trunk/src/scripts $ ebuild-amd64-usr ../third_party/coreos-overlay/sys-kernel/coreos-modules/coreos-modules-<version>.ebuild package
 ```
 
-These packages can now be picked up by the image builder script. Let’s build a new image and boot it with qemu - this will allow us to validate the changes we made to the kernel config before persisting: 
+These packages can now be picked up by the image builder script. Let’s build a new image and boot it with qemu - this will allow us to validate the changes we made to the kernel config before persisting:
 ```shell
 ~/trunk/src/scripts $ ./build_image --board=amd64-usr
 ~/trunk/src/scripts $ ./image_to_vm.sh --from=../build/images/amd64-usr/latest --board=amd64-usr --format qemu
