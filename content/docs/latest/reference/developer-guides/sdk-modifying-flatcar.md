@@ -488,10 +488,9 @@ All of the following is done inside the SDK container, i.e. after running
 $ ./run_sdk_container -t
 ```
 
-You'll want to make sure that you've run the following commands at least once inside your SDK container. This will download the necessary packages and kernel source code in preparation for your changes.
+You'll want to make sure that you've run the following commands at least once inside your SDK container. This will download the necessary source code in preparation for your changes.
 ```shell
 $ ./build_packages
-$ ./build_image
 ```
 
 <table><tr><td>
