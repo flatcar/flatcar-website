@@ -21,6 +21,7 @@ version: 1.0.0
 storage:
   files:
     - path: /etc/nsswitch.conf
+      overwrite: true
       mode: 0644
       contents:
         inline: |
@@ -47,9 +48,22 @@ storage:
 
 Only nss-aware applications can take advantage of the `systemd-resolved` cache. Notably, this means that statically linked Go programs and programs running within Docker/rkt will use `/etc/resolv.conf` only, and will not use the `systemd-resolve` cache.
 
+To use `systemd-resolved` as the default DNS resolver for all applications on the host, switch to the `systemd-resolved` provided `stub-resolv.conf`:
+ ```yaml
+variant: flatcar
+version: 1.0.0
+storage:
+  links:
+    - path: /etc/resolv.conf
+      overwrite: true
+      target: /run/systemd/resolve/stub-resolv.conf
+```
+This is known to interfere with [Kubernetes][kubernetes] in certain situations.
+
 [systemd-resolved]: http://www.freedesktop.org/software/systemd/man/systemd-resolved.service.html
 [systemd-networkd]: http://www.freedesktop.org/software/systemd/man/systemd-networkd.service.html
 [resolved.conf]: http://www.freedesktop.org/software/systemd/man/resolved.conf.html
 [nsswitch.conf]: http://man7.org/linux/man-pages/man5/nsswitch.conf.5.html
 [butane-configs]: ../../provisioning/config-transpiler
 [networkd-config]: network-config-with-networkd
+[kubernetes]: https://kubernetes.io/docs/tasks/administer-cluster/dns-debugging-resolution/#known-issues
