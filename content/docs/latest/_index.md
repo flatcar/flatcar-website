@@ -29,6 +29,7 @@ platforms and bare metal servers.
  * [DigitalOcean][digital-ocean]
  * [Hetzner][hetzner]
  * [OpenStack][openstack]
+ * [Brightbox][brightbox]
 
 #### Virtualization options
 It's easy to run a local Flatcar VM on your laptop for testing and debugging
@@ -240,6 +241,7 @@ Flatcar tutorial to deep dive into some Flatcar fundamental concepts.
 [sysext]: provisioning/sysext/
 [acpi]: setup/customization/ACPI
 [openstack]: installing/cloud/openstack
+[brightbox]: installing/cloud/brightbox
 [kubernetes]: container-runtimes/getting-started-with-kubernetes
 [using-nvidia]: setup/customization/using-nvidia
 [tutorial-introduction]: tutorial/
