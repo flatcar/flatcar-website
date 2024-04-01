@@ -143,7 +143,7 @@ storage:
       contents:
         inline: |
           REBOOT_STRATEGY=reboot
-          LOCKSMITHD_REBOOT_WINDOW_START=Thu 04:00
+          LOCKSMITHD_REBOOT_WINDOW_START="Thu 04:00"
           LOCKSMITHD_REBOOT_WINDOW_LENGTH=1h
       mode: 0420
 ```
