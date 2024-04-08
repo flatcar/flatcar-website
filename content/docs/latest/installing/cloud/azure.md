@@ -116,6 +116,19 @@ Flatcar Pro images were paid marketplace images that came with commercial suppor
 
 When building an image based on the Marketplace image you sometimes need to specify the original plan. The plan name is the image SKU, e.g., `stable`, the plan product is the image offer, e.g., `flatcar-container-linux-free`, and the plan publisher is the same (`kinvolk`).
 
+## Community Shared Image Gallery
+
+While the Marketplace images are recommended, it sometimes might be easier or required to use Shared Image Galleries, e.g., when using Packer for Kubernetes CAPI images.
+
+A public Shared Image Gallery hosts recent Flatcar Stable images for amd64. Here is how to show the image definitions (for now you will only find `flatcar-stable-amd64`) and the image versions they provide:
+
+```shell
+az sig image-definition list-community --public-gallery-name flatcar-23485951-527a-48d6-9d11-6931ff0afc2e --location westeurope
+az sig image-version list-community --public-gallery-name flatcar-23485951-527a-48d6-9d11-6931ff0afc2e --gallery-image-definition flatcar-stable-amd64 --location westeurope
+```
+
+A second gallery `flatcar4capi-742ef0cb-dcaa-4ecb-9cb0-bfd2e43dccc0` exists for prebuilt Kubernetes CAPI images. It has image definitions for each CAPI version, e.g., `flatcar-stable-amd64-capi-v1.26.3` which provides recent Flatcar Stable versions.
+
 ## Uploading your own Image
 
 To automatically download the Flatcar image for Azure from the release page and upload it to your Azure account, run the following command:
