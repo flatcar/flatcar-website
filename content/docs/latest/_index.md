@@ -117,6 +117,7 @@ more.
  * [iSCSI configuration][iscsi]
 
 #### Additional security options
+ * [Setting up LUKS disk encryption][luks-encryption]
  * [Customizing the SSH daemon][ssh-daemon]
  * [Configuring SSSD on Flatcar Container Linux][sssd-container-linux]
  * [Hardening a Flatcar Container Linux machine][hardening-container-linux]
@@ -215,6 +216,7 @@ Flatcar tutorial to deep dive into some Flatcar fundamental concepts.
 [update-conf]: setup/releases/update-conf
 [release-channels]: setup/releases/switching-channels
 [tasks-with-systemd]: setup/systemd/timers
+[luks-encryption]: setup/security/luks
 [ssh-daemon]: setup/security/customizing-sshd
 [sssd-container-linux]: setup/security/sssd
 [hardening-container-linux]: setup/security/hardening-guide
