@@ -41,17 +41,16 @@ The following command will create a single instance through the Azure CLI.
         <p>The Stable channel should be used by production clusters. Versions of Flatcar Container Linux are battle-tested within
         the Beta and Alpha channels before being promoted. The current version is Flatcar Container Linux {{< param stable_channel >}}.</p>
         <pre>
-$ az vm image list --all -p kinvolk -f flatcar -s stable  # Query the image name urn specifier
-[
-  {
-    "offer": "flatcar-container-linux",
-    "publisher": "kinvolk",
-    "sku": "stable",
-    "urn": "kinvolk:flatcar-container-linux:stable:2345.3.0",
-    "version": "2345.3.0"
-  }
-]
-$ az vm create --name node-1 --resource-group group-1 --admin-username core --user-data config.ign --image kinvolk:flatcar-container-linux:stable:2345.3.0
+$ az vm image list --all -p kinvolk -f flatcar -s stable-gen2 --query '[-1]'  # Query the image name urn specifier
+{
+  "architecture": "x64",
+  "offer": "flatcar-container-linux-free",
+  "publisher": "kinvolk",
+  "sku": "stable-gen2",
+  "urn": "kinvolk:flatcar-container-linux-free:stable-gen2:3815.2.0",
+  "version": "3815.2.0"
+}
+$ az vm create --name node-1 --resource-group group-1 --admin-username core --user-data config.ign --image kinvolk:flatcar-container-linux-free:stable-gen2:3815.2.0
         </pre>
       </div>
     </div>
@@ -59,17 +58,16 @@ $ az vm create --name node-1 --resource-group group-1 --admin-username core --us
       <div class="channel-info">
         <p>The Beta channel consists of promoted Alpha releases. The current version is Flatcar Container Linux {{< param beta_channel >}}.</p>
         <pre>
-$ az vm image list --all -p kinvolk -f flatcar -s beta  # Query the image name urn specifier
-[
-  {
-    "offer": "flatcar-container-linux",
-    "publisher": "kinvolk",
-    "sku": "beta",
-    "urn": "kinvolk:flatcar-container-linux:beta:2411.1.0",
-    "version": "2411.1.0"
-  }
-]
-$ az vm create --name node-1 --resource-group group-1 --admin-username core --user-data config.ign --image kinvolk:flatcar-container-linux:beta:2411.1.0
+$ az vm image list --all -p kinvolk -f flatcar -s beta-gen2 --query '[-1]'  # Query the image name urn specifier
+{
+  "architecture": "x64",
+  "offer": "flatcar-container-linux-free",
+  "publisher": "kinvolk",
+  "sku": "beta-gen2",
+  "urn": "kinvolk:flatcar-container-linux-free:beta-gen2:3850.1.0",
+  "version": "3850.1.0"
+}
+$ az vm create --name node-1 --resource-group group-1 --admin-username core --user-data config.ign --image kinvolk:flatcar-container-linux-free:beta-gen2:3850.1.0
         </pre>
       </div>
     </div>
@@ -78,34 +76,67 @@ $ az vm create --name node-1 --resource-group group-1 --admin-username core --us
         <p>The Alpha channel closely tracks the master branch and is released frequently. The newest versions of system
         libraries and utilities are available for testing in this channel. The current version is Flatcar Container Linux {{< param alpha_channel >}}.</p>
         <pre>
-$ az vm image list --all -p kinvolk -f flatcar -s alpha
-[
-  {
-    "offer": "flatcar-container-linux",
-    "publisher": "kinvolk",
-    "sku": "alpha",
-    "urn": "kinvolk:flatcar-container-linux:alpha:2430.0.0",
-    "version": "2430.0.0"
-  }
-]
-$ az vm create --name node-1 --resource-group group-1 --admin-username core --user-data config.ign --image kinvolk:flatcar-container-linux:alpha:2430.0.0
+$ az vm image list --all -p kinvolk -f flatcar -s alpha-gen2 --query '[-1]'
+{
+  "architecture": "x64",
+  "offer": "flatcar-container-linux-free",
+  "publisher": "kinvolk",
+  "sku": "alpha-gen2",
+  "urn": "kinvolk:flatcar-container-linux-free:alpha-gen2:3874.0.0",
+  "version": "3874.0.0"
+}
+$ az vm create --name node-1 --resource-group group-1 --admin-username core --user-data config.ign --image kinvolk:flatcar-container-linux-free:alpha-gen2:3874.0.0
         </pre>
       </div>
     </div>
   </div>
 </div>
 
-You can use both image offers `flatcar-container-linux` and `flatcar-container-linux-free`, the contents are the same.
-The SKU, which is the third element of the image URN, relates to one of the release channels and also depends on whether to use HyperV Generation 1 or 2.
-Generation 1 instance types use the channel names `alpha`, `beta` or `stable` as is; for Generation 2 instance types please append `-gen2` to the channel name, i.e., use one of `alpha-gen2`, `beta-gen2` or `stable-gen2`.
-This means the Gen 2 image URN for the above example for a Stable release becomes `flatcar-container-linux:stable-gen2:2345.3.0`.
+Use the offer named `flatcar-container-linux-free`, there is also a legacy offer called `flatcar-container-linux` with the same contents.
+The SKU, which is the third element of the image URN, relates to one of the release channels and also depends on whether to use Hyper-V Generation 1 or 2 VM.
+Generation 2 instance types use UEFI boot and should be preferred, the SKU matches the pattern `<channel>-gen`: `alpha-gen2`, `beta-gen2` or `stable-gen2`.
+For Generation 1 instance types drop the `-gen2` from the SKU: `alpha`, `beta` or `stable`.  
+Note: _`az vm image list -s` flag matches parts of the SKU, which means that `-s stable` will return both the `stable` and `stable-gen2` SKUs._
 
-
-Before being able to use them, you may need to accept the legal terms once, here done for `flatcar-container-linux` and `stable`:
+Before being able to use the offers, you may need to accept the legal terms once, here done for `flatcar-container-linux-free` and `stable-gen2`:
 
 ```shell
-az vm image terms show --publish kinvolk --offer flatcar-container-linux --plan stable
-az vm image terms accept --publish kinvolk --offer flatcar-container-linux --plan stable
+az vm image terms show --publish kinvolk --offer flatcar-container-linux-free --plan stable-gen2
+az vm image terms accept --publish kinvolk --offer flatcar-container-linux-free --plan stable-gen2
+```
+
+For quick tests the official Azure CLI also supports an alias for the latest Flatcar stable image:
+```shell
+az vm create --name node-1 --resource-group group-1 --admin-username core --user-data config.ign --image FlatcarLinuxFreeGen2
+```
+
+### CoreVM
+
+Flatcar images are also published under an offer called `flatcar-container-linux-corevm-amd64`. This offer does not require accepting image terms and does not require specifying plan information when creating instances or building derived images. The content of the images matches the other offers.
+```shell
+$ az vm image list --all -p kinvolk -f flatcar-container-linux-corevm-amd64 -s stable-gen2 --query '[-1]'
+{
+  "architecture": "x64",
+  "offer": "flatcar-container-linux-corevm-amd64",
+  "publisher": "kinvolk",
+  "sku": "stable-gen2",
+  "urn": "kinvolk:flatcar-container-linux-corevm-amd64:stable-gen2:3815.2.0",
+  "version": "3815.2.0"
+}
+```
+
+### ARM64
+Arm64 images are published under the offer called `flatcar-container-linux-corevm`. These are Generation 2 images, the only supported option on Azure for Arm64 instances, so the SKU contains only the release channel name without the `-gen2` suffix: `alpha`, `beta`, `stable`. This offer has the same properties as the `CoreVM` offer described above.
+```shell
+$ az vm image list --all --architecture arm64 -p kinvolk -f flatcar -s stable --query '[-1]'
+{
+  "architecture": "Arm64",
+  "offer": "flatcar-container-linux-corevm",
+  "publisher": "kinvolk",
+  "sku": "stable",
+  "urn": "kinvolk:flatcar-container-linux-corevm:stable:3815.2.0",
+  "version": "3815.2.0"
+}
 ```
 
 ### Flatcar Pro Images
