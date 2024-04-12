@@ -115,6 +115,7 @@ more.
  * [Adding disk space][disk-space]
  * [Mounting storage][mounting-storage]
  * [iSCSI configuration][iscsi]
+ * [ZFS Extension][zfsextension]
 
 #### Additional security options
  * [Setting up LUKS disk encryption][luks-encryption]
@@ -210,6 +211,7 @@ Flatcar tutorial to deep dive into some Flatcar fundamental concepts.
 [registry-authentication]: container-runtimes/registry-authentication
 [iscsi]: setup/storage/iscsi
 [swap]: setup/storage/adding-swap
+[zfsextension]: setup/storage/zfs
 [ec2-container-service]: setup/clusters/booting-on-ecs/
 [manage-docker-containers]: setup/systemd/getting-started
 [udev-rules]: setup/systemd/udev-rules

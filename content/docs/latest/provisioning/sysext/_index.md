@@ -9,7 +9,7 @@ For users that require a particular version of a software component this means t
 In the past Torcx was introduced as a way to switch between Docker versions.
 Another approach we recommended was to [store binaries in `/opt/bin`](../../container-runtimes/use-a-custom-docker-or-containerd-version/) and prefer them in the `PATH`.
 
-The systemd project announced the portable services feature to address deploying custom services.
+For long time already, the systemd project provided the portable services feature to address deploying custom services.
 However, since it only covered the service itself without making the client binaries available on the user, it didn't really fit the use case fully.
 The systemd-sysext feature finally provides a way to extend the base OS with a `/usr` overlay, thereby making custom binaries available to the user.
 While systemd-sysext images are not really good yet at including systemd units, Flatcar ships `ensure-sysext.service` as workaround to automatically load the image's services.
@@ -17,8 +17,30 @@ Systemd-sysext is supported in Flatcar versions ≥ 3185.0.0 for user provided s
 
 ## Torcx deprecation
 
-Since systemd-sysext is a more generic and maintained solution than Torcx, it will replace Torcx. Flatcar releases after major version 3760 will not ship torcx at all.
-Starting from Flatcar version 3185.0.0 we encourage you to migrate any Torcx usage and convert your Torcx image with the `convert_torcx_image.sh` helper script from the [`sysext-bakery`][sysext-bakery] repository, mentioned later in this document.
+Since systemd-sysext is a more generic and maintained solution than Torcx, it replaced Torcx since Flatcar version 3794.0.0 and the last major version to include Torcx was 3760.
+Any Torcx usage should be migrated by converting your Torcx image with the `convert_torcx_image.sh` helper script from the [`sysext-bakery`][sysext-bakery] repository, mentioned later in this document. The inbuilt Docker and containerd versions can be disabled which is also showed further below.
+
+## OEM software as systemd-sysext images
+
+The Flatcar cloud images differ in the OEM vendor tools they provide in addition to the base image. In the past this was done through binaries on the OEM partition. Since Flatcar version 3760.0.0 most OEM images have been converted to use systemd-sysext images stored on the OEM. They are covered by the Flatcar A/B update mechanism because they are bound to the OS version they were released and tested with, also due to dynamic linking. Those users that run their own Nebraska update server need to make sure that they have a recent version that provides the OEM payloads.
+
+## Flatcar Release Extensions
+
+Official extensions provided as part of a Flatcar release make Flatcar more modular. Users have different demands while the base image should stay small. Certain software is bound to a particular OS version and can't be provided as out-of-band extension because it needs to be updated together with the OS. In the past this meant we had to find a compromise but soon Flatcar can support more use cases and might even reduce the base image contents further. Those users that run their own Nebraska update server need to make sure that they have a recent version that provides the Flatcar extension payloads.
+
+The table below give an overview on the supported Flatcar extensions.
+
+| Extension Name | Availability        | Documentation           |
+|----------------|---------------------|-------------------------|
+| `zfs`          | 3913.0.0 – …        | [Storage][zfsextension] |
+
+
+Users can enable Flatcar extensions by writing one name per line to `/etc/flatcar/enabled-sysext.conf`.
+For now there are no pre-enabled release extensions but once Flatcar would move parts of the base image out into extensions, these would be pre-enabled as entries in `/usr/share/flatcar/enabled-sysext.conf`. They can be disabled with a `-NAME` entry in `/etc/flatcar/enabled-sysext.conf`.
+
+## Third-party extensions
+
+A simple way to extend Flatcar is to use the systemd-sysext images from the [sysext-bakery GitHub repo](https://github.com/flatcar/sysext-bakery). It [publishes prebuilt images](https://github.com/flatcar/sysext-bakery/releases) that bundle third-party binaries. The repo README provides a Butane config example for updating the extensions with `systemd-sysupdate`.
 
 ## The sysext format
 
@@ -117,72 +139,7 @@ Please make also sure that your don't have a `containerd.service` drop in file u
 
 From Flatcar 3510.2.0, it is possible to use the `systemd-sysupdate` tool that covers the task of downloading newer versions of your sysext image at runtime from a location you specify.
 
-Here is a long example using Butane, the shorter recommended usage example for consuming `sysext-bakery` images is in the [sysext-bakery README](https://github.com/flatcar/sysext-bakery#consuming-the-published-images):
-```yaml
-# butane < config.yaml > config.json
-# ./flatcar_production_qemu.sh -i ./config.json
-variant: flatcar
-version: 1.0.0
-storage:
-  links:
-    - path: /etc/extensions/docker.raw
-      target: /opt/extensions/docker/docker-24.0.5-x86-64.raw
-      hard: false
-    - path: /etc/extensions/docker-flatcar.raw
-      target: /dev/null
-      overwrite: true
-    - path: /etc/extensions/containerd-flatcar.raw
-      target: /dev/null
-      overwrite: true
-  files:
-    - path: /opt/extensions/docker/docker-24.0.5-x86-64.raw
-      contents:
-        source: https://github.com/flatcar/sysext-bakery/releases/download/20230901/docker-24.0.5-x86-64.raw
-    - path: /etc/systemd/system-generators/torcx-generator
-    - path: /etc/sysupdate.d/noop.conf
-      contents:
-        inline: |
-          [Source]
-          Type=regular-file
-          Path=/
-          MatchPattern=invalid@v.raw
-          [Target]
-          Type=regular-file
-          Path=/
-    - path: /etc/sysupdate.docker.d/docker.conf
-      contents:
-        inline: |
-          [Transfer]
-          Verify=false
-
-          [Source]
-          Type=url-file
-          Path=https://github.com/flatcar/sysext-bakery/releases/latest/download/
-          MatchPattern=docker-@v-%a.raw
-
-          [Target]
-          InstancesMax=3
-          Type=regular-file
-          Path=/opt/extensions/docker
-          CurrentSymlink=/etc/extensions/docker.raw
-systemd:
-  units:
-    - name: systemd-sysupdate.timer
-      enabled: true
-    - name: systemd-sysupdate.service
-      dropins:
-        - name: docker.conf
-          contents: |
-            [Service]
-            ExecStartPre=/usr/lib/systemd/systemd-sysupdate -C docker update
-        - name: sysext.conf
-          contents: |
-            [Service]
-            ExecStartPost=systemctl restart systemd-sysext
-```
-
-This configuration will enable the `systemd-sysupdate.timer` unit that will check every 2-6 hours for a new Docker sysext image available from the latest release of [`sysext-bakery`][sysext-bakery].
-Use `arm64` instead of `x86-64` for arm64 machines.
+The [sysext-bakery repo README](https://github.com/flatcar/sysext-bakery#consuming-the-published-images) has examples for Butane configs that consume the `sysext-bakery` images and keep them up-to-date with `systemd-sysupdate`. You can adapt the examples to other images of the `systemd-bakery` repo or to your custom images hosted elsewhere. An easy method is to fork the repo and tweak the list of released images to your liking.
 
 ## Debugging
 
@@ -211,3 +168,4 @@ sudo SYSTEMD_LOG_LEVEL=debug systemd-sysext refresh
 ```
 
 [sysext-bakery]: https://github.com/flatcar/sysext-bakery
+[zfsextension]: ../../setup/storage/zfs
