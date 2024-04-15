@@ -241,12 +241,14 @@ echo "$VER"
 # or if you know which version to update to, set it like VER=3033.2.1 (no channel info needed)
 wget "https://update.release.flatcar-linux.net/${ARCH}-usr/${VER}/flatcar_production_update.gz"
 ```
+If you run a Flatcar cloud vendor image that needs OEM tools, also download the `oem-NAME.gz` file from the subfolder in the above URL, same for Flatcar extensions which need the `flatcar-NAME.gz` files.
 
 On the airgapped machine (here with the file `flatcar_production_update.gz` in the current folder):
 
 ```shell
 VER=... # use the same value as above
 sudo ./flatcar-update --to-version "$VER" --to-payload flatcar_production_update.gz
+# add -E oem-NAME.gz and -E flatcar-Name.gz for cloud tools or Flatcar extensions
 ```
 
 Then reboot or wait for the reboot coordinator to do so.
@@ -290,6 +292,11 @@ To work around this intermediate reboot, one can call:
 update_engine_client -reset_status
 update_engine_client -check_for_update
 ```
+
+### Updating outdated versions
+
+Even if Flatcar tries to stay compatible with old versions, there are still some cases where it's not possible to update from an old release. The first common problem is that the SSL certificates might be so outdated that contacting the update server and downloading the update payload fails. The section on [updating from CoreOS Container Linux][update-from-container-linux] shows how to use HTTP together with `flatcar-update` to jump to a new Flatcar release. This resembles airgapped updates, which are also covered above.
+The second common problem is that old versions can't handle the new compressed btrfs `/usr` partition. A solution is to **first update to the LTS 2023** which are the releases with major version 3510. Afterwards one can switch to the Stable channel again. We hope to improve this in the future by letting the update server detect these situations.
 
 ### Management of config files
 
@@ -345,3 +352,4 @@ storage:
 [reboot-windows]: https://github.com/flatcar/locksmith#reboot-windows
 [systemd-env-vars]: ../systemd/environment-variables/#system-wide-environment-variables
 [transpiler]: ../../provisioning/config-transpiler/
+[update-from-container-linux]: ../../migrating-from-coreos/update-from-container-linux
