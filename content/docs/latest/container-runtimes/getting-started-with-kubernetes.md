@@ -258,6 +258,7 @@ systemd:
         Description=Kubeadm service
         Requires=containerd.service
         After=containerd.service
+        ConditionPathExists=!/etc/kubernetes/kubelet.conf
         [Service]
         ExecStart=/usr/bin/kubeadm join $(output from 'kubeadm token create --print-join-command')
         [Install]
@@ -305,6 +306,7 @@ systemd:
         Description=Kubeadm service
         Requires=containerd.service
         After=containerd.service
+        ConditionPathExists=!/etc/kubernetes/kubelet.conf
         [Service]
         Environment="PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/opt/bin"
         ExecStart=/opt/bin/kubeadm join $(output from 'kubeadm token create --print-join-command')
