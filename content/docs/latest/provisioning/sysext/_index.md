@@ -42,6 +42,10 @@ For now there are no pre-enabled release extensions but once Flatcar would move 
 
 A simple way to extend Flatcar is to use the systemd-sysext images from the [sysext-bakery GitHub repo](https://github.com/flatcar/sysext-bakery). It [publishes prebuilt images](https://github.com/flatcar/sysext-bakery/releases) that bundle third-party binaries. The repo README provides a Butane config example for updating the extensions with `systemd-sysupdate`.
 
+## Bundle extensions in a Flatcar image
+
+The [`bake_flatcar_image.sh`](https://github.com/flatcar/sysext-bakery?tab=readme-ov-file#baking-sysexts-into-flatcar-os-images) helper in the [sysext-bakery GitHub repo](https://github.com/flatcar/sysext-bakery) can be used to customize a Flatcar release image by adding your extension images into the rootfs.
+
 ## The sysext format
 
 Sysext images can be disk image files or simple folders (details in [`man systemd-sysext`](https://www.freedesktop.org/software/systemd/man/systemd-sysext.html)).
