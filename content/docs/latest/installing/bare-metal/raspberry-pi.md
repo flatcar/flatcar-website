@@ -103,9 +103,60 @@ chmod +x flatcar-install
 mv flatcar-install ~/.local/bin
 ```
 
+##### Set up Ignition config
+
+Once the `flatcar-install` script has been installed, we can begin to write a Butane configuration file that can then be transpiled to Ignition.
+
+[Why Butane](butane-transpiler)? The Butane configuration transpiler reads from an easier-to-write language (YAML), and parses it through to check for errors. This means that if you write a valid Butane configuration, and it successfully transpiles to JSON, you are guaranteed to have a valid Ignition configuration.
+
+To generate your Ignition config, first start with the following `butane-config.yml`:
+
+```yaml
+variant: flatcar
+version: 1.0.0
+passwd:
+  users:
+    - name: core
+      ssh_authorized_keys:
+        - <paste authorized SSH keys here>
+
+
+kernel_arguments:
+  should_exist:
+    - console=tty0 # Used to tell the Linux kernel to output console to its display adapter
+  should_not_exist:
+    - quiet # Show logs upon kernel boot
+    - console=ttyAMA0,115200n8 # Disable the console being output via serial on the Raspberry Pi, so HATs can utilize that UART device.
+
+storage:
+  files:
+    - path: /oem/grub.cfg
+      contents:
+        inline: set linux_console="console=tty0" # Create a grub.cfg that contains appropriate arguments for the linux command line. In this case, we are telling it to use tty0 for the console
+      mode: 0644
+      overwrite: true # There may be an existing file there, we want to overwrite it
+      user:
+        name: root
+      group:
+        name: root
+  filesystems:
+    - device: /dev/disk/by-label/OEM
+      format: btrfs
+      path: /oem
+      label: OEM
+```
+
+To convert this to an Ignition config, simply run the following:
+
+```bash
+docker run --rm -i quay.io/coreos/butane:latest < butane-config.yml > ignition_config.json
+```
+
+This will generate an `ignition_config.json` file in your current directory.
+
 ##### Install Flatcar on the target device
 
-Now that the `flatcar-install` script is installed in the host machine, go ahead and install the Flatcar Container Linux image on the target device.
+Now that the `flatcar-install` script is installed in the host machine, and your Ignition config is generated, go ahead and install the Flatcar Container Linux image on the target device.
 The target device could be a USB drive or SD Card.
 
 The options that we will be using with the scripts are:
@@ -120,63 +171,16 @@ The options that we will be using with the scripts are:
 - The device would be the target device that you would like to use. You can use the `lsblk` command to find the appropriate disk. For the example we would be using `/dev/sda`.
 - With the given values of `channel` and `board`, the script would download the image, verify it with gpg, and then copy it bit for bit to disk.
 - In our case, Flatcar does not yet ship Raspberry PI specific OEM images yet so the value will be an empty string `''`.
-- Pass the Ignition file, `config.json` in my case, to provision the Pi during boot.
-```json
-{
-  "ignition": {
-    "config": {},
-    "security": {
-      "tls": {}
-    },
-    "timeouts": {},
-    "version": "2.3.0"
-  },
-  "networkd": {},
-  "passwd": {
-    "users": [
-      {
-        "name": "core",
-        "sshAuthorizedKeys": [
-          <Insert your SSH Keys here>
-        ]
-      }
-    ]
-  },
-  "storage": {
-    "files": [
-      {
-        "filesystem": "OEM",
-        "path": "/grub.cfg",
-        "append": true,
-        "contents": {
-          "source": "data:,set%20linux_console%3D%22console%3DttyAMA0%2C115200n8%20console%3Dtty1%22%0Aset%20linux_append%3D%22flatcar.autologin%20usbcore.autosuspend%3D-1%22%0A",
-          "verification": {}
-        },
-        "mode": 420
-      }
-    ],
-    "filesystems": [
-      {
-        "mount": {
-          "device": "/dev/disk/by-label/OEM",
-          "format": "btrfs"
-        },
-        "name": "OEM"
-      }
-    ]
-  },
-  "systemd": {}
-}
-```
+- Pass the Ignition file, `ignition_config.json` as was generated earlier, to provision the Pi during boot.
 
 Go ahead with the write on the target device
 ```
-sudo flatcar-install -d /dev/sda -C stable -B arm64-usr -o '' -i config.json
+sudo flatcar-install -d /dev/sda -C stable -B arm64-usr -o '' -i ignition_config.json
 ```
 
 If you already have the image downloaded you can use the `-f` param to specify the path of the local image file.
 ```
-sudo flatcar-install -d /dev/sda -C stable -B arm64-usr -o '' -i config.json -f flatcar_production_image.bin.bz2
+sudo flatcar-install -d /dev/sda -C stable -B arm64-usr -o '' -i ignition_config.json -f flatcar_production_image.bin.bz2
 ```
 
 ##### Raspberry Pi 4 UEFI Firmware
@@ -209,7 +213,18 @@ sudo umount /tmp/efipartition
 
 In no time, your Raspberry Pi would boot and present you with a Flatcar Container Linux prompt.
 
+### Caviats
+
+#### ACPI mode prevents GPIO access
+
+If the Pi is booted with ACPI mode set, this will cause it to be unable to access its GPIO pins, and as such, many HATs will not function. This is because the firmware does not boot when DeviceTree mode is selected.
+
+This can be confirmed by hitting "Escape" once the Raspberry Pi logo appears on screen, then going to `Device Manager` --> `Raspberry Pi Configuration` --> `Advanced Configuration` --> `System Table Selection`, and confirming the mode is set to `ACPI`. Note that as of the time of this writing (mid-April, 2024), selecting DeviceTree causes the Pi to be unable to boot.
+
 
 ### Further Reading
 - [rpi4-uefi.dev](https://rpi4-uefi.dev/) - RPi4 UEFI Firmware Official Website
 - [Raspberry Pi](https://www.raspberrypi.com/documentation/computers/raspberry-pi.html#raspberry-pi-4-boot-eeprom) documentation
+
+
+[butane-transpiler]: ../../provisioning/config-transpiler/_index.md
