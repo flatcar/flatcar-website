@@ -64,9 +64,9 @@ storage:
       path: /etc/extensions/kubernetes.raw
       hard: false
   files:
-    - path: /etc/sysupdate.kubernetes.d/kubernetes.conf
+    - path: /etc/sysupdate.kubernetes.d/kubernetes-v1.27.conf
       contents:
-        source: https://github.com/flatcar/sysext-bakery/releases/download/latest/kubernetes.conf
+        source: https://github.com/flatcar/sysext-bakery/releases/download/latest/kubernetes-v1.27.conf
     - path: /etc/sysupdate.d/noop.conf
       contents:
         source: https://github.com/flatcar/sysext-bakery/releases/download/latest/noop.conf
@@ -85,7 +85,10 @@ systemd:
             ExecStartPre=/usr/bin/sh -c "readlink --canonicalize /etc/extensions/kubernetes.raw > /tmp/kubernetes"
             ExecStartPre=/usr/lib/systemd/systemd-sysupdate -C kubernetes update
             ExecStartPost=/usr/bin/sh -c "readlink --canonicalize /etc/extensions/kubernetes.raw > /tmp/kubernetes-new"
-            ExecStartPost=/usr/bin/sh -c "[[ $(cat /tmp/kubernetes) != $(cat /tmp/kubernetes-new) ]] && touch /run/reboot-required"
+            ExecStartPost=/usr/bin/sh -c "if ! cmp --silent /tmp/kubernetes /tmp/kubernetes-new; then touch /run/reboot-required; fi"
+    - name: locksmithd.service
+      # NOTE: To coordinate the node reboot in this context, we recommend to use Kured.
+      mask: true
     - name: kubeadm.service
       enabled: true
       contents: |
@@ -229,9 +232,9 @@ storage:
       path: /etc/extensions/kubernetes.raw
       hard: false
   files:
-    - path: /etc/sysupdate.kubernetes.d/kubernetes.conf
+    - path: /etc/sysupdate.kubernetes.d/kubernetes-v1.27.conf
       contents:
-        source: https://github.com/flatcar/sysext-bakery/releases/download/latest/kubernetes.conf
+        source: https://github.com/flatcar/sysext-bakery/releases/download/latest/kubernetes-v1.27.conf
     - path: /etc/sysupdate.d/noop.conf
       contents:
         source: https://github.com/flatcar/sysext-bakery/releases/download/latest/noop.conf
@@ -250,7 +253,10 @@ systemd:
             ExecStartPre=/usr/bin/sh -c "readlink --canonicalize /etc/extensions/kubernetes.raw > /tmp/kubernetes"
             ExecStartPre=/usr/lib/systemd/systemd-sysupdate -C kubernetes update
             ExecStartPost=/usr/bin/sh -c "readlink --canonicalize /etc/extensions/kubernetes.raw > /tmp/kubernetes-new"
-            ExecStartPost=/usr/bin/sh -c "[[ $(cat /tmp/kubernetes) != $(cat /tmp/kubernetes-new) ]] && touch /run/reboot-required"
+            ExecStartPost=/usr/bin/sh -c "if ! cmp --silent /tmp/kubernetes /tmp/kubernetes-new; then touch /run/reboot-required; fi"
+    - name: locksmithd.service
+      # NOTE: To coordinate the node reboot in this context, we recommend to use Kured.
+      mask: true
     - name: kubeadm.service
       enabled: true
       contents: |
