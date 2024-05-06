@@ -32,7 +32,9 @@ Flatcar Container Linux is divided into two main filesystems, a read-only `/usr`
 
 ### Read-only /usr
 
-The `USR-A` or `USR-B` partitions are interchangeable and one of the two is mounted as a read-only filesystem at `/usr`. After an update, Flatcar Container Linux will re-configure the GPT priority attribute, instructing the bootloader to boot from the passive (newly updated) partition. Here's an example of the priority flags set on an Amazon EC2 machine:
+The `USR-A` or `USR-B` partitions are interchangeable, and one of the two is mounted as a read-only filesystem at `/usr`.
+
+These partitions each include three flags that affect the boot process, `priority`, `tries`, and `successful`. Their behaviour is fully described in the [manual rollback documentation][manual rollback docs]. Their behaviour is implemented in an [add-gpt-partition-scheme GRUB patch][GRUB patches]. After an update, Flatcar Container Linux will re-configure the GPT priority attribute, instructing the bootloader to boot from the passive (newly updated) partition. Here's an example of the priority flags set on an Amazon EC2 machine:
 
 ```shell
 $ sudo cgpt show /dev/xvda
@@ -46,6 +48,9 @@ $ sudo cgpt show /dev/xvda
 Flatcar Container Linux images ship with the `USR-B` partition empty to reduce the image filesize. The first Flatcar Container Linux update will populate it and start the normal active/passive scheme.
 
 The OEM partition is mounted at `/usr/share/oem`.
+
+[manual rollback docs]: ../../setup/debug/manual-rollbacks
+[GRUB patches]: https://github.com/flatcar/scripts/tree/main/sdk_container/src/third_party/coreos-overlay/sys-boot/grub/files
 
 ### Stateful root
 
