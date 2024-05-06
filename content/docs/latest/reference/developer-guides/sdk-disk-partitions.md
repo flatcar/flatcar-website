@@ -47,10 +47,14 @@ $ sudo cgpt show /dev/xvda
 
 Flatcar Container Linux images ship with the `USR-B` partition empty to reduce the image filesize. The first Flatcar Container Linux update will populate it and start the normal active/passive scheme.
 
+As described in the [supply chain documentation][supply chain docs], these partitions are validated for security using `dm-verity`. The verity hash is stored at a well-known but otherwise unused location within the initrd. The hash is written into the initrd by the [build_image script][verity hash code]. It is then automatically injected into the kernel command line by GRUB, as implemented in this [add-verity-hash GRUB patch][GRUB patches].
+
 The OEM partition is mounted at `/usr/share/oem`.
 
 [manual rollback docs]: ../../setup/debug/manual-rollbacks
 [GRUB patches]: https://github.com/flatcar/scripts/tree/main/sdk_container/src/third_party/coreos-overlay/sys-boot/grub/files
+[supply chain docs]: ../supply-chain
+[verity hash code]: https://github.com/flatcar/scripts/blob/17ea3f2265df0c146b4b811eb9fad1abe35b21a2/build_library/build_image_util.sh#L820-L827
 
 ### Stateful root
 
