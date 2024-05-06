@@ -83,8 +83,8 @@ ClusterAPI for OpenStack (CAPO) provider already supports a
 
 **Cloud Vendor Tools and Flatcar Extensions**
 
-Another area where systemd-sysext serves as an elegant solution is​
-providing cloud vendor tools. To make the Flatcar work on the various
+Another area where systemd-sysext serves as an elegant solution is
+providing cloud vendor tools. To make Flatcar work on the various
 clouds we often need the OEM images to contain integration software
 provided by the cloud vendor. Adding these to the base image would ​waste
 disk space for all users and the old approach was to put these binaries
