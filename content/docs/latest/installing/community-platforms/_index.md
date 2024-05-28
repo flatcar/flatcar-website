@@ -15,6 +15,7 @@ The platforms and providers listed below each provide support and documentation 
 ## Cloud providers
 
 * [Exoscale][exoscale]
+* [OVHcloud][ovhcloud]
 * [Rackspace Cloud][rackspace]
 * [Scaleway][scaleway]
 * [Vultr VPS][vultr]
@@ -33,3 +34,4 @@ The platforms and providers listed below each provide support and documentation 
 [vagrant]: ../vms/vagrant
 [virtualbox]: ../vms/virtualbox
 [official-support]: ../../
+[ovhcloud]: ovhcloud
