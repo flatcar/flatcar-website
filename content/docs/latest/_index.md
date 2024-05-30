@@ -30,6 +30,7 @@ platforms and bare metal servers.
  * [Hetzner][hetzner]
  * [OpenStack][openstack]
  * [Brightbox][brightbox]
+ * [Scaleway][scaleway] (community support)
 
 #### Virtualization options
 It's easy to run a local Flatcar VM on your laptop for testing and debugging
@@ -37,10 +38,10 @@ purposes. You can use any of the following options.
 
  * [QEMU][qemu]
  * [libVirt][libvirt]
- * [VirtualBox][virtualbox] (not officially supported)
- * [Vagrant][vagrant] (not officially supported)
- * [Hyper-V][hyper-v] (not officially supported)
- * [KubeVirt][kubevirt] (not officially supported)
+ * [VirtualBox][virtualbox] (community support)
+ * [Vagrant][vagrant] (community support)
+ * [Hyper-V][hyper-v] (community support)
+ * [KubeVirt][kubevirt] (community support)
 
 #### Bare Metal
 You can install Flatcar on bare metal machines in different ways: using ISO
@@ -257,3 +258,4 @@ Flatcar tutorial to deep dive into some Flatcar fundamental concepts.
 [tutorial-hands-on-2]: tutorial/hands-on-2
 [tutorial-hands-on-3]: tutorial/hands-on-3
 [tutorial-hands-on-4]: tutorial/hands-on-4
+[scaleway]: installing/community-platforms/scaleway
