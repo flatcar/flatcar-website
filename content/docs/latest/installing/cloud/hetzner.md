@@ -8,298 +8,213 @@ aliases:
 ---
 
 [Hetzner Cloud](https://www.hetzner.com/cloud) is a cloud hosting provider.
-Flatcar Container Linux is not installable as one of the default operating system options but you can deploy it by installing it through the rescue OS.
-At the end of the document there are instructions for deploying with Terraform.
+Flatcar Container Linux is not installable as one of the default operating system options, but you can deploy it by installing it through the rescue OS.
 
-## Preparations
+These instructions require Flatcar with version `3941.1.0` or newer.
 
-Register your SSH key in the Hetzner web interface to be able to log in to a machine.
+## Creating snapshots
 
-For programatic access, create an API token (e.g., used with Terraform as `HCLOUD_TOKEN` environment variable).
+Snapshots in Hetzner Cloud can be used as a base image to create new servers from. While you can manually create the snapshot, this guide will demonstrate two tools to prepare the snapshots for you.
 
-## Provisioning
+- [Packer](https://www.packer.io/)
+- [hcloud-upload-image](https://github.com/apricote/hcloud-upload-image/)
 
-Select any OS like Debian when you create the instance but boot into the `linux64` rescue OS.
-Connect via SSH and download and run the `flatcar-install` script:
+### Packer
 
-```sh
-apt update
-apt -y install gawk
-curl -fsSLO --retry-delay 1 --retry 60 --retry-connrefused --retry-max-time 60 --connect-timeout 20 https://raw.githubusercontent.com/flatcar/init/flatcar-master/bin/flatcar-install
-chmod +x flatcar-install
-./flatcar-install -s -i ignition.json # optional: you may provide a Ignition Config as file, it should contain your SSH key
-shutdown -r +1 # reboot into Flatcar
-```
+Building the snapshots with Packer allows you to configure the build process to your liking.
 
-## Terraform
+#### Requirements
 
-The [`hcloud`](https://registry.terraform.io/providers/hetznercloud/hcloud/latest/docs) Terraform Provider allows to deploy machines in a declarative way.
-Read more about using Terraform and Flatcar [here](../../provisioning/terraform/).
+- [Hetzner Cloud API Token](https://docs.hetzner.com/cloud/api/getting-started/generating-api-token/)
+- [Packer](https://developer.hashicorp.com/packer)
+- [Hetzner Cloud CLI](https://github.com/hetznercloud/cli) (`hcloud`)
 
-The following Terraform v0.13 module may serve as a base for your own setup.
-It will also auto-generate an SSH key for this deployment, and register it with Hetzner.
+#### Template
 
-Since Flatcar does not yet natively support Hetzner metadata, automation will boot into the node's rescue OS during deployment, and install Flatcar from there.
+Packer requires a template that describes how the snapshots should be built. Create a new file `flatcar.pkr.hcl` and paste in the following content:
 
-You can clone the setup from the [Flatcar Terraform examples repository](https://github.com/flatcar/flatcar-terraform/tree/main/flatcar-terraform-hetzner) or create the files manually as we go through them and explain each one.
-
-```
-git clone https://github.com/flatcar/flatcar-terraform.git
-# From here on you could directly run it, TLDR:
-cd flatcar-terraform-hetzner
-export HCLOUD_TOKEN=...
-terraform init
-# Edit the server configs or just go ahead with the default example
-terraform plan
-terraform apply
-```
-
-Start with a `hetzner-machines.tf` file that contains the main declarations:
-
-```
-resource "tls_private_key" "provisioning" {
-  algorithm = "RSA"
-  rsa_bits  = 4096
-}
-
-resource "hcloud_ssh_key" "provisioning_key" {
-  name       = "Provisioning key for Flatcar cluster '${var.cluster_name}'"
-  public_key = tls_private_key.provisioning.public_key_openssh
-}
-
-resource "local_file" "provisioning_key" {
-  filename             = "${path.module}/.ssh/provisioning_private_key.pem"
-  content              = tls_private_key.provisioning.private_key_pem
-  directory_permission = "0700"
-  file_permission      = "0400"
-}
-
-resource "local_file" "provisioning_key_pub" {
-  filename             = "${path.module}/.ssh/provisioning_key.pub"
-  content              = tls_private_key.provisioning.public_key_openssh
-  directory_permission = "0700"
-  file_permission      = "0440"
-}
-
-
-resource "hcloud_server" "machine" {
-  for_each = toset(var.machines)
-  name     = "${var.cluster_name}-${each.key}"
-  ssh_keys = [hcloud_ssh_key.provisioning_key.id]
-  # boot into rescue OS
-  rescue = "linux64"
-  # dummy value for the OS because Flatcar is not available
-  image       = "debian-11"
-  server_type = var.server_type
-  location    = var.location
-  connection {
-    host        = self.ipv4_address
-    private_key = tls_private_key.provisioning.private_key_pem
-    timeout     = "1m"
+```hcl
+packer {
+  required_plugins {
+    hcloud = {
+      source  = "github.com/hetznercloud/hcloud"
+      version = "~> 1.4.0"
+    }
   }
-  provisioner "file" {
-    content     = data.ct_config.machine-ignitions[each.key].rendered
-    destination = "/root/ignition.json"
+}
+
+variable "channel" {
+  type    = string
+  default = "beta"
+}
+
+variable "hcloud_token" {
+  type      = string
+  default   = env("HCLOUD_TOKEN")
+  sensitive = true
+}
+
+source "hcloud" "flatcar" {
+  token = var.hcloud_token
+
+  image    = "ubuntu-24.04"
+  location = "fsn1"
+  rescue   = "linux64"
+
+  snapshot_labels = {
+    os      = "flatcar"
+    channel = var.channel
   }
 
-  provisioner "remote-exec" {
+  ssh_username = "root"
+}
+
+build {
+  source "hcloud.flatcar" {
+    name          = "x86"
+    server_type   = "cx22"
+    snapshot_name = "flatcar-${var.channel}-x86"
+  }
+
+  source "hcloud.flatcar" {
+    name          = "arm"
+    server_type   = "cax11"
+    snapshot_name = "flatcar-${var.channel}-arm"
+  }
+
+  provisioner "shell" {
     inline = [
-      "set -ex",
-      "apt update",
-      "apt install -y gawk",
+      # Download script and dependencies
+      "apt-get -y install gawk",
       "curl -fsSLO --retry-delay 1 --retry 60 --retry-connrefused --retry-max-time 60 --connect-timeout 20 https://raw.githubusercontent.com/flatcar/init/flatcar-master/bin/flatcar-install",
       "chmod +x flatcar-install",
-      "./flatcar-install -s -i /root/ignition.json -C ${var.release_channel}",
-      "shutdown -r +1",
-    ]
-  }
 
-  provisioner "remote-exec" {
-    connection {
-      host        = self.ipv4_address
-      private_key = tls_private_key.provisioning.private_key_pem
-      timeout     = "3m"
-      user        = "core"
-    }
-
-    inline = [
-      "sudo hostnamectl set-hostname ${self.name}",
+      # Install flatcar
+      "./flatcar-install -s -o hetzner -C ${var.channel}",
     ]
   }
 }
-
-data "ct_config" "machine-ignitions" {
-  for_each = toset(var.machines)
-  strict   = true
-  content  = file("${path.module}/server-configs/${each.key}.yaml")
-  snippets = [
-    data.template_file.core_user.rendered
-  ]
-}
-
-data "template_file" "core_user" {
-  template = file("${path.module}/core-user.yaml.tmpl")
-  vars = {
-    ssh_keys = jsonencode(concat(var.ssh_keys, [tls_private_key.provisioning.public_key_openssh]))
-  }
-}
 ```
 
-Create a `variables.tf` file that declares the variables used above:
+#### Building the snapshots
 
-```
-variable "machines" {
-  type        = list(string)
-  description = "Machine names, corresponding to machine-NAME.yaml.tmpl files"
-}
+```shell
+export HCLOUD_TOKEN=<your-token>
+packer init .
 
-variable "cluster_name" {
-  type        = string
-  description = "Cluster name used as prefix for the machine names"
-}
-
-variable "ssh_keys" {
-  type        = list(string)
-  default     = []
-  description = "Additional SSH public keys for user 'core'."
-}
-
-variable "server_type" {
-  type        = string
-  default     = "cx11"
-  description = "The server type to rent."
-}
-
-variable "location" {
-  type        = string
-  default     = "fsn1"
-  description = "The Hetzner region code for the region to deploy to."
-}
-
-variable "release_channel" {
-  type        = string
-  description = "Release channel"
-  default     = "stable"
-
-  validation {
-    condition     = contains(["lts", "stable", "beta", "alpha"], var.release_channel)
-    error_message = "release_channel must be lts, stable, beta, or alpha."
-  }
-}
+# This will build the snapshot for x86 (amd64-usr) and Arm (arm64-usr).
+packer build .
 ```
 
-An `outputs.tf` file for showing the nodes' IP addresses, ids, and names - as well as the SSH key generated for the deployment:
+The `packer build .` command takes a few minutes to complete. Afterward you can see the snapshot names and IDs:
 
-```
-output "provisioning_public_key_file" {
-  value = local_file.provisioning_key_pub.filename
-}
-
-output "provisioning_private_key_file" {
-  value = local_file.provisioning_key.filename
-}
-
-output "ipv4" {
-  value = {
-    for key in var.machines :
-    "${var.cluster_name}-${key}" => hcloud_server.machine[key].ipv4_address
-  }
-}
-
-output "ipv6" {
-  value = {
-    for key in var.machines :
-    "${var.cluster_name}-${key}" => hcloud_server.machine[key].ipv6_address
-  }
-}
-
-output "id" {
-  value = {
-    for key in var.machines :
-    "${var.cluster_name}-${key}" => hcloud_server.machine[key].id
-  }
-}
-
-output "name" {
-  value = {
-    for key in var.machines :
-    "${var.cluster_name}-${key}" => hcloud_server.machine[key].name
-  }
-}
+```shell
+==> Builds finished. The artifacts of successful builds are:
+--> hcloud.x86: A snapshot was created: 'flatcar-beta-x86' (ID: 157132241)
+--> hcloud.arm: A snapshot was created: 'flatcar-beta-arm' (ID: 157132242)
 ```
 
-Define a user for logging in to the node(s) in a file `core-user.yaml.tmpl`:
+You can verify these through the `hcloud` CLI:
+
+```shell
+$ hcloud image list --type=snapshot --selector=os=flatcar
+ID          TYPE       NAME   DESCRIPTION        ARCHITECTURE   IMAGE SIZE
+167650172   snapshot   -      flatcar-beta-arm   arm            0.41 GB
+167650577   snapshot   -      flatcar-beta-x86   x86            0.47 GB
+```
+
+#### Extended template
+
+If you are looking for an extended Packer template that allows some more customization, check out [github.com/apricote/flatcar-packer-hcloud](https://github.com/apricote/flatcar-packer-hcloud).
+
+### hcloud-upload-image
+
+If you do not want to deal with the complexity of Packer templates, there is an alternative CLI `hcloud-upload-image` that does just that.
+
+#### Requirements
+
+- [Hetzner Cloud API Token](https://docs.hetzner.com/cloud/api/getting-started/generating-api-token/)
+- [`hcloud-upload-image`](https://github.com/apricote/hcloud-upload-image)
+- [Hetzner Cloud CLI](https://github.com/hetznercloud/cli) (`hcloud`)
+
+#### Building the snapshots
+
+`hcloud-upload-image` does not know anything about Flatcar. We need to construct the URL for the image ourselves.
+
+```shell
+export HCLOUD_TOKEN=<your-token>
+export CHANNEL=beta
+# "current" is the latest version, you can specify alternative version here (e.g 3941.1.0)
+export VERSION=current
+
+# For x86 (cx, cpx & ccx Server Types)
+hcloud-upload-image upload \
+  --architecture=x86 \
+  --compression=bz2 \
+  --image-url=https://${CHANNEL}.release.flatcar-linux.net/amd64-usr/${VERSION}/flatcar_production_hetzner_image.bin.bz2 \
+  --labels os=flatcar,flatcar-channel=${CHANNEL} \
+  --description flatcar-${CHANNEL}-x86
+ 
+# For Arm (cax Server Types)
+hcloud-upload-image upload \
+  --architecture=arm \
+  --compression=bz2 \
+  --image-url=https://${CHANNEL}.release.flatcar-linux.net/arm64-usr/${VERSION}/flatcar_production_hetzner_image.bin.bz2 \
+  --labels os=flatcar,flatcar-channel=${CHANNEL} \
+  --description flatcar-${CHANNEL}-arm
+```
+
+Running `hcloud-upload-image upload` will take a few minutes to complete. If you need x86 and Arm snapshots, you can run both in parallel.
+
+After it completes, you should see the following output:
+
+```
+Successfully uploaded the image! image=167673693
+```
+
+You can verify this through the `hcloud` CLI:
+
+```shell
+$ hcloud image list --type=snapshot --selector=os=flatcar
+ID          TYPE       NAME   DESCRIPTION        ARCHITECTURE   IMAGE SIZE
+167673693   snapshot   -      flatcar-beta-x86   x86            0.47 GB
+167673694   snapshot   -      flatcar-beta-arm   arm            0.41 GB
+```
+
+## Creating servers
+
+### Requirements
+
+- [Butane](../../provisioning/config-transpiler/)
+- [Hetzner Cloud CLI](https://github.com/hetznercloud/cli) (`hcloud`)
+- Snapshots from the previous section
+- SSH Key
+
+Make sure that your SSH Key is available in the current Hetzner Cloud project:
+
+```shell
+hcloud ssh-key list
+
+# If not, you can upload the public key:
+hcloud ssh-key create --public-key-from-file ~/.ssh/<your-ssh-key>.pub --name my-ssh-key
+```
+
+### Server configuration
+
+Flatcar allows you to configure machine parameters, launch systemd units on startup and more via [Butane Configs](../../provisioning/config-transpiler/). These configs are then transpiled into Ignition JSON configs and given to booting machines.
+We're going to provide our Butane Config to Hetzner via the user-data flag.
+
+The `coreos-metadata.service` saves metadata variables to `/run/metadata/flatcar`. Systemd units can use them with `EnvironmentFile=/run/metadata/flatcar` in the `[Service]` section when setting `Requires=coreos-metadata.service` and `After=coreos-metadata.service` in the `[Unit]` section.
+
+As an example, this Butane YAML config will start an nginx Docker container and display the instance hostname:
 
 ```
 variant: flatcar
 version: 1.0.0
 
-passwd:
-  users:
-    - name: core
-      ssh_authorized_keys: ${ssh_keys}
-```
-
-Lastly, define a file `versions.tf` and set desired terraform and provider versions there:
-
-```
-terraform {
-  required_version = ">= 0.14"
-  required_providers {
-    hcloud = {
-      source  = "hetznercloud/hcloud"
-      version = "1.38.2"
-    }
-    ct = {
-      source  = "poseidon/ct"
-      version = "0.11.0"
-    }
-    template = {
-      source  = "hashicorp/template"
-      version = "~> 2.2.0"
-    }
-    null = {
-      source  = "hashicorp/null"
-      version = "~> 3.2.1"
-    }
-  }
-}
-```
-
-Done!
-
-Now you can use the module by declaring the variables and a Container Linux Configuration for a machine.
-Define your cluster in a file `terraform.tfvars`:
-
-```
-# Server names are [cluster]-[machine #1], [cluster]-[machine #2] ... etc.
-cluster_name = "flatcar"
-
-# Uses server-configs/server1.yaml
-machines = ["server1"]
-
-# One of nbg1, fsn1, hel1, or ash
-location = "fsn1"
-
-# Smallest instance size
-server_type = "cx11"
-
-# Additional SSH "authorized hosts" keys for the "core" user.
-# ssh_keys = [ "...", "..." ]
-
-# One of "lts", "stable", "beta", or "alpha"
-release_channel = "stable"
-```
-
-The above references a deployment configuration in [Butane](../../../provisioning/config-transpiler/configuration/) syntax; `server-configs/server1.yaml`.
-This is used to set up containers on your node, e.g. for a simple service, or to kick off bootstrapping a complex control plane like Kubernetes.
-
-The example below will run a simple web server on the node. Create a file `server-configs/server1.yaml` with the following contents:
-
-```
-variant: flatcar
-version: 1.0.0
-
+storage:
+  directories:
+    - path: /var/www
 systemd:
   units:
     - name: nginx.service
@@ -307,12 +222,14 @@ systemd:
       contents: |
         [Unit]
         Description=NGINX example
-        After=docker.service
-        Requires=docker.service
+        After=docker.service coreos-metadata.service
+        Requires=docker.service coreos-metadata.service
         [Service]
+        EnvironmentFile=/run/metadata/flatcar
         TimeoutStartSec=0
         ExecStartPre=-/usr/bin/docker rm --force nginx1
-        ExecStart=/usr/bin/docker run --name nginx1 --pull always --net host docker.io/nginx:1
+        ExecStartPre=-/usr/bin/bash -c "echo \"Hello from ${COREOS_HETZNER_HOSTNAME:-$COREOS_COREOS_HETZNER_HOSTNAME}\" > /var/www/index.html"
+        ExecStart=/usr/bin/docker run --name nginx1 --volume "/var/www:/usr/share/nginx/html:ro" --pull always --log-driver=journald --net host docker.io/nginx:1
         ExecStop=/usr/bin/docker stop nginx1
         Restart=always
         RestartSec=5s
@@ -320,20 +237,46 @@ systemd:
         WantedBy=multi-user.target
 ```
 
+> There is [a bug](https://github.com/coreos/afterburn/pull/1083) in the currently used version of Afterburn that causes the double prefix in `$COREOS_COREOS_HETZNER_HOSTNAME`.
 
-Finally, run Terraform v0.13 as follows to create the machine:
+Before we can create the server, we need to transpile this Butane configuration to the Ignition format:
+
+```shell
+docker run --rm -i quay.io/coreos/butane:latest < nginx-example.yaml > nginx-example.json
+```
+
+### Create the server
+
+Now that we have the snapshots, SSH Key and our Ignition config, we can finally create the first server:
+
+```shell
+# Get ID of the most recent flatcar snapshot for x86
+SNAPSHOT_ID=$(hcloud image list --type=snapshot --selector=os=flatcar --architecture=x86 -o=columns=id -o noheader --sort=created:desc | head -n1)
+
+hcloud server create \
+  --name flatcar-test \
+  --type cpx11 \
+  --image ${SNAPSHOT_ID} \
+  --ssh-key <your ssh key name or id> \
+  --user-data-from-file nginx-example.json
+```
+
+This will also take a minute or two to load the snapshot. After the process is finished, you will see the following output:
 
 ```
-export HCLOUD_TOKEN=...
-terraform init
-terraform apply
+Server 48081481 created
+IPv4: 37.27.83.94
+IPv6: 2a01:4f9:c012:52f1::1
+IPv6 Network: 2a01:4f9:c012:52f1::/64
 ```
 
-Terraform will print server information (name, ipv4 and v6, and ID) after the deployment concluded. The deployment will create an SSH key pair in `.ssh/`.
+To verify that nginx was properly started, run `curl $(hcloud server ip flatcar-test)`.
 
-You can now log in via `ssh -i ./.ssh/provisioning_private_key.pem -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null core@[SERVER-IP]`.
+You can log in via `ssh -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null core@$(hcloud server ip flatcar-test)`.
 
-When you make a change to `terraform.tfvars` (e.g. to add more nodes) and/or to `server-configs/server1.yaml` for updating your deployment, make sure to run `terraform apply` again.
-NOTE that changes in existing server configurations (like `server-configs/server1.yaml`) will replace the existing machine.
+## Known limitations
 
-As mentined in the beginning, you can find this Terraform module in the repository for [Flatcar Terraform examples](https://github.com/flatcar/flatcar-terraform/tree/main/hetzner).
+These Hetzner Cloud feature do not work with Flatcar:
+
+- **Volume Automount**: You need to mount volumes manually.
+- **Setting & Resetting Root Passwords**: You need to configure an SSH Key through the API or Ignition User Data.
