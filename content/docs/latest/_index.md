@@ -31,6 +31,7 @@ platforms and bare metal servers.
  * [OpenStack][openstack]
  * [Brightbox][brightbox]
  * [Scaleway][scaleway] (community support)
+ * [OVHcloud][ovhcloud] (community support)
 
 #### Virtualization options
 It's easy to run a local Flatcar VM on your laptop for testing and debugging
@@ -259,3 +260,4 @@ Flatcar tutorial to deep dive into some Flatcar fundamental concepts.
 [tutorial-hands-on-3]: tutorial/hands-on-3
 [tutorial-hands-on-4]: tutorial/hands-on-4
 [scaleway]: installing/community-platforms/scaleway
+[ovhcloud]: installing/community-platforms/ovhcloud
