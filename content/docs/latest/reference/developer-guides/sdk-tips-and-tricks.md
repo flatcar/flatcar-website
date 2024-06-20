@@ -196,11 +196,11 @@ was increased (by renaming the ebuild file) or the package uninstalled and the b
 _Build everything from scratch_ where it was done for the parent package `coreos-base/coreos`).
 Therefore, we recommend to run every build command only once in a fresh SDK to be sure that your most recent modification is used.
 
-For some packages, like the Linux kernel in `coreos-source`, `coreos-kernel`, and `coreos-modules`, it is enough to rename
-the ebuild file and it will download a new kernel version.
-Ebuilds for other packages under `coreos-overlay/` reference a specific commit in `CROS_WORKON_COMMIT` which needs to be changed.
-If files of a package changed their hash sums, use `ebuild packagename.ebuild manifest` to recalculate the hashes for
-the `Manifest` file.
+For some packages, like the Linux kernel in `coreos-source`, `coreos-kernel`, and `coreos-modules`, it is enough to rename the ebuild file, and it will download a new kernel version.
+
+Ebuilds for other packages under `coreos-overlay/` reference a specific commit in `EGIT_COMMIT`, which needs to be changed. If this commit is not in the default branch of the project's git repository (e.g. main, master, flatcar-master), then you also need to specify the branch name in `EGIT_BRANCH`. Be sure to only define these for the non-live case, i.e. `PV != 9999`.
+
+If files of a package changed their hash sums, use `ebuild packagename.ebuild manifest` to recalculate the hashes for the `Manifest` file.
 
 Here is an example of updating an individual package to a newer version:
 
