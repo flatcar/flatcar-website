@@ -32,6 +32,8 @@ The table below give an overview on the supported Flatcar extensions.
 
 | Extension Name | Availability        | Documentation           |
 |----------------|---------------------|-------------------------|
+| `podman`       | 3941.0.0 – …        |                         |
+| `python`       | 4011.0.0 – …        |                         |
 | `zfs`          | 3913.0.0 – …        | [Storage][zfsextension] |
 
 
