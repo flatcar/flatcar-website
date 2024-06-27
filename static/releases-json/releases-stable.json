@@ -2694,13 +2694,13 @@
     },
     "release_notes": " _Changes since **Stable 3815.2.2**_\n \n #### Updates:\n \n - Linux ([6.1.90](https://lwn.net/Articles/972212) (includes [6.1.89](https://lwn.net/Articles/971443), [6.1.88](https://lwn.net/Articles/971364), [6.1.87](https://lwn.net/Articles/970173), [6.1.86](https://lwn.net/Articles/969735)))\n - ca-certificates ([3.100](https://firefox-source-docs.mozilla.org/security/nss/releases/nss_3_100.html))"
   },
-  "current": {
+  "3815.2.4": {
     "channel": "stable",
     "architectures": [
       "amd64",
       "arm64"
     ],
-    "release_date": "2024-05-22 10:15:15 +0000",
+    "release_date": "2024-06-26 13:05:09 +0000",
     "major_software": {
       "containerd": [
         "1.7.13"
@@ -2712,12 +2712,38 @@
         "2.15.0"
       ],
       "kernel": [
-        "6.1.90"
+        "6.1.95"
       ],
       "systemd": [
         "252"
       ]
     },
-    "release_notes": " _Changes since **Stable 3815.2.2**_\n \n #### Updates:\n \n - Linux ([6.1.90](https://lwn.net/Articles/972212) (includes [6.1.89](https://lwn.net/Articles/971443), [6.1.88](https://lwn.net/Articles/971364), [6.1.87](https://lwn.net/Articles/970173), [6.1.86](https://lwn.net/Articles/969735)))\n - ca-certificates ([3.100](https://firefox-source-docs.mozilla.org/security/nss/releases/nss_3_100.html))"
+    "release_notes": "_Changes since **Stable 3815.2.3**_\n  \n \n #### Changes:\n \n - Added azure-nvme-utils to the image, which is used by udev to create symlinks for NVMe disks on Azure v6 instances under /dev/disk/azure/. ([scripts#1950](https://github.com/flatcar/scripts/pull/1950))\n \n #### Updates:\n\n - Linux ([6.1.95](https://lwn.net/Articles/979261) (includes [6.1.94](https://lwn.net/Articles/978594), [6.1.93](https://lwn.net/Articles/978139), [6.1.92](https://lwn.net/Articles/975076) and [6.1.91](https://lwn.net/Articles/974074)))\n - ca-certificates ([3.101](https://firefox-source-docs.mozilla.org/security/nss/releases/nss_3_101.html))\n"
+  },
+  "current": {
+    "channel": "stable",
+    "architectures": [
+      "amd64",
+      "arm64"
+    ],
+    "release_date": "2024-06-26 13:05:09 +0000",
+    "major_software": {
+      "containerd": [
+        "1.7.13"
+      ],
+      "docker": [
+        "24.0.9"
+      ],
+      "ignition": [
+        "2.15.0"
+      ],
+      "kernel": [
+        "6.1.95"
+      ],
+      "systemd": [
+        "252"
+      ]
+    },
+    "release_notes": "_Changes since **Stable 3815.2.3**_\n  \n \n #### Changes:\n \n - Added azure-nvme-utils to the image, which is used by udev to create symlinks for NVMe disks on Azure v6 instances under /dev/disk/azure/. ([scripts#1950](https://github.com/flatcar/scripts/pull/1950))\n \n #### Updates:\n\n - Linux ([6.1.95](https://lwn.net/Articles/979261) (includes [6.1.94](https://lwn.net/Articles/978594), [6.1.93](https://lwn.net/Articles/978139), [6.1.92](https://lwn.net/Articles/975076) and [6.1.91](https://lwn.net/Articles/974074)))\n - ca-certificates ([3.101](https://firefox-source-docs.mozilla.org/security/nss/releases/nss_3_101.html))\n"
   }
 }
