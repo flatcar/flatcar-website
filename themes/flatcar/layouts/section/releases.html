@@ -70,6 +70,9 @@
             <h2>Release Notes</h2>
           </div>
 
+          <div class="w-100">
+            {{ partial "announcement_banner.html" . }}
+          </div>
           <div class="mt-3">
             <ul class="nav nav-tabs" id="release-tabs">
                 {{ range $i, $channel := $channels }}
