@@ -41,6 +41,7 @@ linode-cli image-upload \
     --region "${REGION}" \
     --label "flatcar-linux-alpha" \
     --description "Flatcar Linux (alpha)" \
+    --cloud-init \
     flatcar_production_akamai_image.bin.gz
 
 export IMAGE_ID=$(linode-cli images list --label flatcar-linux-alpha --json | jq -r '.[0].id')
@@ -101,9 +102,7 @@ systemd:
         WantedBy=multi-user.target
 ```
 
-> **NOTE**: For now, it is [not possible to have your public SSH keys injected
-> through the Metadata Service][linode-qanda]. It is recommended to pass your
-> public keys in via Ignition.
+> **NOTE**: If you do not require Ignition, SSH keys associated to the user account will be injected via Akamai metadata service.
 
 Translate the Butane configuration to the JSON expected by Ignition:
 
@@ -219,5 +218,4 @@ into [more specific topics][doc-index].
 [linode-cloud-manager]: https://cloud.linode.com/
 [linode-metadata-service]: https://www.linode.com/docs/products/compute/compute-instances/guides/metadata-api/
 [linode-region-availability]: https://www.linode.com/global-infrastructure/availability/
-[linode-qanda]: https://www.linode.com/community/questions/24938/v1ssh-keys-is-empty-when-deploying-a-private-image
 [quickstart]: ../
