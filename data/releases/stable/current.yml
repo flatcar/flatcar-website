@@ -4,7 +4,7 @@ architectures:
 channel: stable
 github_release:
   assets: []
-  assets_url: https://api.github.com/repos/flatcar/scripts/releases/162522742/assets
+  assets_url: https://api.github.com/repos/flatcar/scripts/releases/163575725/assets
   author:
     avatar_url: https://avatars.githubusercontent.com/u/500628?v=4
     events_url: https://api.github.com/users/sayanchowdhury/events{/privacy}
@@ -24,33 +24,29 @@ github_release:
     subscriptions_url: https://api.github.com/users/sayanchowdhury/subscriptions
     type: User
     url: https://api.github.com/users/sayanchowdhury
-  body: "_Changes since **Stable 3815.2.3**_\r\n  \r\n \r\n #### Changes:\r\n \r\n\
-    \ - Added azure-nvme-utils to the image, which is used by udev to create symlinks\
-    \ for NVMe disks on Azure v6 instances under /dev/disk/azure/. ([scripts#1950](https://github.com/flatcar/scripts/pull/1950))\r\
-    \n \r\n #### Updates:\r\n\r\n - Linux ([6.1.95](https://lwn.net/Articles/979261)\
-    \ (includes [6.1.94](https://lwn.net/Articles/978594), [6.1.93](https://lwn.net/Articles/978139),\
-    \ [6.1.92](https://lwn.net/Articles/975076) and [6.1.91](https://lwn.net/Articles/974074)))\r\
-    \n - ca-certificates ([3.101](https://firefox-source-docs.mozilla.org/security/nss/releases/nss_3_101.html))\r\
-    \n"
-  created_at: '2024-06-25T11:21:01Z'
+  body: " _Changes since **Stable 3815.2.4**_\r\n \r\n #### Security fixes:\r\n \r\
+    \n - openssh ([CVE-2024-6387](https://nvd.nist.gov/vuln/detail/CVE-2024-6387))\r\
+    \n\r\n #### Updates:\r\n \r\n - Linux ([6.1.96](https://lwn.net/Articles/979851))\r\
+    \n - openssh ([9.7_p1](https://www.openssh.com/txt/release-9.7))"
+  created_at: '2024-07-01T21:10:46Z'
   draft: false
-  html_url: https://github.com/flatcar/scripts/releases/tag/stable-3815.2.4
-  id: 162522742
+  html_url: https://github.com/flatcar/scripts/releases/tag/stable-3815.2.5
+  id: 163575725
   name: ''
-  node_id: RE_kwDOB2MTHs4Jr-Z2
+  node_id: RE_kwDOB2MTHs4Jv_et
   prerelease: false
-  published_at: '2024-06-26T13:05:09Z'
-  tag_name: stable-3815.2.4
-  tarball_url: https://api.github.com/repos/flatcar/scripts/tarball/stable-3815.2.4
+  published_at: '2024-07-02T13:35:34Z'
+  tag_name: stable-3815.2.5
+  tarball_url: https://api.github.com/repos/flatcar/scripts/tarball/stable-3815.2.5
   target_commitish: main
-  upload_url: https://uploads.github.com/repos/flatcar/scripts/releases/162522742/assets{?name,label}
-  url: https://api.github.com/repos/flatcar/scripts/releases/162522742
-  zipball_url: https://api.github.com/repos/flatcar/scripts/zipball/stable-3815.2.4
+  upload_url: https://uploads.github.com/repos/flatcar/scripts/releases/163575725/assets{?name,label}
+  url: https://api.github.com/repos/flatcar/scripts/releases/163575725
+  zipball_url: https://api.github.com/repos/flatcar/scripts/zipball/stable-3815.2.5
 image_packages:
   containerd: 1.7.13
   docker: 24.0.9
   ignition: 2.15.0
-  kernel: 6.1.95
+  kernel: 6.1.96
   systemd: '252'
 release: current
-version: 3815.2.4
+version: 3815.2.5

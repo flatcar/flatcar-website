@@ -3403,13 +3403,13 @@
     },
     "release_notes": " _Changes since **Alpha 3975.0.0**_\n \n #### Bug fixes:\n \n - Fixed issue file generation from `/etc/issue.d` ([scripts#2018](https://github.com/flatcar/scripts/pull/2018))\n \n #### Changes:\n \n - Added Akamai / Linode images ([flatcar/scripts#1806](https://github.com/flatcar/scripts/pull/1806))\n - Provided a Python Flatcar extension as optional systemd-sysext image with the release. Write 'python' to `/etc/flatcar/enabled-sysext.conf` through Ignition and the sysext will be installed during provisioning ([scripts#1979](https://github.com/flatcar/scripts/pull/1979))\n - OpenStack: Changed metadata hostname source order. The service first tries with the config drive then fallback on the metadata service. ([bootengine#96](https://github.com/flatcar/bootengine/pull/96))\n - Removed unused grub executable duplicate files and removed grub modules that are already assembled in the grub executable ([scripts#1955](https://github.com/flatcar/scripts/pull/1955)).\n - libcrypt is now provided by the libxcrypt library instead of glibc. Glibc libcrypt was deprecated long time ago.\n \n #### Updates:\n \n - Ignition ([2.19.0](https://coreos.github.io/ignition/release-notes/#ignition-2190-2024-06-05))\n - Linux ([6.6.35](https://lwn.net/Articles/979262) (includes [6.6.34](https://lwn.net/Articles/978593), [6.6.33](https://lwn.net/Articles/978141), [6.6.32](https://lwn.net/Articles/975075) and [6.6.31](https://lwn.net/Articles/974072)))\n - Linux Firmware ([20240610](https://git.kernel.org/pub/scm/linux/kernel/git/firmware/linux-firmware.git/tag/?h=20240610))\n - Rust ([1.79.0](https://github.com/rust-lang/rust/releases/tag/1.79.0) (includes [1.78.0](https://github.com/rust-lang/rust/releases/tag/1.78.0)))\n - afterburn ([5.6.0](https://coreos.github.io/afterburn/release-notes/#afterburn-560))\n - ca-certificates ([3.101](https://firefox-source-docs.mozilla.org/security/nss/releases/nss_3_101.html))\n - containerd ([1.7.18](https://github.com/containerd/containerd/releases/tag/v1.7.18))"
   },
-  "current": {
+  "4012.0.1": {
     "channel": "alpha",
     "architectures": [
       "amd64",
       "arm64"
     ],
-    "release_date": "2024-06-26 13:03:53 +0000",
+    "release_date": "2024-07-02 13:34:47 +0000",
     "major_software": {
       "containerd": [
         "1.7.18"
@@ -3421,12 +3421,38 @@
         "2.19.0"
       ],
       "kernel": [
-        "6.6.35"
+        "6.6.36"
       ],
       "systemd": [
         "255"
       ]
     },
-    "release_notes": " _Changes since **Alpha 3975.0.0**_\n \n #### Bug fixes:\n \n - Fixed issue file generation from `/etc/issue.d` ([scripts#2018](https://github.com/flatcar/scripts/pull/2018))\n \n #### Changes:\n \n - Added Akamai / Linode images ([flatcar/scripts#1806](https://github.com/flatcar/scripts/pull/1806))\n - Provided a Python Flatcar extension as optional systemd-sysext image with the release. Write 'python' to `/etc/flatcar/enabled-sysext.conf` through Ignition and the sysext will be installed during provisioning ([scripts#1979](https://github.com/flatcar/scripts/pull/1979))\n - OpenStack: Changed metadata hostname source order. The service first tries with the config drive then fallback on the metadata service. ([bootengine#96](https://github.com/flatcar/bootengine/pull/96))\n - Removed unused grub executable duplicate files and removed grub modules that are already assembled in the grub executable ([scripts#1955](https://github.com/flatcar/scripts/pull/1955)).\n - libcrypt is now provided by the libxcrypt library instead of glibc. Glibc libcrypt was deprecated long time ago.\n \n #### Updates:\n \n - Ignition ([2.19.0](https://coreos.github.io/ignition/release-notes/#ignition-2190-2024-06-05))\n - Linux ([6.6.35](https://lwn.net/Articles/979262) (includes [6.6.34](https://lwn.net/Articles/978593), [6.6.33](https://lwn.net/Articles/978141), [6.6.32](https://lwn.net/Articles/975075) and [6.6.31](https://lwn.net/Articles/974072)))\n - Linux Firmware ([20240610](https://git.kernel.org/pub/scm/linux/kernel/git/firmware/linux-firmware.git/tag/?h=20240610))\n - Rust ([1.79.0](https://github.com/rust-lang/rust/releases/tag/1.79.0) (includes [1.78.0](https://github.com/rust-lang/rust/releases/tag/1.78.0)))\n - afterburn ([5.6.0](https://coreos.github.io/afterburn/release-notes/#afterburn-560))\n - ca-certificates ([3.101](https://firefox-source-docs.mozilla.org/security/nss/releases/nss_3_101.html))\n - containerd ([1.7.18](https://github.com/containerd/containerd/releases/tag/v1.7.18))"
+    "release_notes": "_Changes since **Alpha 4012.0.0**_\n \n #### Security fixes:\n \n - openssh ([CVE-2024-6387](https://nvd.nist.gov/vuln/detail/CVE-2024-6387))\n\n #### Updates:\n - Linux ([6.6.36](https://lwn.net/Articles/979850))\n - openssh ([9.7_p1](https://www.openssh.com/txt/release-9.7))"
+  },
+  "current": {
+    "channel": "alpha",
+    "architectures": [
+      "amd64",
+      "arm64"
+    ],
+    "release_date": "2024-07-02 13:34:47 +0000",
+    "major_software": {
+      "containerd": [
+        "1.7.18"
+      ],
+      "docker": [
+        "24.0.9"
+      ],
+      "ignition": [
+        "2.19.0"
+      ],
+      "kernel": [
+        "6.6.36"
+      ],
+      "systemd": [
+        "255"
+      ]
+    },
+    "release_notes": "_Changes since **Alpha 4012.0.0**_\n \n #### Security fixes:\n \n - openssh ([CVE-2024-6387](https://nvd.nist.gov/vuln/detail/CVE-2024-6387))\n\n #### Updates:\n - Linux ([6.6.36](https://lwn.net/Articles/979850))\n - openssh ([9.7_p1](https://www.openssh.com/txt/release-9.7))"
   }
 }

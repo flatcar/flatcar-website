@@ -2720,13 +2720,13 @@
     },
     "release_notes": "_Changes since **Stable 3815.2.3**_\n  \n \n #### Changes:\n \n - Added azure-nvme-utils to the image, which is used by udev to create symlinks for NVMe disks on Azure v6 instances under /dev/disk/azure/. ([scripts#1950](https://github.com/flatcar/scripts/pull/1950))\n \n #### Updates:\n\n - Linux ([6.1.95](https://lwn.net/Articles/979261) (includes [6.1.94](https://lwn.net/Articles/978594), [6.1.93](https://lwn.net/Articles/978139), [6.1.92](https://lwn.net/Articles/975076) and [6.1.91](https://lwn.net/Articles/974074)))\n - ca-certificates ([3.101](https://firefox-source-docs.mozilla.org/security/nss/releases/nss_3_101.html))\n"
   },
-  "current": {
+  "3815.2.5": {
     "channel": "stable",
     "architectures": [
       "amd64",
       "arm64"
     ],
-    "release_date": "2024-06-26 13:05:09 +0000",
+    "release_date": "2024-07-02 13:35:34 +0000",
     "major_software": {
       "containerd": [
         "1.7.13"
@@ -2738,12 +2738,38 @@
         "2.15.0"
       ],
       "kernel": [
-        "6.1.95"
+        "6.1.96"
       ],
       "systemd": [
         "252"
       ]
     },
-    "release_notes": "_Changes since **Stable 3815.2.3**_\n  \n \n #### Changes:\n \n - Added azure-nvme-utils to the image, which is used by udev to create symlinks for NVMe disks on Azure v6 instances under /dev/disk/azure/. ([scripts#1950](https://github.com/flatcar/scripts/pull/1950))\n \n #### Updates:\n\n - Linux ([6.1.95](https://lwn.net/Articles/979261) (includes [6.1.94](https://lwn.net/Articles/978594), [6.1.93](https://lwn.net/Articles/978139), [6.1.92](https://lwn.net/Articles/975076) and [6.1.91](https://lwn.net/Articles/974074)))\n - ca-certificates ([3.101](https://firefox-source-docs.mozilla.org/security/nss/releases/nss_3_101.html))\n"
+    "release_notes": " _Changes since **Stable 3815.2.4**_\n \n #### Security fixes:\n \n - openssh ([CVE-2024-6387](https://nvd.nist.gov/vuln/detail/CVE-2024-6387))\n\n #### Updates:\n \n - Linux ([6.1.96](https://lwn.net/Articles/979851))\n - openssh ([9.7_p1](https://www.openssh.com/txt/release-9.7))"
+  },
+  "current": {
+    "channel": "stable",
+    "architectures": [
+      "amd64",
+      "arm64"
+    ],
+    "release_date": "2024-07-02 13:35:34 +0000",
+    "major_software": {
+      "containerd": [
+        "1.7.13"
+      ],
+      "docker": [
+        "24.0.9"
+      ],
+      "ignition": [
+        "2.15.0"
+      ],
+      "kernel": [
+        "6.1.96"
+      ],
+      "systemd": [
+        "252"
+      ]
+    },
+    "release_notes": " _Changes since **Stable 3815.2.4**_\n \n #### Security fixes:\n \n - openssh ([CVE-2024-6387](https://nvd.nist.gov/vuln/detail/CVE-2024-6387))\n\n #### Updates:\n \n - Linux ([6.1.96](https://lwn.net/Articles/979851))\n - openssh ([9.7_p1](https://www.openssh.com/txt/release-9.7))"
   }
 }

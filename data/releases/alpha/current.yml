@@ -4,7 +4,7 @@ architectures:
 channel: alpha
 github_release:
   assets: []
-  assets_url: https://api.github.com/repos/flatcar/scripts/releases/162522433/assets
+  assets_url: https://api.github.com/repos/flatcar/scripts/releases/163575539/assets
   author:
     avatar_url: https://avatars.githubusercontent.com/u/500628?v=4
     events_url: https://api.github.com/users/sayanchowdhury/events{/privacy}
@@ -24,46 +24,29 @@ github_release:
     subscriptions_url: https://api.github.com/users/sayanchowdhury/subscriptions
     type: User
     url: https://api.github.com/users/sayanchowdhury
-  body: " _Changes since **Alpha 3975.0.0**_\r\n \r\n #### Bug fixes:\r\n \r\n - Fixed\
-    \ issue file generation from `/etc/issue.d` ([scripts#2018](https://github.com/flatcar/scripts/pull/2018))\r\
-    \n \r\n #### Changes:\r\n \r\n - Added Akamai / Linode images ([flatcar/scripts#1806](https://github.com/flatcar/scripts/pull/1806))\r\
-    \n - Provided a Python Flatcar extension as optional systemd-sysext image with\
-    \ the release. Write 'python' to `/etc/flatcar/enabled-sysext.conf` through Ignition\
-    \ and the sysext will be installed during provisioning ([scripts#1979](https://github.com/flatcar/scripts/pull/1979))\r\
-    \n - OpenStack: Changed metadata hostname source order. The service first tries\
-    \ with the config drive then fallback on the metadata service. ([bootengine#96](https://github.com/flatcar/bootengine/pull/96))\r\
-    \n - Removed unused grub executable duplicate files and removed grub modules that\
-    \ are already assembled in the grub executable ([scripts#1955](https://github.com/flatcar/scripts/pull/1955)).\r\
-    \n - libcrypt is now provided by the libxcrypt library instead of glibc. Glibc\
-    \ libcrypt was deprecated long time ago.\r\n \r\n #### Updates:\r\n \r\n - Ignition\
-    \ ([2.19.0](https://coreos.github.io/ignition/release-notes/#ignition-2190-2024-06-05))\r\
-    \n - Linux ([6.6.35](https://lwn.net/Articles/979262) (includes [6.6.34](https://lwn.net/Articles/978593),\
-    \ [6.6.33](https://lwn.net/Articles/978141), [6.6.32](https://lwn.net/Articles/975075)\
-    \ and [6.6.31](https://lwn.net/Articles/974072)))\r\n - Linux Firmware ([20240610](https://git.kernel.org/pub/scm/linux/kernel/git/firmware/linux-firmware.git/tag/?h=20240610))\r\
-    \n - Rust ([1.79.0](https://github.com/rust-lang/rust/releases/tag/1.79.0) (includes\
-    \ [1.78.0](https://github.com/rust-lang/rust/releases/tag/1.78.0)))\r\n - afterburn\
-    \ ([5.6.0](https://coreos.github.io/afterburn/release-notes/#afterburn-560))\r\
-    \n - ca-certificates ([3.101](https://firefox-source-docs.mozilla.org/security/nss/releases/nss_3_101.html))\r\
-    \n - containerd ([1.7.18](https://github.com/containerd/containerd/releases/tag/v1.7.18))"
-  created_at: '2024-06-25T10:04:02Z'
+  body: "_Changes since **Alpha 4012.0.0**_\r\n \r\n #### Security fixes:\r\n \r\n\
+    \ - openssh ([CVE-2024-6387](https://nvd.nist.gov/vuln/detail/CVE-2024-6387))\r\
+    \n\r\n #### Updates:\r\n - Linux ([6.6.36](https://lwn.net/Articles/979850))\r\
+    \n - openssh ([9.7_p1](https://www.openssh.com/txt/release-9.7))"
+  created_at: '2024-07-01T21:08:25Z'
   draft: false
-  html_url: https://github.com/flatcar/scripts/releases/tag/alpha-4012.0.0
-  id: 162522433
+  html_url: https://github.com/flatcar/scripts/releases/tag/alpha-4012.0.1
+  id: 163575539
   name: ''
-  node_id: RE_kwDOB2MTHs4Jr-VB
+  node_id: RE_kwDOB2MTHs4Jv_bz
   prerelease: false
-  published_at: '2024-06-26T13:03:53Z'
-  tag_name: alpha-4012.0.0
-  tarball_url: https://api.github.com/repos/flatcar/scripts/tarball/alpha-4012.0.0
+  published_at: '2024-07-02T13:34:47Z'
+  tag_name: alpha-4012.0.1
+  tarball_url: https://api.github.com/repos/flatcar/scripts/tarball/alpha-4012.0.1
   target_commitish: main
-  upload_url: https://uploads.github.com/repos/flatcar/scripts/releases/162522433/assets{?name,label}
-  url: https://api.github.com/repos/flatcar/scripts/releases/162522433
-  zipball_url: https://api.github.com/repos/flatcar/scripts/zipball/alpha-4012.0.0
+  upload_url: https://uploads.github.com/repos/flatcar/scripts/releases/163575539/assets{?name,label}
+  url: https://api.github.com/repos/flatcar/scripts/releases/163575539
+  zipball_url: https://api.github.com/repos/flatcar/scripts/zipball/alpha-4012.0.1
 image_packages:
   containerd: 1.7.18
   docker: 24.0.9
   ignition: 2.19.0
-  kernel: 6.6.35
+  kernel: 6.6.36
   systemd: '255'
 release: current
-version: 4012.0.0
+version: 4012.0.1

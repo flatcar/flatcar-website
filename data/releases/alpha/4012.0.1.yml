@@ -1,10 +1,10 @@
 architectures:
 - amd64
 - arm64
-channel: lts
+channel: alpha
 github_release:
   assets: []
-  assets_url: https://api.github.com/repos/flatcar/scripts/releases/163575764/assets
+  assets_url: https://api.github.com/repos/flatcar/scripts/releases/163575539/assets
   author:
     avatar_url: https://avatars.githubusercontent.com/u/500628?v=4
     events_url: https://api.github.com/users/sayanchowdhury/events{/privacy}
@@ -24,27 +24,29 @@ github_release:
     subscriptions_url: https://api.github.com/users/sayanchowdhury/subscriptions
     type: User
     url: https://api.github.com/users/sayanchowdhury
-  body: " _Changes since **LTS 3510.3.4**_\r\n \r\n #### Security fixes:\r\n \r\n\
-    \ - openssh ([CVE-2024-6387](https://nvd.nist.gov/vuln/detail/CVE-2024-6387))"
-  created_at: '2024-07-01T21:11:38Z'
+  body: "_Changes since **Alpha 4012.0.0**_\r\n \r\n #### Security fixes:\r\n \r\n\
+    \ - openssh ([CVE-2024-6387](https://nvd.nist.gov/vuln/detail/CVE-2024-6387))\r\
+    \n\r\n #### Updates:\r\n - Linux ([6.6.36](https://lwn.net/Articles/979850))\r\
+    \n - openssh ([9.7_p1](https://www.openssh.com/txt/release-9.7))"
+  created_at: '2024-07-01T21:08:25Z'
   draft: false
-  html_url: https://github.com/flatcar/scripts/releases/tag/lts-3510.3.5
-  id: 163575764
+  html_url: https://github.com/flatcar/scripts/releases/tag/alpha-4012.0.1
+  id: 163575539
   name: ''
-  node_id: RE_kwDOB2MTHs4Jv_fU
+  node_id: RE_kwDOB2MTHs4Jv_bz
   prerelease: false
-  published_at: '2024-07-02T13:35:44Z'
-  tag_name: lts-3510.3.5
-  tarball_url: https://api.github.com/repos/flatcar/scripts/tarball/lts-3510.3.5
+  published_at: '2024-07-02T13:34:47Z'
+  tag_name: alpha-4012.0.1
+  tarball_url: https://api.github.com/repos/flatcar/scripts/tarball/alpha-4012.0.1
   target_commitish: main
-  upload_url: https://uploads.github.com/repos/flatcar/scripts/releases/163575764/assets{?name,label}
-  url: https://api.github.com/repos/flatcar/scripts/releases/163575764
-  zipball_url: https://api.github.com/repos/flatcar/scripts/zipball/lts-3510.3.5
+  upload_url: https://uploads.github.com/repos/flatcar/scripts/releases/163575539/assets{?name,label}
+  url: https://api.github.com/repos/flatcar/scripts/releases/163575539
+  zipball_url: https://api.github.com/repos/flatcar/scripts/zipball/alpha-4012.0.1
 image_packages:
-  containerd: 1.6.16
-  docker: 20.10.23
-  ignition: 2.14.0
-  kernel: 5.15.161
-  systemd: '252'
-release: current-2023
-version: 3510.3.5
+  containerd: 1.7.18
+  docker: 24.0.9
+  ignition: 2.19.0
+  kernel: 6.6.36
+  systemd: '255'
+release: 4012.0.1
+version: 4012.0.1
