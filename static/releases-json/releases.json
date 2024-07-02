@@ -3403,13 +3403,39 @@
     },
     "release_notes": " _Changes since **Alpha 3975.0.0**_\n \n #### Bug fixes:\n \n - Fixed issue file generation from `/etc/issue.d` ([scripts#2018](https://github.com/flatcar/scripts/pull/2018))\n \n #### Changes:\n \n - Added Akamai / Linode images ([flatcar/scripts#1806](https://github.com/flatcar/scripts/pull/1806))\n - Provided a Python Flatcar extension as optional systemd-sysext image with the release. Write 'python' to `/etc/flatcar/enabled-sysext.conf` through Ignition and the sysext will be installed during provisioning ([scripts#1979](https://github.com/flatcar/scripts/pull/1979))\n - OpenStack: Changed metadata hostname source order. The service first tries with the config drive then fallback on the metadata service. ([bootengine#96](https://github.com/flatcar/bootengine/pull/96))\n - Removed unused grub executable duplicate files and removed grub modules that are already assembled in the grub executable ([scripts#1955](https://github.com/flatcar/scripts/pull/1955)).\n - libcrypt is now provided by the libxcrypt library instead of glibc. Glibc libcrypt was deprecated long time ago.\n \n #### Updates:\n \n - Ignition ([2.19.0](https://coreos.github.io/ignition/release-notes/#ignition-2190-2024-06-05))\n - Linux ([6.6.35](https://lwn.net/Articles/979262) (includes [6.6.34](https://lwn.net/Articles/978593), [6.6.33](https://lwn.net/Articles/978141), [6.6.32](https://lwn.net/Articles/975075) and [6.6.31](https://lwn.net/Articles/974072)))\n - Linux Firmware ([20240610](https://git.kernel.org/pub/scm/linux/kernel/git/firmware/linux-firmware.git/tag/?h=20240610))\n - Rust ([1.79.0](https://github.com/rust-lang/rust/releases/tag/1.79.0) (includes [1.78.0](https://github.com/rust-lang/rust/releases/tag/1.78.0)))\n - afterburn ([5.6.0](https://coreos.github.io/afterburn/release-notes/#afterburn-560))\n - ca-certificates ([3.101](https://firefox-source-docs.mozilla.org/security/nss/releases/nss_3_101.html))\n - containerd ([1.7.18](https://github.com/containerd/containerd/releases/tag/v1.7.18))"
   },
+  "4012.0.1": {
+    "channel": "alpha",
+    "architectures": [
+      "amd64",
+      "arm64"
+    ],
+    "release_date": "2024-07-02 13:34:47 +0000",
+    "major_software": {
+      "containerd": [
+        "1.7.18"
+      ],
+      "docker": [
+        "24.0.9"
+      ],
+      "ignition": [
+        "2.19.0"
+      ],
+      "kernel": [
+        "6.6.36"
+      ],
+      "systemd": [
+        "255"
+      ]
+    },
+    "release_notes": "_Changes since **Alpha 4012.0.0**_\n \n #### Security fixes:\n \n - openssh ([CVE-2024-6387](https://nvd.nist.gov/vuln/detail/CVE-2024-6387))\n\n #### Updates:\n - Linux ([6.6.36](https://lwn.net/Articles/979850))\n - openssh ([9.7_p1](https://www.openssh.com/txt/release-9.7))"
+  },
   "current": {
     "channel": "stable",
     "architectures": [
       "amd64",
       "arm64"
     ],
-    "release_date": "2024-06-26 13:05:09 +0000",
+    "release_date": "2024-07-02 13:35:34 +0000",
     "major_software": {
       "containerd": [
         "1.7.13"
@@ -3421,13 +3447,13 @@
         "2.15.0"
       ],
       "kernel": [
-        "6.1.95"
+        "6.1.96"
       ],
       "systemd": [
         "252"
       ]
     },
-    "release_notes": "_Changes since **Stable 3815.2.3**_\n  \n \n #### Changes:\n \n - Added azure-nvme-utils to the image, which is used by udev to create symlinks for NVMe disks on Azure v6 instances under /dev/disk/azure/. ([scripts#1950](https://github.com/flatcar/scripts/pull/1950))\n \n #### Updates:\n\n - Linux ([6.1.95](https://lwn.net/Articles/979261) (includes [6.1.94](https://lwn.net/Articles/978594), [6.1.93](https://lwn.net/Articles/978139), [6.1.92](https://lwn.net/Articles/975076) and [6.1.91](https://lwn.net/Articles/974074)))\n - ca-certificates ([3.101](https://firefox-source-docs.mozilla.org/security/nss/releases/nss_3_101.html))\n"
+    "release_notes": " _Changes since **Stable 3815.2.4**_\n \n #### Security fixes:\n \n - openssh ([CVE-2024-6387](https://nvd.nist.gov/vuln/detail/CVE-2024-6387))\n\n #### Updates:\n \n - Linux ([6.1.96](https://lwn.net/Articles/979851))\n - openssh ([9.7_p1](https://www.openssh.com/txt/release-9.7))"
   },
   "1722.2.0": {
     "channel": "beta",
@@ -6511,6 +6537,32 @@
     },
     "release_notes": " _Changes since **Beta 3941.1.0**_\n \n #### Security fixes:\n \n - expat ([CVE-2023-52425](https://nvd.nist.gov/vuln/detail/CVE-2023-52425), [CVE-2024-28757](https://nvd.nist.gov/vuln/detail/CVE-2024-28757))\n - gnutls ([CVE-2024-28834](https://nvd.nist.gov/vuln/detail/CVE-2024-28834), [CVE-2024-28835](https://nvd.nist.gov/vuln/detail/CVE-2024-28835))\n - intel-microcode ([CVE-2023-22655](https://nvd.nist.gov/vuln/detail/CVE-2023-22655), [CVE-2023-28746](https://nvd.nist.gov/vuln/detail/CVE-2023-28746), [CVE-2023-38575](https://nvd.nist.gov/vuln/detail/CVE-2023-38575), [CVE-2023-39368](https://nvd.nist.gov/vuln/detail/CVE-2023-39368), [CVE-2023-43490](https://nvd.nist.gov/vuln/detail/CVE-2023-43490))\n - less ([CVE-2024-32487](https://nvd.nist.gov/vuln/detail/CVE-2024-32487))\n - SDK: python ([CVE-2023-6597](https://nvd.nist.gov/vuln/detail/CVE-2023-6597), [CVE-2024-0450](https://nvd.nist.gov/vuln/detail/CVE-2024-0450), [gh-81194](https://github.com/python/cpython/issues/81194), [gh-113659](https://github.com/python/cpython/issues/113659), [gh-102388](https://github.com/python/cpython/issues/102388), [gh-114572](https://github.com/python/cpython/issues/114572), [gh-115243](https://github.com/python/cpython/issues/115243))\n \n #### Bug fixes:\n \n - Fixed issue file generation from `/etc/issue.d` ([scripts#2018](https://github.com/flatcar/scripts/pull/2018))\n \n #### Changes:\n \n - Added KubeVirt qcow2 image for amd64/arm64 ([flatcar/scripts#1962](https://github.com/flatcar/scripts/pull/1962))\n - Added azure-nvme-utils to the image, which is used by udev to create symlinks for NVMe disks on Azure v6 instances under /dev/disk/azure/. ([scripts#1950](https://github.com/flatcar/scripts/pull/1950))\n - Backported systemd-sysext mutable overlays functionality from yet-unreleased systemd v256. ([flatcar/scripts#1753](https://github.com/flatcar/scripts/pull/1753))\n - Provided a Podman Flatcar extension as optional systemd-sysext image with the release. Write 'podman' to `/etc/flatcar/enabled-sysext.conf` through Ignition and the sysext will be installed during provisioning ([scripts#1964](https://github.com/flatcar/scripts/pull/1964))\n - OpenStack: Changed metadata hostname source order. The service first tries with the config drive then fallback on the metadata service. ([bootengine#96](https://github.com/flatcar/bootengine/pull/96))\n \n #### Updates:\n \n - Linux ([6.6.35](https://lwn.net/Articles/979262) (includes [6.6.34](https://lwn.net/Articles/978593), [6.6.33](https://lwn.net/Articles/978141), [6.6.32](https://lwn.net/Articles/975075) and [6.6.31](https://lwn.net/Articles/974072)))\n - Linux Firmware ([20240513](https://git.kernel.org/pub/scm/linux/kernel/git/firmware/linux-firmware.git/tag/?h=20240513))\n - Rust ([1.77.2](https://github.com/rust-lang/rust/releases/tag/1.77.2))\n - ca-certificates ([3.101](https://firefox-source-docs.mozilla.org/security/nss/releases/nss_3_101.html))\n - containerd ([1.7.17](https://github.com/containerd/containerd/releases/tag/v1.7.17) (includes [1.7.16](https://github.com/containerd/containerd/releases/tag/v1.7.16)))\n - expat ([2.6.2](https://github.com/libexpat/libexpat/blob/R_2_6_2/expat/Changes) (includes [2.6.1](https://github.com/libexpat/libexpat/blob/R_2_6_1/expat/Changes) and [2.6.0](https://github.com/libexpat/libexpat/blob/R_2_6_0/expat/Changes)))\n - gnutls ([3.8.5](https://lists.gnupg.org/pipermail/gnutls-help/2024-April/004846.html) (includes [3.8.4](https://lists.gnupg.org/pipermail/gnutls-help/2024-March/004845.html)))\n - intel-microcode ([20240312](https://github.com/intel/Intel-Linux-Processor-Microcode-Data-Files/releases/tag/microcode-20240312))\n - libunistring ([1.2](https://savannah.gnu.org/news/?id=10599))\n - systemd ([255.4](https://github.com/systemd/systemd-stable/commits/v255.4/))\n - SDK: python ([3.11.9](https://www.get-python.org/downloads/release/python-3119/))\n\n\n _Changes since **Alpha 3975.0.0**_\n  \n \n #### Bug fixes:\n \n - Fixed issue file generation from `/etc/issue.d` ([scripts#2018](https://github.com/flatcar/scripts/pull/2018))\n \n #### Changes:\n \n - OpenStack: Changed metadata hostname source order. The service first tries with the config drive then fallback on the metadata service. ([bootengine#96](https://github.com/flatcar/bootengine/pull/96))\n \n #### Updates:\n \n - Linux ([6.6.35](https://lwn.net/Articles/979262) (includes [6.6.34](https://lwn.net/Articles/978593), [6.6.33](https://lwn.net/Articles/978141), [6.6.32](https://lwn.net/Articles/975075) and [6.6.31](https://lwn.net/Articles/974072)))\n - ca-certificates ([3.101](https://firefox-source-docs.mozilla.org/security/nss/releases/nss_3_101.html))\n"
   },
+  "3975.1.1": {
+    "channel": "beta",
+    "architectures": [
+      "amd64",
+      "arm64"
+    ],
+    "release_date": "2024-07-02 13:35:08 +0000",
+    "major_software": {
+      "containerd": [
+        "1.7.17"
+      ],
+      "docker": [
+        "24.0.9"
+      ],
+      "ignition": [
+        "2.18.0"
+      ],
+      "kernel": [
+        "6.6.36"
+      ],
+      "systemd": [
+        "255"
+      ]
+    },
+    "release_notes": " _Changes since **Beta 3975.1.0**_\n \n #### Security fixes:\n \n - openssh ([CVE-2024-6387](https://nvd.nist.gov/vuln/detail/CVE-2024-6387))\n \n #### Updates:\n \n - Linux ([6.6.36](https://lwn.net/Articles/979850))\n - openssh ([9.7_p1](https://www.openssh.com/txt/release-9.7))"
+  },
   "2051.99.1": {
     "channel": "edge",
     "architectures": [
@@ -8263,13 +8315,13 @@
     },
     "release_notes": " _Changes since **LTS 3510.3.3**_\n \n #### Updates:\n \n - Linux ([5.15.161](https://lwn.net/Articles/978595) (includes [5.15.160](https://lwn.net/Articles/975078), [5.15.159](https://lwn.net/Articles/974075), [5.15.158](https://lwn.net/Articles/972213), [5.15.157](https://lwn.net/Articles/971365), [5.15.156](https://lwn.net/Articles/970174) and [5.15.155](https://lwn.net/Articles/969736)))\n - ca-certificates ([3.101](https://firefox-source-docs.mozilla.org/security/nss/releases/nss_3_101.html) (includes [3.100](https://firefox-source-docs.mozilla.org/security/nss/releases/nss_3_100.html)))\n"
   },
-  "current-2023": {
+  "3510.3.5": {
     "channel": "lts",
     "architectures": [
       "amd64",
       "arm64"
     ],
-    "release_date": "2024-06-26 13:05:46 +0000",
+    "release_date": "2024-07-02 13:35:44 +0000",
     "major_software": {
       "containerd": [
         "1.6.16"
@@ -8287,7 +8339,33 @@
         "252"
       ]
     },
-    "release_notes": " _Changes since **LTS 3510.3.3**_\n \n #### Updates:\n \n - Linux ([5.15.161](https://lwn.net/Articles/978595) (includes [5.15.160](https://lwn.net/Articles/975078), [5.15.159](https://lwn.net/Articles/974075), [5.15.158](https://lwn.net/Articles/972213), [5.15.157](https://lwn.net/Articles/971365), [5.15.156](https://lwn.net/Articles/970174) and [5.15.155](https://lwn.net/Articles/969736)))\n - ca-certificates ([3.101](https://firefox-source-docs.mozilla.org/security/nss/releases/nss_3_101.html) (includes [3.100](https://firefox-source-docs.mozilla.org/security/nss/releases/nss_3_100.html)))\n"
+    "release_notes": " _Changes since **LTS 3510.3.4**_\n \n #### Security fixes:\n \n - openssh ([CVE-2024-6387](https://nvd.nist.gov/vuln/detail/CVE-2024-6387))"
+  },
+  "current-2023": {
+    "channel": "lts",
+    "architectures": [
+      "amd64",
+      "arm64"
+    ],
+    "release_date": "2024-07-02 13:35:44 +0000",
+    "major_software": {
+      "containerd": [
+        "1.6.16"
+      ],
+      "docker": [
+        "20.10.23"
+      ],
+      "ignition": [
+        "2.14.0"
+      ],
+      "kernel": [
+        "5.15.161"
+      ],
+      "systemd": [
+        "252"
+      ]
+    },
+    "release_notes": " _Changes since **LTS 3510.3.4**_\n \n #### Security fixes:\n \n - openssh ([CVE-2024-6387](https://nvd.nist.gov/vuln/detail/CVE-2024-6387))"
   },
   "2605.15.1": {
     "channel": "lts",
@@ -11031,5 +11109,31 @@
       ]
     },
     "release_notes": "_Changes since **Stable 3815.2.3**_\n  \n \n #### Changes:\n \n - Added azure-nvme-utils to the image, which is used by udev to create symlinks for NVMe disks on Azure v6 instances under /dev/disk/azure/. ([scripts#1950](https://github.com/flatcar/scripts/pull/1950))\n \n #### Updates:\n\n - Linux ([6.1.95](https://lwn.net/Articles/979261) (includes [6.1.94](https://lwn.net/Articles/978594), [6.1.93](https://lwn.net/Articles/978139), [6.1.92](https://lwn.net/Articles/975076) and [6.1.91](https://lwn.net/Articles/974074)))\n - ca-certificates ([3.101](https://firefox-source-docs.mozilla.org/security/nss/releases/nss_3_101.html))\n"
+  },
+  "3815.2.5": {
+    "channel": "stable",
+    "architectures": [
+      "amd64",
+      "arm64"
+    ],
+    "release_date": "2024-07-02 13:35:34 +0000",
+    "major_software": {
+      "containerd": [
+        "1.7.13"
+      ],
+      "docker": [
+        "24.0.9"
+      ],
+      "ignition": [
+        "2.15.0"
+      ],
+      "kernel": [
+        "6.1.96"
+      ],
+      "systemd": [
+        "252"
+      ]
+    },
+    "release_notes": " _Changes since **Stable 3815.2.4**_\n \n #### Security fixes:\n \n - openssh ([CVE-2024-6387](https://nvd.nist.gov/vuln/detail/CVE-2024-6387))\n\n #### Updates:\n \n - Linux ([6.1.96](https://lwn.net/Articles/979851))\n - openssh ([9.7_p1](https://www.openssh.com/txt/release-9.7))"
   }
 }
