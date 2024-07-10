@@ -15,34 +15,53 @@ The systemd-sysext feature finally provides a way to extend the base OS with a `
 While systemd-sysext images are not really good yet at including systemd units, Flatcar ships `ensure-sysext.service` as workaround to automatically load the image's services.
 Systemd-sysext is supported in Flatcar versions ≥ 3185.0.0 for user provided sysext images.
 
+Here's some blog posts you can read for more context:
+1. https://www.flatcar.org/blog/2024/04/os-innovation-with-systemd-sysext/
+2. https://www.flatcar.org/blog/2023/07/summer-2023-my-internship-experience/
+3. https://www.flatcar.org/blog/2023/12/extending-flatcar-say-goodbye-to-torcx-and-hello-to-systemd-sysext/
+
 ## Torcx deprecation
 
 Since systemd-sysext is a more generic and maintained solution than Torcx, it replaced Torcx since Flatcar version 3794.0.0 and the last major version to include Torcx was 3760.
 Any Torcx usage should be migrated by converting your Torcx image with the `convert_torcx_image.sh` helper script from the [`sysext-bakery`][sysext-bakery] repository, mentioned later in this document. The inbuilt Docker and containerd versions can be disabled which is also showed further below.
 
+## Types of systemd-sysext images
+
+For Flatcar, two types of systemd-sysext images are provided:
+
+- Official:
+  - enabled: These are extensions that are shipped along with the base image like Docker, Containerd, OEM partition. These are "opt-out".
+  - disabled: These are "opt-in" like ZFS, Podman or Python and one needs to write the extension name in `/etc/flatcar/enabled-sysext.conf` to pull the extension at boot. Similar to enabled extensions, those are built in Flatcar's CI and are distributed from the release servers. 
+- Community supported: These are extensions from the Flatcar [sysext-bakery releases](https://github.com/flatcar/sysext-bakery/releases) and they are not tested in CI. 
+
 ## OEM software as systemd-sysext images
 
 The Flatcar cloud images differ in the OEM vendor tools they provide in addition to the base image. In the past this was done through binaries on the OEM partition. Since Flatcar version 3760.0.0 most OEM images have been converted to use systemd-sysext images stored on the OEM. They are covered by the Flatcar A/B update mechanism because they are bound to the OS version they were released and tested with, also due to dynamic linking. Those users that run their own Nebraska update server need to make sure that they have a recent version that provides the OEM payloads.
 
-## Flatcar Release Extensions
+## Flatcar Release Extensions ("official")
 
 Official extensions provided as part of a Flatcar release make Flatcar more modular. Users have different demands while the base image should stay small. Certain software is bound to a particular OS version and can't be provided as out-of-band extension because it needs to be updated together with the OS. In the past this meant we had to find a compromise but soon Flatcar can support more use cases and might even reduce the base image contents further. Those users that run their own Nebraska update server need to make sure that they have a recent version that provides the Flatcar extension payloads.
 
 The table below give an overview on the supported Flatcar extensions.
 
-| Extension Name | Availability        | Documentation           |
-|----------------|---------------------|-------------------------|
-| `podman`       | 3941.0.0 – …        |                         |
-| `python`       | 4012.0.0 – …        |                         |
-| `zfs`          | 3913.0.0 – …        | [Storage][zfsextension] |
+| Extension Name | Availability        | Documentation           |   Enabled by default    |
+|----------------|---------------------|-------------------------|-------------------------|
+| `docker`       | 3794.0.0  – …       |                         |           ✅            |
+| `containerd`   | 3794.0.0  – …       |                         |           ✅            |
+| `oem-*`        | 3760.2.0 – …        |                         |           ✅            |
+| `podman`       | 3941.0.0 – …        |                         |                         |
+| `python`       | 4012.0.0 – …        |                         |                         |
+| `zfs`          | 3913.0.0 – …        | [Storage][zfsextension] |                         |
 
 
 Users can enable Flatcar extensions by writing one name per line to `/etc/flatcar/enabled-sysext.conf`.
 For now there are no pre-enabled release extensions but once Flatcar would move parts of the base image out into extensions, these would be pre-enabled as entries in `/usr/share/flatcar/enabled-sysext.conf`. They can be disabled with a `-NAME` entry in `/etc/flatcar/enabled-sysext.conf`.
 
-## Third-party extensions
+## Community supported extensions ("community supported")
 
 A simple way to extend Flatcar is to use the systemd-sysext images from the [sysext-bakery GitHub repo](https://github.com/flatcar/sysext-bakery). It [publishes prebuilt images](https://github.com/flatcar/sysext-bakery/releases) that bundle third-party binaries. The repo README provides a Butane config example for updating the extensions with `systemd-sysupdate`.
+
+[Here's](https://github.com/flatcar/sysext-bakery?tab=readme-ov-file#available-extensions) a matrix for the community-supported extensions.
 
 ## Bundle extensions in a Flatcar image
 
