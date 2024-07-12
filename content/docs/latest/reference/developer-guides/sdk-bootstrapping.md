@@ -27,9 +27,7 @@ The output of the 4th stage, i.e. the archived contents of `/tmp/stage4root`, re
 
 Stage 1 is somewhat of a preparation phase and does not actually involve any components to be found in the final SDK. This stage takes the seed tarball - which must be a previously released Flatcar SDK - and builds a minimal toolchain from the seed (with `USE=-*`).
 
-**NOTE** 
-* this toolchain, i.e. the output of Stage 1, will be built from the "old" package versions from the seed SDK. Contents of `../third_party/coreos-overlay` and `../third_party/portage-stable` are ignored in this step. Instead, the ebuild repos included in the seed SDK are used (**FIXME: Not entirely true yet**)
-* Stage 1 does _not_ feature strong library link isolation. All packages installed to `/tmp/stage1root` will be linked against libraries in `/` instead of libraries in `/tmp/stage1root`. Therefore, Stage 1 only uses the "old" seed SDK's package versions when building the seed for Stage 2.
+**NOTE**: Stage 1 does _not_ feature strong library link isolation. All packages installed to `/tmp/stage1root` will be linked against libraries in `/` instead of libraries in `/tmp/stage1root`. We avoid issues with missing libraries later in the build by initially updating the seed, specifically relevant packages that have changed [sub-slot](https://wiki.gentoo.org/wiki/Sub-slots_and_Slot-Operators).
 
 #### Stage 2 - Build the toolchain that builds the SDK
 
