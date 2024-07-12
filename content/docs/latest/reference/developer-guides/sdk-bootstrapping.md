@@ -1,4 +1,9 @@
-## SDK bootstrap process
+---
+title: SDK bootstrap process
+weight: 10
+---
+
+## Introduction
 
 This document aims to provide a high-level overview of the SDK build ("bootstrap") process.
 
