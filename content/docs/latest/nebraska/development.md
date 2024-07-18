@@ -70,7 +70,7 @@ If so, see https://docs.docker.com/compose/install/other/ or https://github.com/
 
 ## Frontend
 
-The [frontend](https://github.com/kinvolk/nebraska/tree/main/frontend) side of Nebraska is a web application built using `React` and `Material-UI`.
+The [frontend](https://github.com/flatcar/nebraska/tree/main/frontend) side of Nebraska is a web application built using `React` and `Material-UI`.
 
 ## Backend
 
