@@ -14,10 +14,12 @@ For new machines, you can set up the updates server in their Container Linux Con
 
 
 ```yaml
+variant: flatcar
+version: 1.0.0
 storage:
   files:
     - path: /etc/flatcar/update.conf
-      filesystem: root
+      overwrite: true
       mode: 0644
       contents:
         inline: |
@@ -29,10 +31,12 @@ In addition to the default `stable`, `beta` and `alpha` groups, you can also cre
 
 
 ```yaml
+variant: flatcar
+version: 1.0.0
 storage:
   files:
     - path: /etc/flatcar/update.conf
-      filesystem: root
+      overwrite: true
       mode: 0644
       contents:
         inline: |
@@ -65,11 +69,13 @@ In the instance list it is shown instead of the instance ID, while on the instan
 To add a machine alias to your Flatcar Container Linux instance, you can edit the `/etc/flatcar/update.conf` file or create it on deployment through a Container Linux Configuration:
 
 ```yaml
+variant: flatcar
+version: 1.0.0
 storage:
   files:
     - path: /etc/flatcar/update.conf
-      filesystem: root
       mode: 0644
+      overwrite: true
       contents:
         inline: |
           MACHINE_ALIAS="myhost a.b.c"
