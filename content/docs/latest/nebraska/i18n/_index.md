@@ -3,7 +3,7 @@ title: i18n Internationalization / Localization
 linkTitle: Internationalization
 ---
 
-Headlamp's internationalization uses the i18next, i18next-parser, and
+Nebraska's internationalization uses the i18next, i18next-parser, and
 react-i18next libraries.
 
 ## Default language, and locales
