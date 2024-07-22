@@ -109,6 +109,7 @@ more.
  * [Configuring the update strategy][update-strategies]
  * [Flatcar update configuration specification][update-conf]
  * [Verifying Flatcar Images with GPG][verify-container-linux]
+ * [Nebraska][nebraska]
 
 #### Creating Clusters
  * [Cluster architectures][cluster-architectures]
@@ -263,3 +264,4 @@ Flatcar tutorial to deep dive into some Flatcar fundamental concepts.
 [scaleway]: installing/community-platforms/scaleway
 [ovhcloud]: installing/community-platforms/ovhcloud
 [akamai]: installing/community-platforms/akamai
+[nebraska]: nebraska
