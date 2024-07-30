@@ -228,7 +228,7 @@ systemd:
         EnvironmentFile=/run/metadata/flatcar
         TimeoutStartSec=0
         ExecStartPre=-/usr/bin/docker rm --force nginx1
-        ExecStartPre=-/usr/bin/bash -c "echo \"Hello from ${COREOS_HETZNER_HOSTNAME:-$COREOS_COREOS_HETZNER_HOSTNAME}\" > /var/www/index.html"
+        ExecStartPre=-/usr/bin/bash -c "echo \"Hello from ${COREOS_HETZNER_HOSTNAME}\" > /var/www/index.html"
         ExecStart=/usr/bin/docker run --name nginx1 --volume "/var/www:/usr/share/nginx/html:ro" --pull always --log-driver=journald --net host docker.io/nginx:1
         ExecStop=/usr/bin/docker stop nginx1
         Restart=always
@@ -236,8 +236,6 @@ systemd:
         [Install]
         WantedBy=multi-user.target
 ```
-
-> There is [a bug](https://github.com/coreos/afterburn/pull/1083) in the currently used version of Afterburn that causes the double prefix in `$COREOS_COREOS_HETZNER_HOSTNAME`.
 
 Before we can create the server, we need to transpile this Butane configuration to the Ignition format:
 
