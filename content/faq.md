@@ -49,3 +49,7 @@ We will continue to actively develop and support Flatcar Container Linux; updati
 ### What is the significance of the Flatcar Container Linux name?
 
 A [flatcar](https://en.wikipedia.org/wiki/Flatcar) is the flat, open railcar used to transport containers.
+
+### Where is the Flatcar privacy policy?
+
+Flatcar privacy policy can be found at this link: https://www.flatcar.org/privacy-policy
