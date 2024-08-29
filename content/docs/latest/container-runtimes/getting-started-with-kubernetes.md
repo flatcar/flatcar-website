@@ -360,6 +360,7 @@ As it requires to have some tools already installed on the OS to work correcly w
 
 While CAPI is an evolving project and Flatcar support is in-progress regarding the various providers, here's the current list of supported providers:
 * [AWS][capi-aws]
+* [Akamai / Linode][capi-linode]
 * [Azure][capi-azure]
 * [OpenStack][openstack]
 * [vSphere][capi-vsphere]
@@ -374,6 +375,7 @@ Based on users feedback, Flatcar is known to work with Kubespray - you can read 
 [capi-documentation]: https://cluster-api.sigs.k8s.io/
 [capi-aws]: https://cluster-api-aws.sigs.k8s.io/
 [capi-azure]: https://capz.sigs.k8s.io/
+[capi-linode]: https://linode.github.io/cluster-api-provider-linode/topics/flavors/flatcar.html
 [capi-vsphere]: https://github.com/kubernetes-sigs/cluster-api-provider-vsphere/blob/main/docs/ignition.md
 [cilium]: https://github.com/flatcar/mantle/pull/292
 [flatcar-779]: https://github.com/flatcar/Flatcar/issues/779
