@@ -1,10 +1,10 @@
 architectures:
 - amd64
 - arm64
-channel: stable
+channel: alpha
 github_release:
   assets: []
-  assets_url: https://api.github.com/repos/flatcar/scripts/releases/173612421/assets
+  assets_url: https://api.github.com/repos/flatcar/scripts/releases/173612178/assets
   author:
     avatar_url: https://avatars.githubusercontent.com/u/28657343?v=4
     events_url: https://api.github.com/users/tormath1/events{/privacy}
@@ -24,8 +24,8 @@ github_release:
     subscriptions_url: https://api.github.com/users/tormath1/subscriptions
     type: User
     url: https://api.github.com/users/tormath1
-  body: "_Changes since **Stable 3975.2.0**_\r\n\r\n#### Security fixes:\r\n\r\n-\
-    \ Linux ([CVE-2024-44944](https://nvd.nist.gov/vuln/detail/CVE-2024-44944), [CVE-2024-43877](https://nvd.nist.gov/vuln/detail/CVE-2024-43877),\
+  body: "_Changes since **Alpha 4054.0.0**_\r\n\r\n#### Security fixes:\r\n\r\n- Linux\
+    \ ([CVE-2024-44944](https://nvd.nist.gov/vuln/detail/CVE-2024-44944), [CVE-2024-43877](https://nvd.nist.gov/vuln/detail/CVE-2024-43877),\
     \ [CVE-2024-43876](https://nvd.nist.gov/vuln/detail/CVE-2024-43876), [CVE-2024-43875](https://nvd.nist.gov/vuln/detail/CVE-2024-43875),\
     \ [CVE-2024-43873](https://nvd.nist.gov/vuln/detail/CVE-2024-43873), [CVE-2024-43871](https://nvd.nist.gov/vuln/detail/CVE-2024-43871),\
     \ [CVE-2024-43881](https://nvd.nist.gov/vuln/detail/CVE-2024-43881), [CVE-2024-43880](https://nvd.nist.gov/vuln/detail/CVE-2024-43880),\
@@ -89,37 +89,75 @@ github_release:
     \ [CVE-2024-44940](https://nvd.nist.gov/vuln/detail/CVE-2024-44940), [CVE-2024-44938](https://nvd.nist.gov/vuln/detail/CVE-2024-44938),\
     \ [CVE-2024-44939](https://nvd.nist.gov/vuln/detail/CVE-2024-44939), [CVE-2024-43898](https://nvd.nist.gov/vuln/detail/CVE-2024-43898),\
     \ [CVE-2024-43882](https://nvd.nist.gov/vuln/detail/CVE-2024-43882), [CVE-2024-44947](https://nvd.nist.gov/vuln/detail/CVE-2024-44947),\
-    \ [CVE-2024-44946](https://nvd.nist.gov/vuln/detail/CVE-2024-44946))\r\n\r\n####\
-    \ Bug fixes:\r\n\r\n- Fix ownership of systemd units shipped with built-in docker/containerd\
-    \ sysexts. The files shipped on production images were accidentally owned by 1000:1000\
-    \ instead of 0:0. This uid/gid is not present on Flatcar images but would be assigned\
-    \ to the first created user. Due to contents of sysexts and /usr being readonly\
-    \ on Flatcar, the invalid permissions can't be used to escalate privileges. ([scripts#2266](https://github.com/flatcar/scripts/pull/2266))\r\
+    \ [CVE-2024-44946](https://nvd.nist.gov/vuln/detail/CVE-2024-44946))\r\n- SDK:\
+    \ re2c ([CVE-2022-23901](https://nvd.nist.gov/vuln/detail/CVE-2022-23901))\r\n\
+    - curl ([CVE-2024-7264](https://nvd.nist.gov/vuln/detail/CVE-2024-7264))\r\n-\
+    \ Linux Firmware ([CVE-2023-31315](https://nvd.nist.gov/vuln/detail/CVE-2023-31315))\r\
+    \n\r\n#### Bug fixes:\r\n\r\n- Fix ownership of systemd units shipped with built-in\
+    \ docker/containerd sysexts. The files shipped on production images were accidentally\
+    \ owned by 1000:1000 instead of 0:0. This uid/gid is not present on Flatcar images\
+    \ but would be assigned to the first created user. Due to contents of sysexts\
+    \ and /usr being readonly on Flatcar, the invalid permissions can't be used to\
+    \ escalate privileges. ([scripts#2266](https://github.com/flatcar/scripts/pull/2266))\r\
     \n- Equinix Metal: Fixed oem-cloudinit.service. The availability check now uses\
     \ the https://metadata.platformequinix.com/metadata endpoint. ([scripts#2222](https://github.com/flatcar/scripts/pull/2222))\r\
-    \n\r\n#### Updates:\r\n\r\n- Linux ([6.6.48](https://lwn.net/Articles/987679)\
-    \ (includes [6.6.47](https://lwn.net/Articles/986231/), [6.6.46](https://lwn.net/Articles/985672),\
-    \ [6.6.45](https://lwn.net/Articles/985200), [6.6.44](https://lwn.net/Articles/984450)))\r\
-    \n- ca-certificates ([3.104](https://firefox-source-docs.mozilla.org/security/nss/releases/nss_3_104.html))"
-  created_at: '2024-09-04T14:20:51Z'
+    \n- Fixed slow boots PXE and ISO boots caused by the decrypt-root.service. ([Flatcar#1514](https://github.com/flatcar/flatcar/pull/1514))\r\
+    \n- Fixed the initrd option in the QEMU launcher script. It was -R, but this was\
+    \ already taken by the read-only pflash option, so use -r instead. ([scripts#2239](https://github.com/flatcar/scripts/pull/2239))\r\
+    \n\r\n#### Changes:\r\n\r\n- Replace nmap netcat with openbsd variant. The license\
+    \ didn't get an exception from CNCF. Something about the definition of \"derivative\
+    \ works\" being too broad.\r\n- The `docker build` command will now use buildx\
+    \ as its backend as the old one became deprecated and a loud \"DEPRECATED\" information\
+    \ is printed every time it's used.\r\n\r\n#### Updates:\r\n\r\n- Go ([1.21.13](https://go.dev/doc/devel/release#go1.21.13))\r\
+    \n- Linux ([6.6.48](https://lwn.net/Articles/987679) (includes [6.6.47](https://lwn.net/Articles/986231/),\
+    \ [6.6.46](https://lwn.net/Articles/985672), [6.6.45](https://lwn.net/Articles/985200),\
+    \ [6.6.44](https://lwn.net/Articles/984450)))\r\n- Linux Firmware ([20240811](https://git.kernel.org/pub/scm/linux/kernel/git/firmware/linux-firmware.git/tag/?h=20240811))\r\
+    \n- Open-iSCSI ([2.1.10](https://github.com/open-iscsi/open-iscsi/releases/tag/2.1.10))\r\
+    \n- Azure: azure-nvme-utils ([0.2.0](https://github.com/Azure/azure-nvme-utils/releases/tag/v0.2.0))\r\
+    \n- ca-certificates ([3.104](https://firefox-source-docs.mozilla.org/security/nss/releases/nss_3_104.html))\r\
+    \n- conntrack-tools ([1.4.8](https://lwn.net/Articles/945927/))\r\n- containerd\
+    \ ([1.7.21](https://github.com/containerd/containerd/releases/tag/v1.7.21))\r\n\
+    - curl ([8.9.1](https://curl.se/ch/8.9.1.html))\r\n- dev: minicom ([2.9](https://salsa.debian.org/minicom-team/minicom/-/releases/2.9))\r\
+    \n- elfutils ([0.191](https://inbox.sourceware.org/elfutils-devel/CAJDtP-SJhJ8cjTpkNpi+F0nzVJ2pZsEai8Ewpp4yJmsO_H5-NA@mail.gmail.com/T/#u))\r\
+    \n- gce, sysext-python: setuptools ([72.1.0](https://github.com/pypa/setuptools/blob/v72.1.0/NEWS.rst)\
+    \ (includes [71.1.0](https://github.com/pypa/setuptools/blob/v71.1.0/NEWS.rst),\
+    \ [71.0.0](https://github.com/pypa/setuptools/blob/v71.0.0/NEWS.rst)))\r\n- gflags\
+    \ ([2.2.2](https://github.com/gflags/gflags/releases/tag/v2.2.2))\r\n- glog ([0.6.0](https://github.com/google/glog/releases/tag/v0.6.0))\r\
+    \n- libmicrohttpd ([1.0.1](https://lists.gnu.org/archive/html/libmicrohttpd/2024-02/msg00005.html)\
+    \ (includes [1.0.0](https://lists.gnu.org/archive/html/libmicrohttpd/2024-02/msg00000.html)))\r\
+    \n- lz4 ([1.10.0](https://github.com/lz4/lz4/releases/tag/v1.10.0))\r\n- nghttp2\
+    \ ([1.62.1](https://github.com/nghttp2/nghttp2/releases/tag/v1.62.1))\r\n- npth\
+    \ ([1.7](https://git.gnupg.org/cgi-bin/gitweb.cgi?p=npth.git;a=blob;f=NEWS;h=c1b631b4294eabfef29baefd60e1b0dfecce710d;hb=75c68399ef3bbb5d024f2a60474a7214fa479016))\r\
+    \n- sysext-python: more-itertools ([10.4.0](https://github.com/more-itertools/more-itertools/releases/tag/v10.4.0))\r\
+    \n- sysext-python: pip ([24.2](https://github.com/pypa/pip/blob/24.2/NEWS.rst)\
+    \ (includes [24.1.2](https://github.com/pypa/pip/blob/24.1.2/NEWS.rst)))\r\n-\
+    \ sysext-python: wheel ([0.44.0](https://github.com/pypa/wheel/releases/tag/0.44.0))\r\
+    \n- sysext-zfs: zfs ([2.2.5](https://github.com/openzfs/zfs/releases/tag/zfs-2.2.5)\
+    \ (includes [2.2.4](https://github.com/openzfs/zfs/releases/tag/zfs-2.2.4)))\r\
+    \n- tcpdump ([4.99.4](https://github.com/the-tcpdump-group/tcpdump/blob/tcpdump-4.99.4/CHANGES))\r\
+    \n- SDK: meson ([1.5.1](https://mesonbuild.com/Release-notes-for-1-5-0.html))\r\
+    \n- SDK: pahole ([1.27](https://git.kernel.org/pub/scm/devel/pahole/pahole.git/tag/?h=v1.27))\r\
+    \n- SDK: Rust ([1.80.1](https://github.com/rust-lang/rust/releases/tag/1.80.1))\r\
+    \n"
+  created_at: '2024-09-04T14:18:45Z'
   draft: false
-  html_url: https://github.com/flatcar/scripts/releases/tag/stable-3975.2.1
-  id: 173612421
+  html_url: https://github.com/flatcar/scripts/releases/tag/alpha-4081.0.0
+  id: 173612178
   name: ''
-  node_id: RE_kwDOB2MTHs4KWR2F
+  node_id: RE_kwDOB2MTHs4KWRyS
   prerelease: false
-  published_at: '2024-09-05T11:38:49Z'
-  tag_name: stable-3975.2.1
-  tarball_url: https://api.github.com/repos/flatcar/scripts/tarball/stable-3975.2.1
+  published_at: '2024-09-05T11:37:20Z'
+  tag_name: alpha-4081.0.0
+  tarball_url: https://api.github.com/repos/flatcar/scripts/tarball/alpha-4081.0.0
   target_commitish: main
-  upload_url: https://uploads.github.com/repos/flatcar/scripts/releases/173612421/assets{?name,label}
-  url: https://api.github.com/repos/flatcar/scripts/releases/173612421
-  zipball_url: https://api.github.com/repos/flatcar/scripts/zipball/stable-3975.2.1
+  upload_url: https://uploads.github.com/repos/flatcar/scripts/releases/173612178/assets{?name,label}
+  url: https://api.github.com/repos/flatcar/scripts/releases/173612178
+  zipball_url: https://api.github.com/repos/flatcar/scripts/zipball/alpha-4081.0.0
 image_packages:
-  containerd: 1.7.17
-  docker: 24.0.9
-  ignition: 2.18.0
+  containerd: 1.7.21
+  docker: 26.1.0
+  ignition: 2.19.0
   kernel: 6.6.48
   systemd: '255'
-release: current
-version: 3975.2.1
+release: 4081.0.0
+version: 4081.0.0
