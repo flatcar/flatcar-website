@@ -12,13 +12,13 @@ LVM - Logical Volume Management - allows you to create logical volumes, for exam
 one volume. This allows you to make the full use of all attached disks.
 
 Flatcar Linux has built-in support for LVM.
-This guide covers create logical volumes using LVM and using them.
+This guide covers creation of logical volumes using LVM and how to use them.
 
 
 ## Creating LVM
 
-There are two main ways to do this: create everything manually or properly use an ignition config. We will first cover
-the manual way to get a better grip of what's happening and then the proper way.
+There are two main ways to do this: create everything manually or use an ignition config. We will first cover
+the manual way to get a better grip of what is happening, then we will cover the ignition way.
 
 ### Manual
 
@@ -51,9 +51,8 @@ this scenario, but we can work with the others.
 
 
 ```shell
-# pvcreate /dev/sda /dev/sdb /dev/sdc /dev/sdd
+# pvcreate /dev/sdb /dev/sdc /dev/sdd
   WARNING: Failed to connect to lvmetad. Falling back to device scanning.
-  Device /dev/sda excluded by a filter.
   Physical volume "/dev/sdb" successfully created.
   Physical volume "/dev/sdc" successfully created.
   Physical volume "/dev/sdd" successfully created.
@@ -68,7 +67,7 @@ You can verify that everything worked with the following commands:
   /dev/sdc      lvm2 ---  447.13g 447.13g
   /dev/sdd      lvm2 ---  223.57g 223.57g
   
-  # pvdisplay
+# pvdisplay
   "/dev/sdd" is a new physical volume of "223.57 GiB"
   --- NEW Physical volume ---
   PV Name               /dev/sdd
@@ -107,7 +106,7 @@ You can verify that everything worked with the following commands:
 
 ```
 
-As you can see, you do not yet have a virtual group. You use the `vgcreate` command to create one and add you PVs.
+As you can see, you do not yet have a virtual group. You use the `vgcreate` command to create one and add your PVs.
 
 You need to specify the name of the group and the volumes you want to add to it like so:
 
@@ -147,7 +146,7 @@ You can verify that everything worked well by issuing the following command:
   Block device           254:1
 ```
 
-As you can see we now have a total size the sum of the individual disk.
+As you can see we now have a total size the sum of the individual disks.
 
 Next we need to use `mkfs` to create an `ext4` filesystem:
 
@@ -174,15 +173,12 @@ Now you can for example mount the volume for use with docker, by mounting it to 
 ```shell
 # mkdir /var/lib/docker
 # mount /dev/base-layer/vol_docker /var/lib/docker
-
 ```
 
 ### Ignition
 
-If you're not familiar, you can write butane configs in yaml format and later transpile it into an ignition config
-using the [Butane Config Transpiler].
 
-In your ignition config you will need two units: on to create the volume group and one to mount the volume.
+In your Ignition config you will need two units: one to create the volume group and one to mount the volume.
 Additionally, you will also need a script that executes all the required commands.
 
 We will start with the script. It basically packages everything from the manual part into a script like so:
@@ -212,8 +208,8 @@ lvcreate -n vol_root -l 100%FREE vg-root
 mkfs.ext4 /dev/vg-root/vol_root
 ```
 
-As you can see, we use a function to list **all** available disks. If you don't want all disks, you need to adjust
-accordingly. If you want to mount to a different place, e.g. `/var/lib/docker` instead of `/`, you need to adjust this
+As you can see, we use a function to list **all** available disks. If you do not want to use all disks, you need to adjust
+the script accordingly. If you want to mount to a different place, e.g. `/var/lib/docker` instead of `/`, you need to adjust this
 bit as well.
 
 The next step is to create the unit file that executes the script:
@@ -265,7 +261,7 @@ systemd:
         Type=oneshot
         Restart=on-failure
         RemainAfterExit=yes
-        ExecStart=/etc/systemd/system/multi-user.target.wants/lvm.sh
+        ExecStart=/opt/lvm.sh
         [Install]
         WantedBy=multi-user.target
     - name: var-lib-docker.mount
@@ -290,7 +286,7 @@ systemd:
             Requires=var-lib-docker.mount
 storage:
   files:
-    - path: /etc/systemd/system/multi-user.target.wants/lvm.sh
+    - path: /opt/lvm.sh
       mode: 0744
       contents:
         inline: |
@@ -319,7 +315,7 @@ storage:
 ```
 
 
-As mentioned before, we need to still transpile from a butane yaml to an ignition config like so:
+As mentioned before, we need to still transpile from a butane yaml to an Ignition config like so:
 
 ```Bash
 $ docker run --rm -i quay.io/coreos/butane:latest < lvm.yaml > ignition.json
@@ -332,6 +328,6 @@ $ cat ignition.json
 {"ignition":{"version":"3.3.0"},"storage":{"files":[{"path":"/etc/systemd/system/multi-user.target.wants/lvm.sh","contents":{"compression":"gzip","source":"data:;base64,H4sIAAAAAAAC/3ySQY/TPhTE7+9TzN/Nn20lQrYrbqsiIdTdC6AVQkicKjd5bqy4doidLFW33x05rtosB47Om/mN38Sz/4qttsVW+po8B+TcO7S6ZSW1IaIZHnpbBu0sgoPStoI0BpX2jad43AzO9Hv288WRAOO3pkFeIXf4+vHL+u33n09rvEA+N7jJ7rBaQUSvwLHttA0QRcVDIZAtTzegE1HZsQy8aQc/XyAix6hVNp+GLQjovdwa3qSxEESAct0oh7bIxsE9KkcAoBXaIbGRH9IUdx/eLPGCXcct8l8Qvi9L9l71xhyQxJW4R6jZjpC/Q7PpMTHFKFQ6XtxZjrfisnZ4JY17zvDIIaJhtA9w6sw+V/sqKJtfW1lE66e0yFN98LqUBj9SLXRZMTtOAaeJJ0nx2Lm+pWF31g+7vHJlw90/nJ/dbhKWypZBkrn0ajE4szmDcoPl7e3/D9/W6yt+fFCu28u0evQj/VM861CDf4f3UNqwP/jAe9o3yr8bP47v5MIprkH0JwAA//+D2TD6wwIAAA=="},"mode":484}]},"systemd":{"units":[{"contents":"[Unit]\nDescription=LVM Setup\nConditionFirstBoot=yes\nBefore=local-fs-pre.target\n[Service]\nType=oneshot\nRestart=on-failure\nRemainAfterExit=yes\nExecStart=/etc/systemd/system/multi-user.target.wants/lvm.sh\n[Install]\nWantedBy=multi-user.target\n","enabled":true,"name":"lvm-setup.service"},{"contents":"[Unit]\nDescription=Mount LVM to docker dir\n[Mount]\nWhat=/dev/vg-docker/vol_docker\nWhere=/var/lib/docker\nType=ext4\nOptions=defaults\n[Install]\nAfter=lvm-setup.service\nWantedBy=local-fs.target\n","enabled":true,"name":"var-lib-docker.mount"},{"dropins":[{"contents":"[Unit]\nAfter=var-lib-docker.mount\nRequires=var-lib-docker.mount\n","name":"10-wait-docker.conf"}],"name":"docker.service"}]}}
 ```
 
-Add this ignition config to your cloud provider of choice now as user-data and create the given instance.
+Add this Ignition config to your cloud provider of choice now as user-data and create the given instance.
 
 [Butane Config Transpiler]: https://www.flatcar.org/docs/latest/provisioning/config-transpiler/
