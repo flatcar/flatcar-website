@@ -17,12 +17,12 @@ This guide covers creation of logical volumes using LVM and how to use them.
 
 ## Creating LVM
 
-There are two main ways to do this: create everything manually or use an ignition config. We will first cover
-the manual way to get a better grip of what is happening, then we will cover the ignition way.
+There are two main ways to do this: create everything manually or use an Ignition config. We will first cover
+the manual way to get a better grip of what is happening, then we will cover the Ignition way.
 
 ### Manual
 
-You can find all volumes using the `lsblk` command. For exampe:
+You can find all volumes using the `lsblk` command. For example:
 
 ```shell
 
