@@ -4,8 +4,6 @@ weight: 20
 ---
 
 This section shows how to set up a development environment for Nebraska.
-Be also sure to read the [contributing](./contributing) section for the
-general guidelines when contributing to Nebraska.
 
 Nebraska needs a running `PostgresSQL` database. Apart from that, the
 recommended way to work on it, is to run the backend with the `noop`
