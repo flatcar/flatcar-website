@@ -5,30 +5,57 @@ weight: 2
 ---
 
 The goal of this hands-on is to:
-* locally run a Flatcar instance
-* boot the instance and SSH into
-* run Nginx container on the instance
+
+* Locally run a Flatcar instance
+* Boot the instance and SSH into
+* Run Nginx container on the instance
 
 # Step-by-step
 
+Create a working directory:
+
 ```bash
-# create a working directory
 mkdir flatcar; cd flatcar
-# get the qemu helper
+```
+
+Get the qemu helper:
+
+```bash
 wget https://stable.release.flatcar-linux.net/amd64-usr/current/flatcar_production_qemu.sh
-# get the latest stable release for qemu
+```
+
+Get the latest stable release for qemu:
+
+```bash
 wget https://stable.release.flatcar-linux.net/amd64-usr/current/flatcar_production_qemu_image.img
-# create a backup to always have a fresh image around
+```
+
+Create a backup to always have a fresh image around:
+
+```bash
 mv flatcar_production_qemu_image.img flatcar_production_qemu_image.img.fresh
-# make the qemu helper executable
+```
+
+Make the qemu helper executable:
+
+```bash
 chmod +x flatcar_production_qemu.sh
-# before starting, make sure you boot a fresh image
+```
+
+Before starting, make sure you boot a fresh image:
+
+```bash
 cp -i --reflink=auto flatcar_production_qemu_image.img.fresh flatcar_production_qemu_image.img
-# starts the flatcar image in console mode
+```
+
+Starts the flatcar image in console mode:
+
+```bash
 ./flatcar_production_qemu.sh -- -display curses
 ```
 
-NOTE: it's possible to connect to the instance via SSH:
+**__NOTE__**: it's possible to connect to the instance via SSH:
+
 ```bash
 $ cat ~/.ssh/config
 Host flatcar
@@ -41,18 +68,23 @@ $ ssh flatcar
 ```
 
 Once on the instance, you can try things and run a docker image:
-```
-# run an nginx docker image
+
+```bash
 docker run --rm -p 80:80 -d nginx
-# assert it works
+```
+
+Assert it works:
+
+```bash
 curl localhost
 ```
 
 # Resources
 
-* [documentation](../../installing/vms/qemu/#startup-flatcar-container-linux)
+* [Hands on 2](../../tutorial/hands-on-2/)
+* [Startup Flatcar Container Linux ](../../installing/vms/qemu/#startup-flatcar-container-linux)
 
 # Demo
 
-* Video with timestamp: https://youtu.be/woZlGiLsKp0?t=472
-* Asciinema: https://asciinema.org/a/591438
+* Video with timestamp: <https://youtu.be/woZlGiLsKp0?t=472>
+* Asciinema: <https://asciinema.org/a/591438>
