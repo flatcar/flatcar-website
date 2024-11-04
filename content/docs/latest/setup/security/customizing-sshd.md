@@ -21,22 +21,16 @@ variant: flatcar
 version: 1.0.0
 storage:
   files:
-    - path: /etc/ssh/sshd_config
+    - path: /etc/ssh/sshd_config.d/custom.conf
       overwrite: true
       mode: 0600
       contents:
         inline: |
-          # Use most defaults for sshd configuration.
-          UsePrivilegeSeparation sandbox
-          Subsystem sftp internal-sftp
-          UseDNS no
-
           PermitRootLogin no
           AllowUsers core
-          AuthenticationMethods publickey
 ```
 
-### Changing the sshd port (cloud-config)
+### Changing the sshd port (Ignition)
 
 Flatcar Container Linux ships with socket-activated SSH daemon by default. The configuration for this can be found at `/usr/lib/systemd/system/sshd.socket`. We're going to override some of the default settings for this in the Butane Config provided at boot:
 
@@ -89,12 +83,7 @@ The following sections walk through applying the same changes documented above o
 
 ### Customizing sshd\_config
 
-Since `/etc/ssh/sshd_config` is a symlink to a read only file in `/usr`, it
-needs to be replaced with a regular file before it may be edited.
-
-This, for example, can be done by running `sudo sed -i '' /etc/ssh/sshd_config`.
-
-At this point, any configuration changes can easily be applied by editing the file `/etc/ssh/sshd_config`.
+To efficiently customizing the sshd_config, it is possible to add a custom configuration as a snippet inside `/etc/ssh/sshd_config.d/` directory.
 
 ### Changing the sshd port
 
