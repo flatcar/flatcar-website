@@ -57,6 +57,22 @@ The table below give an overview on the supported Flatcar extensions.
 Users can enable Flatcar extensions by writing one name per line to `/etc/flatcar/enabled-sysext.conf`.
 For now there are no pre-enabled release extensions but once Flatcar would move parts of the base image out into extensions, these would be pre-enabled as entries in `/usr/share/flatcar/enabled-sysext.conf`. They can be disabled with a `-NAME` entry in `/etc/flatcar/enabled-sysext.conf`.
 
+### Remove Docker and / or Containerd from Flatcar
+
+If Flatcar is used as a Kubernetes node or one wants to try a different version of Docker or Containerd, it is possible to remove those extensions from Flatcar at boot using this configuration:
+```yaml
+variant: flatcar
+version: 1.0.0
+storage:
+  links:
+    - path: /etc/extensions/docker-flatcar.raw
+      target: /dev/null
+      overwrite: true
+    - path: /etc/extensions/containerd-flatcar.raw
+      target: /dev/null
+      overwrite: true
+```
+
 ## Community supported extensions ("community supported")
 
 A simple way to extend Flatcar is to use the systemd-sysext images from the [sysext-bakery GitHub repo](https://github.com/flatcar/sysext-bakery). It [publishes prebuilt images](https://github.com/flatcar/sysext-bakery/releases) that bundle third-party binaries. The repo README provides a Butane config example for updating the extensions with `systemd-sysupdate`.
