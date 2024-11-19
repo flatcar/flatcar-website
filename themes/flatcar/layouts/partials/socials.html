@@ -2,7 +2,7 @@
   {{ range .Site.Params.social }}
   <li class="list-inline-item socials__item">
     <a href="{{ .url }}" class="socials__link" target="_blank" rel="noopener" aria-label="Flatcar Container Linux's {{ .title }}">
-      <i class="fab fa-{{ .title }}{{if ne .title "mastodon"}}-square{{ end }}"></i>
+      <i class="fa-brands fa-{{ .title }}"></i>
     </a>
   </li>
   {{ end }}
