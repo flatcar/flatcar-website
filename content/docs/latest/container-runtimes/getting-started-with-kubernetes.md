@@ -369,7 +369,7 @@ While CAPI is an evolving project and Flatcar support is in-progress regarding t
 
 Kubespray is an open-source project used to deploy production ready Kubernetes cluster, learn more about it on the [documentation][kubespray-documentation].
 
-Based on users feedback, Flatcar is known to work with Kubespray - you can read more about it in this section: [https://kubespray.io/#/docs/flatcar][kubespray-documentation-flatcar].
+Based on users feedback, Flatcar is known to work with Kubespray - you can read more about it in this section: <https://kubespray.io/#/docs/operating_systems/flatcar>.
 
 [butane]: https://coreos.github.io/butane/
 [capi-documentation]: https://cluster-api.sigs.k8s.io/
@@ -382,7 +382,6 @@ Based on users feedback, Flatcar is known to work with Kubespray - you can read 
 [image-builder]: https://github.com/kubernetes-sigs/image-builder
 [kubenet]: https://github.com/flatcar/Flatcar/issues/579
 [kubespray-documentation]: https://kubespray.io
-[kubespray-documentation-flatcar]: https://kubespray.io/#/docs/flatcar
 [kured]: https://kured.dev/docs/
 [openstack]: https://cluster-api-openstack.sigs.k8s.io/clusteropenstack/configuration.html#ignition-based-images
 [sysext-bakery]: https://github.com/flatcar/sysext-bakery
