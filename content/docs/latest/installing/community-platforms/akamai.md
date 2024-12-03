@@ -102,8 +102,6 @@ systemd:
         WantedBy=multi-user.target
 ```
 
-> **NOTE**: If you do not require Ignition, SSH keys associated to the user account will be injected via Akamai metadata service.
-
 Translate the Butane configuration to the JSON expected by Ignition:
 
 ```bash
@@ -210,6 +208,11 @@ linode-cli linodes boot "${LINODE_ID}"
 Now that you have a running Flatcar instance, it is time to play around!
 Check out the [Flatcar Container Linux Quickstart][quickstart] guide, or dig
 into [more specific topics][doc-index].
+
+## Troubleshooting and known issues
+
+* If the instance is booted with a Private IP option, the IP will not be set automatically on Flatcar. It is the "Linode helpers" that take care of this, to do so on Flatcar: `ip addr add "${COREOS_AKAMAI_PRIVATE_IPV4_0}" dev eth0`
+* It is not possible to configure SSH keys against a user account with Afterburn. If SSH keys are needed on the instance, it must be done through Ignition. (See: https://github.com/coreos/afterburn/issues/1111 and https://www.linode.com/community/questions/24938/v1ssh-keys-is-empty-when-deploying-a-private-image)
 
 [akamai-connected-cloud]: https://www.linode.com/
 [doc-index]: ../../
