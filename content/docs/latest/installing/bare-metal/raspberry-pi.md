@@ -124,8 +124,16 @@ The options that we will be using with the scripts are:
 ```json
 {
   "ignition": {
-    "version": "3.3.0"
+    "version": "3.4.0"
   },
+  "kernelArguments": {
+    "shouldExist": [
+      "console=ttyAMA0,115200n8",
+      "console=tty1",
+      "flatcar.autologin",
+      "usbcore.autosuspend=-1"
+    ]
+  }
   "passwd": {
     "users": [
       {
@@ -133,18 +141,6 @@ The options that we will be using with the scripts are:
         "sshAuthorizedKeys": [
           <Insert your SSH Keys here>
         ]
-      }
-    ]
-  },
-  "storage": {
-    "files": [
-      {
-        "path": "/oem/grub.cfg",
-        "contents": {
-          "compression": "",
-          "source": "data:,set%20linux_console%3D%22console%3DttyAMA0%2C115200n8%20console%3Dtty1%22%0Aset%20linux_append%3D%22flatcar.autologin%20usbcore.autosuspend%3D-1%22%0A"
-        },
-        "mode": 420
       }
     ]
   }
