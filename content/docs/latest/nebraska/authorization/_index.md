@@ -165,13 +165,14 @@ exports.onExecutePostLogin = async (event, api) => {
 8. Choose the `post-login` flow.
 9. Find the newly created action on the right side (switch to the `custom` tab).
 10. Drag & Drop the action between the `Start` and `Complete` steps in the flow.
+11. Click `Apply`.
    
 Now the action that adds the roles to the token will be triggered after each login and the roles will be available in the key `http://kinvolk.io/roles`.
 
 Note: The `oidc-roles-path` argument accepts a JSONPath to fetch roles from the token, in this case set the value to `http://kinvolk\.io/roles`.
 
 <p align="center">
-  <img width="100%" src="../images/auth0-token.gif">
+  <img width="100%" src="../images/auth0-actions.gif">
 </p>
 
 # Preparing Dex with github connector as an OIDC provider for Nebraska
