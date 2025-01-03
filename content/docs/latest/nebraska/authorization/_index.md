@@ -145,32 +145,34 @@ Now the member and admin roles are created, the admin role is a composite role w
 
 ## Adding roles scope to token
 
-1. Click on `Rules` sub-menu from `Auth Pipeline` menu option.
-2. Click on `Empty Rule` option.
-3. Provide the name as `roles`.
-4. Paste the following snippet in `Script` text box.
+1. Click on `Actions > Library` and find the `Create Action` menu from top right.
+2. Click on `Build from scratch` option.
+3. Provide a name for the new action.
+4. Choose the `Login / Post Login` trigger type and the recommended runtime.
+5. Paste the following snippet in `Script` text box.
 ```js
-function (user, context, callback) {
+exports.onExecutePostLogin = async (event, api) => {
   const namespace = 'http://kinvolk.io';
-  const assignedRoles = (context.authorization || {}).roles;
 
-  let idTokenClaims = context.idToken || {};
-  let accessTokenClaims = context.accessToken || {};
-
-  idTokenClaims[`${namespace}/roles`] = assignedRoles;
-  accessTokenClaims[`${namespace}/roles`] = assignedRoles;
-
-  context.idToken = idTokenClaims;
-  context.accessToken = accessTokenClaims;
-  callback(null, user, context);
-}
+  if (event.authorization) {
+    api.accessToken.setCustomClaim(`${namespace}/roles`, event.authorization.roles);
+    api.idToken.setCustomClaim(`${namespace}/roles`, event.authorization.roles);
+  }
+};
 ```
-Now the rule to add the roles to the token is setup, the roles will be available in the key `http://kinvolk.io/roles`.
+6. Click on `Deploy`. Now the action to add the roles to the token is setup, but then we yet have to create the trigger for it.
+7. Go to `Triggers` under the `Actions` main menu.
+8. Choose the `post-login` flow.
+9. Find the newly created action on the right side (switch to the `custom` tab).
+10. Drag & Drop the action between the `Start` and `Complete` steps in the flow.
+11. Click `Apply`.
+   
+Now the action that adds the roles to the token will be triggered after each login and the roles will be available in the key `http://kinvolk.io/roles`.
 
 Note: The `oidc-roles-path` argument accepts a JSONPath to fetch roles from the token, in this case set the value to `http://kinvolk\.io/roles`.
 
 <p align="center">
-  <img width="100%" src="../images/auth0-token.gif">
+  <img width="100%" src="../images/auth0-actions.gif">
 </p>
 
 # Preparing Dex with github connector as an OIDC provider for Nebraska
