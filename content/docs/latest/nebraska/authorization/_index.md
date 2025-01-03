@@ -160,7 +160,7 @@ exports.onExecutePostLogin = async (event, api) => {
   }
 };
 ```
-6. Click on `Deploy`. Now the action to add the roles to the token is setup, but the we yet have to create the trigger for it.
+6. Click on `Deploy`. Now the action to add the roles to the token is setup, but then we yet have to create the trigger for it.
 7. Go to `Triggers` under the `Actions` main menu.
 8. Choose the `post-login` flow.
 9. Find the newly created action on the right side (switch to the `custom` tab).
