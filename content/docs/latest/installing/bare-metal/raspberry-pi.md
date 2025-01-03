@@ -124,14 +124,16 @@ The options that we will be using with the scripts are:
 ```json
 {
   "ignition": {
-    "config": {},
-    "security": {
-      "tls": {}
-    },
-    "timeouts": {},
-    "version": "2.3.0"
+    "version": "3.4.0"
   },
-  "networkd": {},
+  "kernelArguments": {
+    "shouldExist": [
+      "console=ttyAMA0,115200n8",
+      "console=tty1",
+      "flatcar.autologin",
+      "usbcore.autosuspend=-1"
+    ]
+  }
   "passwd": {
     "users": [
       {
@@ -141,31 +143,7 @@ The options that we will be using with the scripts are:
         ]
       }
     ]
-  },
-  "storage": {
-    "files": [
-      {
-        "filesystem": "OEM",
-        "path": "/grub.cfg",
-        "append": true,
-        "contents": {
-          "source": "data:,set%20linux_console%3D%22console%3DttyAMA0%2C115200n8%20console%3Dtty1%22%0Aset%20linux_append%3D%22flatcar.autologin%20usbcore.autosuspend%3D-1%22%0A",
-          "verification": {}
-        },
-        "mode": 420
-      }
-    ],
-    "filesystems": [
-      {
-        "mount": {
-          "device": "/dev/disk/by-label/OEM",
-          "format": "btrfs"
-        },
-        "name": "OEM"
-      }
-    ]
-  },
-  "systemd": {}
+  }
 }
 ```
 
