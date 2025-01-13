@@ -119,6 +119,8 @@ For example:
 nebraska -enable-syncer=true -syncer-packages-url=https://mysepcialstorage.io/flatcar/{{ARCH}}/{{VERSION}}
 ```
 
+**Note**: To synchronize packages from upstream servers, some users may still rely on the official repository but may want to override the syncer packages URL to bypass a corporate proxy. For such cases, they should always include the -usr suffix in their URL template, as it aligns with the official Flatcar directory naming convention: `-syncer-packages-url=https:///mydomain.example/raw-proxy-flatcar/{{ARCH}}-usr/{{VERSION}}`.
+
 ## Managing updates for your own applications
 
 In addition to managing updates for Flatcar Container Linux, you can use Nebraska for other applications as well.
