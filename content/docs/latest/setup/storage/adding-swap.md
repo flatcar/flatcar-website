@@ -64,9 +64,7 @@ The following commands, run as root, will make a 1GiB file suitable for use as s
 
 ```shell
 mkdir -p /var/vm
-fallocate -l 1024m /var/vm/swapfile1
-chmod 600 /var/vm/swapfile1
-mkswap /var/vm/swapfile1
+mkswap --size 1024m --file /var/vm/swapfile1
 ```
 
 ### Creating the systemd unit file
@@ -169,9 +167,7 @@ systemd:
         [Service]
         Type=oneshot
         ExecStart=/usr/bin/mkdir -p /var/vm
-        ExecStart=/usr/bin/fallocate -l 1024m /var/vm/swapfile1
-        ExecStart=/usr/bin/chmod 600 /var/vm/swapfile1
-        ExecStart=/usr/sbin/mkswap /var/vm/swapfile1
+        ExecStart=/usr/bin/mkswap --size 1024m --file /var/vm/swapfile1
         RemainAfterExit=true
 ```
 
