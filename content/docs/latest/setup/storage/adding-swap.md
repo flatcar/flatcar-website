@@ -62,6 +62,9 @@ systemd provides a specialized `.swap` unit file type which may be used to activ
 
 The following commands, run as root, will make a 1GiB file suitable for use as swap.
 
+> From Flatcar 4186, one can directly use mkswap to create a swap file as follow. For older Flatcar versions, you still need to create a swap file with `dd if=/dev/zero of=/var/vm/swapfile1`, `chmod 600 /var/vm/swapfile1` and `mkswap /var/vm/swapfile1`
+
+
 ```shell
 mkdir -p /var/vm
 mkswap --size 1024m --file /var/vm/swapfile1
