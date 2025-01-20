@@ -32,7 +32,7 @@ curl -X POST \
 -H 'Content-Type: application/json' \
 -H 'Accept: application/json' \
 -H 'X-Auth-Token: <API_TOKEN>' \
--d '{"hostname": "<HOSTNAME>", "plan": "c3.small.x86", "facility": "da11", "operating_system": "flatcar_stable", "userdata": "<USERDATA>"}' \
+-d '{"hostname": "<HOSTNAME>", "plan": "c3.small.x86", "metro": "da", "operating_system": "flatcar_stable", "userdata": "<USERDATA>"}' \
 https://api.equinix.com/metal/v1/projects/<PROJECT_ID>/devices
 ```
 
@@ -43,7 +43,7 @@ Double quotes in the `<USERDATA>` value must be escaped such that the request bo
 If you need to run a Flatcar Container Linux image which is not available through the OS option in the API, you can boot via 'Custom iPXE'.
 This is the case for ARM64 images right now as they are not available via Equinix Metal's API.
 
-Assuming you want to run boot an Alpha image via iPXE on a `c2.large.arm` machine, you have to provide this URL for 'Custom iPXE Settings':
+Assuming you want to run boot an Alpha image via iPXE on a [`c3.large.arm64`](https://deploy.equinix.com/product/servers/c3-large-arm64/) machine, you have to provide this URL for 'Custom iPXE Settings':
 
 ```text
 https://alpha.release.flatcar-linux.net/arm64-usr/current/flatcar_production_packet.ipxe
@@ -148,15 +148,16 @@ Now that you have a machine booted it is time to play around. Check out the [Fla
 
 ## Terraform
 
-The [`metal`](https://registry.terraform.io/providers/equinix/metal/latest/docs) Terraform Provider allows to deploy machines in a declarative way.
+The [`equinix`](https://registry.terraform.io/providers/equinix/equinix/latest/docs) Terraform Provider allows to deploy machines in a declarative way.
 Read more about using Terraform and Flatcar [here](../../provisioning/terraform/).
 
-The following Terraform v0.13 module may serve as a base for your own setup.
+The following Terraform v1+ module may serve as a base for your own setup.
 
 You can clone the setup from the [Flatcar Terraform examples repository](https://github.com/flatcar/flatcar-terraform/tree/main/equinix-metal-aka-packet) or create the files manually as we go through them and explain each one.
 
 ```
 git clone https://github.com/flatcar/flatcar-terraform.git
+cd flatcar-terraform
 # From here on you could directly run it, TLDR:
 cd equinix-metal-aka-packet
 export METAL_AUTH_TOKEN=...
@@ -170,11 +171,14 @@ Start with a `metal-machines.tf` file that contains the main declarations:
 
 ```
 terraform {
-  required_version = ">= 0.13"
+  required_version = "~> 1.0"
+  provider_meta "equinix" {
+    module_name = "flatcar-website-example"
+  }
   required_providers {
     metal = {
-      source  = "equinix/metal"
-      version = "3.3.0-alpha.1"
+      source  = "equinix/equinix"
+      version = "~> 1.0"
     }
     ct = {
       source  = "poseidon/ct"
@@ -187,7 +191,7 @@ terraform {
   }
 }
 
-resource "metal_device" "machine" {
+resource "equinix_metal_device" "machine" {
   for_each         = toset(var.machines)
   hostname         = "${var.cluster_name}-${each.key}"
   plan             = var.plan
@@ -232,15 +236,15 @@ variable "ssh_keys" {
   description = "SSH public keys for user 'core', only needed if you don't have it specified in the Equinix Metal Project"
 }
 
-variable "facilities" {
+variable "metro" {
   type        = list(string)
-  default     = ["sjc1"]
-  description = "List of facility codes with deployment preferences"
+  default     = ["sv"]
+  description = "List of metro codes with deployment preferences"
 }
 
 variable "plan" {
   type        = string
-  default     = "t1.small.x86"
+  default     = "c3.small.x86"
   description = "The device plan slug"
 }
 
@@ -267,8 +271,8 @@ First create a `terraform.tfvars` file with your settings:
 ```
 cluster_name = "mycluster"
 machines     = ["mynode"]
-plan         = "t1.small.x86"
-facilities   = ["sjc1"]
+plan         = "c3.small.x86"
+metros   = ["sv"]
 project_id   = "1...-2...-3...-4...-5..."
 ssh_keys     = ["ssh-rsa AA... me@mail.net"]
 ```
