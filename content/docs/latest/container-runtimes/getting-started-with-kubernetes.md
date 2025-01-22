@@ -23,7 +23,7 @@ This is a compatibility matrix between Flatcar and Kubernetes deployed using van
 | Alpha                                | :large_orange_diamond: | :large_orange_diamond: |:large_orange_diamond: |:white_check_mark: |:white_check_mark: |:white_check_mark: |
 | Beta                                 | :large_orange_diamond: | :large_orange_diamond: |:large_orange_diamond: |:white_check_mark: |:white_check_mark: |:white_check_mark: |
 | Stable                               | :large_orange_diamond: | :large_orange_diamond: |:large_orange_diamond: |:white_check_mark: |:white_check_mark: |:white_check_mark: |
-| LTS (2023)                           | :large_orange_diamond: | :large_orange_diamond: |:large_orange_diamond: |:white_check_mark: |:white_check_mark: |:white_check_mark: |
+| LTS (2024)                           | :large_orange_diamond: | :large_orange_diamond: |:large_orange_diamond: |:white_check_mark: |:white_check_mark: |:white_check_mark: |
 
 :large_orange_diamond:: The version is not tested anymore before a release but was known for working.
 
