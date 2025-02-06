@@ -26,10 +26,10 @@ _Note_: This getting started guide assumes you have already installed and
 configured the [linode-cli][linode-cli].
 
 First, retrieve an Akamai-branded image.
-The following example uses URLs for the "alpha" release channel.
+The following example uses URLs for the "stable" release channel.
 
 ```bash
-wget https://alpha.release.flatcar-linux.net/amd64-usr/current/flatcar_production_akamai_image.bin.gz
+wget https://stable.release.flatcar-linux.net/amd64-usr/current/flatcar_production_akamai_image.bin.gz
 ```
 
 Now you can use the linode-cli(1) tool to upload the image.
@@ -39,12 +39,12 @@ variable for later use:
 ```bash
 linode-cli image-upload \
     --region "${REGION}" \
-    --label "flatcar-linux-alpha" \
-    --description "Flatcar Linux (alpha)" \
+    --label "flatcar-linux-stable" \
+    --description "Flatcar Linux (stable)" \
     --cloud-init \
     flatcar_production_akamai_image.bin.gz
 
-export IMAGE_ID=$(linode-cli images list --label flatcar-linux-alpha --json | jq -r '.[0].id')
+export IMAGE_ID=$(linode-cli images list --label flatcar-linux-stable --json | jq -r '.[0].id')
 ```
 
 _Note_: User image uploads are currently limited to 6GiB when being uploaded, as
