@@ -114,7 +114,7 @@ The steps to achieve this are the following:
  2. You can find the official packages here: https://update.release.flatcar-linux.net
  3. Download/Upload the packages you want to server to that folder: `wget -o- https://update.release.flatcar-linux.net/{{architecture}}-usr/{{version}}/flatcar_production_update.gz` or alternatively `cp /media/usb/flatcar_production_update.gz /PATH/TO/STORE/PACKAGES/`.
  4. Start your nebraska instance with the following options `nebraska -host-flatcar-packages=true -flatcar-packages-path=/PATH/TO/STORE/PACKAGES -nebraska-url=http://your.Nebraska.host:port`
- 5. Register the new package in Nebraska too. Go to your application > Add Package > Fill the form, where the `URL` and the `filename` should match with the options you provided earlier.
+ 5. Register the new package in Nebraska too. Go to your application > Add Package > Fill the form, where the `URL` and the `filename` should match with the options you provided earlier
     For example, if your ip address is `172.31.239.34`, and if the dedicated directory to store the packages is: `/tmp/flatcar/`, while the package is in the subdir `/tmp/flatcar/4230.0.0`, you start nebraska with the following params: `-host-flatcar-packages=true`, `-flatcar-packages-path=/tmp/flatcar`, and `-nebraska-url=http://172.31.239.34:8000`, then the filled form should look like:
 
 <p align="center">
