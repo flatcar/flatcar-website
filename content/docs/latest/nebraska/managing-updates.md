@@ -106,7 +106,7 @@ This functionality is turned off by default. So to make Nebraska host the Flatca
 
 #### Hosting without synchronization
 
-You can use Nebraska to host and serve the packages entierly without synchronization. This can be useful for example if you have an isolated environment without internet access.
+You can use Nebraska to host and serve the packages entirely without synchronization. This can be useful for example if you have an isolated environment without internet access (e.g air-gapped environment)
 
 The steps to achieve this are the following:
 
