@@ -77,11 +77,11 @@ storage:
 
 A simple way to extend Flatcar is to use the systemd-sysext images from the [sysext-bakery GitHub repo](https://github.com/flatcar/sysext-bakery). It [publishes prebuilt images](https://github.com/flatcar/sysext-bakery/releases) that bundle third-party binaries. The repo README provides a Butane config example for updating the extensions with `systemd-sysupdate`.
 
-[Here's](https://github.com/flatcar/sysext-bakery?tab=readme-ov-file#available-extensions) a matrix for the community-supported extensions.
+[Here's](https://flatcar.github.io/sysext-bakery/#what-extensions-are-available) a matrix for the community-supported extensions.
 
 ## Bundle extensions in a Flatcar image
 
-The [`bake_flatcar_image.sh`](https://github.com/flatcar/sysext-bakery?tab=readme-ov-file#baking-sysexts-into-flatcar-os-images) helper in the [sysext-bakery GitHub repo](https://github.com/flatcar/sysext-bakery) can be used to customize a Flatcar release image by adding your extension images into the rootfs.
+The [`bake_flatcar_image.sh`](https://flatcar.github.io/sysext-bakery/#baking-sysexts-into-flatcar-os-images) helper in the [sysext-bakery GitHub repo](https://github.com/flatcar/sysext-bakery) can be used to customize a Flatcar release image by adding your extension images into the rootfs.
 
 ## The sysext format
 
@@ -180,7 +180,7 @@ Please make also sure that your don't have a `containerd.service` drop in file u
 
 From Flatcar 3510.2.0, it is possible to use the `systemd-sysupdate` tool that covers the task of downloading newer versions of your sysext image at runtime from a location you specify.
 
-The [sysext-bakery repo README](https://github.com/flatcar/sysext-bakery#consuming-the-published-images) has examples for Butane configs that consume the `sysext-bakery` images and keep them up-to-date with `systemd-sysupdate`. You can adapt the examples to other images of the `systemd-bakery` repo or to your custom images hosted elsewhere. An easy method is to fork the repo and tweak the list of released images to your liking.
+The [sysext-bakery documentation][sysext-bakery] has examples for Butane configs that consume the `sysext-bakery` images and keep them up-to-date with `systemd-sysupdate`. You can adapt the examples to other images of the `systemd-bakery` repo or to your custom images hosted elsewhere. An easy method is to fork the repo and tweak the list of released images to your liking.
 
 ## Debugging
 
@@ -208,5 +208,5 @@ To get more information about found incompatibilities during merging, enable the
 sudo SYSTEMD_LOG_LEVEL=debug systemd-sysext refresh
 ```
 
-[sysext-bakery]: https://github.com/flatcar/sysext-bakery
+[sysext-bakery]: https://flatcar.github.io/sysext-bakery
 [zfsextension]: ../../setup/storage/zfs

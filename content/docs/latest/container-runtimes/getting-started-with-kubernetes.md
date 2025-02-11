@@ -384,5 +384,5 @@ Based on users feedback, Flatcar is known to work with Kubespray - you can read 
 [kubespray-documentation]: https://kubespray.io
 [kured]: https://kured.dev/docs/
 [openstack]: https://cluster-api-openstack.sigs.k8s.io/clusteropenstack/configuration.html#ignition-based-images
-[sysext-bakery]: https://github.com/flatcar/sysext-bakery
+[sysext-bakery]: https://flatcar.github.io/sysext-bakery/
 [typhoon]: https://typhoon.psdn.io/
