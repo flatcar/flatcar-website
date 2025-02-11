@@ -122,7 +122,7 @@ The steps to achieve this are the following:
 </p>
 
  6. Assign the newly added package to your channel
- 7. Watch your flatcar nodes getting updates with the selfhosted package.
+ 7. Watch your flatcar nodes getting updates with the selfhosted package
 
 ### Overriding synchronized packages' URLs
 
