@@ -54,7 +54,7 @@ The chosen partition is initially mounted at `/sysusr` by the initrd using [Flat
 The OEM partition is mounted at `/usr/share/oem`.
 
 [manual rollback docs]: ../../setup/debug/manual-rollbacks
-[GRUB patches]: https://github.com/flatcar/scripts/tree/main/sdk_container/src/third_party/coreos-overlay/sys-boot/grub/files
+[GRUB patches]: https://github.com/flatcar/scripts/tree/main/sdk_container/src/third_party/coreos-overlay/coreos/user-patches/sys-boot/grub
 [supply chain docs]: ../supply-chain
 [verity hash code]: https://github.com/flatcar/scripts/blob/17ea3f2265df0c146b4b811eb9fad1abe35b21a2/build_library/build_image_util.sh#L820-L827
 [dracut modules]: https://github.com/flatcar/bootengine/tree/flatcar-master/dracut
