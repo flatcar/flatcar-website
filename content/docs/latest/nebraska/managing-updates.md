@@ -146,4 +146,4 @@ nebraska -enable-syncer=true -syncer-packages-url=https://mysepcialstorage.io/fl
 
 In addition to managing updates for Flatcar Container Linux, you can use Nebraska for other applications as well.
 
-In the [updater directory](https://github.com/flatcar/nebraska/tree/main/updater) there are some sample helpers that can be useful to create your own updaters that talk to Nebraska or even embed them into your own applications. Check out the package docs and the example test files for furhter details.
+In the [updater directory](https://github.com/flatcar/nebraska/tree/main/updater) there are some sample helpers that can be useful to create your own updaters that talk to Nebraska or even embed them into your own applications. Check out the package docs and the example test files for further details.
