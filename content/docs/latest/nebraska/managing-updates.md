@@ -119,7 +119,7 @@ The steps to achieve this are the following:
     For example, if your ip address is `172.31.239.34`, and if the dedicated directory to store the packages is `/tmp/flatcar/`, while the package is in the subdir `/tmp/flatcar/4230.0.0`, you start nebraska with the following params: `-host-flatcar-packages=true`, `-flatcar-packages-path=/tmp/flatcar`, and `-nebraska-url=http://172.31.239.34:8000`, then the filled form should look like:
 
 <p align="center">
-  <img width="50%"  src="./images/nebraska-hosts-packages.png">
+  <img width="50%" style="max-width:50%" src="./images/nebraska-hosts-packages.png">
 </p>
 
  6. Assign the newly added package to your channel
@@ -146,6 +146,4 @@ nebraska -enable-syncer=true -syncer-packages-url=https://mysepcialstorage.io/fl
 
 In addition to managing updates for Flatcar Container Linux, you can use Nebraska for other applications as well.
 
-In the `updaters/lib` directory there are some sample helpers that can be useful to create your own updaters that talk to Nebraska or even embed them into your own applications.
-
-In the `updaters/examples` you'll find a sample minimal application built using [grace](https://github.com/facebookgo/grace) that is able to update itself using Nebraska in a graceful way.
+In the [updater directory](https://github.com/flatcar/nebraska/tree/main/updater) there are some sample helpers that can be useful to create your own updaters that talk to Nebraska or even embed them into your own applications. Check out the package docs and the example test files for furhter details.
