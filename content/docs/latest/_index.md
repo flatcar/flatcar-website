@@ -154,6 +154,7 @@ some guides to help you choose and make use of the different runtimes.
  * [Use a custom Docker or containerd version][use-a-custom-docker-or-containerd-version]
  * [Authenticating to Container registries][registry-authentication]
  * [Getting started with Kubernetes][kubernetes]
+ * [High availability Kubernetes][ha-kubernetes]
 
 ### Developer guides and Reference
 APIs and troubleshooting guides for working with Flatcar Container Linux.
@@ -255,6 +256,7 @@ Flatcar tutorial to deep dive into some Flatcar fundamental concepts.
 [openstack]: installing/cloud/openstack
 [brightbox]: installing/cloud/brightbox
 [kubernetes]: container-runtimes/getting-started-with-kubernetes
+[ha-kubernetes]: container-runtimes/high-availability-kubernetes
 [using-nvidia]: setup/customization/using-nvidia
 [tutorial-introduction]: tutorial/
 [tutorial-hands-on-1]: tutorial/hands-on-1
