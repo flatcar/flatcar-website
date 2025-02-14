@@ -16,7 +16,7 @@ To build for these releases, please use `/usr/lib64/modules` instead of `/usr/li
 
 To test the steps below in a local QEmu instance, you'll need to add extra storage to that instance.
 The default 6GB rootfs won't suffice as the devcontainer itself is ~6GB (uncompressed; compressed it's ~480MB).
-The simplest was to do this is to forward the local host directory to qemu via 9p.
+The simplest way to do this is to forward the local host directory to qemu via 9p.
 
 Start the Flatcar instance with:
 ```bash
@@ -24,7 +24,7 @@ Start the Flatcar instance with:
 ```
 Then mount the directory inside the instance and change into the mounted filesystem:
 ```bash
-sudo mount -t 9p -o trans=virtio dara /mnt -oversion=9p2000.L
+sudo mount -t 9p -o trans=virtio data /mnt -oversion=9p2000.L
 sudo mkdir /mnt/work
 sudo chown core:core /mnt/work
 cd /mnt/work
