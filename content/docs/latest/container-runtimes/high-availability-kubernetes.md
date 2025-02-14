@@ -19,7 +19,7 @@ properties:
 | ---------     | ----------   | ----           | ------        | ------- |
 | virt-node1-ha | node1-cp     | 192.168.122.31 | Control Plane | CRIO    |
 | virt-node2-ha | node2-cp     | 192.168.122.32 | Control Plane | CRIO    |
-| virt-node3-ha | node3-worker | 192.168.122.33 | Control Plane | CRIO    |
+| virt-node3-ha | node3-cp     | 192.168.122.33 | Control Plane | CRIO    |
 | virt-node4-ha | node4-worker | 192.168.122.34 | Worker        | CRIO    |
 | virt-node5-ha | node5-worker | 192.168.122.35 | Worker        | CRIO    |
 
