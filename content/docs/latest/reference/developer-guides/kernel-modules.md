@@ -7,18 +7,37 @@ aliases:
 
 ## Create a writable overlay
 
-The kernel modules directory `/usr/lib64/modules` is read-only on Flatcar Container Linux. A writable overlay can be mounted over it to allow installing new modules.
+The kernel modules directory `/usr/lib/modules` is read-only on Flatcar Container Linux. A writable overlay can be mounted over it to allow installing new modules.
+
+**NOTE:** On older releases - 3115.0.0 and before, published before April 2022 - `/usr/lib64/modules` was used instead.
+To build for these releases, please use `/usr/lib64/modules` instead of `/usr/lib/modules` (but ideally, update to a more recent version).
+
+### Local test environment
+
+To test the steps below in a local QEmu instance, you'll need to add extra storage to that instance.
+The default 6GB rootfs won't suffice as the devcontainer itself is ~6GB (uncompressed; compressed it's ~480MB).
+The simplest was to do this is to forward the local host directory to qemu via 9p.
+
+Start the Flatcar instance with:
+```bash
+./flatcar_production_qemu_uefi.sh [...other options...] -virtfs local,path="$(pwd)",mount_tag="data",security_model=none,id=data
+```
+Then mount the directory inside the instance and change into the mounted filesystem:
+```bash
+sudo mount -t 9p -o trans=virtio dara /mnt -oversion=9p2000.L
+sudo mkdir /mnt/work
+sudo chown core:core /mnt/work
+cd /mnt/work
+```
+
+## Prepare the node
 
 ```shell
 modules=/opt/modules  # Adjust this writable storage location as needed.
 sudo mkdir -p "${modules}" "${modules}.wd"
-sudo mount \
-    -o "lowerdir=/usr/lib64/modules,upperdir=${modules},workdir=${modules}.wd" \
-    -t overlay overlay /usr/lib64/modules
 ```
 
-The following systemd unit can be written to `/etc/systemd/system/usr-lib64-modules.mount`.
-
+Create a mount unit to use `/opt/modules` at boot - `/etc/systemd/system/usr-lib-modules.mount`:
 ```ini
 [Unit]
 Description=Custom Kernel Modules
@@ -28,36 +47,30 @@ ConditionPathExists=/opt/modules
 [Mount]
 Type=overlay
 What=overlay
-Where=/usr/lib64/modules
-Options=lowerdir=/usr/lib64/modules,upperdir=/opt/modules,workdir=/opt/modules.wd
+Where=/usr/lib/modules
+Options=lowerdir=/usr/lib/modules,upperdir=/opt/modules,workdir=/opt/modules.wd
 
 [Install]
 WantedBy=local-fs.target
 ```
 
-Enable the unit so this overlay is mounted automatically on boot.
+Enable the unit so this overlay becomes available:
 
 ```shell
-sudo systemctl enable usr-lib64-modules.mount
-```
-
-An alternative is to mount the overlay automatically when the system boots by adding the following line to `/etc/fstab` (creating it if necessary).
-
-```fstab
-overlay /lib/modules overlay lowerdir=/lib/modules,upperdir=/opt/modules,workdir=/opt/modules.wd,nofail 0 0
+sudo systemctl enable --now usr-lib-modules.mount
 ```
 
 ## Prepare a Flatcar Container Linux development container
 
-Read system configuration files to determine the URL of the development container that corresponds to the current Flatcar Container Linux version.
-
+Flatcar release version and group (aka Channel) are stored in info files.
+We source these files to construct the devcontainer URL:
 ```shell
 . /usr/share/flatcar/release
 . /usr/share/flatcar/update.conf
 url="https://${GROUP:-stable}.release.flatcar-linux.net/${FLATCAR_RELEASE_BOARD}/${FLATCAR_RELEASE_VERSION}/flatcar_developer_container.bin.bz2"
 ```
 
-Download, decompress, and verify the development container image.
+Now download, decompress, and verify the development container image.
 
 ```shell
 curl -f -L -O https://www.flatcar.org/security/image-signing-key/Flatcar_Image_Signing_Key.asc
@@ -68,10 +81,11 @@ curl -L "${url}" |
 ```
 
 Start the development container with the host's writable modules directory mounted into place.
-
+Since the container requires access to loopback devices, `--capability=CAP_NET_ADMIN` is required.
 ```shell
 sudo systemd-nspawn \
-    --bind=/usr/lib64/modules \
+    --bind=/usr/lib/modules \
+    --capability=CAP_NET_ADMIN \
     --image=flatcar_developer_container.bin
 ```
 
@@ -86,7 +100,7 @@ make -C /usr/src/linux modules_prepare
 
 ## Build and install kernel modules
 
-At this point, upstream projects' instructions for building their out-of-tree modules should work in the Flatcar Container Linux development container. New kernel modules should be installed into `/usr/lib64/modules`, which is bind-mounted from the host, so they will be available on future boots without using the container again.
+At this point, upstream projects' instructions for building their out-of-tree modules should work in the Flatcar Container Linux development container. New kernel modules should be installed into `/usr/lib/modules`, which is bind-mounted from the host, so they will be available on future boots without using the container again.
 
 In case the installation step didn't update the module dependency files automatically, running the following command will ensure commands like `modprobe` function correctly with the new modules.
 
