@@ -5,14 +5,14 @@ draft: false
 weight: 12
 ---
 
-After you have create a kubernetes cluster using the [getting started
+After you have created a kubernetes cluster using the [getting started
 guide](./getting-started-with-kubernetes.md), we can take a look at a more
 complex example that involves a highly available control plane nodes and
 dedicated worker nodes.
 
 ## Architecture
 
-This documentation will walk you through createing 5 VMs with the following
+This documentation will walk you through creating 5 VMs with the following
 properties:
 
 | VM Name       | Hostname     | IP             | Role          | Runtime |
@@ -25,7 +25,7 @@ properties:
 
 ### Control Plane
 
-Each control plane node will be responsible for running the regular kubernetes
+Each control plane node will be responsible for running the regular Kubernetes
 control plane components, as well as HAProxy and Keepalived.  The api-server
 with have a VIP of `192.168.122.30`.  HAProxy and Keepalived can be installed
 through various methods, but this article will show you how to install them
@@ -34,7 +34,7 @@ using [Quadlet][Quadlet] through Ignition.
 ### Bootstrap Sequence
 
 We will install the necessary systemd files to use kubeadm to bootstrap a
-cluster.  This means essentially that `node1-cp` will run `kubeadm init ...`,
+cluster. This means essentially that `node1-cp` will run `kubeadm init ...`,
 `node2-cp` and `node3-cp` will run `kubeadm join --control-plane ...`, and the
 worker nodes will run `kubeadm join ...`.  This is a [very common pattern][HA K8S]
 for bootstrapping a kubernetes cluster.
@@ -42,12 +42,12 @@ for bootstrapping a kubernetes cluster.
 Typically, one node will call `kubeadm init ...`, then `kubeadm print
 join-token`, which then can be copied between nodes.  The problem with this
 approach is that it requires manual intervention at install-time which sort-of
-defeats the purpose of igntion.  Luckily, we can provide all the information
+defeats the purpose of Ignition. Luckily, we can provide all the information
 ahead of time so nothing needs to be copied between nodes and the cluster
 installation can still be secure and hands-off.
 
 In order to do this, there are a few things that we need to pre-generate so
-that we can pass them to the `kubeadm` commands via ignition.  These are:
+that we can pass them to the `kubeadm` commands via ignition. These are:
 
 - /etc/kubernetes/pki/ca.crt
 - /etc/kubernetes/pki/ca.key
@@ -59,10 +59,10 @@ that we can pass them to the `kubeadm` commands via ignition.  These are:
 - /etc/kubernetes/pki/etcd/ca.key
 
 We also will generate an initial join token and hash of the CA and provide that
-in an EnvironementFile called `/etc/kubernetes/certs.conf`.
+in an EnvironmentFile called `/etc/kubernetes/certs.conf`.
 
 Fortunately, this can all be created via script, called
-`generate-k8s-certs.sh`.  Before we talk about the script thouugh, we should
+`generate-k8s-certs.sh`.  Before we talk about the script, we should
 talk about the overall file structure.
 
 ## Files
@@ -104,7 +104,7 @@ butane/
 └── node5-ha.yaml
 ```
 
-This already seems a bit unwieldy, so lets create a `Makefile` to help build everything.
+This already seems a bit unwieldy, so let's create a `Makefile` to help build everything.
 
 ### Makefile
 
@@ -176,7 +176,7 @@ rm-virt-node%:
 
 # Create token butane file
 butane/00_base-k8s-token.yaml:
-	./Scripts/generate-k8s-certs.sh
+	./scripts/generate-k8s-certs.sh
 
 # Create all ignition configs
 new-cluster: clean butane/00_base-k8s-token.yaml $(IGN)
@@ -216,7 +216,7 @@ ign/%.ign:
 
 # Create token butane file
 butane/00_base-k8s-token.yaml:
-	./Scripts/generate-k8s-certs.sh
+	./scripts/generate-k8s-certs.sh
 ```
 
 These lines show us how to to build each ignition file using a container.  We
@@ -229,7 +229,7 @@ heredocs.  In case you actually value your time, the script is provided here in
 full.  As always, please make sure you understand what commands you are running
 before running a script you found on the internet.
 
-<details><summary>Scripts/generate-k8s-certs.sh</summary>
+<details><summary>scripts/generate-k8s-certs.sh</summary>
 
 ```bash
 #!/usr/bin/env bash
@@ -333,15 +333,17 @@ echo "YAML file '$output_yaml' has been successfully overwritten!"
 </details>
 <br>
 
-Now we we can save this script in `Scripts/generate-k8s-certs.sh` run `make
+Now we we can save this script in `scripts/generate-k8s-certs.sh` run `make
 butane/00_base-k8s-token.yaml` and check out our SSL goodies.  Treat this file
 like a password.  If it gets made public (for anything other than test
-clusters) make sure you recreate them.
+clusters) make sure you recreate them. It's usually recommended to not provide
+sensitive information via Ignition configuration files. This is only for demo
+purposes.
 
 ### Butane Content
 
 Now that we have the basic structure in place, we can get started filling out
-the content of our butane files.  We will first look at the "base" configs,
+the content of our butane files. We will first look at the "base" configs,
 then look at node specific configs.
 
 #### Base
@@ -502,11 +504,11 @@ systemd:
 <br>
 
 This base config does a couple of things.  It disables the `docker` and
-`containerd` systexts, and installs the `kubernetes` and `crio` systexs.  It
-also creates a systemd unit to download the cilium cli.  This cli may only be
-needed on the first node, but we install it on all hosts to make day 2
-operations easier.  We also disable `locksmithd` to prepare for using
-[Kured][Kured].
+`containerd` sysexts, installs `kubernetes` and `crio` sysexts, and enables
+the `zfs` and `podman` sysexts. It also creates a systemd unit to download the
+cilium cli. This cli may only be needed on the first node, but we install it
+on all hosts to make day 2 operations easier. We also disable `locksmithd` to
+prepare for using [Kured][Kured].
 
 <details><summary>butane/10_base-ha.yaml</summary>
 
@@ -726,7 +728,7 @@ systemd:
       enabled: true
       contents: |
         [Unit]
-        Description=Install cilium to running k8s cluster
+        Description=Install Cilium as Kubernetes CNI
         Requires=kubeadm.service
         After=kubeadm.service
         [Service]
@@ -740,19 +742,19 @@ systemd:
 <br>
 
 This service defines what to do when intializing the kubernetes cluster.  This
-only needs to be run on one node.  Essentially we a calling `kubeadm init ...`
-and `cilium install ...`, but its worth pointing out the dependencies here.  We
-specify that kubeadm should only start AFTER the haproxy service (which is
-generated after we specify the haproxy container) because that is
-load-balancing our api-server VIP that's defined by keepalived.  We also don't
-install cilium to the cluster until there is a cluster to install to.  So
+only needs to be run on one node.  Essentially we are calling `kubeadm init
+...` and `cilium install ...`, but its worth pointing out the dependencies
+here. We specify that kubeadm should only start AFTER the haproxy service
+(which is generated after we specify the haproxy container) because that is
+load-balancing our api-server VIP that's defined by keepalived. We also don't
+install Cilium to the cluster until there is a cluster to install to. So
 cilium can't start until kubeadm starts, kubeadm can't start until haproxy
-starts, and haproxy can't start until keepalived starts.  This ordering is
+starts, and haproxy can't start until keepalived starts. This ordering is
 important for an HA control plane.
         
 In the `kubeadm init ...` command, we also specify variables that are defined
 in `EnvironmentFile=/etc/kubernetes/kubeadm-env.conf` and
-`EnvironmentFile=/etc/kubernetes/certs.conf`.  This ensures we are using the
+`EnvironmentFile=/etc/kubernetes/certs.conf`. This ensures we are using the
 same secrets across all nodes, and since we pre-generated them, no information
 needs to be copied from node to node.
 
@@ -796,7 +798,7 @@ systemd:
 <br>
 
 This config specifies how to join the cluster as a control plane node using the
-information in the same `EnvironmentFile`s.  We also specify a `ExecStartPre`
+information in the same `EnvironmentFile`s. We also specify a `ExecStartPre`
 which essentially just sleeps until the first nodes api-server is available.
 
 <details><summary>butane/32_base-ha-join.yaml</summary>
@@ -904,9 +906,9 @@ storage:
 </details>
 <br>
 
-Here we define the first node.  We are including everything from the
+Here we define the first node. We are including everything from the
 `ign/30_base-ha-init.ign` config, as well as defining our hostname and static
-IP.  We also provide the keepalived config that specifies this node as the
+IP. We also provide the keepalived config that specifies this node as the
 `MASTER`.
 
 <details><summary>butane/node2-ha.yaml</summary>
@@ -1034,7 +1036,7 @@ storage:
 <br>
 
 These two files are similar in that they define the other two control plane
-nodes.  The main differences are the hostnames, IPs, and the priority in the
+nodes. The main differences are the hostnames, IPs, and the priority in the
 keepalived config.
 
 <details><summary>butane/node4-ha.yaml</summary>
@@ -1097,13 +1099,13 @@ storage:
 </details>
 <br>
 
-These final two configs specify the worker nodes.  Each inherits
+These final two configs specify the worker nodes. Each inherits
 `ign/32_base-ha-join.ign`, so we only need to specify the hostname and IP
 addresses.
 
 ## Running
 
-Now that we have all of our files define, we can actually spin up the cluster.
+Now that we have all of our files defined, we can actually spin up the cluster.
 We start by downloading the VM image, generating the configs, and running the
 VMs.
 
@@ -1114,10 +1116,10 @@ pool.
 
 Running `make verify-gpg` should download flatcars GPG key and import it.
 Then, running `make new-cluster` should generate our token file and generate
-all the ignition files from the butane configs.  Finally, running `make ha`
+all the Ignition files from the butane configs.  Finally, running `make ha`
 will create and run each VM.  This involves downloading a base VM image,
 verifying it with GPG, cloning the base image to create a working image, and
-copying the image (and igntion files) to `/var/lib/libvirt/images/flatcar`.
+copying the image (and Igntion files) to `/var/lib/libvirt/images/flatcar`.
 
 After that, we should have a running kubernetes cluster.  We can shut
 everything down by running `make rm-ha` or connect to a node via `virsh connect
