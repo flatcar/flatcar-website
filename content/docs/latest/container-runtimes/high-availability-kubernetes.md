@@ -8,7 +8,10 @@ weight: 12
 After you have created a kubernetes cluster using the [getting started
 guide](./getting-started-with-kubernetes.md), we can take a look at a more
 complex example that involves a highly available control plane nodes and
-dedicated worker nodes.
+dedicated worker nodes.  The result will be similar to a [Typhoon][Typhoon]
+cluster, but this version will be a little more "vanilla" and will run on
+libvirt VMs, which is not mentioned in their documentation as of time of
+writing.
 
 ## Architecture
 
@@ -1136,6 +1139,7 @@ and service by running `kubectl apply -f /etc/kubernetes/examples/nginx.yaml`.
 That's it!  You now have a fully functional, highly available kubernetes
 cluster running on your VMs!
 
+[Typhoon]: https://typhoon.psdn.io
 [Quadlet]: https://docs.podman.io/en/latest/markdown/podman-systemd.unit.5.html
 [HA K8S]: https://kubernetes.io/docs/setup/production-environment/tools/kubeadm/high-availability/
 [Kured]: https://kured.dev/
