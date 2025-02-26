@@ -373,55 +373,6 @@ storage:
       path: /etc/extensions/kubernetes.raw
       hard: false
   files:
-    - path: /etc/kubernetes/examples/nginx.yaml
-      contents:
-        inline: |
-          ---
-          apiVersion: v1
-          kind: Namespace
-          metadata:
-            labels:
-              kubernetes.io/metadata.name: examples
-            name: examples
-          spec:
-            finalizers:
-              - kubernetes
-          ---
-          apiVersion: apps/v1
-          kind: Deployment
-          metadata:
-            name: nginx
-            namespace: examples
-            labels:
-              app: nginx
-          spec:
-            replicas: 1
-            selector:
-              matchLabels:
-                app: nginx
-            template:
-              metadata:
-                labels:
-                  app: nginx
-              spec:
-                containers:
-                - name: nginx
-                  image: docker.io/library/nginx:latest
-                  ports:
-                  - containerPort: 80
-          ---
-          apiVersion: v1
-          kind: Service
-          metadata:
-            name: nginx-service
-            namespace: examples
-          spec:
-            type: NodePort
-            selector:
-              app: nginx
-            ports:
-              - port: 80
-                targetPort: 80
     - path: /etc/flatcar/enabled-sysext.conf
       contents:
         inline: |
@@ -1133,8 +1084,9 @@ node will be downloading things from the internet and automatically registering
 itself so you may not see all the nodes or see cilium in an error state for a
 few minutes.
 
-Once everything has settled, you can create an example namespace, deployment,
-and service by running `kubectl apply -f /etc/kubernetes/examples/nginx.yaml`.
+Once everything has settled, you can create an example deployment by running
+`kubectl apply -f
+https://raw.githubusercontent.com/kubernetes/website/main/content/en/examples/controllers/nginx-deployment.yaml`.
 
 That's it!  You now have a fully functional, highly available kubernetes
 cluster running on your VMs!
