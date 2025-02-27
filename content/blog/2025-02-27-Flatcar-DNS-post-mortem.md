@@ -25,7 +25,7 @@ However, Flatcar’s domain management is complex, involving multiple services: 
 
 When requesting the transfer, Flatcar did not intend for the LF to manage DNS.
 However, assuming the LF would need to configure NS and SOA for the domain, they uploaded the zone files and selected Yes for DNS transfer.
-The LF initiated the domain and the dns transfer with the incomplete zone files.
+The LF initiated the domain and the DNS transfer with the incomplete zone files.
 This led to some DNS information not being transferred. Specifically:
 
 * Vital Route 53 SOA records present in the zone files were omitted.
