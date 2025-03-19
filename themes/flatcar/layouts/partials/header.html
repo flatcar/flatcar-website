@@ -46,3 +46,27 @@
     </div>
   </div>
 </header>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  const header = document.querySelector('.header');
+
+  if (header) {
+    const scrollThreshold = 50; // Pixels to scroll before applying the scrolled class
+
+    // Check initial scroll position
+    if (window.scrollY > scrollThreshold) {
+      header.classList.add('scrolled');
+    }
+
+    // Add scroll event listener
+    window.addEventListener('scroll', function() {
+      if (window.scrollY > scrollThreshold) {
+        header.classList.add('scrolled');
+      } else {
+        header.classList.remove('scrolled');
+      }
+    });
+  }
+});
+</script>

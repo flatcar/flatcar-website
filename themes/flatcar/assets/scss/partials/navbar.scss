@@ -1,14 +1,15 @@
 
 .navbar {
   margin-top: 22px;
-
-  @include media-breakpoint-down(sm) {
-    padding-bottom: 20px !important;
-  }
+  transition: all 0.2s linear;
 
   .navbar_contact_button {
     @extend .btn-blue;
   }
+}
+
+#navbarToggler {
+    margin-top: 0.1rem;
 }
 
 .navbar-brand {
@@ -16,6 +17,7 @@
 
   img {
     max-height: 85px;
+    transition: all 0.3s ease;
   }
 }
 
