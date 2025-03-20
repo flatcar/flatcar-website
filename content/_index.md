@@ -1,5 +1,5 @@
 ---
-title: 'Open Source Linux-based OS for Hosting Containers'
+title: 'Open Source Linux-based OS Hosting Containers'
 link: https://flatcar-linux.org/
 logo: '/images/flatcar-logo.svg'
 logo_bg_img: 'product-bg-1'
@@ -28,6 +28,9 @@ hero:
   button:
     text: "Start using Flatcar"
     link: "/docs/latest/#getting-started"
+    footnote:
+      text: "Runs on more than {{}} machines in production"
+      count: "~70 000"
   style:
     class: header-bg-flatcar
     bgcolor: '#12172c'
@@ -42,14 +45,6 @@ community_links:
         - title: "GitHub"
           icon: "github"
           link: "https://github.com/flatcar"
-    - title: "Ask Questions & Connect"
-      items:
-        - title: "Matrix"
-          svg_path: "/images/matrix-icon.svg"
-          link: "https://app.element.io/#/room/#flatcar:matrix.org"
-        - title: "Slack"
-          icon: "slack"
-          link: "https://kubernetes.slack.com/archives/C03GQ8B5XNJ"
     - title: "Stay Updated & Follow Us"
       items:
         - title: "X"
@@ -61,6 +56,14 @@ community_links:
         - title: "Mastodon"
           icon: "mastodon"
           link: "https://hachyderm.io/@flatcar"
+    - title: "Ask Questions & Connect"
+      items:
+        - title: "Matrix"
+          svg_path: "/images/matrix-icon.svg"
+          link: "https://app.element.io/#/room/#flatcar:matrix.org"
+        - title: "Slack"
+          icon: "slack"
+          link: "https://kubernetes.slack.com/archives/C03GQ8B5XNJ"
 companies_sections:
   - title: Made possible by project sponsors including
     area: flatcar

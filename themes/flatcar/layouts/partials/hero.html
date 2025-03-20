@@ -29,6 +29,8 @@
     {{ partial "hero-svg-background.svg" (dict "index" 5 "width" 600 "height" 250 "strokeWidth" 3.2 "strokeColor" $svgColor "glow" true) }}
     {{ partial "hero-svg-background.svg" (dict "index" 6 "width" 480 "height" 200 "strokeWidth" 3.2 "strokeColor" $svgColor "glow" true) }}
     {{ partial "hero-svg-background.svg" (dict "index" 7 "width" 360 "height" 150 "strokeWidth" 4 "strokeColor" $svgColor "glow" true) }}
+    {{ partial "hero-svg-background.svg" (dict "index" 8 "width" 240 "height" 100 "strokeWidth" 4 "strokeColor" $svgColor "glow" true) }}
+    {{ partial "hero-svg-background.svg" (dict "index" 9 "width" 120 "height" 50 "strokeWidth" 4 "strokeColor" $svgColor "glow" true) }}
   </div>
 
   <div class="container">
@@ -42,7 +44,12 @@
                 <h2 {{ if $styles.descriptioncolor }}style="color: {{ $styles.descriptioncolor }}"{{ end }}>{{ $description }}</h2>
               {{ end }}
               {{ if $hero.button }}
-                  <div><a class="hero-button btn {{ default "btn-blue" $hero.button.class }}" href="{{ $hero.button.link }}">{{ $hero.button.text }}</a></div>
+                  <div>
+                      <a class="hero-button btn {{ default "btn-blue" $hero.button.class }}" href="{{ $hero.button.link }}">{{ $hero.button.text }}</a>
+                      {{ with $hero.button.footnote }}
+                      <p class="footnote">{{ replace .text "{{}}" (printf "<span>%v</span>" .count) | safeHTML }}</p>
+                      {{ end }}
+                  </div>
               {{ end }}
           </div>
       </div>

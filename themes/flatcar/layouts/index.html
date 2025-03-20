@@ -5,13 +5,13 @@
     </section>
     {{- end -}}
 
+    {{ partial "quick-features.html" . }}
+
     {{- if .Params.companies_section -}}
-    <section class="mt-5">
+    <section>
         {{ partial "companies" . }}
     </section>
     {{- end -}}
-
-    {{ partial "quick-features.html" . }}
 
     {{ if .Content }}
     <section>

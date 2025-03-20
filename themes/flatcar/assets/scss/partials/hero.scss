@@ -40,13 +40,16 @@
     .animated-svg:nth-child(3) { animation-delay: 1s; }
     .animated-svg:nth-child(4) { animation-delay: 1.5s; }
     .animated-svg:nth-child(5) { animation-delay: 2s; }
-    .animated-svg:nth-child(6) { animation-delay: 2s; }
-    .animated-svg:nth-child(7) { animation-delay: 2s; }
+    .animated-svg:nth-child(6) { animation-delay: 2.5s; }
+    .animated-svg:nth-child(7) { animation-delay: 3s; }
+    .animated-svg:nth-child(8) { animation-delay: 3.5s; }
+    .animated-svg:nth-child(9) { animation-delay: 4s; }
   }
 
   h1 {
     font-size: 3.6rem;
-    font-family: "Jersey 15", sans-serif;
+    font-family: "Pixelify Sans", sans-serif;
+    font-optical-sizing: auto;
     font-weight: 400;
     font-style: normal;
     line-height: 0.9;
@@ -79,6 +82,15 @@
     @include media-breakpoint-down(md) {
       max-width: 100%;
     }
+  }
+
+  .footnote {
+      margin-top: 0.4rem;
+      font-size: 0.9rem;
+      span {
+          color: white;
+          weight: bold;
+      }
   }
 }
 

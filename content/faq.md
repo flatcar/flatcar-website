@@ -1,6 +1,9 @@
 ---
 title: FAQ
 description: Some answers to common questions
+hero:
+  button:
+    footnote:
 author: Chris Kuehl, Thilo Fromm, Margarita Manterola
 date: 2020-04-03T14:10:52+02:00
 draft: false
