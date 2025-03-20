@@ -177,7 +177,7 @@ Flatcar tutorial to deep dive into some Flatcar fundamental concepts.
 [ignition-what]: provisioning/ignition/
 [ignition-boot]: provisioning/ignition/boot-process
 [ignition-network]: provisioning/ignition/network-configuration
-[ignition-metadata]: provisioning/ignition/metadata
+[ignition-metadata]: provisioning/ignition/dynamic-data
 [container-linux-config]: provisioning/cl-config/
 [config-transpiler]: provisioning/config-transpiler/
 [config-intro]: provisioning/config-transpiler/getting-started
