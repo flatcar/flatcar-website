@@ -1,5 +1,5 @@
 ---
-title: 'Open Source Linux-based OS Hosting Containers'
+title: 'Open Source Linux-based OS for Hosting Containers'
 link: https://flatcar-linux.org/
 logo: '/images/flatcar-logo.svg'
 logo_bg_img: 'product-bg-1'
