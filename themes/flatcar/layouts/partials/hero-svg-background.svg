@@ -3,6 +3,15 @@
      height="{{ .height }}"
      viewBox="0 0 1200 500"
      xmlns="http://www.w3.org/2000/svg">
+  <!-- Glowing path (only appears when glow mode is enabled) -->
+  {{ if .glow }}
+  <path d="M 5 500 V 420 H 80 V 25 H 1115 V 420 H 1195 V 500"
+        stroke="{{ .strokeColor }}"
+        stroke-width="{{ add .strokeWidth 1 }}"
+        fill="none"
+        style="filter: blur(4px) brightness(1.5); opacity: 0.8;"/>
+  {{ end }}
+  <!-- Original path -->
   <path d="M 5 500 V 420 H 80 V 25 H 1115 V 420 H 1195 V 500"
         stroke="{{ .strokeColor }}"
         stroke-width="{{ .strokeWidth }}"

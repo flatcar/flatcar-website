@@ -22,13 +22,13 @@
     {{ $svgColor := default "#08a2af" $styles.svgColor }}
 
     <!-- Generate different sized SVGs -->
-    {{ partial "hero-svg-background.svg" (dict "index" 1 "width" 1450 "height" 610 "strokeWidth" 1 "strokeColor" $svgColor) }}
-    {{ partial "hero-svg-background.svg" (dict "index" 2 "width" 1200 "height" 500 "strokeWidth" 1.5 "strokeColor" $svgColor) }}
-    {{ partial "hero-svg-background.svg" (dict "index" 3 "width" 960 "height" 400 "strokeWidth" 2 "strokeColor" $svgColor) }}
-    {{ partial "hero-svg-background.svg" (dict "index" 4 "width" 720 "height" 300 "strokeWidth" 3 "strokeColor" $svgColor) }}
-    {{ partial "hero-svg-background.svg" (dict "index" 5 "width" 600 "height" 250 "strokeWidth" 3.2 "strokeColor" $svgColor) }}
-    {{ partial "hero-svg-background.svg" (dict "index" 6 "width" 480 "height" 200 "strokeWidth" 3.2 "strokeColor" $svgColor) }}
-    {{ partial "hero-svg-background.svg" (dict "index" 7 "width" 360 "height" 150 "strokeWidth" 4 "strokeColor" $svgColor) }}
+    {{ partial "hero-svg-background.svg" (dict "index" 1 "width" 1450 "height" 610 "strokeWidth" 1 "strokeColor" $svgColor "glow" true) }}
+    {{ partial "hero-svg-background.svg" (dict "index" 2 "width" 1200 "height" 500 "strokeWidth" 1.5 "strokeColor" $svgColor "glow" true) }}
+    {{ partial "hero-svg-background.svg" (dict "index" 3 "width" 960 "height" 400 "strokeWidth" 2 "strokeColor" $svgColor "glow" true) }}
+    {{ partial "hero-svg-background.svg" (dict "index" 4 "width" 720 "height" 300 "strokeWidth" 3 "strokeColor" $svgColor "glow" true) }}
+    {{ partial "hero-svg-background.svg" (dict "index" 5 "width" 600 "height" 250 "strokeWidth" 3.2 "strokeColor" $svgColor "glow" true) }}
+    {{ partial "hero-svg-background.svg" (dict "index" 6 "width" 480 "height" 200 "strokeWidth" 3.2 "strokeColor" $svgColor "glow" true) }}
+    {{ partial "hero-svg-background.svg" (dict "index" 7 "width" 360 "height" 150 "strokeWidth" 4 "strokeColor" $svgColor "glow" true) }}
   </div>
 
   <div class="container">
