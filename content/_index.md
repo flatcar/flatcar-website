@@ -38,7 +38,7 @@ hero:
     descriptioncolor: white
 community_section: true
 community_links:
-  description: "Connect with the maintainers and other Flatcar users through various platforms to get help, contribute, and stay updated."
+  description: "Connect with the maintainers and other Flatcar users through various platforms to exchange ideas, contribute, and stay updated."
   groups:
     - title: "Contribute & Collaborate"
       items:
