@@ -29,7 +29,7 @@ hero:
     text: "Start using Flatcar"
     link: "/docs/latest/#getting-started"
     footnote:
-      text: "Operates on more than {{}} machines in production"
+      text: "Operates on more than {{}} machines across the globe"
       count: "~70 000"
   style:
     class: header-bg-flatcar
