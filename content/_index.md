@@ -71,16 +71,16 @@ companies_sections:
   - title: Supported wherever you run your containers
     type: flatcarCloudProvider
 quick_features:
-  title: What is a Container Linux?
-  description: The introduction of container-based infrastructure was a paradigm shift. A Container-optimized Linux distribution is the best foundation for cloud native infrastructure.
+  title: Why Flatcar Container Linux?
+  description: Imagine an OS that works as hard as you do—streamlining your container infrastructure while cutting costs, reducing headaches, and safeguarding your business. Flatcar is engineered for those who demand efficiency, reliability, and peace of mind.
   features:
-    - text: A minimal OS image only includes the tools needed to run containers. No package manager, no configuration drift.
+    - text: "*Minimal & Focused*. Only the essential tools to run your containers—eliminating bloat. No package manager, no configuration drift."
       icon: container
       shape: shape-blue-1
-    - text: Delivering the OS on an immutable filesystem eliminates a whole category of security vulnerabilities.
+    - text: "*Fortress-Level Security.* An immutable, read-only filesystem that drastically minimizes attack surfaces, giving you the confidence to scale without compromise."
       icon: filesystem
       shape: shape-blue-2
-    - text: Automated atomic updates mean you get the latest security updates and open source technologies.
+    - text: "*Effortless, Automated Updates:* Atomic, hands-free updates ensure your system is always at peak security and performance, freeing you to focus on growth."
       shape: shape-blue-3
       icon: update
 highlights:
