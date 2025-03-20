@@ -1,4 +1,10 @@
 {{ define "unique-content" }}
+    {{- if .Params.community_section -}}
+    <section class="community-section">
+        {{ partial "community-links" . }}
+    </section>
+    {{- end -}}
+
     {{- if .Params.companies_section -}}
     <section class="mt-5">
         {{ partial "companies" . }}

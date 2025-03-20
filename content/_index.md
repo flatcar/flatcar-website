@@ -33,6 +33,34 @@ hero:
     bgcolor: '#12172c'
     fgcolor: '#08a2af'
     descriptioncolor: white
+community_section: true
+community_links:
+  description: "Connect with the maintainers and other Flatcar users through various platforms to get help, contribute, and stay updated."
+  groups:
+    - title: "Contribute & Collaborate"
+      items:
+        - title: "GitHub"
+          icon: "github"
+          link: "https://github.com/flatcar"
+    - title: "Ask Questions & Connect"
+      items:
+        - title: "Matrix"
+          svg_path: "/images/matrix-icon.svg"
+          link: "https://app.element.io/#/room/#flatcar:matrix.org"
+        - title: "Slack"
+          icon: "slack"
+          link: "https://kubernetes.slack.com/archives/C03GQ8B5XNJ"
+    - title: "Stay Updated & Follow Us"
+      items:
+        - title: "X"
+          icon: "x-twitter"
+          link: "https://x.com/flatcar"
+        - title: "Bluesky"
+          icon: "bluesky"
+          link: "https://bsky.app/profile/flatcar.org"
+        - title: "Mastodon"
+          icon: "mastodon"
+          link: "https://hachyderm.io/@flatcar"
 companies_sections:
   - title: Made possible by project sponsors including
     area: flatcar
