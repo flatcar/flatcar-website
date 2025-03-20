@@ -1,10 +1,10 @@
 architectures:
 - amd64
 - arm64
-channel: stable
+channel: lts
 github_release:
   assets: []
-  assets_url: https://api.github.com/repos/flatcar/scripts/releases/207182274/assets
+  assets_url: https://api.github.com/repos/flatcar/scripts/releases/207182512/assets
   author:
     avatar_url: https://avatars.githubusercontent.com/u/500628?v=4
     events_url: https://api.github.com/users/sayanchowdhury/events{/privacy}
@@ -25,8 +25,8 @@ github_release:
     type: User
     url: https://api.github.com/users/sayanchowdhury
     user_view_type: public
-  body: " _Changes since **Stable 4152.2.1**_\r\n \r\n #### Security fixes:\r\n \r\
-    \n - Linux ([CVE-2025-21835](https://nvd.nist.gov/vuln/detail/CVE-2025-21835),\
+  body: " _Changes since **LTS 4081.3.1**_\r\n \r\n #### Security fixes:\r\n \r\n\
+    \ - Linux ([CVE-2025-21835](https://nvd.nist.gov/vuln/detail/CVE-2025-21835),\
     \ [CVE-2025-21836](https://nvd.nist.gov/vuln/detail/CVE-2025-21836), [CVE-2024-58086](https://nvd.nist.gov/vuln/detail/CVE-2024-58086),\
     \ [CVE-2025-21823](https://nvd.nist.gov/vuln/detail/CVE-2025-21823), [CVE-2025-21821](https://nvd.nist.gov/vuln/detail/CVE-2025-21821),\
     \ [CVE-2025-21787](https://nvd.nist.gov/vuln/detail/CVE-2025-21787), [CVE-2025-21785](https://nvd.nist.gov/vuln/detail/CVE-2025-21785),\
@@ -57,10 +57,8 @@ github_release:
     \ [CVE-2025-21856](https://nvd.nist.gov/vuln/detail/CVE-2025-21856), [CVE-2025-21855](https://nvd.nist.gov/vuln/detail/CVE-2025-21855),\
     \ [CVE-2025-21854](https://nvd.nist.gov/vuln/detail/CVE-2025-21854), [CVE-2025-21853](https://nvd.nist.gov/vuln/detail/CVE-2025-21853),\
     \ [CVE-2024-58088](https://nvd.nist.gov/vuln/detail/CVE-2024-58088), [CVE-2025-21838](https://nvd.nist.gov/vuln/detail/CVE-2025-21838))\r\
-    \n \r\n #### Bug fixes:\r\n \r\n - azure: Fix issue of wa-linux-agent overriding\
-    \ ssh public key from ignition configuration during provisioning ([flatcar/Flatcar#1661](https://github.com/flatcar/Flatcar/issues/1661))\r\
-    \n - Fix update-ca-certificates behavior when concatenating certificates with\
-    \ missing trailing newlines. ([flatcar/scripts#2667](https://github.com/flatcar/scripts/pull/2667))\r\
+    \n \r\n #### Bug fixes:\r\n \r\n - Fix update-ca-certificates behavior when concatenating\
+    \ certificates with missing trailing newlines. ([flatcar/scripts#2667](https://github.com/flatcar/scripts/pull/2667))\r\
     \n \r\n #### Changes:\r\n \r\n - Added new image signing pub key to `flatcar-install`,\
     \ needed for download verification of releases built from March 2025 onwards,\
     \ if you have copies of `flatcar-install` or the image signing pub key, you need\
@@ -72,25 +70,25 @@ github_release:
     \ [6.6.82](https://git.kernel.org/pub/scm/linux/kernel/git/stable/linux.git/tag/?h=v6.6.82)))\r\
     \n- ca-certificates ([3.109](https://firefox-source-docs.mozilla.org/security/nss/releases/nss_3_109.html))\r\
     \n"
-  created_at: '2025-03-19T09:21:34Z'
+  created_at: '2025-03-19T09:23:30Z'
   draft: false
-  html_url: https://github.com/flatcar/scripts/releases/tag/stable-4152.2.2
-  id: 207182274
+  html_url: https://github.com/flatcar/scripts/releases/tag/lts-4081.3.2
+  id: 207182512
   name: ''
-  node_id: RE_kwDOB2MTHs4MWVnC
+  node_id: RE_kwDOB2MTHs4MWVqw
   prerelease: false
-  published_at: '2025-03-20T14:06:36Z'
-  tag_name: stable-4152.2.2
-  tarball_url: https://api.github.com/repos/flatcar/scripts/tarball/stable-4152.2.2
+  published_at: '2025-03-20T14:07:30Z'
+  tag_name: lts-4081.3.2
+  tarball_url: https://api.github.com/repos/flatcar/scripts/tarball/lts-4081.3.2
   target_commitish: main
-  upload_url: https://uploads.github.com/repos/flatcar/scripts/releases/207182274/assets{?name,label}
-  url: https://api.github.com/repos/flatcar/scripts/releases/207182274
-  zipball_url: https://api.github.com/repos/flatcar/scripts/zipball/stable-4152.2.2
+  upload_url: https://uploads.github.com/repos/flatcar/scripts/releases/207182512/assets{?name,label}
+  url: https://api.github.com/repos/flatcar/scripts/releases/207182512
+  zipball_url: https://api.github.com/repos/flatcar/scripts/zipball/lts-4081.3.2
 image_packages:
-  containerd: 1.7.23
-  docker: 27.2.1
-  ignition: 2.20.0
+  containerd: 1.7.21
+  docker: 26.1.0
+  ignition: 2.19.0
   kernel: 6.6.83
   systemd: '255'
-release: current
-version: 4152.2.2
+release: 4081.3.2
+version: 4081.3.2
