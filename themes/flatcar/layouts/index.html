@@ -5,6 +5,16 @@
     </section>
     {{- end -}}
 
+    <section class="container mt-5">
+        {{ partial "video-player.html" (dict
+            "thumbnail" "/videos/flatcar-terminal-demo/video-thumbnail-kube.png"
+            "videoPath" "/videos/flatcar-terminal-demo/flatcar-terminal-demo.mp4"
+            "maxWidth" "640px"
+            "autoplay" true
+            "loop" false
+        ) }}
+    </section>
+
     {{ partial "quick-features.html" . }}
 
     {{- if .Params.companies_section -}}
