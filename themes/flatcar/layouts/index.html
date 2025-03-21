@@ -17,9 +17,9 @@
 
     {{ partial "quick-features.html" . }}
 
-    {{- if .Params.companies_section -}}
+    {{- if .Params.sponsors_section -}}
     <section>
-        {{ partial "companies" . }}
+        {{ partial "companies" (dict "context" . "section_name" "sponsors_sections") }}
     </section>
     {{- end -}}
 
@@ -30,6 +30,12 @@
     {{ end }}
 
     {{ partial "feature-rows.html" . }}
+
+    {{- if .Params.providers_section -}}
+    <section>
+        {{ partial "companies" (dict "context" . "section_name" "providers_sections") }}
+    </section>
+    {{- end -}}
 
     {{ partial "grid-statements" . }}
 

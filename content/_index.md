@@ -38,7 +38,6 @@ hero:
     descriptioncolor: white
 community_section: true
 community_links:
-  description: "Connect with the maintainers and other Flatcar users through various platforms to exchange ideas, contribute, and stay updated."
   groups:
     - title: "Contribute & Collaborate"
       items:
@@ -64,10 +63,11 @@ community_links:
         - title: "Slack"
           icon: "slack"
           link: "https://kubernetes.slack.com/archives/C03GQ8B5XNJ"
-companies_sections:
+sponsors_sections:
   - title: Made possible by project sponsors including
     area: flatcar
     type: sponsor
+providers_sections:
   - title: Supported wherever you run your containers
     type: flatcarCloudProvider
 quick_features:
@@ -158,7 +158,8 @@ grid_statements:
     <div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
       <iframe title="Youtube video showing how to migrate from CoreOS to Flatcar Container Linux" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;" src="https://www.youtube-nocookie.com/embed/mE2wbdncj1Y" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
     </div>'
-companies_section: true
+sponsors_section: true
+providers_section: true
 cascade:
   comparison_table: # This is used in the platform pages
     title: Which one is the right version for me?
