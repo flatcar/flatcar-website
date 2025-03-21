@@ -14,8 +14,11 @@ The platforms and providers listed below each provide support and documentation 
 
 ## Cloud providers
 
+* [Akamai][akamai]
 * [Exoscale][exoscale]
+* [OVHcloud][ovhcloud]
 * [Rackspace Cloud][rackspace]
+* [Scaleway][scaleway]
 * [Vultr VPS][vultr]
 
 ## Other providers
@@ -24,10 +27,13 @@ The platforms and providers listed below each provide support and documentation 
 * [Vagrant][vagrant]
 * [VirtualBox][virtualbox]
 
+[akamai]: akamai
 [exoscale]: exoscale
 [rackspace]: rackspace
 [vultr]: vultr
 [eucalyptus]: eucalyptus
+[scaleway]: scaleway
 [vagrant]: ../vms/vagrant
 [virtualbox]: ../vms/virtualbox
 [official-support]: ../../
+[ovhcloud]: ovhcloud

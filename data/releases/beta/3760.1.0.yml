@@ -1,0 +1,101 @@
+architectures:
+- amd64
+- arm64
+channel: beta
+github_release:
+  assets: []
+  assets_url: https://api.github.com/repos/flatcar/scripts/releases/130946966/assets
+  author:
+    avatar_url: https://avatars.githubusercontent.com/u/28657343?v=4
+    events_url: https://api.github.com/users/tormath1/events{/privacy}
+    followers_url: https://api.github.com/users/tormath1/followers
+    following_url: https://api.github.com/users/tormath1/following{/other_user}
+    gists_url: https://api.github.com/users/tormath1/gists{/gist_id}
+    gravatar_id: ''
+    html_url: https://github.com/tormath1
+    id: 28657343
+    login: tormath1
+    node_id: MDQ6VXNlcjI4NjU3MzQz
+    organizations_url: https://api.github.com/users/tormath1/orgs
+    received_events_url: https://api.github.com/users/tormath1/received_events
+    repos_url: https://api.github.com/users/tormath1/repos
+    site_admin: false
+    starred_url: https://api.github.com/users/tormath1/starred{/owner}{/repo}
+    subscriptions_url: https://api.github.com/users/tormath1/subscriptions
+    type: User
+    url: https://api.github.com/users/tormath1
+  body: "⚠️ From Alpha 3794.0.0 Torcx has been removed - please assert that\
+    \ you don't rely on specific Torcx mechanism but now use systemd-sysext. See [here](https://www.flatcar.org/docs/latest/provisioning/sysext/)\
+    \ for more information.\r\n\r\n _Changes since **Beta 3745.1.0**_\r\n \r\n ####\
+    \ Security fixes:\r\n \r\n - Linux ([CVE-2023-35827](https://nvd.nist.gov/vuln/detail/CVE-2023-35827),\
+    \ [CVE-2023-46813](https://nvd.nist.gov/vuln/detail/CVE-2023-46813), [CVE-2023-46862](https://nvd.nist.gov/vuln/detail/CVE-2023-46862),\
+    \ [CVE-2023-5178](https://nvd.nist.gov/vuln/detail/CVE-2023-5178), [CVE-2023-5717](https://nvd.nist.gov/vuln/detail/CVE-2023-5717))\r\
+    \n - curl ([CVE-2023-38545](https://nvd.nist.gov/vuln/detail/CVE-2023-38545),\
+    \ [CVE-2023-38546](https://nvd.nist.gov/vuln/detail/CVE-2023-38546))\r\n - glibc\
+    \ ([CVE-2023-4911](https://nvd.nist.gov/vuln/detail/CVE-2023-4911))\r\n - go ([CVE-2023-39325](https://nvd.nist.gov/vuln/detail/CVE-2023-39325),\
+    \ [CVE-2023-39325](https://nvd.nist.gov/vuln/detail/CVE-2023-39325))\r\n - grub\
+    \ ([CVE-2023-4692](https://nvd.nist.gov/vuln/detail/CVE-2023-4692), [CVE-2023-4693](https://nvd.nist.gov/vuln/detail/CVE-2023-4693))\r\
+    \n - libtirpc ([libtirpc-rhbg-2138317](http://git.linux-nfs.org/?p=steved/libtirpc.git;a=commit;h=4a2d85c64110ee9e21a8c4f9dafd6b0ae621506d),\
+    \ [libtirpc-rhbg-2150611](http://git.linux-nfs.org/?p=steved/libtirpc.git;a=commit;h=f7f0abdf267698de3f74a0285405b1b01f40893b),\
+    \ [libtirpc-rhbg-2224666](http://git.linux-nfs.org/?p=steved/libtirpc.git;a=commit;h=1d2e10afb2ffc35cb3623f57a15f712359f18e75))\r\
+    \n \r\n #### Bug fixes:\r\n \r\n - Added AWS EKS support for versions 1.24-1.28.\
+    \ Fixed `/usr/share/amazon/eks/download-kubelet.sh` to include download paths\
+    \ for these versions. ([scripts#1210](https://github.com/flatcar/scripts/pull/1210))\r\
+    \n - Fixed iterating over the OEM update payload signatures which prevented the\
+    \ AWS OEM update to 3745.x.y ([update-engine#31](https://github.com/flatcar/update_engine/pull/31))\r\
+    \n - Fixed quotes handling for update-engine ([Flatcar#1209](https://github.com/flatcar/Flatcar/issues/1209))\r\
+    \n - Made `sshkeys.service` more robust to only run `coreos-metadata-sshkeys@core.service`\
+    \ when not masked and also retry on failure ([init#112](https://github.com/flatcar/init/pull/112))\r\
+    \n \r\n #### Changes:\r\n \r\n - Brightbox: The regular OpenStack image should\
+    \ now be used, it includes Afterburn for instance metadata attributes\r\n - OpenStack:\
+    \ An uncompressed image is provided for simpler import (since the images use qcow2\
+    \ inline compression, there is no benefit in using the `.gz` or `.bz2` images)\r\
+    \n \r\n #### Updates:\r\n \r\n - Go ([1.20.10](https://go.dev/doc/devel/release#go1.20.10)\
+    \ (includes [1.20.9](https://go.dev/doc/devel/release#go1.20.9)))\r\n - Linux\
+    \ ([6.1.62](https://lwn.net/Articles/950700) (includes [6.1.61](https://lwn.net/Articles/949826),\
+    \ [6.1.60](https://lwn.net/Articles/948817) and includes [6.1.59](https://lwn.net/Articles/948299)))\r\
+    \n - containerd ([1.7.7](https://github.com/containerd/containerd/releases/tag/v1.7.7))\r\
+    \n - curl ([8.4.0](https://curl.se/changes.html#8_4_0))\r\n - libnl ([3.8.0](https://github.com/thom311/libnl/compare/libnl3_7_0...libnl3_8_0))\r\
+    \n - libtirpc ([1.3.4](https://marc.info/?l=linux-nfs&m=169667640909830&w=2))\r\
+    \n - libxml2 ([2.11.5](https://gitlab.gnome.org/GNOME/libxml2/-/releases/v2.11.5))\r\
+    \n - openssh ([9.5p1](https://www.openssh.com/releasenotes.html#9.5p1))\r\n -\
+    \ pigz ([2.8](https://zlib.net/pipermail/pigz-announce_zlib.net/2023-August/000018.html))\r\
+    \n - strace([6.4](https://github.com/strace/strace/releases/tag/v6.4))\r\n - whois\
+    \ ([5.5.18](https://github.com/rfc1036/whois/blob/v5.5.18/debian/changelog))\r\
+    \n \r\n _Changes since **Alpha 3760.0.0**_\r\n \r\n #### Security fixes:\r\n \r\
+    \n - Linux ([CVE-2023-35827](https://nvd.nist.gov/vuln/detail/CVE-2023-35827),\
+    \ [CVE-2023-46813](https://nvd.nist.gov/vuln/detail/CVE-2023-46813), [CVE-2023-46862](https://nvd.nist.gov/vuln/detail/CVE-2023-46862),\
+    \ [CVE-2023-5178](https://nvd.nist.gov/vuln/detail/CVE-2023-5178), [CVE-2023-5717](https://nvd.nist.gov/vuln/detail/CVE-2023-5717))\r\
+    \n \r\n #### Bug fixes:\r\n \r\n - Fixed iterating over the OEM update payload\
+    \ signatures which prevented the AWS OEM update to 3745.x.y ([update-engine#31](https://github.com/flatcar/update_engine/pull/31))\r\
+    \n - Made `sshkeys.service` more robust to only run `coreos-metadata-sshkeys@core.service`\
+    \ when not masked and also retry on failure ([init#112](https://github.com/flatcar/init/pull/112))\r\
+    \n \r\n #### Changes:\r\n \r\n - Brightbox: The regular OpenStack image should\
+    \ now be used, it includes Afterburn for instance metadata attributes\r\n - OpenStack:\
+    \ An uncompressed image is provided for simpler import (since the images use qcow2\
+    \ inline compression, there is no benefit in using the `.gz` or `.bz2` images)\r\
+    \n \r\n #### Updates:\r\n \r\n - Linux ([6.1.62](https://lwn.net/Articles/950700)\
+    \ (includes [6.1.61](https://lwn.net/Articles/949826), [6.1.60](https://lwn.net/Articles/948817)\
+    \ and includes [6.1.59](https://lwn.net/Articles/948299)))"
+  created_at: '2023-11-20T16:14:21Z'
+  draft: false
+  html_url: https://github.com/flatcar/scripts/releases/tag/beta-3760.1.0
+  id: 130946966
+  name: ''
+  node_id: RE_kwDOB2MTHs4HzheW
+  prerelease: false
+  published_at: '2023-11-22T07:54:40Z'
+  tag_name: beta-3760.1.0
+  tarball_url: https://api.github.com/repos/flatcar/scripts/tarball/beta-3760.1.0
+  target_commitish: main
+  upload_url: https://uploads.github.com/repos/flatcar/scripts/releases/130946966/assets{?name,label}
+  url: https://api.github.com/repos/flatcar/scripts/releases/130946966
+  zipball_url: https://api.github.com/repos/flatcar/scripts/zipball/beta-3760.1.0
+image_packages:
+  containerd: 1.7.7
+  docker: 20.10.24
+  ignition: 2.15.0
+  kernel: 6.1.62
+  systemd: '252'
+release: 3760.1.0
+version: 3760.1.0

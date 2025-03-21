@@ -51,10 +51,12 @@ $ bunzip2 flatcar_production_openstack_image.img.bz2
 Once the download completes, add the Flatcar Container Linux image into Glance:
 
 ```shell
-$ glance image-create --name Container-Linux \
+$ openstack image create \
   --container-format bare \
   --disk-format qcow2 \
-  --file flatcar_production_openstack_image.img
+  --property hw_qemu_guest_agent=yes \
+  --file flatcar_production_openstack_image.img \
+  flatcar
 +------------------+--------------------------------------+
 | Property         | Value                                |
 +------------------+--------------------------------------+
@@ -77,7 +79,9 @@ $ glance image-create --name Container-Linux \
 +------------------+--------------------------------------+
 ```
 
-Optionally add the `--visibility public` flag to make this image available outside of the configured OpenStack account tenant.
+The `hw_qemu_guest_agent=yes` property is optional, but recommended: it enables the qemu guest agent on instances booted from this image which improves lifecycle operations — such as reboots, shutdowns or backup/snapshots commands.
+
+Optionally add the `--visibility public` flag to make this image available outside of the configured OpenStack account tenant. See the [openstack-cli docs](https://docs.openstack.org/python-openstackclient/latest/cli/command-objects/image-v2.html) for additional options and flags.
 
 ## Butane Configs
 
@@ -126,30 +130,31 @@ Unfortunately systems relying on config drive are currently unsupported.
 
 ## Launch cluster
 
-Boot the machines with the `nova` CLI, referencing the image ID from the import step above and your [JSON file from ct][cl-configs]:
+Boot the machines with the `openstack` CLI, referencing the image ID from the import step above and your [Ignition file from butane][butane-configs]:
 
 ```shell
-nova boot \
+openstack server create \
 --user-data ./config.ign \
 --image cdf3874c-c27f-4816-bc8c-046b240e0edd \
 --key-name flatcar \
 --flavor m1.medium \
---min-count 3 \
---security-groups default,flatcar
+--min 3 \
+--security-group default \
+--security-group flatcar
 ```
 
-To use config drive you may need to add `--config-drive=true` to command above.
+To use config drive you may need to add `--use-config-drive` to command above.
 
-If you have more than one network, you may have to be explicit in the nova boot command.
+If you have more than one network, you may have to be explicit in the `openstack server create` command.
 
 ```shell
---nic net-id=5b9c5ef6-28b9-4781-ac18-d7d86765fd38
+--network 5b9c5ef6-28b9-4781-ac18-d7d86765fd38
 ```
 
 You can see the IDs for your configured networks by running
 
 ```shell
-nova network-list
+$ openstack network list
 +--------------------------------------+---------+------+
 | ID                                   | Label   | Cidr |
 +--------------------------------------+---------+------+
@@ -161,7 +166,7 @@ nova network-list
 Your first Flatcar Container Linux cluster should now be running. The only thing left to do is find an IP and SSH in.
 
 ```shell
-$ nova list
+$ openstack server list
 +--------------------------------------+-----------------+--------+------------+-------------+--------------------+
 | ID                                   | Name            | Status | Task State | Power State | Networks           |
 +--------------------------------------+-----------------+--------+------------+-------------+--------------------+
@@ -181,17 +186,18 @@ core@10-0-0-3 ~ $
 
 ## Adding more machines
 
-Adding new instances to the cluster is as easy as launching more with the same Butane Config. New instances will join the cluster assuming they can communicate with the others.
+Adding additional instances to the cluster is as easy as launching more with the same Butane Config. New instances will join the cluster assuming they can communicate with the others.
 
 Example:
 
 ```shell
-nova boot \
+openstack server create \
 --user-data ./config.ign \
 --image cdf3874c-c27f-4816-bc8c-046b240e0edd \
 --key-name flatcar \
 --flavor m1.medium \
---security-groups default,flatcar
+--security-group default \
+--security-group flatcar
 ```
 
 ## Using Flatcar Container Linux

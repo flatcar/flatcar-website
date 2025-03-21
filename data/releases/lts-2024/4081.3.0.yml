@@ -1,0 +1,1167 @@
+architectures:
+- amd64
+- arm64
+channel: lts
+github_release:
+  assets: []
+  assets_url: https://api.github.com/repos/flatcar/scripts/releases/197640229/assets
+  author:
+    avatar_url: https://avatars.githubusercontent.com/u/500628?v=4
+    events_url: https://api.github.com/users/sayanchowdhury/events{/privacy}
+    followers_url: https://api.github.com/users/sayanchowdhury/followers
+    following_url: https://api.github.com/users/sayanchowdhury/following{/other_user}
+    gists_url: https://api.github.com/users/sayanchowdhury/gists{/gist_id}
+    gravatar_id: ''
+    html_url: https://github.com/sayanchowdhury
+    id: 500628
+    login: sayanchowdhury
+    node_id: MDQ6VXNlcjUwMDYyOA==
+    organizations_url: https://api.github.com/users/sayanchowdhury/orgs
+    received_events_url: https://api.github.com/users/sayanchowdhury/received_events
+    repos_url: https://api.github.com/users/sayanchowdhury/repos
+    site_admin: false
+    starred_url: https://api.github.com/users/sayanchowdhury/starred{/owner}{/repo}
+    subscriptions_url: https://api.github.com/users/sayanchowdhury/subscriptions
+    type: User
+    url: https://api.github.com/users/sayanchowdhury
+    user_view_type: public
+  body: " _Changes since **LTS 3510.3.6**_\r\n\r\n- Linux ([Please refer to the Go/No-Go\
+    \ document for the list of CVEs resolved](https://hackmd.io/EN9yZnYFS-ijPvCx8PtObw#New-LTS-2024-Release-408130))\r\
+    \n- Go ([CVE-2022-41723](https://nvd.nist.gov/vuln/detail/CVE-2022-41723),  [CVE-2022-41724](https://nvd.nist.gov/vuln/detail/CVE-2022-41724),\
+    \  [CVE-2022-41725](https://nvd.nist.gov/vuln/detail/CVE-2022-41725), [CVE-2023-24532](https://nvd.nist.gov/vuln/detail/CVE-2023-24532),\
+    \ [CVE-2023-24534](https://nvd.nist.gov/vuln/detail/CVE-2023-24534),  [CVE-2023-24536](https://nvd.nist.gov/vuln/detail/CVE-2023-24536),\
+    \  [CVE-2023-24537](https://nvd.nist.gov/vuln/detail/CVE-2023-24537),  [CVE-2023-24538](https://nvd.nist.gov/vuln/detail/CVE-2023-24538),\
+    \ [CVE-2023-24539](https://nvd.nist.gov/vuln/detail/CVE-2023-24539),  [CVE-2023-24540](https://nvd.nist.gov/vuln/detail/CVE-2023-24540),\
+    \  [CVE-2023-29400](https://nvd.nist.gov/vuln/detail/CVE-2023-29400), [CVE-2023-29402](https://nvd.nist.gov/vuln/detail/CVE-2023-29402),\
+    \  [CVE-2023-29403](https://nvd.nist.gov/vuln/detail/CVE-2023-29403),  [CVE-2023-29404](https://nvd.nist.gov/vuln/detail/CVE-2023-29404),\
+    \  [CVE-2023-29405](https://nvd.nist.gov/vuln/detail/CVE-2023-29405), [CVE-2023-29406](https://nvd.nist.gov/vuln/detail/CVE-2023-29406),\
+    \ [CVE-2023-29409](https://nvd.nist.gov/vuln/detail/CVE-2023-29409), [CVE-2023-39318](https://nvd.nist.gov/vuln/detail/CVE-2023-39318),\
+    \  [CVE-2023-39319](https://nvd.nist.gov/vuln/detail/CVE-2023-39319),  [CVE-2023-39320](https://nvd.nist.gov/vuln/detail/CVE-2023-39320),\
+    \  [CVE-2023-39321](https://nvd.nist.gov/vuln/detail/CVE-2023-39321),  [CVE-2023-39322](https://nvd.nist.gov/vuln/detail/CVE-2023-39322),\
+    \ [CVE-2023-39323](https://nvd.nist.gov/vuln/detail/CVE-2023-39323), [CVE-2023-39325](https://nvd.nist.gov/vuln/detail/CVE-2023-39325),\
+    \ [CVE-2023-39326](https://nvd.nist.gov/vuln/detail/CVE-2023-39326),  [CVE-2023-45285](https://nvd.nist.gov/vuln/detail/CVE-2023-45285),\
+    \ [CVE-2023-45288](https://nvd.nist.gov/vuln/detail/CVE-2023-45288),  [CVE-2023-45289](https://nvd.nist.gov/vuln/detail/CVE-2023-45289),\
+    \  [CVE-2023-45290](https://nvd.nist.gov/vuln/detail/CVE-2023-45290),  [CVE-2024-24783](https://nvd.nist.gov/vuln/detail/CVE-2024-24783),\
+    \  [CVE-2024-24784](https://nvd.nist.gov/vuln/detail/CVE-2024-24784),  [CVE-2024-24785](https://nvd.nist.gov/vuln/detail/CVE-2024-24785),\
+    \  [CVE-2024-24788](https://nvd.nist.gov/vuln/detail/CVE-2024-24788),  [CVE-2024-24789](https://nvd.nist.gov/vuln/detail/CVE-2024-24789),\
+    \  [CVE-2024-24790](https://nvd.nist.gov/vuln/detail/CVE-2024-24790),  [CVE-2024-24791](https://nvd.nist.gov/vuln/detail/CVE-2024-24791))\r\
+    \n- Linux Firmware ([CVE-2023-31315](https://nvd.nist.gov/vuln/detail/CVE-2023-31315))\r\
+    \n- SDK: dnsmasq ([CVE-2022-0934](https://nvd.nist.gov/vuln/detail/CVE-2022-0934))\r\
+    \n- SDK: nasm ([CVE-2019-6290](https://nvd.nist.gov/vuln/detail/CVE-2019-6290),\
+    \  [CVE-2019-6291](https://nvd.nist.gov/vuln/detail/CVE-2019-6291),  [CVE-2019-8343](https://nvd.nist.gov/vuln/detail/CVE-2019-8343),\
+    \  [CVE-2020-21528](https://nvd.nist.gov/vuln/detail/CVE-2020-21528),  [CVE-2021-33450](https://nvd.nist.gov/vuln/detail/CVE-2021-33450),\
+    \  [CVE-2021-33452](https://nvd.nist.gov/vuln/detail/CVE-2021-33452),  [CVE-2022-44368](https://nvd.nist.gov/vuln/detail/CVE-2022-44368),\
+    \  [CVE-2022-44369](https://nvd.nist.gov/vuln/detail/CVE-2022-44369),  [CVE-2022-44370](https://nvd.nist.gov/vuln/detail/CVE-2022-44370))\r\
+    \n- SDK: perl ([CVE-2023-47038](https://nvd.nist.gov/vuln/detail/CVE-2023-47038))\r\
+    \n- SDK: pkgconf ([CVE-2023-24056](https://nvd.nist.gov/vuln/detail/CVE-2023-24056))\r\
+    \n- SDK: python ([CVE-2023-24329](https://nvd.nist.gov/vuln/detail/CVE-2023-24329),\
+    \ [CVE-2023-40217](https://nvd.nist.gov/vuln/detail/CVE-2023-40217),  [CVE-2023-41105](https://nvd.nist.gov/vuln/detail/CVE-2023-41105),\
+    \  [CVE-2023-6597](https://nvd.nist.gov/vuln/detail/CVE-2023-6597),  [CVE-2024-0450](https://nvd.nist.gov/vuln/detail/CVE-2024-0450),\
+    \  [gh-81194](https://github.com/python/cpython/issues/81194),  [gh-113659](https://github.com/python/cpython/issues/113659),\
+    \  [gh-102388](https://github.com/python/cpython/issues/102388),  [gh-114572](https://github.com/python/cpython/issues/114572),\
+    \  [gh-115243](https://github.com/python/cpython/issues/115243))\r\n- SDK: qemu\
+    \ ([CVE-2023-0330](https://nvd.nist.gov/vuln/detail/CVE-2023-0330),  [CVE-2023-2861](https://nvd.nist.gov/vuln/detail/CVE-2023-2861))\r\
+    \n- SDK: re2c ([CVE-2022-23901](https://nvd.nist.gov/vuln/detail/CVE-2022-23901))\r\
+    \n- SDK: Rust ([CVE-2023-38497](https://nvd.nist.gov/vuln/detail/CVE-2023-38497))\r\
+    \n- VMware: open-vm-tools ([CVE-2023-34058](https://nvd.nist.gov/vuln/detail/CVE-2023-34058),\
+    \  [CVE-2023-34059](https://nvd.nist.gov/vuln/detail/CVE-2023-34059),  [CVE-2023-20867](https://nvd.nist.gov/vuln/detail/CVE-2023-20867))\r\
+    \n- bash ([CVE-2022-3715](https://nvd.nist.gov/vuln/detail/CVE-2022-3715))\r\n\
+    - binutils ([CVE-2022-38533](https://nvd.nist.gov/vuln/detail/CVE-2022-38533),\
+    \  [CVE-2022-4285](https://nvd.nist.gov/vuln/detail/CVE-2022-4285),  [CVE-2023-1579](https://nvd.nist.gov/vuln/detail/CVE-2023-1579),\
+    \  [CVE-2023-2222](https://nvd.nist.gov/vuln/detail/CVE-2023-2222), [CVE-2023-1972](https://nvd.nist.gov/vuln/detail/CVE-2023-1972))\r\
+    \n- c-ares ([CVE-2022-4904](https://nvd.nist.gov/vuln/detail/CVE-2022-4904), [CVE-2023-31124](https://nvd.nist.gov/vuln/detail/CVE-2023-31124),\
+    \  [CVE-2023-31130](https://nvd.nist.gov/vuln/detail/CVE-2023-31130),  [CVE-2023-31147](https://nvd.nist.gov/vuln/detail/CVE-2023-31147),\
+    \  [CVE-2023-32067](https://nvd.nist.gov/vuln/detail/CVE-2023-32067), [CVE-2024-25629](https://nvd.nist.gov/vuln/detail/CVE-2024-25629))\r\
+    \n- containerd ([CVE-2023-25153](https://nvd.nist.gov/vuln/detail/CVE-2023-25153),\
+    \  [CVE-2023-25173](https://nvd.nist.gov/vuln/detail/CVE-2023-25173))\r\n- coreutils\
+    \ ([coreutils-2024-03-28](https://lists.gnu.org/archive/html/info-gnu/2024-03/msg00006.html),\
+    \ [CVE-2024-0684](https://nvd.nist.gov/vuln/detail/CVE-2024-0684))\r\n- curl ([CVE-2023-23914](https://nvd.nist.gov/vuln/detail/CVE-2023-23914),\
+    \  [CVE-2023-23915](https://nvd.nist.gov/vuln/detail/CVE-2023-23915), [CVE-2023-23916](https://nvd.nist.gov/vuln/detail/CVE-2023-23916),\
+    \ [CVE-2023-27533](https://nvd.nist.gov/vuln/detail/CVE-2023-27533),  [CVE-2023-27534](https://nvd.nist.gov/vuln/detail/CVE-2023-27534),\
+    \  [CVE-2023-27535](https://nvd.nist.gov/vuln/detail/CVE-2023-27535),  [CVE-2023-27536](https://nvd.nist.gov/vuln/detail/CVE-2023-27536),\
+    \  [CVE-2023-27537](https://nvd.nist.gov/vuln/detail/CVE-2023-27537),  [CVE-2023-27538](https://nvd.nist.gov/vuln/detail/CVE-2023-27538),\
+    \ [CVE-2023-28319](https://nvd.nist.gov/vuln/detail/CVE-2023-28319),  [CVE-2023-28320](https://nvd.nist.gov/vuln/detail/CVE-2023-28320),\
+    \  [CVE-2023-28321](https://nvd.nist.gov/vuln/detail/CVE-2023-28321),  [CVE-2023-28322](https://nvd.nist.gov/vuln/detail/CVE-2023-28322),\
+    \ [CVE-2023-32001](https://nvd.nist.gov/vuln/detail/CVE-2023-32001), [CVE-2023-38039](https://nvd.nist.gov/vuln/detail/CVE-2023-38039),\
+    \ [CVE-2023-38545](https://nvd.nist.gov/vuln/detail/CVE-2023-38545),  [CVE-2023-38546](https://nvd.nist.gov/vuln/detail/CVE-2023-38546),\
+    \ [CVE-2023-46218](https://nvd.nist.gov/vuln/detail/CVE-2023-46218),  [CVE-2023-46219](https://nvd.nist.gov/vuln/detail/CVE-2023-46219),\
+    \ [CVE-2024-2004](https://nvd.nist.gov/vuln/detail/CVE-2024-2004),  [CVE-2024-2379](https://nvd.nist.gov/vuln/detail/CVE-2024-2379),\
+    \  [CVE-2024-2398](https://nvd.nist.gov/vuln/detail/CVE-2024-2398),  [CVE-2024-2466](https://nvd.nist.gov/vuln/detail/CVE-2024-2466),\
+    \ [CVE-2024-6197](https://nvd.nist.gov/vuln/detail/CVE-2024-6197),  [CVE-2024-6874](https://nvd.nist.gov/vuln/detail/CVE-2024-6874),\
+    \ [CVE-2024-7264](https://nvd.nist.gov/vuln/detail/CVE-2024-7264))\r\n- dnsmasq\
+    \ ([CVE-2023-28450](https://nvd.nist.gov/vuln/detail/CVE-2023-28450),  [CVE-2023-50387](https://nvd.nist.gov/vuln/detail/CVE-2023-50387),\
+    \  [CVE-2023-50868](https://nvd.nist.gov/vuln/detail/CVE-2023-50868))\r\n- e2fsprogs\
+    \ ([CVE-2022-1304](https://nvd.nist.gov/vuln/detail/CVE-2022-1304))\r\n- expat\
+    \ ([CVE-2023-52425](https://nvd.nist.gov/vuln/detail/CVE-2023-52425),  [CVE-2024-28757](https://nvd.nist.gov/vuln/detail/CVE-2024-28757),\
+    \ [CVE-2024-45490](https://nvd.nist.gov/vuln/detail/CVE-2024-45490))\r\n- gcc\
+    \ ([CVE-2023-4039](https://nvd.nist.gov/vuln/detail/CVE-2023-4039))\r\n- git ([CVE-2023-22490](https://nvd.nist.gov/vuln/detail/CVE-2023-22490),\
+    \  [CVE-2023-23946](https://nvd.nist.gov/vuln/detail/CVE-2023-23946), [CVE-2023-25652](https://nvd.nist.gov/vuln/detail/CVE-2023-25652),\
+    \  [CVE-2023-25815](https://nvd.nist.gov/vuln/detail/CVE-2023-25815),  [CVE-2023-29007](https://nvd.nist.gov/vuln/detail/CVE-2023-29007),\
+    \ [CVE-2024-32002](https://nvd.nist.gov/vuln/detail/CVE-2024-32002),  [CVE-2024-32004](https://nvd.nist.gov/vuln/detail/CVE-2024-32004),\
+    \  [CVE-2024-32020](https://nvd.nist.gov/vuln/detail/CVE-2024-32020),  [CVE-2024-32021](https://nvd.nist.gov/vuln/detail/CVE-2024-32021),\
+    \  [CVE-2024-32465](https://nvd.nist.gov/vuln/detail/CVE-2024-32465))\r\n- glib\
+    \ ([CVE-2024-34397](https://nvd.nist.gov/vuln/detail/CVE-2024-34397))\r\n- glibc\
+    \ ([CVE-2023-4527](https://nvd.nist.gov/vuln/detail/CVE-2023-4527),  [CVE-2023-4806](https://nvd.nist.gov/vuln/detail/CVE-2023-4806),\
+    \ [CVE-2023-4911](https://nvd.nist.gov/vuln/detail/CVE-2023-4911), [CVE-2023-5156](https://nvd.nist.gov/vuln/detail/CVE-2023-5156),\
+    \  [CVE-2023-6246](https://nvd.nist.gov/vuln/detail/CVE-2023-6246),  [CVE-2023-6779](https://nvd.nist.gov/vuln/detail/CVE-2023-6779),\
+    \  [CVE-2023-6780](https://nvd.nist.gov/vuln/detail/CVE-2023-6780), [CVE-2024-2961](https://nvd.nist.gov/vuln/detail/CVE-2024-2961),\
+    \  [CVE-2024-33599](https://nvd.nist.gov/vuln/detail/CVE-2024-33599),  [CVE-2024-33600](https://nvd.nist.gov/vuln/detail/CVE-2024-33600),\
+    \  [CVE-2024-33601](https://nvd.nist.gov/vuln/detail/CVE-2024-33601),  [CVE-2024-33602](https://nvd.nist.gov/vuln/detail/CVE-2024-33602))\r\
+    \n- gnupg ([gnupg-2024-01-25](https://gnupg.org/blog/20240125-smartcard-backup-key.html))\r\
+    \n- gnutls ([CVE-2023-0361](https://nvd.nist.gov/vuln/detail/CVE-2023-0361), [CVE-2023-5981](https://nvd.nist.gov/vuln/detail/CVE-2023-5981),\
+    \ [CVE-2024-0567](https://nvd.nist.gov/vuln/detail/CVE-2024-0567),  [CVE-2024-0553](https://nvd.nist.gov/vuln/detail/CVE-2024-0553),\
+    \ [CVE-2024-28834](https://nvd.nist.gov/vuln/detail/CVE-2024-28834),  [CVE-2024-28835](https://nvd.nist.gov/vuln/detail/CVE-2024-28835))\r\
+    \n- grub ([CVE-2020-10713](https://nvd.nist.gov/vuln/detail/CVE-2020-10713), \
+    \ [CVE-2020-14372](https://nvd.nist.gov/vuln/detail/CVE-2020-14372),  [CVE-2020-25632](https://nvd.nist.gov/vuln/detail/CVE-2020-25632),\
+    \  [CVE-2020-25647](https://nvd.nist.gov/vuln/detail/CVE-2020-25647),  [CVE-2020-27749](https://nvd.nist.gov/vuln/detail/CVE-2020-27749),\
+    \  [CVE-2020-27779](https://nvd.nist.gov/vuln/detail/CVE-2020-27779),  [CVE-2021-20225](https://nvd.nist.gov/vuln/detail/CVE-2021-20225),\
+    \  [CVE-2021-20233](https://nvd.nist.gov/vuln/detail/CVE-2021-20233),  [CVE-2021-3981](https://nvd.nist.gov/vuln/detail/CVE-2021-3981),\
+    \  [CVE-2021-3695](https://nvd.nist.gov/vuln/detail/CVE-2021-3695),  [CVE-2021-3696](https://nvd.nist.gov/vuln/detail/CVE-2021-3696),\
+    \  [CVE-2021-3697](https://nvd.nist.gov/vuln/detail/CVE-2021-3697),  [CVE-2022-28733](https://nvd.nist.gov/vuln/detail/CVE-2022-28733),\
+    \  [CVE-2022-28734](https://nvd.nist.gov/vuln/detail/CVE-2022-28734),  [CVE-2022-28735](https://nvd.nist.gov/vuln/detail/CVE-2022-28735),\
+    \  [CVE-2022-28736](https://nvd.nist.gov/vuln/detail/CVE-2022-28736),  [CVE-2022-28737](https://nvd.nist.gov/vuln/detail/CVE-2022-28737),\
+    \  [CVE-2022-2601](https://nvd.nist.gov/vuln/detail/CVE-2022-2601),  [CVE-2022-3775](https://nvd.nist.gov/vuln/detail/CVE-2022-3775),\
+    \ [CVE-2023-4692](https://nvd.nist.gov/vuln/detail/CVE-2023-4692),  [CVE-2023-4693](https://nvd.nist.gov/vuln/detail/CVE-2023-4693))\r\
+    \n- intel-microcode ([CVE-2022-21216](https://nvd.nist.gov/vuln/detail/CVE-2022-21216),\
+    \  [CVE-2022-33196](https://nvd.nist.gov/vuln/detail/CVE-2022-33196),  [CVE-2022-38090](https://nvd.nist.gov/vuln/detail/CVE-2022-38090),\
+    \ [CVE-2022-40982](https://nvd.nist.gov/vuln/detail/CVE-2022-40982),  [CVE-2022-41804](https://nvd.nist.gov/vuln/detail/CVE-2022-41804),\
+    \  [CVE-2023-23908](https://nvd.nist.gov/vuln/detail/CVE-2023-23908), [CVE-2023-22655](https://nvd.nist.gov/vuln/detail/CVE-2023-22655),\
+    \  [CVE-2023-28746](https://nvd.nist.gov/vuln/detail/CVE-2023-28746),  [CVE-2023-38575](https://nvd.nist.gov/vuln/detail/CVE-2023-38575),\
+    \  [CVE-2023-39368](https://nvd.nist.gov/vuln/detail/CVE-2023-39368),  [CVE-2023-43490](https://nvd.nist.gov/vuln/detail/CVE-2023-43490),\
+    \ [CVE-2023-23583](https://nvd.nist.gov/vuln/detail/CVE-2023-23583), [CVE-2023-45733](https://nvd.nist.gov/vuln/detail/CVE-2023-45733),\
+    \  [CVE-2023-45745](https://nvd.nist.gov/vuln/detail/CVE-2023-45745),  [CVE-2023-46103](https://nvd.nist.gov/vuln/detail/CVE-2023-46103),\
+    \  [CVE-2023-47855](https://nvd.nist.gov/vuln/detail/CVE-2023-47855))\r\n- less\
+    \ ([CVE-2022-46663](https://nvd.nist.gov/vuln/detail/CVE-2022-46663), [CVE-2024-32487](https://nvd.nist.gov/vuln/detail/CVE-2024-32487))\r\
+    \n- libarchive ([CVE-2024-26256](https://nvd.nist.gov/vuln/detail/CVE-2024-26256),\
+    \  [CVE-2024-37407](https://nvd.nist.gov/vuln/detail/CVE-2024-37407), [libarchive-20230729](https://github.com/libarchive/libarchive/releases/tag/v3.7.1))\r\
+    \n- libcap ([CVE-2023-2602](https://nvd.nist.gov/vuln/detail/CVE-2023-2602), \
+    \ [CVE-2023-2603](https://nvd.nist.gov/vuln/detail/CVE-2023-2603))\r\n- libmicrohttpd\
+    \ ([CVE-2023-27371](https://nvd.nist.gov/vuln/detail/CVE-2023-27371))\r\n- libtirpc\
+    \ ([libtirpc-rhbg-2138317](http://git.linux-nfs.org/?p=steved/libtirpc.git;a=commit;h=4a2d85c64110ee9e21a8c4f9dafd6b0ae621506d),\
+    \  [libtirpc-rhbg-2150611](http://git.linux-nfs.org/?p=steved/libtirpc.git;a=commit;h=f7f0abdf267698de3f74a0285405b1b01f40893b),\
+    \  [libtirpc-rhbg-2224666](http://git.linux-nfs.org/?p=steved/libtirpc.git;a=commit;h=1d2e10afb2ffc35cb3623f57a15f712359f18e75))\r\
+    \n- libuv ([CVE-2024-24806](https://nvd.nist.gov/vuln/detail/CVE-2024-24806))\r\
+    \n- libxml2 ([CVE-2023-28484](https://nvd.nist.gov/vuln/detail/CVE-2023-28484),\
+    \  [CVE-2023-29469](https://nvd.nist.gov/vuln/detail/CVE-2023-29469), [CVE-2023-45322](https://nvd.nist.gov/vuln/detail/CVE-2023-45322),\
+    \ [CVE-2024-25062](https://nvd.nist.gov/vuln/detail/CVE-2024-25062), [CVE-2024-34459](https://nvd.nist.gov/vuln/detail/CVE-2024-34459),\
+    \ [libxml2-20230428](https://gitlab.gnome.org/GNOME/libxml2/-/releases/v2.11.4))\r\
+    \n- lua ([CVE-2022-33099](https://nvd.nist.gov/vuln/detail/CVE-2022-33099))\r\n\
+    - mit-krb5 ([CVE-2023-36054](https://nvd.nist.gov/vuln/detail/CVE-2023-36054),\
+    \  [CVE-2024-26461](https://nvd.nist.gov/vuln/detail/CVE-2024-26461),  [CVE-2024-26462](https://nvd.nist.gov/vuln/detail/CVE-2024-26462),\
+    \  [CVE-2024-37370](https://nvd.nist.gov/vuln/detail/CVE-2024-37370),  [CVE-2024-37371](https://nvd.nist.gov/vuln/detail/CVE-2024-37371))\r\
+    \n- ncurses ([CVE-2023-29491](https://nvd.nist.gov/vuln/detail/CVE-2023-29491))\r\
+    \n- nghttp2 ([CVE-2023-44487](https://nvd.nist.gov/vuln/detail/CVE-2023-44487),\
+    \  [CVE-2024-28182](https://nvd.nist.gov/vuln/detail/CVE-2024-28182))\r\n- nvidia-drivers\
+    \ ([CVE-2023-25515](https://nvd.nist.gov/vuln/detail/CVE-2023-25515),  [CVE-2023-25516](https://nvd.nist.gov/vuln/detail/CVE-2023-25516))\r\
+    \n- openldap ([CVE-2023-2953](https://nvd.nist.gov/vuln/detail/CVE-2023-2953))\r\
+    \n- openssh ([CVE-2023-25136](https://nvd.nist.gov/vuln/detail/CVE-2023-25136),\
+    \ [CVE-2024-6387](https://nvd.nist.gov/vuln/detail/CVE-2024-6387),  [CVE-2023-38408](https://nvd.nist.gov/vuln/detail/CVE-2023-38408),\
+    \  [CVE-2023-28531](https://nvd.nist.gov/vuln/detail/CVE-2023-28531),  [CVE-2023-48795](https://nvd.nist.gov/vuln/detail/CVE-2023-48795),\
+    \  [CVE-2023-51384](https://nvd.nist.gov/vuln/detail/CVE-2023-51384),  [CVE-2023-51385](https://nvd.nist.gov/vuln/detail/CVE-2023-51385))\r\
+    \n- openssl ([CVE-2022-4203](https://nvd.nist.gov/vuln/detail/CVE-2022-4203),\
+    \  [CVE-2022-4304](https://nvd.nist.gov/vuln/detail/CVE-2022-4304),  [CVE-2022-4450](https://nvd.nist.gov/vuln/detail/CVE-2022-4450),\
+    \  [CVE-2023-0215](https://nvd.nist.gov/vuln/detail/CVE-2023-0215),  [CVE-2023-0216](https://nvd.nist.gov/vuln/detail/CVE-2023-0216),\
+    \  [CVE-2023-0217](https://nvd.nist.gov/vuln/detail/CVE-2023-0217),  [CVE-2023-0286](https://nvd.nist.gov/vuln/detail/CVE-2023-0286),\
+    \  [CVE-2023-0401](https://nvd.nist.gov/vuln/detail/CVE-2023-0401), [CVE-2023-3817](https://nvd.nist.gov/vuln/detail/CVE-2023-3817),\
+    \  [CVE-2023-5363](https://nvd.nist.gov/vuln/detail/CVE-2023-5363),  [CVE-2023-5678](https://nvd.nist.gov/vuln/detail/CVE-2023-5678),\
+    \  [CVE-2023-5678](https://nvd.nist.gov/vuln/detail/CVE-2023-5678),  [CVE-2023-6129](https://nvd.nist.gov/vuln/detail/CVE-2023-6129),\
+    \  [CVE-2023-6237](https://nvd.nist.gov/vuln/detail/CVE-2023-6237),  [CVE-2024-0727](https://nvd.nist.gov/vuln/detail/CVE-2024-0727),\
+    \  [CVE-2023-0464](https://nvd.nist.gov/vuln/detail/CVE-2023-0464),  [CVE-2023-0465](https://nvd.nist.gov/vuln/detail/CVE-2023-0465),\
+    \  [CVE-2023-0466](https://nvd.nist.gov/vuln/detail/CVE-2023-0466),  [CVE-2023-1255](https://nvd.nist.gov/vuln/detail/CVE-2023-1255),\
+    \  [CVE-2023-2650](https://nvd.nist.gov/vuln/detail/CVE-2023-2650)),  [CVE-2023-2975](https://nvd.nist.gov/vuln/detail/CVE-2023-2975),\
+    \  [CVE-2023-3446](https://nvd.nist.gov/vuln/detail/CVE-2023-3446))\r\n- procps\
+    \ ([CVE-2023-4016](https://nvd.nist.gov/vuln/detail/CVE-2023-4016))\r\n- protobuf\
+    \ ([CVE-2022-1941](https://nvd.nist.gov/vuln/detail/CVE-2022-1941))\r\n- runc\
+    \ ([CVE-2023-25809](https://nvd.nist.gov/vuln/detail/CVE-2023-25809),  [CVE-2023-27561](https://nvd.nist.gov/vuln/detail/CVE-2023-27561),\
+    \  [CVE-2023-28642](https://nvd.nist.gov/vuln/detail/CVE-2023-28642), [CVE-2024-21626](https://nvd.nist.gov/vuln/detail/CVE-2024-21626))\r\
+    \n- samba ([CVE-2021-44142](https://nvd.nist.gov/vuln/detail/CVE-2021-44142),\
+    \  [CVE-2022-1615](https://nvd.nist.gov/vuln/detail/CVE-2022-1615),  [CVE-2023-4091](https://nvd.nist.gov/vuln/detail/CVE-2023-4091))\r\
+    \n- shadow ([CVE-2023-29383](https://nvd.nist.gov/vuln/detail/CVE-2023-29383))\r\
+    \n- sudo ([CVE-2023-27320](https://nvd.nist.gov/vuln/detail/CVE-2023-27320), \
+    \ [CVE-2023-28486](https://nvd.nist.gov/vuln/detail/CVE-2023-28486),  [CVE-2023-28487](https://nvd.nist.gov/vuln/detail/CVE-2023-28487),\
+    \  [CVE-2023-42465](https://nvd.nist.gov/vuln/detail/CVE-2023-42465))\r\n- sysext-docker:\
+    \ Docker ([CVE-2023-28840](https://nvd.nist.gov/vuln/detail/CVE-2023-28840), \
+    \ [CVE-2023-28841](https://nvd.nist.gov/vuln/detail/CVE-2023-28841),  [CVE-2023-28842](https://nvd.nist.gov/vuln/detail/CVE-2023-28842),\
+    \ [CVE-2024-24557](https://nvd.nist.gov/vuln/detail/CVE-2024-24557), [CVE-2024-29018](https://nvd.nist.gov/vuln/detail/CVE-2024-29018))\r\
+    \n- sysext-podman: podman ([CVE-2024-3727](https://nvd.nist.gov/vuln/detail/CVE-2024-3727))\r\
+    \n- tar ([CVE-2022-48303](https://nvd.nist.gov/vuln/detail/CVE-2022-48303))\r\n\
+    - torcx ([CVE-2022-32149](https://nvd.nist.gov/vuln/detail/CVE-2022-32149), [CVE-2022-28948](https://nvd.nist.gov/vuln/detail/CVE-2022-28948))\r\
+    \n- tpm2-tools ([CVE-2024-29038](https://nvd.nist.gov/vuln/detail/CVE-2024-29038),\
+    \  [CVE-2024-29039](https://nvd.nist.gov/vuln/detail/CVE-2024-29039),  [CVE-2024-29040](https://nvd.nist.gov/vuln/detail/CVE-2024-29040))\r\
+    \n- traceroute ([CVE-2023-46316](https://nvd.nist.gov/vuln/detail/CVE-2023-46316))\r\
+    \n- vim ([CVE-2023-0288](https://nvd.nist.gov/vuln/detail/CVE-2023-0288),  [CVE-2023-0433](https://nvd.nist.gov/vuln/detail/CVE-2023-0433),\
+    \ [CVE-2023-1127](https://nvd.nist.gov/vuln/detail/CVE-2023-1127),  [CVE-2023-1175](https://nvd.nist.gov/vuln/detail/CVE-2023-1175),\
+    \  [CVE-2023-1170](https://nvd.nist.gov/vuln/detail/CVE-2023-1170), [CVE-2023-2609](https://nvd.nist.gov/vuln/detail/CVE-2023-2609),\
+    \  [CVE-2023-2610](https://nvd.nist.gov/vuln/detail/CVE-2023-2610),  [CVE-2023-2426](https://nvd.nist.gov/vuln/detail/CVE-2023-2426),\
+    \  [CVE-2023-48231](https://nvd.nist.gov/vuln/detail/CVE-2023-48231),  [CVE-2023-48232](https://nvd.nist.gov/vuln/detail/CVE-2023-48232),\
+    \  [CVE-2023-48233](https://nvd.nist.gov/vuln/detail/CVE-2023-48233),  [CVE-2023-48234](https://nvd.nist.gov/vuln/detail/CVE-2023-48234),\
+    \  [CVE-2023-48235](https://nvd.nist.gov/vuln/detail/CVE-2023-48235),  [CVE-2023-48236](https://nvd.nist.gov/vuln/detail/CVE-2023-48236),\
+    \  [CVE-2023-48237](https://nvd.nist.gov/vuln/detail/CVE-2023-48237),  [CVE-2023-48706](https://nvd.nist.gov/vuln/detail/CVE-2023-48706),\
+    \  [CVE-2023-5344](https://nvd.nist.gov/vuln/detail/CVE-2023-5344),  [CVE-2023-5441](https://nvd.nist.gov/vuln/detail/CVE-2023-5441),\
+    \  [CVE-2023-5535](https://nvd.nist.gov/vuln/detail/CVE-2023-5535),  [CVE-2023-46246](https://nvd.nist.gov/vuln/detail/CVE-2023-46246))\r\
+    \n- zlib ([CVE-2023-45853](https://nvd.nist.gov/vuln/detail/CVE-2023-45853), \
+    \ [CVE-2023-20900](https://nvd.nist.gov/vuln/detail/CVE-2023-20900))\r\n\r\n####\
+    \ Bug fixes:\r\n\r\n- Ensured that `/var/log/journal/` is created early enough\
+    \ for systemd-journald to persist the logs on first boot ([bootengine#60](https://github.com/flatcar/bootengine/pull/60),\
+    \ [baselayout#29](https://github.com/flatcar/baselayout/pull/29))\r\n- Fixed `journalctl\
+    \ --user` permission issue ([Flatcar#989](https://github.com/flatcar/Flatcar/issues/989))\r\
+    \n- Added a workaround for old airgapped/proxied update-engine clients to be able\
+    \ to update to this release ([Flatcar#1332](https://github.com/flatcar/Flatcar/issues/1332),\
+    \ [update_engine#38](https://github.com/flatcar/update_engine/pull/38))\r\n- Added\
+    \ AWS EKS support for versions 1.24-1.28. Fixed `/usr/share/amazon/eks/download-kubelet.sh`\
+    \ to include download paths for these versions. ([scripts#1210](https://github.com/flatcar/scripts/pull/1210))\r\
+    \n- Added qemu-guest-agent to ARM64 images ([flatcar/flatcar#1593](https://github.com/flatcar/Flatcar/issues/1593))\r\
+    \n- AWS: Fixed the Amazon SSM agent that was crashing. ([Flatcar#1307](https://github.com/flatcar/Flatcar/issues/1307))\r\
+    \n- CloudSigma: Disabled the new DHCP RapidCommit feature which is enabled by\
+    \ default since systemd 255. CloudSigma provides an incompatible implementation\
+    \ which results in cloud-init not being applied as no IP is issued. See: ([flatcar/scripts#2016](https://github.com/flatcar/scripts/pull/2016))-\
+    \ Fixed issue file generation from '/etc/issue.d' ([scripts#2018](https://github.com/flatcar/scripts/pull/2018))\r\
+    \n- Deleted files in `/etc` that have a tmpfiles rule that normally would recreate\
+    \ them will now show up again through the `/etc` lowerdir ([Flatcar#1265](https://github.com/flatcar/Flatcar/issues/1265),\
+    \ [bootengine#79](https://github.com/flatcar/bootengine/pull/79))\r\n- Disabled\
+    \ user-configdrive.service on OpenStack when config drive is used, which caused\
+    \ the hostname to be overwritten. The coreos-cloudinit.service unit already runs\
+    \ on OpenStack if the system is not configured via ignition. ([Flatcar#1385](https://github.com/flatcar/Flatcar/issues/1385))\r\
+    \n- Ensured that the folder `/var/log/sssd` is created if it doesn't exist, required\
+    \ for `sssd.service` ([Flatcar#1096](https://github.com/flatcar/Flatcar/issues/1096))\r\
+    \n- Fixed a bug resulting in coreos-cloudinit resetting the instance hostname\
+    \ to 'localhost' if no metadata could be found ([coreos-cloudinit#25](https://github.com/flatcar/coreos-cloudinit/pull/25))\r\
+    \n- Fixed a miscompilation of getfacl causing it to dump core when executed ([scripts#809](https://github.com/flatcar/scripts/pull/809))\r\
+    \n- Fixed bad usage of gpg that prevented flatcar-install from being used with\
+    \ custom signing keys ([Flatcar#1471](https://github.com/flatcar/flatcar/pull/1471))\r\
+    \n- Fixed bug in handling renamed network interfaces when generating login issue\
+    \ ([init#102](https://github.com/flatcar/init/pull/102))\r\n- Fixed iterating\
+    \ over the OEM update payload signatures which prevented the AWS OEM update to\
+    \ 3745.x.y ([update-engine#31](https://github.com/flatcar/update_engine/pull/31))\r\
+    \n- Fixed oem-cloudinit.service on Equinix Metal. The availability check now uses\
+    \ the https://metadata.platformequinix.com/metadata endpoint. ([scripts#2222](https://github.com/flatcar/scripts/pull/2222))\r\
+    \n- Fixed quotes handling for update-engine ([Flatcar#1209](https://github.com/flatcar/Flatcar/issues/1209))\r\
+    \n- Fixed slow boots PXE and ISO boots caused by the decrypt-root.service. ([Flatcar#1514](https://github.com/flatcar/flatcar/pull/1514))\r\
+    \n- Fixed supplying extension update payloads with a custom base URL in Nebraska\
+    \ ([Flatcar#1281](https://github.com/flatcar/Flatcar/issues/1281))\r\n- Fixed\
+    \ that systemd-sysext images can extend directories where Flatcar extensions are\
+    \ also shipping files, e.g., that the sysext-bakery Kubernetes extension works\
+    \ when OEM extensions are present ([sysext-bakery#50](https://github.com/flatcar/sysext-bakery/issues/50))\r\
+    \n- Fixed the handling of OEM update payloads in a Nebraska response with self-hosted\
+    \ packages ([ue-rs#49](https://github.com/flatcar/ue-rs/pull/49))\r\n- Fixed the\
+    \ initrd option in the QEMU launcher script. It was -R, but this was already taken\
+    \ by the read-only pflash option, so use -r instead. ([scripts#2239](https://github.com/flatcar/scripts/pull/2239))\r\
+    \n- Fixed the missing `/etc/extensions/` symlinks for the inbuilt Docker/containerd\
+    \ systemd-sysext images on update from Beta 3760.1.0 ([update_engine#32](https://github.com/flatcar/update_engine/pull/32))\r\
+    \n- Fixed the postinstall hook failure when updating from Azure instances without\
+    \ OEM systemd-sysext images to Flatcar Alpha 3745.x.y ([update_engine#29](https://github.com/flatcar/update_engine/pull/29))\r\
+    \n- Fixes kubevirt vm creation by ensuring that /dev/vhost-net exists ([Flatcar#1336](https://github.com/flatcar/Flatcar/issues/1336))\r\
+    \n- Fix ownership of systemd units shipped with built-in docker/containerd sysexts.\
+    \ The files shipped on production images were accidentally owned by 1000:1000\
+    \ instead of 0:0. This uid/gid is not present on Flatcar images but would be assigned\
+    \ to the first created user. Due to contents of sysexts and /usr being readonly\
+    \ on Flatcar, the invalid permissions can't be used to escalate privileges. ([scripts#2266](https://github.com/flatcar/scripts/pull/2266))\r\
+    \n- Fix the RemainAfterExit clause in nvidia.service ([Flatcar#1169](https://github.com/flatcar/Flatcar/issues/1169))\r\
+    \n- GCP: Fixed OS Login enabling ([scripts#1445](https://github.com/flatcar/scripts/pull/1445))\r\
+    \n- Hetzner: Fixed duplicated prefix in the Afterburn metadata ([scripts#2141](https://github.com/flatcar/scripts/pull/2141))\r\
+    \n- Made `sshkeys.service` more robust to only run `coreos-metadata-sshkeys@core.service`\
+    \ when not masked and also retry on failure ([init#112](https://github.com/flatcar/init/pull/112))\r\
+    \n- Removed custom CloudSigma coreos-cloudinit service configuration since it\
+    \ will be called with the cloudsigma oem anyway. The restart of the service can\
+    \ also cause the serial port to be stuck in an nondeterministic state which breaks\
+    \ future runs.\r\n- Resolved kmod static nodes creation in bootengine ([bootengine#85](https://github.com/flatcar/bootengine/pull/85))\r\
+    \n- Restored support for custom OEMs supplied in the PXE boot where `/usr/share/oem`\
+    \ brings the OEM partition contents ([Flatcar#1376](https://github.com/flatcar/Flatcar/issues/1376))\r\
+    \n- Restored the reboot warning and delay for non-SSH console sessions ([locksmith#21](https://github.com/flatcar/locksmith/pull/21))\r\
+    \n- Set TTY used for fetching server_context to RAW mode before running cloudinit\
+    \ on cloudsigma ([scripts#1280](https://github.com/flatcar/scripts/pull/1280))\r\
+    \n- Worked around a bash regression in `flatcar-install` and added error reporting\
+    \ for disk write failures ([Flatcar#1059](https://github.com/flatcar/Flatcar/issues/1059))\r\
+    \n\r\n#### Changes:\r\n\r\n- Added a new `flatcar-reset` tool and boot logic for\
+    \ selective OS resets to reconfigure the system with Ignition while avoiding config\
+    \ drift ([bootengine#55](https://github.com/flatcar/bootengine/pull/55), [init#91](https://github.com/flatcar/init/pull/91))\r\
+    \n- Added `pigz` to the image, a parallel gzip implementation, which is useful\
+    \ to speed up the (de)compression for large container image imports/exports ([coreos-overlay#2504](https://github.com/flatcar/coreos-overlay/pull/2504))\r\
+    \n- Enabled elfutils support in systemd-coredump. A backtrace will now appear\
+    \ in the journal for any program that dumps core ([coreos-overlay#2489](https://github.com/flatcar/coreos-overlay/pull/2489))\r\
+    \n- `/etc` is now set up as overlayfs with the original `/etc` folder being the\
+    \ store for changed files/directories and `/usr/share/flatcar/etc` providing the\
+    \ lower default directory tree ([bootengine#53](https://github.com/flatcar/bootengine/pull/53),\
+    \ [scripts#666](https://github.com/flatcar/scripts/pull/666))\r\n- Improved the\
+    \ OS reset tool to offer preview, backup and restore ([init#94](https://github.com/flatcar/init/pull/94))\r\
+    \n- On boot any files in `/etc` that are the same as provided by the booted `/usr/share/flatcar/etc`\
+    \ default for the overlay mount on `/etc` are deleted to ensure that future updates\
+    \ of `/usr/share/flatcar/etc` are propagated - to opt out create `/etc/.no-dup-update`\
+    \ in case you want to keep an unmodified config file as is or because you fear\
+    \ that a future Flatcar version may use the same file as you at which point your\
+    \ copy is cleaned up and any other future Flatcar changes would be applied ([bootengine#54](https://github.com/flatcar/bootengine/pull/54))\r\
+    \n- Switched systemd log reporting to the combined format of both unit description,\
+    \ as before, and now the unit name to easily find the unit ([coreos-overlay#2436](https://github.com/flatcar/coreos-overlay/pull/2436))\r\
+    \n- Added zram-generator package to the image ([scripts#1772](https://github.com/flatcar/scripts/pull/1772))\r\
+    \n- Added Akamai / Linode images ([flatcar/scripts#1806](https://github.com/flatcar/scripts/pull/1806))\r\
+    \n- Added azure-nvme-utils to the image, which is used by udev to create symlinks\
+    \ for NVMe disks on Azure v6 instances under /dev/disk/azure/. ([scripts#1950](https://github.com/flatcar/scripts/pull/1950))\r\
+    \n- Added Hetzner images ([flatcar/scripts#1880](https://github.com/flatcar/scripts/pull/1880))\r\
+    \n- Added Hyper-V VHDX image ([flatcar/scripts#1791](https://github.com/flatcar/scripts/pull/1791))\r\
+    \n- Added Ignition Clevis support for encrypted disks unlocked with a TPM2 device\
+    \ or a Tang server ([scripts#1560](https://github.com/flatcar/scripts/pull/1560))\r\
+    \n- Added KubeVirt qcow2 image for amd64/arm64 ([flatcar/scripts#1962](https://github.com/flatcar/scripts/pull/1962))\r\
+    \n- Added Scaleway images ([flatcar/scripts#1683](https://github.com/flatcar/scripts/pull/1683))\r\
+    \n- Added support for multipart MIME userdata in coreos-cloudinit. Ignition now\
+    \ detects multipart userdata and delegates execution to coreos-cloudinit. (scripts#873)\r\
+    \n- Added support for unlocking the rootfs with a TPM set up by systemd-cryptenroll\
+    \ ([bootengine#93](https://github.com/flatcar/bootengine/pull/93))\r\n- Added\
+    \ TLS Kernel module ([scripts#865](https://github.com/flatcar/scripts/pull/865))\r\
+    \n- Add Intel igc driver to support I225/I226 family NICs. ([flatcar/scripts#1786](https://github.com/flatcar/scripts/pull/1786))\r\
+    \n- A new format `qemu_uefi_secure` is introduced to test Flatcar for SecureBoot-enabled\
+    \ features. The format will be later merged into `qemu_uefi`.\r\n- As part of\
+    \ the update to Catalyst 4 (used to build the SDK), the coreos package repository\
+    \ has been renamed to coreos-overlay to match its directory name. This will be\
+    \ reflected in package listings and package manager output. ([flatcar/scripts#2115](https://github.com/flatcar/scripts/pull/2115))\r\
+    \n- AWS OEM images now use a systemd-sysext image for layering additional platform-specific\
+    \ software on top of `/usr`\r\n- Azure and QEMU OEM images now use systemd-sysext\
+    \ images for layering additional platform-specific software on top of `/usr`.\
+    \ For Azure images this also means that the image has a normal Python installation\
+    \ available through the sysext image. The OEM software is still not updated but\
+    \ this will be added soon.\r\n- Azure, HyperV: Added daemons `kvp`, `vss`, and\
+    \ `fcopy` for better HyperV hypervisor integration with Flatcar guests ([scripts#2309](https://github.com/flatcar/scripts/pull/2309)).\r\
+    \n- Backported systemd-sysext mutable overlays functionality from yet-unreleased\
+    \ systemd v256. ([flatcar/scripts#1753](https://github.com/flatcar/scripts/pull/1753))\r\
+    \n- Changed coreos-cloudinit to now set the short hostname instead of the FQDN\
+    \ when fetched from the metadata service ([coreos-cloudinit#19](https://github.com/flatcar/coreos-cloudinit/pull/19))\r\
+    \n    ([changelog](https://docs.docker.com/engine/release-notes/23.0/#bug-fixes-and-enhancements-6),\
+    \ [upstream pr](https://github.com/moby/moby/pull/42661)).\r\n- Change nvidia.service\
+    \ to type oneshot (from the default \"simple\") so the subsequent services (configured\
+    \ with \"Requires/After\") are executed after the driver installation is successfully\
+    \ finished (flatcar/Flatcar#1136)\r\n  - Consequently, `update_engine` will not\
+    \ perform torcx sanity checks post-update anymore.\r\n- cri-tools, runc, containerd,\
+    \ docker, and docker-cli are now built from Gentoo upstream ebuilds. Docker received\
+    \ a major version upgrade - it was updated to Docker 24 (from Docker 20; see \u201C\
+    updates\u201D).\r\n- Disabled real-time priority for multipathd as it prevents\
+    \ the cgroups2 cpu controller from working. ([flatcar/scripts#1771](https://github.com/flatcar/scripts/pull/1771))\r\
+    \n    - **Docker will remove the `btrfs` driver entirely in a future version.\
+    \ Please consider migrating your deployments to the `overlay2` driver.**\r\n-\
+    \ Enabled amd-pstate,amd-pstate-epp cpufreq drivers for some AMD CPUs in the kernel.\
+    \ ([flatcar/scripts#1770](https://github.com/flatcar/scripts/pull/1770))\r\n-\
+    \ Enabled ntpd by default on AWS & GCP, enabled chronyd by default on Azure. The\
+    \ native time sync source is used on each cloud. ([scripts#1792](https://github.com/flatcar/scripts/pull/1792))\r\
+    \n- Enabled the GRUB TPM2 module to measure the boot code path and files into\
+    \ PCR 8+9 in UEFI ([scripts#1861](https://github.com/flatcar/scripts/pull/1861))\r\
+    \n- Enabled the ptp_vmw module in the kernel.\r\n- Enabled the virtio GPU driver\
+    \ ([scripts#830](https://github.com/flatcar/scripts/pull/830))\r\n- Enable mpi3mr\
+    \ kernel module for Broadcom Storage/RAID-Controllers ([flatcar/scripts#2355](https://github.com/flatcar/scripts/pull/2355))\r\
+    \n- GCP OEM images now use a systemd-sysext image for layering additional platform-specific\
+    \ software on top of `/usr` and being part of the OEM A/B updates ([flatcar#1146](https://github.com/flatcar/Flatcar/issues/1146))\r\
+    \n- Hetzner: Added `COREOS_HETZNER_PRIVATE_IPV4_0` Afterburn attribute for Hetzner\
+    \ private IPs ([scripts#2141](https://github.com/flatcar/scripts/pull/2141))\r\
+    \n- Hyper-V images, both .vhd and .vhdx files are available as `zip` compressed,\
+    \ switching from `bzip2` to a built-in available Windows compression - `zip` ([scripts#1878](https://github.com/flatcar/scripts/pull/1878))\r\
+    \n- libcrypt is now provided by the libxcrypt library instead of glibc. Glibc\
+    \ libcrypt was deprecated long time ago.\r\n- Migrated the NVIDIA installer from\
+    \ the Azure/AWS OEM partition to `/usr` to make it available on all platforms\
+    \ ([scripts#932](https://github.com/flatcar/scripts/pull/932/), [Flatcar#1077](https://github.com/flatcar/Flatcar/issues/1077))\r\
+    \n- Migrate to Type=notify in containerd.service. Changed the unit to Type=notify,\
+    \ utilizing the existing containerd support for sd_notify call after socket setup.\r\
+    \n- Moved a mountpoint of the OEM partition from `/usr/share/oem` to `/oem`. `/usr/share/oem`\
+    \ became a symlink to `/oem` for backward compatibility. Despite the move, the\
+    \ initrd images providing files through `/usr/share/oem` should keep using `/usr/share/oem`.\
+    \ The move was done to enable activating the OEM sysext images that are placed\
+    \ in the OEM partition.\r\n  - **NOTE** that if you are already using btrfs-backed\
+    \ Docker storage and are upgrading to this new version, Docker will automatically\
+    \ use the `btrfs` storage driver for backwards-compatibility with your deployment.\r\
+    \n  - **NOTE** The docker btrfs storage driver has been de-prioritised; BTRFS\
+    \ backed storage will now default to the `overlay2` driver\r\n- OEM vendor tools\
+    \ are now A/B updated if they are shipped as systemd-sysext images, the migration\
+    \ happens when both partitions require a systemd-sysext OEM image - note that\
+    \ this will delete the `nvidia.service` from `/etc` on Azure because it's now\
+    \ part of `/usr` ([Flatcar#60](https://github.com/flatcar/Flatcar/issues/60))\r\
+    \n- OpenStack, Brightbox: Added the `flatcar.autologin` kernel cmdline parameter\
+    \ by default as the hypervisor manages access to the console ([scripts#1866](https://github.com/flatcar/scripts/pull/1866))\r\
+    \n- Provided a Podman Flatcar extension as optional systemd-sysext image with\
+    \ the release. Write 'podman' to `/etc/flatcar/enabled-sysext.conf` through Ignition\
+    \ and the sysext will be installed during provisioning ([scripts#1964](https://github.com/flatcar/scripts/pull/1964))\r\
+    \n- Provided a Python Flatcar extension as optional systemd-sysext image with\
+    \ the release. Write 'python' to `/etc/flatcar/enabled-sysext.conf` through Ignition\
+    \ and the sysext will be installed during provisioning ([scripts#1979](https://github.com/flatcar/scripts/pull/1979))\r\
+    \n- OpenStack: Changed metadata hostname source order. The service first tries\
+    \ with the config drive then fallback on the metadata service. ([bootengine#96](https://github.com/flatcar/bootengine/pull/96))\r\
+    \n- Provided a ZFS-2.2.2 Flatcar extension as optional systemd-sysext image with\
+    \ the release. Write 'zfs' to `/etc/flatcar/enabled-sysext.conf` through Ignition\
+    \ and the sysext will be installed during provisioning. ZFS support is experimental\
+    \ and ZFS is not supported for the root partition. ([flatcar/scripts#1742](https://github.com/flatcar/scripts/pull/1742))\r\
+    \n  - Relevant changes: [scripts#1216](https://github.com/flatcar/scripts/pull/1216),\
+    \ [update_engine#30](https://github.com/flatcar/update_engine/pull/30), [Mantle#466](https://github.com/flatcar/mantle/pull/466),\
+    \ [Mantle#465](https://github.com/flatcar/mantle/pull/465).\r\n- Removed `actool`\
+    \ from the image and `acbuild` from the SDK as these tools are deprecated and\
+    \ not used ([scripts#1817](https://github.com/flatcar/scripts/pull/1817))\r\n\
+    - \u26A0 Removed coreos-cloudinit support for automatic keys conversion (e.g `reboot-strategy`\
+    \ -> `reboot_strategy`) ([scripts#1687](https://github.com/flatcar/scripts/pull/1687))\r\
+    \n- Removed Linux drivers for Mellanox Technologies Switch ASICs family and Spectrum/Spectrum-2/Spectrum-3/Spectrum-4\
+    \ Ethernet Switch ASICs to reduce the initrd size on AMD64 by ~5MB ([flatcar/scripts#1734](https://github.com/flatcar/scripts/pull/1734)).\
+    \ This change is part of the effort to reduce the initrd size ([flatcar#1381](https://github.com/flatcar/Flatcar/issues/1381)).\r\
+    \n- Removed unused grub executable duplicate files and removed grub modules that\
+    \ are already assembled in the grub executable ([scripts#1955](https://github.com/flatcar/scripts/pull/1955)).\r\
+    \n- Replace nmap netcat with openbsd variant. The license didn't get an exception\
+    \ from CNCF. Something about the definition of \"derivative works\" being too\
+    \ broad.\r\n- Reworked the VMware OEM software to be shipped as A/B updated systemd-sysext\
+    \ image\r\n- Scaleway: images are now provided directly as `.qcow2` to ease the\
+    \ import on Scaleway ([scripts#1953](https://github.com/flatcar/scripts/pull/1953))\r\
+    \n- SDK: Experimental support for [prefix builds](https://github.com/flatcar/scripts/blob/main/PREFIX.md)\
+    \ to create distro independent, portable, self-contained applications w/ all dependencies\
+    \ included. With contributions from [chewi](https://github.com/chewi) and [HappyTobi](https://github.com/HappyTobi).\r\
+    \n- Started shipping default ssh client and ssh daemon configs in `/etc/ssh/ssh_config`\
+    \ and `/etc/ssh/sshd_config` which include config snippets in `/etc/ssh/ssh_config.d`\
+    \ and `/etc/ssh/sshd_config.d`, respectively.\r\n- Switched ptp_kvm from kernel\
+    \ builtin to module.\r\n- The default VM memory was bumped to 2 GB in the Qemu\
+    \ script and for VMware OVFs\r\n- The `docker build` command will now use buildx\
+    \ as its backend as the old one became deprecated and a loud \"DEPRECATED\" information\
+    \ is printed every time it's used.\r\n- The kernel security module Landlock is\
+    \ now enabled for programs to sandbox themselves ([flatcar/scripts#2158](https://github.com/flatcar/scripts/pull/2158))\r\
+    \n- The open-vm-tools package in VMware OEM now comes with vmhgfs-fuse, udev rules,\
+    \ pam and vgauth\r\n  - Torcx entered deprecation 2 years ago in favour of [deploying\
+    \ plain Docker binaries](https://www.flatcar.org/docs/latest/container-runtimes/use-a-custom-docker-or-containerd-version/)\r\
+    \n  - Torcx has been removed entirely; if you use torcx to extend the Flatcar\
+    \ base OS image, please refer to our [conversion script](https://www.flatcar.org/docs/latest/provisioning/sysext/#torcx-deprecation)\
+    \ and to the sysext documentation mentioned above for migrating.\r\n- **torcx\
+    \ was replaced by systemd-sysext in the OS image**. Learn more about sysext and\
+    \ how to customise OS images [here](https://www.flatcar.org/docs/latest/provisioning/sysext/).\r\
+    \n- Updated locksmith to use non-deprecated resource control options in the systemd\
+    \ unit ([Locksmith#20](https://github.com/flatcar/locksmith/pull/20))\r\n- Update\
+    \ generation SLSA provenance info from v0.2 to v1.0.\r\n    Using the btrfs driver\
+    \ can still be enforced by creating a respective [docker config](https://docs.docker.com/storage/storagedriver/btrfs-driver/#configure-docker-to-use-the-btrfs-storage-driver)\
+    \ at `/etc/docker/daemon.json`.\r\n- :warning: Dropped support for niftycloud\
+    \ and interoute. For interoute we haven't been generating the images for some\
+    \ time already. (TODO) :warning:\r\n    (which is now also a legacy option because\
+    \ systemd-sysext offers a more robust and better structured way of customisation,\
+    \ including OS independent updates).\r\n\r\n#### Updates\r\n- AWS: amazon-ssm-agent\
+    \ ([3.2.985.0](https://github.com/aws/amazon-ssm-agent/releases/tag/3.2.985.0))\r\
+    \n- Azure: WALinuxAgent ([2.9.1.1](https://github.com/Azure/WALinuxAgent/releases/tag/2.9.1.1))\r\
+    \n- Go ([1.21.13](https://go.dev/doc/devel/release#go1.21.13) (includes [1.20.14](https://go.dev/doc/devel/release#go1.20.14),\
+    \ [1.20.13](https://go.dev/doc/devel/release#go1.20.13), [1.20.12](https://go.dev/doc/devel/release#go1.20.12),\
+    \ [1.20.11](https://go.dev/doc/devel/release#go1.20.11), [1.20.10](https://go.dev/doc/devel/release#go1.20.10),\
+    \ [1.20.9](https://go.dev/doc/devel/release#go1.20.9), [1.20.8](https://go.dev/doc/devel/release#go1.20.8),\
+    \ [1.20.7](https://go.dev/doc/devel/release#go1.20.7), [1.20.6](https://go.dev/doc/devel/release#go1.20.6),\
+    \ [1.20.5](https://go.dev/doc/devel/release#go1.20.5), [1.20.4](https://go.dev/doc/devel/release#go1.20.4),\
+    \ [1.19.13](https://go.dev/doc/devel/release#go1.19.13), [1.19.12](https://go.dev/doc/devel/release#go1.19.12),\
+    \ [1.19.11](https://go.dev/doc/devel/release#go1.19.11), [1.19.10](https://go.dev/doc/devel/release#go1.19.10),\
+    \ [1.19.9](https://go.dev/doc/devel/release#go1.19.9), [1.19.8](https://go.dev/doc/devel/release#go1.19.8),\
+    \ [1.19.7](https://go.dev/doc/devel/release#go1.19.7), [1.19.6](https://go.dev/doc/devel/release#go1.19.6)))\r\
+    \n- Ignition ([2.19.0](https://coreos.github.io/ignition/release-notes/#ignition-2190-2024-06-05)\
+    \ (includes [2.18.0](https://coreos.github.io/ignition/release-notes/#ignition-2180-2024-03-01),\
+    \ [2.17.0](https://coreos.github.io/ignition/release-notes/#ignition-2170-2023-11-20),\
+    \ [2.16.2](https://coreos.github.io/ignition/release-notes/#ignition-2162-2023-07-12),\
+    \ [2.16.1](https://coreos.github.io/ignition/release-notes/#ignition-2161-2023-07-10),\
+    \ [2.16.0](https://coreos.github.io/ignition/release-notes/#ignition-2160-2023-06-29)))\r\
+    \n- Linux ([6.6.74](https://lwn.net/Articles/1006010) (includes [6.6.73](https://lwn.net/Articles/1005709),\
+    \ [6.6.72](https://lwn.net/Articles/1005383), [6.6.71](https://lwn.net/Articles/1004703),\
+    \ [6.6.70](https://lwn.net/Articles/1004551), [6.6.69](https://lwn.net/Articles/1003986),\
+    \ [6.6.68](https://lwn.net/Articles/1003609), [6.6.67](https://lwn.net/Articles/1002919),\
+    \ [6.6.66](https://lwn.net/Articles/1002177), [6.6.65](https://lwn.net/Articles/1001739),\
+    \ [6.6.64](https://lwn.net/Articles/1001438), [6.6.63](https://lwn.net/Articles/999110),\
+    \ [6.6.62](https://lwn.net/Articles/998450), [6.6.61](https://git.kernel.org/pub/scm/linux/kernel/git/stable/linux.git/tag/?h=v6.6.61),\
+    \ [6.6.60](https://lwn.net/Articles/997527), [6.6.59](https://git.kernel.org/pub/scm/linux/kernel/git/stable/linux.git/tag/?h=v6.6.59),\
+    \ [6.6.58](https://lwn.net/Articles/995132), [6.6.57](https://lwn.net/Articles/994634),\
+    \ [6.6.56](https://lwn.net/Articles/993600), [6.6.55](https://lwn.net/Articles/993599),\
+    \ [6.6.54](https://lwn.net/Articles/992980), [6.6.53](https://lwn.net/Articles/992296),\
+    \ [6.6.52](https://lwn.net/Articles/990767/), [6.6.51](https://lwn.net/Articles/990045),\
+    \ [6.6.50](https://git.kernel.org/pub/scm/linux/kernel/git/stable/linux.git/tag/?h=v6.6.50),\
+    \ [6.6.49](https://lwn.net/Articles/988749), [6.6.48](https://lwn.net/Articles/987679),\
+    \ [6.6.47](https://git.kernel.org/pub/scm/linux/kernel/git/stable/linux.git/tag/?h=v6.6.47),\
+    \ [6.6.46](https://lwn.net/Articles/985672), [6.6.45](https://lwn.net/Articles/985200),\
+    \ [6.6.44](https://lwn.net/Articles/984450), [6.6.43](https://lwn.net/Articles/983655),\
+    \ [6.6.42](https://lwn.net/Articles/983333), [6.6.41](https://lwn.net/Articles/982381),\
+    \ [6.6.40](https://lwn.net/Articles/982050), [6.6.39](https://lwn.net/Articles/981719),\
+    \ [6.6.38](https://lwn.net/Articles/981255), [6.6.37](https://lwn.net/Articles/980860),\
+    \ [6.6.36](https://lwn.net/Articles/979850), [6.6.35](https://lwn.net/Articles/979262),\
+    \ [6.6.34](https://lwn.net/Articles/978593), [6.6.33](https://lwn.net/Articles/978141),\
+    \ [6.6.32](https://lwn.net/Articles/975075), [6.6.31](https://lwn.net/Articles/974072),\
+    \ [6.6.30](https://lwn.net/Articles/972211), [6.6.29](https://lwn.net/Articles/971363),\
+    \ [6.6.28](https://lwn.net/Articles/970172), [6.6.27](https://lwn.net/Articles/969734),\
+    \ [6.6.26](https://lwn.net/Articles/969352), [6.6.25](https://lwn.net/Articles/968470),\
+    \ [6.6.24](https://lwn.net/Articles/968253), [6.6.23](https://lwn.net/Articles/966758),\
+    \ [6.6.22](https://lwn.net/Articles/965606), [6.6.21](https://lwn.net/Articles/964561),\
+    \ [6.6.20](https://lwn.net/Articles/964307), [6.6.19](https://lwn.net/Articles/964173),\
+    \ [6.6.18](https://lwn.net/Articles/963357), [6.6.17](https://lwn.net/Articles/962558),\
+    \ [6.6.16](https://lwn.net/Articles/961011), [6.6.15](https://lwn.net/Articles/960441),\
+    \ [6.6.14](https://lwn.net/Articles/959512), [6.6.13](https://lwn.net/Articles/958862),\
+    \ [6.6.12](https://lwn.net/Articles/958342), [6.6.11](https://lwn.net/Articles/957375),\
+    \ [6.6.10](https://lwn.net/Articles/957008), [6.6.9](https://lwn.net/Articles/956525),\
+    \ [6.6.8](https://lwn.net/Articles/955813), [6.6.7](https://lwn.net/Articles/954990/),\
+    \ [6.6](https://kernelnewbies.org/Linux_6.6), [6.1.66](https://lwn.net/Articles/954112),\
+    \ [6.1.65](https://git.kernel.org/pub/scm/linux/kernel/git/stable/linux.git/tag/?h=v6.1.65),\
+    \ [6.1.64](https://lwn.net/Articles/953132), [6.1.63](https://lwn.net/Articles/952003),\
+    \ [6.1.62](https://lwn.net/Articles/950700), [6.1.61](https://lwn.net/Articles/949826),\
+    \ [6.1.60](https://lwn.net/Articles/948817), [6.1.59](https://lwn.net/Articles/948297),\
+    \ [6.1.58](https://lwn.net/Articles/947820), [6.1.57](https://lwn.net/Articles/947298),\
+    \ [6.1.56](https://lwn.net/Articles/946854), [6.1.55](https://lwn.net/Articles/945379),\
+    \ [6.1.54](https://git.kernel.org/pub/scm/linux/kernel/git/stable/linux.git/tag/?h=v6.1.54),\
+    \ [6.1.53](https://lwn.net/Articles/944358), [6.1.52](https://lwn.net/Articles/943754),\
+    \ [6.1.51](https://lwn.net/Articles/943403), [6.1.50](https://lwn.net/Articles/943112),\
+    \ [6.1.49](https://lwn.net/Articles/942880), [6.1.48](https://lwn.net/Articles/942865),\
+    \ [6.1.47](https://lwn.net/Articles/942531), [6.1.46](https://lwn.net/Articles/941774),\
+    \ [6.1.45](https://lwn.net/Articles/941273), [6.1.44](https://lwn.net/Articles/940800),\
+    \ [6.1.43](https://lwn.net/Articles/940338), [6.1.42](https://lwn.net/Articles/939423),\
+    \ [6.1.41](https://lwn.net/Articles/939103), [6.1.40](https://lwn.net/Articles/939015),\
+    \ [6.1.39](https://lwn.net/Articles/938619), [6.1.38](https://lwn.net/Articles/937403),\
+    \ [6.1.37](https://lwn.net/Articles/937082), [6.1.36](https://lwn.net/Articles/936674),\
+    \ [6.1.35](https://lwn.net/Articles/935588), [6.1.34](https://lwn.net/Articles/934623),\
+    \ [6.1.33](https://lwn.net/Articles/934319), [6.1.32](https://lwn.net/Articles/933908),\
+    \ [6.1.31](https://lwn.net/Articles/933281), [6.1.30](https://lwn.net/Articles/932882),\
+    \ [6.1.29](https://lwn.net/Articles/932133), [6.1.28](https://lwn.net/Articles/931651),\
+    \ [6.1.27](https://lwn.net/Articles/930597/), [6.1](https://kernelnewbies.org/Linux_6.1),\
+    \ [5.15.108](https://lwn.net/Articles/929679/), [5.15.107](https://lwn.net/Articles/929015/),\
+    \ [5.15.106](https://lwn.net/Articles/928343), [5.15.105](https://lwn.net/Articles/927860),\
+    \ [5.15.104](https://lwn.net/Articles/926873), [5.15.103](https://git.kernel.org/pub/scm/linux/kernel/git/stable/linux.git/tag/?h=v5.15.103),\
+    \ [5.15.102](https://lwn.net/Articles/925991), [5.15.101](https://lwn.net/Articles/925939),\
+    \ [5.15.100](https://lwn.net/Articles/925913), [5.15.99](https://lwn.net/Articles/925844)))\r\
+    \n- Linux Firmware ([20240811](https://git.kernel.org/pub/scm/linux/kernel/git/firmware/linux-firmware.git/tag/?h=20240811)\
+    \ (includes [20240709](https://git.kernel.org/pub/scm/linux/kernel/git/firmware/linux-firmware.git/tag/?h=20240709),\
+    \ [20240610](https://git.kernel.org/pub/scm/linux/kernel/git/firmware/linux-firmware.git/tag/?h=20240610),\
+    \ [20240513](https://git.kernel.org/pub/scm/linux/kernel/git/firmware/linux-firmware.git/tag/?h=20240513),\
+    \ [20240410](https://git.kernel.org/pub/scm/linux/kernel/git/firmware/linux-firmware.git/tag/?h=20240410),\
+    \ [20240312](https://git.kernel.org/pub/scm/linux/kernel/git/firmware/linux-firmware.git/tag/?h=20240312),\
+    \ [20240220](https://git.kernel.org/pub/scm/linux/kernel/git/firmware/linux-firmware.git/tag/?h=20240220),\
+    \ [20240115](https://git.kernel.org/pub/scm/linux/kernel/git/firmware/linux-firmware.git/tag/?h=20240115),\
+    \ [20231211](https://git.kernel.org/pub/scm/linux/kernel/git/firmware/linux-firmware.git/tag/?h=20231211),\
+    \ [20231111](https://git.kernel.org/pub/scm/linux/kernel/git/firmware/linux-firmware.git/tag/?h=20231111),\
+    \ [20231030](https://git.kernel.org/pub/scm/linux/kernel/git/firmware/linux-firmware.git/tag/?h=20231030),\
+    \ [20230919](https://git.kernel.org/pub/scm/linux/kernel/git/firmware/linux-firmware.git/tag/?h=20230919),\
+    \ [20230804](https://git.kernel.org/pub/scm/linux/kernel/git/firmware/linux-firmware.git/tag/?h=20230804),\
+    \ [20230625](https://git.kernel.org/pub/scm/linux/kernel/git/firmware/linux-firmware.git/tag/?h=20230625),\
+    \ [20230515](https://git.kernel.org/pub/scm/linux/kernel/git/firmware/linux-firmware.git/tag/?h=20230515),\
+    \ [20230404](https://git.kernel.org/pub/scm/linux/kernel/git/firmware/linux-firmware.git/tag/?h=20230404),\
+    \ [20230310](https://git.kernel.org/pub/scm/linux/kernel/git/firmware/linux-firmware.git/tag/?h=20230310),\
+    \ [20230210](https://git.kernel.org/pub/scm/linux/kernel/git/firmware/linux-firmware.git/tag/?h=20230210)))\r\
+    \n- SDK: Rust ([1.80.1](https://github.com/rust-lang/rust/releases/tag/1.80.1)\
+    \ (includes [1.80.0](https://github.com/rust-lang/rust/releases/tag/1.80.0), [1.79.0](https://github.com/rust-lang/rust/releases/tag/1.79.0),\
+    \ [1.78.0](https://github.com/rust-lang/rust/releases/tag/1.78.0), [1.77.2](https://github.com/rust-lang/rust/releases/tag/1.77.2),\
+    \ [1.77.1](https://github.com/rust-lang/rust/releases/tag/1.77.1), [1.77.0](https://github.com/rust-lang/rust/releases/tag/1.77.0),\
+    \ [1.76.0](https://github.com/rust-lang/rust/releases/tag/1.76.0), [1.75.0](https://github.com/rust-lang/rust/releases/tag/1.75.0),\
+    \ [1.74.1](https://github.com/rust-lang/rust/releases/tag/1.74.1), [1.73.0](https://github.com/rust-lang/rust/releases/tag/1.73.0),\
+    \ [1.72.1](https://github.com/rust-lang/rust/releases/tag/1.72.1), [1.72.0](https://github.com/rust-lang/rust/releases/tag/1.72.0),\
+    \ [1.71.1](https://github.com/rust-lang/rust/releases/tag/1.71.1), [1.71.0](https://github.com/rust-lang/rust/releases/tag/1.71.0),\
+    \ [1.70.0](https://github.com/rust-lang/rust/releases/tag/1.70.0), [1.68.2](https://github.com/rust-lang/rust/releases/tag/1.68.2),\
+    \ [1.68.0](https://github.com/rust-lang/rust/releases/tag/1.68.0), [1.67.1](https://github.com/rust-lang/rust/releases/tag/1.67.1)))\r\
+    \n- SDK: cmake ([3.25.2](https://cmake.org/cmake/help/v3.25/release/3.25.html))\r\
+    \n- SDK: dnsmasq ([2.89](https://lists.thekelleys.org.uk/pipermail/dnsmasq-discuss/2023q1/016859.html))\r\
+    \n- SDK: go ([1.21.12](https://go.dev/doc/devel/release#go1.21.12) (includes [1.21](https://go.dev/doc/go1.21)))\r\
+    \n- SDK: make ([4.4.1](https://lists.gnu.org/archive/html/info-gnu/2023-02/msg00011.html)\
+    \ (includes [4.4](https://lists.gnu.org/archive/html/help-make/2022-10/msg00020.html)))\r\
+    \n- SDK: man-db ([2.11.2](https://gitlab.com/man-db/man-db/-/tags/2.11.2))\r\n\
+    - SDK: man-pages ([6.03](https://lore.kernel.org/lkml/d56662b2-538c-7252-9052-8afbf325f843@gmail.com/T/))\r\
+    \n- SDK: meson ([1.5.1](https://mesonbuild.com/Release-notes-for-1-5-0.html))\r\
+    \n- SDK: nano ([7.2](https://git.savannah.gnu.org/cgit/nano.git/tree/NEWS?h=v7.2))\r\
+    \n- SDK: nasm ([2.16.01](https://github.com/netwide-assembler/nasm/releases/tag/nasm-2.16.01))\r\
+    \n- SDK: pahole ([1.27](https://git.kernel.org/pub/scm/devel/pahole/pahole.git/tag/?h=v1.27)\
+    \ (includes [1.25](https://github.com/acmel/dwarves/blob/master/changes-v1.25),\
+    \ [1.24](https://github.com/acmel/dwarves/releases/tag/v1.24)))\r\n- SDK: perf\
+    \ ([6.3](https://kernelnewbies.org/LinuxChanges#Linux_6.3.Tracing.2C_perf_and_BPF))\r\
+    \n- SDK: perl ([5.38.2](https://perldoc.perl.org/5.38.2/perldelta) (includes [5.36.1](https://perldoc.perl.org/perl5361delta)))\r\
+    \n- SDK: portage ([3.0.65](https://github.com/gentoo/portage/blob/f03998622e0960388e903de0d6d24bdf6881e567/NEWS#L9)\
+    \ (includes [3.0.63](https://gitweb.gentoo.org/proj/portage.git/tree/NEWS?h=portage-3.0.63),\
+    \ [3.0.61](https://gitweb.gentoo.org/proj/portage.git/tree/NEWS?h=portage-3.0.61),\
+    \ [3.0.59](https://gitweb.gentoo.org/proj/portage.git/tree/NEWS?h=portage-3.0.59),\
+    \ [3.0.49](https://gitweb.gentoo.org/proj/portage.git/tree/NEWS?h=portage-3.0.49),\
+    \ [3.0.46](https://gitweb.gentoo.org/proj/portage.git/tree/NEWS?h=portage-3.0.46),\
+    \ [3.0.44](https://gitweb.gentoo.org/proj/portage.git/tree/NEWS?h=portage-3.0.44)))\r\
+    \n- SDK: python ([3.11.9](https://www.get-python.org/downloads/release/python-3119/)\
+    \ (includes [3.11.8](https://www.get-python.org/downloads/release/python-3118/),\
+    \ [3.11.7](https://www.python.org/downloads/release/python-3117/), [3.11.6](https://docs.python.org/release/3.11.6/whatsnew/changelog.html#python-3-11-6),\
+    \ [3.11.5](https://www.python.org/downloads/release/python-3115/), [3.11.3](https://www.python.org/downloads/release/python-3113/),\
+    \ [3.10.12](https://www.python.org/downloads/release/python-31012/), [3.10.11](https://www.python.org/downloads/release/python-31011/),\
+    \ [3.10.10](https://docs.python.org/3.10/whatsnew/changelog.html#python-3-10-10-final),\
+    \ [3.10.9](https://docs.python.org/3.10/whatsnew/changelog.html#python-3-10-9-final),\
+    \ [3.10](https://www.python.org/downloads/release/python-3100/)))\r\n- SDK: python-packaging\
+    \ ([23.2](https://github.com/pypa/packaging/releases/tag/23.2))\r\n- SDK: python-platformdirs\
+    \ ([3.11.0](https://github.com/platformdirs/platformdirs/releases/tag/3.11.0))\r\
+    \n- SDK: qemu ([8.2.3](https://wiki.qemu.org/ChangeLog/8.2) (includes [8.0.4](https://wiki.qemu.org/ChangeLog/8.0),\
+    \ [8.1.5](https://wiki.qemu.org/ChangeLog/8.1), [8.0.3](https://wiki.qemu.org/ChangeLog/8.0),\
+    \ [7.2.3](https://wiki.qemu.org/ChangeLog/7.2)))\r\n- SDK: repo (2.37)\r\n- VMware:\
+    \ libdnet ([1.16.2](https://github.com/ofalk/libdnet/releases/tag/libdnet-1.16.2)\
+    \ (includes [1.16](https://github.com/ofalk/libdnet/releases/tag/libdnet-1.16)))\r\
+    \n- VMware: open-vm-tools ([12.3.5](https://github.com/vmware/open-vm-tools/releases/tag/stable-12.3.5)\
+    \ (includes [12.3.0](https://github.com/vmware/open-vm-tools/releases/tag/stable-12.3.0),\
+    \ [12.2.5](https://github.com/vmware/open-vm-tools/releases/tag/stable-12.2.5)))\r\
+    \n- acl ([2.3.2](https://lists.nongnu.org/archive/html/acl-devel/2024-01/msg00012.html))\r\
+    \n- acpid ([2.0.34](https://sourceforge.net/p/acpid2/code/ci/2.0.34/tree/Changelog))\r\
+    \n- afterburn ([5.6.0](https://coreos.github.io/afterburn/release-notes/#afterburn-560)\
+    \ (includes [5.5.1](https://github.com/coreos/afterburn/releases/tag/v5.5.1),\
+    \ [5.5.0](https://github.com/coreos/afterburn/releases/tag/v5.5.0)))\r\n- attr\
+    \ ([2.5.2](https://lists.nongnu.org/archive/html/acl-devel/2024-01/msg00011.html))\r\
+    \n- audit ([3.1.2](https://github.com/linux-audit/audit-userspace/releases/tag/v3.1.2)\
+    \ (includes [3.1.1](https://github.com/linux-audit/audit-userspace/releases/tag/v3.1.1)))\r\
+    \n- azure: azure-nvme-utils ([0.2.0](https://github.com/Azure/azure-nvme-utils/releases/tag/v0.2.0))\r\
+    \n- bash ([5.2_p21](https://git.savannah.gnu.org/cgit/bash.git/log/?id=2bb3cbefdb8fd019765b1a9cc42ecf37ff22fec6)\
+    \ (includes [5.2](https://lists.gnu.org/archive/html/bash-announce/2022-09/msg00000.html)))\r\
+    \n- bind-tools ([9.16.48](https://bind9.readthedocs.io/en/v9.16.48/notes.html#notes-for-bind-9-16-48)\
+    \ (includes [9.16.42](https://bind9.readthedocs.io/en/v9.16.42/notes.html#notes-for-bind-9-16-42),\
+    \ [9.16.41](https://bind9.readthedocs.io/en/v9.16.41/notes.html#notes-for-bind-9-16-41),\
+    \ [9.16.37](https://bind9.readthedocs.io/en/v9_16_37/notes.html#notes-for-bind-9-16-37)))\r\
+    \n- binutils ([2.42](https://sourceware.org/pipermail/binutils/2024-January/132213.html)\
+    \ (includes [2.41](https://lists.gnu.org/archive/html/info-gnu/2023-07/msg00009.html),\
+    \ [2.40](https://lists.gnu.org/archive/html/info-gnu/2023-01/msg00003.html)))\r\
+    \n- bpftool ([6.9.2](https://kernelnewbies.org/Linux_6.9#Tracing.2C_perf_and_BPF)\
+    \ (includes [6.8.2](https://kernelnewbies.org/Linux_6.8#Tracing.2C_perf_and_BPF),\
+    \ [6.7.6](https://kernelnewbies.org/Linux_6.7#Tracing.2C_probing_and_BPF), [6.5.7](https://kernelnewbies.org/Linux_6.5#Tracing.2C_perf_and_BPF),\
+    \ [6.3](https://git.kernel.org/pub/scm/linux/kernel/git/bpf/bpf-next.git/log/tools/bpf/bpftool?h=v6.3),\
+    \ [6.2.1](https://kernelnewbies.org/LinuxChanges#Linux_6.2.Tracing.2C_perf_and_BPF)))\r\
+    \n- btrfs-progs ([6.9.2](https://github.com/kdave/btrfs-progs/blob/v6.9.2/CHANGES)\
+    \ (includes [6.0.2](https://btrfs.readthedocs.io/en/latest/CHANGES.html#btrfs-progs-6-0-2-2022-11-24),\
+    \ [6.0](https://btrfs.readthedocs.io/en/latest/CHANGES.html#btrfs-progs-6-0-2022-10-11)))\r\
+    \n- c-ares ([1.29.0](https://github.com/c-ares/c-ares/releases/tag/cares-1_29_0)\
+    \ (includes [1.28.1](https://github.com/c-ares/c-ares/releases/tag/cares-1_28_1),\
+    \ [1.28.0](https://github.com/c-ares/c-ares/releases/tag/cares-1_28_0), [1.27.0](https://github.com/c-ares/c-ares/releases/tag/cares-1_27_0),\
+    \ [1.26.0](https://github.com/c-ares/c-ares/releases/tag/cares-1_26_0), [1.25.0](https://c-ares.org/changelog.html#1_25_0),\
+    \ [1.21.0](https://c-ares.org/changelog.html#1_21_0), [1.19.1](https://github.com/c-ares/c-ares/releases/tag/cares-1_19_1),\
+    \ [1.19.0](https://c-ares.org/changelog.html#1_19_0)))\r\n- cJSON ([1.7.18](https://github.com/DaveGamble/cJSON/releases/tag/v1.7.18)\
+    \ (includes [1.7.17](https://github.com/DaveGamble/cJSON/releases/tag/v1.7.17),\
+    \ [1.7.16](https://github.com/DaveGamble/cJSON/releases/tag/v1.7.16)))\r\n- checkpolicy\
+    \ ([3.6](https://github.com/SELinuxProject/selinux/releases/tag/3.6) (includes\
+    \ [3.5](https://github.com/SELinuxProject/selinux/releases/tag/3.5)))\r\n- cifs-utils\
+    \ ([7.0](https://lists.samba.org/archive/samba-technical/2022-August/137528.html))\r\
+    \n- conntrack-tools ([1.4.8](https://lwn.net/Articles/945927/))\r\n- containerd\
+    \ ([1.7.21](https://github.com/containerd/containerd/releases/tag/v1.7.21) (includes\
+    \ [1.7.20](https://github.com/containerd/containerd/releases/tag/v1.7.20), [1.7.19](https://github.com/containerd/containerd/releases/tag/v1.7.19),\
+    \ [1.7.18](https://github.com/containerd/containerd/releases/tag/v1.7.18), [1.7.17](https://github.com/containerd/containerd/releases/tag/v1.7.17),\
+    \ [1.7.16](https://github.com/containerd/containerd/releases/tag/v1.7.16), [1.7.15](https://github.com/containerd/containerd/releases/tag/v1.7.15),\
+    \ [1.7.14](https://github.com/containerd/containerd/releases/tag/v1.7.14), [1.7.13](https://github.com/containerd/containerd/releases/tag/v1.7.13),\
+    \ [1.7.12](https://github.com/containerd/containerd/releases/tag/v1.7.12), [1.7.11](https://github.com/containerd/containerd/releases/tag/v1.7.11),\
+    \ [1.7.10](https://github.com/containerd/containerd/releases/tag/v1.7.10), [1.7.9](https://github.com/containerd/containerd/releases/tag/v1.7.9),\
+    \ [1.7.8](https://github.com/containerd/containerd/releases/tag/v1.7.8), [1.7.7](https://github.com/containerd/containerd/releases/tag/v1.7.7),\
+    \ [1.7.6](https://github.com/containerd/containerd/releases/tag/v1.7.6), [1.7.5](https://github.com/containerd/containerd/releases/tag/v1.7.5),\
+    \ [1.7.4](https://github.com/containerd/containerd/releases/tag/v1.7.4), [1.7.3](https://github.com/containerd/containerd/releases/tag/v1.7.3),\
+    \ [1.7.2](https://github.com/containerd/containerd/releases/tag/v1.7.2), [1.6.21](https://github.com/containerd/containerd/releases/tag/v1.6.21),\
+    \ [1.6.20](https://github.com/containerd/containerd/releases/tag/v1.6.20), [1.6.19](https://github.com/containerd/containerd/releases/tag/v1.6.19),\
+    \ [1.6.18](https://github.com/containerd/containerd/releases/tag/v1.6.18)))\r\n\
+    - coreutils ([9.5](https://lists.gnu.org/archive/html/info-gnu/2024-03/msg00006.html)\
+    \ (includes [9.4](https://lists.gnu.org/archive/html/info-gnu/2023-08/msg00007.html),\
+    \ [9.3](https://lists.gnu.org/archive/html/info-gnu/2023-04/msg00006.html), [9.1](https://git.savannah.gnu.org/cgit/coreutils.git/tree/NEWS?h=v9.1)))\r\
+    \n- cri-tools ([1.27.0](https://github.com/kubernetes-sigs/cri-tools/releases/tag/v1.27.0))\r\
+    \n- cryptsetup ([2.7.2](https://gitlab.com/cryptsetup/cryptsetup/-/blob/v2.7.2/docs/v2.7.2-ReleaseNotes)\
+    \ (includes [2.7.1](https://gitlab.com/cryptsetup/cryptsetup/-/blob/v2.7.1/docs/v2.7.1-ReleaseNotes),\
+    \ [2.7.0](https://gitlab.com/cryptsetup/cryptsetup/-/blob/v2.7.0/docs/v2.7.0-ReleaseNotes),\
+    \ [2.6.1](https://gitlab.com/cryptsetup/cryptsetup/-/blob/v2.6.1/docs/v2.6.1-ReleaseNotes),\
+    \ [2.6.0](https://gitlab.com/cryptsetup/cryptsetup/-/blob/v2.6.0/docs/v2.6.0-ReleaseNotes),\
+    \ [2.5.0](https://gitlab.com/cryptsetup/cryptsetup/-/blob/v2.5.0/docs/v2.5.0-ReleaseNotes)))\r\
+    \n- curl ([8.9.1](https://curl.se/ch/8.9.1.html) (includes [8.9.0](https://curl.se/ch/8.9.0.html),\
+    \ [8.8.0](https://curl.se/changes.html#8_8_0), [8.7.1](https://curl.se/changes.html#8_7_1),\
+    \ [8.7.0](https://curl.se/changes.html#8_7_0), [8.6.0](https://curl.se/changes.html#8_6_0),\
+    \ [8.5.0](https://curl.se/changes.html#8_5_0), [8.4.0](https://curl.se/changes.html#8_4_0),\
+    \ [8.3.0](https://curl.se/changes.html#8_3_0), [8.2.1](https://curl.se/changes.html#8_2_1),\
+    \ [8.2.0](https://curl.se/changes.html#8_2_0), [8.1.2](https://curl.se/changes.html#8_1_2),\
+    \ [8.1.0](https://curl.se/changes.html#8_1_0), [8.0.1](https://curl.se/changes.html#8_0_1),\
+    \ [7.88.1](https://curl.se/changes.html#7_88_1), [7.88.0](https://curl.se/changes.html#7_88_0)))\r\
+    \n- debianutils ([5.7](https://metadata.ftp-master.debian.org/changelogs//main/d/debianutils/debianutils_5.7-0.4_changelog))\r\
+    \n- dev: iperf ([3.15](https://github.com/esnet/iperf/releases/tag/3.15))\r\n\
+    - dev: minicom ([2.9](https://salsa.debian.org/minicom-team/minicom/-/releases/2.9))\r\
+    \n- dev: smartmontools ([7.4](https://www.smartmontools.org/browser/tags/RELEASE_7_4/smartmontools/NEWS))\r\
+    \n- diffutils ([3.10](https://lists.gnu.org/archive/html/info-gnu/2023-05/msg00009.html)\
+    \ (includes [3.9](https://savannah.gnu.org/forum/forum.php?forum_id=10282)))\r\
+    \n- ding-libs ([0.6.2](https://github.com/SSSD/ding-libs/releases/tag/0.6.2))\r\
+    \n- e2fsprogs ([1.47.1](https://e2fsprogs.sourceforge.net/e2fsprogs-release.html#1.47.1)\
+    \ (includes [1.47.0](https://e2fsprogs.sourceforge.net/e2fsprogs-release.html##1.47.0),\
+    \ [1.46.6](https://e2fsprogs.sourceforge.net/e2fsprogs-release.html#1.46.6)))\r\
+    \n- efibootmgr ([18](https://github.com/rhboot/efibootmgr/releases/tag/18))\r\n\
+    - efivar ([38](https://github.com/rhboot/efivar/releases/tag/38))\r\n- elfutils\
+    \ ([0.191](https://inbox.sourceware.org/elfutils-devel/CAJDtP-SJhJ8cjTpkNpi+F0nzVJ2pZsEai8Ewpp4yJmsO_H5-NA@mail.gmail.com/T/#u)\
+    \ (includes [0.190](https://sourceware.org/git/?p=elfutils.git;a=blob;f=NEWS;h=0420d3b8376877c1b11712f1aad90a2e2b6f6d06;hb=c1058da5a450e33e72b72abb53bc3ffd7f6b361b),\
+    \ [0.189](https://sourceware.org/pipermail/elfutils-devel/2023q1/006023.html)))\r\
+    \n- ethtool ([6.9](https://git.kernel.org/pub/scm/network/ethtool/ethtool.git/tree/NEWS?h=v6.9)\
+    \ (includes [6.7](https://git.kernel.org/pub/scm/network/ethtool/ethtool.git/tree/NEWS?h=v6.7),\
+    \ [6.6](https://git.kernel.org/pub/scm/network/ethtool/ethtool.git/tree/NEWS?h=v6.6),\
+    \ [6.5](https://git.kernel.org/pub/scm/network/ethtool/ethtool.git/tree/NEWS?h=v6.5),\
+    \ [6.4](https://git.kernel.org/pub/scm/network/ethtool/ethtool.git/tree/NEWS?h=v6.4),\
+    \ [6.3](https://git.kernel.org/pub/scm/network/ethtool/ethtool.git/commit/?id=7bdf78f0d2a9ae1571fe9444e552490130e573fd),\
+    \ [6.2](https://git.kernel.org/pub/scm/network/ethtool/ethtool.git/tree/NEWS?h=v6.2)))\r\
+    \n- expat ([2.6.3](https://github.com/libexpat/libexpat/blob/R_2_6_3/expat/Changes)\
+    \ (includes [2.6.2](https://github.com/libexpat/libexpat/blob/R_2_6_2/expat/Changes),\
+    \ [2.6.1](https://github.com/libexpat/libexpat/blob/R_2_6_1/expat/Changes), [2.6.0](https://github.com/libexpat/libexpat/blob/R_2_6_0/expat/Changes)))\r\
+    \n- file ([5.45](https://github.com/file/file/blob/FILE5_45/ChangeLog))\r\n- findutils\
+    \ ([4.10.0](https://git.savannah.gnu.org/cgit/findutils.git/tree/NEWS?h=v4.10.0)\
+    \ (includes [4.9.0](https://lists.gnu.org/archive/html/info-gnu/2022-02/msg00003.html)))\r\
+    \n- gawk ([5.3.0](https://lwn.net/Articles/949829/) (includes [5.2.2](https://lists.gnu.org/archive/html/info-gnu/2023-05/msg00008.html)))\r\
+    \n- gcc ([13.3.1_p20240614](https://gcc.gnu.org/gcc-13/changes.html) (includes\
+    \ [13.2](https://gcc.gnu.org/gcc-13/changes.html), [12.2.1](https://gcc.gnu.org/gcc-12/changes.html)))\r\
+    \n- gdb ([13.2](https://lists.gnu.org/archive/html/info-gnu/2023-05/msg00011.html)\
+    \ (includes [13.1.90](https://lwn.net/Articles/923819/)))\r\n- gdbm ([1.23](https://lists.gnu.org/archive/html/info-gnu/2022-02/msg00004.html))\r\
+    \n- gentoolkit ([0.6.3](https://gitweb.gentoo.org/proj/gentoolkit.git/log/?h=gentoolkit-0.6.3))\r\
+    \n- gettext ([0.22.4](https://savannah.gnu.org/news/?id=10544))\r\n- gflags ([2.2.2](https://github.com/gflags/gflags/releases/tag/v2.2.2))\r\
+    \n- git ([2.44.2](https://github.com/git/git/blob/v2.44.2/Documentation/RelNotes/2.44.2.txt)\
+    \ (includes [2.44.1](https://github.com/git/git/blob/v2.44.1/Documentation/RelNotes/2.44.1.txt),\
+    \ [2.44.0](https://github.com/git/git/blob/v2.44.0/Documentation/RelNotes/2.44.0.txt),\
+    \ [2.43.2](https://github.com/git/git/blob/v2.43.2/Documentation/RelNotes/2.43.2.txt),\
+    \ [2.43.0](https://github.com/git/git/blob/v2.43.0/Documentation/RelNotes/2.43.0.txt),\
+    \ [2.42.0](https://github.com/git/git/blob/v2.42.0/Documentation/RelNotes/2.42.0.txt),\
+    \ [2.41.0](https://lore.kernel.org/git/xmqqleh3a3wm.fsf@gitster.g/), [2.39.3](https://github.com/git/git/blob/v2.39.3/Documentation/RelNotes/2.39.3.txt),\
+    \ [2.39.2](https://github.com/git/git/blob/v2.39.2/Documentation/RelNotes/2.39.2.txt)))\r\
+    \n- glib ([2.78.6](https://gitlab.gnome.org/GNOME/glib/-/releases/2.78.6) (includes\
+    \ [2.78.5](https://gitlab.gnome.org/GNOME/glib/-/releases/2.78.5), [2.78.4](https://gitlab.gnome.org/GNOME/glib/-/releases/2.78.4),\
+    \ [2.78.3](https://gitlab.gnome.org/GNOME/glib/-/blob/2.78.3/NEWS), [2.76.4](https://gitlab.gnome.org/GNOME/glib/-/releases/2.76.4),\
+    \ [2.76.3](https://gitlab.gnome.org/GNOME/glib/-/releases/2.76.3), [2.76.2](https://gitlab.gnome.org/GNOME/glib/-/releases/2.76.2),\
+    \ [2.74.6](https://gitlab.gnome.org/GNOME/glib/-/tags/2.74.6), [2.74.5](https://gitlab.gnome.org/GNOME/glib/-/tags/2.74.5)))\r\
+    \n- glibc ([2.38](https://sourceware.org/pipermail/libc-alpha/2023-July/150524.html)\
+    \ (includes [2.37](https://sourceware.org/git/?p=glibc.git;a=tag;h=refs/tags/glibc-2.37)))\r\
+    \n- glog ([0.6.0](https://github.com/google/glog/releases/tag/v0.6.0))\r\n- gmp\
+    \ ([6.3.0](https://gmplib.org/gmp6.3))\r\n- gnuconfig ([20230731](https://git.savannah.gnu.org/cgit/config.git/log/?id=d4e37b5868ef910e3e52744c34408084bb13051c))\r\
+    \n- gnupg ([2.4.5](https://lists.gnupg.org/pipermail/gnupg-announce/2024q1/000482.html)\
+    \ (includes [2.4.4](https://lists.gnupg.org/pipermail/gnupg-announce/2024q1/000481.html),\
+    \ [2.2.42](https://dev.gnupg.org/T6307)))\r\n- gnutls ([3.8.5](https://lists.gnupg.org/pipermail/gnutls-help/2024-April/004846.html)\
+    \ (includes [3.8.4](https://lists.gnupg.org/pipermail/gnutls-help/2024-March/004845.html),\
+    \ [3.8.2](https://lists.gnupg.org/pipermail/gnutls-help/2023-November/004837.html),\
+    \ [3.8.0](https://gitlab.com/gnutls/gnutls/-/blob/3.8.0/NEWS)))\r\n- gptfdisk\
+    \ ([1.0.9](https://sourceforge.net/p/gptfdisk/code/ci/1d46f3723bc25f5598266f7d9a3548af3cee0c77/tree/NEWS))\r\
+    \n- grep ([3.11](https://lists.gnu.org/archive/html/info-gnu/2023-05/msg00004.html)\
+    \ (includes [3.8](http://savannah.gnu.org/forum/forum.php?forum_id=10227)))\r\n\
+    - groff ([1.23.0](https://lists.gnu.org/archive/html/info-gnu/2023-07/msg00001.html))\r\
+    \n- grub ([2.06](https://lists.gnu.org/archive/html/grub-devel/2021-06/msg00022.html))\r\
+    \n- gzip ([1.13](https://savannah.gnu.org/news/?id=10501))\r\n- hwdata ([0.383](https://github.com/vcrhonek/hwdata/compare/v0.382...v0.383)\
+    \ (includes [0.382](https://github.com/vcrhonek/hwdata/commits/v0.382), [0.376](https://github.com/vcrhonek/hwdata/commits/v0.376),\
+    \ [0.375](https://github.com/vcrhonek/hwdata/releases/tag/v0.375), [0.374](https://github.com/vcrhonek/hwdata/commits/v0.374),\
+    \ [0.373](https://github.com/vcrhonek/hwdata/commits/v0.373), [0.372](https://github.com/vcrhonek/hwdata/commits/v0.372),\
+    \ [0.371](https://github.com/vcrhonek/hwdata/commits/v0.371), [0.367](https://github.com/vcrhonek/hwdata/releases/tag/v0.367)))\r\
+    \n- ignition ([2.15.0](https://coreos.github.io/ignition/release-notes/#ignition-2150-2023-02-21))\r\
+    \n- inih ([58](https://github.com/benhoyt/inih/releases/tag/r58) (includes [57](https://github.com/benhoyt/inih/releases/tag/r57),\
+    \ [56](https://github.com/benhoyt/inih/releases/tag/r56)))\r\n- intel-microcode\
+    \ ([20240514_p20240514](https://github.com/intel/Intel-Linux-Processor-Microcode-Data-Files/releases/tag/microcode-20240514)\
+    \ (includes [20240312](https://github.com/intel/Intel-Linux-Processor-Microcode-Data-Files/releases/tag/microcode-20240312),\
+    \ [20231114_p20231114](https://github.com/intel/Intel-Linux-Processor-Microcode-Data-Files/releases/tag/microcode-20231114),\
+    \ [20230808](https://github.com/intel/Intel-Linux-Processor-Microcode-Data-Files/releases/tag/microcode-20230808),\
+    \ [20230613](https://github.com/intel/Intel-Linux-Processor-Microcode-Data-Files/releases/tag/microcode-20230613),\
+    \ [20230512](https://github.com/intel/Intel-Linux-Processor-Microcode-Data-Files/releases/tag/microcode-20230512),\
+    \ [20230214](https://github.com/intel/Intel-Linux-Processor-Microcode-Data-Files/releases/tag/microcode-20230214)))\r\
+    \n- iperf ([3.16](https://github.com/esnet/iperf/releases/tag/3.16) (includes\
+    \ [3.14](https://github.com/esnet/iperf/blob/master/RELNOTES.md#iperf-314-2023-07-07),\
+    \ [3.13](https://github.com/esnet/iperf/blob/3.13/RELNOTES.md)))\r\n- iproute2\
+    \ ([6.8.0](https://lwn.net/Articles/965125/) (includes [6.7.0](https://lwn.net/Articles/957171/),\
+    \ [6.6.0](https://marc.info/?l=linux-netdev&m=169929000929786&w=2), [6.5.0](https://marc.info/?l=linux-netdev&m=169401822317373&w=2),\
+    \ [6.4.0](https://git.kernel.org/pub/scm/network/iproute2/iproute2.git/log/?h=v6.4.0),\
+    \ [6.3.0](https://lwn.net/Articles/930473/), [6.2.0](https://lwn.net/Articles/923952/)))\r\
+    \n- ipset ([7.22](https://ipset.netfilter.org/changelog.html) (includes [7.21](https://git.netfilter.org/ipset/tree/ChangeLog?h=v7.21),\
+    \ [7.20](https://git.netfilter.org/ipset/tree/ChangeLog?h=v7.20), [7.19](https://git.netfilter.org/ipset/tree/ChangeLog?id=ce6db35a0ea950e850ebe7c50ce46908c1c3bb2b),\
+    \ [7.17](https://git.netfilter.org/ipset/tree/ChangeLog?id=186f9b57c60bb53aae5f6633eff1e9d5e9095c3e)))\r\
+    \n- iputils ([20240117](https://github.com/iputils/iputils/releases/tag/20240117)\
+    \ (includes [20231222](https://github.com/iputils/iputils/releases/tag/20231222),\
+    \ [20221126](https://github.com/iputils/iputils/releases/tag/20221126)))\r\n-\
+    \ ipvsadm ([1.31](https://git.kernel.org/pub/scm/utils/kernel/ipvsadm/ipvsadm.git/tag/?h=v1.31)\
+    \ (includes [1.30](https://git.kernel.org/pub/scm/utils/kernel/ipvsadm/ipvsadm.git/tag/?h=v1.30),\
+    \ [1.29](https://git.kernel.org/pub/scm/utils/kernel/ipvsadm/ipvsadm.git/tag/?h=v1.29),\
+    \ [1.28](https://git.kernel.org/pub/scm/utils/kernel/ipvsadm/ipvsadm.git/tag/?h=v1.28)))\r\
+    \n- jq ([1.7.1](https://github.com/jqlang/jq/releases/tag/jq-1.7.1) (includes\
+    \ [1.7](https://github.com/jqlang/jq/releases/tag/jq-1.7)))\r\n- json-c ([0.17](https://github.com/json-c/json-c/blob/json-c-0.17-20230812/ChangeLog))\r\
+    \n- kbd ([2.6.4](https://github.com/legionus/kbd/releases/tag/v2.6.4) (includes\
+    \ [2.6.1](https://github.com/legionus/kbd/releases/tag/v2.6.1), [2.6.0](https://github.com/legionus/kbd/releases/tag/v2.6.0),\
+    \ [2.5.1](https://github.com/legionus/kbd/releases/tag/v2.5.1)))\r\n- kexec-tools\
+    \ ([2.0.28](https://github.com/horms/kexec-tools/commits/v2.0.28/) (includes [2.0.24](https://github.com/horms/kexec-tools/releases/tag/v2.0.24)))\r\
+    \n- keyutils ([1.6.3](https://git.kernel.org/pub/scm/linux/kernel/git/dhowells/keyutils.git/commit/?id=cb3bb194cca88211cbfcdde2f10c0f43c3fb8ec3)\
+    \ (includes [1.6.2](https://git.kernel.org/pub/scm/linux/kernel/git/dhowells/keyutils.git/commit/?id=454f80f537e5d1aad506599b6776e4cc1cf5f0f2)))\r\
+    \n- kmod ([32](https://git.kernel.org/pub/scm/utils/kernel/kmod/kmod.git/tree/NEWS?h=v32)\
+    \ (includes [31](https://github.com/kmod-project/kmod/blob/v31/NEWS), [30](https://lwn.net/Articles/899526/)))\r\
+    \n- ldb ([2.4.4](https://gitlab.com/samba-team/samba/-/commit/b686ef00da46d4a0c0aba0c61b1866cbc9b462b6)\
+    \ (includes [2.4.3](https://gitlab.com/samba-team/samba/-/commit/604f94704f30e90ef960aa2be62a14d2e614a002),\
+    \ [2.4.2](https://gitlab.com/samba-team/samba/-/commit/d93892d2e8ed69758c15ab18bc03bba09e715bc6)))\r\
+    \n- less ([643](https://www.greenwoodsoftware.com/less/news.643.html) (includes\
+    \ [633](http://www.greenwoodsoftware.com/less/news.633.html), [632](http://www.greenwoodsoftware.com/less/news.632.html),\
+    \ [608](http://www.greenwoodsoftware.com/less/news.608.html)))\r\n- libarchive\
+    \ ([3.7.4](https://github.com/libarchive/libarchive/releases/tag/v3.7.4) (includes\
+    \ [3.7.3](https://github.com/libarchive/libarchive/releases/tag/v3.7.3), [3.7.2](https://github.com/libarchive/libarchive/releases/tag/v3.7.2),\
+    \ [3.7.1](https://github.com/libarchive/libarchive/releases/tag/v3.7.1), [3.7.0](https://github.com/libarchive/libarchive/releases/tag/v3.7.0),\
+    \ [3.6.2](https://github.com/libarchive/libarchive/releases/tag/v3.6.2)))\r\n\
+    - libassuan ([2.5.7](https://git.gnupg.org/cgi-bin/gitweb.cgi?p=libassuan.git;a=blob;f=NEWS;h=047f12b7c3ee0c8c1718a2da8b5a6bb9dd541fd8;hb=cc2f776904e0b5e56e2b81b2672ca98d7787ed1b)\
+    \ (includes [2.5.6](https://git.gnupg.org/cgi-bin/gitweb.cgi?p=libassuan.git;a=blob;f=NEWS;h=e52bb5dd36ac93ea227e53e89f82af9ccf38f339;hb=6b50ee6bcdd6aa81bd7cc3fb2379864c3ed479b8)))\r\
+    \n- libbsd ([0.11.8](https://lists.freedesktop.org/archives/libbsd/2024-January/000377.html)\
+    \ (includes [0.11.7](https://lists.freedesktop.org/archives/libbsd/2022-October/000337.html)))\r\
+    \n- libcap ([2.70](https://sites.google.com/site/fullycapable/release-notes-for-libcap#h.hde102t8xd0v)\
+    \ (includes [2.69](https://sites.google.com/site/fullycapable/release-notes-for-libcap#h.iuvg7sbjg8pe)))\r\
+    \n- libcap-ng ([0.8.5](https://github.com/stevegrubb/libcap-ng/releases/tag/v0.8.5)\
+    \ (includes [0.8.4](https://github.com/stevegrubb/libcap-ng/releases/tag/v0.8.4)))\r\
+    \n- libdnet ([1.18.0](https://github.com/ofalk/libdnet/releases/tag/libdnet-1.18.0)\
+    \ (includes [1.16.4](https://github.com/ofalk/libdnet/releases/tag/libdnet-1.16.4)))\r\
+    \n- libffi ([3.4.4](https://github.com/libffi/libffi/releases/tag/v3.4.4) (includes\
+    \ [3.4.3](https://github.com/libffi/libffi/releases/tag/v3.4.3), [3.4.2](https://github.com/libffi/libffi/releases/tag/v3.4.2)))\r\
+    \n- libgcrypt ([1.10.3](https://git.gnupg.org/cgi-bin/gitweb.cgi?p=libgcrypt.git;a=blob;f=NEWS;h=b767dc1170eb479b9a311cca4074c58e4eedaf0b;hb=aa1610866f8e42bdc272584f0a717f32ee050a22)\
+    \ (includes [1.10.2](https://git.gnupg.org/cgi-bin/gitweb.cgi?p=libgcrypt.git;a=blob;f=NEWS;h=c9a239615f8070427a96688b1be40a81e59e9b8a;hb=1c5cbacf3d88dded5063e959ee68678ff7d0fa56),\
+    \ [1.10.1](https://git.gnupg.org/cgi-bin/gitweb.cgi?p=libgcrypt.git;a=blob;f=NEWS;h=03132c2a115e35783a782c64777cf5f5b1a2825f;hb=ae0e567820c37f9640440b3cff77d7c185aa6742)))\r\
+    \n- libgpg-error ([1.49](https://git.gnupg.org/cgi-bin/gitweb.cgi?p=libgpg-error.git;a=blob;f=NEWS;h=8ac4bf36113fe9254a361e2bc8d0ed52383839ce;hb=faed9c271ad22bbd2ed265d8e11badb53b7a2f32)\
+    \ (includes [1.47](https://dev.gnupg.org/T6231), [1.46](https://git.gnupg.org/cgi-bin/gitweb.cgi?p=libgpg-error.git;a=blob;f=NEWS;h=14b0ba97d6ba2b10b3178f2e4a3e24bfc2355bb3;hb=ea031873aa9642831017937fd33e9009d514ee07)))\r\
+    \n- libidn2 ([2.3.7](https://gitlab.com/libidn/libidn2/-/blob/v2.3.7/NEWS) (includes\
+    \ [2.3.4](https://gitlab.com/libidn/libidn2/-/releases/v2.3.4)))\r\n- libksba\
+    \ ([1.6.7](https://git.gnupg.org/cgi-bin/gitweb.cgi?p=libksba.git;a=blob;f=NEWS;h=3d2d5a47688bb6214efaf02f5ab29f6e64433a97;hb=b14e68b97df754b2bb7a90bb904d143d8e896afb)\
+    \ (includes [1.6.6](https://git.gnupg.org/cgi-bin/gitweb.cgi?p=libksba.git;a=blob;f=NEWS;h=48b42025773e88fbb78d015d1f154fef4c80ef9f;hb=5b220df6f8216a9d5f6139c7b17f075374a27480),\
+    \ [1.6.5](https://git.gnupg.org/cgi-bin/gitweb.cgi?p=libksba.git;a=blob;f=NEWS;h=369cfb5d91bf232685a6c5b156453a624e11ed67;hb=7b3e4785e54280d1a13c5bc839bdc6722d898ac7),\
+    \ [1.6.4](https://git.gnupg.org/cgi-bin/gitweb.cgi?p=libksba.git;a=blob;f=NEWS;h=f640523209c1c9ce9855040e53914a79d24d6a67;hb=557999424ebd13e70d6fc17e648a5dd2a06f440b)))\r\
+    \n- liblinear (246)\r\n- libmd ([1.1.0](https://git.hadrons.org/cgit/libmd.git/log/?h=1.1.0))\r\
+    \n- libmicrohttpd ([1.0.1](https://lists.gnu.org/archive/html/libmicrohttpd/2024-02/msg00005.html)\
+    \ (includes [1.0.0](https://lists.gnu.org/archive/html/libmicrohttpd/2024-02/msg00000.html),\
+    \ [0.9.77](https://gitlab.com/libmicrohttpd/libmicrohttpd/-/releases/v0.9.77),\
+    \ [0.9.76](https://lists.gnu.org/archive/html/libmicrohttpd/2023-02/msg00000.html)))\r\
+    \n- libmnl ([1.0.5](https://git.netfilter.org/libmnl/log/?h=libmnl-1.0.5))\r\n\
+    - libnetfilter_conntrack ([1.0.9](https://git.netfilter.org/libnetfilter_conntrack/log/?h=libnetfilter_conntrack-1.0.9))\r\
+    \n- libnetfilter_cthelper ([1.0.1](https://git.netfilter.org/libnetfilter_cthelper/log/?id=8cee0347cc6969c39bb64000dfaa676a8f9e30f0))\r\
+    \n- libnetfilter_cttimeout ([1.0.1](https://git.netfilter.org/libnetfilter_cttimeout/log/?id=068d36d6291f53a0a609ab1f695aa06e94ce3d30))\r\
+    \n- libnfnetlink ([1.0.2](https://git.netfilter.org/libnfnetlink/log/?h=libnfnetlink-1.0.2))\r\
+    \n- libnftnl ([1.2.6](https://git.netfilter.org/libnftnl/log/?h=libnftnl-1.2.6)\
+    \ (includes [1.2.5](https://git.netfilter.org/libnftnl/log/?h=libnftnl-1.2.5)))\r\
+    \n- libnl ([3.9.0](http://lists.infradead.org/pipermail/libnl/2023-December/002436.html)\
+    \ (includes [3.8.0](https://github.com/thom311/libnl/compare/libnl3_7_0...libnl3_8_0)))\r\
+    \n- libnsl ([2.0.1](https://github.com/thkukuk/libnsl/releases/tag/v2.0.1))\r\n\
+    - libnvme ([1.9](https://github.com/linux-nvme/libnvme/releases/tag/v1.9) (includes\
+    \ [1.8](https://github.com/linux-nvme/libnvme/releases/tag/v1.8), [1.7.1](https://github.com/linux-nvme/libnvme/releases/tag/v1.7.1),\
+    \ [1.7](https://github.com/linux-nvme/libnvme/releases/tag/v1.7), [1.5](https://github.com/linux-nvme/libnvme/releases/tag/v1.5)))\r\
+    \n- libpcap ([1.10.4](https://github.com/the-tcpdump-group/libpcap/blob/24832dd2728bd95ed9b9464ef27b47a943c38003/CHANGES#L51)\
+    \ (includes [1.10.3](https://git.tcpdump.org/libpcap/blob/refs/tags/libpcap-1.10.3:/CHANGES),\
+    \ [1.10.2](https://git.tcpdump.org/libpcap/blob/refs/tags/libpcap-1.10.2:/CHANGES)))\r\
+    \n- libpcre (8.45)\r\n- libpcre2 ([10.43](https://github.com/PCRE2Project/pcre2/blob/pcre2-10.43/NEWS)\
+    \ (includes [10.42](https://github.com/PCRE2Project/pcre2/blob/pcre2-10.42/NEWS)))\r\
+    \n- libpipeline ([1.5.7](https://gitlab.com/libpipeline/libpipeline/-/tags/1.5.7))\r\
+    \n- libpng ([1.6.43](https://github.com/pnggroup/libpng/blob/v1.6.43/ANNOUNCE)\
+    \ (includes [1.6.42](https://github.com/pnggroup/libpng/blob/v1.6.42/ANNOUNCE),\
+    \ [1.6.41](https://github.com/pnggroup/libpng/blob/v1.6.41/ANNOUNCE)))\r\n- libpsl\
+    \ ([0.21.5](https://github.com/rockdaboot/libpsl/blob/0.21.5/NEWS))\r\n- libseccomp\
+    \ ([2.5.5](https://github.com/seccomp/libseccomp/releases/tag/v2.5.5))\r\n- libselinux\
+    \ ([3.6](https://github.com/SELinuxProject/selinux/releases/tag/3.6) (includes\
+    \ [3.5](https://github.com/SELinuxProject/selinux/releases/tag/3.5)))\r\n- libsemanage\
+    \ ([3.6](https://github.com/SELinuxProject/selinux/releases/tag/3.6) (includes\
+    \ [3.5](https://github.com/SELinuxProject/selinux/releases/tag/3.5)))\r\n- libsepol\
+    \ ([3.6](https://github.com/SELinuxProject/selinux/releases/tag/3.6) (includes\
+    \ [3.5](https://github.com/SELinuxProject/selinux/releases/tag/3.5)))\r\n- libsodium\
+    \ ([1.0.19](https://github.com/jedisct1/libsodium/releases/tag/1.0.19-RELEASE))\r\
+    \n- libtirpc ([1.3.4](https://marc.info/?l=linux-nfs&m=169667640909830&w=2))\r\
+    \n- libunistring ([1.2](https://savannah.gnu.org/news/?id=10599) (includes [1.1](https://git.savannah.gnu.org/gitweb/?p=libunistring.git;a=blob;f=NEWS;h=5a43ddd7011d62a952733f6c0b7ad52aa4f385c7;hb=8006860b710aae2e8442088c3ddc7d819dfa8ac7)))\r\
+    \n- libunwind ([1.8.1](https://github.com/libunwind/libunwind/releases/tag/v1.8.1)\
+    \ (includes [1.8.0](https://github.com/libunwind/libunwind/releases/tag/v1.8.0),\
+    \ [1.7.2](https://github.com/libunwind/libunwind/releases/tag/v1.7.2), [1.7.0](https://github.com/libunwind/libunwind/releases/tag/v1.7.0)))\r\
+    \n- liburing ([2.3](https://github.com/axboe/liburing/blob/liburing-2.3/CHANGELOG))\r\
+    \n- libusb ([1.0.27](https://github.com/libusb/libusb/blob/v1.0.27/ChangeLog)\
+    \ (includes [1.0.26](https://github.com/libusb/libusb/blob/v1.0.26/ChangeLog)))\r\
+    \n- libuv ([1.48.0](https://github.com/libuv/libuv/releases/tag/v1.48.0) (includes\
+    \ [1.47.0](https://github.com/libuv/libuv/releases/tag/v1.47.0), [1.46.0](https://github.com/libuv/libuv/releases/tag/v1.46.0),\
+    \ [1.45.0](https://github.com/libuv/libuv/releases/tag/v1.45.0)))\r\n- libverto\
+    \ ([0.3.2](https://github.com/latchset/libverto/releases/tag/0.3.2))\r\n- libxml2\
+    \ ([2.12.7](https://gitlab.gnome.org/GNOME/libxml2/-/releases/v2.12.7) (includes\
+    \ [2.12.6](https://gitlab.gnome.org/GNOME/libxml2/-/releases/v2.12.6), [2.12.5](https://gitlab.gnome.org/GNOME/libxml2/-/releases/v2.12.5),\
+    \ [2.12.4](https://gitlab.gnome.org/GNOME/libxml2/-/blob/v2.12.4/NEWS), [2.11.5](https://gitlab.gnome.org/GNOME/libxml2/-/releases/v2.11.5),\
+    \ [2.11.4](https://gitlab.gnome.org/GNOME/libxml2/-/releases/v2.11.4), [2.10.4](https://gitlab.gnome.org/GNOME/libxml2/-/tags/v2.10.4)))\r\
+    \n- libxslt ([1.1.39](https://gitlab.gnome.org/GNOME/libxslt/-/releases/v1.1.39)\
+    \ (includes [1.1.38](https://gitlab.gnome.org/GNOME/libxslt/-/releases/v1.1.38)))\r\
+    \n- linux-pam ([1.5.3](https://github.com/linux-pam/linux-pam/releases/tag/v1.5.3))\r\
+    \n- lshw ([02.20.2b](https://www.ezix.org/project/wiki/HardwareLiSter#Changes))\r\
+    \n- lsof ([4.99.3](https://github.com/lsof-org/lsof/releases/tag/4.99.3) (includes\
+    \ [4.99.2](https://github.com/lsof-org/lsof/releases/tag/4.99.2), [4.99.1](https://github.com/lsof-org/lsof/releases/tag/4.99.1),\
+    \ [4.99.0](https://github.com/lsof-org/lsof/blob/4.99.0/00DIST#L5523), [4.98.0](https://github.com/lsof-org/lsof/blob/4.98.0/00DIST#L5471)))\r\
+    \n- lua ([5.4.6](https://www.lua.org/manual/5.4/readme.html#changes) (includes\
+    \ [5.4.4](https://www.lua.org/manual/5.4/readme.html#changes)))\r\n- lz4 ([1.10.0](https://github.com/lz4/lz4/releases/tag/v1.10.0)\
+    \ (includes [1.9.4](https://github.com/lz4/lz4/releases/tag/v1.9.4)))\r\n- mime-types\
+    \ ([2.1.54](https://pagure.io/mailcap/blob/9699055a1b4dfb90f7594ee2e8dda705fa56d3b8/f/NEWS))\r\
+    \n- mit-krb5 ([1.21.3](https://web.mit.edu/kerberos/krb5-1.21/README-1.21.3.txt)\
+    \ (includes [1.21.2](http://web.mit.edu/kerberos/krb5-1.21/)))\r\n- mpc ([1.3.1](https://sympa.inria.fr/sympa/arc/mpc-discuss/2022-12/msg00049.html)\
+    \ (includes [1.3.0](https://sympa.inria.fr/sympa/arc/mpc-discuss/2022-12/msg00028.html)))\r\
+    \n- mpfr ([4.2.1](https://gitlab.inria.fr/mpfr/mpfr/-/blob/4.2.1/NEWS))\r\n- multipath-tools\
+    \ ([0.9.8](https://github.com/opensvc/multipath-tools/blob/0.9.8/NEWS.md) (includes\
+    \ [0.9.7](https://github.com/opensvc/multipath-tools/commits/0.9.7), [0.9.5](https://github.com/opensvc/multipath-tools/commits/0.9.5),\
+    \ [0.9.4](https://github.com/opensvc/multipath-tools/commits/0.9.4)))\r\n- ncurses\
+    \ ([6.4](https://invisible-island.net/ncurses/announce.html#h2-release-notes))\r\
+    \n- nettle ([3.9.1](https://git.lysator.liu.se/nettle/nettle/-/blob/nettle_3.9.1_release_20230601/ChangeLog))\r\
+    \n- nghttp2 ([1.62.1](https://github.com/nghttp2/nghttp2/releases/tag/v1.62.1)\
+    \ (includes [1.61.0](https://github.com/nghttp2/nghttp2/releases/tag/v1.61.0),\
+    \ [1.60.0](https://github.com/nghttp2/nghttp2/releases/tag/v1.60.0), [1.59.0](https://github.com/nghttp2/nghttp2/releases/tag/v1.59.0),\
+    \ [1.58.0](https://github.com/nghttp2/nghttp2/releases/tag/v1.58.0), [1.57.0](https://github.com/nghttp2/nghttp2/releases/tag/v1.57.0),\
+    \ [1.56.0](https://github.com/nghttp2/nghttp2/releases/tag/v1.56.0), [1.55.1](https://github.com/nghttp2/nghttp2/releases/tag/v1.55.1),\
+    \ [1.55.0](https://github.com/nghttp2/nghttp2/releases/tag/v1.55.0), [1.54.0](https://github.com/nghttp2/nghttp2/releases/tag/v1.54.0),\
+    \ [1.53.0](https://github.com/nghttp2/nghttp2/releases/tag/v1.53.0), [1.52.0](https://github.com/nghttp2/nghttp2/releases/tag/v1.57.0)))\r\
+    \n- nmap ([7.95](https://nmap.org/changelog.html#7.95) (includes [7.94](https://nmap.org/changelog.html#7.94)))\r\
+    \n- npth ([1.7](https://git.gnupg.org/cgi-bin/gitweb.cgi?p=npth.git;a=blob;f=NEWS;h=c1b631b4294eabfef29baefd60e1b0dfecce710d;hb=75c68399ef3bbb5d024f2a60474a7214fa479016))\r\
+    \n- nspr ([4.35](https://hg.mozilla.org/projects/nspr/log/b563bfc16c887c48b038b7b441fcc4e40a126d3b))\r\
+    \n- ntp ([4.2.8p17](https://www.ntp.org/support/securitynotice/4_2_8p17-release-announcement/))\r\
+    \n- nvidia-drivers ([535.104.05](https://docs.nvidia.com/datacenter/tesla/tesla-release-notes-535-104-05/index.html))\r\
+    \n- nvme-cli ([2.9.1](https://github.com/linux-nvme/nvme-cli/releases/tag/v2.9.1)\
+    \ (includes [2.9](https://github.com/linux-nvme/nvme-cli/releases/tag/v2.9), [2.8](https://github.com/linux-nvme/nvme-cli/releases/tag/v2.8),\
+    \ [2.7.1](https://github.com/linux-nvme/nvme-cli/releases/tag/v2.7.1), [2.7](https://github.com/linux-nvme/nvme-cli/releases/tag/v2.7),\
+    \ [2.6](https://github.com/linux-nvme/nvme-cli/releases/tag/2.6), [2.5](https://github.com/linux-nvme/nvme-cli/releases/tag/v2.5),\
+    \ [2.3](https://github.com/linux-nvme/nvme-cli/releases/tag/v2.3)))\r\n- open-iscsi\
+    \ ([2.1.10](https://github.com/open-iscsi/open-iscsi/releases/tag/2.1.10))\r\n\
+    - open-isns ([0.102](https://github.com/open-iscsi/open-isns/blob/v0.102/ChangeLog))\r\
+    \n- openldap ([2.6.4](https://git.openldap.org/openldap/openldap/-/blob/OPENLDAP_REL_ENG_2_6_4/CHANGES)\
+    \ (includes [2.6.3](https://lists.openldap.org/hyperkitty/list/openldap-announce@openldap.org/thread/FQJM2JSSSOMLQH7XC7Q5IZJYOGCTV2LK/),\
+    \ [2.6](https://lists.openldap.org/hyperkitty/list/openldap-announce@openldap.org/thread/IHS5V46H6NFNFUERMC6AWMPHTWRVNLFA/),\
+    \ [2.5.14](https://lists.openldap.org/hyperkitty/list/openldap-announce@openldap.org/thread/TZQHR4SIWUA5BZTKDAKSFDOOGDVU4TU7/),\
+    \ [2.5](https://lists.openldap.org/hyperkitty/list/openldap-announce@openldap.org/thread/BH3VDPG6IYYF5L5U6LZGHHKMJY5HFA3L/)))\r\
+    \n- openssh ([9.7_p1](https://www.openssh.com/txt/release-9.7) (includes [9.6p1](https://www.openssh.com/releasenotes.html#9.6p1),\
+    \ [9.5p1](https://www.openssh.com/releasenotes.html#9.5p1), [9.4p1](https://www.openssh.com/releasenotes.html#9.4p1),\
+    \ [9.3](http://www.openssh.com/releasenotes.html#9.3), [9.2](http://www.openssh.com/releasenotes.html#9.2)))\r\
+    \n- openssl ([3.2.3](https://github.com/openssl/openssl/blob/openssl-3.2/CHANGES.md#openssl-32)\
+    \ (includes [3.2.1](https://github.com/openssl/openssl/blob/openssl-3.2.1/CHANGES.md),\
+    \ [3.0.12](https://github.com/openssl/openssl/blob/openssl-3.0.12/NEWS.md#major-changes-between-openssl-3011-and-openssl-3012-24-oct-2023),\
+    \ [3.0.9](https://github.com/openssl/openssl/blob/openssl-3.0.9/NEWS.md#major-changes-between-openssl-308-and-openssl-309-30-may-2023),\
+    \ [3.0.8](https://github.com/openssl/openssl/blob/openssl-3.0.8/NEWS.md#major-changes-between-openssl-307-and-openssl-308-7-feb-2023)))\r\
+    \n- parted ([3.6](https://git.savannah.gnu.org/gitweb/?p=parted.git;a=blob;f=NEWS;h=52bb11697039f70e55120c571750f9ee761a75aa;hb=3b5f327b213d21e9adb9ba933c78dd898fee5b1d))\r\
+    \n- pax-utils ([1.3.7](https://gitweb.gentoo.org/proj/pax-utils.git/log/?h=v1.3.7))\r\
+    \n- pciutils ([3.13.0](https://github.com/pciutils/pciutils/blob/v3.13.0/ChangeLog)\
+    \ (includes [3.12.0](https://github.com/pciutils/pciutils/blob/v3.12.0/ChangeLog),\
+    \ [3.10.0](https://github.com/pciutils/pciutils/blob/v3.10.0/ChangeLog), [3.9.0](https://github.com/pciutils/pciutils/releases/tag/v3.9.0)))\r\
+    \n- pigz ([2.8](https://zlib.net/pipermail/pigz-announce_zlib.net/2023-August/000018.html))\r\
+    \n- pinentry ([1.2.1](https://git.gnupg.org/cgi-bin/gitweb.cgi?p=pinentry.git;a=blob;f=NEWS;h=c080b34e57d01a6ccca9d2996d7096c42b1a3f84;hb=8ab1682e80a2b4185ee9ef66cbb44340245966fc))\r\
+    \n- policycoreutils ([3.6](https://github.com/SELinuxProject/selinux/releases/tag/3.6)\
+    \ (includes [3.5](https://github.com/SELinuxProject/selinux/releases/tag/3.5)))\r\
+    \n- popt ([1.19](https://github.com/rpm-software-management/popt/releases/tag/popt-1.19-release))\r\
+    \n- procps ([4.0.4](https://gitlab.com/procps-ng/procps/-/releases/v4.0.4) (includes\
+    \ [4.0.3](https://gitlab.com/procps-ng/procps/-/releases/v4.0.3), [4.0.0](https://gitlab.com/procps-ng/procps/-/releases/v4.0.0)))\r\
+    \n- protobuf ([21.12](https://github.com/protocolbuffers/protobuf/releases/tag/v21.12)\
+    \ (includes [21.11](https://github.com/protocolbuffers/protobuf/releases/tag/v21.11),\
+    \ [21.10](https://github.com/protocolbuffers/protobuf/releases/tag/v21.10), [21.9](https://github.com/protocolbuffers/protobuf/releases/tag/v21.9)))\r\
+    \n- psmisc ([23.6](https://gitlab.com/psmisc/psmisc/-/blob/v23.6/ChangeLog))\r\
+    \n- qemu-guest-agent ([8.2.0](https://wiki.qemu.org/ChangeLog/8.2#Guest_agent)\
+    \ (includes [8.0.3](https://wiki.qemu.org/ChangeLog/8.0#Guest_agent), [8.0.0](https://wiki.qemu.org/ChangeLog/8.0#Guest_agent),\
+    \ [7.1.0](https://wiki.qemu.org/ChangeLog/7.1#Guest_agent)))\r\n- quota ([4.09](https://sourceforge.net/p/linuxquota/code/ci/87d2fd7635e4bca54fa2a00b8d5b073ba9ca521b/tree/Changelog))\r\
+    \n- readline ([8.2_p7](https://git.savannah.gnu.org/cgit/readline.git/log/?id=bfe9c573a9e376323929c80b2b71c59727fab0cc)\
+    \ (includes [8.2](https://lists.gnu.org/archive/html/info-gnu/2022-09/msg00013.html)))\r\
+    \n- rpcsvc-proto ([1.4.4](https://github.com/thkukuk/rpcsvc-proto/releases/tag/v1.4.4))\r\
+    \n- rsync ([3.3.0](https://github.com/RsyncProject/rsync/blob/v3.3.0/NEWS.md))\r\
+    \n- runc ([1.1.13](https://github.com/opencontainers/runc/releases/tag/v1.1.13)\
+    \ (includes [1.1.12](https://github.com/opencontainers/runc/releases/tag/v1.1.12),\
+    \ [1.1.9](https://github.com/opencontainers/runc/releases/tag/v1.1.9), [1.1.8](https://github.com/opencontainers/runc/releases/tag/v1.1.8),\
+    \ [1.1.7](https://github.com/opencontainers/runc/releases/tag/v1.1.7), [1.1.5](https://github.com/opencontainers/runc/releases/tag/v1.1.5)))\r\
+    \n- samba ([4.18.9](https://www.samba.org/samba/history/samba-4.18.9.html) (includes\
+    \ [4.18.8](https://www.samba.org/samba/history/samba-4.18.8.html), [4.18.4](https://wiki.samba.org/index.php/Samba_4.18_Features_added/changed#Samba_4.18.4)))\r\
+    \n- sed ([4.9](https://lists.gnu.org/archive/html/info-gnu/2022-11/msg00001.html)\
+    \ (includes [4.9](https://lists.gnu.org/archive/html/info-gnu/2022-11/msg00001.html)))\r\
+    \n- selinux-base ([2.20231002](https://github.com/SELinuxProject/refpolicy/releases/tag/RELEASE_2_20231002)\
+    \ (includes [2.20221101](https://github.com/SELinuxProject/refpolicy/releases/tag/RELEASE_2_20221101)))\r\
+    \n- selinux-base-policy ([2.20231002](https://github.com/SELinuxProject/refpolicy/releases/tag/RELEASE_2_20231002)\
+    \ (includes [2.20221101](https://github.com/SELinuxProject/refpolicy/releases/tag/RELEASE_2_20221101)))\r\
+    \n- selinux-container ([2.20231002](https://github.com/SELinuxProject/refpolicy/releases/tag/RELEASE_2_20231002)\
+    \ (includes [2.20221101](https://github.com/SELinuxProject/refpolicy/releases/tag/RELEASE_2_20221101)))\r\
+    \n- selinux-dbus ([2.20231002](https://github.com/SELinuxProject/refpolicy/releases/tag/RELEASE_2_20231002))\r\
+    \n- selinux-refpolicy ([2.20240226](https://github.com/SELinuxProject/refpolicy/releases/tag/RELEASE_2_20240226))\r\
+    \n- selinux-sssd ([2.20231002](https://github.com/SELinuxProject/refpolicy/releases/tag/RELEASE_2_20231002)\
+    \ (includes [2.20221101](https://github.com/SELinuxProject/refpolicy/releases/tag/RELEASE_2_20221101)))\r\
+    \n- selinux-unconfined ([2.20231002](https://github.com/SELinuxProject/refpolicy/releases/tag/RELEASE_2_20231002)\
+    \ (includes [2.20221101](https://github.com/SELinuxProject/refpolicy/releases/tag/RELEASE_2_20221101)))\r\
+    \n- semodule-utils ([3.6](https://github.com/SELinuxProject/selinux/releases/tag/3.6)\
+    \ (includes [3.5](https://github.com/SELinuxProject/selinux/releases/tag/3.5)))\r\
+    \n- shim ([15.8](https://github.com/rhboot/shim/releases/tag/15.8))\r\n- smartmontools\
+    \ ([7.3](https://github.com/smartmontools/smartmontools/releases/tag/RELEASE_7_3))\r\
+    \n- socat ([1.7.4.4](https://repo.or.cz/socat.git/blob/refs/tags/tag-1.7.4.4:/CHANGES))\r\
+    \n- sqlite ([3.46.0](https://www.sqlite.org/releaselog/3_46_0.html) (includes\
+    \ [3.45.3](https://www.sqlite.org/releaselog/3_45_3.html), [3.45.1](https://www.sqlite.org/releaselog/3_45_1.html),\
+    \ [3.44.2](https://www.sqlite.org/releaselog/3_44_2.html), [3.43.2](https://www.sqlite.org/releaselog/3_43_2.html),\
+    \ [3.42.0](https://sqlite.org/releaselog/3_42_0.html), [3.41.2](https://sqlite.org/releaselog/3_41_2.html)))\r\
+    \n- squashfs-tools ([4.6.1](https://github.com/plougher/squashfs-tools/releases/tag/4.6.1)\
+    \ (includes [4.6](https://github.com/plougher/squashfs-tools/releases/tag/4.6)))\r\
+    \n- strace ([6.9](https://github.com/strace/strace/releases/tag/v6.9) (includes\
+    \ [6.6](https://github.com/strace/strace/releases/tag/v6.6), [6.4](https://github.com/strace/strace/releases/tag/v6.4),\
+    \ [6.3](https://github.com/strace/strace/releases/tag/v6.3), [6.2](https://github.com/strace/strace/releases/tag/v6.2),\
+    \ [6.1](https://github.com/strace/strace/releases/tag/v6.1)))\r\n- sudo ([1.9.15p5](https://www.sudo.ws/releases/stable/#1.9.15p5)\
+    \ (includes [1.9.13p3](https://www.sudo.ws/releases/stable/#1.9.13p3)))\r\n- sysext-docker:\
+    \ docker ([26.1.0](https://docs.docker.com/engine/release-notes/26.1/#2610) (includes\
+    \ [25.0](https://docs.docker.com/engine/release-notes/25.0/), [24.0.9](https://github.com/moby/moby/releases/tag/v24.0.9),\
+    \ [24.0.6](https://docs.docker.com/engine/release-notes/24.0/), [23.0](https://docs.docker.com/engine/release-notes/23.0/),\
+    \ [20.10.24](https://docs.docker.com/engine/release-notes/20.10/#201024)))\r\n\
+    - sysext-podman: aardvark-dns ([1.11.0](https://github.com/containers/aardvark-dns/releases/tag/v1.11.0))\r\
+    \n- sysext-podman: containers-common ([0.59.1](https://github.com/containers/common/releases/tag/v0.59.1))\r\
+    \n- sysext-podman: podman ([5.0.3](https://github.com/containers/podman/releases/tag/v5.0.3))\r\
+    \n- sysext-python: jaraco-text ([3.12.1](https://github.com/jaraco/jaraco.text/compare/v3.12.0...v3.12.1))\r\
+    \n- sysext-python: more-itertools ([10.4.0](https://github.com/more-itertools/more-itertools/releases/tag/v10.4.0))\r\
+    \n- sysext-python: pip ([24.2](https://github.com/pypa/pip/blob/24.2/NEWS.rst)\
+    \ (includes [24.1.2](https://github.com/pypa/pip/blob/24.1.2/NEWS.rst)))\r\n-\
+    \ sysext-python: setuptools ([72.1.0](https://github.com/pypa/setuptools/blob/v72.1.0/NEWS.rst)\
+    \ (includes [71.1.0](https://github.com/pypa/setuptools/blob/v71.1.0/NEWS.rst),\
+    \ [71.0.0](https://github.com/pypa/setuptools/blob/v71.0.0/NEWS.rst), [70.3.0](https://github.com/pypa/setuptools/blob/v70.3.0/NEWS.rst),\
+    \ [70.1.1](https://setuptools.pypa.io/en/stable/history.html#v70-1-1), [70.1.0](https://setuptools.pypa.io/en/stable/history.html#v70-1-0),\
+    \ [70.0.0](https://setuptools.pypa.io/en/stable/history.html#v70-0-0), [69.5.1](https://setuptools.pypa.io/en/stable/history.html#v69-5-1),\
+    \ [69.5.0](https://setuptools.pypa.io/en/stable/history.html#v69-5-0), [69.4.2](https://setuptools.pypa.io/en/stable/history.html#v69-4-2),\
+    \ [69.4.1](https://setuptools.pypa.io/en/stable/history.html#v69-4-1), [69.4.0](https://setuptools.pypa.io/en/stable/history.html#v69-4-0),\
+    \ [69.3.1](https://setuptools.pypa.io/en/stable/history.html#v69-3-1), [69.3.0](https://setuptools.pypa.io/en/stable/history.html#v69-3-0),\
+    \ [69.2.0](https://setuptools.pypa.io/en/stable/history.html#v69-2-0)))\r\n- sysext-python:\
+    \ trove-classifiers ([2024.7.2](https://github.com/pypa/trove-classifiers/compare/2024.5.22...2024.7.2))\r\
+    \n- sysext-python: wheel ([0.44.0](https://github.com/pypa/wheel/releases/tag/0.44.0))\r\
+    \n- sysext-zfs: zfs ([2.2.5](https://github.com/openzfs/zfs/releases/tag/zfs-2.2.5)\
+    \ (includes [2.2.4](https://github.com/openzfs/zfs/releases/tag/zfs-2.2.4)))\r\
+    \n- systemd ([255.8](https://github.com/systemd/systemd-stable/commits/v255.8/)\
+    \ (includes [255.4](https://github.com/systemd/systemd-stable/commits/v255.4/),\
+    \ [255.3](https://github.com/systemd/systemd-stable/releases/tag/v255.3)))\r\n\
+    - talloc ([2.4.1](https://gitlab.com/samba-team/samba/-/commit/791e2817e13182344447590313f7e372a27c1d48)\
+    \ (includes [2.4.0](https://gitlab.com/samba-team/samba/-/commit/5224ed98eeba43f22b5f5f87de5947fbb1c1c7c1),\
+    \ [2.3.4](https://gitlab.com/samba-team/samba/-/commit/0189ccf9fc3d2a77cc83cffe180e307bcdccebb4)))\r\
+    \n- tar ([1.35](https://lists.gnu.org/archive/html/info-gnu/2023-07/msg00005.html))\r\
+    \n- tcpdump ([4.99.4](https://github.com/the-tcpdump-group/tcpdump/blob/tcpdump-4.99.4/CHANGES))\r\
+    \n- tdb ([1.4.9](https://gitlab.com/samba-team/samba/-/commit/b649c7d3c2b1e13e900c80ff7a20959a70b1c528)\
+    \ (includes [1.4.8](https://gitlab.com/samba-team/samba/-/commit/eab796a4f9172e602dc262f3c99ead35b35929e7),\
+    \ [1.4.7](https://gitlab.com/samba-team/samba/-/commit/27ceb1c3ad786386e746a5e2968780d791393b9e),\
+    \ [1.4.6](https://gitlab.com/samba-team/samba/-/commit/1c776e54cf33b46b2ed73263f093d596a0cdbb2f)))\r\
+    \n- tevent ([0.15.0](https://gitlab.com/samba-team/samba/-/commit/6a80d170bca0c938f78ab12e37481b52792a9d83)\
+    \ (includes [0.14.1](https://gitlab.com/samba-team/samba/-/commit/d80f28b081e515e32a480daf80b42cf782447a9c),\
+    \ [0.14.0](https://gitlab.com/samba-team/samba/-/commit/3c6d28ebae27dba8e40558ae37ae8138ea0b4bdc),\
+    \ [0.13.0](https://gitlab.com/samba-team/samba/-/commit/63d4db63feda920c8020f8484a8b31065b7f1380),\
+    \ [0.12.1](https://gitlab.com/samba-team/samba/-/commit/53692735c733d01acbd953641f831a1f5e0cf6c5)))\r\
+    \n- thin-provisioning-tools ([1.0.10](https://github.com/jthornber/thin-provisioning-tools/commits/v1.0.10/)\
+    \ (includes [1.0.6](https://github.com/jthornber/thin-provisioning-tools/blob/v1.0.6/CHANGES)))\r\
+    \n- tpm2-tools ([5.7](https://github.com/tpm2-software/tpm2-tools/releases/tag/5.7)\
+    \ (includes [5.6.1](https://github.com/tpm2-software/tpm2-tools/releases/tag/5.6.1),\
+    \ [5.6](https://github.com/tpm2-software/tpm2-tools/releases/tag/5.6)))\r\n- tpm2-tss\
+    \ ([4.1.3](https://github.com/tpm2-software/tpm2-tss/releases/tag/4.1.3) (includes\
+    \ [4.0.2](https://github.com/tpm2-software/tpm2-tss/releases/tag/4.0.2)))\r\n\
+    - traceroute ([2.1.5](https://sourceforge.net/projects/traceroute/files/traceroute/traceroute-2.1.5/)\
+    \ (includes [2.1.4](https://sourceforge.net/projects/traceroute/files/traceroute/traceroute%202.1.4/),\
+    \ [2.1.3](https://sourceforge.net/projects/traceroute/files/traceroute/traceroute-2.1.3/),\
+    \ 2.1.1))\r\n- usbutils ([017](https://git.kernel.org/pub/scm/linux/kernel/git/gregkh/usbutils.git/tree/NEWS?h=v017)\
+    \ (includes [016](https://git.kernel.org/pub/scm/linux/kernel/git/gregkh/usbutils.git/tree/NEWS?h=v016),\
+    \ [015](https://github.com/gregkh/usbutils/blob/79b796f945ea7d5c2b0e2a74f9b8819cb7948680/NEWS)))\r\
+    \n- userspace-rcu ([0.14.0](https://github.com/urcu/userspace-rcu/blob/v0.13.2/ChangeLog))\r\
+    \n- util-linux ([2.39.4](https://github.com/util-linux/util-linux/blob/v2.39.4/Documentation/releases/v2.39.4-ReleaseNotes)\
+    \ (includes [2.39.3](https://github.com/util-linux/util-linux/blob/v2.39.3/Documentation/releases/v2.39.3-ReleaseNotes),\
+    \ [2.39.2](https://github.com/util-linux/util-linux/blob/v2.39.2/Documentation/releases/v2.39.2-ReleaseNotes),\
+    \ [2.38.1](https://github.com/util-linux/util-linux/releases/tag/v2.38.1)))\r\n\
+    - vim ([9.1.0366](https://github.com/vim/vim/commits/v9.1.0366/) (includes [9.1](https://www.vim.org/vim-9.1-released.php),\
+    \ [9.0.2167](https://github.com/vim/vim/commits/v9.0.2167/), [9.0.2092](https://github.com/vim/vim/commits/v9.0.2092/),\
+    \ [9.0.1678](https://github.com/vim/vim/commits/v9.0.1678), [9.0.1677](https://github.com/vim/vim/commits/v9.0.1677),\
+    \ [9.0.1503](https://github.com/vim/vim/commits/v9.0.1503), [9.0.1403](https://github.com/vim/vim/releases/tag/v9.0.1403),\
+    \ [9.0.1363](https://github.com/vim/vim/releases/tag/v9.0.1363)))\r\n- VMWare:\
+    \ open-vm-tools ([12.4.5](https://github.com/vmware/open-vm-tools/releases/tag/stable-12.4.5)\
+    \ (includes [12.4.0](https://github.com/vmware/open-vm-tools/releases/tag/stable-12.4.0),\
+    \ [12.2.0](https://github.com/vmware/open-vm-tools/releases/tag/stable-12.2.0)))\r\
+    \n- wget ([1.24.5](https://lists.gnu.org/archive/html/info-gnu/2024-03/msg00002.html)\
+    \ (includes [1.21.4](https://lists.gnu.org/archive/html/info-gnu/2023-05/msg00003.html)))\r\
+    \n- whois ([5.5.21](https://github.com/rfc1036/whois/blob/v5.5.21/debian/changelog)\
+    \ (includes [5.5.20](https://github.com/rfc1036/whois/blob/v5.5.20/debian/changelog),\
+    \ [5.5.18](https://github.com/rfc1036/whois/blob/v5.5.18/debian/changelog), [5.5.17](https://github.com/rfc1036/whois/commit/bac7108b01cfd54c517444efa1239e10e6edd5a4)))\r\
+    \n- xfsprogs ([6.8.0](https://git.kernel.org/pub/scm/fs/xfs/xfsprogs-dev.git/tree/doc/CHANGES?h=v6.8.0)\
+    \ (includes [6.6.0](https://git.kernel.org/pub/scm/fs/xfs/xfsprogs-dev.git/tree/doc/CHANGES?h=v6.6.0),\
+    \ [6.4.0](https://git.kernel.org/pub/scm/fs/xfs/xfsprogs-dev.git/tree/doc/CHANGES?h=v6.4.0),\
+    \ [6.3.0](https://git.kernel.org/pub/scm/fs/xfs/xfsprogs-dev.git/tree/doc/CHANGES?h=v6.3.0)))\r\
+    \n- xmlsec ([1.3.3](https://github.com/lsh123/xmlsec/releases/tag/1.3.3) (includes\
+    \ [1.3.2](https://github.com/lsh123/xmlsec/releases/tag/xmlsec_1_3_2)))\r\n- xz-utils\
+    \ ([5.6.2](https://github.com/tukaani-project/xz/releases/tag/v5.6.2) (includes\
+    \ [5.4.6](https://github.com/tukaani-project/xz/releases/tag/v5.4.6), [5.4.5](https://github.com/tukaani-project/xz/releases/tag/v5.4.5),\
+    \ [5.4.3](https://git.tukaani.org/?p=xz.git;a=blob;f=NEWS;h=2f4d35adca6198671434d2988803cc9316ad1ec8;hb=dbb3a536ed9873ffa0870321f6873e564c6a9da8),\
+    \ [5.4.2](https://github.com/tukaani-project/xz/releases/tag/v5.4.2)))\r\n- zfs\
+    \ ([2.2.3](https://github.com/openzfs/zfs/releases/tag/zfs-2.2.3))\r\n- zlib ([1.3.1](https://github.com/madler/zlib/releases/tag/v1.3.1)\
+    \ (includes [1.3](https://github.com/madler/zlib/releases/tag/v1.3)))\r\n- zstd\
+    \ ([1.5.6](https://github.com/facebook/zstd/releases/tag/v1.5.6) (includes [1.5.5](https://github.com/facebook/zstd/releases/tag/v1.5.5),\
+    \ [1.5.4](https://github.com/facebook/zstd/releases/tag/v1.5.4), [1.5.2](https://github.com/facebook/zstd/releases/tag/v1.5.2),\
+    \ [1.5.1](https://github.com/facebook/zstd/releases/tag/v1.5.1), [1.5.0](https://github.com/facebook/zstd/releases/tag/v1.5.0)))\r\
+    \n\r\n_Changes since **Stable 4081.2.1**_\r\n\r\n#### Security fixes:\r\n\r\n\
+    - Linux ([CVE-2024-57876](https://nvd.nist.gov/vuln/detail/CVE-2024-57876), [CVE-2024-57874](https://nvd.nist.gov/vuln/detail/CVE-2024-57874),\
+    \ [CVE-2025-23128](https://nvd.nist.gov/vuln/detail/CVE-2025-23128), [CVE-2025-23125](https://nvd.nist.gov/vuln/detail/CVE-2025-23125),\
+    \ [CVE-2024-57850](https://nvd.nist.gov/vuln/detail/CVE-2024-57850), [CVE-2024-57849](https://nvd.nist.gov/vuln/detail/CVE-2024-57849),\
+    \ [CVE-2024-57843](https://nvd.nist.gov/vuln/detail/CVE-2024-57843), [CVE-2024-48875](https://nvd.nist.gov/vuln/detail/CVE-2024-48875),\
+    \ [CVE-2024-48873](https://nvd.nist.gov/vuln/detail/CVE-2024-48873), [CVE-2024-47809](https://nvd.nist.gov/vuln/detail/CVE-2024-47809),\
+    \ [CVE-2024-47143](https://nvd.nist.gov/vuln/detail/CVE-2024-47143), [CVE-2024-47141](https://nvd.nist.gov/vuln/detail/CVE-2024-47141),\
+    \ [CVE-2024-45828](https://nvd.nist.gov/vuln/detail/CVE-2024-45828), [CVE-2024-43098](https://nvd.nist.gov/vuln/detail/CVE-2024-43098),\
+    \ [CVE-2024-53680](https://nvd.nist.gov/vuln/detail/CVE-2024-53680), [CVE-2024-52332](https://nvd.nist.gov/vuln/detail/CVE-2024-52332),\
+    \ [CVE-2024-50051](https://nvd.nist.gov/vuln/detail/CVE-2024-50051), [CVE-2024-48881](https://nvd.nist.gov/vuln/detail/CVE-2024-48881),\
+    \ [CVE-2024-41935](https://nvd.nist.gov/vuln/detail/CVE-2024-41935), [CVE-2024-56787](https://nvd.nist.gov/vuln/detail/CVE-2024-56787),\
+    \ [CVE-2024-56786](https://nvd.nist.gov/vuln/detail/CVE-2024-56786), [CVE-2024-56785](https://nvd.nist.gov/vuln/detail/CVE-2024-56785),\
+    \ [CVE-2024-56783](https://nvd.nist.gov/vuln/detail/CVE-2024-56783), [CVE-2024-56781](https://nvd.nist.gov/vuln/detail/CVE-2024-56781),\
+    \ [CVE-2024-56640](https://nvd.nist.gov/vuln/detail/CVE-2024-56640), [CVE-2024-56638](https://nvd.nist.gov/vuln/detail/CVE-2024-56638),\
+    \ [CVE-2024-56637](https://nvd.nist.gov/vuln/detail/CVE-2024-56637), [CVE-2024-56636](https://nvd.nist.gov/vuln/detail/CVE-2024-56636),\
+    \ [CVE-2024-56635](https://nvd.nist.gov/vuln/detail/CVE-2024-56635), [CVE-2024-56634](https://nvd.nist.gov/vuln/detail/CVE-2024-56634),\
+    \ [CVE-2024-56651](https://nvd.nist.gov/vuln/detail/CVE-2024-56651), [CVE-2024-56633](https://nvd.nist.gov/vuln/detail/CVE-2024-56633),\
+    \ [CVE-2024-56650](https://nvd.nist.gov/vuln/detail/CVE-2024-56650), [CVE-2024-56649](https://nvd.nist.gov/vuln/detail/CVE-2024-56649),\
+    \ [CVE-2024-56648](https://nvd.nist.gov/vuln/detail/CVE-2024-56648), [CVE-2024-56645](https://nvd.nist.gov/vuln/detail/CVE-2024-56645),\
+    \ [CVE-2024-56644](https://nvd.nist.gov/vuln/detail/CVE-2024-56644), [CVE-2024-56643](https://nvd.nist.gov/vuln/detail/CVE-2024-56643),\
+    \ [CVE-2024-56642](https://nvd.nist.gov/vuln/detail/CVE-2024-56642), [CVE-2024-56641](https://nvd.nist.gov/vuln/detail/CVE-2024-56641),\
+    \ [CVE-2024-56631](https://nvd.nist.gov/vuln/detail/CVE-2024-56631), [CVE-2024-56615](https://nvd.nist.gov/vuln/detail/CVE-2024-56615),\
+    \ [CVE-2024-56623](https://nvd.nist.gov/vuln/detail/CVE-2024-56623), [CVE-2024-56622](https://nvd.nist.gov/vuln/detail/CVE-2024-56622),\
+    \ [CVE-2024-56619](https://nvd.nist.gov/vuln/detail/CVE-2024-56619), [CVE-2024-56617](https://nvd.nist.gov/vuln/detail/CVE-2024-56617),\
+    \ [CVE-2024-56630](https://nvd.nist.gov/vuln/detail/CVE-2024-56630), [CVE-2024-56629](https://nvd.nist.gov/vuln/detail/CVE-2024-56629),\
+    \ [CVE-2024-56628](https://nvd.nist.gov/vuln/detail/CVE-2024-56628), [CVE-2024-56627](https://nvd.nist.gov/vuln/detail/CVE-2024-56627),\
+    \ [CVE-2024-56626](https://nvd.nist.gov/vuln/detail/CVE-2024-56626), [CVE-2024-56625](https://nvd.nist.gov/vuln/detail/CVE-2024-56625),\
+    \ [CVE-2024-56616](https://nvd.nist.gov/vuln/detail/CVE-2024-56616), [CVE-2024-56592](https://nvd.nist.gov/vuln/detail/CVE-2024-56592),\
+    \ [CVE-2024-56590](https://nvd.nist.gov/vuln/detail/CVE-2024-56590), [CVE-2024-56589](https://nvd.nist.gov/vuln/detail/CVE-2024-56589),\
+    \ [CVE-2024-56587](https://nvd.nist.gov/vuln/detail/CVE-2024-56587), [CVE-2024-56614](https://nvd.nist.gov/vuln/detail/CVE-2024-56614),\
+    \ [CVE-2024-56613](https://nvd.nist.gov/vuln/detail/CVE-2024-56613), [CVE-2024-56586](https://nvd.nist.gov/vuln/detail/CVE-2024-56586),\
+    \ [CVE-2024-56611](https://nvd.nist.gov/vuln/detail/CVE-2024-56611), [CVE-2024-56610](https://nvd.nist.gov/vuln/detail/CVE-2024-56610),\
+    \ [CVE-2024-56606](https://nvd.nist.gov/vuln/detail/CVE-2024-56606), [CVE-2024-56605](https://nvd.nist.gov/vuln/detail/CVE-2024-56605),\
+    \ [CVE-2024-56604](https://nvd.nist.gov/vuln/detail/CVE-2024-56604), [CVE-2024-56603](https://nvd.nist.gov/vuln/detail/CVE-2024-56603),\
+    \ [CVE-2024-56585](https://nvd.nist.gov/vuln/detail/CVE-2024-56585), [CVE-2024-56602](https://nvd.nist.gov/vuln/detail/CVE-2024-56602),\
+    \ [CVE-2024-56601](https://nvd.nist.gov/vuln/detail/CVE-2024-56601), [CVE-2024-56600](https://nvd.nist.gov/vuln/detail/CVE-2024-56600),\
+    \ [CVE-2024-56598](https://nvd.nist.gov/vuln/detail/CVE-2024-56598), [CVE-2024-56597](https://nvd.nist.gov/vuln/detail/CVE-2024-56597),\
+    \ [CVE-2024-56596](https://nvd.nist.gov/vuln/detail/CVE-2024-56596), [CVE-2024-56595](https://nvd.nist.gov/vuln/detail/CVE-2024-56595),\
+    \ [CVE-2024-56594](https://nvd.nist.gov/vuln/detail/CVE-2024-56594), [CVE-2024-56593](https://nvd.nist.gov/vuln/detail/CVE-2024-56593),\
+    \ [CVE-2024-56583](https://nvd.nist.gov/vuln/detail/CVE-2024-56583), [CVE-2024-56584](https://nvd.nist.gov/vuln/detail/CVE-2024-56584),\
+    \ [CVE-2024-56565](https://nvd.nist.gov/vuln/detail/CVE-2024-56565), [CVE-2024-56568](https://nvd.nist.gov/vuln/detail/CVE-2024-56568),\
+    \ [CVE-2024-53196](https://nvd.nist.gov/vuln/detail/CVE-2024-53196), [CVE-2024-55639](https://nvd.nist.gov/vuln/detail/CVE-2024-55639),\
+    \ [CVE-2024-54683](https://nvd.nist.gov/vuln/detail/CVE-2024-54683), [CVE-2024-53687](https://nvd.nist.gov/vuln/detail/CVE-2024-53687),\
+    \ [CVE-2024-56770](https://nvd.nist.gov/vuln/detail/CVE-2024-56770), [CVE-2024-56661](https://nvd.nist.gov/vuln/detail/CVE-2024-56661),\
+    \ [CVE-2024-56660](https://nvd.nist.gov/vuln/detail/CVE-2024-56660), [CVE-2024-56659](https://nvd.nist.gov/vuln/detail/CVE-2024-56659),\
+    \ [CVE-2024-56658](https://nvd.nist.gov/vuln/detail/CVE-2024-56658), [CVE-2024-56657](https://nvd.nist.gov/vuln/detail/CVE-2024-56657),\
+    \ [CVE-2024-56655](https://nvd.nist.gov/vuln/detail/CVE-2024-56655), [CVE-2024-56675](https://nvd.nist.gov/vuln/detail/CVE-2024-56675),\
+    \ [CVE-2024-56672](https://nvd.nist.gov/vuln/detail/CVE-2024-56672), [CVE-2024-56654](https://nvd.nist.gov/vuln/detail/CVE-2024-56654),\
+    \ [CVE-2024-56670](https://nvd.nist.gov/vuln/detail/CVE-2024-56670), [CVE-2024-56667](https://nvd.nist.gov/vuln/detail/CVE-2024-56667),\
+    \ [CVE-2024-56665](https://nvd.nist.gov/vuln/detail/CVE-2024-56665), [CVE-2024-56664](https://nvd.nist.gov/vuln/detail/CVE-2024-56664),\
+    \ [CVE-2024-56663](https://nvd.nist.gov/vuln/detail/CVE-2024-56663), [CVE-2024-56662](https://nvd.nist.gov/vuln/detail/CVE-2024-56662),\
+    \ [CVE-2024-56653](https://nvd.nist.gov/vuln/detail/CVE-2024-56653), [CVE-2024-53241](https://nvd.nist.gov/vuln/detail/CVE-2024-53241),\
+    \ [CVE-2024-53240](https://nvd.nist.gov/vuln/detail/CVE-2024-53240), [CVE-2024-53690](https://nvd.nist.gov/vuln/detail/CVE-2024-53690),\
+    \ [CVE-2024-49571](https://nvd.nist.gov/vuln/detail/CVE-2024-49571), [CVE-2024-49568](https://nvd.nist.gov/vuln/detail/CVE-2024-49568),\
+    \ [CVE-2024-47408](https://nvd.nist.gov/vuln/detail/CVE-2024-47408), [CVE-2024-57791](https://nvd.nist.gov/vuln/detail/CVE-2024-57791),\
+    \ [CVE-2024-56372](https://nvd.nist.gov/vuln/detail/CVE-2024-56372), [CVE-2024-56369](https://nvd.nist.gov/vuln/detail/CVE-2024-56369),\
+    \ [CVE-2024-55916](https://nvd.nist.gov/vuln/detail/CVE-2024-55916), [CVE-2024-55881](https://nvd.nist.gov/vuln/detail/CVE-2024-55881),\
+    \ [CVE-2024-54680](https://nvd.nist.gov/vuln/detail/CVE-2024-54680), [CVE-2024-46896](https://nvd.nist.gov/vuln/detail/CVE-2024-46896),\
+    \ [CVE-2024-56719](https://nvd.nist.gov/vuln/detail/CVE-2024-56719), [CVE-2024-56718](https://nvd.nist.gov/vuln/detail/CVE-2024-56718),\
+    \ [CVE-2024-56717](https://nvd.nist.gov/vuln/detail/CVE-2024-56717), [CVE-2024-56716](https://nvd.nist.gov/vuln/detail/CVE-2024-56716),\
+    \ [CVE-2024-56715](https://nvd.nist.gov/vuln/detail/CVE-2024-56715), [CVE-2024-56709](https://nvd.nist.gov/vuln/detail/CVE-2024-56709),\
+    \ [CVE-2024-53164](https://nvd.nist.gov/vuln/detail/CVE-2024-53164), [CVE-2024-57946](https://nvd.nist.gov/vuln/detail/CVE-2024-57946),\
+    \ [CVE-2024-57807](https://nvd.nist.gov/vuln/detail/CVE-2024-57807), [CVE-2024-57798](https://nvd.nist.gov/vuln/detail/CVE-2024-57798),\
+    \ [CVE-2024-57792](https://nvd.nist.gov/vuln/detail/CVE-2024-57792), [CVE-2024-56766](https://nvd.nist.gov/vuln/detail/CVE-2024-56766),\
+    \ [CVE-2024-56765](https://nvd.nist.gov/vuln/detail/CVE-2024-56765), [CVE-2024-56763](https://nvd.nist.gov/vuln/detail/CVE-2024-56763),\
+    \ [CVE-2024-56762](https://nvd.nist.gov/vuln/detail/CVE-2024-56762), [CVE-2024-56760](https://nvd.nist.gov/vuln/detail/CVE-2024-56760),\
+    \ [CVE-2024-56769](https://nvd.nist.gov/vuln/detail/CVE-2024-56769), [CVE-2024-56767](https://nvd.nist.gov/vuln/detail/CVE-2024-56767),\
+    \ [CVE-2023-52881](https://nvd.nist.gov/vuln/detail/CVE-2023-52881), [CVE-2023-52654](https://nvd.nist.gov/vuln/detail/CVE-2023-52654),\
+    \ [CVE-2024-57938](https://nvd.nist.gov/vuln/detail/CVE-2024-57938), [CVE-2024-57933](https://nvd.nist.gov/vuln/detail/CVE-2024-57933),\
+    \ [CVE-2024-57932](https://nvd.nist.gov/vuln/detail/CVE-2024-57932), [CVE-2024-57930](https://nvd.nist.gov/vuln/detail/CVE-2024-57930),\
+    \ [CVE-2024-57931](https://nvd.nist.gov/vuln/detail/CVE-2024-57931), [CVE-2024-57841](https://nvd.nist.gov/vuln/detail/CVE-2024-57841),\
+    \ [CVE-2024-57802](https://nvd.nist.gov/vuln/detail/CVE-2024-57802), [CVE-2024-57801](https://nvd.nist.gov/vuln/detail/CVE-2024-57801),\
+    \ [CVE-2024-54031](https://nvd.nist.gov/vuln/detail/CVE-2024-54031), [CVE-2024-39282](https://nvd.nist.gov/vuln/detail/CVE-2024-39282),\
+    \ [CVE-2024-36476](https://nvd.nist.gov/vuln/detail/CVE-2024-36476), [CVE-2024-57896](https://nvd.nist.gov/vuln/detail/CVE-2024-57896),\
+    \ [CVE-2025-21629](https://nvd.nist.gov/vuln/detail/CVE-2025-21629), [CVE-2024-57903](https://nvd.nist.gov/vuln/detail/CVE-2024-57903),\
+    \ [CVE-2024-57902](https://nvd.nist.gov/vuln/detail/CVE-2024-57902), [CVE-2024-57901](https://nvd.nist.gov/vuln/detail/CVE-2024-57901),\
+    \ [CVE-2024-57900](https://nvd.nist.gov/vuln/detail/CVE-2024-57900), [CVE-2024-57899](https://nvd.nist.gov/vuln/detail/CVE-2024-57899),\
+    \ [CVE-2024-57897](https://nvd.nist.gov/vuln/detail/CVE-2024-57897), [CVE-2024-57890](https://nvd.nist.gov/vuln/detail/CVE-2024-57890),\
+    \ [CVE-2024-57889](https://nvd.nist.gov/vuln/detail/CVE-2024-57889), [CVE-2024-57887](https://nvd.nist.gov/vuln/detail/CVE-2024-57887),\
+    \ [CVE-2024-57885](https://nvd.nist.gov/vuln/detail/CVE-2024-57885), [CVE-2024-57884](https://nvd.nist.gov/vuln/detail/CVE-2024-57884),\
+    \ [CVE-2024-57895](https://nvd.nist.gov/vuln/detail/CVE-2024-57895), [CVE-2024-57894](https://nvd.nist.gov/vuln/detail/CVE-2024-57894),\
+    \ [CVE-2024-57893](https://nvd.nist.gov/vuln/detail/CVE-2024-57893), [CVE-2024-57892](https://nvd.nist.gov/vuln/detail/CVE-2024-57892),\
+    \ [CVE-2024-57882](https://nvd.nist.gov/vuln/detail/CVE-2024-57882), [CVE-2024-53685](https://nvd.nist.gov/vuln/detail/CVE-2024-53685),\
+    \ [CVE-2025-21658](https://nvd.nist.gov/vuln/detail/CVE-2025-21658), [CVE-2025-21656](https://nvd.nist.gov/vuln/detail/CVE-2025-21656),\
+    \ [CVE-2024-57945](https://nvd.nist.gov/vuln/detail/CVE-2024-57945), [CVE-2025-21664](https://nvd.nist.gov/vuln/detail/CVE-2025-21664),\
+    \ [CVE-2025-21663](https://nvd.nist.gov/vuln/detail/CVE-2025-21663), [CVE-2025-21662](https://nvd.nist.gov/vuln/detail/CVE-2025-21662),\
+    \ [CVE-2025-21660](https://nvd.nist.gov/vuln/detail/CVE-2025-21660), [CVE-2024-57939](https://nvd.nist.gov/vuln/detail/CVE-2024-57939),\
+    \ [CVE-2024-57940](https://nvd.nist.gov/vuln/detail/CVE-2024-57940), [CVE-2025-21655](https://nvd.nist.gov/vuln/detail/CVE-2025-21655),\
+    \ [CVE-2024-57913](https://nvd.nist.gov/vuln/detail/CVE-2024-57913), [CVE-2024-57912](https://nvd.nist.gov/vuln/detail/CVE-2024-57912),\
+    \ [CVE-2024-57911](https://nvd.nist.gov/vuln/detail/CVE-2024-57911), [CVE-2024-57910](https://nvd.nist.gov/vuln/detail/CVE-2024-57910),\
+    \ [CVE-2024-57908](https://nvd.nist.gov/vuln/detail/CVE-2024-57908), [CVE-2024-57907](https://nvd.nist.gov/vuln/detail/CVE-2024-57907),\
+    \ [CVE-2024-57929](https://nvd.nist.gov/vuln/detail/CVE-2024-57929), [CVE-2024-57926](https://nvd.nist.gov/vuln/detail/CVE-2024-57926),\
+    \ [CVE-2024-57925](https://nvd.nist.gov/vuln/detail/CVE-2024-57925), [CVE-2024-57906](https://nvd.nist.gov/vuln/detail/CVE-2024-57906),\
+    \ [CVE-2024-57922](https://nvd.nist.gov/vuln/detail/CVE-2024-57922), [CVE-2024-57917](https://nvd.nist.gov/vuln/detail/CVE-2024-57917),\
+    \ [CVE-2024-57916](https://nvd.nist.gov/vuln/detail/CVE-2024-57916), [CVE-2024-57915](https://nvd.nist.gov/vuln/detail/CVE-2024-57915),\
+    \ [CVE-2024-57904](https://nvd.nist.gov/vuln/detail/CVE-2024-57904), [CVE-2025-21654](https://nvd.nist.gov/vuln/detail/CVE-2025-21654),\
+    \ [CVE-2025-21653](https://nvd.nist.gov/vuln/detail/CVE-2025-21653), [CVE-2025-21652](https://nvd.nist.gov/vuln/detail/CVE-2025-21652),\
+    \ [CVE-2025-21640](https://nvd.nist.gov/vuln/detail/CVE-2025-21640), [CVE-2025-21639](https://nvd.nist.gov/vuln/detail/CVE-2025-21639),\
+    \ [CVE-2025-21638](https://nvd.nist.gov/vuln/detail/CVE-2025-21638), [CVE-2025-21637](https://nvd.nist.gov/vuln/detail/CVE-2025-21637),\
+    \ [CVE-2025-21636](https://nvd.nist.gov/vuln/detail/CVE-2025-21636), [CVE-2025-21648](https://nvd.nist.gov/vuln/detail/CVE-2025-21648),\
+    \ [CVE-2025-21647](https://nvd.nist.gov/vuln/detail/CVE-2025-21647), [CVE-2025-21646](https://nvd.nist.gov/vuln/detail/CVE-2025-21646),\
+    \ [CVE-2025-21645](https://nvd.nist.gov/vuln/detail/CVE-2025-21645), [CVE-2025-21642](https://nvd.nist.gov/vuln/detail/CVE-2025-21642),\
+    \ [CVE-2025-21631](https://nvd.nist.gov/vuln/detail/CVE-2025-21631), [CVE-2025-21632](https://nvd.nist.gov/vuln/detail/CVE-2025-21632))\r\
+    \n\r\n#### Updates:\r\n\r\n- Linux ([6.6.74](https://git.kernel.org/pub/scm/linux/kernel/git/stable/linux.git/tag/?h=v6.6.74)\
+    \ (includes [6.6.73](https://git.kernel.org/pub/scm/linux/kernel/git/stable/linux.git/tag/?h=v6.6.73),\
+    \ [6.6.72](https://git.kernel.org/pub/scm/linux/kernel/git/stable/linux.git/tag/?h=v6.6.72),\
+    \ [6.6.71](https://lwn.net/Articles/1004703), [6.6.70](https://lwn.net/Articles/1004551),\
+    \ [6.6.69](https://lwn.net/Articles/1003986), [6.6.68](https://lwn.net/Articles/1003609),\
+    \ [6.6.67](https://lwn.net/Articles/1002919), [6.6.66](https://lwn.net/Articles/1002177)))"
+  created_at: '2025-01-29T08:12:40Z'
+  draft: false
+  html_url: https://github.com/flatcar/scripts/releases/tag/lts-4081.3.0
+  id: 197640229
+  name: ''
+  node_id: RE_kwDOB2MTHs4Lx8Al
+  prerelease: false
+  published_at: '2025-01-30T18:31:43Z'
+  tag_name: lts-4081.3.0
+  tarball_url: https://api.github.com/repos/flatcar/scripts/tarball/lts-4081.3.0
+  target_commitish: main
+  upload_url: https://uploads.github.com/repos/flatcar/scripts/releases/197640229/assets{?name,label}
+  url: https://api.github.com/repos/flatcar/scripts/releases/197640229
+  zipball_url: https://api.github.com/repos/flatcar/scripts/zipball/lts-4081.3.0
+image_packages:
+  containerd: 1.7.21
+  docker: 26.1.0
+  ignition: 2.19.0
+  kernel: 6.6.74
+  systemd: '255'
+release: 4081.3.0
+version: 4081.3.0

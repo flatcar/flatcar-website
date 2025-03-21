@@ -18,12 +18,12 @@ A Kubernetes basic scenario (deploy a simple Nginx) is being tested on Flatcar a
 One way to contribute to Flatcar would be to extend the covered CNIs (example: [kubenet][kubenet]) or to provide more complex scenarios (example: [cilium extension][cilium]).
 
 This is a compatibility matrix between Flatcar and Kubernetes deployed using vanilla components and Flatcar provided software:
-| :arrow_down: Flatcar channel \ Kubernetes Version :arrow_right: | 1.23               | 1.24               | 1.25               | 1.26               | 1.27               | 1.28 |
-|--------------------------------------|--------------------|--------------------|--------------------|--------------------|--------------------|---------------------------------|
-| Alpha                                | :large_orange_diamond: | :large_orange_diamond: | :white_check_mark: | :white_check_mark: |:white_check_mark: | :white_check_mark: |
-| Beta                                 | :large_orange_diamond: | :large_orange_diamond: | :white_check_mark: | :white_check_mark: |:white_check_mark: | :white_check_mark: |
-| Stable                               | :large_orange_diamond: | :large_orange_diamond: | :white_check_mark: | :white_check_mark: |:white_check_mark: | :white_check_mark: |
-| LTS                                  | :large_orange_diamond: | :large_orange_diamond: | :white_check_mark: | :x:                |:x:                | :x: |
+| :arrow_down: Flatcar channel \ Kubernetes Version :arrow_right: | 1.27               | 1.28               | 1.29               | 1.30 | 1.31 | 1.32 |
+|--------------------------------------|--------------------|--------------------|--------------------|---------------------------------|------|------|
+| Alpha                                | :large_orange_diamond: | :large_orange_diamond: |:large_orange_diamond: |:white_check_mark: |:white_check_mark: |:white_check_mark: |
+| Beta                                 | :large_orange_diamond: | :large_orange_diamond: |:large_orange_diamond: |:white_check_mark: |:white_check_mark: |:white_check_mark: |
+| Stable                               | :large_orange_diamond: | :large_orange_diamond: |:large_orange_diamond: |:white_check_mark: |:white_check_mark: |:white_check_mark: |
+| LTS (2024)                           | :large_orange_diamond: | :large_orange_diamond: |:large_orange_diamond: |:white_check_mark: |:white_check_mark: |:white_check_mark: |
 
 :large_orange_diamond:: The version is not tested anymore before a release but was known for working.
 
@@ -34,7 +34,6 @@ Tested CNIs:
 
 _Known issues_:
 * Flannel > 0.17.0 does not work with enforced SELinux ([flatcar#779][flatcar-779])
-* Cilium needs to be patched regarding SELinux labels to work (even in permissive mode) ([flatcar#891][flatcar-891])
 
 # Deploy a Kubernetes cluster with Flatcar
 
@@ -65,15 +64,15 @@ storage:
       path: /etc/extensions/kubernetes.raw
       hard: false
   files:
-    - path: /etc/sysupdate.kubernetes.d/kubernetes.conf
+    - path: /etc/sysupdate.kubernetes.d/kubernetes-v1.27.conf
       contents:
-        source: https://github.com/flatcar/sysext-bakery/releases/download/20230901/kubernetes.conf
+        source: https://github.com/flatcar/sysext-bakery/releases/download/latest/kubernetes-v1.27.conf
     - path: /etc/sysupdate.d/noop.conf
       contents:
-        source: https://github.com/flatcar/sysext-bakery/releases/download/20230901/noop.conf
+        source: https://github.com/flatcar/sysext-bakery/releases/download/latest/noop.conf
     - path: /opt/extensions/kubernetes/kubernetes-v1.27.4-x86-64.raw
       contents:
-        source: https://github.com/flatcar/sysext-bakery/releases/download/20230901/kubernetes-v1.27.4-x86-64.raw
+        source: https://github.com/flatcar/sysext-bakery/releases/download/latest/kubernetes-v1.27.4-x86-64.raw
 systemd:
   units:
     - name: systemd-sysupdate.timer
@@ -86,7 +85,10 @@ systemd:
             ExecStartPre=/usr/bin/sh -c "readlink --canonicalize /etc/extensions/kubernetes.raw > /tmp/kubernetes"
             ExecStartPre=/usr/lib/systemd/systemd-sysupdate -C kubernetes update
             ExecStartPost=/usr/bin/sh -c "readlink --canonicalize /etc/extensions/kubernetes.raw > /tmp/kubernetes-new"
-            ExecStartPost=/usr/bin/sh -c "[[ $(cat /tmp/kubernetes) != $(cat /tmp/kubernetes-new) ]] && touch /run/reboot-required"
+            ExecStartPost=/usr/bin/sh -c "if ! cmp --silent /tmp/kubernetes /tmp/kubernetes-new; then touch /run/reboot-required; fi"
+    - name: locksmithd.service
+      # NOTE: To coordinate the node reboot in this context, we recommend to use Kured.
+      mask: true
     - name: kubeadm.service
       enabled: true
       contents: |
@@ -230,15 +232,15 @@ storage:
       path: /etc/extensions/kubernetes.raw
       hard: false
   files:
-    - path: /etc/sysupdate.kubernetes.d/kubernetes.conf
+    - path: /etc/sysupdate.kubernetes.d/kubernetes-v1.27.conf
       contents:
-        source: https://github.com/flatcar/sysext-bakery/releases/download/20230901/kubernetes.conf
+        source: https://github.com/flatcar/sysext-bakery/releases/download/latest/kubernetes-v1.27.conf
     - path: /etc/sysupdate.d/noop.conf
       contents:
-        source: https://github.com/flatcar/sysext-bakery/releases/download/20230901/noop.conf
+        source: https://github.com/flatcar/sysext-bakery/releases/download/latest/noop.conf
     - path: /opt/extensions/kubernetes/kubernetes-v1.27.4-x86-64.raw
       contents:
-        source: https://github.com/flatcar/sysext-bakery/releases/download/20230901/kubernetes-v1.27.4-x86-64.raw
+        source: https://github.com/flatcar/sysext-bakery/releases/download/latest/kubernetes-v1.27.4-x86-64.raw
 systemd:
   units:
     - name: systemd-sysupdate.timer
@@ -251,7 +253,10 @@ systemd:
             ExecStartPre=/usr/bin/sh -c "readlink --canonicalize /etc/extensions/kubernetes.raw > /tmp/kubernetes"
             ExecStartPre=/usr/lib/systemd/systemd-sysupdate -C kubernetes update
             ExecStartPost=/usr/bin/sh -c "readlink --canonicalize /etc/extensions/kubernetes.raw > /tmp/kubernetes-new"
-            ExecStartPost=/usr/bin/sh -c "[[ $(cat /tmp/kubernetes) != $(cat /tmp/kubernetes-new) ]] && touch /run/reboot-required"
+            ExecStartPost=/usr/bin/sh -c "if ! cmp --silent /tmp/kubernetes /tmp/kubernetes-new; then touch /run/reboot-required; fi"
+    - name: locksmithd.service
+      # NOTE: To coordinate the node reboot in this context, we recommend to use Kured.
+      mask: true
     - name: kubeadm.service
       enabled: true
       contents: |
@@ -259,6 +264,7 @@ systemd:
         Description=Kubeadm service
         Requires=containerd.service
         After=containerd.service
+        ConditionPathExists=!/etc/kubernetes/kubelet.conf
         [Service]
         ExecStart=/usr/bin/kubeadm join $(output from 'kubeadm token create --print-join-command')
         [Install]
@@ -306,6 +312,7 @@ systemd:
         Description=Kubeadm service
         Requires=containerd.service
         After=containerd.service
+        ConditionPathExists=!/etc/kubernetes/kubelet.conf
         [Service]
         Environment="PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/opt/bin"
         ExecStart=/opt/bin/kubeadm join $(output from 'kubeadm token create --print-join-command')
@@ -353,6 +360,7 @@ As it requires to have some tools already installed on the OS to work correcly w
 
 While CAPI is an evolving project and Flatcar support is in-progress regarding the various providers, here's the current list of supported providers:
 * [AWS][capi-aws]
+* [Akamai / Linode][capi-linode]
 * [Azure][capi-azure]
 * [OpenStack][openstack]
 * [vSphere][capi-vsphere]
@@ -361,21 +369,20 @@ While CAPI is an evolving project and Flatcar support is in-progress regarding t
 
 Kubespray is an open-source project used to deploy production ready Kubernetes cluster, learn more about it on the [documentation][kubespray-documentation].
 
-Based on users feedback, Flatcar is known to work with Kubespray - you can read more about it in this section: [https://kubespray.io/#/docs/flatcar][kubespray-documentation-flatcar].
+Based on users feedback, Flatcar is known to work with Kubespray - you can read more about it in this section: <https://kubespray.io/#/docs/operating_systems/flatcar>.
 
 [butane]: https://coreos.github.io/butane/
 [capi-documentation]: https://cluster-api.sigs.k8s.io/
 [capi-aws]: https://cluster-api-aws.sigs.k8s.io/
 [capi-azure]: https://capz.sigs.k8s.io/
+[capi-linode]: https://linode.github.io/cluster-api-provider-linode/topics/flavors/flatcar.html
 [capi-vsphere]: https://github.com/kubernetes-sigs/cluster-api-provider-vsphere/blob/main/docs/ignition.md
 [cilium]: https://github.com/flatcar/mantle/pull/292
 [flatcar-779]: https://github.com/flatcar/Flatcar/issues/779
-[flatcar-891]: https://github.com/flatcar/Flatcar/issues/891
 [image-builder]: https://github.com/kubernetes-sigs/image-builder
 [kubenet]: https://github.com/flatcar/Flatcar/issues/579
 [kubespray-documentation]: https://kubespray.io
-[kubespray-documentation-flatcar]: https://kubespray.io/#/docs/flatcar
 [kured]: https://kured.dev/docs/
 [openstack]: https://cluster-api-openstack.sigs.k8s.io/clusteropenstack/configuration.html#ignition-based-images
-[sysext-bakery]: https://github.com/flatcar/sysext-bakery
+[sysext-bakery]: https://flatcar.github.io/sysext-bakery/
 [typhoon]: https://typhoon.psdn.io/

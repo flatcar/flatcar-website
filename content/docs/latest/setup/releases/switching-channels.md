@@ -29,8 +29,8 @@ By default, Flatcar uses the public update server `public.update.flatcar-linux.n
 It promotes the new releases for each channel at the same time they are published.
 If you need more control about the update rollout, you can have a look at the possible [reboot strategies and manual update methods](update-strategies).
 The other alternative is running your own update server which allows you to control the update rollout over your fleet and even divide it into groups that have different rollout policies and release versions.
-The [Nebraska](nebraska) Open Source project implements the update server and is also used for our public instance.
-More on it below and on the Nebraska [docs site](nebraska-docs).
+The [Nebraska][nebraska] Open Source project implements the update server and is also used for our public instance.
+More on it below and on the Nebraska [docs site][nebraska-docs].
 
 ## Customizing channel configuration
 
@@ -95,7 +95,7 @@ $ sudo flatcar-update --to-version "$VER"
 
 ## Use a personal update server
 
-When setting up your own [Nebraska](nebraska) update server you will be able to point your Flatcar machines to fetch its updates from it.
+When setting up your own [Nebraska][nebraska] update server you will be able to point your Flatcar machines to fetch its updates from it.
 Nebraska's web interface allows to create custom groups that are used to specify update rollout policies, and custom channels that specify the Flatcar version.
 Multiple groups can point to the same channel. The Nebraska web interface also gives an overview about the machines and their update status.
 
@@ -116,7 +116,7 @@ SERVER=http://your.nebraska.host:port/v1/update/
 GROUP=myproduction
 ```
 
-More specifics about Nebraska can be found on its [docs site](nebraska-docs).
+More specifics about Nebraska can be found on its [docs site][nebraska-docs].
 
 
 ## Debugging
@@ -142,5 +142,5 @@ cat /usr/share/flatcar/update.conf
 
 Note: while a manual channel switch is in progress, `/usr/share/flatcar/update.conf` shows the channel for the current OS while `/etc/flatcar/update.conf` shows the one for the next update.
 
-[nebraska]: https://github.com/kinvolk/nebraska/
-[nebraska-docs]: https://kinvolk.io/docs/nebraska/latest
+[nebraska]: https://github.com/flatcar/nebraska/
+[nebraska-docs]: https://flatcar.org/docs/latest/nebraska/

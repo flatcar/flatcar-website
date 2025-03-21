@@ -82,6 +82,48 @@ When you place systemd services under `/etc/systemd/system/my.service` and they 
 
 You can even pre-populate the container image story by copying the folders `/var/lib/docker` and `/var/lib/containerd` over from a booted Flatcar instance.
 
+### Customize /var/lib/docker
+
+You can pre-populate `/var/lib/docker` to provide a ready-to-use docker environment with images and containers.
+
+One solution is to setup the Docker environment on another Flatcar instance and archive `/var/lib/docker` with `tar` for example, then use the method above to un-`tar` into root partition (9). This requires setting up a Flatcar instance and communicate with the OS to copy the content of `/var/lib/docker` to your build machine.
+
+A more convenient way is to use [Docker-in-Docker](https://hub.docker.com/_/docker) on any Docker environment on which you have privileged access.
+
+You start by running a Docker-in-Docker container:
+
+```shell
+# Run docker-in-docker in the backgroud.
+# We mount local directory as a location to send /var/lib/docker archive
+# Do NOT try to bind a directory to /var/lib/docker directly as this might
+# produce incompatible images (vfs instead of overlay2) depending on your
+# environment.
+docker run --name dind --privileged --rm -d -v $(pwd):/build docker:dind
+```
+
+Then you can interact with the docker-in-docker environment and prepare images:
+
+```shell
+docker exec -it dind sh
+docker pull nginx
+```
+
+Create the `tar` archive that contains your Docker environment:
+
+```bash
+# We mounted the /build directory to copy the archive
+tar -cf /build/docker-images.tar /var/lib/docker
+```
+
+During the build of your Flatcar image, you can mount the root partition (9) and extract the `tar` archive:
+
+```bash
+# We mounted root partition (9) on /mnt
+tar -xf /build/docker-images.tar -C /mnt
+```
+
+You can now unmount `/mnt` and finish preparing your final image.
+
 ## Customization through booting with Packer, VMware base VMs, or chroot/systemd-nspawn
 
 This section serves as a big warning. If you use a booted image, even if it was only booted by being a chroot or a systemd-nspawn container, you will get a lot of problems.

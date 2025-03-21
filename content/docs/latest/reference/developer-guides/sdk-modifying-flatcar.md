@@ -334,7 +334,7 @@ Both board chroot and SDK use Gentoo's portage to manage its respective packages
 
 All of the following is done inside the SDK container, i.e. after running
 ```shell
-$ ./run_sdk_container.sh -t
+$ ./run_sdk_container -t
 ```
 
 <table><tr><td>
@@ -485,7 +485,12 @@ Then `emerge` the application once more to force re-packaging, and rebuild the i
 
 All of the following is done inside the SDK container, i.e. after running
 ```shell
-$ ./run_sdk_container.sh -t
+$ ./run_sdk_container -t
+```
+
+You'll want to make sure that you've run `./build_packages` at least once inside your SDK container; this will download the necessary source code in preparation for your modifications.
+```shell
+$ ./build_packages
 ```
 
 <table><tr><td>

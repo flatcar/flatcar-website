@@ -41,17 +41,16 @@ The following command will create a single instance through the Azure CLI.
         <p>The Stable channel should be used by production clusters. Versions of Flatcar Container Linux are battle-tested within
         the Beta and Alpha channels before being promoted. The current version is Flatcar Container Linux {{< param stable_channel >}}.</p>
         <pre>
-$ az vm image list --all -p kinvolk -f flatcar -s stable  # Query the image name urn specifier
-[
-  {
-    "offer": "flatcar-container-linux",
-    "publisher": "kinvolk",
-    "sku": "stable",
-    "urn": "kinvolk:flatcar-container-linux:stable:2345.3.0",
-    "version": "2345.3.0"
-  }
-]
-$ az vm create --name node-1 --resource-group group-1 --admin-username core --custom-data "$(cat config.ign)" --image kinvolk:flatcar-container-linux:stable:2345.3.0
+$ az vm image list --all -p kinvolk -f flatcar -s stable-gen2 --query '[-1]'  # Query the image name urn specifier
+{
+  "architecture": "x64",
+  "offer": "flatcar-container-linux-free",
+  "publisher": "kinvolk",
+  "sku": "stable-gen2",
+  "urn": "kinvolk:flatcar-container-linux-free:stable-gen2:3815.2.0",
+  "version": "3815.2.0"
+}
+$ az vm create --name node-1 --resource-group group-1 --admin-username core --user-data config.ign --image kinvolk:flatcar-container-linux-free:stable-gen2:3815.2.0
         </pre>
       </div>
     </div>
@@ -59,17 +58,16 @@ $ az vm create --name node-1 --resource-group group-1 --admin-username core --cu
       <div class="channel-info">
         <p>The Beta channel consists of promoted Alpha releases. The current version is Flatcar Container Linux {{< param beta_channel >}}.</p>
         <pre>
-$ az vm image list --all -p kinvolk -f flatcar -s beta  # Query the image name urn specifier
-[
-  {
-    "offer": "flatcar-container-linux",
-    "publisher": "kinvolk",
-    "sku": "beta",
-    "urn": "kinvolk:flatcar-container-linux:beta:2411.1.0",
-    "version": "2411.1.0"
-  }
-]
-$ az vm create --name node-1 --resource-group group-1 --admin-username core --custom-data "$(cat config.ign)" --image kinvolk:flatcar-container-linux:beta:2411.1.0
+$ az vm image list --all -p kinvolk -f flatcar -s beta-gen2 --query '[-1]'  # Query the image name urn specifier
+{
+  "architecture": "x64",
+  "offer": "flatcar-container-linux-free",
+  "publisher": "kinvolk",
+  "sku": "beta-gen2",
+  "urn": "kinvolk:flatcar-container-linux-free:beta-gen2:3850.1.0",
+  "version": "3850.1.0"
+}
+$ az vm create --name node-1 --resource-group group-1 --admin-username core --user-data config.ign --image kinvolk:flatcar-container-linux-free:beta-gen2:3850.1.0
         </pre>
       </div>
     </div>
@@ -78,34 +76,67 @@ $ az vm create --name node-1 --resource-group group-1 --admin-username core --cu
         <p>The Alpha channel closely tracks the master branch and is released frequently. The newest versions of system
         libraries and utilities are available for testing in this channel. The current version is Flatcar Container Linux {{< param alpha_channel >}}.</p>
         <pre>
-$ az vm image list --all -p kinvolk -f flatcar -s alpha
-[
-  {
-    "offer": "flatcar-container-linux",
-    "publisher": "kinvolk",
-    "sku": "alpha",
-    "urn": "kinvolk:flatcar-container-linux:alpha:2430.0.0",
-    "version": "2430.0.0"
-  }
-]
-$ az vm create --name node-1 --resource-group group-1 --admin-username core --custom-data "$(cat config.ign)" --image kinvolk:flatcar-container-linux:alpha:2430.0.0
+$ az vm image list --all -p kinvolk -f flatcar -s alpha-gen2 --query '[-1]'
+{
+  "architecture": "x64",
+  "offer": "flatcar-container-linux-free",
+  "publisher": "kinvolk",
+  "sku": "alpha-gen2",
+  "urn": "kinvolk:flatcar-container-linux-free:alpha-gen2:3874.0.0",
+  "version": "3874.0.0"
+}
+$ az vm create --name node-1 --resource-group group-1 --admin-username core --user-data config.ign --image kinvolk:flatcar-container-linux-free:alpha-gen2:3874.0.0
         </pre>
       </div>
     </div>
   </div>
 </div>
 
-You can use both image offers `flatcar-container-linux` and `flatcar-container-linux-free`, the contents are the same.
-The SKU, which is the third element of the image URN, relates to one of the release channels and also depends on whether to use HyperV Generation 1 or 2.
-Generation 1 instance types use the channel names `alpha`, `beta` or `stable` as is; for Generation 2 instance types please append `-gen2` to the channel name, i.e., use one of `alpha-gen2`, `beta-gen2` or `stable-gen2`.
-This means the Gen 2 image URN for the above example for a Stable release becomes `flatcar-container-linux:stable-gen2:2345.3.0`.
+Use the offer named `flatcar-container-linux-free`, there is also a legacy offer called `flatcar-container-linux` with the same contents.
+The SKU, which is the third element of the image URN, relates to one of the release channels and also depends on whether to use Hyper-V Generation 1 or 2 VM.
+Generation 2 instance types use UEFI boot and should be preferred, the SKU matches the pattern `<channel>-gen`: `alpha-gen2`, `beta-gen2` or `stable-gen2`.
+For Generation 1 instance types drop the `-gen2` from the SKU: `alpha`, `beta` or `stable`.  
+Note: _`az vm image list -s` flag matches parts of the SKU, which means that `-s stable` will return both the `stable` and `stable-gen2` SKUs._
 
-
-Before being able to use them, you may need to accept the legal terms once, here done for `flatcar-container-linux` and `stable`:
+Before being able to use the offers, you may need to accept the legal terms once, here done for `flatcar-container-linux-free` and `stable-gen2`:
 
 ```shell
-az vm image terms show --publish kinvolk --offer flatcar-container-linux --plan stable
-az vm image terms accept --publish kinvolk --offer flatcar-container-linux --plan stable
+az vm image terms show --publish kinvolk --offer flatcar-container-linux-free --plan stable-gen2
+az vm image terms accept --publish kinvolk --offer flatcar-container-linux-free --plan stable-gen2
+```
+
+For quick tests the official Azure CLI also supports an alias for the latest Flatcar stable image:
+```shell
+az vm create --name node-1 --resource-group group-1 --admin-username core --user-data config.ign --image FlatcarLinuxFreeGen2
+```
+
+### CoreVM
+
+Flatcar images are also published under an offer called `flatcar-container-linux-corevm-amd64`. This offer does not require accepting image terms and does not require specifying plan information when creating instances or building derived images. The content of the images matches the other offers.
+```shell
+$ az vm image list --all -p kinvolk -f flatcar-container-linux-corevm-amd64 -s stable-gen2 --query '[-1]'
+{
+  "architecture": "x64",
+  "offer": "flatcar-container-linux-corevm-amd64",
+  "publisher": "kinvolk",
+  "sku": "stable-gen2",
+  "urn": "kinvolk:flatcar-container-linux-corevm-amd64:stable-gen2:3815.2.0",
+  "version": "3815.2.0"
+}
+```
+
+### ARM64
+Arm64 images are published under the offer called `flatcar-container-linux-corevm`. These are Generation 2 images, the only supported option on Azure for Arm64 instances, so the SKU contains only the release channel name without the `-gen2` suffix: `alpha`, `beta`, `stable`. This offer has the same properties as the `CoreVM` offer described above.
+```shell
+$ az vm image list --all --architecture arm64 -p kinvolk -f flatcar -s stable --query '[-1]'
+{
+  "architecture": "Arm64",
+  "offer": "flatcar-container-linux-corevm",
+  "publisher": "kinvolk",
+  "sku": "stable",
+  "urn": "kinvolk:flatcar-container-linux-corevm:stable:3815.2.0",
+  "version": "3815.2.0"
+}
 ```
 
 ### Flatcar Pro Images
@@ -115,6 +146,19 @@ Flatcar Pro images were paid marketplace images that came with commercial suppor
 ### Plan information for building your image from the Marketplace Image
 
 When building an image based on the Marketplace image you sometimes need to specify the original plan. The plan name is the image SKU, e.g., `stable`, the plan product is the image offer, e.g., `flatcar-container-linux-free`, and the plan publisher is the same (`kinvolk`).
+
+## Community Shared Image Gallery
+
+While the Marketplace images are recommended, it sometimes might be easier or required to use Shared Image Galleries, e.g., when using Packer for Kubernetes CAPI images.
+
+A public Shared Image Gallery hosts recent Flatcar Stable images for amd64. Here is how to show the image definitions (for now you will only find `flatcar-stable-amd64`) and the image versions they provide:
+
+```shell
+az sig image-definition list-community --public-gallery-name flatcar-23485951-527a-48d6-9d11-6931ff0afc2e --location westeurope
+az sig image-version list-community --public-gallery-name flatcar-23485951-527a-48d6-9d11-6931ff0afc2e --gallery-image-definition flatcar-stable-amd64 --location westeurope
+```
+
+A second gallery `flatcar4capi-742ef0cb-dcaa-4ecb-9cb0-bfd2e43dccc0` exists for prebuilt Kubernetes CAPI images. It has image definitions for each CAPI version, e.g., `flatcar-stable-amd64-capi-v1.26.3` which provides recent Flatcar Stable versions.
 
 ## Uploading your own Image
 
@@ -188,8 +232,8 @@ via a Butane Config. Head over to the [provisioning docs][butane-configs] to lea
 Note that Microsoft Azure doesn't allow an instance's userdata to be modified after the instance had been launched. This
 isn't a problem since Ignition, the tool that consumes the userdata, only runs on the first boot.
 
-You can provide a raw Ignition JSON config (produced from a Butane Config) to Flatcar Container Linux via the Azure CLI using the `--custom-data` flag
-or in the web UI under _Custom Data_ (not _User Data_).
+You can provide a raw Ignition JSON config (produced from a Butane Config) to Flatcar Container Linux via the Azure CLI using the `--custom-data` or `--user-data` flag
+or in the web UI under _Custom Data_ or _User Data_.
 
 As an example, this Butane YAML config will start an NGINX Docker container:
 
@@ -220,6 +264,13 @@ Transpile it to Ignition JSON:
 
 ```shell
 cat cl.yaml | docker run --rm -i quay.io/coreos/butane:latest > ignition.json
+```
+
+Spawn a VM by passing the Ignition JSON in, and because the Ignition config didn't include the SSH keys, they are passed as VM metadata:
+
+```
+az vm create --name node-1 --resource-group group-1 --admin-username core --ssh-key-values ~/.ssh/id_rsa.pub --user-data ./ignition.json --image kinvolk:flatcar-container-linux:stable:3760.2.0
+# Alternatively, instead of '--user-data ./ignition.json' you can use: --custom-data "$(cat ./ignition.json)"
 ```
 
 ## Use the Azure Hyper-V Host for time synchronisation instead of NTP
@@ -626,6 +677,59 @@ Log in via `ssh core@IPADDRESS` with the printed IP address.
 When you make a change to `cl/machine-mynode.yaml.tmpl` and run `terraform apply` again, the machine will be replaced.
 
 You can find this Terraform module in the repository for [Flatcar Terraform examples](https://github.com/flatcar/flatcar-terraform/tree/main/azure).
+
+### Known issues
+
+With Terraform version 3.x it [is currently not possible to partition and format data disks](https://github.com/hashicorp/terraform-provider-azurerm/issues/6117)
+for a `azurerm_linux_virtual_machine` with ignition's storage configuration. It might be possible to use the deprecated `azurerm_virtual_machine` module.
+Another workaround is to use a systemd unit to run a script that does partitioning and formatting for you. Here is an example on how to create a
+single partition with an ext4 filesystem:
+```
+systemd:
+  units:
+    - name: partition-drive.service
+      enabled: true
+      contents: |
+        [Unit]
+        Description="Partition drive"
+        Before=docker.service
+        ConditionFirstBoot=yes
+        [Service]
+        Type=oneshot
+        RemainAfterExit=yes
+        ExecStart=/opt/bin/partition-drive.sh
+        [Install]
+        WantedBy=first-boot-complete.target
+storage:
+  files:
+    - path: /opt/bin/partition-drive.sh
+      mode: 0700
+      contents:
+        inline: |
+          #!/bin/bash
+          set -o errexit
+          set -o pipefail
+          set -o nounset
+
+          disk_device="/dev/disk/azure/scsi1/lun10"
+          partition="/dev/disk/azure/scsi1/lun10-part1"
+
+          until [[ -e $disk_device ]]; do echo "Waiting for device" && sleep 1; done
+
+          if [[ -n $(lsblk -no NAME $disk_device | sed -n '2,$p') ]]; then
+              echo "Disk $disk_device is partitioned."
+          else
+              echo 'type=83' | sfdisk /dev/disk/azure/scsi1/lun10
+          fi
+
+          sleep 3
+
+          if [[ -n $(lsblk -no FSTYPE $partition) ]]; then
+              echo "Partition $partition already formatted."
+          else
+              mkfs.ext4 -F /dev/disk/azure/scsi1/lun10-part1
+          fi
+```
 
 [flatcar-user]: https://groups.google.com/forum/#!forum/flatcar-linux-user
 [etcd-docs]: https://etcd.io/docs

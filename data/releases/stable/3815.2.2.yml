@@ -1,0 +1,76 @@
+architectures:
+- amd64
+- arm64
+channel: stable
+github_release:
+  assets: []
+  assets_url: https://api.github.com/repos/flatcar/scripts/releases/151350173/assets
+  author:
+    avatar_url: https://avatars.githubusercontent.com/u/10096906?v=4
+    events_url: https://api.github.com/users/dongsupark/events{/privacy}
+    followers_url: https://api.github.com/users/dongsupark/followers
+    following_url: https://api.github.com/users/dongsupark/following{/other_user}
+    gists_url: https://api.github.com/users/dongsupark/gists{/gist_id}
+    gravatar_id: ''
+    html_url: https://github.com/dongsupark
+    id: 10096906
+    login: dongsupark
+    node_id: MDQ6VXNlcjEwMDk2OTA2
+    organizations_url: https://api.github.com/users/dongsupark/orgs
+    received_events_url: https://api.github.com/users/dongsupark/received_events
+    repos_url: https://api.github.com/users/dongsupark/repos
+    site_admin: false
+    starred_url: https://api.github.com/users/dongsupark/starred{/owner}{/repo}
+    subscriptions_url: https://api.github.com/users/dongsupark/subscriptions
+    type: User
+    url: https://api.github.com/users/dongsupark
+  body: " _Changes since **Stable 3815.2.1**_\r\n \r\n #### Security fixes:\r\n \r\
+    \n - Linux ([CVE-2023-28746](https://nvd.nist.gov/vuln/detail/CVE-2023-28746),\
+    \ [CVE-2023-47233](https://nvd.nist.gov/vuln/detail/CVE-2023-47233), [CVE-2023-52639](https://nvd.nist.gov/vuln/detail/CVE-2023-52639),\
+    \ [CVE-2023-6270](https://nvd.nist.gov/vuln/detail/CVE-2023-6270), [CVE-2023-7042](https://nvd.nist.gov/vuln/detail/CVE-2023-7042),\
+    \ [CVE-2024-22099](https://nvd.nist.gov/vuln/detail/CVE-2024-22099), [CVE-2024-23307](https://nvd.nist.gov/vuln/detail/CVE-2024-23307),\
+    \ [CVE-2024-24861](https://nvd.nist.gov/vuln/detail/CVE-2024-24861), [CVE-2024-26584](https://nvd.nist.gov/vuln/detail/CVE-2024-26584),\
+    \ [CVE-2024-26585](https://nvd.nist.gov/vuln/detail/CVE-2024-26585), [CVE-2024-26642](https://nvd.nist.gov/vuln/detail/CVE-2024-26642),\
+    \ [CVE-2024-26651](https://nvd.nist.gov/vuln/detail/CVE-2024-26651), [CVE-2024-26654](https://nvd.nist.gov/vuln/detail/CVE-2024-26654),\
+    \ [CVE-2024-26659](https://nvd.nist.gov/vuln/detail/CVE-2024-26659), [CVE-2024-26686](https://nvd.nist.gov/vuln/detail/CVE-2024-26686),\
+    \ [CVE-2024-26700](https://nvd.nist.gov/vuln/detail/CVE-2024-26700), [CVE-2024-26809](https://nvd.nist.gov/vuln/detail/CVE-2024-26809))\r\
+    \n - Downgraded xz-utils to 5.4.2 as precaution even though Flatcar is not affected\
+    \ of the SSH backdoor ([CVE-2024-3094](https://nvd.nist.gov/vuln/detail/CVE-2024-3094))\r\
+    \n - openssh ([CVE-2023-48795](https://nvd.nist.gov/vuln/detail/CVE-2023-48795),\
+    \ [CVE-2023-51384](https://nvd.nist.gov/vuln/detail/CVE-2023-51384), [CVE-2023-51385](https://nvd.nist.gov/vuln/detail/CVE-2023-51385))\r\
+    \n \r\n #### Bug fixes:\r\n \r\n - Disabled user-configdrive.service on OpenStack\
+    \ when config drive is used, which caused the hostname to be overwritten. The\
+    \ coreos-cloudinit.service unit already runs on OpenStack if the system is not\
+    \ configured via ignition. ([Flatcar#1385](https://github.com/flatcar/Flatcar/issues/1385))\r\
+    \n - Fixed `toolbox` to prevent mounted `ctr` snapshots from being garbage-collected\
+    \ ([toolbox#9](https://github.com/flatcar/toolbox/pull/9))\r\n \r\n #### Changes:\r\
+    \n \r\n - Disabled real-time priority for multipathd as it prevents the cgroups2\
+    \ cpu controller from working. ([scripts#1771](https://github.com/flatcar/scripts/pull/1771))\r\
+    \n - SDK: Unified qemu image formats, so that the `qemu_uefi` build target provides\
+    \ the regular `qemu` and the `qemu_uefi_secure` artifacts ([scripts#1847](https://github.com/flatcar/scripts/pull/1847))\r\
+    \n \r\n #### Updates:\r\n \r\n - Linux ([6.1.85](https://lwn.net/Articles/969355)\
+    \ (includes [6.1.84](https://lwn.net/Articles/968254), [6.1.83](https://lwn.net/Articles/966759),\
+    \ [6.1.82](https://lwn.net/Articles/965607)))\r\n - ca-certificates ([3.99](https://firefox-source-docs.mozilla.org/security/nss/releases/nss_3_99.html))\r\
+    \n - openssh ([9.6p1](https://www.openssh.com/releasenotes.html#9.6p1))\r\n"
+  created_at: '2024-04-12T15:09:33Z'
+  draft: false
+  html_url: https://github.com/flatcar/scripts/releases/tag/stable-3815.2.2
+  id: 151350173
+  name: stable-3815.2.2
+  node_id: RE_kwDOB2MTHs4JBWud
+  prerelease: false
+  published_at: '2024-04-16T11:54:48Z'
+  tag_name: stable-3815.2.2
+  tarball_url: https://api.github.com/repos/flatcar/scripts/tarball/stable-3815.2.2
+  target_commitish: main
+  upload_url: https://uploads.github.com/repos/flatcar/scripts/releases/151350173/assets{?name,label}
+  url: https://api.github.com/repos/flatcar/scripts/releases/151350173
+  zipball_url: https://api.github.com/repos/flatcar/scripts/zipball/stable-3815.2.2
+image_packages:
+  containerd: 1.7.13
+  docker: 24.0.9
+  ignition: 2.15.0
+  kernel: 6.1.85
+  systemd: '252'
+release: 3815.2.2
+version: 3815.2.2

@@ -9,9 +9,50 @@ aliases:
 ---
 
 Swap is the process of moving pages of memory to a designated part of the hard disk, freeing up space when needed. Swap can be used to alleviate problems with low-memory environments.
-An alternative is to use RAM compression with zram.
+A modern alternative to slow swap partitions is to use RAM compression with zram.
 
-By default Flatcar Container Linux does not include a partition for swap, however one can configure their system to have swap, either by including a dedicated partition for it or creating a swapfile.
+By default Flatcar Container Linux does not include a partition for swap nor a zram configuration, however one can configure their system to have swap, either by including a dedicated partition for it, creating a swapfile, or setting up zram.
+
+## Using zram
+
+With zram a virtual `/dev/zram0` device acts as swap space which lives compressed in memory.
+One can activate zram by creating a `[zram0]` section in `/etc/systemd/zram-generator.conf`.
+Here are Butane config (YAML) that creates the file:
+
+```yaml
+variant: flatcar
+version: 1.0.0
+storage:
+  files:
+    - path: /etc/systemd/zram-generator.conf
+      contents:
+        inline: |
+          [zram0]
+```
+
+You can tweak the size by using the minimum of either 8 GB if one has a lot of RAM or the size of the RAM, e.g., 1 GB, by setting `zram-size`:
+
+```yaml
+variant: flatcar
+version: 1.0.0
+storage:
+  files:
+    - path: /etc/systemd/zram-generator.conf
+      contents:
+        inline: |
+          [zram0]
+          zram-size = min(ram, 8192)
+```
+
+Allocating a compressed RAM section that can hold an amount up to the size of the RAM itself works well because most RAM contents compress very well.
+
+After a reboot you can check the results:
+
+```shell
+$ zramctl
+NAME       ALGORITHM DISKSIZE DATA COMPR TOTAL STREAMS MOUNTPOINT
+/dev/zram0 lzo-rle         1G   4K   74B   12K       8 [SWAP]
+```
 
 ## Managing swap with systemd
 
@@ -21,11 +62,12 @@ systemd provides a specialized `.swap` unit file type which may be used to activ
 
 The following commands, run as root, will make a 1GiB file suitable for use as swap.
 
+> From Flatcar 4186, one can directly use mkswap to create a swap file as follow. For older Flatcar versions, you still need to create a swap file with `dd if=/dev/zero of=/var/vm/swapfile1`, `chmod 600 /var/vm/swapfile1` and `mkswap /var/vm/swapfile1`
+
+
 ```shell
 mkdir -p /var/vm
-fallocate -l 1024m /var/vm/swapfile1
-chmod 600 /var/vm/swapfile1
-mkswap /var/vm/swapfile1
+mkswap --size 1024m --file /var/vm/swapfile1
 ```
 
 ### Creating the systemd unit file
@@ -128,9 +170,7 @@ systemd:
         [Service]
         Type=oneshot
         ExecStart=/usr/bin/mkdir -p /var/vm
-        ExecStart=/usr/bin/fallocate -l 1024m /var/vm/swapfile1
-        ExecStart=/usr/bin/chmod 600 /var/vm/swapfile1
-        ExecStart=/usr/sbin/mkswap /var/vm/swapfile1
+        ExecStart=/usr/bin/mkswap --size 1024m --file /var/vm/swapfile1
         RemainAfterExit=true
 ```
 
@@ -161,18 +201,3 @@ NB the systemd unit name is created by
 path separator meaning that paths containing - have to be escaped. This
 leads to a file `'dev-disk-by\x2dpartlabel-swap.swap'` being created in
 `/etc/systemd/system`.
-
-## Using zram
-
-With zram a virtual `/dev/zram0` device acts as swap space which lives compressed in memory.
-At the moment there is no zram generator and instead, a manual setup needs to be done, similar to the creation of a swap file.
-
-```shell
-$ sudo modprobe zram
-$ sudo zramctl -f -s 1G
-$ sudo mkswap /dev/zram0
-$ sudo swapon /dev/zram0
-$ zramctl
-NAME       ALGORITHM DISKSIZE DATA COMPR TOTAL STREAMS MOUNTPOINT
-/dev/zram0 lzo-rle         1G   4K   74B   12K       8 [SWAP]
-```

@@ -16,7 +16,6 @@
     <div class="tab-pane fade {{ if $active }}show active{{ end }}" id="{{ $channel }}" role="tabpanel" aria-labelledby="{{ $channel }}-tab">
       {{ if not $licenses }}
         <p>Something is missing…</p>
-        {{ if (getenv "NETLIFY_PREVIEW_BUILD") }}<p>(This can be because it's a website build preview)</p>{{ end }}
       {{ else }}
       <table class="table">
         <thead>

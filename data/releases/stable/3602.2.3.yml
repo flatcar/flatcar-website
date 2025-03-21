@@ -1,0 +1,57 @@
+architectures:
+- amd64
+- arm64
+channel: stable
+github_release:
+  assets: []
+  assets_url: https://api.github.com/repos/flatcar/scripts/releases/133738447/assets
+  author:
+    avatar_url: https://avatars.githubusercontent.com/u/28657343?v=4
+    events_url: https://api.github.com/users/tormath1/events{/privacy}
+    followers_url: https://api.github.com/users/tormath1/followers
+    following_url: https://api.github.com/users/tormath1/following{/other_user}
+    gists_url: https://api.github.com/users/tormath1/gists{/gist_id}
+    gravatar_id: ''
+    html_url: https://github.com/tormath1
+    id: 28657343
+    login: tormath1
+    node_id: MDQ6VXNlcjI4NjU3MzQz
+    organizations_url: https://api.github.com/users/tormath1/orgs
+    received_events_url: https://api.github.com/users/tormath1/received_events
+    repos_url: https://api.github.com/users/tormath1/repos
+    site_admin: false
+    starred_url: https://api.github.com/users/tormath1/starred{/owner}{/repo}
+    subscriptions_url: https://api.github.com/users/tormath1/subscriptions
+    type: User
+    url: https://api.github.com/users/tormath1
+  body: " _Changes since **Stable 3602.2.2**_\r\n \r\n #### Security fixes:\r\n \r\
+    \n - Linux ([CVE-2023-46862](https://nvd.nist.gov/vuln/detail/CVE-2023-46862),\
+    \ [CVE-2023-6121](https://nvd.nist.gov/vuln/detail/CVE-2023-6121))\r\n \r\n ####\
+    \ Bug fixes:\r\n \r\n - Deleted files in `/etc` that have a tmpfiles rule that\
+    \ normally would recreate them will now show up again through the `/etc` lowerdir\
+    \ ([Flatcar#1265](https://github.com/flatcar/Flatcar/issues/1265), [bootengine#79](https://github.com/flatcar/bootengine/pull/79))\r\
+    \n \r\n #### Updates:\r\n \r\n - Linux ([5.15.142](https://lwn.net/Articles/954114)\
+    \ (includes [5.15.141](https://lwn.net/Articles/953649/), [5.15.140](https://lwn.net/Articles/953130),\
+    \ [5.15.139](https://lwn.net/Articles/952004)))\r\n - ca-certificates ([3.95](https://firefox-source-docs.mozilla.org/security/nss/releases/nss_3_95.html))"
+  created_at: '2023-12-11T19:40:51Z'
+  draft: false
+  html_url: https://github.com/flatcar/scripts/releases/tag/stable-3602.2.3
+  id: 133738447
+  name: ''
+  node_id: RE_kwDOB2MTHs4H-K_P
+  prerelease: false
+  published_at: '2023-12-13T12:52:05Z'
+  tag_name: stable-3602.2.3
+  tarball_url: https://api.github.com/repos/flatcar/scripts/tarball/stable-3602.2.3
+  target_commitish: main
+  upload_url: https://uploads.github.com/repos/flatcar/scripts/releases/133738447/assets{?name,label}
+  url: https://api.github.com/repos/flatcar/scripts/releases/133738447
+  zipball_url: https://api.github.com/repos/flatcar/scripts/zipball/stable-3602.2.3
+image_packages:
+  containerd: 1.6.21
+  docker: 20.10.24
+  ignition: 2.15.0
+  kernel: 5.15.142
+  systemd: '252'
+release: 3602.2.3
+version: 3602.2.3

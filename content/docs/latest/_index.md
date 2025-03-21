@@ -29,6 +29,10 @@ platforms and bare metal servers.
  * [DigitalOcean][digital-ocean]
  * [Hetzner][hetzner]
  * [OpenStack][openstack]
+ * [Brightbox][brightbox]
+ * [Scaleway][scaleway] (community support)
+ * [OVHcloud][ovhcloud] (community support)
+ * [Akamai][akamai] (community support)
 
 #### Virtualization options
 It's easy to run a local Flatcar VM on your laptop for testing and debugging
@@ -36,8 +40,10 @@ purposes. You can use any of the following options.
 
  * [QEMU][qemu]
  * [libVirt][libvirt]
- * [VirtualBox][virtualbox] (not officially supported)
- * [Vagrant][vagrant] (not officially supported)
+ * [VirtualBox][virtualbox] (community support)
+ * [Vagrant][vagrant] (community support)
+ * [Hyper-V][hyper-v] (community support)
+ * [KubeVirt][kubevirt] (community support)
 
 #### Bare Metal
 You can install Flatcar on bare metal machines in different ways: using ISO
@@ -103,6 +109,7 @@ more.
  * [Configuring the update strategy][update-strategies]
  * [Flatcar update configuration specification][update-conf]
  * [Verifying Flatcar Images with GPG][verify-container-linux]
+ * [Nebraska][nebraska]
 
 #### Creating Clusters
  * [Cluster architectures][cluster-architectures]
@@ -114,8 +121,10 @@ more.
  * [Adding disk space][disk-space]
  * [Mounting storage][mounting-storage]
  * [iSCSI configuration][iscsi]
+ * [ZFS Extension][zfsextension]
 
 #### Additional security options
+ * [Setting up LUKS disk encryption][luks-encryption]
  * [Customizing the SSH daemon][ssh-daemon]
  * [Configuring SSSD on Flatcar Container Linux][sssd-container-linux]
  * [Hardening a Flatcar Container Linux machine][hardening-container-linux]
@@ -145,6 +154,7 @@ some guides to help you choose and make use of the different runtimes.
  * [Use a custom Docker or containerd version][use-a-custom-docker-or-containerd-version]
  * [Authenticating to Container registries][registry-authentication]
  * [Getting started with Kubernetes][kubernetes]
+ * [High availability Kubernetes][ha-kubernetes]
 
 ### Developer guides and Reference
 APIs and troubleshooting guides for working with Flatcar Container Linux.
@@ -167,7 +177,7 @@ Flatcar tutorial to deep dive into some Flatcar fundamental concepts.
 [ignition-what]: provisioning/ignition/
 [ignition-boot]: provisioning/ignition/boot-process
 [ignition-network]: provisioning/ignition/network-configuration
-[ignition-metadata]: provisioning/ignition/metadata
+[ignition-metadata]: provisioning/ignition/dynamic-data
 [container-linux-config]: provisioning/cl-config/
 [config-transpiler]: provisioning/config-transpiler/
 [config-intro]: provisioning/config-transpiler/getting-started
@@ -190,6 +200,8 @@ Flatcar tutorial to deep dive into some Flatcar fundamental concepts.
 [libvirt]: installing/vms/libvirt
 [virtualbox]: installing/vms/virtualbox
 [vagrant]: installing/vms/vagrant
+[hyper-v]: installing/vms/hyper-v
+[kubevirt]: installing/vms/kubevirt
 [vmware]: installing/cloud/vmware
 [cluster-architectures]: setup/clusters/architectures
 [update-strategies]: setup/releases/update-strategies
@@ -208,12 +220,14 @@ Flatcar tutorial to deep dive into some Flatcar fundamental concepts.
 [registry-authentication]: container-runtimes/registry-authentication
 [iscsi]: setup/storage/iscsi
 [swap]: setup/storage/adding-swap
+[zfsextension]: setup/storage/zfs
 [ec2-container-service]: setup/clusters/booting-on-ecs/
 [manage-docker-containers]: setup/systemd/getting-started
 [udev-rules]: setup/systemd/udev-rules
 [update-conf]: setup/releases/update-conf
 [release-channels]: setup/releases/switching-channels
 [tasks-with-systemd]: setup/systemd/timers
+[luks-encryption]: setup/security/luks
 [ssh-daemon]: setup/security/customizing-sshd
 [sssd-container-linux]: setup/security/sssd
 [hardening-container-linux]: setup/security/hardening-guide
@@ -240,10 +254,16 @@ Flatcar tutorial to deep dive into some Flatcar fundamental concepts.
 [sysext]: provisioning/sysext/
 [acpi]: setup/customization/ACPI
 [openstack]: installing/cloud/openstack
+[brightbox]: installing/cloud/brightbox
 [kubernetes]: container-runtimes/getting-started-with-kubernetes
+[ha-kubernetes]: container-runtimes/high-availability-kubernetes
 [using-nvidia]: setup/customization/using-nvidia
 [tutorial-introduction]: tutorial/
 [tutorial-hands-on-1]: tutorial/hands-on-1
 [tutorial-hands-on-2]: tutorial/hands-on-2
 [tutorial-hands-on-3]: tutorial/hands-on-3
 [tutorial-hands-on-4]: tutorial/hands-on-4
+[scaleway]: installing/community-platforms/scaleway
+[ovhcloud]: installing/community-platforms/ovhcloud
+[akamai]: installing/community-platforms/akamai
+[nebraska]: nebraska

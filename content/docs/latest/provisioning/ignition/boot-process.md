@@ -111,6 +111,27 @@ Here is an example config with an additional `links` entry that ensures that the
 }
 ```
 
+#### Debugging Ignition
+
+In the event of Ignition failure, there are most of the time three scenarios:
+* **Instance console access with emergency shell**
+
+In this case, you should be able to quickly identify the error (malformed config, provider not implemented, unable to fetch configuration from the metadata service, unable to fetch a remote resource). From the emergency shell, it's possible to query the Ignition status with `journalctl -u ignition*`.
+* **Instance console access looks stuck**
+
+It usually means that you landed into an emergency shell but the console is not correctly setup. You should reboot the instance and access the GRUB menu, then type `e` (for `edit`) and add: `systemd.journald.max_level_console=debug console=ttyS0` as kernel command line parameters, it should look like this: `linux$suf $gptprio_kernel $gptprio_cmdline $linux_cmdline systemd.journald.max_level_console=debug console=ttyS0`. Hit `Ctrl+x` to finally boot, you should get back to the previous point.
+* **No instance console access**
+
+You can first try to validate your Ignition configuration offline:
+```bash
+# Quick check: is it valid JSON?
+$ jq < config.json
+$ curl -fsSL https://github.com/coreos/ignition/releases/latest/download/ignition-validate-x86_64-linux -o ignition-validate
+$ chmod u+x ./ignition-validate
+$ ./ignition-validate config.json
+warning at $.storage.files.0.contents.souce, line 7 col 21: Unused key souce
+```
+
 [check-file]: https://github.com/flatcar/scripts/blob/80e49d190ff99e8c489bbf420dc2bc248ae553e3/build_library/grub.cfg#L68-L74
 [gptprio.next]: https://github.com/flatcar/scripts/blob/80e49d190ff99e8c489bbf420dc2bc248ae553e3/build_library/grub.cfg#L128
 [grub]: https://www.gnu.org/software/grub/

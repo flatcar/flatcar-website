@@ -1,0 +1,145 @@
+architectures:
+- amd64
+- arm64
+channel: alpha
+github_release:
+  assets: []
+  assets_url: https://api.github.com/repos/flatcar/scripts/releases/130946868/assets
+  author:
+    avatar_url: https://avatars.githubusercontent.com/u/28657343?v=4
+    events_url: https://api.github.com/users/tormath1/events{/privacy}
+    followers_url: https://api.github.com/users/tormath1/followers
+    following_url: https://api.github.com/users/tormath1/following{/other_user}
+    gists_url: https://api.github.com/users/tormath1/gists{/gist_id}
+    gravatar_id: ''
+    html_url: https://github.com/tormath1
+    id: 28657343
+    login: tormath1
+    node_id: MDQ6VXNlcjI4NjU3MzQz
+    organizations_url: https://api.github.com/users/tormath1/orgs
+    received_events_url: https://api.github.com/users/tormath1/received_events
+    repos_url: https://api.github.com/users/tormath1/repos
+    site_admin: false
+    starred_url: https://api.github.com/users/tormath1/starred{/owner}{/repo}
+    subscriptions_url: https://api.github.com/users/tormath1/subscriptions
+    type: User
+    url: https://api.github.com/users/tormath1
+  body: "**This release removes the legacy \"torcx\" image customisation and replaces\
+    \ this feature with systemd-sysext. Torcx enabled users to deploy custom docker\
+    \ versions; however, it required special packaging using the Flatcar SDK.** Please\
+    \ refer to the \"Changes\" section below for details.\r\n\r\n**This release ships\
+    \ a major Docker update: Docker was upgraded to version 24 (from version 20 in\
+    \ the previous release). Please see the \"Changes\" section below for details.**\r\
+    \n\r\n _Changes since **Alpha 3760.0.0**_\r\n \r\n #### Security fixes:\r\n \r\
+    \n - Linux ([CVE-2023-35827](https://nvd.nist.gov/vuln/detail/CVE-2023-35827),\
+    \ [CVE-2023-46813](https://nvd.nist.gov/vuln/detail/CVE-2023-46813), [CVE-2023-46862](https://nvd.nist.gov/vuln/detail/CVE-2023-46862),\
+    \ [CVE-2023-5178](https://nvd.nist.gov/vuln/detail/CVE-2023-5178), [CVE-2023-5717](https://nvd.nist.gov/vuln/detail/CVE-2023-5717))\r\
+    \n - VMWare: open-vm-tools ([CVE-2023-34058](https://nvd.nist.gov/vuln/detail/CVE-2023-34058),\
+    \ [CVE-2023-34059](https://nvd.nist.gov/vuln/detail/CVE-2023-34059))\r\n - nghttp2\
+    \ ([CVE-2023-44487](https://nvd.nist.gov/vuln/detail/CVE-2023-44487))\r\n - samba\
+    \ ([CVE-2023-4091](https://nvd.nist.gov/vuln/detail/CVE-2023-4091))\r\n - zlib\
+    \ ([CVE-2023-45853](https://nvd.nist.gov/vuln/detail/CVE-2023-45853))\r\n \r\n\
+    \ #### Bug fixes:\r\n \r\n - Fixed iterating over the OEM update payload signatures\
+    \ which prevented the AWS OEM update to 3745.x.y ([update-engine#31](https://github.com/flatcar/update_engine/pull/31))\r\
+    \n - Made `sshkeys.service` more robust to only run `coreos-metadata-sshkeys@core.service`\
+    \ when not masked and also retry on failure ([init#112](https://github.com/flatcar/init/pull/112))\r\
+    \n - Set TTY used for fetching server_context to RAW mode before running cloudinit\
+    \ on cloudsigma ([scripts#1280](https://github.com/flatcar/scripts/pull/1280))\r\
+    \n\r\n\r\n #### Known issues:\r\n\r\n- docker and containerd packages information\
+    \ are missing from `flatcar_production_image_packages.txt` ([flatcar#1260](https://github.com/flatcar/Flatcar/issues/1260))\r\
+    \n \r\n #### Changes:\r\n    \r\n - **Torcx, the mechanism to provide a custom\
+    \ Docker version, was replaced by systemd-sysext in the OS image**. Learn more\
+    \ about sysext and how to customise OS images [here](https://www.flatcar.org/docs/latest/provisioning/sysext/).\r\
+    \n   - Torcx entered deprecation 2 years ago in favour of [deploying plain Docker\
+    \ binaries](https://www.flatcar.org/docs/latest/container-runtimes/use-a-custom-docker-or-containerd-version/)\r\
+    \n    (which is now also a legacy option because systemd-sysext offers a more\
+    \ robust and better structured way of customisation, including OS independent\
+    \ updates).\r\n   - Torcx has been removed entirely; if you use Torcx to extend\
+    \ the Flatcar base OS image, please refer to our [conversion script](https://www.flatcar.org/docs/latest/provisioning/sysext/#torcx-deprecation)\
+    \ and to the sysext documentation mentioned above for migrating.\r\n   - Consequently,\
+    \ `update_engine` will not perform torcx sanity checks post-update anymore.\r\n\
+    \   - Relevant changes: [scripts#1216](https://github.com/flatcar/scripts/pull/1216),\
+    \ [update_engine#30](https://github.com/flatcar/update_engine/pull/30), [Mantle#466](https://github.com/flatcar/mantle/pull/466),\
+    \ [Mantle#465](https://github.com/flatcar/mantle/pull/465).\r\n- cri-tools, runc,\
+    \ containerd, docker, and docker-cli are now built from Gentoo upstream ebuilds.\
+    \ Docker received a major version upgrade - it was updated to Docker 24 (from\
+    \ Docker 20; see \"updates\").\r\n  - **NOTE:** The docker btrfs storage driver\
+    \ has been de-prioritised; BTRFS backed storage will now default to the `overlay2`\
+    \ driver\r\n    ([changelog](https://docs.docker.com/engine/release-notes/23.0/#bug-fixes-and-enhancements-6),\
+    \ [upstream pr](https://github.com/moby/moby/pull/42661)).\r\n    Using the btrfs\
+    \ driver can still be enforced by creating a respective [docker config](https://docs.docker.com/storage/storagedriver/btrfs-driver/#configure-docker-to-use-the-btrfs-storage-driver)\
+    \ at `/etc/docker/daemon.json`.\r\n  - **NOTE:** If you are already using btrfs-backed\
+    \ Docker storage and are upgrading to this new version, Docker will automatically\
+    \ use the `btrfs` storage driver for backwards-compatibility with your deployment.\r\
+    \n    - **Docker will remove the `btrfs` driver entirely in a future version.\
+    \ Please consider migrating your deployments to the `overlay2` driver.**\r\n -\
+    \ Brightbox: The regular OpenStack image should now be used, it includes Afterburn\
+    \ for instance metadata attributes\r\n - OpenStack: An uncompressed image is provided\
+    \ for simpler import (since the images use qcow2 inline compression, there is\
+    \ no benefit in using the `.gz` or `.bz2` images)\r\n\r\n #### Updates:\r\n \r\
+    \n - Azure: WALinuxAgent ([v2.9.1.1](https://github.com/Azure/WALinuxAgent/releases/tag/v2.9.1.1))\r\
+    \n - DEV, AZURE: python ([3.11.6](https://docs.python.org/release/3.11.6/whatsnew/changelog.html#python-3-11-6))\r\
+    \n - DEV: iperf ([3.15](https://github.com/esnet/iperf/releases/tag/3.15))\r\n\
+    \ - DEV: smartmontools ([7.4](https://www.smartmontools.org/browser/tags/RELEASE_7_4/smartmontools/NEWS))\r\
+    \n - Go ([1.20.11](https://go.dev/doc/devel/release#go1.20.11))\r\n - Linux ([6.1.62](https://lwn.net/Articles/950700)\
+    \ (includes [6.1.61](https://lwn.net/Articles/949826), [6.1.60](https://lwn.net/Articles/948817)\
+    \ and [6.1.59](https://lwn.net/Articles/948297)))\r\n - Linux Firmware ([20231111](https://git.kernel.org/pub/scm/linux/kernel/git/firmware/linux-firmware.git/tag/?h=20231111)\
+    \ (includes [20231030](https://git.kernel.org/pub/scm/linux/kernel/git/firmware/linux-firmware.git/tag/?h=20231030)))\r\
+    \n - SDK: Rust ([1.73.0](https://github.com/rust-lang/rust/releases/tag/1.73.0))\r\
+    \n - SDK: python packaging ([23.2](https://github.com/pypa/packaging/releases/tag/23.2)),\
+    \ platformdirs ([3.11.0](https://github.com/platformdirs/platformdirs/releases/tag/3.11.0))\
+    \ \r\n - VMWare: open-vm-tools ([12.3.5](https://github.com/vmware/open-vm-tools/releases/tag/stable-12.3.5))\r\
+    \n - containerd ([1.7.9](https://github.com/containerd/containerd/releases/tag/v1.7.9)\
+    \ (includes [1.7.8](https://github.com/containerd/containerd/releases/tag/v1.7.8)))\r\
+    \n - cri-tools ([1.27.0](https://github.com/kubernetes-sigs/cri-tools/releases/tag/v1.27.0))\r\
+    \n - ding-libs ([0.6.2](https://github.com/SSSD/ding-libs/releases/tag/0.6.2))\r\
+    \n - docker ([24.0.6](https://docs.docker.com/engine/release-notes/24.0/), includes\
+    \ changes from [23.0](https://docs.docker.com/engine/release-notes/23.0/))\r\n\
+    \ - ethtool ([6.5](https://git.kernel.org/pub/scm/network/ethtool/ethtool.git/tree/NEWS?h=v6.5))\r\
+    \n - hwdata ([v0.375](https://github.com/vcrhonek/hwdata/releases/tag/v0.375)\
+    \ (includes [0.374](https://github.com/vcrhonek/hwdata/commits/v0.374)))\r\n -\
+    \ iproute2 ([6.5.0](https://marc.info/?l=linux-netdev&m=169401822317373&w=2))\r\
+    \n - json-c ([0.17](https://github.com/json-c/json-c/blob/json-c-0.17-20230812/ChangeLog))\r\
+    \n - libffi ([3.4.4](https://github.com/libffi/libffi/releases/tag/v3.4.4) (includes\
+    \ [3.4.2](https://github.com/libffi/libffi/releases/tag/v3.4.2) and [3.4.3](https://github.com/libffi/libffi/releases/tag/v3.4.3)))\r\
+    \n - liblinear (246)\r\n - libsodium ([1.0.19](https://github.com/jedisct1/libsodium/releases/tag/1.0.19-RELEASE))\r\
+    \n - libunistring ([1.1](https://git.savannah.gnu.org/gitweb/?p=libunistring.git;a=blob;f=NEWS;h=5a43ddd7011d62a952733f6c0b7ad52aa4f385c7;hb=8006860b710aae2e8442088c3ddc7d819dfa8ac7))\r\
+    \n - mpc ([1.3.1](https://sympa.inria.fr/sympa/arc/mpc-discuss/2022-12/msg00049.html)\
+    \ (includes [1.3.0](https://sympa.inria.fr/sympa/arc/mpc-discuss/2022-12/msg00028.html))\r\
+    \n - mpfr ([4.2.1](https://gitlab.inria.fr/mpfr/mpfr/-/blob/4.2.1/NEWS))\r\n -\
+    \ nghttp2 ([1.57.0](https://github.com/nghttp2/nghttp2/releases/tag/v1.57.0) (includes\
+    \ [1.52.0](https://github.com/nghttp2/nghttp2/releases/tag/v1.57.0), [1.53.0](https://github.com/nghttp2/nghttp2/releases/tag/v1.53.0),\
+    \ [1.54.0](https://github.com/nghttp2/nghttp2/releases/tag/v1.54.0), [1.55.0](https://github.com/nghttp2/nghttp2/releases/tag/v1.55.0),\
+    \ [1.55.1](https://github.com/nghttp2/nghttp2/releases/tag/v1.55.1) and [1.56.0](https://github.com/nghttp2/nghttp2/releases/tag/v1.56.0)))\r\
+    \n - nspr ([4.35](https://hg.mozilla.org/projects/nspr/log/b563bfc16c887c48b038b7b441fcc4e40a126d3b))\r\
+    \n - ntp ([4.2.8p17](https://www.ntp.org/support/securitynotice/4_2_8p17-release-announcement/))\r\
+    \n - nvme-cli ([v2.6](https://github.com/linux-nvme/nvme-cli/releases/tag/v2.6),\
+    \ libnvme [v1.6](https://github.com/linux-nvme/libnvme/releases/tag/v1.6))\r\n\
+    \ - protobuf ([21.12](https://github.com/protocolbuffers/protobuf/releases/tag/v21.12)\
+    \ (includes [21.10](https://github.com/protocolbuffers/protobuf/releases/tag/v21.10)\
+    \ and [21.11](https://github.com/protocolbuffers/protobuf/releases/tag/v21.11)))\r\
+    \n - samba ([4.18.8](https://www.samba.org/samba/history/samba-4.18.8.html))\r\
+    \n - sqlite ([3.43.2](https://www.sqlite.org/releaselog/3_43_2.html))\r\n - thin-provisioning-tools\
+    \ ([1.0.6](https://github.com/jthornber/thin-provisioning-tools/blob/v1.0.6/CHANGES))"
+  created_at: '2023-11-20T16:11:03Z'
+  draft: false
+  html_url: https://github.com/flatcar/scripts/releases/tag/alpha-3794.0.0
+  id: 130946868
+  name: ''
+  node_id: RE_kwDOB2MTHs4Hzhc0
+  prerelease: false
+  published_at: '2023-11-22T07:53:31Z'
+  tag_name: alpha-3794.0.0
+  tarball_url: https://api.github.com/repos/flatcar/scripts/tarball/alpha-3794.0.0
+  target_commitish: main
+  upload_url: https://uploads.github.com/repos/flatcar/scripts/releases/130946868/assets{?name,label}
+  url: https://api.github.com/repos/flatcar/scripts/releases/130946868
+  zipball_url: https://api.github.com/repos/flatcar/scripts/zipball/alpha-3794.0.0
+image_packages:
+  ignition: 2.15.0
+  kernel: 6.1.62
+  systemd: '252'
+  docker: 24.0.6
+  containerd: 1.7.9
+release: 3794.0.0
+version: 3794.0.0
