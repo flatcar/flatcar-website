@@ -1,11 +1,11 @@
-baseurl: '/'
+baseurl: "/"
 title: Flatcar Container Linux
 canonifyurls: true
 paginate: 8
 theme: flatcar
 languageCode: en-us
 copyright: Copyright the Flatcar Project Contributors
-pluralizelisttitles: 'false'
+pluralizelisttitles: "false"
 permalinks:
   blog: "/blog/:year/:month/:title/"
 
@@ -16,31 +16,30 @@ params:
     style:
       bgcolor: ""
       fgcolor: ""
-  DateForm: 'Jan 2, 2006'
+  DateForm: "Jan 2, 2006"
   Description: Flatcar Container Linux website
   Author: Chris Kuehl
   Email: hello@kinvolk.io
   Subtitle: Linux for containers
   social:
     - title: bluesky
-      url: 'https://bsky.app/profile/flatcar.org'
+      url: "https://bsky.app/profile/flatcar.org"
     - title: github
-      url: 'https://github.com/flatcar'
-      image: 'github-icon'
+      url: "https://github.com/flatcar"
+      image: "github-icon"
     - title: mastodon
-      url: 'https://hachyderm.io/@flatcar'
+      url: "https://hachyderm.io/@flatcar"
     - title: x-twitter
-      url: 'https://x.com/flatcar'
+      url: "https://x.com/flatcar"
   favicon: "/media/brand-logo.svg"
   docs:
     github_edit_url: https://github.com/flatcar/flatcar-website/edit/master/content/docs/latest
     issues_url: https://github.com/flatcar/flatcar/issues/new?labels=kind/docs
     external_docs:
-    - repo: https://github.com/flatcar/flatcar-website.git
-      name: "latest"
-      branch: "master"
-      dir: "content/docs"
-
+      - repo: https://github.com/flatcar/flatcar-website.git
+        name: "latest"
+        branch: "master"
+        dir: "content/docs"
 
 pygmentsCodefences: true
 pygmentsCodefencesGuessSyntax: true
@@ -56,8 +55,8 @@ assetDir: static
 
 outputs:
   home:
-  - json
-  - html
+    - json
+    - html
 
 privacy:
   youtube:
@@ -85,5 +84,10 @@ menu:
       url: /docs
       identifier: docs
       weight: -200
+    - name: GitHub
+      url: "https://github.com/flatcar"
+      identifier: github
+      pre: <i class="fa-brands fa-github"></i>
+      weight: -1 # Lower weight than other items to make it appear last
 
 enableEmoji: true
