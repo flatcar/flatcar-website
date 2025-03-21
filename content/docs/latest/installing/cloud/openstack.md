@@ -192,7 +192,7 @@ Example:
 
 ```shell
 openstack server create \
---user-data ./config.ign \
+--user-data ./ignition.json \
 --image cdf3874c-c27f-4816-bc8c-046b240e0edd \
 --key-name flatcar \
 --flavor m1.medium \
