@@ -1,10 +1,10 @@
 ---
-title: 'Flatcar Container Linux'
+title: 'Open Source Linux-based OS for Hosting Containers'
 link: https://flatcar-linux.org/
 logo: '/images/flatcar-logo.svg'
 logo_bg_img: 'product-bg-1'
 tagline: 'Container Linux'
-description: "A community Linux distribution designed for container workloads, with high security and low maintenance"
+description: "Experience community-powered innovation with enterprise-grade security, automated updates, and streamlined maintenance for scalable container deployments."
 cta: Learn more
 cta_aria_label: Learn more about Flatcar Container Linux
 aliases:
@@ -25,28 +25,62 @@ style:
     fgcolor: "#09bac8"
 hero:
   merge: true # Will merge these hero definitions into this section pages
+  button:
+    text: "Start using Flatcar"
+    link: "/docs/latest/#getting-started"
+    footnote:
+      text: "Operates on more than {{}} machines across the globe"
+      count: "~70 000"
   style:
     class: header-bg-flatcar
     bgcolor: '#12172c'
     fgcolor: '#08a2af'
     descriptioncolor: white
-companies_sections:
+community_section: true
+community_links:
+  groups:
+    - title: "Contribute & Collaborate"
+      items:
+        - title: "GitHub"
+          icon: "github"
+          link: "https://github.com/flatcar"
+    - title: "Stay Updated & Follow Us"
+      items:
+        - title: "X"
+          icon: "x-twitter"
+          link: "https://x.com/flatcar"
+        - title: "Bluesky"
+          icon: "bluesky"
+          link: "https://bsky.app/profile/flatcar.org"
+        - title: "Mastodon"
+          icon: "mastodon"
+          link: "https://hachyderm.io/@flatcar"
+    - title: "Ask Questions & Connect"
+      items:
+        - title: "Matrix"
+          svg_path: "/images/matrix-icon.svg"
+          link: "https://app.element.io/#/room/#flatcar:matrix.org"
+        - title: "Slack"
+          icon: "slack"
+          link: "https://kubernetes.slack.com/archives/C03GQ8B5XNJ"
+sponsors_sections:
   - title: Made possible by project sponsors including
     area: flatcar
     type: sponsor
+providers_sections:
   - title: Supported wherever you run your containers
     type: flatcarCloudProvider
 quick_features:
-  title: What is a Container Linux?
-  description: The introduction of container-based infrastructure was a paradigm shift. A Container-optimized Linux distribution is the best foundation for cloud native infrastructure.
+  title: Why Flatcar Container Linux?
+  description: Imagine an OS that works as hard as you do—streamlining your container infrastructure while cutting costs, reducing headaches, and safeguarding your business. Flatcar is engineered for those who demand efficiency, reliability, and peace of mind.
   features:
-    - text: A minimal OS image only includes the tools needed to run containers. No package manager, no configuration drift.
+    - text: "*Minimal & Focused*. Only the essential tools to run your containers—eliminating bloat. No package manager, no configuration drift."
       icon: container
       shape: shape-blue-1
-    - text: Delivering the OS on an immutable filesystem eliminates a whole category of security vulnerabilities.
+    - text: "*Fortress-Level Security.* An immutable, read-only filesystem that drastically minimizes attack surfaces, giving you the confidence to scale without compromise."
       icon: filesystem
       shape: shape-blue-2
-    - text: Automated atomic updates mean you get the latest security updates and open source technologies.
+    - text: "*Effortless, Automated Updates:* Atomic, hands-free updates ensure your system is always at peak security and performance, freeing you to focus on growth."
       shape: shape-blue-3
       icon: update
 highlights:
@@ -124,7 +158,8 @@ grid_statements:
     <div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
       <iframe title="Youtube video showing how to migrate from CoreOS to Flatcar Container Linux" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;" src="https://www.youtube-nocookie.com/embed/mE2wbdncj1Y" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
     </div>'
-companies_section: true
+sponsors_section: true
+providers_section: true
 cascade:
   comparison_table: # This is used in the platform pages
     title: Which one is the right version for me?

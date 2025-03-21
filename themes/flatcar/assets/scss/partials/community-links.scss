@@ -1,0 +1,87 @@
+.community-section {
+  padding: 2.5rem 0 1.8rem 0;
+  background-color: #f8f9fa;
+
+  .community-title {
+    text-align: center;
+    margin-bottom: 2rem;
+    font-size: 2rem;
+    font-weight: 600;
+    color: #12172c;
+  }
+
+  .community-group {
+    .community-group-title {
+      font-size: 1.4rem;
+      font-weight: 500;
+      margin-bottom: 1rem;
+      text-align: center;
+      color: #08a2af;
+    }
+
+    .community-items {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+
+      @include media-breakpoint-up(md) {
+        flex-direction: row;
+        justify-content: center;
+        flex-wrap: wrap;
+      }
+    }
+  }
+
+  .community-item {
+    margin: 0.5rem 1rem;
+
+    a {
+      display: flex;
+      align-items: center;
+      text-decoration: none;
+      font-weight: 500;
+      color: #12172c;
+      transition: color 0.2s ease;
+
+      &:hover {
+        color: #08a2af;
+        text-decoration: none;
+      }
+
+      i, .community-svg-icon {
+        font-size: 1.5rem;
+        width: 1.5rem;
+        height: 1.5rem;
+        margin-right: 8px;
+        margin-left: 0;
+        margin-top: 0;
+        margin-bottom: 0.2rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        svg {
+          width: 100%;
+          height: 100%;
+          fill: currentColor; // This will inherit the text color, but the svg must be inlined in html
+        }
+      }
+
+      // Ensure SVG icons maintain aspect ratio while keeping consistent height
+      .community-svg-icon {
+        object-fit: contain;
+      }
+    }
+  }
+
+  .community-description {
+    text-align: center;
+    margin-top: 1rem;
+    font-size: 1rem;
+    color: #6c757d;
+    max-width: 700px;
+    margin-left: auto;
+    margin-right: auto;
+    line-height: 1.2;
+  }
+}

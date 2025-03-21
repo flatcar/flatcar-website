@@ -1,0 +1,36 @@
+.video-container {
+    position: relative;
+    max-width: 100%;
+    margin: 0 auto;
+    border: 5px solid #cbcfd4;
+
+    video {
+        width: 100%;
+        display: block;
+    }
+
+    .play-button {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        background-color: rgba(0, 0, 0, 0.7);
+        border: none;
+        color: white;
+        font-size: 24px;
+        padding: 15px 20px;
+        border-radius: 50%;
+        cursor: pointer;
+
+        &.hidden {
+            display: none;
+        }
+    }
+
+    .video-fallback {
+        text-align: center;
+        padding: 20px;
+        background-color: #f8f9fa;
+        border: 1px solid #dee2e6;
+    }
+}

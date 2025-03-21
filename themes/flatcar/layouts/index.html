@@ -1,11 +1,27 @@
 {{ define "unique-content" }}
-    {{- if .Params.companies_section -}}
-    <section class="mt-5">
-        {{ partial "companies" . }}
+    {{- if .Params.community_section -}}
+    <section class="community-section">
+        {{ partial "community-links" . }}
     </section>
     {{- end -}}
 
+    <section class="container mt-4">
+        {{ partial "video-player.html" (dict
+            "thumbnail" "/videos/flatcar-terminal-demo/video-thumbnail-kube.png"
+            "videoPath" "/videos/flatcar-terminal-demo/flatcar-terminal-demo.mp4"
+            "maxWidth" "640px"
+            "autoplay" true
+            "loop" true
+        ) }}
+    </section>
+
     {{ partial "quick-features.html" . }}
+
+    {{- if .Params.sponsors_section -}}
+    <section>
+        {{ partial "companies" (dict "context" . "section_name" "sponsors_sections") }}
+    </section>
+    {{- end -}}
 
     {{ if .Content }}
     <section>
@@ -14,6 +30,12 @@
     {{ end }}
 
     {{ partial "feature-rows.html" . }}
+
+    {{- if .Params.providers_section -}}
+    <section class="mt-4">
+        {{ partial "companies" (dict "context" . "section_name" "providers_sections") }}
+    </section>
+    {{- end -}}
 
     {{ partial "grid-statements" . }}
 

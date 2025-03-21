@@ -1,0 +1,41 @@
+{{ if .Params.community_links }}
+<div class="container">
+    {{ with .Params.community_links.title }}
+        <h2 class="community-title">{{ . }}</h2>
+    {{ end }}
+    <div class="row justify-content-center">
+        {{ range .Params.community_links.groups }}
+        <div class="col-md-4 community-group">
+            <h3 class="community-group-title">{{ .title }}</h3>
+            <div class="community-items">
+                {{ range .items }}
+                <div class="community-item">
+                    <a href="{{ .link }}" target="_blank" rel="noopener" title="{{ .title }}">
+                        {{ if .svg_path }}
+                            <!-- Use SVG icon from project -->
+                            <!-- <img class="community-svg-icon" src="{{ .svg_path }}" alt="{{ .title }} icon" class="community-svg-icon"> -->
+                            <div class="community-svg-icon">
+                                {{ $svgContent := readFile (printf "static%s" .svg_path) }}
+                                {{ $svgContent := replace $svgContent "fill=\"#040404\"" "fill=\"currentColor\"" }}
+                                {{ $svgContent | safeHTML }}
+                            </div>
+                        {{ else if .icon }}
+                            <!-- Use Font Awesome icon -->
+                            <i class="fa-brands fa-{{ .icon }}"></i>
+                        {{ end }}
+                        <span>{{ .title }}</span>
+                    </a>
+                </div>
+                {{ end }}
+            </div>
+        </div>
+        {{ end }}
+    </div>
+
+    {{ with .Params.community_links.description }}
+    <div class="community-description">
+        {{ . | markdownify }}
+    </div>
+    {{ end }}
+</div>
+{{ end }}

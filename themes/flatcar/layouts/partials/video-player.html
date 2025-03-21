@@ -1,0 +1,46 @@
+<div {{ with .maxWidth }}style="max-width: {{ . }};"{{ end }}class="video-container">
+    <video
+        {{ if .autoplay }}autoplay muted{{ end }}
+        {{ if .loop }}loop{{ end }}
+        class="w-100"
+        poster="{{ .thumbnail }}"
+        preload="{{ default "metadata" .preload }}">
+        <source src="{{ .videoPath }}" type="{{ default "video/mp4" .videoType }}">
+        <p class="video-fallback">Your browser does not support the video tag.</p>
+    </video>
+    <button type="button"
+            aria-label="Play video"
+            title="Play video"
+            class="play-button">
+        <span aria-hidden="true">▶</span>
+    </button>
+    <script>
+        const container = document.currentScript.parentNode;
+        const video = container.querySelector("video");
+        const playButton = container.querySelector(".play-button");
+
+        // Set controls after autoplay starts (if not already set)
+        video.addEventListener("playing", () => {
+            {{ if not .controls }}video.setAttribute("controls", "true");{{ end }}
+            playButton.classList.add("hidden");
+        });
+
+        playButton.addEventListener("click", () => {
+            video.play();
+            playButton.classList.add("hidden");
+        });
+
+        video.addEventListener("play", () => {
+            video.setAttribute("controls", "true");
+            playButton.classList.add("hidden");
+        });
+
+        video.addEventListener("pause", () => {
+            playButton.classList.remove("hidden");
+        });
+
+        video.addEventListener("ended", () => {
+            playButton.classList.remove("hidden");
+        });
+    </script>
+</div>
