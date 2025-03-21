@@ -37,6 +37,10 @@
     </section>
     {{- end -}}
 
+    {{- if .Params.testimonials_section -}}
+    {{ partial "testimonials" . }}
+    {{- end -}}
+
     {{ partial "grid-statements" . }}
 
     {{ if .Params.subproducts }}

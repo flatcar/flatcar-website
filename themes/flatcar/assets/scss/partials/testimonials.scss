@@ -1,0 +1,139 @@
+.testimonials-section {
+  padding: 3rem 5%;
+  text-align: center;
+
+  @media (min-width: 1200px) {
+    padding: 3rem 10%;
+  }
+
+  p {
+      font-size: 0.8rem !important;
+  }
+}
+
+.testimonials-title {
+  margin-bottom: 2.5rem;
+  font-size: 2rem;
+  font-weight: 700;
+  text-align: center;
+}
+
+.testimonials-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 1.5rem;
+  justify-content: center;
+  justify-items: center;
+}
+
+.testimonial-card {
+  position: relative;
+  background: #fff;
+  border-radius: 8px;
+  padding: 1.5rem;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  max-width: 350px;
+  height: 250px; // Fixed height
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+
+  &:hover {
+    transform: translateY(-5px) scale(1.03); // More subtle scale
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.12); // Lighter shadow
+    z-index: 5; // Ensure it appears above other cards
+
+    .testimonial-content-expand {
+      opacity: 1;
+      visibility: visible;
+      transform: translateY(0);
+    }
+  }
+}
+
+.testimonial-logo {
+  height: 40px;
+  width: auto;
+  max-width: 120px;
+  margin-bottom: 0.75rem;
+  object-fit: contain;
+  align-self: flex-start;
+}
+
+.testimonial-header {
+  font-size: 1.25rem;
+  font-weight: bold;
+  margin-bottom: 0.75rem;
+  text-align: left;
+}
+
+.testimonial-description-wrapper {
+  flex: 1;
+  overflow: hidden;
+  max-height: 100px; // Limit visible height
+  position: relative;
+}
+
+.testimonial-description {
+  margin-bottom: 1rem;
+  line-height: 1.5;
+  text-align: left;
+}
+
+.testimonial-content-expand {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  background: #fff;
+  padding: 1.5rem;
+  border-radius: 8px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.16);
+  z-index: 10;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(10px);
+  transition: opacity 0.3s ease, visibility 0.3s ease, transform 0.3s ease;
+  height: auto;
+  min-height: 250px;
+
+  // Add padding at the bottom to accommodate the meta section
+  padding-bottom: 4rem;
+
+  .testimonial-logo {
+    margin-bottom: 1rem;
+  }
+}
+
+.testimonial-meta {
+  margin-top: auto;
+  line-height: 1.4;
+  font-size: 0.8rem;
+  color: #555;
+  text-align: left;
+  position: relative; // Ensure it stays visible in the expanded card
+  z-index: 2;
+
+  a {
+    color: #0073e6;
+    text-decoration: none;
+
+    &:hover,
+    &:focus {
+      text-decoration: underline;
+    }
+  }
+}
+
+.testimonial-card .testimonial-description-wrapper::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 40px;
+  background: linear-gradient(rgba(255, 255, 255, 0), rgba(255, 255, 255, 1));
+  pointer-events: none;
+}
