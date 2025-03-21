@@ -5,6 +5,9 @@ aliases:
     - ../os/integrations
 ---
 
+Flatcar Container Linux users can be found here: https://github.com/flatcar/Flatcar/blob/main/ADOPTERS.md#who-is-using-flatcar.
+Please help us keep the list current by letting us know of other projects that use Flatcar Container Linux.
+
 This document tracks projects that integrate with Flatcar Container Linux. Please help us keep the list current by letting us know of other projects that use Flatcar Container Linux.
 
 ## Projects
