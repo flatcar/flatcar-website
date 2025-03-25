@@ -8,10 +8,12 @@
 }
 
 .footer__socials {
-  display: inline;
+  display: flex;
+  align-items: center;
+  text-align: center;
 
   > ul {
-    display: inline;
+    display: inline-block;
   }
 
   .mobile {
@@ -25,26 +27,20 @@
       display: none;
     }
   }
-
-  @include media-breakpoint-down(md) {
-    text-align: right;
-  }
-
-  @include media-breakpoint-up(md) {
-    text-align: left;
-  }
 }
 
 .footer__logo {
-  display: inline;
+  display: flex;
+  align-items: center;
 
   > a {
-    display: inline;
+    display: inline-block;
   }
 
   img {
     height: 50px;
     width: auto;
+    vertical-align: middle;
   }
 
   @include media-breakpoint-up(sm) {
@@ -165,6 +161,8 @@
 }
 
 .footer__brand {
+  display: flex;
+  align-items: center;
   flex-wrap: nowrap;
 }
 
@@ -172,6 +170,21 @@
   > p {
     @include media-breakpoint-up(sm) {
       text-align: right;
+    }
+
+    @include media-breakpoint-down(sm) {
+      text-align: center;
+    }
+  }
+}
+
+.footer__copyright {
+  > p {
+    margin-top: 15px;
+    color: $white;
+    
+    @include media-breakpoint-up(sm) {
+      text-align: center;
     }
 
     @include media-breakpoint-down(sm) {
