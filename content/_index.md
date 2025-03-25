@@ -1,5 +1,5 @@
 ---
-title: 'Open Source Linux-based OS for Hosting Containers'
+title: 'Open Source Linux OS for Hosting Containers'
 link: https://flatcar-linux.org/
 logo: '/images/flatcar-logo.svg'
 logo_bg_img: 'product-bg-1'
@@ -41,12 +41,13 @@ community_links:
   groups:
     - title: "Contribute & Collaborate"
       items:
-        - title: "GitHub"
-          icon: "github"
+        - title: ""
           link: "https://github.com/flatcar"
+          external_svg: "GitHub_Lockup_Dark.svg"
+          class: "github-wordmark"
     - title: "Stay Updated & Follow Us"
       items:
-        - title: "X"
+        - title: "@flatcar"
           icon: "x-twitter"
           link: "https://x.com/flatcar"
         - title: "Bluesky"
