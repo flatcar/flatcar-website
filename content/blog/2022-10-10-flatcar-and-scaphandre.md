@@ -7,7 +7,7 @@ draft = false
 aliases = ["/blog/2022/10/flatcar-and-scaphandre"]
 description = "Let's dive into Scaphandre to measure power consumption of infrastructure"
 date = "2022-10-09T20:00:00+02:00"
-postImage = ""
+postImage = "grafana.png"
 +++
 
 In the last decade, with the increase of components inside Ops
