@@ -56,12 +56,17 @@
   background: rgba($black, 1);
 }
 
-.btn-blue {
+@mixin btn-colored($bg-color, $text-color, $border-color: false) {
   position: relative;
-  background: $flatcar-blue;
-  color: $white !important;
+  background: $bg-color;
+  color: $text-color !important;
   z-index: 1;
-  box-shadow: inset 0 0 0 3px $flatcar-blue;
+
+  @if $border-color {
+    box-shadow: inset 0 0 0 3px $border-color;
+  } @else {
+    box-shadow: inset 0 0 0 3px $bg-color;
+  }
 
   @include media-breakpoint-down(sm) {
     box-shadow: none;
@@ -75,22 +80,31 @@
     left: 0;
     right: 0;
     bottom: 0;
-    background: $flatcar-blue;
+    background: $bg-color;
     z-index: -1;
     transform: scaleY(0);
     transition: transform 0.3s;
     transform-origin: center;
   }
+
+  &:hover, &:focus {
+    color: $bg-color !important;
+    background-color: $text-color;
+    box-shadow: inset 0 0 0 3px $text-color;
+  }
+
+  &:active {
+    color: $text-color;
+    background-color: $bg-color;
+  }
 }
 
-.btn-blue:hover, .btn-blue:focus {
-  color: $flatcar-blue !important;
-  background-color: $white;
+.btn-blue {
+  @include btn-colored($flatcar-blue, $white);
 }
 
-.btn-blue:active {
-  color: $white;
-  background-color: $flatcar-blue;
+.btn-white {
+  @include btn-colored($white, $gray, #EEE);
 }
 
 .btn-arrow {

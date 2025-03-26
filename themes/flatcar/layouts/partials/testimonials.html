@@ -1,4 +1,4 @@
-<section class="testimonials-section py-5">
+<section class="testimonials-section py-5" id="testimonials-section">
   <div class="container">
     <!-- Header and paragraph -->
     <div class="row mb-4">
@@ -58,4 +58,22 @@
       {{ end }}
     </div>
   </div>
+
+  <!-- Fade overlay with Show More button -->
+  <div class="fade-overlay" id="fade-overlay">
+    <button class="hero-button btn btn-white show-more-button" id="show-more-button">Show More</button>
+  </div>
 </section>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function() {
+    const testimonialSection = document.getElementById('testimonials-section');
+    const fadeOverlay = document.getElementById('fade-overlay');
+    const showMoreButton = document.getElementById('show-more-button');
+
+    showMoreButton.addEventListener('click', function() {
+      testimonialSection.classList.add('expanded');
+      fadeOverlay.classList.add('hidden');
+    });
+  });
+</script>
