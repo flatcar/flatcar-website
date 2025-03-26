@@ -2,10 +2,11 @@
     <video
         {{ if .autoplay }}autoplay muted{{ end }}
         {{ if .loop }}loop{{ end }}
+        {{ if .poster }}poster="{{ .poster }}"{{ end }}
         class="w-100"
-        poster="{{ .thumbnail }}"
-        preload="{{ default "metadata" .preload }}">
-        <source src="{{ .videoPath }}" type="{{ default "video/mp4" .videoType }}">
+        preload="none"
+        data-src="{{ .videoPath }}"
+        data-type="{{ default "video/mp4" .videoType }}">
         <p class="video-fallback">Your browser does not support the video tag.</p>
     </video>
     <button type="button"
@@ -19,28 +20,62 @@
         const video = container.querySelector("video");
         const playButton = container.querySelector(".play-button");
 
-        // Set controls after autoplay starts (if not already set)
-        video.addEventListener("playing", () => {
-            {{ if not .controls }}video.setAttribute("controls", "true");{{ end }}
-            playButton.classList.add("hidden");
+        // Set initial controls if needed
+        {{ if .controls }}video.setAttribute("controls", "true");{{ end }}
+
+        // Lazy load implementation specifically for this video
+        document.addEventListener("DOMContentLoaded", () => {
+            if ("IntersectionObserver" in window) {
+                const observer = new IntersectionObserver((entries, obs) => {
+                    entries.forEach(entry => {
+                        if (entry.isIntersecting) {
+                            // Get video from the specific container being observed
+                            const video = entry.target.querySelector("video");
+
+                            // Load video only if it hasn't been loaded yet
+                            if (!video.src && video.dataset.src) {
+                                video.src = video.dataset.src;
+                                const sourceElement = document.createElement("source");
+                                sourceElement.src = video.dataset.src;
+                                sourceElement.type = video.dataset.type;
+                                video.appendChild(sourceElement);
+                            }
+
+                            observer.unobserve(entry.target);
+                        }
+                    });
+                });
+
+                // Observe the container, not the video
+                observer.observe(container);
+            } else {
+                // Fallback for browsers without IntersectionObserver
+                video.src = video.dataset.src;
+                const sourceElement = document.createElement("source");
+                sourceElement.src = video.dataset.src;
+                sourceElement.type = video.dataset.type;
+                video.appendChild(sourceElement);
+            }
         });
+
+        // Unified control display management
+        function showControls() {
+            video.setAttribute("controls", "true");
+            playButton.classList.add("hidden");
+        }
+
+        function showPlayButton() {
+            playButton.classList.remove("hidden");
+        }
+
+        // Event listeners with consistent behavior
+        video.addEventListener("playing", showControls);
+        video.addEventListener("play", showControls);
+        video.addEventListener("pause", showPlayButton);
+        video.addEventListener("ended", showPlayButton);
 
         playButton.addEventListener("click", () => {
             video.play();
-            playButton.classList.add("hidden");
-        });
-
-        video.addEventListener("play", () => {
-            video.setAttribute("controls", "true");
-            playButton.classList.add("hidden");
-        });
-
-        video.addEventListener("pause", () => {
-            playButton.classList.remove("hidden");
-        });
-
-        video.addEventListener("ended", () => {
-            playButton.classList.remove("hidden");
         });
     </script>
 </div>
