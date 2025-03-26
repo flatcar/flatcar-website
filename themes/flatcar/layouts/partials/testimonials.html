@@ -24,7 +24,29 @@
                   <div class="d-flex align-items-center">
                     {{ with $item.logo }}
                       <div class="company-logo mr-3" title="{{ $item.name }}">
-                        <img src="{{ . }}" alt="{{ $item.name }} logo" class="img-fluid" title="{{ $item.name }}">
+                        {{ $logoPath := . }}
+                        {{ $isRemoteImage := hasPrefix $logoPath "http" }}
+
+                        {{ if $isRemoteImage }}
+                          <!-- For remote images, just use the URL directly -->
+                          <img src="{{ $logoPath }}" alt="{{ $item.name }} logo" class="img-fluid" title="{{ $item.name }}">
+                        {{ else }}
+                          <!-- For local images, process with Hugo following the example pattern -->
+                          {{ $path := print "**/" (path.Base $logoPath) }}
+                          {{ $image := resources.GetMatch $path }}
+                          {{ $imagePath := $logoPath }}
+
+                          {{ if $image }}
+                            {{ if in (slice "image/jpeg" "image/jpg" "image/png") (string $image.MediaType) }}
+                              {{ $processedImage := $image.Resize "400x webp q100" }}
+                              {{ $imagePath = $processedImage.RelPermalink }}
+                            {{ end }}
+                            <img src="{{ $imagePath }}" alt="{{ $item.name }} logo" class="img-fluid" title="{{ $item.name }}">
+                          {{ else }}
+                            <!-- Image not found, use original path -->
+                            <img src="{{ $logoPath }}" alt="{{ $item.name }} logo" class="img-fluid" title="{{ $item.name }}">
+                          {{ end }}
+                        {{ end }}
                       </div>
                     {{ else }}
                       <!-- Only show company name if there's no logo -->
@@ -59,11 +81,11 @@
     </div>
   </div>
 
-  <!-- Fade overlay with Show More button -->
   <div class="fade-overlay" id="fade-overlay">
-    <button class="hero-button btn btn-white show-more-button" id="show-more-button">Show More</button>
+    <button class="hero-button btn btn-white show-more-button" id="show-more-button">See More</button>
   </div>
 </section>
+
 
 <script>
   document.addEventListener("DOMContentLoaded", function() {
