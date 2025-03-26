@@ -661,7 +661,7 @@ core@localhost ~ $ ...
 
 ## Testing images
 
-Testing your changes locally before submitting them is crucial for ensuring stability and correctness. Flatcar Container Linux utilizes the kola testing framework (part of mantle) for integration testing, primarily focused on QEMU virtual machine environments.
+Testing your changes locally before submitting them is crucial for ensuring stability and correctness. Flatcar Container Linux utilizes the kola testing framework (part of Mantle[mantle]) for integration testing, primarily focused on QEMU virtual machine environments.
 
 While the full CI pipeline runs a comprehensive set of tests, you can run these tests locally to validate your work, debug issues, or explore test behavior. This guide covers two primary methods:
 
