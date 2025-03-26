@@ -661,7 +661,123 @@ core@localhost ~ $ ...
 
 ## Testing images
 
-[Mantle][mantle] is a collection of utilities used in testing and launching SDK images.
+Testing your changes locally before submitting them is crucial for ensuring stability and correctness. Flatcar Container Linux utilizes the kola testing framework (part of mantle) for integration testing, primarily focused on QEMU virtual machine environments.
+
+While the full CI pipeline runs a comprehensive set of tests, you can run these tests locally to validate your work, debug issues, or explore test behavior. This guide covers two primary methods:
+
+1. Using CI Automation Scripts: The recommended and easier method, mimicking the CI environment closely.
+2. Manual kola run: An advanced method for running specific tests or suites directly with kola.
+
+### Running local tests for qemu_uefi images
+
+There is a quality-of-life wrapper script available for running local tests of qemu_uefi images: [run_local_tests.sh](https://github.com/flatcar/scripts/blob/main/run_local_tests.sh). This script provides a convenient way to test your qemu_uefi image without requiring a valid commit ref in the upstream scripts repo.
+
+#### Requirements
+- Docker (for running the Mantle container)
+
+#### Prerequisites
+- Flatcar OS image and qemu uefi code to be tested in `__build__/images/images/amd64-usr/latest/`
+
+This script is intended to be run after building a qemu_uefi image with the SDK container:
+```shell
+./build_packages
+./build_image
+./image_to_vm.sh --from=../build/images/amd64-usr/latest/ --format=qemu_uefi --image_compression_formats none
+```
+Then, EXIT the SDK container (or run this on a different terminal):
+```shell
+./run_local_tests.sh
+```
+
+#### Optional prerequisites
+- Custom Mantle container image / version in sdk_container/.repo/manifests/mantle-container.
+  This is useful if you've built a local mantle/kola which you want to test.
+  Just edit the file and put in the whole container image name and version.
+
+#### Output
+The script generates several test report files:
+- results-qemu_uefi-detailed.md
+- results-qemu_uefi-detailed.tap
+- results-qemu_uefi.md
+- results-qemu_uefi.tap
+- results-qemu_update-detailed.md
+- results-qemu_update-detailed.tap
+- results-qemu_update.md
+- results-qemu_update.tap
+
+Detailed test run output will be stored in `__TESTS__/qemu-uefi`
+
+Note: The devcontainer tests will be skipped since these require a valid commit ref in the upstream scripts repo.
+
+### Running tests manually with kola (Advanced)
+
+For more granular control over testing or when you need to run specific test suites, you can use kola directly. This method is particularly useful when testing custom modifications to Flatcar. While general kola test instructions can be found in the [mantle repository documentation](https://github.com/flatcar/mantle/tree/flatcar-master#kola-run), the following instructions are specifically tailored for testing locally built images.
+
+#### Requirements
+- IPv4 forwarding enabled: `sudo sysctl -w net.ipv4.ip_forward=1`
+- Firewall service stopped: `sudo systemctl stop firewalld.service`
+- Required packages: `swtmp`, `dnsmasq`, `go`, and `iptables` in `$PATH`
+- QEMU: `qemu-system-x86_64` for AMD64 and/or `qemu-system-aarch64` for ARM64
+
+#### Setting up kola
+You have two options for setting up kola:
+
+1. Build from source:
+```shell
+git clone https://github.com/flatcar/mantle/
+cd mantle
+./build kola kolet
+```
+
+2. Use the official container image (recommended):
+```shell
+sudo docker run --privileged --net host -v /dev:/dev --rm -it ghcr.io/flatcar/mantle:git-$(git rev-parse HEAD)
+```
+
+#### Running tests on your custom image
+After building your custom Flatcar image, you can run specific test suites using kola. The image should be in the standard location: `__build__/images/amd64-usr/latest/` (or `arm64-usr` for ARM64).
+
+For AMD64:
+```shell
+sudo ./bin/kola run --board amd64-usr \
+    --key ${HOME}/.ssh/id_rsa.pub \
+    -k -b cl -p qemu \
+    --qemu-firmware __build__/images/amd64-usr/latest/flatcar_production_qemu_uefi_efi_code.qcow2 \
+    --qemu-ovmf-vars __build__/images/amd64-usr/latest/flatcar_production_qemu_uefi_efi_vars.qcow2 \
+    --qemu-image __build__/images/amd64-usr/latest/flatcar_production_qemu_image.img \
+    cl.locksmith.cluster
+```
+
+For ARM64:
+```shell
+sudo ./bin/kola run --board arm64-usr \
+    --key ${HOME}/.ssh/id_rsa.pub \
+    -k -b cl -p qemu \
+    --qemu-firmware __build__/images/arm64-usr/latest/flatcar_production_qemu_uefi_efi_code.qcow2 \
+    --qemu-image __build__/images/arm64-usr/latest/flatcar_production_qemu_uefi_image.img \
+    cl.etcd-member.discovery
+```
+
+#### Useful kola options
+- `--remove=false -d`: Keep instances running after test completion
+- `--key`: Enable SSH access to test instances
+- `--qemu-vnc 0`: Enable VNC server for graphical access
+
+#### Debugging tips
+1. To SSH into a running test instance:
+```shell
+ssh -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null \
+    -o ProxyCommand="sudo nsenter -n -t <QEMU_PID> nc %h %p" \
+    -p 22 core@<QEMU_IP>
+```
+
+2. To access VNC for graphical debugging:
+```shell
+mkfifo reply
+nc -kl 12800 < reply | sudo nsenter -t "${QEMUPID}" -n nc localhost 5900 > reply
+rm reply
+```
+Then connect to `localhost:12800` with a VNC client.
 
 ## Rebuilding the SDK
 
