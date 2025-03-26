@@ -30,7 +30,7 @@ hero:
     link: "/docs/latest/#getting-started"
     footnote:
       text: "Operates on more than {{}} machines across the globe"
-      count: "~70 000"
+      count: "80 000+"
   style:
     class: header-bg-flatcar
     bgcolor: '#12172c'
@@ -143,24 +143,9 @@ features:
       - icon: flatcar-update
         title: Managed updates
         description: The Nebraska update server allows for defining instance groups, assigning update channels and controlling the frequency, time of day and rate of updates.
-grid_statements:
-  title: Migrating from CoreOS Container Linux
-  statements:
-    - '# <span style="color: #08a2af">Drop-in replacement for CoreOS</span>
-
-    Flatcar Container Linux is directly derived from CoreOS, enabling seamless in-place migration.
-
-    ## [Learn more »](/blog/2020/03/steps-to-migrate-from-coreos-to-flatcar-container-linux/)'
-    - '# <span style="color: #12172c">Migrating from CoreOS Container Linux</span>
-
-    Upgrading to Flatcar Container Linux is the same as a CoreOS update.'
-    - '# <span style="color: #12172c">CoreOS to Flatcar migration demo</span>
-
-    <div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
-      <iframe title="Youtube video showing how to migrate from CoreOS to Flatcar Container Linux" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;" src="https://www.youtube-nocookie.com/embed/mE2wbdncj1Y" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-    </div>'
 sponsors_section: true
 providers_section: true
+testimonials_section: true
 cascade:
   comparison_table: # This is used in the platform pages
     title: Which one is the right version for me?

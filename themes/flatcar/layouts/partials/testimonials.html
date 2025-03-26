@@ -1,0 +1,101 @@
+<section class="testimonials-section py-5" id="testimonials-section">
+  <div class="container">
+    <!-- Header and paragraph -->
+    <div class="row mb-4">
+      <div class="col-12 text-center">
+        <h2 class="section-title mb-3">{{ site.Data.adopters.adopters.title }}</h2>
+        {{ with site.Data.adopters.adopters.description }}
+          <p class="section-description">{{ . }}</p>
+        {{ end }}
+      </div>
+    </div>
+
+    <!-- Testimonials in 3 columns -->
+    <div class="row">
+      {{ $sortedItems := sort site.Data.adopters.adopters.items "weight" "desc" }}
+
+      <!-- Create 3 columns -->
+      {{ range $columnIndex := (slice 0 1 2) }}
+        <div class="col-md-4">
+          {{ range $itemIndex, $item := $sortedItems }}
+            {{ if eq (mod $itemIndex 3) $columnIndex }}
+              <div class="testimonial-card">
+                <div class="card-header">
+                  <div class="d-flex align-items-center">
+                    {{ with $item.logo }}
+                      <div class="company-logo mr-3" title="{{ $item.name }}">
+                        {{ $logoPath := . }}
+                        {{ $isRemoteImage := hasPrefix $logoPath "http" }}
+
+                        {{ if $isRemoteImage }}
+                          <!-- For remote images, just use the URL directly -->
+                          <img loading="lazy" src="{{ $logoPath }}" alt="{{ $item.name }} logo" class="img-fluid" title="{{ $item.name }}">
+                        {{ else }}
+                          <!-- For local images, process with Hugo following the example pattern -->
+                          {{ $path := print "**/" (path.Base $logoPath) }}
+                          {{ $image := resources.GetMatch $path }}
+                          {{ $imagePath := $logoPath }}
+
+                          {{ if $image }}
+                            {{ if in (slice "image/jpeg" "image/jpg" "image/png") (string $image.MediaType) }}
+                              {{ $processedImage := $image.Resize "400x webp q100" }}
+                              {{ $imagePath = $processedImage.RelPermalink }}
+                            {{ end }}
+                            <img loading="lazy" src="{{ $imagePath }}" alt="{{ $item.name }} logo" class="img-fluid" title="{{ $item.name }}">
+                          {{ else }}
+                            <!-- Image not found, use original path -->
+                            <img loading="lazy" src="{{ $logoPath }}" alt="{{ $item.name }} logo" class="img-fluid" title="{{ $item.name }}">
+                          {{ end }}
+                        {{ end }}
+                      </div>
+                    {{ else }}
+                      <!-- Only show company name if there's no logo -->
+                      <div>
+                        <h5 class="company-name mb-0">{{ $item.name }}</h5>
+                      </div>
+                    {{ end }}
+                    <div>
+                      <!-- Company name removed when logo exists -->
+                      {{ if not $item.logo }}
+                        <!-- Date will align with company name when there's no logo -->
+                      {{ end }}
+                      {{ with $item.date }}
+                        <small class="text-muted">{{ . }}</small>
+                      {{ end }}
+                    </div>
+                  </div>
+                </div>
+                <div class="card-body">
+                  <div class="testimonial-text">{{ $item.description }}</div>
+                  {{ if $item.link }}
+                    <a href="{{ $item.link }}" class="btn btn-sm btn-outline-primary mt-3" target="_blank" rel="noopener">
+                      {{ if $item.link_text }}{{ $item.link_text }}{{ else }}Read More{{ end }}
+                    </a>
+                  {{ end }}
+                </div>
+              </div>
+            {{ end }}
+          {{ end }}
+        </div>
+      {{ end }}
+    </div>
+  </div>
+
+  <div class="fade-overlay" id="fade-overlay">
+    <button class="hero-button btn btn-white show-more-button" id="show-more-button">See More</button>
+  </div>
+</section>
+
+
+<script>
+  document.addEventListener("DOMContentLoaded", function() {
+    const testimonialSection = document.getElementById('testimonials-section');
+    const fadeOverlay = document.getElementById('fade-overlay');
+    const showMoreButton = document.getElementById('show-more-button');
+
+    showMoreButton.addEventListener('click', function() {
+      testimonialSection.classList.add('expanded');
+      fadeOverlay.classList.add('hidden');
+    });
+  });
+</script>
