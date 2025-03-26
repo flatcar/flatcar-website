@@ -29,7 +29,7 @@
 
                         {{ if $isRemoteImage }}
                           <!-- For remote images, just use the URL directly -->
-                          <img src="{{ $logoPath }}" alt="{{ $item.name }} logo" class="img-fluid" title="{{ $item.name }}">
+                          <img loading="lazy" src="{{ $logoPath }}" alt="{{ $item.name }} logo" class="img-fluid" title="{{ $item.name }}">
                         {{ else }}
                           <!-- For local images, process with Hugo following the example pattern -->
                           {{ $path := print "**/" (path.Base $logoPath) }}
@@ -41,10 +41,10 @@
                               {{ $processedImage := $image.Resize "400x webp q100" }}
                               {{ $imagePath = $processedImage.RelPermalink }}
                             {{ end }}
-                            <img src="{{ $imagePath }}" alt="{{ $item.name }} logo" class="img-fluid" title="{{ $item.name }}">
+                            <img loading="lazy" src="{{ $imagePath }}" alt="{{ $item.name }} logo" class="img-fluid" title="{{ $item.name }}">
                           {{ else }}
                             <!-- Image not found, use original path -->
-                            <img src="{{ $logoPath }}" alt="{{ $item.name }} logo" class="img-fluid" title="{{ $item.name }}">
+                            <img loading="lazy" src="{{ $logoPath }}" alt="{{ $item.name }} logo" class="img-fluid" title="{{ $item.name }}">
                           {{ end }}
                         {{ end }}
                       </div>

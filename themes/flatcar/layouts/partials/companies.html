@@ -44,7 +44,7 @@
       {{- end -}}
       {{ $processedImages = merge $processedImages (dict $company.logo $imagePath) }}
       <div class="col-4 col-lg-3 logo d-none d-md-flex">
-        <img src="{{ $imagePath }}" alt="{{ $company.name }}" />
+        <img loading="lazy" src="{{ $imagePath }}" alt="{{ $company.name }}" />
       </div>
     {{ end }}
   </div>
@@ -68,7 +68,7 @@
                   {{ $company := index $ctx.Site.Data.references.companies.companies $fullIndex }}
                   <div class="col-12 logo col-sm-6 d-flex">
                     {{- $imagePath := index $processedImages $company.logo -}}
-                    <img src="{{ $imagePath }}" alt="{{ $company.name }}" />
+                    <img loading="lazy" src="{{ $imagePath }}" alt="{{ $company.name }}" />
                   </div>
                 {{ end }}
               {{ end }}

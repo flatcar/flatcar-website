@@ -25,7 +25,7 @@
             {{ end }}
           >
             {{ if .icon }}
-              <img src="/images/icon-{{ .icon }}.svg" alt="{{ .icon }}" />
+              <img loading="lazy" src="/images/icon-{{ .icon }}.svg" alt="{{ .icon }}" />
             {{ else }}
               <h2 class="title">{{ (default .title .text) | markdownify }}</h2>
             {{ end }}
