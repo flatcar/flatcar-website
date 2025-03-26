@@ -3,113 +3,103 @@ items:
   - name: "Adobe"
     description: "Adobe runs Flatcar on over 18,000 nodes in our fleet of Kubernetes clusters across multiple cloud providers and private data centers in 22 different regions worldwide."
     contact: "Mike Tougeron (Slack: @Mike Tougeron) and Tony Gosselin (Slack: @Tony Gosselin)"
-    logo: "/images/logos/adobe.png"
+    logo: "/media/companies/adobe-logo.svg"
     weight: 100
 
   - name: "AT&T"
     description: '"We are integrating Flatcar Container Linux, Istio, OPA, Multi-Region, KNative, and so many other technologies and concepts—it makes the mind hurt a bit."'
     link: "https://medium.com/cloud-native-the-gathering/certified-kubernetes-administrator-join-our-team-its-a-good-thing-7e27ab34dc88"
     link_text: "Read More"
-    logo: "/images/logos/att.png"
+    logo: "/media/companies/AT&T-logo.svg"
     weight: 95
 
   - name: "Wipro"
     description: "Wipro Business Solutions uses Flatcar Linux to power their hybrid/multi-cloud PostgreSQL containerized DBaaS platform. Each provisioned database is running on a dedicated lightweight stack with Flatcar Linux as the foundational OS running on each database VM. In addition the DBaaS API itself and all supporting machines use Flatcar Linux as well. Flatcar Linux has proven to be a well-supported rock solid OS with minimal attack surface, built in update mechanism and integrated docker daemon. Ignition brings in an early boot provisioning utility that perfectly adds to the full automation approach of the PostgreSQL DBaaS platform. We use it at scale on-prem with OpenStack cloud but also with public clouds like Google and Tencent"
-    logo: "/images/logos/wipro.png"
+    logo: "/media/companies/wipro-logo.png"
     weight: 90
 
   - name: "Equinix Metal"
     description: "Equinix uses Flatcar as the OS for its bare metal cloud control plane, which runs in Kubernetes"
     link: "https://kinvolk.io/blog/2021/02/case-study-equinix-metal-builds-on-flatcar/"
-    logo: "/images/logos/equinix.png"
+    logo: "/media/companies/equinix-metal.png"
     weight: 85
 
   - name: "DeepL"
-    description: "We use Flatcar for our on-prem Kubernetes clusters to run everything from CI/CD to performance-sensitive GPU workloads."
+    description: '"We use Flatcar for our on-prem Kubernetes clusters to run everything from CI/CD to performance-sensitive GPU workloads."'
     link: "https://deepl.com/"
     link_text: "deepl.com"
     contact: "simon.campion [at] deepl [dot] com"
-    logo: "/images/logos/deepl.png"
+    logo: "/media/companies/deepl-logo.svg"
     weight: 80
 
   - name: "Qualys, Inc"
     description: "Qualys Gateway Service uses Flatcar Container Linux as a base for its container-based appliance, which is mainly focussed on proxy and caching services, serving other Qualys sensors such as Cloud Agent, Scanner and Passive Sensor. QGS also serves Qualys modules including VMDR, Patch Management, Policy Compliance, EDR, FIM and XDR."
     link: "https://www.qualys.com/documentation/#qualys-gateway-service"
     contact: "jrose@qualys.com"
-    logo: "/images/logos/qualys.png"
+    logo: "/media/companies/qualys-logo.svg"
     weight: 75
 
   - name: "Norwegian Labor and Welfare Administration (NAV)"
     description: "The largest Norwegian government agency has been using Flatcar since 2021 to run all of their on-prem Kubernetes clusters enabling application teams to become more autonomous and to build better welfare services and deliver them with a higher velocity then before."
     link: "https://nais.io"
     contact: "hans.kristian.flaatten@nav.no"
-    logo: "/images/logos/nav.png"
     weight: 70
 
   - name: "1&1 Mail & Media (GMX, WEB.DE, mail.com)"
     description: "1&1 Mail & Media is happily using Flatcar as the underlying OS in their large on-premise bare-metal Kubernetes installation, hosting the majority of services for their >40M users."
     contact: "stephan.fudeus [at] 1und1 [dot] de"
-    logo: "/images/logos/1and1.png"
     weight: 65
 
   - name: "Giant Swarm"
     description: "Giant Swarm uses Flatcar within their Kubernetes Distribution. Flatcar is used on all providers (Azure, AWS, Google, OpenStack and Vmware). Giant Swarm manages 100s of clusters with 1000s of nodes running on Flatcar across the planet."
     link: "https://www.giantswarm.io/blog/time-to-catch-a-new-train-flatcar-linux"
-    logo: "/images/logos/giantswarm.png"
+    logo: "/media/companies/giantswarm-logo.jpg"
     weight: 60
 
   - name: "plusserver GmbH"
     description: 'Plus Server is using Flatcar as the basis of its managed Kubernetes offering, plusserver Kubernetes Engine (PSKE). As they state in their blog, "Flatcar is currently one of the most popular operating systems for Kubernetes clusters. With its container-optimized design, strong security, and support from an active open source community, it provides an excellent foundation for all container workloads."'
     link: "https://www.plusserver.com/blog/flatcar/"
-    logo: "/images/logos/plusserver.png"
+    logo: "/media/companies/plusserver-logo.svg"
     weight: 55
 
   - name: "STACKIT"
     description: "Flatcar is used in our Kubernetes as a Service (KaaS) offering called SKE"
     link: "https://www.stackit.de/de/produkt/stackit-kubernetes-engine/"
     contact: "info@stackit.de"
-    logo: "/images/logos/stackit.png"
     weight: 50
 
   - name: "Digital Science"
-    description: "We're running Flatcar on all our self-hosted Kubernetes clusters on AWS, used for all data processing behind Dimensions (https://dimensions.ai). We choose Flatcar for security and simplicity."
+    description: '"We''re running Flatcar on all our self-hosted Kubernetes clusters on AWS, used for all data processing behind Dimensions (https://dimensions.ai). We choose Flatcar for security and simplicity."'
     link: "https://digital-science.com"
     contact: "soren [at] uberresearch.com"
-    logo: "/images/logos/digitalscience.png"
     weight: 45
 
   - name: "Finleap Connect"
     description: "At finleap connect we serve over a million financial transactions per day. As a regulated company using a pure cloud-native stack based on Kubernetes, using Flatcar as our foundational building block for reliable, secure and immutable nodes across the public clouds and on bare-metal deployments was a day one decision we never regretted. Today Flatcar serves all of our 12 production clusters with over 300 nodes on public clouds in 3 countries and on our bare-metal private-cloud setup."
-    logo: "/images/logos/finleap.png"
     weight: 40
 
   - name: "Planetary Quantum GmbH"
     description: "Planetary Quantum is a berlin-based provider of Docker-hosting and application hosting. Our sister company Planetary Networks colocates their private cloud in two (fiber-)interconnected datacenters in Berlin and Quantum offers container-based solutions (Docker Swarm and a custom tailored application hosting) on top of Flatcar Linux. Flatcar Linux is a great choice for us because it's a modern Linux, well-suited for Docker and Kubernetes due to recent versions of Kernel, SystemD, immutable root and a well-tested userland. Simple and straight-forward updates of the OS make running Flatcar a no-brainer for us. We currently operate over 50 clusters for our customers in our private cloud — all based on Flatcar Linux."
     link: "https://www.planetary-quantum.com/"
-    logo: "/images/logos/planetary.png"
     weight: 35
 
   - name: "Genesis Cloud"
     description: "Genesis Cloud is using Flatcar Linux as the base for its public cloud offering for instances with GPUs and other accelerators"
     link: "https://genesiscloud.com/"
     contact: "Slack: @Philipp Riederer / @Lukas Stockner"
-    logo: "/images/logos/genesiscloud.png"
     weight: 30
 
   - name: "Skilld.cloud"
     description: "Flatcar choice was a no-brainer for Skilld: Flatcar is a perfect fit for running Kubernetes workloads. On premise as well as on public clouds. We rely on Flatcar to power up our cutting-edge NRT data-driven ops platforms. A key asset for building distributed & asset management based businesses such as our Community-as-a-service IT platform, or our customers Train fleet's or smart grid's ones."
     link: "https://www.skilld.cloud"
-    logo: "/images/logos/skilld.png"
     weight: 25
 
   - name: "AloPeyk"
-    description: "We are an on-demand delivery business that every day serves millions of requests on a consistent bare metal infrastructure. None of the common OS could satisfy us for such heavy workloads. Since we migrated our production Kubernetes cluster, nothing can break this solid cluster powered by amazing Flatcar OS."
-    logo: "/images/logos/alopeyk.png"
+    description: '"We are an on-demand delivery business that every day serves millions of requests on a consistent bare metal infrastructure. None of the common OS could satisfy us for such heavy workloads. Since we migrated our production Kubernetes cluster, nothing can break this solid cluster powered by amazing Flatcar OS."'
     weight: 20
 
   - name: "Memzo"
     description: "Kinvolk was a valuable source of knowledge when troubleshooting installation issues with our platform vendor. They were able to join us and the vendor on a call and sort out the issues quickly. The use of the Flatcar Update Server gave us confidence about what software/OS versions were running in each of our environments. This allowed us to better test upgrades before promoting the change to production environments."
-    logo: "/images/logos/memzo.png"
     weight: 15
 
   - name: "Atsign"
@@ -117,17 +107,16 @@ items:
     link: "https://twitter.com/cpswan/status/1534481517887512577?s=20&t=ODnO_TPa4nhC62KNAB9Stw"
     link_text: "View Tweet"
     contact: '<a href="https://github.com/cpswan" target="_blank" rel="noopener">Chris Swan</a>'
-    logo: "/images/logos/atsign.png"
     weight: 10
 
   - name: "Spinoco Czech Republic, a.s."
     description: "Using Flatcar on Bare Metal to run Kubernetes for Spinoco SaaS"
     link: "https://www.spinoco.com"
     contact: "pavel.chlupacek@spinoco.com"
-    logo: "/images/logos/spinoco.png"
+    logo: "/media/companies/spinoco.jpeg"
     weight: 5
 
   - name: "Cloud House"
     description: "Flatcar OS has been useful for us for our on-premise solution to our customers"
-    logo: "/images/logos/cloudhouse.png"
+    logo: "/media/companies/cloudhouse.png"
     weight: 5

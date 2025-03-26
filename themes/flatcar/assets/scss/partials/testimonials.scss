@@ -1,139 +1,71 @@
 .testimonials-section {
-  padding: 3rem 5%;
-  text-align: center;
-
-  @media (min-width: 1200px) {
-    padding: 3rem 10%;
+  .section-title {
+    font-weight: 600;
+    color: #333;
   }
 
-  p {
-      font-size: 0.8rem !important;
+  .section-description {
+    font-size: 1.1rem;
+    max-width: 800px;
+    margin: 0 auto;
   }
-}
 
-.testimonials-title {
-  margin-bottom: 2.5rem;
-  font-size: 2rem;
-  font-weight: 700;
-  text-align: center;
-}
+  .testimonial-card {
+    border: 1px solid rgba(0, 0, 0, 0.125);
+    border-radius: 0.25rem;
+    background-color: #fff;
+    transition: all 0.3s ease;
+    margin-bottom: 1.5rem;
 
-.testimonials-container {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-  gap: 1.5rem;
-  justify-content: center;
-  justify-items: center;
-}
+    &:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+    }
 
-.testimonial-card {
-  position: relative;
-  background: #fff;
-  border-radius: 8px;
-  padding: 1.5rem;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  width: 100%;
-  max-width: 350px;
-  height: 250px; // Fixed height
-  overflow: hidden;
-  display: flex;
-  flex-direction: column;
-  transition: transform 0.25s ease, box-shadow 0.25s ease;
+    .card-header {
+      background-color: #fff;
+      border-bottom: 1px solid rgba(0, 0, 0, 0.125);
+      padding: 0.75rem 1.25rem;
 
-  &:hover {
-    transform: translateY(-5px) scale(1.03); // More subtle scale
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.12); // Lighter shadow
-    z-index: 5; // Ensure it appears above other cards
+      .company-logo {
+        width: 100px;
+        height: 60px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
 
-    .testimonial-content-expand {
-      opacity: 1;
-      visibility: visible;
-      transform: translateY(0);
+        img {
+          max-width: 100%;
+          max-height: 50px;
+          object-fit: contain;
+        }
+      }
+
+      .company-name {
+        font-size: 1.1rem;
+        font-weight: 600;
+      }
+    }
+
+    .card-body {
+      padding: 1.25rem;
+
+      .testimonial-text {
+        font-size: 0.95rem;
+        line-height: 1.5;
+        color: #555;
+        // Limit to 5 lines of text
+        overflow: hidden;
+        display: -webkit-box;
+        -webkit-line-clamp: 5;
+        -webkit-box-orient: vertical;
+      }
+
+      // Expand on hover to show full text
+      &:hover .testimonial-text {
+        -webkit-line-clamp: initial;
+        max-height: none;
+      }
     }
   }
-}
-
-.testimonial-logo {
-  height: 40px;
-  width: auto;
-  max-width: 120px;
-  margin-bottom: 0.75rem;
-  object-fit: contain;
-  align-self: flex-start;
-}
-
-.testimonial-header {
-  font-size: 1.25rem;
-  font-weight: bold;
-  margin-bottom: 0.75rem;
-  text-align: left;
-}
-
-.testimonial-description-wrapper {
-  flex: 1;
-  overflow: hidden;
-  max-height: 100px; // Limit visible height
-  position: relative;
-}
-
-.testimonial-description {
-  margin-bottom: 1rem;
-  line-height: 1.5;
-  text-align: left;
-}
-
-.testimonial-content-expand {
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  background: #fff;
-  padding: 1.5rem;
-  border-radius: 8px;
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.16);
-  z-index: 10;
-  opacity: 0;
-  visibility: hidden;
-  transform: translateY(10px);
-  transition: opacity 0.3s ease, visibility 0.3s ease, transform 0.3s ease;
-  height: auto;
-  min-height: 250px;
-
-  // Add padding at the bottom to accommodate the meta section
-  padding-bottom: 4rem;
-
-  .testimonial-logo {
-    margin-bottom: 1rem;
-  }
-}
-
-.testimonial-meta {
-  margin-top: auto;
-  line-height: 1.4;
-  font-size: 0.8rem;
-  color: #555;
-  text-align: left;
-  position: relative; // Ensure it stays visible in the expanded card
-  z-index: 2;
-
-  a {
-    color: #0073e6;
-    text-decoration: none;
-
-    &:hover,
-    &:focus {
-      text-decoration: underline;
-    }
-  }
-}
-
-.testimonial-card .testimonial-description-wrapper::after {
-  content: '';
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  height: 40px;
-  background: linear-gradient(rgba(255, 255, 255, 0), rgba(255, 255, 255, 1));
-  pointer-events: none;
 }

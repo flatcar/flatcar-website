@@ -1,28 +1,61 @@
-<section id="testimonials" class="testimonials-section">
-  {{ with site.Data.adopters.adopters }}
-  <h2 class="testimonials-title">{{ .title }}</h2>
-  <div class="testimonials-container">
-    {{ range sort .items "weight" "desc" }}
-      {{ if .description }}
-        <article class="testimonial-card">
-          <header class="testimonial-header">{{ .name }}</header>
-          <div class="testimonial-description-wrapper">
-            <p class="testimonial-description">{{ .description }}</p>
-          </div>
-          <div class="testimonial-meta">
-            {{ if .contact }}
-              <strong>Contact:</strong> {{ .contact | safeHTML }}
+<section class="testimonials-section py-5">
+  <div class="container">
+    <!-- Header and paragraph -->
+    <div class="row mb-4">
+      <div class="col-12 text-center">
+        <h2 class="section-title mb-3">{{ site.Data.adopters.adopters.title }}</h2>
+        {{ with site.Data.adopters.adopters.description }}
+          <p class="section-description">{{ . }}</p>
+        {{ end }}
+      </div>
+    </div>
+
+    <!-- Testimonials in 3 columns -->
+    <div class="row">
+      {{ $sortedItems := sort site.Data.adopters.adopters.items "weight" "desc" }}
+
+      <!-- Create 3 columns -->
+      {{ range $columnIndex := (slice 0 1 2) }}
+        <div class="col-md-4">
+          {{ range $itemIndex, $item := $sortedItems }}
+            {{ if eq (mod $itemIndex 3) $columnIndex }}
+              <div class="testimonial-card">
+                <div class="card-header">
+                  <div class="d-flex align-items-center">
+                    {{ with $item.logo }}
+                      <div class="company-logo mr-3" title="{{ $item.name }}">
+                        <img src="{{ . }}" alt="{{ $item.name }} logo" class="img-fluid" title="{{ $item.name }}">
+                      </div>
+                    {{ else }}
+                      <!-- Only show company name if there's no logo -->
+                      <div>
+                        <h5 class="company-name mb-0">{{ $item.name }}</h5>
+                      </div>
+                    {{ end }}
+                    <div>
+                      <!-- Company name removed when logo exists -->
+                      {{ if not $item.logo }}
+                        <!-- Date will align with company name when there's no logo -->
+                      {{ end }}
+                      {{ with $item.date }}
+                        <small class="text-muted">{{ . }}</small>
+                      {{ end }}
+                    </div>
+                  </div>
+                </div>
+                <div class="card-body">
+                  <div class="testimonial-text">{{ $item.description }}</div>
+                  {{ if $item.link }}
+                    <a href="{{ $item.link }}" class="btn btn-sm btn-outline-primary mt-3" target="_blank" rel="noopener">
+                      {{ if $item.link_text }}{{ $item.link_text }}{{ else }}Read More{{ end }}
+                    </a>
+                  {{ end }}
+                </div>
+              </div>
             {{ end }}
-            {{ if and .link .contact }}
-              &nbsp;|&nbsp;
-            {{ end }}
-            {{ if .link }}
-              <a href="{{ .link }}" target="_blank" rel="noopener">{{ if .link_text }}{{ .link_text }}{{ else }}Read More{{ end }}</a>
-            {{ end }}
-          </div>
-        </article>
+          {{ end }}
+        </div>
       {{ end }}
-    {{ end }}
+    </div>
   </div>
-  {{ end }}
 </section>
