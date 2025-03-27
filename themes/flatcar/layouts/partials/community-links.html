@@ -21,7 +21,11 @@
                             </div>
                         {{ else if .icon }}
                             <!-- Use Font Awesome icon -->
+                            {{ if eq .icon "x-twitter" }}
+                            <i class="fa-brands fa-x-twitter" style="margin-right: 0;"></i>
+                            {{ else }}
                             <i class="fa-brands fa-{{ .icon }}"></i>
+                            {{ end }}
                         {{ end }}
                         <span>{{ .title }}</span>
                     </a>
