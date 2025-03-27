@@ -64,15 +64,6 @@ gpg --verify flatcar_production_qemu_image.img.sig</pre>
 
 ## Virtual machine configuration
 
-Now create a qcow2 image snapshot using the command below:
-
-```shell
-cd /var/lib/libvirt/images/flatcar-linux
-qemu-img create -f qcow2 -F qcow2 -b flatcar_production_qemu_image.img flatcar-linux1.qcow2
-```
-
-This will create a `flatcar-linux1.qcow2` snapshot image. Any changes to `flatcar-linux1.qcow2` will not be reflected in `flatcar_production_qemu_image.img`. Making any changes to a base image (`flatcar_production_qemu_image.img` in our example) will corrupt its snapshots.
-
 ### Ignition config
 
 The preferred way to configure a Flatcar Container Linux machine is via Ignition.
