@@ -1,10 +1,10 @@
 ---
-title: 'Open Source Linux OS for Hosting Containers'
+title: 'Flatcar Container Linux'
 link: https://flatcar-linux.org/
 logo: '/images/flatcar-logo.svg'
 logo_bg_img: 'product-bg-1'
 tagline: 'Container Linux'
-description: "Experience community-powered innovation with enterprise-grade security, automated updates, and streamlined maintenance for scalable container deployments."
+description: "Community-powered innovations with enterprise-grade security, automated updates, and streamlined maintenance for scalable container deployments"
 cta: Learn more
 cta_aria_label: Learn more about Flatcar Container Linux
 aliases:
@@ -39,7 +39,7 @@ hero:
 community_section: true
 community_links:
   groups:
-    - title: "Contribute & Collaborate"
+    - title: "Flatcar is Open Source, let's collaborate & contribute!"
       items:
         - title: ""
           link: "https://github.com/flatcar"
