@@ -30,9 +30,6 @@
 }
 
 .footer__logo {
-  display: flex;
-  align-items: center;
-
   > a {
     display: inline-block;
   }
@@ -40,15 +37,7 @@
   img {
     height: 50px;
     width: auto;
-    vertical-align: middle;
-  }
-
-  @include media-breakpoint-up(sm) {
-    margin-right: 60px;
-  }
-
-  @include media-breakpoint-up(xl) {
-    @include calcWidth (1440px, 1920px, 64px, 80px);
+    /* vertical-align: middle; */
   }
 }
 
@@ -160,12 +149,6 @@
   }
 }
 
-.footer__brand {
-  display: flex;
-  align-items: center;
-  flex-wrap: nowrap;
-}
-
 .footer__copyright {
   > p {
     @include media-breakpoint-up(sm) {
@@ -182,7 +165,7 @@
   > p {
     margin-top: 15px;
     color: $white;
-    
+
     @include media-breakpoint-up(sm) {
       text-align: center;
     }
