@@ -47,15 +47,15 @@ community_links:
           class: "github-wordmark"
     - title: "Stay Updated & Follow Us"
       items:
-        - title: "@flatcar"
-          icon: "x-twitter"
-          link: "https://x.com/flatcar"
         - title: "Bluesky"
           icon: "bluesky"
           link: "https://bsky.app/profile/flatcar.org"
         - title: "Mastodon"
           icon: "mastodon"
           link: "https://hachyderm.io/@flatcar"
+        - title: "@flatcar"
+          icon: "x-twitter"
+          link: "https://x.com/flatcar"
     - title: "Ask Questions & Connect"
       items:
         - title: "Matrix"
