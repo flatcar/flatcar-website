@@ -78,7 +78,7 @@ Here, for example, we create an empty Ignition config that contains no further d
 
 ```shell
 mkdir -p /var/lib/libvirt/flatcar-linux/flatcar-linux1/
-echo '{"ignition":{"version":"2.0.0"}}' > /var/lib/libvirt/flatcar-linux/flatcar-linux1/provision.ign
+echo '{"ignition":{"version":"3.4.0"}}' > /var/lib/libvirt/flatcar-linux/flatcar-linux1/provision.ign
 ```
 
 If the host uses SELinux, allow the VM access to the config:
@@ -99,7 +99,7 @@ Since the empty Ignition config is not very useful, here is an example how to wr
 
 ```yaml
 variant: flatcar
-version: 1.0.0
+version: 1.1.0
 storage:
   files:
   - path: /etc/hostname
