@@ -32,7 +32,7 @@
       </div>
     </div>
   {{ end }}
-  <div class="row align-item-center justify-content-center">
+  <div class="row align-item-center justify-content-center mt-2">
     {{ $processedImages := dict }}
     {{ range $names }}
       {{ $company := index $ctx.Site.Data.references.companies.companies . }}

@@ -22,7 +22,7 @@
     {{ partial "feature-rows.html" . }}
 
     {{- if .Params.providers_section -}}
-    <section class="mt-4">
+    <section class="mt-5">
         {{ partial "companies" (dict "context" . "section_name" "providers_sections") }}
     </section>
     {{- end -}}
