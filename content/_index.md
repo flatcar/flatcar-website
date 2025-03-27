@@ -41,12 +41,13 @@ community_links:
   groups:
     - title: "Flatcar is Open Source, let's collaborate & contribute!"
       items:
-        - title: "GitHub"
-          icon: "github"
+        - title: ""
           link: "https://github.com/flatcar"
+          external_svg: "GitHub_Lockup_Dark.svg"
+          class: "github-wordmark"
     - title: "Stay Updated & Follow Us"
       items:
-        - title: "X"
+        - title: "@flatcar"
           icon: "x-twitter"
           link: "https://x.com/flatcar"
         - title: "Bluesky"
