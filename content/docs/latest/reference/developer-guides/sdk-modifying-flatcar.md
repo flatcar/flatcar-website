@@ -715,7 +715,7 @@ For more granular control over testing or when you need to run specific test sui
 
 #### Requirements
 - IPv4 forwarding enabled: `sudo sysctl -w net.ipv4.ip_forward=1`
-- Firewall service stopped: `sudo systemctl stop firewalld.service`
+- Firewall configured to allow kola interfaces: `sudo firewall-cmd --zone=nm-shared --add-interface=kola-+`
 - Required packages: `swtmp`, `dnsmasq`, `go`, and `iptables` in `$PATH`
 - QEMU: `qemu-system-x86_64` for AMD64 and/or `qemu-system-aarch64` for ARM64
 
