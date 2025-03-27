@@ -68,7 +68,7 @@
                 <div class="card-body">
                   <div class="testimonial-text">{{ $item.description }}</div>
                   {{ if $item.link }}
-                    <a href="{{ $item.link }}" class="btn btn-sm btn-outline-primary mt-3" target="_blank" rel="noopener">
+                    <a href="{{ $item.link }}" class="btn btn-sm btn-outline-primary mt-3" target="_blank" rel="noopener" title="Learn more about {{ $item.name }}">
                       {{ if $item.link_text }}{{ $item.link_text }}{{ else }}Read More{{ end }}
                     </a>
                   {{ end }}
