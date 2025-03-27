@@ -1,27 +1,15 @@
-<div {{ with .maxWidth }}style="max-width: {{ . }};"{{ end }}class="video-container">
+<div class="video-container">
     <video
         {{ if .autoplay }}autoplay muted{{ end }}
         {{ if .loop }}loop{{ end }}
         {{ if .poster }}poster="{{ .poster }}"{{ end }}
-        class="w-100"
         preload="none"
         data-src="{{ .videoPath }}"
         data-type="{{ default "video/mp4" .videoType }}">
-        <p class="video-fallback">Your browser does not support the video tag.</p>
     </video>
-    <button type="button"
-            aria-label="Play video"
-            title="Play video"
-            class="play-button">
-        <span aria-hidden="true">▶</span>
-    </button>
     <script>
         const container = document.currentScript.parentNode;
         const video = container.querySelector("video");
-        const playButton = container.querySelector(".play-button");
-
-        // Set initial controls if needed
-        {{ if .controls }}video.setAttribute("controls", "true");{{ end }}
 
         // Lazy load implementation specifically for this video
         document.addEventListener("DOMContentLoaded", () => {
@@ -56,26 +44,6 @@
                 sourceElement.type = video.dataset.type;
                 video.appendChild(sourceElement);
             }
-        });
-
-        // Unified control display management
-        function showControls() {
-            video.setAttribute("controls", "true");
-            playButton.classList.add("hidden");
-        }
-
-        function showPlayButton() {
-            playButton.classList.remove("hidden");
-        }
-
-        // Event listeners with consistent behavior
-        video.addEventListener("playing", showControls);
-        video.addEventListener("play", showControls);
-        video.addEventListener("pause", showPlayButton);
-        video.addEventListener("ended", showPlayButton);
-
-        playButton.addEventListener("click", () => {
-            video.play();
         });
     </script>
 </div>

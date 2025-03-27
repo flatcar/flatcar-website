@@ -81,7 +81,7 @@ quick_features:
     - text: "*Fortress-Level Security.* An immutable, read-only filesystem that drastically minimizes attack surfaces, giving you the confidence to scale without compromise."
       icon: filesystem
       shape: shape-blue-2
-    - text: "*Effortless, Automated Updates:* Atomic, hands-free updates ensure your system is always at peak security and performance, freeing you to focus on growth."
+    - text: "*Effortless, Automated Updates.* Atomic, hands-free updates ensure your system is always at peak security and performance, freeing you to focus on growth."
       shape: shape-blue-3
       icon: update
 highlights:

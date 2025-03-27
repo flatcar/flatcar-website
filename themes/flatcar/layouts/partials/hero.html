@@ -21,6 +21,12 @@
   <div class="banner-bg">
     {{ $svgColor := default "#08a2af" $styles.svgColor }}
 
+    {{ partial "video-player.html" (dict
+        "videoPath" "/videos/hero-video.mp4"
+        "autoplay" true
+        "loop" true
+    ) }}
+
     <!-- Generate different sized SVGs -->
     {{ partial "hero-svg-background.svg" (dict "index" 1 "width" 1450 "height" 610 "strokeWidth" 1 "strokeColor" $svgColor "glow" true) }}
     {{ partial "hero-svg-background.svg" (dict "index" 2 "width" 1200 "height" 500 "strokeWidth" 1.5 "strokeColor" $svgColor "glow" true) }}
