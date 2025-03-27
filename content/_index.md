@@ -53,7 +53,7 @@ community_links:
         - title: "Mastodon"
           icon: "mastodon"
           link: "https://hachyderm.io/@flatcar"
-        - title: "@flatcar"
+        - title: ""
           icon: "x-twitter"
           link: "https://x.com/flatcar"
     - title: "Ask Questions & Connect"
