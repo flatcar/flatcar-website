@@ -28,9 +28,6 @@ hero:
   button:
     text: "Start using Flatcar"
     link: "/docs/latest/#getting-started"
-    footnote:
-      text: "Operates on more than {{}} machines across the globe"
-      count: "80 000+"
   style:
     class: header-bg-flatcar
     bgcolor: '#12172c'
