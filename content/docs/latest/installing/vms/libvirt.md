@@ -64,15 +64,6 @@ gpg --verify flatcar_production_qemu_image.img.sig</pre>
 
 ## Virtual machine configuration
 
-Now create a qcow2 image snapshot using the command below:
-
-```shell
-cd /var/lib/libvirt/images/flatcar-linux
-qemu-img create -f qcow2 -F qcow2 -b flatcar_production_qemu_image.img flatcar-linux1.qcow2
-```
-
-This will create a `flatcar-linux1.qcow2` snapshot image. Any changes to `flatcar-linux1.qcow2` will not be reflected in `flatcar_production_qemu_image.img`. Making any changes to a base image (`flatcar_production_qemu_image.img` in our example) will corrupt its snapshots.
-
 ### Ignition config
 
 The preferred way to configure a Flatcar Container Linux machine is via Ignition.
@@ -87,7 +78,7 @@ Here, for example, we create an empty Ignition config that contains no further d
 
 ```shell
 mkdir -p /var/lib/libvirt/flatcar-linux/flatcar-linux1/
-echo '{"ignition":{"version":"2.0.0"}}' > /var/lib/libvirt/flatcar-linux/flatcar-linux1/provision.ign
+echo '{"ignition":{"version":"3.4.0"}}' > /var/lib/libvirt/flatcar-linux/flatcar-linux1/provision.ign
 ```
 
 If the host uses SELinux, allow the VM access to the config:
@@ -108,7 +99,7 @@ Since the empty Ignition config is not very useful, here is an example how to wr
 
 ```yaml
 variant: flatcar
-version: 1.0.0
+version: 1.1.0
 storage:
   files:
   - path: /etc/hostname
@@ -138,9 +129,9 @@ virt-install --connect qemu:///system \
              --import \
              --name flatcar-linux1 \
              --ram 1024 --vcpus 1 \
-             --os-type=generic \
-             --disk path=/var/lib/libvirt/images/flatcar-linux/flatcar-linux1.qcow2,format=qcow2,bus=virtio \
-             --vnc --noautoconsole \
+             --os-variant=unknown \
+             --disk size=20,backing_store=/var/lib/libvirt/images/flatcar-linux/flatcar_production_qemu_image.img \
+             --graphics=none \
              --qemu-commandline='-fw_cfg name=opt/org.flatcar-linux/config,file=/var/lib/libvirt/flatcar-linux/flatcar-linux1/provision.ign'
 ```
 
