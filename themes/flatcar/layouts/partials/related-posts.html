@@ -17,7 +17,7 @@
     <h2 class="col-12 text-center">{{ $title }}</h2>
     <div class="container">
         <div class="row justify-content-center">
-        {{ range (first 2 $postsToDisplay) }}
+        {{ range (first 3 $postsToDisplay) }}
             <div class="col-12 col-sm-6 col-lg-4 mb-4">
             <div class="card mx-auto">
                 {{- $path := print "**/" .Params.postImage -}}

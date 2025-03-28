@@ -1,5 +1,5 @@
 .header {
-  position: absolute;
+  position: fixed;
   top: 0;
   left: 0;
   right: 0;
@@ -7,7 +7,9 @@
   margin: 0 auto;
   display: block;
   min-height: 70px;
-  z-index: 10;
+  z-index: 16;
+  background-color: transparent;
+  transition: all 0.3s ease;
 
   .news_stripe {
     background-color: #ffe000;
@@ -16,6 +18,7 @@
     padding: .5em 0;
     font-weight: bold;
     line-height: normal;
+    transition: all 0.2s linear;
 
     a {
       color: $gray-800;
@@ -37,6 +40,25 @@
 
     a {
       color: $gray-800;
+    }
+  }
+
+  &.scrolled {
+    background-color: $flatcar-dark-blue;
+    .news_stripe {
+      max-height: 0;
+      padding: 0;
+      .container {
+        display: none;
+      }
+    }
+
+    .navbar-brand img {
+      max-height: 42px;
+    }
+
+    .navbar {
+      margin-top: 0px;
     }
   }
 
@@ -62,7 +84,7 @@ main > *.header-bg-stripes:first-child {
 }
 
 main > *:first-child {
-  padding-top: 150px;
+  padding-top: 300px;
 }
 
 main > *.header-bg-grid:first-child {
@@ -104,18 +126,21 @@ main > *.header-bg-flatcar-2:first-child {
   z-index: -1;
 }
 
+
+$color-primary: $flatcar-bg-blue;
+$color-secondary: #1a2d3e;
+
 main > *.header-bg-flatcar:first-child {
   background:
     url(/images/flatcar-hero-left.svg) calc(100% / 2 - 650px) calc(100% / 2 + 100px) no-repeat,
     url(/images/flatcar-hero-right.svg) calc(100% / 2 + 700px) calc(100% / 2 + 100px)  no-repeat,
-    url(/images/flatcar-hero-bg.svg) center bottom / auto 100% repeat-x,
-    #12172c;
+    radial-gradient(circle at bottom center, $color-primary 0%, $color-primary 58%, $color-secondary 100%);
+    ;
   // We need to have it begin at height-of-screen above the beginning because
   // of the mobile version's menu, which will scroll it all the way down.
   // i.e. if we don't have it above the screen for the length of its height,
   // it will not look good when sliding the mobile menu.
   left: 0;
-  z-index: -1;
 }
 
 main > *.header-bg-lokomotive:first-child {
