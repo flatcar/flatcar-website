@@ -53,9 +53,8 @@ This example demonstrates building a portable Python interpreter and packaging i
 
 1.  **Enter the SDK Container:**
     ```bash
-    ./run_sdk_container --board amd64-usr
+    ./run_sdk_container
     ```
-    *(Replace `amd64-usr` with your target board if different, e.g., `arm64-usr`)*
 
 2.  **Set up the Prefix Environment:**
 
