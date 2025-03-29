@@ -15,6 +15,7 @@ We also provide OEM functionality for cloud providers and similar use cases to c
 * [SDK tips and tricks][sdk-tips]
 * [SDK build process][sdk-bootstrapping]
 * [Disk layout][disk-layout]
+* [Building portable applications with Prefix Builds (Experimental)][prefix-builds]
 * [Kola integration testing framework][mantle-utils]
 
 [sdk-tips]: sdk-tips-and-tricks
@@ -23,4 +24,5 @@ We also provide OEM functionality for cloud providers and similar use cases to c
 [mod-cl]: sdk-modifying-flatcar
 [kernel-modules]: kernel-modules
 [sdk-bootstrapping]: sdk-bootstrapping
+[prefix-builds]: sdk-prefix-builds
 [mantle-utils]: https://github.com/flatcar/mantle/blob/flatcar-master/README.md#kola
