@@ -1,0 +1,49 @@
+<div class="video-container">
+    <video
+        {{ if .autoplay }}autoplay muted{{ end }}
+        {{ if .loop }}loop{{ end }}
+        {{ if .poster }}poster="{{ .poster }}"{{ end }}
+        preload="none"
+        data-src="{{ .videoPath }}"
+        data-type="{{ default "video/mp4" .videoType }}">
+    </video>
+    <script>
+        const container = document.currentScript.parentNode;
+        const video = container.querySelector("video");
+
+        // Lazy load implementation
+        document.addEventListener("DOMContentLoaded", () => {
+            if ("IntersectionObserver" in window) {
+                const observer = new IntersectionObserver((entries, obs) => {
+                    entries.forEach(entry => {
+                        if (entry.isIntersecting) {
+                            // Get video from the specific container being observed
+                            const video = entry.target.querySelector("video");
+
+                            // Load video only if it hasn't been loaded yet
+                            if (!video.src && video.dataset.src) {
+                                video.src = video.dataset.src;
+                                const sourceElement = document.createElement("source");
+                                sourceElement.src = video.dataset.src;
+                                sourceElement.type = video.dataset.type;
+                                video.appendChild(sourceElement);
+                            }
+
+                            observer.unobserve(entry.target);
+                        }
+                    });
+                });
+
+                // Observe the container, not the video
+                observer.observe(container);
+            } else {
+                // Fallback for browsers without IntersectionObserver
+                video.src = video.dataset.src;
+                const sourceElement = document.createElement("source");
+                sourceElement.src = video.dataset.src;
+                sourceElement.type = video.dataset.type;
+                video.appendChild(sourceElement);
+            }
+        });
+    </script>
+</div>

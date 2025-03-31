@@ -93,20 +93,16 @@
           {{ end }}
         </div>
     </div>
-    <div class="footer__copy row container p-0">
-      <div class="col-12 col-md-6 p-0">
-        <div class="row align-items-center footer__brand">
-          <div class="logo footer__logo col-auto col-md-1">
-            <a href="{{ .Site.BaseURL }}">
-              {{ partial "logo.html" . }}
-            </a>
-          </div>
-          <div class="footer__socials col-ml-auto col-md-8">
-            {{ partial "socials.html" . }}
-          </div>
-        </div>
+    <div class="footer__copy p-0">
+      <div class="logo footer__logo row text-center justify-content-center">
+        <a href="{{ .Site.BaseURL }}">
+            {{ partial "logo.html" . }}
+        </a>
       </div>
-      <div class="footer__copyright col-12 col-md-6 p-0 pt-4">
+      <div class="footer__socials row justify-content-center text-center mt-3 mt-md-0">
+      {{ partial "socials.html" . }}
+      </div>
+      <div class="footer__copyright row justify-content-center p-0 pt-4">
         <p>{{ .Site.Copyright }}</p>
       </div>
     </div>

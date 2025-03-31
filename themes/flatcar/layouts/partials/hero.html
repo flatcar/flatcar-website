@@ -18,16 +18,44 @@
   class="banner {{ default "header-bg-flatcar" $styles.class }}"
   style="background-color: {{ default "#12172c" $styles.bgcolor }}; color: {{ default "#fff" $styles.fgcolor }}"
 >
+  <div class="banner-bg">
+    {{ $svgColor := default "#08a2af" $styles.svgColor }}
+
+    {{ partial "video-player.html" (dict
+        "videoPath" "/videos/hero-video.mp4"
+        "autoplay" true
+        "loop" true
+    ) }}
+
+    <!-- Generate different sized SVGs -->
+    {{ partial "hero-svg-background.svg" (dict "index" 1 "width" 1450 "height" 610 "strokeWidth" 1 "strokeColor" $svgColor "glow" true) }}
+    {{ partial "hero-svg-background.svg" (dict "index" 2 "width" 1200 "height" 500 "strokeWidth" 1.5 "strokeColor" $svgColor "glow" true) }}
+    {{ partial "hero-svg-background.svg" (dict "index" 3 "width" 960 "height" 400 "strokeWidth" 2 "strokeColor" $svgColor "glow" true) }}
+    {{ partial "hero-svg-background.svg" (dict "index" 4 "width" 720 "height" 300 "strokeWidth" 3 "strokeColor" $svgColor "glow" true) }}
+    {{ partial "hero-svg-background.svg" (dict "index" 5 "width" 600 "height" 250 "strokeWidth" 3.2 "strokeColor" $svgColor "glow" true) }}
+    {{ partial "hero-svg-background.svg" (dict "index" 6 "width" 480 "height" 200 "strokeWidth" 3.2 "strokeColor" $svgColor "glow" true) }}
+    {{ partial "hero-svg-background.svg" (dict "index" 7 "width" 360 "height" 150 "strokeWidth" 4 "strokeColor" $svgColor "glow" true) }}
+    {{ partial "hero-svg-background.svg" (dict "index" 8 "width" 240 "height" 100 "strokeWidth" 4.2 "strokeColor" $svgColor "glow" true) }}
+    {{ partial "hero-svg-background.svg" (dict "index" 9 "width" 120 "height" 50 "strokeWidth" 4.4 "strokeColor" $svgColor "glow" true) }}
+  </div>
+
   <div class="container">
       <div class="row justify-content-between">
-          <div class="col-12">
+          <div class="col-12 d-flex flex-column gap-10">
               {{ if $hero.icon }}
                 <img class="hero-icon" src="/images/{{ $hero.icon }}" alt="Flatcar Logo">
               {{ end }}
               <h1>{{ $title }}</h1>
-              <h2 {{ if $styles.descriptioncolor }}style="color: {{ $styles.descriptioncolor }}"{{ end }}>{{ $description }}</h2>
+              {{ if $description }}
+                <h2 {{ if $styles.descriptioncolor }}style="color: {{ $styles.descriptioncolor }}"{{ end }}>{{ $description }}</h2>
+              {{ end }}
               {{ if $hero.button }}
-                  <a class="hero-button btn {{ default "btn-blue" $hero.button.class }}" href="{{ $hero.button.link }}">{{ $hero.button.text }}</a>
+                  <div>
+                      <a class="hero-button btn {{ default "btn-blue" $hero.button.class }}" href="{{ $hero.button.link }}">{{ $hero.button.text }}</a>
+                      {{ with $hero.button.footnote }}
+                      <p class="footnote">{{ replace .text "{{}}" (printf "<span>%v</span>" .count) | safeHTML }}</p>
+                      {{ end }}
+                  </div>
               {{ end }}
           </div>
       </div>

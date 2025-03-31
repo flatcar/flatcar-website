@@ -1,0 +1,107 @@
+.testimonials-section {
+  position: relative;
+  max-height: 800px;
+  overflow: hidden;
+  transition: max-height 0.6s ease;
+
+  &.expanded {
+      max-height: none;
+      height: auto;
+      overflow: visible;
+  }
+
+  .section-title {
+    font-weight: $font-weight-semi-bold;
+    color: $body-color;
+  }
+
+  .section-description {
+    font-size: 1.1rem;
+    margin: 0 auto;
+  }
+
+  .testimonial-card {
+    border: $input-border-width solid $input-border-color;
+    border-radius: $card-border-radius;
+    background-color: $white;
+    transition: all 0.3s ease;
+    margin-bottom: $spacer * 1.5;
+
+    &:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 20px rgba($black, 0.1);
+    }
+
+    .card-header {
+      background-color: $white;
+      border-bottom: $input-border-width solid $input-border-color;
+      padding: $spacer * 0.75 $spacer * 1.25;
+
+      .company-logo {
+        width: 100px;
+        height: 60px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        img {
+          max-width: 100%;
+          max-height: 50px;
+          object-fit: contain;
+        }
+      }
+
+      .company-name {
+        font-size: 1.1rem;
+        font-weight: $font-weight-semi-bold;
+      }
+    }
+
+    .card-body {
+      padding: $spacer * 1.25;
+
+      .testimonial-text {
+        font-size: 0.95rem;
+        line-height: $headings-line-height;
+        color: $body-color;
+        // Limit to 5 lines of text
+        overflow: hidden;
+        display: -webkit-box;
+        -webkit-line-clamp: 5;
+        -webkit-box-orient: vertical;
+      }
+
+      // Expand on hover to show full text
+      &:hover .testimonial-text {
+        -webkit-line-clamp: initial;
+        max-height: none;
+      }
+    }
+  }
+
+  .fade-overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 350px;
+    background: linear-gradient(to bottom, rgba($white, 0) 0%, rgba($white, 1) 90%);
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    padding-bottom: $spacer * 1.25;
+    pointer-events: none;
+    transition: opacity 0.3s ease;
+
+    &.hidden {
+      opacity: 0;
+    }
+  }
+
+  .show-more-button {
+    font-size: 0.7rem;
+    opacity: 0.7;
+    cursor: pointer;
+    pointer-events: auto;
+  }
+}

@@ -1,23 +1,21 @@
-{{/* Parameters in .Params: */}}
-{{/*   companies_section.title -> the title to show */}}
-{{/*   companies_section.area -> show companies with the area set to them */}}
-{{/*   companies_section.type -> show companies with the type set to them */}}
-{{/*   companies_section.companies -> the companies to be shown, this overrides the area param above */}}
+{{/* Parameters to pass when calling the partial: */}}
+{{/*   . (context) -> the page context */}}
+{{/*   section_name -> name of the sections list parameter to use */}}
 
-{{/* You can also use several companies rows using: */}}
-{{/* companies_sections: */}}
-{{/*   - title: ... */}}
-{{/*     area: ... */}}
-{{/*   - title: ... */}}
-{{/*     area: ... */}}
+{{ $ctx := .context }}
+{{ $section_name := .section_name }}
+{{ $companies_sections := index $ctx.Params $section_name | default (slice) }}
 
-{{ $companies_sections := default (slice (default (dict) .Params.companies_section)) .Params.companies_sections }}
+{{ if not (reflect.IsSlice $companies_sections) }}
+  {{ $companies_sections = slice $companies_sections }}
+{{ end }}
+
 {{ range $key,$companies_section := $companies_sections }}
 {{ $names := $companies_section.companies | default slice }}
 {{ $area := $companies_section.area | default "" }}
 {{ $type := $companies_section.type | default "" }}
 {{ if not $names }}
-  {{ range $company, $value := $.Site.Data.references.companies.companies }}
+  {{ range $company, $value := $ctx.Site.Data.references.companies.companies }}
     {{ if ((in $value.area $area) | or (not $area)) | and ((in $value.type $type) | or (not $type)) }}
       {{ $names = append $company $names }}
     {{ end }}
@@ -34,19 +32,19 @@
       </div>
     </div>
   {{ end }}
-  <div class="row align-item-center justify-content-center">
+  <div class="row align-item-center justify-content-center mt-2">
     {{ $processedImages := dict }}
     {{ range $names }}
-      {{ $company := index $.Site.Data.references.companies.companies . }}
+      {{ $company := index $ctx.Site.Data.references.companies.companies . }}
       {{- $path := print "*/companies/" $company.logo -}}
       {{- $image := resources.GetMatch $path -}}
       {{- $imagePath := path.Join "/media/companies/" $company.logo -}}
-      {{- if in (slice "image/webp" "image/jpeg" "image/jpg" "image/png") (string $image.MediaType) -}}
+      {{- if and $image (in (slice "image/webp" "image/jpeg" "image/jpg" "image/png") (string $image.MediaType)) -}}
         {{- $imagePath = ($image.Resize "x130 webp").RelPermalink -}}
       {{- end -}}
       {{ $processedImages = merge $processedImages (dict $company.logo $imagePath) }}
       <div class="col-4 col-lg-3 logo d-none d-md-flex">
-        <img src="{{ $imagePath }}" alt="{{ $company.name }}" />
+        <img loading="lazy" src="{{ $imagePath }}" alt="{{ $company.name }}" />
       </div>
     {{ end }}
   </div>
@@ -64,12 +62,15 @@
           <div class="carousel-item {{ if eq $pageNum 0 }}active{{ end }}">
             <div class="row align-item-center justify-content-center">
               {{ range $index,$item := (seq $perPage) }}
-                {{ $fullIndex := index $names ((mul $pageNum $perPage) | add $index) }}
-                {{ $company := index $.Site.Data.references.companies.companies $fullIndex }}
-                <div class="col-12 logo col-sm-6 d-flex">
-                  {{- $imagePath := index $processedImages $company.logo -}}
-                  <img src="{{ $imagePath }}" />
-                </div>
+                {{ $arrayIndex := (mul $pageNum $perPage) | add $index }}
+                {{ if lt $arrayIndex (len $names) }}
+                  {{ $fullIndex := index $names $arrayIndex }}
+                  {{ $company := index $ctx.Site.Data.references.companies.companies $fullIndex }}
+                  <div class="col-12 logo col-sm-6 d-flex">
+                    {{- $imagePath := index $processedImages $company.logo -}}
+                    <img loading="lazy" src="{{ $imagePath }}" alt="{{ $company.name }}" />
+                  </div>
+                {{ end }}
               {{ end }}
             </div>
           </div>
