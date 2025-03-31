@@ -11,7 +11,7 @@
         const container = document.currentScript.parentNode;
         const video = container.querySelector("video");
 
-        // Lazy load implementation specifically for this video
+        // Lazy load implementation
         document.addEventListener("DOMContentLoaded", () => {
             if ("IntersectionObserver" in window) {
                 const observer = new IntersectionObserver((entries, obs) => {
