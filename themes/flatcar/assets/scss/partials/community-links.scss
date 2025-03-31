@@ -10,24 +10,31 @@
     color: $flatcar-dark-blue;
   }
 
-  .community-group {
-    .community-group-title {
-      font-size: 1.4rem;
-      font-weight: 500;
-      margin-bottom: 1rem;
-      text-align: center;
-      color: $flatcar-dark-blue;
+  .community-groups {
+    gap: 0.8rem;
+    @include media-breakpoint-up(md) {
+      gap: 0rem;
     }
 
-    .community-items {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
+    .community-group {
+      .community-group-title {
+        font-size: 1.4rem;
+        font-weight: 500;
+        margin-bottom: 0.5rem;
+        text-align: center;
+        color: $flatcar-dark-blue;
+      }
 
-      @include media-breakpoint-up(md) {
-        flex-direction: row;
-        justify-content: center;
-        flex-wrap: wrap;
+      .community-items {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+
+        @include media-breakpoint-up(md) {
+          flex-direction: row;
+          justify-content: center;
+          flex-wrap: wrap;
+        }
       }
     }
   }
@@ -48,7 +55,8 @@
         text-decoration: none;
       }
 
-      i, .community-svg-icon {
+      i,
+      .community-svg-icon {
         font-size: 1.5rem;
         width: 1.5rem;
         height: 1.5rem;
