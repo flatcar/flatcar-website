@@ -141,7 +141,7 @@ features:
         title: Managed updates
         description: The Nebraska update server allows for defining instance groups, assigning update channels and controlling the frequency, time of day and rate of updates.
 grid_statements:
-  title: Flatcar - A Minimalistic Container OS
+  title: Flatcar Container Linux - A Minimalistic Container OS
 
   statements:
     - '<div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
