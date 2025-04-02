@@ -140,6 +140,13 @@ features:
       - icon: flatcar-update
         title: Managed updates
         description: The Nebraska update server allows for defining instance groups, assigning update channels and controlling the frequency, time of day and rate of updates.
+grid_statements:
+  title: Flatcar Container Linux - A Minimalistic Container OS
+
+  statements:
+    - '<div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
+      <iframe title="Youtube video showing Flatcar Container Linux" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;" src="https://www.youtube.com/embed/9lSH7GvLGWQ" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+    </div>'
 sponsors_section: true
 providers_section: true
 testimonials_section: true
