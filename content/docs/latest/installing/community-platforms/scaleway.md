@@ -22,7 +22,7 @@ $ aws s3api create-bucket --bucket flatcar
 $ aws s3 cp flatcar_production_scaleway_image.qcow2 s3://flatcar/flatcar_production_scaleway_image.qcow2
 $ SNAPSHOT_ID=$(scw instance snapshot create --wait \
   zone=fr-par-1 name=flatcar-beta volume-type=l_ssd \
-  bucket=flatcar key=flatcar_production_scaleway_image.qcow2 | jq -r .id)
+  bucket=flatcar key=flatcar_production_scaleway_image.qcow2 --output=json | jq -r .id)
 ```
 
 ## Butane Configs
@@ -77,7 +77,7 @@ The `coreos-metadata.service` saves metadata variables to `/run/metadata/flatcar
 Boot the machine with the CLI, referencing the snapshot ID from the import step above and your [Ignition file from Butane][butane-configs]:
 
 ```shell
-$ INSTANCE_ID=$(scw instance server create image=none root-volume=l:"${SNAPSHOT_ID}" cloud-init=@./config.json --output=json | jq -r .id)
+$ INSTANCE_ID=$(scw instance server create image=none root-volume=l:"${SNAPSHOT_ID}" cloud-init=@./config.json type=DEV1-S --output=json | jq -r .id)
 ```
 
 Your first Flatcar instance should now be running. The only thing left to do is find the IP address and SSH in.
