@@ -1,10 +1,10 @@
 architectures:
 - amd64
 - arm64
-channel: beta
+channel: lts
 github_release:
   assets: []
-  assets_url: https://api.github.com/repos/flatcar/scripts/releases/216725967/assets
+  assets_url: https://api.github.com/repos/flatcar/scripts/releases/216726233/assets
   author:
     avatar_url: https://avatars.githubusercontent.com/u/500628?v=4
     events_url: https://api.github.com/users/sayanchowdhury/events{/privacy}
@@ -25,7 +25,7 @@ github_release:
     type: User
     url: https://api.github.com/users/sayanchowdhury
     user_view_type: public
-  body: " _Changes since **Beta 4230.1.0**_\r\n \r\n #### Security fixes:\r\n \r\n\
+  body: " _Changes since **LTS 4081.3.2**_\r\n \r\n #### Security fixes:\r\n \r\n\
     \ - Linux ([CVE-2025-21993](https://nvd.nist.gov/vuln/detail/CVE-2025-21993),\
     \ [CVE-2025-21992](https://nvd.nist.gov/vuln/detail/CVE-2025-21992), [CVE-2025-21991](https://nvd.nist.gov/vuln/detail/CVE-2025-21991),\
     \ [CVE-2025-21967](https://nvd.nist.gov/vuln/detail/CVE-2025-21967), [CVE-2025-21975](https://nvd.nist.gov/vuln/detail/CVE-2025-21975),\
@@ -75,33 +75,31 @@ github_release:
     \ [CVE-2025-22043](https://nvd.nist.gov/vuln/detail/CVE-2025-22043), [CVE-2025-22027](https://nvd.nist.gov/vuln/detail/CVE-2025-22027),\
     \ [CVE-2025-22025](https://nvd.nist.gov/vuln/detail/CVE-2025-22025), [CVE-2025-22029](https://nvd.nist.gov/vuln/detail/CVE-2025-22029),\
     \ [CVE-2023-53034](https://nvd.nist.gov/vuln/detail/CVE-2023-53034))\r\n \r\n\
-    \ #### Bug fixes:\r\n \r\n - Fixed PXE boot failures that arose since upgrading\
-    \ to systemd v256. Users were dumped to an emergency shell. ([flatcar/bootengine#103](https://github.com/flatcar/bootengine/pull/103))\
-    \ \r\n \r\n #### Updates:\r\n \r\n - Linux ([6.6.88](https://git.kernel.org/pub/scm/linux/kernel/git/stable/linux.git/tag/?h=v6.6.88)\
+    \ #### Updates:\r\n - Linux ([6.6.88](https://git.kernel.org/pub/scm/linux/kernel/git/stable/linux.git/tag/?h=v6.6.88)\
     \ (includes [6.6.87](https://git.kernel.org/pub/scm/linux/kernel/git/stable/linux.git/tag/?h=v6.6.87),\
     \ [6.6.86](https://git.kernel.org/pub/scm/linux/kernel/git/stable/linux.git/tag/?h=v6.6.86),\
     \ [6.6.85](https://git.kernel.org/pub/scm/linux/kernel/git/stable/linux.git/tag/?h=v6.6.85),\
     \ [6.6.84](https://git.kernel.org/pub/scm/linux/kernel/git/stable/linux.git/tag/?h=v6.6.84)))\r\
     \n - ca-certificates ([3.110](https://firefox-source-docs.mozilla.org/security/nss/releases/nss_3_110.html))"
-  created_at: '2025-04-29T20:50:40Z'
+  created_at: '2025-04-29T20:55:50Z'
   draft: false
-  html_url: https://github.com/flatcar/scripts/releases/tag/beta-4230.1.1
-  id: 216725967
+  html_url: https://github.com/flatcar/scripts/releases/tag/lts-4081.3.3
+  id: 216726233
   name: ''
-  node_id: RE_kwDOB2MTHs4M6vnP
+  node_id: RE_kwDOB2MTHs4M6vrZ
   prerelease: false
-  published_at: '2025-05-06T11:35:29Z'
-  tag_name: beta-4230.1.1
-  tarball_url: https://api.github.com/repos/flatcar/scripts/tarball/beta-4230.1.1
+  published_at: '2025-05-06T11:36:40Z'
+  tag_name: lts-4081.3.3
+  tarball_url: https://api.github.com/repos/flatcar/scripts/tarball/lts-4081.3.3
   target_commitish: main
-  upload_url: https://uploads.github.com/repos/flatcar/scripts/releases/216725967/assets{?name,label}
-  url: https://api.github.com/repos/flatcar/scripts/releases/216725967
-  zipball_url: https://api.github.com/repos/flatcar/scripts/zipball/beta-4230.1.1
+  upload_url: https://uploads.github.com/repos/flatcar/scripts/releases/216726233/assets{?name,label}
+  url: https://api.github.com/repos/flatcar/scripts/releases/216726233
+  zipball_url: https://api.github.com/repos/flatcar/scripts/zipball/lts-4081.3.3
 image_packages:
-  containerd: 1.7.23
-  docker: 27.3.1
-  ignition: 2.20.0
+  containerd: 1.7.21
+  docker: 26.1.0
+  ignition: 2.19.0
   kernel: 6.6.88
-  systemd: '256'
-release: current
-version: 4230.1.1
+  systemd: '255'
+release: 4081.3.3
+version: 4081.3.3
