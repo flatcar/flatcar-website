@@ -32,7 +32,7 @@ platforms and bare metal servers.
  * [Brightbox][brightbox]
  * [Scaleway][scaleway] (community support)
  * [OVHcloud][ovhcloud] (community support)
- * [Akamai][akamai] (community support)
+ * [Akamai/Linode][akamai]
 
 #### Virtualization options
 It's easy to run a local Flatcar VM on your laptop for testing and debugging
@@ -265,5 +265,5 @@ Flatcar tutorial to deep dive into some Flatcar fundamental concepts.
 [tutorial-hands-on-4]: tutorial/hands-on-4
 [scaleway]: installing/community-platforms/scaleway
 [ovhcloud]: installing/community-platforms/ovhcloud
-[akamai]: installing/community-platforms/akamai
+[akamai]: installing/cloud/akamai
 [nebraska]: nebraska
