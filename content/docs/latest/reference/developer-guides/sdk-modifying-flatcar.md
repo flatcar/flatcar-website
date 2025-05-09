@@ -230,7 +230,7 @@ All packages will be installed to `/build/<arch>`.
 
 You can rebuild individual packages by running `emerge-<arch>-usr PACKAGE`, e.g. `emerge-amd64-usr vim`. In this case, no binary cache will be used and the package will always be rebuilt.
 
-In the case of changing the initramfs (mainly for Dracut and Ignition related work), you first need to rebuild the bootengine package and then the kernel package. To make sure that no old initramfs is reused, you can first delete the file `/build/<arch>-usr/usr/share/bootengine/bootengine.cpio` and then rebuild the bootengine and kernel package.
+In the case of changing the initramfs (mainly for Dracut and Ignition related work), you first need to rebuild `sys-kernel/bootengine` and then `sys-kernel/coreos-kernel`.
 
 ### Create the Flatcar Container Linux OS image
 
