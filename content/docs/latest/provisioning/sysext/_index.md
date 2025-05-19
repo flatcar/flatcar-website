@@ -48,6 +48,7 @@ The table below give an overview on the supported Flatcar extensions.
 |----------------|---------------------|-------------------------|-------------------------|
 | `docker`       | 3794.0.0  – …       |                         |           ✅            |
 | `containerd`   | 3794.0.0  – …       |                         |           ✅            |
+| `incus`        | 4285.0.0  – …       | [Incus][incusextension] |                         |
 | `oem-*`        | 3760.2.0 – …        |                         |           ✅            |
 | `podman`       | 3941.0.0 – …        |                         |                         |
 | `python`       | 4012.0.0 – …        |                         |                         |
@@ -208,5 +209,6 @@ To get more information about found incompatibilities during merging, enable the
 sudo SYSTEMD_LOG_LEVEL=debug systemd-sysext refresh
 ```
 
+[incusextension]: ../../container-runtimes/incus
 [sysext-bakery]: https://flatcar.github.io/sysext-bakery
 [zfsextension]: ../../setup/storage/zfs
