@@ -44,14 +44,15 @@ Official extensions provided as part of a Flatcar release make Flatcar more modu
 
 The table below give an overview on the supported Flatcar extensions.
 
-| Extension Name | Availability        | Documentation           |   Enabled by default    |
-|----------------|---------------------|-------------------------|-------------------------|
-| `docker`       | 3794.0.0  – …       |                         |           ✅            |
-| `containerd`   | 3794.0.0  – …       |                         |           ✅            |
-| `oem-*`        | 3760.2.0 – …        |                         |           ✅            |
-| `podman`       | 3941.0.0 – …        |                         |                         |
-| `python`       | 4012.0.0 – …        |                         |                         |
-| `zfs`          | 3913.0.0 – …        | [Storage][zfsextension] |                         |
+| Extension Name         | Availability        | Documentation           |   Enabled by default    |
+|------------------------|---------------------|-------------------------|-------------------------|
+| `docker-flatcar`       | 3794.0.0  – …       |                         |           ✅            |
+| `containerd-flatcar`   | 3794.0.0  – …       |                         |           ✅            |
+| `flatcar-incus`        | 4285.0.0  – …       | [Incus][incusextension] |                         |
+| `oem-*`                | 3760.2.0 – …        |                         |           ✅            |
+| `flatcar-podman`       | 3941.0.0 – …        |                         |                         |
+| `flatcar-python`       | 4012.0.0 – …        |                         |                         |
+| `flatcar-zfs`          | 3913.0.0 – …        | [Storage][zfsextension] |                         |
 
 
 Users can enable Flatcar extensions by writing one name per line to `/etc/flatcar/enabled-sysext.conf`.
@@ -208,5 +209,6 @@ To get more information about found incompatibilities during merging, enable the
 sudo SYSTEMD_LOG_LEVEL=debug systemd-sysext refresh
 ```
 
+[incusextension]: ../../container-runtimes/incus
 [sysext-bakery]: https://flatcar.github.io/sysext-bakery
 [zfsextension]: ../../setup/storage/zfs
