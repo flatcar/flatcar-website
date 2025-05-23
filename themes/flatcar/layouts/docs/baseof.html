@@ -52,21 +52,23 @@
               <hr class="panel-line" />
               {{ $gitthubEditUrl := default .Site.Params.docs.github_edit_url .Params.github_edit_url }}
               {{ if $gitthubEditUrl }}
-                {{ $filepath := .File.Path }}
                 {{ $versionFilePath := "" }}
                 {{ $currentVersion := partial "docs/getversionsection" . }}
                 {{ if $currentVersion }}
                   {{ $versionFilePath = path.Dir $currentVersion.File.Path }}
                 {{ end }}
-                {{ $filepath = substr $filepath (len $versionFilePath) }}
-                {{ $editLink := (print $gitthubEditUrl $filepath) }}
-                <a
-                  href="{{ $editLink }}"
-                  class="btn btn-md mt-2"
-                  style="border: 2px solid #afafaf; padding: 4px 2px; font-weight: inherit;"
-                >
-                  <i class="fab fa-github"></i> Edit this page
-                </a>
+                {{ with .File }}
+                  {{ $filepath := .Path }}
+                  {{ $filepath = substr $filepath (len $versionFilePath) }}
+                  {{ $editLink := (print $gitthubEditUrl $filepath) }}
+                  <a
+                    href="{{ $editLink }}"
+                    class="btn btn-md mt-2"
+                    style="border: 2px solid #afafaf; padding: 4px 2px; font-weight: inherit;"
+                  >
+                    <i class="fab fa-github"></i> Edit this page
+                  </a>
+                {{ end }}
               {{ end }}
 
               {{ $issuesUrl := default .Site.Params.docs.issues_url .Params.issues_url }}
@@ -81,7 +83,7 @@
               {{ end }}
             </div>
 
-            {{ if (.Site.DisqusShortname) }}
+            {{ if (.Site.Config.Services.Disqus.Shortname) }}
               <br />
               {{ partial "disqus-comment.html" . }}
             {{ end }}

@@ -1,6 +1,6 @@
 <div class="article__related">
     {{ $page_link := .Permalink }}
-    {{ $posts := (where $.Site.Pages "Type" "blog").ByPublishDate.Reverse }}
+    {{ $posts := (where (where $.Site.Pages "Type" "blog") "Kind" "page").ByPublishDate.Reverse }}
     {{ $tags := default (slice) .Params.tags }}
     {{ $latestPosts := where $posts "Permalink" "!=" $page_link }}
     {{ $postsToDisplay := (slice) }}

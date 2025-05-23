@@ -34,7 +34,7 @@
 {{ $parent := .parent }}
 {{ $shouldDelayActive := .delayActive }}
 {{ $active := eq $p.CurrentSection $s }}
-{{ $show := or (eq $s $p.FirstSection) (and (not $p.Site.Params.ui.sidebar_menu_compact) ($p.IsDescendant $s)) }}
+{{ $show := or (eq $s $p.FirstSection) (eq $s $p) (and (not $p.Site.Params.ui.sidebar_menu_compact) ($p.IsDescendant $s)) }}
 {{ $sid := $s.RelPermalink | anchorize }}
 <ul class="td-sidebar-nav__section">
   {{ $link := $s.RelPermalink }}
