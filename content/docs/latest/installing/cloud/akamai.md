@@ -190,7 +190,7 @@ linode-cli linodes config-create \
     --helpers.devtmpfs_automount false \
     --label default \
     --devices.sda.disk_id "${DISK_ID}" \
-    --root_device sda \
+    --root_device /dev/sda \
     "${LINODE_ID}"
 ```
 
