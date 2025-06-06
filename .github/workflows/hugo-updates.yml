@@ -8,6 +8,9 @@ jobs:
   # Update Hugo modules (themes/components)
   update_modules:
     runs-on: ubuntu-latest
+    permissions:
+      contents: write
+      pull-requests: write
     steps:
       - uses: actions/checkout@v4
         with:
@@ -42,6 +45,9 @@ jobs:
   # Check for new Hugo binary versions
   check_version:
     runs-on: ubuntu-latest
+    permissions:
+      contents: write
+      pull-requests: write
     steps:
       - uses: actions/checkout@v4
         with:
