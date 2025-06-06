@@ -41,62 +41,52 @@ def listAMIs(channel = 'stable', board = 'amd64-usr'):
     except:
         return []
 
-def listChinaAMIs(channel = 'stable', board = 'amd64-usr'):
-    url = 'https://flatcar-prod-ami-import-cn-north-1.s3.cn-north-1.amazonaws.com.cn/%s-%s.json' % (channel, board)
-    try:
-        allAMIs = json.loads(fetch(url))
-        return allAMIs['amis']
-    except:
-        return []
-
 def main(file_to_replace):
     stableAMD = latestVersion('stable')
     betaAMD = latestVersion('beta')
     alphaAMD = latestVersion('alpha')
-    edgeAMD = latestVersion('edge')
+    ltsAMD = latestVersion('lts')
     stableARM = latestVersion('stable', 'arm64-usr')
     betaARM = latestVersion('beta', 'arm64-usr')
     alphaARM = latestVersion('alpha', 'arm64-usr')
-    edgeARM = latestVersion('edge', 'arm64-usr')
+    ltsARM = latestVersion('lts', 'arm64-usr')
 
     data = {
         '__DUMMY__' : {
-            'alpha_channel' : alphaAMD,
-            'beta_channel' : betaAMD,
-            'edge_channel' : edgeAMD,
+            'lts_azure_sku' : 'lts2024',
             'stable_channel' : stableAMD,
-            'alpha_channel_arm' : alphaARM,
-            'beta_channel_arm' : betaARM,
-            'edge_channel_arm' : edgeARM,
+            'beta_channel' : betaAMD,
+            'alpha_channel' : alphaAMD,
+            'lts_channel' : ltsAMD,
             'stable_channel_arm' : stableARM,
+            'beta_channel_arm' : betaARM,
+            'alpha_channel_arm' : alphaARM,
+            'lts_channel_arm' : ltsARM,
             'data' : {
-                'alpha_channel' : {
-                    'amis' : listAMIs('alpha')
+                'stable_channel' : {
+                    'amis' : listAMIs('stable')
                 },
                 'beta_channel' : {
                     'amis' : listAMIs('beta')
                 },
-                'edge_channel' : {
-                    'amis' : listAMIs('edge')
+                'alpha_channel' : {
+                    'amis' : listAMIs('alpha')
                 },
-                'stable_channel' : {
-                    'amis' : listAMIs('stable')
+                'lts_channel' : {
+                    'amis' : listAMIs('lts')
                 },
-                'stable_china_channel': {
-                    'amis': listChinaAMIs('stable')
-                },
-                'alpha_channel_arm' : {
-                    'amis' : listAMIs('alpha', 'arm64-usr')
+                'stable_channel_arm' : {
+                    'amis' : listAMIs('stable', 'arm64-usr')
                 },
                 'beta_channel_arm' : {
                     'amis' : listAMIs('beta', 'arm64-usr')
                 },
-                'edge_channel_arm' : {
-                    'amis' : listAMIs('edge', 'arm64-usr')
+                'alpha_channel_arm' : {
+                    'amis' : listAMIs('alpha', 'arm64-usr')
                 },
-                'stable_channel_arm' : {
-                    'amis' : listAMIs('stable', 'arm64-usr')
-                }
+                'lts_channel_arm' : {
+                    'amis' : listAMIs('lts', 'arm64-usr')
+                },
             }
         }
     }

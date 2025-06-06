@@ -24,14 +24,15 @@ Flatcar Container Linux is designed to be updated automatically with different s
     <li class="active"><a href="#stable" data-toggle="tab">Stable Channel</a></li>
     <li><a href="#beta" data-toggle="tab">Beta Channel</a></li>
     <li><a href="#alpha" data-toggle="tab">Alpha Channel</a></li>
+    <li><a href="#lts" data-toggle="tab">LTS Channel</a></li>
   </ul>
   <div class="tab-content coreos-docs-image-table">
-    <div class="tab-pane" id="alpha">
+    <div class="tab-pane active" id="stable">
       <div class="channel-info">
-        <p>The Alpha channel closely tracks master and is released frequently. The newest versions of system libraries and utilities will be available for testing. The current version is Flatcar Container Linux {{< param alpha_channel >}}.</p>
-        View as json feed: {{< docs_amis_feed "alpha" >}}
+        <p>The Stable channel should be used by production clusters. Versions of Flatcar Container Linux are battle-tested within the Beta and Alpha channels before being promoted. The current version is Flatcar Container Linux {{< param stable_channel >}}.</p>
+        View as json feed: {{< docs_amis_feed "stable" >}}
       </div>
-      {{< docs_amis_table "alpha" >}}
+      {{< docs_amis_table "stable" >}}
     </div>
     <div class="tab-pane" id="beta">
       <div class="channel-info">
@@ -40,12 +41,19 @@ Flatcar Container Linux is designed to be updated automatically with different s
       </div>
       {{< docs_amis_table "beta" >}}
     </div>
-    <div class="tab-pane active" id="stable">
+    <div class="tab-pane" id="alpha">
       <div class="channel-info">
-        <p>The Stable channel should be used by production clusters. Versions of Flatcar Container Linux are battle-tested within the Beta and Alpha channels before being promoted. The current version is Flatcar Container Linux {{< param stable_channel >}}.</p>
-        View as json feed: {{< docs_amis_feed "stable" >}}
+        <p>The Alpha channel closely tracks master and is released frequently. The newest versions of system libraries and utilities will be available for testing. The current version is Flatcar Container Linux {{< param alpha_channel >}}.</p>
+        View as json feed: {{< docs_amis_feed "alpha" >}}
       </div>
-      {{< docs_amis_table "stable" >}}
+      {{< docs_amis_table "alpha" >}}
+    </div>
+    <div class="tab-pane active" id="lts">
+      <div class="channel-info">
+        <p>LTS release streams are maintained for an extended lifetime of 18 months. The yearly LTS streams have an overlap of 6 months. The current version is Flatcar Container Linux {{< param lts_channel >}}.</p>
+        View as json feed: {{< docs_amis_feed "lts" >}}
+      </div>
+      {{< docs_amis_table "lts" >}}
     </div>
   </div>
 </div>
@@ -454,7 +462,7 @@ For example, create the configuration for `mynode` in the file `machine-mynode.y
 passwd:
   users:
     - name: core
-      ssh_authorized_keys: 
+      ssh_authorized_keys:
         - ${ssh_keys}
 storage:
   files:
