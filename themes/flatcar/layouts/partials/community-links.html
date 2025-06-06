@@ -3,7 +3,7 @@
     {{ with .Params.community_links.title }}
         <h2 class="community-title">{{ . }}</h2>
     {{ end }}
-    <div class="row justify-content-center">
+    <div class="row justify-content-center community-groups">
         {{ range .Params.community_links.groups }}
         <div class="col-md-4 community-group">
             <h3 class="community-group-title">{{ .title }}</h3>
