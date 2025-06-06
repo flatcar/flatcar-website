@@ -1,0 +1,86 @@
+name: Hugo Dependency Updates
+on:
+  schedule:
+    - cron: '0 0 * * 1'  # Weekly on Monday
+  workflow_dispatch:
+
+jobs:
+  # Update Hugo modules (themes/components)
+  update_modules:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          submodules: true
+          fetch-depth: 0
+
+      - name: Read current Hugo version
+        id: hugo-version
+        run: |
+          . ./.env
+          echo "HUGO_VERSION=${HUGO_VERSION}" >> "${GITHUB_OUTPUT}"
+
+      - name: Setup Hugo
+        uses: peaceiris/actions-hugo@v3
+        with:
+          hugo-version: '${{ steps.hugo-version.outputs.HUGO_VERSION }}'
+          extended: true
+
+      - name: Update modules
+        run: |
+          hugo mod get -u ./...
+          hugo mod tidy
+
+      - name: Create PR for modules
+        uses: peter-evans/create-pull-request@v7
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          branch: "update/hugo-modules-$(date +%s)"
+          commit-message: "chore: update Hugo modules"
+          title: "Update Hugo Modules"
+
+  # Check for new Hugo binary versions
+  check_version:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          submodules: true
+          fetch-depth: 0
+
+      - name: Get latest Hugo version
+        id: hugo
+        run: |
+          LATEST=$(curl -s https://api.github.com/repos/gohugoio/hugo/releases/latest | jq -r '.tag_name' | sed 's/^v//')
+          echo "latest=$LATEST" >> $GITHUB_OUTPUT
+
+      - name: Read current Hugo version
+        id: hugo-version
+        run: |
+          . ./.env
+          echo "current=${HUGO_VERSION}" >> "${GITHUB_OUTPUT}"
+
+      - name: Update Hugo version in .env
+        if: steps.current.outputs.current != steps.hugo.outputs.latest
+        run: |
+          # Replace the version in .env
+          sed -i "s/^HUGO_VERSION=.*/HUGO_VERSION=${{ steps.hugo.outputs.latest }}/" .env
+
+          git config --global user.name "GitHub Actions"
+          git config --global user.email "actions@github.com"
+
+          # Commit the change
+          git add .env
+          git commit -m "chore: update Hugo to ${{ steps.hugo.outputs.latest }}"
+        shell: bash
+
+      - name: Create PR
+        uses: peter-evans/create-pull-request@v7
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          branch: "update/hugo-${{ steps.hugo.outputs.latest }}"
+          title: "Update Hugo to ${{ steps.hugo.outputs.latest }}"
+          body: "Automated Hugo version update"
+          commit-message: "chore: update Hugo to ${{ steps.hugo.outputs.latest }}"
+          path: |
+            .env
