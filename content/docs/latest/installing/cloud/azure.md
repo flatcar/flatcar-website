@@ -34,6 +34,7 @@ The following command will create a single instance through the Azure CLI.
     <li class="active"><a href="#stable" data-toggle="tab">Stable Channel</a></li>
     <li><a href="#beta" data-toggle="tab">Beta Channel</a></li>
     <li><a href="#alpha" data-toggle="tab">Alpha Channel</a></li>
+    <li><a href="#lts" data-toggle="tab">LTS Channel</a></li>
   </ul>
   <div class="tab-content coreos-docs-image-table">
     <div class="tab-pane active" id="stable">
@@ -47,10 +48,10 @@ $ az vm image list --all -p kinvolk -f flatcar -s stable-gen2 --query '[-1]'  # 
   "offer": "flatcar-container-linux-free",
   "publisher": "kinvolk",
   "sku": "stable-gen2",
-  "urn": "kinvolk:flatcar-container-linux-free:stable-gen2:3815.2.0",
-  "version": "3815.2.0"
+  "urn": "kinvolk:flatcar-container-linux-free:stable-gen2:{{< param stable_channel >}}",
+  "version": "{{< param stable_channel >}}"
 }
-$ az vm create --name node-1 --resource-group group-1 --admin-username core --user-data config.ign --image kinvolk:flatcar-container-linux-free:stable-gen2:3815.2.0
+$ az vm create --name node-1 --resource-group group-1 --admin-username core --user-data config.ign --image kinvolk:flatcar-container-linux-free:stable-gen2:{{< param stable_channel >}}
         </pre>
       </div>
     </div>
@@ -64,10 +65,10 @@ $ az vm image list --all -p kinvolk -f flatcar -s beta-gen2 --query '[-1]'  # Qu
   "offer": "flatcar-container-linux-free",
   "publisher": "kinvolk",
   "sku": "beta-gen2",
-  "urn": "kinvolk:flatcar-container-linux-free:beta-gen2:3850.1.0",
-  "version": "3850.1.0"
+  "urn": "kinvolk:flatcar-container-linux-free:beta-gen2:{{< param beta_channel >}}",
+  "version": "{{< param beta_channel >}}"
 }
-$ az vm create --name node-1 --resource-group group-1 --admin-username core --user-data config.ign --image kinvolk:flatcar-container-linux-free:beta-gen2:3850.1.0
+$ az vm create --name node-1 --resource-group group-1 --admin-username core --user-data config.ign --image kinvolk:flatcar-container-linux-free:beta-gen2:{{< param beta_channel >}}
         </pre>
       </div>
     </div>
@@ -82,10 +83,27 @@ $ az vm image list --all -p kinvolk -f flatcar -s alpha-gen2 --query '[-1]'
   "offer": "flatcar-container-linux-free",
   "publisher": "kinvolk",
   "sku": "alpha-gen2",
-  "urn": "kinvolk:flatcar-container-linux-free:alpha-gen2:3874.0.0",
-  "version": "3874.0.0"
+  "urn": "kinvolk:flatcar-container-linux-free:alpha-gen2:{{< param alpha_channel >}}",
+  "version": "{{< param alpha_channel >}}"
 }
-$ az vm create --name node-1 --resource-group group-1 --admin-username core --user-data config.ign --image kinvolk:flatcar-container-linux-free:alpha-gen2:3874.0.0
+$ az vm create --name node-1 --resource-group group-1 --admin-username core --user-data config.ign --image kinvolk:flatcar-container-linux-free:alpha-gen2:{{< param alpha_channel >}}
+        </pre>
+      </div>
+    </div>
+    <div class="tab-pane" id="lts">
+      <div class="channel-info">
+        <p>LTS release streams are maintained for an extended lifetime of 18 months. The yearly LTS streams have an overlap of 6 months. The current version is Flatcar Container Linux {{< param lts_channel >}}.</p>
+        <pre>
+$ az vm image list --all -p kinvolk -f flatcar -s {{< param lts_azure_sku >}}-gen2 --query '[-1]'
+{
+  "architecture": "x64",
+  "offer": "flatcar-container-linux-free",
+  "publisher": "kinvolk",
+  "sku": "{{< param lts_azure_sku >}}-gen2",
+  "urn": "kinvolk:flatcar-container-linux-free:{{< param lts_azure_sku >}}-gen2:{{< param lts_channel >}}",
+  "version": "{{< param lts_channel >}}"
+}
+$ az vm create --name node-1 --resource-group group-1 --admin-username core --user-data config.ign --image kinvolk:flatcar-container-linux-free:{{< param lts_azure_sku >}}-gen2:{{< param lts_channel >}}
         </pre>
       </div>
     </div>
@@ -93,9 +111,11 @@ $ az vm create --name node-1 --resource-group group-1 --admin-username core --us
 </div>
 
 Use the offer named `flatcar-container-linux-free`, there is also a legacy offer called `flatcar-container-linux` with the same contents.
-The SKU, which is the third element of the image URN, relates to one of the release channels and also depends on whether to use Hyper-V Generation 1 or 2 VM.
-Generation 2 instance types use UEFI boot and should be preferred, the SKU matches the pattern `<channel>-gen`: `alpha-gen2`, `beta-gen2` or `stable-gen2`.
-For Generation 1 instance types drop the `-gen2` from the SKU: `alpha`, `beta` or `stable`.  
+
+The SKU, which is the third element of the image URN, relates to one of the release channels and also depends on whether to use Hyper-V Generation 1 or 2 VM. There are multiple LTS SKUs for each generation, the latest being `{{< param lts_azure_sku >}}`.
+
+Generation 2 instance types use UEFI boot and should be preferred, the SKU matches the pattern `<channel>-gen2`: `stable-gen2`, `beta-gen2`, `alpha-gen2` or `{{< param lts_azure_sku >}}-gen2`. For Generation 1 instance types drop the `-gen2` from the SKU: `stable`, `beta`, `alpha` or `{{< param lts_azure_sku >}}`.
+
 Note: _`az vm image list -s` flag matches parts of the SKU, which means that `-s stable` will return both the `stable` and `stable-gen2` SKUs._
 
 Before being able to use the offers, you may need to accept the legal terms once, here done for `flatcar-container-linux-free` and `stable-gen2`:
@@ -621,7 +641,7 @@ Create the configuration for `mynode` in the file `cl/machine-mynode.yaml.tmpl`:
 passwd:
   users:
     - name: core
-      ssh_authorized_keys: 
+      ssh_authorized_keys:
         - ${ssh_keys}
 storage:
   files:

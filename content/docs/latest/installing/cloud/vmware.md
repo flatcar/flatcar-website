@@ -20,6 +20,7 @@ Flatcar Container Linux is designed to be updated automatically with different s
     <li class="active"><a href="#stable" data-toggle="tab">Stable Channel</a></li>
     <li><a href="#beta" data-toggle="tab">Beta Channel</a></li>
     <li><a href="#alpha" data-toggle="tab">Alpha Channel</a></li>
+    <li><a href="#lts" data-toggle="tab">LTS Channel</a></li>
   </ul>
   <div class="tab-content coreos-docs-image-table">
     <div class="tab-pane active" id="stable">
@@ -28,17 +29,23 @@ Flatcar Container Linux is designed to be updated automatically with different s
        </div>
       <pre>curl -LO https://stable.release.flatcar-linux.net/amd64-usr/current/flatcar_production_vmware_ova.ova</pre>
     </div>
+    <div class="tab-pane" id="beta">
+      <div class="channel-info">
+        <p>The Beta channel consists of promoted Alpha releases. The current version is Flatcar Container Linux {{< param beta_channel >}}.</p>
+      </div>
+      <pre>curl -LO https://beta.release.flatcar-linux.net/amd64-usr/current/flatcar_production_vmware_ova.ova</pre>
+    </div>
     <div class="tab-pane" id="alpha">
       <div class="channel-info">
         <p>The Alpha channel closely tracks master and is released frequently. The newest versions of system libraries and utilities will be available for testing. The current version is Flatcar Container Linux {{< param alpha_channel >}}.</p>
       </div>
       <pre>curl -LO https://alpha.release.flatcar-linux.net/amd64-usr/current/flatcar_production_vmware_ova.ova</pre>
     </div>
-    <div class="tab-pane" id="beta">
+    <div class="tab-pane" id="lts">
       <div class="channel-info">
-        <p>The Beta channel consists of promoted Alpha releases. The current version is Flatcar Container Linux {{< param beta_channel >}}.</p>
+        <p>LTS release streams are maintained for an extended lifetime of 18 months. The yearly LTS streams have an overlap of 6 months. The current version is Flatcar Container Linux {{< param lts_channel >}}.</p>
       </div>
-      <pre>curl -LO https://beta.release.flatcar-linux.net/amd64-usr/current/flatcar_production_vmware_ova.ova</pre>
+      <pre>curl -LO https://lts.release.flatcar-linux.net/amd64-usr/current/flatcar_production_vmware_ova.ova</pre>
     </div>
   </div>
 </div>
