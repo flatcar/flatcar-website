@@ -27,6 +27,14 @@ Please note these resources might be outdated and only this page reflects the mo
 
 ## Getting started
 
+<table style="background-color:#fef;"><tr><td><span style="font-size:xxx-large;">⚠️</span></td><td>
+<h3>When working from a fork </h3>
+
+When working with a fork of the scripts repository, please ensure to include all branches and tags in your fork
+Fork repositories don't include tags by default, which can cause the SDK container setup (`./run_sdk_container`) to fail with "fatal: No names found, cannot describe anything."
+</td></tr></table>
+
+
 <table><tr><td>
 
 **tl;dr** Check out a release branch and start the SDK (this uses the current Alpha release branch).
@@ -41,7 +49,7 @@ $ ./run_sdk_container -t
 </td></tr></table>
 
 Flatcar Container Linux uses a containerised SDK; pre-built container images are available via [ghcr.io][ghcr-sdk].
-The SDK itself is containerised, but it requires version information and package build instructions to build an OS image. 
+The SDK itself is containerised, but it requires version information and package build instructions to build an OS image.
 Version information and build instructions for all packages (`ebuilds`) are contained in the scripts repository:
 
 ```
@@ -74,13 +82,6 @@ The name "scripts" has historic reasons - a better way to think of the scripts r
 ```shell
 $ git clone https://github.com/flatcar/scripts.git
 $ cd scripts
-```
-
-**If you are using a fork**: When working with a fork of the scripts repository, you need to fetch the tags from the upstream repository to avoid build errors. Fork repositories don't include tags by default, which can cause the SDK container setup to fail with "fatal: No names found, cannot describe anything."
-
-```shell
-$ git remote add upstream https://github.com/flatcar/scripts.git
-$ git fetch --tags upstream
 ```
 
 #### Optionally, pick a release tag or branch
