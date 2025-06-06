@@ -58,7 +58,7 @@ jobs:
         id: hugo
         run: |
           LATEST=$(curl -s https://api.github.com/repos/gohugoio/hugo/releases/latest | jq -r '.tag_name' | sed 's/^v//')
-          echo "latest=$LATEST" >> $GITHUB_OUTPUT
+          echo "latest=${LATEST}" >> $GITHUB_OUTPUT
 
       - name: Read current Hugo version
         id: hugo-version
