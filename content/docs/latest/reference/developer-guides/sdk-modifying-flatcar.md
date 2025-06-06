@@ -76,6 +76,13 @@ $ git clone https://github.com/flatcar/scripts.git
 $ cd scripts
 ```
 
+**If you are using a fork**: When working with a fork of the scripts repository, you need to fetch the tags from the upstream repository to avoid build errors. Fork repositories don't include tags by default, which can cause the SDK container setup to fail with "fatal: No names found, cannot describe anything."
+
+```shell
+$ git remote add upstream https://github.com/flatcar/scripts.git
+$ git fetch --tags upstream
+```
+
 #### Optionally, pick a release tag or branch
 
 Cloning the repo will have it land on the `main` branch, which can be thought of as "alpha-next" - i.e. the next major Alpha release.
