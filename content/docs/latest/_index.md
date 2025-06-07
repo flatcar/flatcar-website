@@ -44,6 +44,7 @@ purposes. You can use any of the following options.
  * [Vagrant][vagrant] (community support)
  * [Hyper-V][hyper-v] (community support)
  * [KubeVirt][kubevirt] (community support)
+ * [Proxmox VE][proxmoxve] (community support)
 
 #### Bare Metal
 You can install Flatcar on bare metal machines in different ways: using ISO
@@ -202,6 +203,7 @@ Flatcar tutorial to deep dive into some Flatcar fundamental concepts.
 [vagrant]: installing/vms/vagrant
 [hyper-v]: installing/vms/hyper-v
 [kubevirt]: installing/vms/kubevirt
+[proxmoxve]: installing/vms/proxmoxve
 [vmware]: installing/cloud/vmware
 [cluster-architectures]: setup/clusters/architectures
 [update-strategies]: setup/releases/update-strategies
