@@ -76,7 +76,7 @@ Now download, decompress, and verify the development container image.
 curl -f -L -O https://www.flatcar.org/security/image-signing-key/Flatcar_Image_Signing_Key.asc
 gpg2 --import Flatcar_Image_Signing_Key.asc
 curl -L "${url}" |
-    tee >(bzip2 -d > flatcar_developer_container.bin) |
+    tee >(bzip2 -dc | cp --sparse=always /dev/stdin flatcar_developer_container.bin) |
     gpg2 --verify <(curl -Ls "${url}.sig") -
 ```
 
