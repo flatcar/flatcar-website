@@ -14,13 +14,13 @@
 Flatcar's website is built with [Hugo](https://gohugo.io/).
 
 ## Installing Hugo
+## Hugo Version
 
-You should install Hugo Extended instead of the regular Hugo version (0.147.x).
+This website is built using [Hugo](https://gohugo.io/), a fast and modern static site generator.
 
-So download [Hugo Extended](https://github.com/gohugoio/hugo/releases)
-from the releases page, and/or follow
-[these instructions](https://gohugo.io/getting-started/installing/)
-in order to install it.
+- **Hugo version used**: `0.147.0`
+- The version is specified in the GitHub Actions workflow file:
+  [.github/workflows/azure-static-web-apps.yml](.github/workflows/azure-static-web-apps.yml)
 
 ## Adding content
 
