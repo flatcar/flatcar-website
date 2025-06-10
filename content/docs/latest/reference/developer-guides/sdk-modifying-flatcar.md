@@ -30,8 +30,11 @@ Please note these resources might be outdated and only this page reflects the mo
 <table style="background-color:#fef;"><tr><td><span style="font-size:xxx-large;">⚠️</span></td><td>
 <h3>When working from a fork </h3>
 
-When working with a fork of the scripts repository, please ensure to include all branches and tags in your fork
-Fork repositories don't include tags by default, which can cause the SDK container setup (`./run_sdk_container`) to fail with "fatal: No names found, cannot describe anything."
+When working with a fork of the scripts repository, please ensure to include all branches and tags in your fork.
+GitHub's default is to only fork `main`; this needs to be un-checked in the fork dialog.
+Manual forks don't include tags by default.
+
+Missing branches and/or tags can cause the SDK container setup (`./run_sdk_container`) to fail with "fatal: No names found, cannot describe anything."
 </td></tr></table>
 
 
