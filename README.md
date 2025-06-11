@@ -15,7 +15,7 @@ Flatcar's website is built with [Hugo](https://gohugo.io/).
 
 ## Installing Hugo
 
-You should install Hugo Extended instead of the regular Hugo version (0.147.x).
+You should install Hugo Extended instead of the regular Hugo version (**check what Hugo version we are using in the [`.env`](./.env) file**).
 
 So download [Hugo Extended](https://github.com/gohugoio/hugo/releases)
 from the releases page, and/or follow
