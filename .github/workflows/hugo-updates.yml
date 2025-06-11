@@ -30,17 +30,30 @@ jobs:
           extended: true
 
       - name: Update modules
+        id: update-modules
         run: |
           hugo mod get -u ./...
           hugo mod tidy
 
+          # Check if there are any changes
+          if git diff --quiet; then
+            echo "changed=false" >> $GITHUB_OUTPUT
+          else
+            echo "changed=true" >> $GITHUB_OUTPUT
+          fi
+
       - name: Create PR for modules
+        if: steps.update-modules.outputs.changed == 'true'
         uses: peter-evans/create-pull-request@v7
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
-          branch: "update/hugo-modules-$(date +%s)"
+          branch: "update/hugo-modules-${{ github.run_number }}"
           commit-message: "chore: update Hugo modules"
           title: "Update Hugo Modules"
+          body: |
+            This PR updates Hugo modules (themes and components) to their latest versions.
+
+            Please test the site build and review any visual changes.
 
   # Check for new Hugo binary versions
   check_version:
@@ -58,6 +71,11 @@ jobs:
         id: hugo
         run: |
           LATEST=$(curl -s https://api.github.com/repos/gohugoio/hugo/releases/latest | jq -r '.tag_name' | sed 's/^v//')
+          # Validate version format (should be like 0.147.0)
+          if ! echo "${LATEST}" | grep -qE '^[0-9]+\.[0-9]+\.[0-9]+$'; then
+            echo "Error: Invalid Hugo version format: ${LATEST}"
+            exit 1
+          fi
           echo "latest=${LATEST}" >> $GITHUB_OUTPUT
 
       - name: Read current Hugo version
@@ -67,26 +85,22 @@ jobs:
           echo "current=${HUGO_VERSION}" >> "${GITHUB_OUTPUT}"
 
       - name: Update Hugo version in .env
-        if: steps.current.outputs.current != steps.hugo.outputs.latest
+        if: steps.hugo-version.outputs.current != steps.hugo.outputs.latest
         run: |
           # Replace the version in .env
           sed -i "s/^HUGO_VERSION=.*/HUGO_VERSION=${{ steps.hugo.outputs.latest }}/" .env
 
-          git config --global user.name "GitHub Actions"
-          git config --global user.email "actions@github.com"
-
-          # Commit the change
-          git add .env
-          git commit -m "chore: update Hugo to ${{ steps.hugo.outputs.latest }}"
-        shell: bash
-
-      - name: Create PR
+      - name: Create PR for version update
+        if: steps.hugo-version.outputs.current != steps.hugo.outputs.latest
         uses: peter-evans/create-pull-request@v7
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
           branch: "update/hugo-${{ steps.hugo.outputs.latest }}"
           title: "Update Hugo to ${{ steps.hugo.outputs.latest }}"
-          body: "Automated Hugo version update"
+          body: |
+            This PR updates Hugo from ${{ steps.hugo-version.outputs.current }} to ${{ steps.hugo.outputs.latest }}.
+
+            Please review the [Hugo release notes](https://github.com/gohugoio/hugo/releases/tag/v${{ steps.hugo.outputs.latest }}) for any breaking changes.
           commit-message: "chore: update Hugo to ${{ steps.hugo.outputs.latest }}"
           path: |
             .env
