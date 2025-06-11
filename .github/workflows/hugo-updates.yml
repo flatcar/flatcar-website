@@ -37,9 +37,9 @@ jobs:
 
           # Check if there are any changes
           if git diff --quiet; then
-            echo "changed=false" >> $GITHUB_OUTPUT
+            echo "changed=false" >> "${GITHUB_OUTPUT}"
           else
-            echo "changed=true" >> $GITHUB_OUTPUT
+            echo "changed=true" >> "${GITHUB_OUTPUT}"
           fi
 
       - name: Create PR for modules
@@ -54,6 +54,8 @@ jobs:
             This PR updates Hugo modules (themes and components) to their latest versions.
 
             Please test the site build and review any visual changes.
+          committer: "Flatcar Buildbot <buildbot@flatcar-linux.org>"
+          author: "Flatcar Buildbot <buildbot@flatcar-linux.org>"
 
   # Check for new Hugo binary versions
   check_version:
@@ -76,7 +78,7 @@ jobs:
             echo "Error: Invalid Hugo version format: ${LATEST}"
             exit 1
           fi
-          echo "latest=${LATEST}" >> $GITHUB_OUTPUT
+          echo "latest=${LATEST}" >> "${GITHUB_OUTPUT}"
 
       - name: Read current Hugo version
         id: hugo-version
@@ -104,3 +106,5 @@ jobs:
           commit-message: "chore: update Hugo to ${{ steps.hugo.outputs.latest }}"
           path: |
             .env
+          committer: "Flatcar Buildbot <buildbot@flatcar-linux.org>"
+          author: "Flatcar Buildbot <buildbot@flatcar-linux.org>"
