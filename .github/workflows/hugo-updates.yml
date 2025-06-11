@@ -48,6 +48,7 @@ jobs:
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
           branch: "update/hugo-modules-${{ github.run_number }}"
+          path: .
           commit-message: "chore: update Hugo modules"
           title: "Update Hugo Modules"
           body: |
@@ -98,13 +99,12 @@ jobs:
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
           branch: "update/hugo-${{ steps.hugo.outputs.latest }}"
+          path: .
           title: "Update Hugo to ${{ steps.hugo.outputs.latest }}"
           body: |
             This PR updates Hugo from ${{ steps.hugo-version.outputs.current }} to ${{ steps.hugo.outputs.latest }}.
 
             Please review the [Hugo release notes](https://github.com/gohugoio/hugo/releases/tag/v${{ steps.hugo.outputs.latest }}) for any breaking changes.
           commit-message: "chore: update Hugo to ${{ steps.hugo.outputs.latest }}"
-          path: |
-            .env
           committer: "Flatcar Buildbot <buildbot@flatcar-linux.org>"
           author: "Flatcar Buildbot <buildbot@flatcar-linux.org>"
