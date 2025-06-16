@@ -14,7 +14,7 @@ If you want to use the `flatcar-install` script on some other environment than F
 ```
 bash
 lbzip2 or bzip2 
-mount, lsblk  (often found in the util-linux packaage)
+mount, lsblk  (often found in the util-linux package)
 wget
 grep
 cp, dd, mkfifo, mkdir, rm, tee (often found in the GNU coreutils package or as part of busybox)
