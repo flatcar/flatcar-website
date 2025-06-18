@@ -17,6 +17,14 @@ variant: flatcar
 version: 1.1.0
 storage:
   files:
+    - path: /etc/subuid
+      append:
+        - inline: |
+            root:1065536:65536
+    - path: /etc/subgid
+      append:
+        - inline: |
+            root:1065536:65536
     - path: /etc/flatcar/enabled-sysext.conf
       contents:
         inline: |
@@ -60,6 +68,14 @@ variant: flatcar
 version: 1.1.0
 storage:
   files:
+    - path: /etc/subuid
+      append:
+        - inline: |
+            root:1065536:65536
+    - path: /etc/subgid
+      append:
+        - inline: |
+            root:1065536:65536
     - path: /etc/flatcar/enabled-sysext.conf
       contents:
         inline: |
@@ -155,6 +171,14 @@ variant: flatcar
 version: 1.1.0
 storage:
   files:
+    - path: /etc/subuid
+      append:
+        - inline: |
+            root:1065536:65536
+    - path: /etc/subgid
+      append:
+        - inline: |
+            root:1065536:65536
     - path: /etc/flatcar/enabled-sysext.conf
       contents:
         inline: |
