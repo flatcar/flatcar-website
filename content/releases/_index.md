@@ -5,17 +5,19 @@ draft: false
 announcement: true
 announcement_bg: "#12172b"
 announcement_text_class: "text-light"
-announcement_title: "⚠️ End of support for CGroupsV1 in early 2025 ⚠️"
+announcement_title: "⚠️ End of support for CGroupsV1 in Stable 4230.2.0 release ⚠️"
 announcement_message: "
+With the Flatcar Container Linux 4230.2.0 Stable release, CGroups V1 backward
+compatibility has been removed. Enabling legacy CGroupsV1 during deployment is
+no longer supported, and nodes still using CGroupsV1 will fail to update. This
+change ensures your workloads are not unexpectedly disrupted. We encourage you
+to enable CGroupsV2 on legacy CGroupsV1 nodes to ensure successful updates. The
+LTS-2024 channel (major release series 4081) will continue supporting CGroupsV1. This channel will receive regular updates until early 2026, and hit EOL in mid-2026.
 
-Flatcar will stop supporting the cgroups v1 backwards compatibility mode in Q1 2025.
-With our adoption of systemd-256, support for legacy CGroupsV1 will end in Alpha, Beta, and eventually Stable.
-[Enabling legacy CGroupsV1 during deployment](https://www.flatcar.org/docs/latest/container-runtimes/switching-to-unified-cgroups/#starting-new-nodes-with-legacy-cgroups) will not be supported anymore.
-Nodes that use CGroupsV1 legacy mode will fail to update. This ensures your workloads will not be disrupted. Enable CGroupsV2 on your legacy CGroupsV1 nodes in order to successfully update.
-
-LTS-2024 will support CGroupsV1 until late 2025.
-
-We will regularly call out and discuss CGroupsV1 retirement in our [Office Hours](https://github.com/flatcar/Flatcar/discussions/categories/flatcar-office-hours?discussions_q=category%3A%22Flatcar+Office+Hours%22+is%3Aopen) and [Developer Sync](https://github.com/flatcar/Flatcar/discussions/categories/flatcar-developer-sync%22+is%3Aopen) calls.
+If you have any questions, feel free to join our [Matrix
+channel](https://app.element.io/#/room/#flatcar:matrix.org), or participate in
+our [Office Hours](https://meet.flatcar.org/OfficeHours) / [Developer
+Sync](https://meet.flatcar.org/OfficeHours) calls.
 "
 
 channels:
