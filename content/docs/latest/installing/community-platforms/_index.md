@@ -23,6 +23,7 @@ The platforms and providers listed below each provide support and documentation 
 ## Other providers
 
 * [Eucalyptus][eucalyptus]
+* [Proxmox VE][proxmoxve]
 * [Vagrant][vagrant]
 * [VirtualBox][virtualbox]
 
@@ -35,3 +36,4 @@ The platforms and providers listed below each provide support and documentation 
 [virtualbox]: ../vms/virtualbox
 [official-support]: ../../
 [ovhcloud]: ovhcloud
+[proxmoxve]: proxmoxve
