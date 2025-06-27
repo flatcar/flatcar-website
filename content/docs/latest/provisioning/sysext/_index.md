@@ -44,16 +44,18 @@ Official extensions provided as part of a Flatcar release make Flatcar more modu
 
 The table below give an overview on the supported Flatcar extensions.
 
-| Extension Name                       | Availability        | Documentation             |   Enabled by default    |
-|--------------------------------------|---------------------|---------------------------|-------------------------|
-| `containerd-flatcar`                 | 3794.0.0  – …       |                           |           ✅            |
-| `docker-flatcar`                     | 3794.0.0  – …       |                           |           ✅            |
-| `flatcar-incus`                      | 4285.0.0  – …       | [Incus][incusextension]   |                         |
-| `flatcar-nvidia-drivers-*`           | 4344.0.0 – …        | [NVIDIA][nvidiaextension] |                         |
-| `flatcar-podman`                     | 3941.0.0 – …        |                           |                         |
-| `flatcar-python`                     | 4012.0.0 – …        |                           |                         |
-| `flatcar-zfs`                        | 3913.0.0 – …        | [Storage][zfsextension]   |                         |
-| `oem-*`                              | 3760.2.0 – …        |                           |           ✅            |
+| Name in `/etc/flatcar/enabled-sysext.conf`| Sysext name on the instance          | Availability        | Documentation             |   Enabled by default    |
+|-------------------------------------------|--------------------------------------|---------------------|---------------------------|-------------------------|
+| n/a[^1]                                   | `containerd-flatcar`                 | 3794.0.0  – …       |                           |           ✅            |
+| n/a[^1]                                   | `docker-flatcar`                     | 3794.0.0  – …       |                           |           ✅            |
+| `incus`                                   | `flatcar-incus`                      | 4285.0.0  – …       | [Incus][incusextension]   |                         |
+| `nvidia-drivers-*`                        | `flatcar-nvidia-drivers-*`           | 4344.0.0 – …        | [NVIDIA][nvidiaextension] |                         |
+| `podman`                                  | `flatcar-podman`                     | 3941.0.0 – …        |                           |                         |
+| `python`                                  | `flatcar-python`                     | 4012.0.0 – …        |                           |                         |
+| `zfs`                                     | `flatcar-zfs`                        | 3913.0.0 – …        | [Storage][zfsextension]   |                         |
+| n/a[^1]                                   | `oem-*`                              | 3760.2.0 – …        |                           |           ✅            |
+
+[^1]: n/a here because those sysexts are already enabled by default
 
 Users can enable Flatcar extensions by writing one name per line to `/etc/flatcar/enabled-sysext.conf`.
 For now there are no pre-enabled release extensions but once Flatcar would move parts of the base image out into extensions, these would be pre-enabled as entries in `/usr/share/flatcar/enabled-sysext.conf`. They can be disabled with a `-NAME` entry in `/etc/flatcar/enabled-sysext.conf`.
