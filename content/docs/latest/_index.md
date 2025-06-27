@@ -203,7 +203,7 @@ Flatcar tutorial to deep dive into some Flatcar fundamental concepts.
 [vagrant]: installing/vms/vagrant
 [hyper-v]: installing/vms/hyper-v
 [kubevirt]: installing/vms/kubevirt
-[proxmoxve]: installing/vms/proxmoxve
+[proxmoxve]: installing/community-platforms/proxmoxve
 [vmware]: installing/cloud/vmware
 [cluster-architectures]: setup/clusters/architectures
 [update-strategies]: setup/releases/update-strategies
