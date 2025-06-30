@@ -54,6 +54,8 @@ Here are two examples to setup a control plane with [Butane][butane]. The first 
     <div class="tab-pane active" id="sysext">
       <div class="channel-info">
         This is an example using systemd-sysext and systemd-sysupdate. NOTE: We are using <a href="https://kured.dev/docs/">Kured</a> to coordinate nodes reboot when there is a new Kubernetes sysext image available (or if Flatcar has been updated), hence the /run/reboot-required file.
+        **Note:** In these examples, the hostname is manually set via initial provisioning (`/etc/hostname`).
+        In cloud environments, the hostname can be set dynamically from metadata exposed at `/run/metadata/flatcar`
         <pre>
 ---
 version: 1.0.0
@@ -66,13 +68,13 @@ storage:
   files:
     - path: /etc/sysupdate.kubernetes.d/kubernetes-v1.33.conf
       contents:
-        source: https://github.com/flatcar/sysext-bakery/releases/download/kubernetes-v1.33.2/kubernetes-v1.33.conf
+        source: https://extensions.flatcar.org/extensions/kubernetes/kubernetes-v1.33.conf
     - path: /etc/sysupdate.d/noop.conf
       contents:
-        source: https://github.com/flatcar/sysext-bakery/releases/download/latest/noop.conf
+        source: https://extensions.flatcar.org/extensions/noop.conf
     - path: /opt/extensions/kubernetes/kubernetes-v1.33.2-x86-64.raw
       contents:
-        source: https://github.com/flatcar/sysext-bakery/releases/download/kubernetes-v1.33.2/kubernetes-v1.33.2-x86-64.raw
+        source: https://extensions.flatcar.org/extensions/kubernetes-v1.33.2-x86-64.raw
     - path: /etc/hostname
       contents:
         inline: "flatcar-node1"
@@ -196,8 +198,8 @@ This minimal configuration can be used with Flatcar on QEMU (:warning: be sure t
 butane < config.yaml > config.json
 ./flatcar_production_qemu.sh -i config.json -- -display curses
 kubectl get nodes
-NAME        STATUS     ROLES           AGE    VERSION
-localhost   NotReady   control-plane   6m5s   v1.26.0
+NAME            STATUS     ROLES           AGE     VERSION
+flatcar-node1   NotReady   control-plane   2m10s   v1.33.2
 ```
 
 The control plane will appear has non-ready until a CNI is deployed, here's an example with calico:
@@ -205,8 +207,8 @@ The control plane will appear has non-ready until a CNI is deployed, here's an e
 kubectl \
   apply -f https://raw.githubusercontent.com/projectcalico/calico/v3.24.1/manifests/calico.yaml
 kubectl get nodes
-NAME        STATUS   ROLES           AGE     VERSION
-localhost   Ready    control-plane   8m30s   v1.26.0
+NAME            STATUS   ROLES           AGE     VERSION
+flatcar-node1   Ready    control-plane   5m30s   v1.33.2
 ```
 
 If you want to coordinate the nodes reboot when there is a new Kubernetes sysext image or a Flatcar update, you can deploy [`Kured`][kured]:
@@ -242,13 +244,13 @@ storage:
   files:
     - path: /etc/sysupdate.kubernetes.d/kubernetes-v1.33.conf
       contents:
-        source: https://github.com/flatcar/sysext-bakery/releases/download/kubernetes-v1.33.2/kubernetes-v1.33.conf
+        source: https://extensions.flatcar.org/extensions/kubernetes/kubernetes-v1.33.conf
     - path: /etc/sysupdate.d/noop.conf
       contents:
-        source: https://github.com/flatcar/sysext-bakery/releases/download/latest/noop.conf
+        source: https://extensions.flatcar.org/extensions/noop.conf
     - path: /opt/extensions/kubernetes/kubernetes-v1.33.2-x86-64.raw
       contents:
-        source: https://github.com/flatcar/sysext-bakery/releases/download/kubernetes-v1.33.2/kubernetes-v1.33.2-x86-64.raw
+        source: https://extensions.flatcar.org/extensions/kubernetes-v1.33.2-x86-64.raw
     - path: /etc/hostname
       contents:
         inline: "flatcar-node2"
