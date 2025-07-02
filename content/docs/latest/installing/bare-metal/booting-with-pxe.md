@@ -147,7 +147,7 @@ gpg --verify flatcar_production_pxe_image.cpio.gz.sig
 
 ## Booting the box
 
-After setting up the PXE server as outlined above you can start the target machine in PXE boot mode. The machine should grab the image from the server and boot into Flatcar Container Linux. If something goes wrong you can direct questions to the [IRC channel][irc] or [mailing list][flatcar-user].
+After setting up the PXE server as outlined above you can start the target machine in PXE boot mode. The machine should grab the image from the server and boot into Flatcar Container Linux. If something goes wrong you can direct questions to the [Matrix channel][matrix] or [mailing list][flatcar-user].
 
 ```shell
 This is localhost.unknown_domain (Linux x86_64 3.10.10+) 19:53:36
@@ -248,7 +248,7 @@ Now that you have a machine booted it is time to play around. Check out the [Fla
 
 [append-initrd]: http://www.syslinux.org/wiki/index.php?title=SYSLINUX#INITRD_initrd_file
 [flatcar-user]: https://groups.google.com/forum/#!forum/flatcar-linux-user
-[irc]: irc://irc.freenode.org:6667/#flatcar
+[matrix]: https://app.element.io/#/room/#flatcar:matrix.org
 [butane-configs]: ../../provisioning/config-transpiler
 [ignition]: ../../provisioning/ignition
 [ignition-kargs-ip]: ../../provisioning/ignition/network-configuration/#using-static-ip-addresses-with-ignition
