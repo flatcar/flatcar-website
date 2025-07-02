@@ -9,7 +9,7 @@ aliases:
 
 These instructions will bring up a single Flatcar Container Linux instance under QEMU, the small Swiss Army knife of virtual machine and CPU emulators. If you need to do more such as [configuring networks][qemunet] differently refer to the [QEMU Wiki][qemuwiki] and [User Documentation][qemudoc].
 
-You can direct questions to the [IRC channel][irc] or [mailing list][flatcar-dev].
+You can direct questions to the [Matrix channel][matrix] or [mailing list][flatcar-dev].
 
 [qemunet]: http://wiki.qemu.org/Documentation/Networking
 [qemuwiki]: http://wiki.qemu.org/Manual
@@ -182,5 +182,5 @@ Now that you have a machine booted it is time to play around. Check out the [Fla
 [quickstart]: ../
 [doc-index]: ../../
 [flatcar-dev]: https://groups.google.com/forum/#!forum/flatcar-linux-dev
-[irc]: irc://irc.freenode.org:6667/#flatcar
+[matrix]: https://app.element.io/#/room/#flatcar:matrix.org
 [butane-configs]: ../../provisioning/config-transpiler

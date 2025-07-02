@@ -13,7 +13,7 @@ that you already have a running libvirt setup and `virt-install` tool. If you
 don’t have that, other solutions are most likely easier.
 At the end of the document there are instructions for deploying with Terraform.
 
-You can direct questions to the [IRC channel][irc] or [mailing list][flatcar-dev].
+You can direct questions to the [Matrix channel][matrix] or [mailing list][flatcar-dev].
 
 ## Download the Flatcar Container Linux image
 
@@ -434,7 +434,7 @@ Log in via `ssh -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null core
 When you make a change to `machine-mynode.yaml.tmpl` and run `terraform apply` again, the instance and its disk will be replaced.
 
 [flatcar-dev]: https://groups.google.com/forum/#!forum/flatcar-linux-dev
-[irc]: irc://irc.freenode.org:6667/#flatcar
+[matrix]: https://app.element.io/#/room/#flatcar:matrix.org
 [config-transpiler]: ../../provisioning/config-transpiler
 [update-strategies]: ../../setup/releases/update-strategies
 [release-notes]: https://flatcar-linux.org/releases
