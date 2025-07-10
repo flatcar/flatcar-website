@@ -149,21 +149,15 @@
 }
 
 .footer__copyright {
-  > p {
-    @include media-breakpoint-up(sm) {
-      text-align: right;
-    }
-
-    @include media-breakpoint-down(sm) {
-      text-align: center;
-    }
-  }
-}
-
-.footer__copyright {
-  > p {
-    margin-top: 15px;
+  a {
     color: $white;
+  }
+  > p {
+    margin-top: 5px;
+    margin-bottom: 5px;
+    color: $white;
+    display: block;
+    width: 100%;
 
     @include media-breakpoint-up(sm) {
       text-align: center;
