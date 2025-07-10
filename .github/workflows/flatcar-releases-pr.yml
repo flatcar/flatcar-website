@@ -1,0 +1,17 @@
+name: Create Flatcar releases PR
+
+on:
+  workflow_dispatch:
+
+jobs:
+  create-pr:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      pull-requests: write
+
+    steps:
+      - name: Checkout flatcar-website repository
+        uses: actions/checkout@v4
+        with:
+          path: flatcar-website
