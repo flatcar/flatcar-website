@@ -5,13 +5,54 @@ on:
 
 jobs:
   create-pr:
+    name: Create Pull Request
     runs-on: ubuntu-latest
     permissions:
-      contents: read
+      contents: write
       pull-requests: write
 
     steps:
       - name: Checkout flatcar-website repository
         uses: actions/checkout@v4
-        with:
-          path: flatcar-website
+
+      - name: Install dependencies
+        run: |
+          pip3 install -r tools/release-scripts/requirements.txt
+
+      - name: Run update-flatcar-versions script
+        run: |
+          ./update-flatcar-versions.sh
+
+      - name: Commit changes
+        run: |
+          BRANCH=buildbot/release-$(date +%Y%m%d)
+          git config --global user.name "Flatcar Buildbot"
+          git config --global user.email "buildbot@flatcar-linux.org"
+          git checkout -B "${BRANCH}"
+          git add .
+          if git diff --cached --quiet; then
+            echo "No changes to commit"
+            exit 1
+          fi
+
+          # Commit message ends with something like:
+          #
+          # * alpha-4372.0.0
+          # * beta-4344.1.0
+          # * lts-4081.3.4
+          #
+          MESSAGE="data: Add new Flatcar releases
+
+          $(git diff --staged --name-only --diff-filter=A data/releases/{alpha,beta,stable,lts} | sed -e 's:data/releases/:* :' -e 's:\.yml$::' -e 's:/:-:g')"
+
+          git commit --author "${GITHUB_ACTOR} <${GITHUB_ACTOR_ID}+${GITHUB_ACTOR}@users.noreply.github.com>" --message "${MESSAGE}"
+          git push --force origin "${BRANCH}"
+
+      - name: Create Pull Request
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          gh pr create \
+            --fill-first \
+            --base "${GITHUB_REF_NAME}" \
+            --title "data: Add new Flatcar releases ($(date +%F))"
