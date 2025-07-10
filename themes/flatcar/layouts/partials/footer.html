@@ -103,7 +103,7 @@
       {{ partial "socials.html" . }}
       </div>
       <div class="footer__copyright row justify-content-center p-0 pt-4">
-        <p>{{ .Site.Copyright }}</p>
+        <p>{{ .Site.Copyright | .RenderString }}</p>
       </div>
     </div>
   </div>
