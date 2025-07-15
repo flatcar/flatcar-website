@@ -270,3 +270,4 @@ Flatcar tutorial to deep dive into some Flatcar fundamental concepts.
 [ovhcloud]: installing/community-platforms/ovhcloud
 [akamai]: installing/cloud/akamai
 [nebraska]: nebraska
+[stackit]: installing/cloud/stackit
