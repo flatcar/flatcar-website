@@ -1,6 +1,6 @@
 ---
-title: How to run Flatcar Container Linux on STACKIT Cloud
-linktitle: Running FLatcar on STACKIT
+title: Running Flatcar on STACKIT
+linktitle: Running on STACKIT
 weight: 10
 aliases:
     - ../../os/booting-on-stackit
