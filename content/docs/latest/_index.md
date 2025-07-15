@@ -33,6 +33,7 @@ platforms and bare metal servers.
  * [Scaleway][scaleway] (community support)
  * [OVHcloud][ovhcloud] (community support)
  * [Akamai/Linode][akamai]
+ * [STACKIT][stackit]
 
 #### Virtualization options
 It's easy to run a local Flatcar VM on your laptop for testing and debugging
