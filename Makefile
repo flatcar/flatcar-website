@@ -23,7 +23,7 @@ presentations:
 				$$topic/main.md \
 				--html \
 				--allow-local-files \
-				--theme-set content/docs/latest/presentations \
+				--theme-set static/presentations \
 				-o - | sed -E 's|body\s*\{\s*background\s*:\s*#[0-9a-fA-F]+\s*;|body{background:transparent;|g' > $$topic/index.html; \
 		fi \
 	done

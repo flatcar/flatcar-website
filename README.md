@@ -57,15 +57,31 @@ Create HTML presentations from screenshots using Marp (requires Docker):
 
 1. Create directory: `static/presentations/your-topic/`
 2. Add screenshots (16:9 aspect ratio recommended) and `main.md` in the same directory
-3. Use `theme: screenshot-guide` in your `main.md` for screenshot tutorials with header instructions:
-   - `<!-- _class: has-header -->` - Dark semi-transparent header (default, for light screenshots)
-   - `<!-- _class: has-header light-header -->` - Light semi-transparent header (for dark screenshots)
-   - `<!-- _class: has-header dark-solid -->` - Solid dark header
-   - `<!-- _class: has-header light-solid -->` - Solid light header
+3. Use `theme: screenshot-guide` in your `main.md` for screenshot tutorials
+
+#### Theme Classes
+- **Slide themes** (affects pagination, header/footer defaults):
+  - `<!-- _class: light-theme -->` - For light background slides (default)
+  - `<!-- _class: dark-theme -->` - For dark background slides
+  
+- **Use Marp's built-in directives**:
+  - `<!-- _header: "Your text" -->` - Adds header
+  - `<!-- _footer: "Your text" -->` - Adds footer
+  
+- **Optional modifiers**:
+  - `invert-header` or `invert-footer` - Swap colors
+  - `solid-header` or `solid-footer` - Less transparent backgrounds
+
+Example:
+```markdown
+<!-- _class: dark-theme -->
+<!-- _footer: "Step 1: Instructions appear in a light strip at bottom" -->
+![bg](./dark-screenshot.png)
+```
 4. Run `make presentations` to generate `index.html` in each presentation directory
 5. Embed in docs with: `{{< presentation "your-topic" >}}`
 
-Note: The custom theme is located at `content/docs/latest/presentations/screenshot-guide-theme.css`
+Note: The custom theme is located at `static/presentations/screenshot-guide-theme.css`
 
 ## Testing
 
