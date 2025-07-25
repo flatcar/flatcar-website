@@ -1,6 +1,16 @@
 /* @theme screenshot-guide */
 @import "uncover";
 
+/* Make slide backgrounds transparent */
+section {
+  background: transparent;
+}
+
+/* Ensure backgrounds fill the entire slide */
+section[data-marpit-advanced-background="background"] > div[data-marpit-advanced-background-container] > figure {
+  background-size: cover !important;
+}
+
 /* Base header strip */
 section.has-header::before {
   content: attr(data-header);
