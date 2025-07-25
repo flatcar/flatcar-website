@@ -11,20 +11,20 @@ docs:
 # Build all presentations (idempotent)
 presentations:
 	@echo "Building presentations..."
-	@mkdir -p static/presentations
 	@for topic in $$(find content/docs/latest/presentations -maxdepth 1 -type d -not -path content/docs/latest/presentations); do \
 		topic_name=$$(basename $$topic); \
 		if [ -f "$$topic/main.md" ]; then \
 			echo "Building $$topic_name..."; \
 			docker run \
-				--rm \                                         # Remove container after execution
-				--user $$(id -u):$$(id -g) \                   # Run as current user to avoid permission issues
-				-v $$(pwd):/home/marp/app \                    # Mount project directory
+				--rm \
+				-v $$(pwd):/home/marp/app \
+				-w /home/marp/app \
 				marpteam/marp-cli:latest \
-				$$topic/main.md \                              # Input: main.md from topic directory
-				--html \                                       # Generate HTML output
-				--allow-local-files \                          # Allow referencing local images
-				-o static/presentations/$$topic_name.html; \   # Output: writes to host filesystem
+				$$topic/main.md \
+				--html \
+				--allow-local-files \
+				--theme-set content/docs/latest/presentations \
+				-o - > $$topic/index.html; \
 		fi \
 	done
 

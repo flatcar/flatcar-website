@@ -56,9 +56,14 @@ categories:
 Create HTML presentations from screenshots using Marp (requires Docker):
 
 1. Create directory: `content/docs/latest/presentations/your-topic/`
-2. Add screenshots and `main.md` with Marp markdown
-3. Run `make presentations` to generate HTML
-4. Embed with: `{{< presentation "your-topic" >}}`
+2. Add screenshots (16:9 aspect ratio recommended) and `main.md` with Marp markdown
+3. Use `theme: screenshot-guide` for screenshot tutorials with header instructions:
+   - `<!-- _class: has-header -->` - Dark semi-transparent header (default, for light screenshots)
+   - `<!-- _class: has-header light-header -->` - Light semi-transparent header (for dark screenshots)
+   - `<!-- _class: has-header dark-solid -->` - Solid dark header
+   - `<!-- _class: has-header light-solid -->` - Solid light header
+4. Run `make presentations` to generate HTML
+5. Embed with: `{{< presentation "your-topic" >}}`
 
 ## Testing
 
