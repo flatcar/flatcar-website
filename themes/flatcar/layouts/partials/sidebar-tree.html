@@ -52,7 +52,7 @@
 
       {{ $title }}
       {{ if $s.Parent.Params.children_are_versions }}
-        <span style="margin-left: 1rem;" class="badge badge-pill badge-dark">{{ partial "docs/getcurrentversion" $s }}</span>
+        <span style="margin-left: 1rem;" class="badge rounded-pill text-bg-dark">{{ partial "docs/getcurrentversion" $s }}</span>
       {{ end }}
     </a>
   </li>

@@ -1,4 +1,8 @@
+// Legacy-safe override for Dart Sass strict mode
 @function strip-unit($value) {
+  @if type-of($value) == "number" and unit($value) == "" {
+    @return $value;
+  }
   @return $value / ($value * 0 + 1);
 }
 
