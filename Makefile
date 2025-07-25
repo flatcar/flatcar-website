@@ -4,7 +4,7 @@ all: getdeps docs presentations
 getdeps:
 	pip3 install --upgrade pyyaml
 
-.PHONY: docs
+.PHONY: docs presentations
 docs:
 	@python3 ./tools/fcl-fetch-version-data.py ./content/docs/_index.md.in > ./content/docs/_index.md
 
