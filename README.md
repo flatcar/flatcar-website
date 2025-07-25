@@ -22,6 +22,12 @@ from the releases page, and/or follow
 [these instructions](https://gohugo.io/getting-started/installing/)
 in order to install it.
 
+## Prerequisites
+
+- Hugo Extended (see version in [`.env`](./.env) file)
+- Python 3 with PyYAML (required for docs generation - installed via `make getdeps`)
+- Docker (required for building presentations with Marp)
+
 ## Adding content
 
 Currently, you'll need to edit the text files under `content` in this repo to modify the site.
