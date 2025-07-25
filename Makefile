@@ -11,7 +11,7 @@ docs:
 # Build all presentations (idempotent)
 presentations:
 	@echo "Building presentations..."
-	@for topic in $$(find content/docs/latest/presentations -maxdepth 1 -type d -not -path content/docs/latest/presentations); do \
+	@for topic in $$(find static/presentations -maxdepth 1 -type d -not -path static/presentations); do \
 		topic_name=$$(basename $$topic); \
 		if [ -f "$$topic/main.md" ]; then \
 			echo "Building $$topic_name..."; \
@@ -24,7 +24,7 @@ presentations:
 				--html \
 				--allow-local-files \
 				--theme-set content/docs/latest/presentations \
-				-o - > $$topic/index.html; \
+				-o - | sed -E 's|body\s*\{\s*background\s*:\s*#[0-9a-fA-F]+\s*;|body{background:transparent;|g' > $$topic/index.html; \
 		fi \
 	done
 

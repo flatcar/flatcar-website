@@ -1,1 +1,9 @@
-<iframe src="/docs/latest/presentations/{{.Get 0}}/" width="100%" height="600px" frameborder="0"></iframe>
+{{- $presentation := .Get 0 -}}
+{{- $ratio := .Get 1 | default "16:9" -}}
+{{- $ratioSplit := split $ratio ":" -}}
+{{- $width := index $ratioSplit 0 | float -}}
+{{- $height := index $ratioSplit 1 | float -}}
+{{- $paddingBottom := div $height $width | mul 100 -}}
+<div style="position: relative; width: 100%; padding-bottom: {{ $paddingBottom }}%; height: 0; overflow: hidden;">
+  <iframe src="/presentations/{{ $presentation }}/" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: 0;" frameborder="0"></iframe>
+</div>
