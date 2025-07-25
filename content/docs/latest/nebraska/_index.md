@@ -2,7 +2,7 @@
 content_type: nebraska
 title: Nebraska
 main_menu: true
-weight: 40
+weight: 50
 cascade:
   github_edit_url: https://github.com/flatcar/flatcar-website/tree/master/content/docs/latest
   issues_url: https://github.com/flatcar/nebraska/issues/new
