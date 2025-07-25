@@ -171,9 +171,7 @@ Now the action that adds the roles to the token will be triggered after each log
 
 Note: The `oidc-roles-path` argument accepts a JSONPath to fetch roles from the token, in this case set the value to `http://kinvolk\.io/roles`.
 
-<p align="center">
-  <img width="100%" src="../images/auth0-actions.gif">
-</p>
+{{< presentation "auth0-roles-setup" >}}
 
 # Preparing Dex with github connector as an OIDC provider for Nebraska
 
