@@ -56,10 +56,6 @@ a {
   @include media-breakpoint-down(lg) {
     width: calc(100vw - 48px);
   }
-
-  @include media-breakpoint-down(xs) {
-    width: calc(100vw - 32px);
-  }
 }
 
 section {
@@ -68,10 +64,6 @@ section {
 
   @include media-breakpoint-down(sm) {
     padding-top: 40px;
-  }
-
-  @include media-breakpoint-down(xs) {
-    padding-top: 30px;
   }
 }
 
@@ -86,10 +78,6 @@ section {
 
   @include media-breakpoint-down(sm) {
     font-size: 1rem;
-  }
-
-  @include media-breakpoint-down(xs) {
-    font-size: 0.875rem;
   }
 }
 
@@ -117,10 +105,6 @@ section {
 .navigation_back {
   .navigation__icon {
     margin-right: 30px;
-
-    @include media-breakpoint-down(xs) {
-      margin-right: 20px;
-    }
 
     svg {
       transform: rotate(-180deg);
@@ -180,10 +164,6 @@ section {
   background: $black;
   padding: 20px 0px;
 
-  @include media-breakpoint-down(xs) {
-    padding: 30px 0;
-  }
-
   > .container {
     max-width: 960px;
 
@@ -194,10 +174,6 @@ section {
 
     > .row {
       flex-wrap: nowrap;
-
-      @include media-breakpoint-down(xs) {
-        flex-wrap: wrap;
-      }
     }
   }
 }
@@ -212,14 +188,6 @@ section {
   min-width: 19.17em;
   flex-shrink: 0;
   padding-left: 86px !important;
-
-  @include media-breakpoint-down(xs) {
-    margin-bottom: 30px;
-    padding-left: 0 !important;
-    padding-top: 60px !important;
-    justify-content: center;
-    text-align: center;
-  }
 
   &:before {
     content: "";
@@ -240,11 +208,6 @@ section {
       height: 2.33em;
       box-shadow: 1.5em 1.5em 0 0 $white;
     }
-
-    @include media-breakpoint-down(xs) {
-      transform: rotate(-45deg) translateY(-100%);
-      right: 0;
-    }
   }
 }
 
@@ -254,10 +217,6 @@ section {
 
   @include media-breakpoint-down(sm) {
     flex-wrap: wrap !important;
-  }
-
-  @include media-breakpoint-down(xs) {
-    flex-wrap: wrap;
   }
 }
 

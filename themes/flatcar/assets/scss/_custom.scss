@@ -258,6 +258,15 @@ $pagination-disabled-bg:            $gray !important;
 // Later we canbring in only what we need:
 // https://getbootstrap.com/docs/4.0/getting-started/theming/#importing
 @import "./bootstrap-5.3.7/bootstrap";
+$theme-colors: map-merge(
+  (
+    "flatcar-darker-blue": $flatcar-darker-blue,
+    "flatcar-dark-blue": $flatcar-dark-blue,
+    "flatcar-bg-blue": $flatcar-bg-blue,
+    "flatcar-blue": $flatcar-blue
+  ),
+  $theme-colors
+);
 
 // Elements overrides
 
