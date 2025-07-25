@@ -51,6 +51,15 @@ categories:
 
 *TODO: Add more content sections (events, job postings, etc.)*
 
+### Presentations
+
+Create HTML presentations from screenshots using Marp (requires Docker):
+
+1. Create directory: `content/docs/latest/presentations/your-topic/`
+2. Add screenshots and `main.md` with Marp markdown
+3. Run `make presentations` to generate HTML
+4. Embed with: `{{< presentation "your-topic" >}}`
+
 ## Testing
 
 You should always test your changes locally before creating a pull request. Once you do createi a branch or a pull request, we use Azure Static Web Apps to create previews of the changes so that reviewers and yourself can easily review the changes.
