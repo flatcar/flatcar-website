@@ -26,7 +26,7 @@ in order to install it.
 
 - Hugo Extended (see version in [`.env`](./.env) file)
 - Python 3 with PyYAML (required for docs generation - installed via `make getdeps`)
-- Docker (required for building presentations with Marp)
+- Docker (required for building presentations with Marp) (a `docker` symlink to `podman` works too)
 
 ## Adding content
 

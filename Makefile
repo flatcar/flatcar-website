@@ -9,6 +9,7 @@ docs:
 	@python3 ./tools/fcl-fetch-version-data.py ./content/docs/_index.md.in > ./content/docs/_index.md
 
 # Build all presentations (idempotent)
+.PHONY: presentations
 presentations:
 	@echo "Building presentations..."
 	@for topic in $$(find static/presentations -maxdepth 1 -type d -not -path static/presentations); do \
@@ -19,7 +20,7 @@ presentations:
 				--rm \
 				-v $$(pwd):/home/marp/app \
 				-w /home/marp/app \
-				marpteam/marp-cli:latest \
+				docker.io/marpteam/marp-cli:latest \
 				$$topic/main.md \
 				--html \
 				--allow-local-files \
