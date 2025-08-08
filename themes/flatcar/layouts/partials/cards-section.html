@@ -9,10 +9,10 @@
         {{ range .items }}
         {{ $styles := .Params.style }}
         <div
-          class="col-12 col-sm-6 col-md-4 ml-auto mr-auto m-sm-2 shadow"
+          class="col-12 col-sm-6 col-md-4 mx-auto m-sm-2 shadow"
           style="max-width: 300px; min-width: 300px; background-color: {{ $styles.bgcolor }}; color: {{ $styles.fgcolor }}; border: 1px solid {{ or $styles.accent $styles.bgcolor }};"
         >
-          <div class="card col ml-0 mr-0 p-0 h-100" style="border-color: {{ $styles.fgcolor }};">
+          <div class="card col mx-0 p-0 h-100" style="border-color: {{ $styles.fgcolor }};">
             <div class="card-header justify-content-around">
               <div
                 class="row justify-content-center section-image mt-2"

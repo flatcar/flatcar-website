@@ -132,8 +132,7 @@
   </symbol>
   </svg>
 
-  <script src="/js/jquery-3.4.1.min.js"></script>
-  <script src="/js/bootstrap.min.js"></script>
+  <script src="/js/bootstrap.bundle.min.js"></script>
   {{- $common := resources.Get "js/common.js" -}}
   {{- $js := slice $common | resources.Concat "js/common.js" -}}
   <script src="{{ $js.Permalink }}"></script>

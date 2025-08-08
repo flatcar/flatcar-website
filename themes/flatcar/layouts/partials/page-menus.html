@@ -5,8 +5,8 @@
 {{ $pageID :=  replace (replace .File.Path "/" "-") "." "-" | urlize }}
 
 <nav class="navbar navbar-expand-sm navbar-light bg-light page-menus">
-  <div class="d-sm-none w-100 text-right">
-    <button class="btn btn-link td-sidebar__toggle p-0" type="button" data-toggle="collapse" data-target="#{{ $pageID }}" aria-controls="{{ $pageID }}" aria-expanded="false" aria-label="Toggle section navigation">
+  <div class="d-sm-none w-100 text-end">
+    <button class="btn btn-link td-sidebar__toggle p-0" type="button" data-bs-toggle="collapse" data-bs-target="#{{ $pageID }}" aria-controls="{{ $pageID }}" aria-expanded="false" aria-label="Toggle section navigation">
       <span class="menu-button">Menu <img src="/images/menu-swap-outline.svg" /></span>
     </button>
   </div>
@@ -16,7 +16,7 @@
         {{ if .HasChildren }}
             <li class="nav-item dropdown">
 
-              <a href="{{ .URL }}" class="nav-link dropdown-toggle">
+              <a href="{{ .URL }}" class="nav-link dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
                 {{ .Name }}
                 <span class="navbar__link-underline"></span>
               </a>
