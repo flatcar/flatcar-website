@@ -7,7 +7,7 @@
   </div>
   <div class="col-12 col-md mt-3">
     <p class="date small">Release Date: {{ dateFormat "Jan 2, 2006" $release.github_release.published_at }}&nbsp;
-      <span class="ml-1">
+      <span class="ms-1">
         {{ range $j, $arch := $release.architectures }}
           <a class="arch font-weight-light" href="https://{{ $release.channel }}.release.flatcar-linux.net/{{ $arch }}-usr/{{ $release.version }}/">{{ $arch }}</a>
         {{ end }}

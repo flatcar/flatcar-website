@@ -27,11 +27,11 @@
                         </a>
                       </h5>
                     </div>
-                    <div class="col text-right align-bottom pt-1">
+                    <div class="col text-end align-bottom pt-1">
                       <span class="version">{{ $chan.current.version }}</span>
                     </div>
                   </div>
-                  <div class="pull-left text-left">
+                  <div class="float-start text-start">
                   {{ range $j, $arch := $chan.current.architectures }}
                     <a class="arch small font-weight-light" href="https://{{ $chan.current.channel }}.release.flatcar-linux.net/{{ $arch }}-usr/current/">
                       {{ $arch }}</a>

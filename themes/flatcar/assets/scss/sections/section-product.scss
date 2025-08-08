@@ -4,6 +4,11 @@
   background-position: center top;
   background-size: cover;
   color: $white;
+  
+  .section-content p,
+  .card-description {
+    font-size: 1.125rem;
+  }
 
   &:last-child {
     padding-bottom: 120px;
@@ -100,11 +105,18 @@
 
   .section-feature {
     text-align: center;
+    color: inherit;
 
     .card-header {
       img {
         height: 40px;
       }
+    }
+    
+    .card {
+      background-color: transparent;
+      border: none;
+      color: inherit;
     }
   }
 
