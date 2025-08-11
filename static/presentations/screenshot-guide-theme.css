@@ -1,0 +1,147 @@
+/* @theme screenshot-guide */
+@import "uncover";
+
+/* Theme variables */
+:root {
+  /* Strip settings */
+  --strip-padding: 15px 20px;
+  --strip-font-size: 24px;
+  --strip-line-height: 1.4;
+  --strip-max-height: 25%;
+  
+  /* Dark theme colors */
+  --dark-bg: rgba(0, 0, 0, 0.7);
+  --dark-bg-solid: rgba(0, 0, 0, 0.95);
+  --dark-color: white;
+  --dark-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+  
+  /* Light theme colors */
+  --light-bg: rgba(255, 255, 255, 0.8);
+  --light-bg-solid: rgba(255, 255, 255, 0.98);
+  --light-color: black;
+  --light-shadow: 0 2px 15px rgba(255, 255, 255, 0.2);
+  --light-font-weight: 500;
+}
+
+/* Make slide backgrounds transparent */
+section {
+  background: transparent;
+}
+
+
+/* Ensure backgrounds fill the entire slide */
+section[data-marpit-advanced-background="background"] > div[data-marpit-advanced-background-container] > figure {
+  background-size: cover !important;
+}
+
+/* Style all headers and footers in our theme */
+section header,
+section footer {
+  position: absolute;
+  left: 0;
+  right: 0;
+  padding: var(--strip-padding);
+  text-align: left;
+  font-size: var(--strip-font-size) !important;
+  line-height: var(--strip-line-height);
+  z-index: 1;
+  max-height: var(--strip-max-height);
+  overflow-y: auto;
+  width: 100%;
+  box-sizing: border-box;
+  letter-spacing: normal !important;
+  color: inherit;
+}
+
+section header {
+  top: 0;
+}
+
+section footer {
+  bottom: 0;
+}
+
+/* Default styles (no theme class = light theme) */
+section header,
+section footer {
+  /* Dark strip on light background */
+  background: var(--dark-bg);
+  color: var(--dark-color);
+}
+
+/* Explicit light theme */
+section.light-theme header,
+section.light-theme footer {
+  background: var(--dark-bg);
+  color: var(--dark-color);
+}
+
+/* Default styles for dark-theme slides */
+section.dark-theme header,
+section.dark-theme footer {
+  /* Light strip on dark background */
+  background: var(--light-bg);
+  color: var(--light-color);
+  font-weight: var(--light-font-weight);
+}
+
+/* Shadows for default and light theme */
+section header {
+  box-shadow: var(--dark-shadow);
+}
+
+section footer {
+  box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.3);
+}
+
+section.light-theme header {
+  box-shadow: var(--dark-shadow);
+}
+
+section.light-theme footer {
+  box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.3);
+}
+
+section.dark-theme header {
+  box-shadow: var(--light-shadow);
+}
+
+section.dark-theme footer {
+  box-shadow: 0 -2px 15px rgba(255, 255, 255, 0.2);
+}
+
+/* Manual overrides - add these classes to swap colors */
+/* Invert header/footer colors on light slides */
+section.light-theme.invert-header header,
+section.light-theme.invert-footer footer {
+  background: var(--light-bg);
+  color: var(--light-color);
+  font-weight: var(--light-font-weight);
+}
+
+/* Invert header/footer colors on dark slides */
+section.dark-theme.invert-header header,
+section.dark-theme.invert-footer footer {
+  background: var(--dark-bg);
+  color: var(--dark-color);
+  font-weight: normal;
+}
+
+/* Solid backgrounds */
+section.solid-header header,
+section.solid-footer footer {
+  background: var(--dark-bg-solid);
+}
+
+section.light-theme.invert-header.solid-header header,
+section.light-theme.invert-footer.solid-footer footer,
+section.dark-theme.solid-header header,
+section.dark-theme.solid-footer footer {
+  background: var(--light-bg-solid);
+}
+
+section.dark-theme.invert-header.solid-header header,
+section.dark-theme.invert-footer.solid-footer footer {
+  background: var(--dark-bg-solid);
+}
+

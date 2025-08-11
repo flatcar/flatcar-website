@@ -22,6 +22,12 @@ from the releases page, and/or follow
 [these instructions](https://gohugo.io/getting-started/installing/)
 in order to install it.
 
+## Prerequisites
+
+- Hugo Extended (see version in [`.env`](./.env) file)
+- Python 3 with PyYAML (required for docs generation - installed via `make getdeps`)
+- Docker (required for building presentations with Marp) (a `docker` symlink to `podman` works too)
+
 ## Adding content
 
 Currently, you'll need to edit the text files under `content` in this repo to modify the site.
@@ -50,6 +56,38 @@ categories:
 ```
 
 *TODO: Add more content sections (events, job postings, etc.)*
+
+### Presentations
+
+Create HTML presentations from screenshots using Marp (requires Docker):
+
+1. Create directory: `static/presentations/your-topic/`
+2. Add screenshots (16:9 aspect ratio recommended) and `main.md` in the same directory
+3. Use `theme: screenshot-guide` in your `main.md` for screenshot tutorials
+
+#### Theme Classes
+- **Slide themes** (affects pagination, header/footer defaults):
+  - `<!-- _class: light-theme -->` - For light background slides (default)
+  - `<!-- _class: dark-theme -->` - For dark background slides
+  
+- **Use Marp's built-in directives**:
+  - `<!-- _header: "Your text" -->` - Adds header
+  - `<!-- _footer: "Your text" -->` - Adds footer
+  
+- **Optional modifiers**:
+  - `invert-header` or `invert-footer` - Swap colors
+  - `solid-header` or `solid-footer` - Less transparent backgrounds
+
+Example:
+```markdown
+<!-- _class: dark-theme -->
+<!-- _footer: "Step 1: Instructions appear in a light strip at bottom" -->
+![bg](./dark-screenshot.png)
+```
+4. Run `make presentations` to generate `index.html` in each presentation directory
+5. Embed in docs with: `{{< presentation "your-topic" >}}`
+
+Note: The custom theme is located at `static/presentations/screenshot-guide-theme.css`
 
 ## Testing
 
