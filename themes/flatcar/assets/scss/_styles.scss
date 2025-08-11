@@ -252,12 +252,12 @@ h6 {
   padding-bottom: 40px;
 }
 
-.carousel-indicators li {
-  background: $carousel-indicator-bg;
+.carousel-indicators [data-bs-target] {
+  background-color: $carousel-indicator-bg;
   opacity: 1;
 
   &.active {
-    background: $carousel-indicator-active-bg;
+    background-color: $carousel-indicator-active-bg;
   }
 }
 
