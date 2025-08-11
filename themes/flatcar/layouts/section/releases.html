@@ -22,7 +22,7 @@
                     <div class="col">
                       <h5 class="d-inline">
                         <a href="#{{ $chan.current.channel }}-release" style="border-bottom: none; box-shadow: none;"
-                          onclick="javascript:$('#{{ $chan.current.channel }}-release-tab').click(); $(document).scrollTop($('#release-tabs').offset().top);">
+                          onclick="javascript:document.getElementById('{{ $chan.current.channel }}-release-tab').click(); document.documentElement.scrollTop = document.getElementById('release-tabs').offsetTop;">
                               {{ $channel.title }}
                         </a>
                       </h5>
@@ -33,13 +33,13 @@
                   </div>
                   <div class="float-start text-start">
                   {{ range $j, $arch := $chan.current.architectures }}
-                    <a class="arch small font-weight-light" href="https://{{ $chan.current.channel }}.release.flatcar-linux.net/{{ $arch }}-usr/current/">
+                    <a class="arch small fw-light" href="https://{{ $chan.current.channel }}.release.flatcar-linux.net/{{ $arch }}-usr/current/">
                       {{ $arch }}</a>
                   {{ end }}
                   </div>
                   <div>
                     <span class="release-date">
-                      Release Date: <span class="font-weight-light">{{ dateFormat "Jan 2, 2006" $chan.current.github_release.published_at }}</span>
+                      Release Date: <span class="fw-light">{{ dateFormat "Jan 2, 2006" $chan.current.github_release.published_at }}</span>
                     </span>
                   </div>
               </div>
@@ -53,7 +53,7 @@
                   {{ $pkgSorted := $.Scratch.GetSortedMapValues "pkgPkgMap" }}
                   {{ $.Scratch.Delete "pkgPkgMap" }}
                   {{ range $i, $ver := sort $chan.current.image_packages "" }}
-                  <span class="font-weight-bold">{{ index $pkgSorted $i }} -<span class="font-weight-light"> {{ $ver }}</span><br/>
+                  <span class="fw-bold">{{ index $pkgSorted $i }} -<span class="fw-light"> {{ $ver }}</span><br/>
                   {{ end }}
               </div>
           </div>
@@ -84,7 +84,7 @@
                 {{ $chan := index $.Site.Data.releases $channel.name }}
                 <li class="nav-item">
                     <a class="nav-link {{ if eq $chan.current.channel "stable" }}active{{ end }}" id="{{ $chan.current.channel }}-release-tab"
-                      data-toggle="tab" href="#{{ $chan.current.channel }}-release"
+                      data-bs-toggle="tab" href="#{{ $chan.current.channel }}-release"
                       aria-controls="{{ $chan.current.channel }}-release"
                       {{ if eq $chan.current.channel "stable" }}aria-current="page"{{ end }}
                       >
@@ -127,21 +127,42 @@
 
 <script>
 window.onload = function(){
-  var anchor = $(location).attr("hash").substring(1);
-  var elem = $(document.getElementById(anchor)); // Directly $(id) does not work
-  if (!elem.is(":visible")) {
+  var anchor = window.location.hash.substring(1);
+  if (!anchor) return;
+  
+  var elem = document.getElementById(anchor);
+  if (!elem) return;
+  
+  // Check if element is visible
+  if (elem.offsetParent === null) {
     if (anchor.startsWith("release")) {
-      var tab_name = elem.parent().parent().parent().attr("aria-labelledby");
-      $("#" + tab_name).tab("show");
-      setTimeout(function() {
-        $(document).scrollTop(elem.offset().top);
-      }, 200);
+      // Find the parent tab pane and get its associated tab
+      var tabPane = elem.closest('.tab-pane');
+      if (tabPane) {
+        var tabId = tabPane.getAttribute('aria-labelledby');
+        var tab = document.getElementById(tabId);
+        if (tab) {
+          // Trigger Bootstrap 5 tab
+          var bsTab = new bootstrap.Tab(tab);
+          bsTab.show();
+          setTimeout(function() {
+            elem.scrollIntoView({ behavior: 'smooth', block: 'start' });
+          }, 200);
+        }
+      }
     }
     if (anchor.endsWith("release")) {
-      $("#" + anchor + "-tab").tab("show");
-      setTimeout(function() {
-        $(document).scrollTop($("#release-tabs").offset().top);
-      }, 200);
+      var tab = document.getElementById(anchor + "-tab");
+      if (tab) {
+        var bsTab = new bootstrap.Tab(tab);
+        bsTab.show();
+        setTimeout(function() {
+          var releaseTabs = document.getElementById("release-tabs");
+          if (releaseTabs) {
+            releaseTabs.scrollIntoView({ behavior: 'smooth', block: 'start' });
+          }
+        }, 200);
+      }
     }
   }
 }
