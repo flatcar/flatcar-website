@@ -45,7 +45,7 @@ jobs:
 
           $(git diff --staged --name-only --diff-filter=A data/releases/{alpha,beta,stable,lts} | sed -e 's:data/releases/:* :' -e 's:\.yml$::' -e 's:/:-:g')"
 
-          git commit --author "${GITHUB_ACTOR} <${GITHUB_ACTOR_ID}+${GITHUB_ACTOR}@users.noreply.github.com>" --message "${MESSAGE}"
+          git commit --signoff --author "${GITHUB_ACTOR} <${GITHUB_ACTOR_ID}+${GITHUB_ACTOR}@users.noreply.github.com>" --message "${MESSAGE}"
           git push --force origin "${BRANCH}"
 
       - name: Create Pull Request
