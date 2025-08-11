@@ -58,13 +58,13 @@
               </div>
               {{ end }}
           </div>
-          <div class="row no-gutters d-none d-block d-md-none mt-5">
-            <div id="productCarousel-{{ $productId }}" class="carousel slide" data-ride="carousel">
-              <ol class="carousel-indicators">
+          <div class="row no-gutters d-block d-md-none mt-5">
+            <div id="productCarousel-{{ $productId }}" class="carousel slide" data-bs-ride="carousel">
+              <div class="carousel-indicators">
                 {{ range $index,$item := . }}
-                  <li data-target="#productCarousel-{{ $productId }}" data-slide-to="{{ $index }}" class="{{ if eq $index 0 }}active{{ end }}"></li>
+                  <button type="button" data-bs-target="#productCarousel-{{ $productId }}" data-bs-slide-to="{{ $index }}" class="{{ if eq $index 0 }}active{{ end }}" aria-current="{{ if eq $index 0 }}true{{ else }}false{{ end }}" aria-label="Slide {{ add $index 1 }}"></button>
                 {{ end }}
-              </ol>
+              </div>
               <div class="carousel-inner">
                 {{ range $index,$item := . }}
                   <div class="carousel-item {{ if eq $index 0 }}active{{ end }}">
