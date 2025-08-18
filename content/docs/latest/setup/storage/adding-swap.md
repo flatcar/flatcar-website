@@ -152,7 +152,7 @@ systemd:
       contents: |
         [Unit]
         Description=Turn on swap
-        Requires=create-swapfile.service
+        BindsTo=create-swapfile.service
         After=create-swapfile.service
 
         [Swap]
@@ -169,8 +169,9 @@ systemd:
 
         [Service]
         Type=oneshot
-        ExecStart=/usr/bin/mkdir -p /var/vm
-        ExecStart=/usr/bin/mkswap --size 1024m --file /var/vm/swapfile1
+        ExecStartPre=mkdir -p /var/vm
+        ExecStartPre=rm -f /var/vm/swapfile1
+        ExecStart=mkswap --size 1024m --file /var/vm/swapfile1
         RemainAfterExit=true
 ```
 
