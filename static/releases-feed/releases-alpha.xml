@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en">
   <id>https://www.flatcar.org/</id>
   <title>Flatcar :: alpha</title>
-  <updated>2025-07-08T15:54:57.027638+00:00</updated>
+  <updated>2025-08-20T07:43:41.480972+00:00</updated>
   <author>
     <name>Flatcar Container Linux</name>
     <email>maintainers@flatcar-linux.org</email>
@@ -12,9 +12,180 @@
   <logo>https://www.flatcar.org/media/brand-logo.svg</logo>
   <subtitle>Flatcar Container Linux release feed</subtitle>
   <entry>
+    <id>https://github.com/flatcar/scripts/releases/tag/alpha-4426.0.0</id>
+    <title>4426.0.0</title>
+    <updated>2025-08-20T07:43:42.739494+00:00</updated>
+    <content type="html"><![CDATA[<p><em>Changes since <strong>Alpha 4372.0.1</strong></em></p>
+<h4>Security fixes:</h4>
+<ul>
+<li>Linux (<a href="https://nvd.nist.gov/vuln/detail/CVE-2025-38523">CVE-2025-38523</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2025-38436">CVE-2025-38436</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2025-38434">CVE-2025-38434</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2025-38362">CVE-2025-38362</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2025-38361">CVE-2025-38361</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2025-38355">CVE-2025-38355</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2025-38369">CVE-2025-38369</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2025-38368">CVE-2025-38368</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2025-38365">CVE-2025-38365</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2025-38364">CVE-2025-38364</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2025-38363">CVE-2025-38363</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2025-38353">CVE-2025-38353</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2025-38354">CVE-2025-38354</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2025-38246">CVE-2025-38246</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2025-38245">CVE-2025-38245</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2025-38244">CVE-2025-38244</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2025-38264">CVE-2025-38264</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2025-38263">CVE-2025-38263</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2025-38262">CVE-2025-38262</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2025-38260">CVE-2025-38260</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2025-38259">CVE-2025-38259</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2025-38258">CVE-2025-38258</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2025-38257">CVE-2025-38257</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2025-38256">CVE-2025-38256</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2025-38255">CVE-2025-38255</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2025-38253">CVE-2025-38253</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2025-38251">CVE-2025-38251</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2025-38250">CVE-2025-38250</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2025-38249">CVE-2025-38249</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2025-38239">CVE-2025-38239</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2025-38236">CVE-2025-38236</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2025-38413">CVE-2025-38413</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2025-38412">CVE-2025-38412</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2025-38410">CVE-2025-38410</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2025-38409">CVE-2025-38409</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2025-38407">CVE-2025-38407</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2025-38408">CVE-2025-38408</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2025-38406">CVE-2025-38406</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2025-38405">CVE-2025-38405</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2025-38404">CVE-2025-38404</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2025-38403">CVE-2025-38403</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2025-38401">CVE-2025-38401</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2025-38402">CVE-2025-38402</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2025-38379">CVE-2025-38379</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2025-38377">CVE-2025-38377</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2025-38376">CVE-2025-38376</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2025-38375">CVE-2025-38375</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2025-38374">CVE-2025-38374</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2025-38400">CVE-2025-38400</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2025-38373">CVE-2025-38373</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2025-38399">CVE-2025-38399</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2025-38396">CVE-2025-38396</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2025-38395">CVE-2025-38395</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2025-38393">CVE-2025-38393</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2025-38392">CVE-2025-38392</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2025-38391">CVE-2025-38391</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2025-38390">CVE-2025-38390</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2025-38372">CVE-2025-38372</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2025-38389">CVE-2025-38389</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2025-38388">CVE-2025-38388</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2025-38387">CVE-2025-38387</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2025-38386">CVE-2025-38386</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2025-38385">CVE-2025-38385</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2025-38384">CVE-2025-38384</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2025-38383">CVE-2025-38383</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2025-38382">CVE-2025-38382</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2025-38381">CVE-2025-38381</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2025-38380">CVE-2025-38380</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2025-38371">CVE-2025-38371</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2025-38360">CVE-2025-38360</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2025-38356">CVE-2025-38356</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2025-38350">CVE-2025-38350</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2025-38546">CVE-2025-38546</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2025-38545">CVE-2025-38545</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2025-38544">CVE-2025-38544</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2025-38543">CVE-2025-38543</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2025-38542">CVE-2025-38542</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2025-38540">CVE-2025-38540</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2025-38541">CVE-2025-38541</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2025-38520">CVE-2025-38520</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2025-38521">CVE-2025-38521</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2025-38512">CVE-2025-38512</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2025-38511">CVE-2025-38511</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2025-38510">CVE-2025-38510</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2025-38507">CVE-2025-38507</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2025-38506">CVE-2025-38506</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2025-38517">CVE-2025-38517</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2025-38516">CVE-2025-38516</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2025-38515">CVE-2025-38515</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2025-38514">CVE-2025-38514</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2025-38513">CVE-2025-38513</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2025-38503">CVE-2025-38503</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2025-38505">CVE-2025-38505</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2025-38460">CVE-2025-38460</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2025-38467">CVE-2025-38467</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2025-38466">CVE-2025-38466</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2025-38465">CVE-2025-38465</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2025-38464">CVE-2025-38464</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2025-38463">CVE-2025-38463</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2025-38462">CVE-2025-38462</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2025-38461">CVE-2025-38461</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2025-38446">CVE-2025-38446</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2025-38445">CVE-2025-38445</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2025-38444">CVE-2025-38444</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2025-38443">CVE-2025-38443</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2025-38441">CVE-2025-38441</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2025-38440">CVE-2025-38440</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2025-38459">CVE-2025-38459</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2025-38458">CVE-2025-38458</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2025-38457">CVE-2025-38457</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2025-38439">CVE-2025-38439</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2025-38456">CVE-2025-38456</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2025-38455">CVE-2025-38455</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2025-38454">CVE-2025-38454</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2025-38452">CVE-2025-38452</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2025-38451">CVE-2025-38451</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2025-38450">CVE-2025-38450</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2025-38449">CVE-2025-38449</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2025-38448">CVE-2025-38448</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2025-38437">CVE-2025-38437</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2025-38438">CVE-2025-38438</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2025-38349">CVE-2025-38349</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2024-57809">CVE-2024-57809</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2024-57838">CVE-2024-57838</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2024-56780">CVE-2024-56780</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2024-56779">CVE-2024-56779</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2024-56778">CVE-2024-56778</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2024-56777">CVE-2024-56777</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2024-56776">CVE-2024-56776</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2024-56775">CVE-2024-56775</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2024-56774">CVE-2024-56774</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2024-56773">CVE-2024-56773</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2024-56771">CVE-2024-56771</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2024-56772">CVE-2024-56772</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2024-56556">CVE-2024-56556</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2024-56565">CVE-2024-56565</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2024-56564">CVE-2024-56564</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2024-56563">CVE-2024-56563</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2024-56562">CVE-2024-56562</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2024-56561">CVE-2024-56561</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2024-56560">CVE-2024-56560</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2024-56559">CVE-2024-56559</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2024-56582">CVE-2024-56582</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2024-56581">CVE-2024-56581</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2024-56580">CVE-2024-56580</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2024-56579">CVE-2024-56579</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2024-56578">CVE-2024-56578</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2024-56577">CVE-2024-56577</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2024-56576">CVE-2024-56576</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2024-56558">CVE-2024-56558</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2024-56575">CVE-2024-56575</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2024-56574">CVE-2024-56574</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2024-56573">CVE-2024-56573</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2024-56572">CVE-2024-56572</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2024-56571">CVE-2024-56571</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2024-56570">CVE-2024-56570</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2024-56569">CVE-2024-56569</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2024-56568">CVE-2024-56568</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2024-56567">CVE-2024-56567</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2024-56566">CVE-2024-56566</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2024-56557">CVE-2024-56557</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2024-56555">CVE-2024-56555</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2024-56554">CVE-2024-56554</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2024-56553">CVE-2024-56553</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2024-56550">CVE-2024-56550</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2024-56552">CVE-2024-56552</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2024-56551">CVE-2024-56551</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2025-38552">CVE-2025-38552</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2025-38551">CVE-2025-38551</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2025-38550">CVE-2025-38550</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2025-38549">CVE-2025-38549</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2025-38547">CVE-2025-38547</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2025-38548">CVE-2025-38548</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2025-38531">CVE-2025-38531</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2025-38530">CVE-2025-38530</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2025-38529">CVE-2025-38529</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2025-38528">CVE-2025-38528</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2025-38527">CVE-2025-38527</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2025-38526">CVE-2025-38526</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2025-38524">CVE-2025-38524</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2025-38539">CVE-2025-38539</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2025-38538">CVE-2025-38538</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2025-38537">CVE-2025-38537</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2025-38535">CVE-2025-38535</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2025-38533">CVE-2025-38533</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2025-38532">CVE-2025-38532</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2025-38499">CVE-2025-38499</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2025-38478">CVE-2025-38478</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2025-38477">CVE-2025-38477</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2025-38476">CVE-2025-38476</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2025-38475">CVE-2025-38475</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2025-38474">CVE-2025-38474</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2025-38473">CVE-2025-38473</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2025-38472">CVE-2025-38472</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2025-38497">CVE-2025-38497</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2025-38496">CVE-2025-38496</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2025-38495">CVE-2025-38495</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2025-38494">CVE-2025-38494</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2025-38493">CVE-2025-38493</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2025-38491">CVE-2025-38491</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2025-38490">CVE-2025-38490</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2025-38471">CVE-2025-38471</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2025-38489">CVE-2025-38489</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2025-38488">CVE-2025-38488</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2025-38487">CVE-2025-38487</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2025-38485">CVE-2025-38485</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2025-38484">CVE-2025-38484</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2025-38483">CVE-2025-38483</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2025-38482">CVE-2025-38482</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2025-38481">CVE-2025-38481</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2025-38480">CVE-2025-38480</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2025-38469">CVE-2025-38469</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2025-38470">CVE-2025-38470</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2025-38468">CVE-2025-38468</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2025-38500">CVE-2025-38500</a>)</li>
+<li>bind (<a href="https://www.cve.org/CVERecord?id=CVE-2024-11187">CVE-2024-11187</a>, <a href="https://www.cve.org/CVERecord?id=CVE-2024-12705">CVE-2024-12705</a>)</li>
+<li>containerd (<a href="https://www.cve.org/CVERecord?id=CVE-2025-47291">CVE-2025-47291</a>)</li>
+<li>git (<a href="https://www.cve.org/CVERecord?id=CVE-2025-48384">CVE-2025-48384</a>, <a href="https://www.cve.org/CVERecord?id=CVE-2025-48385">CVE-2025-48385</a>, <a href="https://www.cve.org/CVERecord?id=CVE-2025-48386">CVE-2025-48386</a>)</li>
+<li>glib (<a href="https://www.cve.org/CVERecord?id=CVE-2025-4373">CVE-2025-4373</a>)</li>
+<li>go (<a href="https://www.cve.org/CVERecord?id=CVE-2025-22873">CVE-2025-22873</a>, <a href="https://www.cve.org/CVERecord?id=CVE-2025-4673">CVE-2025-4673</a>, <a href="https://www.cve.org/CVERecord?id=CVE-2025-0913">CVE-2025-0913</a>, <a href="https://www.cve.org/CVERecord?id=CVE-2025-22874">CVE-2025-22874</a>, <a href="https://www.cve.org/CVERecord?id=CVE-2025-4674">CVE-2025-4674</a>)</li>
+<li>jq (<a href="https://www.cve.org/CVERecord?id=CVE-2024-23337">CVE-2024-23337</a>, <a href="https://www.cve.org/CVERecord?id=CVE-2024-53427">CVE-2024-53427</a>, <a href="https://www.cve.org/CVERecord?id=CVE-2025-48060">CVE-2025-48060</a>)</li>
+<li>libxml2 (<a href="https://www.cve.org/CVERecord?id=CVE-2025-49794">CVE-2025-49794</a>, <a href="https://www.cve.org/CVERecord?id=CVE-2025-49795">CVE-2025-49795</a>, <a href="https://www.cve.org/CVERecord?id=CVE-2025-49796">CVE-2025-49796</a>, <a href="https://www.cve.org/CVERecord?id=CVE-2025-32414">CVE-2025-32414</a>, <a href="https://www.cve.org/CVERecord?id=CVE-2025-32415">CVE-2025-32415</a>)</li>
+<li>nvidia-drivers-service (<a href="https://www.cve.org/CVERecord?id=CVE-2025-23244">CVE-2025-23244</a>)</li>
+<li>podman (<a href="https://www.cve.org/CVERecord?id=CVE-2025-6032">CVE-2025-6032</a>)</li>
+<li>python (<a href="https://www.cve.org/CVERecord?id=CVE-2025-4516">CVE-2025-4516</a>, <a href="https://www.cve.org/CVERecord?id=CVE-2024-12718">CVE-2024-12718</a>, <a href="https://www.cve.org/CVERecord?id=CVE-2025-4138">CVE-2025-4138</a>, <a href="https://www.cve.org/CVERecord?id=CVE-2025-4330">CVE-2025-4330</a>, <a href="https://www.cve.org/CVERecord?id=CVE-2025-4517">CVE-2025-4517</a>)</li>
+<li>requests (<a href="https://www.cve.org/CVERecord?id=CVE-2024-47081">CVE-2024-47081</a>)</li>
+<li>vim (<a href="https://www.cve.org/CVERecord?id=CVE-2025-1215">CVE-2025-1215</a>, <a href="https://www.cve.org/CVERecord?id=CVE-2025-22134">CVE-2025-22134</a>, <a href="https://www.cve.org/CVERecord?id=CVE-2025-24014">CVE-2025-24014</a>, <a href="https://github.com/vim/vim/security/advisories/GHSA-63p5-mwg2-787v">GHSA-63p5-mwg2-787v</a>, <a href="https://www.cve.org/CVERecord?id=CVE-2025-27423">CVE-2025-27423</a>, <a href="https://www.cve.org/CVERecord?id=CVE-2025-29768">CVE-2025-29768</a>)</li>
+</ul>
+<h4>Bug fixes:</h4>
+<ul>
+<li>Fixed a UID/GID mis-alignment for user/group <code>messagebus</code> between acct-user/acct-group and baselayout. (<a href="https://github.com/flatcar/baselayout/pull/36">baselayout#36</a>)</li>
+<li>Reenabled console support for DRM drivers, so that with the virtio graphics driver the interactive console is shown again after boot (<a href="https://github.com/flatcar/Flatcar/issues/1834">Flatcar#1834</a>)</li>
+<li>sysext-podman: removed <code>/etc/subuid</code> and <code>/etc/subgid</code> generation for <code>core</code> user, before this change it partially overwrites the file and causes issues. (<a href="https://github.com/flatcar/Flatcar/issues/1733">Flatcar#1733</a>) This could be created through initial provisioning. (<a href="https://github.com/flatcar/scripts/pull/3043">scripts#3043</a>)</li>
+</ul>
+<h4>Changes:</h4>
+<ul>
+<li>Added <a href="https://containerd.github.io/overlaybd/">overlaybd</a> system extension to support accelerated container images.
+Add <code>overlaybd</code> to <a href="https://www.flatcar.org/docs/latest/provisioning/sysext/"><code>/etc/flatcar/enabled-sysext.conf</code></a> to check it out.
+The extension includes both <a href="https://github.com/containerd/overlaybd/">overlaybd</a> as well as <a href="https://github.com/containerd/accelerated-container-image">accelerated-container-image</a> tools.</li>
+<li>Azure OEM: add inotify-tools, python urllib3 (<a href="https://github.com/flatcar/scripts/pull/3116">flatcar/scripts#3116</a>)</li>
+</ul>
+<h4>Updates:</h4>
+<ul>
+<li>Linux (<a href="https://git.kernel.org/pub/scm/linux/kernel/git/stable/linux.git/tag/?h=v6.12.41">6.12.41</a> (includes <a href="https://git.kernel.org/pub/scm/linux/kernel/git/stable/linux.git/tag/?h=v6.12.40">6.12.40</a>, <a href="https://git.kernel.org/pub/scm/linux/kernel/git/stable/linux.git/tag/?h=v6.12.39">6.12.39</a>, <a href="https://git.kernel.org/pub/scm/linux/kernel/git/stable/linux.git/tag/?h=v6.12.38">6.12.38</a>, <a href="https://git.kernel.org/pub/scm/linux/kernel/git/stable/linux.git/tag/?h=v6.12.37">6.12.37</a>, <a href="https://lwn.net/Articles/1028828/">6.12.36</a>, <a href="https://git.kernel.org/pub/scm/linux/kernel/git/stable/linux.git/tag/?h=v6.12.35">6.12.35</a>))</li>
+<li>Linux Firmware (<a href="https://git.kernel.org/pub/scm/linux/kernel/git/firmware/linux-firmware.git/tag/?h=20250708">20250708</a> (includes <a href="https://git.kernel.org/pub/scm/linux/kernel/git/firmware/linux-firmware.git/tag/?h=20250627">20250627</a>))</li>
+<li>SDK: cmake (<a href="https://cmake.org/cmake/help/v3.31/release/3.31.html#id1">3.31.7</a>)</li>
+<li>SDK: gdb (<a href="https://lists.gnu.org/archive/html/info-gnu/2025-04/msg00014.html">16.3</a> (includes <a href="https://lists.gnu.org/archive/html/info-gnu/2025-02/msg00000.html">16.2</a>, <a href="https://lists.gnu.org/archive/html/info-gnu/2025-01/msg00009.html">16.1</a>))</li>
+<li>SDK: gentoo-syntax (<a href="https://github.com/gentoo/gentoo-syntax/releases/tag/v16">16</a>)</li>
+<li>SDK: go (<a href="https://go.dev/doc/devel/release#go1.24.minor">1.24.5</a> (includes <a href="https://go.dev/doc/devel/release#go1.24.minor">1.24.4</a>))</li>
+<li>SDK: iperf (<a href="https://github.com/esnet/iperf/releases/tag/3.19">3.19</a>)</li>
+<li>SDK: m4 (<a href="https://lists.gnu.org/archive/html/m4-discuss/2025-05/msg00002.html">1.4.20</a>)</li>
+<li>SDK: maturin (<a href="https://github.com/PyO3/maturin/blob/main/Changelog.md#191">1.9.1</a>)</li>
+<li>SDK: meson (<a href="https://github.com/mesonbuild/meson/commits/1.7.2/">1.7.2</a>)</li>
+<li>SDK: mtools (<a href="https://www.gnu.org/software/mtools/manual/mtools.html">4.0.49</a>)</li>
+<li>SDK: nano (<a href="https://lists.gnu.org/archive/html/info-gnu/2025-06/msg00003.html">8.5</a>)</li>
+<li>SDK: pkgcheck (<a href="https://github.com/pkgcore/pkgcheck/blob/v0.10.36/NEWS.rst">0.10.36</a>)</li>
+<li>SDK: python-cryptography (<a href="https://cryptography.io/en/latest/changelog/#v45-0-5">45.0.4</a>)</li>
+<li>SDK: qemu (<a href="https://wiki.qemu.org/ChangeLog/9.2">9.2.3</a>)</li>
+<li>SDK: rust (<a href="https://releases.rs/docs/1.87.0/">1.87.0</a> (includes <a href="https://releases.rs/docs/1.86.0/">1.86.0</a>))</li>
+<li>azure, dev, gce, sysext-python: mpdecimal (<a href="https://www.bytereef.org/mpdecimal/changelog.html#version-4-0-1xs">4.0.1</a>)</li>
+<li>azure, dev, gce, sysext-python: python (<a href="https://www.python.org/downloads/release/python-31113/">3.11.13</a>)</li>
+<li>base, dev: bind (<a href="https://bind9.readthedocs.io/en/v9.18.37/notes.html#notes-for-bind-9-18-37">9.18.37</a> (includes <a href="https://bind9.readthedocs.io/en/v9.18.36/notes.html#notes-for-bind-9-18-36">9.18.36</a>, <a href="https://bind9.readthedocs.io/en/v9.18.35/notes.html#notes-for-bind-9-18-35">9.18.35</a>, <a href="https://bind9.readthedocs.io/en/v9.18.34/notes.html#notes-for-bind-9-18-34">9.18.34</a>, <a href="https://bind9.readthedocs.io/en/v9.18.33/notes.html#notes-for-bind-9-18-33">9.18.33</a>, <a href="https://bind9.readthedocs.io/en/v9.18.32/notes.html#notes-for-bind-9-18-32">9.18.32</a>))</li>
+<li>base, dev: checkpolicy (<a href="https://github.com/SELinuxProject/selinux/releases/tag/3.8.1">3.8.1</a> (includes <a href="https://github.com/SELinuxProject/selinux/releases/tag/3.8">3.8</a>))</li>
+<li>base, dev: elfutils (<a href="https://inbox.sourceware.org/elfutils-devel/CAJDtP-RjuT13zehLgSvz9TnwQZ1VYPOS=q_kuut5a2g+KLamgw@mail.gmail.com/T/#u">0.193</a>)</li>
+<li>base, dev: gawk (<a href="https://lists.gnu.org/archive/html/info-gnu/2025-04/msg00003.html">5.3.2</a>)</li>
+<li>base, dev: gcc (<a href="https://lists.gnu.org/archive/html/info-gnu/2025-05/msg00004.html">14.3.0</a>)</li>
+<li>base, dev: glib (<a href="https://gitlab.gnome.org/GNOME/glib/-/releases/2.84.3">2.84.3</a> (includes <a href="https://gitlab.gnome.org/GNOME/glib/-/releases/2.84.2">2.84.2</a>, <a href="https://gitlab.gnome.org/GNOME/glib/-/releases/2.84.1">2.84.1</a>, <a href="https://gitlab.gnome.org/GNOME/glib/-/releases/2.84.0">2.84.0</a>, <a href="https://gitlab.gnome.org/GNOME/glib/-/releases/2.83.5">2.83.5</a>, <a href="https://gitlab.gnome.org/GNOME/glib/-/releases/2.83.4">2.83.4</a>, <a href="https://gitlab.gnome.org/GNOME/glib/-/releases/2.83.3">2.83.3</a>, <a href="https://gitlab.gnome.org/GNOME/glib/-/releases/2.83.2">2.83.2</a>, <a href="https://gitlab.gnome.org/GNOME/glib/-/releases/2.83.1">2.83.1</a>, <a href="https://gitlab.gnome.org/GNOME/glib/-/releases/2.83.0">2.83.0</a>))</li>
+<li>base, dev: glibc (<a href="https://lists.gnu.org/archive/html/info-gnu/2025-01/msg00014.html">2.41</a>)</li>
+<li>base, dev: gnupg (<a href="https://dev.gnupg.org/T7428">2.4.8</a>)</li>
+<li>base, dev: grep (<a href="https://lists.gnu.org/archive/html/info-gnu/2025-04/msg00008.html">3.12</a>)</li>
+<li>base, dev: gzip (<a href="https://lists.gnu.org/archive/html/info-gnu/2025-04/msg00007.html">1.14</a>)</li>
+<li>base, dev: inih (<a href="https://github.com/benhoyt/inih/releases/tag/r60">60</a> (includes (<a href="https://github.com/benhoyt/inih/releases/tag/r59">59</a>)))</li>
+<li>base, dev: ipset (<a href="https://lwn.net/Articles/1021623/">7.24</a>)</li>
+<li>base, dev: iputils (<a href="https://github.com/iputils/iputils/releases/tag/20250605">20250605-r1</a> (includes (<a href="https://github.com/iputils/iputils/releases/tag/20250605">20250605</a>, <a href="https://github.com/iputils/iputils/releases/tag/20250602">20250602</a>)))</li>
+<li>base, dev: jansson (<a href="https://jansson.readthedocs.io/en/latest/changes.html#version-2-14-1">2.14.1</a>)</li>
+<li>base, dev: jq (<a href="https://github.com/jqlang/jq/releases/tag/jq-1.8.1">1.8.1</a> (includes <a href="https://github.com/jqlang/jq/releases/tag/jq-1.8.0">1.8.0</a>))</li>
+<li>base, dev: kexec-tools (<a href="https://github.com/horms/kexec-tools/commits/v2.0.31/">2.0.31</a>)</li>
+<li>base, dev: libarchive (<a href="https://github.com/libarchive/libarchive/releases/tag/v3.8.1">3.8.1</a> (includes <a href="https://github.com/libarchive/libarchive/releases/tag/v3.8.0">3.8.0</a>))</li>
+<li>base, dev: libcap (<a href="https://sites.google.com/site/fullycapable/release-notes-for-libcap#h.wqnp1zp1o8bm">2.76</a> (includes <a href="https://sites.google.com/site/fullycapable/release-notes-for-libcap#h.7xqcoecpcnn8">2.75</a>, <a href="https://sites.google.com/site/fullycapable/release-notes-for-libcap#h.ccbrq82zh7n9">2.74</a>, <a href="https://sites.google.com/site/fullycapable/release-notes-for-libcap#h.7yd7ab9ppagk">2.73</a>, <a href="https://sites.google.com/site/fullycapable/release-notes-for-libcap#h.ulglddlojmy0">2.72</a>))</li>
+<li>base, dev: libffi (<a href="https://github.com/libffi/libffi/releases/tag/v3.5.1">3.5.1</a> (includes <a href="https://github.com/libffi/libffi/releases/tag/v3.4.8">3.4.8</a>, <a href="https://github.com/libffi/libffi/releases/tag/v3.4.7">3.4.7</a>))</li>
+<li>base, dev: libgcrypt (<a href="https://git.gnupg.org/cgi-bin/gitweb.cgi?p=libgcrypt.git;a=blob;f=NEWS;h=84bc61a49f3a09302b3438cb529baf67576ad859;hb=81ce5321b1b79bde6dfdc3c164efb40c13cf656b">1.11.1</a>)</li>
+<li>base, dev: libgpg-error (<a href="https://github.com/gpg/libgpg-error/releases/tag/libgpg-error-1.55">1.55</a> (includes (<a href="https://git.gnupg.org/cgi-bin/gitweb.cgi?p=libgpg-error.git;a=blob;f=NEWS;h=66b2256de2f59c38b9cd35fb4a1b1971a6c9f3f1;hb=f9e98ed8315eaf0468870149d22c5dcf992288ec">1.53</a>, <a href="https://git.gnupg.org/cgi-bin/gitweb.cgi?p=libgpg-error.git;a=blob;f=NEWS;h=4f6a114d81fb5b2f73bb65a1f1cc3c21fe64fa0c;hb=be471d158e4951f4b17335b0fc9ae2387a786b5b">1.52</a>)))</li>
+<li>base, dev: libnftnl (<a href="https://lwn.net/Articles/1017463/">1.2.9</a>)</li>
+<li>base, dev: libselinux (<a href="https://github.com/SELinuxProject/selinux/releases/tag/3.8.1">3.8.1</a> (includes <a href="https://github.com/SELinuxProject/selinux/releases/tag/3.8">3.8</a>))</li>
+<li>base, dev: libsepol (<a href="https://github.com/SELinuxProject/selinux/releases/tag/3.8.1">3.8.1</a> (includes <a href="https://github.com/SELinuxProject/selinux/releases/tag/3.8">3.8</a>))</li>
+<li>base, dev: libunistring (<a href="https://lists.gnu.org/archive/html/info-gnu/2024-10/msg00000.html">1.3</a>)</li>
+<li>base, dev: libunwind (<a href="https://github.com/libunwind/libunwind/releases/tag/v1.8.2">1.8.2</a>)</li>
+<li>base, dev: liburing (<a href="https://github.com/axboe/liburing/releases/tag/liburing-2.9">2.9</a> (includes <a href="https://github.com/axboe/liburing/releases/tag/liburing-2.8">2.8</a>))</li>
+<li>base, dev: libusb (<a href="https://github.com/libusb/libusb/blob/v1.0.28/ChangeLog">1.0.28</a>)</li>
+<li>base, dev: libuv (<a href="https://github.com/libuv/libuv/releases/tag/v1.51.0">1.51.0</a>)</li>
+<li>base, dev: libxml2 (<a href="https://gitlab.gnome.org/GNOME/libxml2/-/tags/v2.14.5">2.14.5</a> (includes <a href="https://gitlab.gnome.org/GNOME/libxml2/-/releases/v2.13.8">2.13.8</a>))</li>
+<li>base, dev: nvidia-drivers-service (amd64) (<a href="https://docs.nvidia.com/datacenter/tesla/tesla-release-notes-535-247-01/index.html">535.247.01</a>)</li>
+<li>base, dev: nvidia-drivers-service (arm64) (<a href="https://www.nvidia.com/en-us/drivers/details/247720/">570.169</a> (includes 570.153.02, <a href="https://docs.nvidia.com/datacenter/tesla/tesla-release-notes-570-148-08/index.html">570.148.08</a>, <a href="https://docs.nvidia.com/datacenter/tesla/tesla-release-notes-570-133-20/index.html">570.133.20</a>, <a href="https://docs.nvidia.com/datacenter/tesla/tesla-release-notes-570-124-06/index.html">570.124.06</a>))</li>
+<li>base, dev: openssh (<a href="https://www.openssh.com/releasenotes.html#10.0p1">10.0_p1</a>)</li>
+<li>base, dev: openssl (<a href="https://github.com/openssl/openssl/releases/tag/openssl-3.4.1">3.4.1</a> (includes <a href="https://github.com/openssl/openssl/blob/openssl-3.4.0/NEWS.md#openssl-34">3.4.0</a>))</li>
+<li>base, dev: quota (<a href="https://sourceforge.net/p/linuxquota/news/2025/04/quota-tools-410-released/">4.10</a>)</li>
+<li>base, dev: semodule-utils (<a href="https://github.com/SELinuxProject/selinux/releases/tag/3.8.1">3.8.1</a> (includes <a href="https://github.com/SELinuxProject/selinux/releases/tag/3.8">3.8</a>))</li>
+<li>base, dev: sqlite (<a href="https://sqlite.org/releaselog/3_50_2.html">3.50.2</a> (includes <a href="https://sqlite.org/releaselog/3_49_2.html">3.49.2</a>))</li>
+<li>base, dev: sssd (<a href="https://sssd.io/release-notes/sssd-2.9.7.html">2.9.7</a>)</li>
+<li>base, dev: userspace-rcu (<a href="https://lkml.org/lkml/2025/5/14/1580">0.15.3</a> (includes <a href="https://lwn.net/Articles/1017443/">0.15.2</a>))</li>
+<li>base, dev: vim (<a href="https://github.com/vim/vim/commits/v9.1.1436/">9.1.1436</a>)</li>
+<li>base, dev: xz-utils (<a href="https://github.com/tukaani-project/xz/releases/tag/v5.8.1">5.8.1</a> (includes <a href="https://github.com/tukaani-project/xz/releases/tag/v5.8.0">5.8.0</a>))</li>
+<li>btrfs-progs (<a href="https://github.com/kdave/btrfs-progs/releases/tag/v6.14">6.14</a>)</li>
+<li>ca-certificates (<a href="https://firefox-source-docs.mozilla.org/security/nss/releases/nss_3_114.html">3.114</a> (includes <a href="https://firefox-source-docs.mozilla.org/security/nss/releases/nss_3_113_1.html">3.113.1</a>,<a href="https://firefox-source-docs.mozilla.org/security/nss/releases/nss_3_113.html">3.113</a>))</li>
+<li>chrony (<a href="https://listengine.tuxfamily.org/chrony.tuxfamily.org/chrony-announce/2025/06/msg00000.html">4.7</a>)</li>
+<li>curl (<a href="https://curl.se/ch/8.14.1.html">8.14.1</a>)</li>
+<li>dbus-glib (<a href="https://gitlab.freedesktop.org/dbus/dbus-glib/-/blob/master/NEWS?ref_type=heads#L8">0.114</a>)</li>
+<li>dev, sysext-incus: squashfs-tools (<a href="https://lkml.org/lkml/2025/6/3/1214">4.7</a>)</li>
+<li>dev: file (<a href="https://github.com/file/file/blob/FILE5_46/ChangeLog">5.46</a>)</li>
+<li>dev: man-db (<a href="https://gitlab.com/man-db/man-db/-/releases/2.13.1">2.13.1</a>)</li>
+<li>dev: pahole (<a href="https://git.kernel.org/pub/scm/devel/pahole/pahole.git/tag/?h=v1.30">1.30</a>)</li>
+<li>dev: portage (<a href="https://gitweb.gentoo.org/proj/portage.git/tree/NEWS?h=portage-3.0.68">3.0.68</a>)</li>
+<li>dev: sandbox (<a href="https://gitweb.gentoo.org/proj/sandbox.git/log/?h=v2.46">2.46</a>)</li>
+<li>dev: smartmontools (<a href="https://github.com/smartmontools/smartmontools/releases/tag/RELEASE_7_5">7.5</a>)</li>
+<li>ethtool (<a href="https://git.kernel.org/pub/scm/network/ethtool/ethtool.git/commit/?id=fba608c5a8ac943ebff046f387ade9dd364eb5a7">6.14</a>)</li>
+<li>fuse-overlayfs (<a href="https://github.com/containers/fuse-overlayfs/releases/tag/v1.15">1.15</a>)</li>
+<li>git (<a href="https://raw.githubusercontent.com/git/git/master/Documentation/RelNotes/2.49.1.adoc">2.49.1</a>)</li>
+<li>iproute2 (<a href="https://git.kernel.org/pub/scm/network/iproute2/iproute2.git/commit/?id=401816cc9c7cde7b666d4befb06a10d6359c9688">6.15.0</a>)</li>
+<li>kbd (<a href="https://lore.kernel.org/kbd/aDmDTB_oRNU8UsWy@example.org/T/#u">2.8.0</a>)</li>
+<li>less (<a href="https://greenwoodsoftware.com/less/news.679.html">679</a>)</li>
+<li>libnvme (<a href="https://github.com/linux-nvme/libnvme/releases/tag/v1.14">1.14</a>)</li>
+<li>ncurses (<a href="https://invisible-island.net/ncurses/announce.html">6.5_p20250329</a>)</li>
+<li>nftables (<a href="https://www.netfilter.org/projects/nftables/files/changes-nftables-1.1.3.txt">1.1.3</a>)</li>
+<li>nvme-cli (<a href="https://github.com/linux-nvme/nvme-cli/releases/tag/v2.14">2.14</a>)</li>
+<li>procps (<a href="https://gitlab.com/procps-ng/procps/-/blob/master/NEWS?ref_type=heads#L30">4.0.5</a>)</li>
+<li>sysext-python: ensurepip-pip (<a href="https://pip.pypa.io/en/stable/news/#v25-1-1">25.1.1</a>)</li>
+<li>sysext-python: jaraco-collections (<a href="https://github.com/jaraco/jaraco.collections/releases/tag/v5.2.1">5.2.1</a>)</li>
+<li>sysext-python: jaraco-functools (<a href="https://github.com/jaraco/jaraco.functools/releases/tag/v4.2.1">4.2.1</a>)</li>
+<li>sysext-python: pygments (<a href="https://pygments.org/docs/changelog/#version-2-19-2">2.19.2</a>)</li>
+<li>sysext-python: resolvelib (<a href="https://github.com/sarugaku/resolvelib/blob/main/CHANGELOG.rst#120-2025-06-26">1.2.0</a>)</li>
+<li>samba (<a href="https://www.samba.org/samba/history/samba-4.20.8.html">4.20.8</a>)</li>
+<li>strace (<a href="https://github.com/strace/strace/releases/tag/v6.15">6.15</a>)</li>
+<li>sysext-containerd: containerd (<a href="https://github.com/containerd/containerd/releases/tag/v2.0.5">2.0.5</a>)</li>
+<li>sysext-containerd: runc (<a href="https://github.com/opencontainers/runc/releases/tag/v1.2.6">1.2.6</a>)</li>
+<li>sysext-docker: docker (<a href="https://github.com/moby/moby/releases/tag/v28.0.4">28.0.4</a> (includes <a href="https://github.com/moby/moby/releases/tag/v28.0.3">28.0.3</a>, <a href="https://github.com/moby/moby/releases/tag/v28.0.2">28.0.2</a>))</li>
+<li>sysext-incus: cowsql (<a href="https://github.com/cowsql/cowsql/commits/v1.15.8/">1.15.8</a>)</li>
+<li>sysext-incus: incus (<a href="https://discuss.linuxcontainers.org/t/incus-6-0-4-lts-has-been-released/23391">6.0.4</a>)</li>
+<li>sysext-incus: lxc (<a href="https://discuss.linuxcontainers.org/t/lxc-6-0-4-lts-has-been-released/23390">6.0.4</a>)</li>
+<li>sysext-incus: lxcfs (<a href="https://discuss.linuxcontainers.org/t/lxcfs-6-0-4-lts-has-been-released/23389">6.0.4</a>)</li>
+<li>sysext-podman: containers-common (<a href="https://github.com/containers/common/releases/tag/v0.63.0">0.63.0</a>)</li>
+<li>sysext-podman: gpgme (<a href="https://dev.gnupg.org/T7659">1.24.3</a>)</li>
+<li>sysext-podman: passt ((<a href="https://passt.top/passt/commit/?id=0293c6f4a316baa561a9b43388906707f8cf7e81">2025.6.11</a> (includes <a href="https://archives.passt.top/passt-user/20250415233140.35074c4b@elisabeth/T/#u">2025.04.15</a>)))</li>
+<li>sysext-podman: podman (<a href="https://github.com/containers/podman/releases/tag/v5.5.2">5.5.2</a>)</li>
+<li>sysext-python: cachecontrol (<a href="https://github.com/psf/cachecontrol/releases/tag/v0.14.3">0.14.3</a> (includes <a href="https://github.com/psf/cachecontrol/releases/tag/v0.14.2">0.14.2</a>))</li>
+<li>sysext-python: charset-normalizer (<a href="https://github.com/jawah/charset_normalizer/releases/tag/3.4.2">3.4.2</a>)</li>
+<li>sysext-python: more-itertools (<a href="https://github.com/more-itertools/more-itertools/blob/v10.7.0/docs/versions.rst">10.7.0</a>)</li>
+<li>sysext-python: msgpack (<a href="https://github.com/msgpack/msgpack-python/releases/tag/v1.1.1">1.1.1</a>)</li>
+<li>sysext-python: packaging (<a href="https://github.com/pypa/packaging/releases/tag/25.0">25.0</a>)</li>
+<li>sysext-python: pip (<a href="https://github.com/pypa/pip/blob/25.1.1/NEWS.rst">25.1.1</a> (includes <a href="https://github.com/pypa/pip/blob/25.1/NEWS.rst">25.1</a>))</li>
+<li>sysext-python: platformdirs (<a href="https://github.com/tox-dev/platformdirs/releases/tag/4.3.8">4.3.8</a>)</li>
+<li>sysext-python: requests (<a href="https://github.com/psf/requests/releases/tag/v2.32.4">2.32.4</a> (includes <a href="https://github.com/psf/requests/releases/tag/v2.32.3">2.32.3</a>))</li>
+<li>sysext-python: setuptools (<a href="https://github.com/pypa/setuptools/releases/tag/v80.9.0">80.9.0</a> (includes <a href="https://github.com/pypa/setuptools/releases/tag/v80.8.0">80.8.0</a>, <a href="https://github.com/pypa/setuptools/releases/tag/v80.7.0">80.7.0</a>, <a href="https://github.com/pypa/setuptools/releases/tag/v80.6.0">80.6.0</a>, <a href="https://github.com/pypa/setuptools/releases/tag/v80.4.0">80.4.0</a>, <a href="https://github.com/pypa/setuptools/releases/tag/v80.3.0">80.3.0</a>, <a href="https://github.com/pypa/setuptools/releases/tag/v80.2.0">80.2.0</a>, <a href="https://github.com/pypa/setuptools/releases/tag/v80.1.0">80.1.0</a>, <a href="https://github.com/pypa/setuptools/releases/tag/v80.0.0">80.0.0</a>, <a href="https://github.com/pypa/setuptools/releases/tag/v79.0.0">79.0.0</a>))</li>
+<li>sysext-python: setuptools-scm (<a href="https://github.com/pypa/setuptools-scm/releases/tag/v8.3.1">8.3.1</a> (includes <a href="https://github.com/pypa/setuptools-scm/releases/tag/v8.3.0">8.3.0</a>))</li>
+<li>sysext-python: trove-classifiers (<a href="https://github.com/pypa/trove-classifiers/releases/tag/2025.5.9.12">2025.5.9.12</a> (includes <a href="https://github.com/pypa/trove-classifiers/releases/tag/2025.5.8.15">2025.5.8.15</a>, <a href="https://github.com/pypa/trove-classifiers/releases/tag/2025.5.8.13">2025.5.8.13</a>, <a href="https://github.com/pypa/trove-classifiers/releases/tag/2025.5.7.19">2025.5.7.19</a>, <a href="https://github.com/pypa/trove-classifiers/releases/tag/2025.5.1.12">2025.5.1.12</a>, <a href="https://github.com/pypa/trove-classifiers/releases/tag/2025.4.28.22">2025.4.28.22</a>))</li>
+<li>sysext-python: typing-extensions (<a href="https://github.com/python/typing_extensions/releases/tag/4.14.1">4.14.1</a> (includes <a href="https://github.com/python/typing_extensions/releases/tag/4.14.0">4.14.0</a>))</li>
+<li>sysext-python: urllib3 (<a href="https://github.com/urllib3/urllib3/releases/tag/2.5.0">2.5.0</a>)</li>
+<li>sysext-zfs: zfs (<a href="https://github.com/openzfs/zfs/releases/tag/zfs-2.3.3">2.3.3</a> (includes <a href="https://github.com/openzfs/zfs/releases/tag/zfs-2.3.2">2.3.2</a>))</li>
+<li>util-linux (<a href="https://github.com/util-linux/util-linux/blob/master/Documentation/releases/v2.41-ReleaseNotes">2.41.1</a>)</li>
+<li>vmware: open-vm-tools (<a href="https://github.com/vmware/open-vm-tools/releases/tag/stable-13.0.0">13.0.0</a>)</li>
+<li>xfsprogs (<a href="https://lkml.org/lkml/2025/4/14/1443">6.14.0</a>)</li>
+</ul>
+<h4>Packages:</h4>
+<ul>
+<li>containerd 2.0.5</li>
+<li>docker 28.0.4</li>
+<li>ignition 2.21.0</li>
+<li>kernel 6.12.41</li>
+<li>systemd 256</li>
+</ul>
+<h4>Architectures:</h4>
+<ul>
+<li>amd64</li>
+<li>arm64</li>
+</ul>
+]]></content>
+    <link href="https://www.flatcar.org/releases/#release-4426.0.0"/>
+    <published>2025-08-19T13:08:52+00:00</published>
+  </entry>
+  <entry>
     <id>https://github.com/flatcar/scripts/releases/tag/alpha-4372.0.1</id>
     <title>4372.0.1</title>
-    <updated>2025-07-08T15:55:00.345803+00:00</updated>
+    <updated>2025-08-20T07:43:42.718367+00:00</updated>
     <content type="html"><![CDATA[<p><em>Changes since <strong>Alpha 4372.0.0</strong></em></p>
 <h4>Security fixes:</h4>
 <ul>
@@ -52,7 +223,7 @@
   <entry>
     <id>https://github.com/flatcar/scripts/releases/tag/alpha-4372.0.0</id>
     <title>4372.0.0</title>
-    <updated>2025-07-08T15:55:00.322311+00:00</updated>
+    <updated>2025-08-20T07:43:42.709232+00:00</updated>
     <content type="html"><![CDATA[<p><em>Changes since <strong>Alpha 4344.0.0</strong></em></p>
 <h4>Security fixes:</h4>
 <ul>
@@ -94,7 +265,7 @@
   <entry>
     <id>https://github.com/flatcar/scripts/releases/tag/alpha-4344.0.0</id>
     <title>4344.0.0</title>
-    <updated>2025-07-08T15:55:00.230940+00:00</updated>
+    <updated>2025-08-20T07:43:42.677721+00:00</updated>
     <content type="html"><![CDATA[<p><em>Changes since <strong>Alpha 4284.0.0</strong></em></p>
 <h4>Breaking changes</h4>
 <ul>
@@ -270,7 +441,7 @@
   <entry>
     <id>https://github.com/flatcar/scripts/releases/tag/alpha-4284.0.0</id>
     <title>4284.0.0</title>
-    <updated>2025-07-08T15:55:00.120770+00:00</updated>
+    <updated>2025-08-20T07:43:42.643453+00:00</updated>
     <content type="html"><![CDATA[<p><em>Changes since <strong>Alpha 4230.0.1</strong></em></p>
 <h4>Security fixes:</h4>
 <ul>
@@ -385,7 +556,7 @@
   <entry>
     <id>https://github.com/flatcar/scripts/releases/tag/alpha-4230.0.1</id>
     <title>4230.0.1</title>
-    <updated>2025-07-08T15:55:00.092658+00:00</updated>
+    <updated>2025-08-20T07:43:42.631601+00:00</updated>
     <content type="html"><![CDATA[<p><em>Changes since <strong>Alpha 4230.0.0</strong></em></p>
 <h4>Security fixes:</h4>
 <ul>
@@ -415,7 +586,7 @@
   <entry>
     <id>https://github.com/flatcar/scripts/releases/tag/alpha-4230.0.0</id>
     <title>4230.0.0</title>
-    <updated>2025-07-08T15:55:00.023763+00:00</updated>
+    <updated>2025-08-20T07:43:42.608652+00:00</updated>
     <content type="html"><![CDATA[<p><em>Changes since <strong>Alpha 4186.0.0</strong></em></p>
 <h4>Security fixes:</h4>
 <ul>
@@ -496,7 +667,7 @@ github.com/docker/buildx/releases/tag/v0.13.0), <a href="https://github.com/dock
   <entry>
     <id>https://github.com/flatcar/scripts/releases/tag/alpha-4186.0.0</id>
     <title>4186.0.0</title>
-    <updated>2025-07-08T15:54:59.956132+00:00</updated>
+    <updated>2025-08-20T07:43:42.584659+00:00</updated>
     <content type="html"><![CDATA[<p><em>Changes since <strong>Alpha 4152.0.0</strong></em></p>
 <h4>Security fixes:</h4>
 <ul>
@@ -595,7 +766,7 @@ github.com/docker/buildx/releases/tag/v0.13.0), <a href="https://github.com/dock
   <entry>
     <id>https://github.com/flatcar/scripts/releases/tag/alpha-4152.0.0</id>
     <title>4152.0.0</title>
-    <updated>2025-07-08T15:54:59.845021+00:00</updated>
+    <updated>2025-08-20T07:43:42.546362+00:00</updated>
     <content type="html"><![CDATA[<p><em>Changes since <strong>Alpha 4116.0.0</strong></em></p>
 <h4>Security fixes:</h4>
 <ul>
@@ -718,7 +889,7 @@ github.com/docker/buildx/releases/tag/v0.13.0), <a href="https://github.com/dock
   <entry>
     <id>https://github.com/flatcar/scripts/releases/tag/alpha-4116.0.0</id>
     <title>4116.0.0</title>
-    <updated>2025-07-08T15:54:59.762667+00:00</updated>
+    <updated>2025-08-20T07:43:42.515935+00:00</updated>
     <content type="html"><![CDATA[<p><em>Changes since <strong>Alpha 4081.0.0</strong></em></p>
 <h4>Security fixes:</h4>
 <ul>
@@ -800,7 +971,7 @@ github.com/docker/buildx/releases/tag/v0.13.0), <a href="https://github.com/dock
   <entry>
     <id>https://github.com/flatcar/scripts/releases/tag/alpha-4081.0.0</id>
     <title>4081.0.0</title>
-    <updated>2025-07-08T15:54:59.711179+00:00</updated>
+    <updated>2025-08-20T07:43:42.494231+00:00</updated>
     <content type="html"><![CDATA[<p><em>Changes since <strong>Alpha 4054.0.0</strong></em></p>
 <h4>Security fixes:</h4>
 <ul>
@@ -870,7 +1041,7 @@ github.com/docker/buildx/releases/tag/v0.13.0), <a href="https://github.com/dock
   <entry>
     <id>https://github.com/flatcar/scripts/releases/tag/alpha-4054.0.0</id>
     <title>4054.0.0</title>
-    <updated>2025-07-08T15:54:59.632032+00:00</updated>
+    <updated>2025-08-20T07:43:42.462862+00:00</updated>
     <content type="html"><![CDATA[<p><em>Changes since <strong>Alpha 4012.0.1</strong></em></p>
 <h5>Security fixes:</h5>
 <ul>
@@ -1000,7 +1171,7 @@ github.com/docker/buildx/releases/tag/v0.13.0), <a href="https://github.com/dock
   <entry>
     <id>https://github.com/flatcar/scripts/releases/tag/alpha-4012.0.1</id>
     <title>4012.0.1</title>
-    <updated>2025-07-08T15:54:59.598688+00:00</updated>
+    <updated>2025-08-20T07:43:42.449562+00:00</updated>
     <content type="html"><![CDATA[<p><em>Changes since <strong>Alpha 4012.0.0</strong></em></p>
 <h4>Security fixes:</h4>
 <ul>
@@ -1031,7 +1202,7 @@ github.com/docker/buildx/releases/tag/v0.13.0), <a href="https://github.com/dock
   <entry>
     <id>https://github.com/flatcar/scripts/releases/tag/alpha-4012.0.0</id>
     <title>4012.0.0</title>
-    <updated>2025-07-08T15:54:59.587040+00:00</updated>
+    <updated>2025-08-20T07:43:42.444525+00:00</updated>
     <content type="html"><![CDATA[<p><em>Changes since <strong>Alpha 3975.0.0</strong></em></p>
 <h4>Bug fixes:</h4>
 <ul>
@@ -1075,7 +1246,7 @@ github.com/docker/buildx/releases/tag/v0.13.0), <a href="https://github.com/dock
   <entry>
     <id>https://github.com/flatcar/scripts/releases/tag/alpha-3975.0.0</id>
     <title>3975.0.0</title>
-    <updated>2025-07-08T15:54:59.561712+00:00</updated>
+    <updated>2025-08-20T07:43:42.435224+00:00</updated>
     <content type="html"><![CDATA[<p><em>Changes since <strong>Alpha 3941.0.0</strong></em></p>
 <h4>Security fixes:</h4>
 <ul>
@@ -1130,7 +1301,7 @@ github.com/docker/buildx/releases/tag/v0.13.0), <a href="https://github.com/dock
   <entry>
     <id>https://github.com/flatcar/scripts/releases/tag/alpha-3941.0.0</id>
     <title>3941.0.0</title>
-    <updated>2025-07-08T15:54:59.529574+00:00</updated>
+    <updated>2025-08-20T07:43:42.424391+00:00</updated>
     <content type="html"><![CDATA[<p><em>Changes since <strong>Alpha 3913.0.0</strong></em></p>
 <h4>Security fixes:</h4>
 <ul>
@@ -1211,7 +1382,7 @@ github.com/docker/buildx/releases/tag/v0.13.0), <a href="https://github.com/dock
   <entry>
     <id>https://github.com/flatcar/scripts/releases/tag/alpha-3913.0.0</id>
     <title>3913.0.0</title>
-    <updated>2025-07-08T15:54:59.475938+00:00</updated>
+    <updated>2025-08-20T07:43:42.408607+00:00</updated>
     <content type="html"><![CDATA[<p><em>Changes since <strong>Alpha 3874.0.0</strong></em></p>
 <h4>Security fixes:</h4>
 <ul>
@@ -1319,7 +1490,7 @@ github.com/docker/buildx/releases/tag/v0.13.0), <a href="https://github.com/dock
   <entry>
     <id>https://github.com/flatcar/scripts/releases/tag/alpha-3874.0.0</id>
     <title>3874.0.0</title>
-    <updated>2025-07-08T15:54:59.447001+00:00</updated>
+    <updated>2025-08-20T07:43:42.397812+00:00</updated>
     <content type="html"><![CDATA[<p><em>Changes since <strong>Alpha 3850.0.0</strong></em></p>
 <h4>Security fixes:</h4>
 <ul>
@@ -1372,7 +1543,7 @@ github.com/docker/buildx/releases/tag/v0.13.0), <a href="https://github.com/dock
   <entry>
     <id>https://github.com/flatcar/scripts/releases/tag/alpha-3850.0.0</id>
     <title>3850.0.0</title>
-    <updated>2025-07-08T15:54:59.369380+00:00</updated>
+    <updated>2025-08-20T07:43:42.374497+00:00</updated>
     <content type="html"><![CDATA[<p><em>Changes since <strong>Alpha 3815.0.0</strong></em></p>
 <h4>Security fixes:</h4>
 <ul>
@@ -1477,7 +1648,7 @@ github.com/docker/buildx/releases/tag/v0.13.0), <a href="https://github.com/dock
   <entry>
     <id>https://github.com/flatcar/scripts/releases/tag/alpha-3815.0.0</id>
     <title>3815.0.0</title>
-    <updated>2025-07-08T15:54:59.319596+00:00</updated>
+    <updated>2025-08-20T07:43:42.360736+00:00</updated>
     <content type="html"><![CDATA[<p><em>Changes since <strong>Alpha 3794.0.0</strong></em></p>
 <h4>Security fixes:</h4>
 <ul>
@@ -1534,7 +1705,7 @@ github.com/docker/buildx/releases/tag/v0.13.0), <a href="https://github.com/dock
   <entry>
     <id>https://github.com/flatcar/scripts/releases/tag/alpha-3794.0.0</id>
     <title>3794.0.0</title>
-    <updated>2025-07-08T15:54:59.284608+00:00</updated>
+    <updated>2025-08-20T07:43:42.348973+00:00</updated>
     <content type="html"><![CDATA[<p><strong>This release removes the legacy &quot;torcx&quot; image customisation and replaces this feature with systemd-sysext. Torcx enabled users to deploy custom docker versions; however, it required special packaging using the Flatcar SDK.</strong> Please refer to the &quot;Changes&quot; section below for details.</p>
 <p><strong>This release ships a major Docker update: Docker was upgraded to version 24 (from version 20 in the previous release). Please see the &quot;Changes&quot; section below for details.</strong></p>
 <p><em>Changes since <strong>Alpha 3760.0.0</strong></em></p>
@@ -1637,7 +1808,7 @@ Using the btrfs driver can still be enforced by creating a respective <a href="h
   <entry>
     <id>https://github.com/flatcar/scripts/releases/tag/alpha-3760.0.0</id>
     <title>3760.0.0</title>
-    <updated>2025-07-08T15:54:59.255079+00:00</updated>
+    <updated>2025-08-20T07:43:42.338743+00:00</updated>
     <content type="html"><![CDATA[<p><em>Changes since <strong>Alpha 3745.0.0</strong></em></p>
 <h4>Security fixes:</h4>
 <ul>
@@ -1693,7 +1864,7 @@ Using the btrfs driver can still be enforced by creating a respective <a href="h
   <entry>
     <id>https://github.com/flatcar/scripts/releases/tag/alpha-3745.0.0</id>
     <title>3745.0.0</title>
-    <updated>2025-07-08T15:54:59.226786+00:00</updated>
+    <updated>2025-08-20T07:43:42.329895+00:00</updated>
     <content type="html"><![CDATA[<p><em>Changes since <strong>Alpha 3732.0.0</strong></em></p>
 <h4>Security fixes:</h4>
 <ul>
@@ -1767,7 +1938,7 @@ Using the btrfs driver can still be enforced by creating a respective <a href="h
   <entry>
     <id>https://github.com/flatcar/scripts/releases/tag/alpha-3732.0.0</id>
     <title>3732.0.0</title>
-    <updated>2025-07-08T15:54:59.201631+00:00</updated>
+    <updated>2025-08-20T07:43:42.320238+00:00</updated>
     <content type="html"><![CDATA[<p><em>Changes since <strong>Alpha 3717.0.0</strong></em></p>
 <h4>Known issues:</h4>
 <ul>
@@ -1840,7 +2011,7 @@ Using the btrfs driver can still be enforced by creating a respective <a href="h
   <entry>
     <id>https://github.com/flatcar/scripts/releases/tag/alpha-3717.0.0</id>
     <title>3717.0.0</title>
-    <updated>2025-07-08T15:54:59.162453+00:00</updated>
+    <updated>2025-08-20T07:43:42.308144+00:00</updated>
     <content type="html"><![CDATA[<p><em>Changes since <strong>Alpha 3689.0.0</strong></em></p>
 <h4>Security fixes:</h4>
 <ul>
@@ -1912,7 +2083,7 @@ Using the btrfs driver can still be enforced by creating a respective <a href="h
   <entry>
     <id>https://github.com/flatcar/scripts/releases/tag/alpha-3689.0.0</id>
     <title>3689.0.0</title>
-    <updated>2025-07-08T15:54:59.135765+00:00</updated>
+    <updated>2025-08-20T07:43:42.299038+00:00</updated>
     <content type="html"><![CDATA[<p><em>Changes since <strong>Alpha 3665.0.0</strong></em></p>
 <h4>Security fixes:</h4>
 <ul>
@@ -1960,7 +2131,7 @@ Using the btrfs driver can still be enforced by creating a respective <a href="h
   <entry>
     <id>https://github.com/flatcar/scripts/releases/tag/alpha-3665.0.0</id>
     <title>3665.0.0</title>
-    <updated>2025-07-08T15:54:59.106055+00:00</updated>
+    <updated>2025-08-20T07:43:42.291598+00:00</updated>
     <content type="html"><![CDATA[<p><em>Changes since <strong>Alpha 3654.0.0</strong></em></p>
 <h4>Security fixes:</h4>
 <ul>
@@ -2015,7 +2186,7 @@ Using the btrfs driver can still be enforced by creating a respective <a href="h
   <entry>
     <id>https://github.com/flatcar/scripts/releases/tag/alpha-3654.0.0</id>
     <title>3654.0.0</title>
-    <updated>2025-07-08T15:54:59.078734+00:00</updated>
+    <updated>2025-08-20T07:43:42.282951+00:00</updated>
     <content type="html"><![CDATA[<p><em>Changes since <strong>Alpha 3637.0.0</strong></em></p>
 <h4>Security fixes:</h4>
 <ul>
@@ -2087,7 +2258,7 @@ Using the btrfs driver can still be enforced by creating a respective <a href="h
   <entry>
     <id>https://github.com/flatcar/scripts/releases/tag/alpha-3637.0.0</id>
     <title>3637.0.0</title>
-    <updated>2025-07-08T15:54:59.044911+00:00</updated>
+    <updated>2025-08-20T07:43:42.273331+00:00</updated>
     <content type="html"><![CDATA[<p><em>Changes since <strong>Alpha 3619.0.0</strong></em></p>
 <h4>Security fixes:</h4>
 <ul>
@@ -2160,7 +2331,7 @@ Using the btrfs driver can still be enforced by creating a respective <a href="h
   <entry>
     <id>https://github.com/flatcar/scripts/releases/tag/alpha-3619.0.0</id>
     <title>3619.0.0</title>
-    <updated>2025-07-08T15:54:58.936673+00:00</updated>
+    <updated>2025-08-20T07:43:42.240104+00:00</updated>
     <content type="html"><![CDATA[<p><em>NOTE</em>: this release has an issue with Equinix Metal arm64. Specific instances like c3.large.arm64 (Ampere Altra systems) do not boot with Kernel 6.1, due to soft lockup. In case of the systems, please stay with the previous version 3602.0.0 with Kernel 5.15. No other cloud provider is affected by the issue. The amd64 systems are also not affected.</p>
 <p><em>Changes since <strong>Alpha 3602.0.0</strong></em></p>
 <h4>Security fixes:</h4>
@@ -2219,7 +2390,7 @@ Using the btrfs driver can still be enforced by creating a respective <a href="h
   <entry>
     <id>https://github.com/flatcar/scripts/releases/tag/alpha-3602.0.0</id>
     <title>3602.0.0</title>
-    <updated>2025-07-08T15:54:58.877053+00:00</updated>
+    <updated>2025-08-20T07:43:42.223747+00:00</updated>
     <content type="html"><![CDATA[<p><em>Changes since <strong>Alpha 3572.0.1</strong></em></p>
 <h4>Security fixes:</h4>
 <ul>
@@ -2285,7 +2456,7 @@ Using the btrfs driver can still be enforced by creating a respective <a href="h
   <entry>
     <id>https://github.com/flatcar/scripts/releases/tag/alpha-3572.0.1</id>
     <title>3572.0.1</title>
-    <updated>2025-07-08T15:54:58.848810+00:00</updated>
+    <updated>2025-08-20T07:43:42.216601+00:00</updated>
     <content type="html"><![CDATA[<p><em>Changes since <strong>Alpha 3572.0.0</strong></em></p>
 <h4>Security fixes:</h4>
 <ul>
@@ -2324,7 +2495,7 @@ Using the btrfs driver can still be enforced by creating a respective <a href="h
   <entry>
     <id>https://github.com/flatcar/scripts/releases/tag/alpha-3572.0.0</id>
     <title>3572.0.0</title>
-    <updated>2025-07-08T15:54:58.826133+00:00</updated>
+    <updated>2025-08-20T07:43:42.208819+00:00</updated>
     <content type="html"><![CDATA[<p><em>Changes since <strong>Alpha 3549.0.0</strong></em></p>
 <h4>Security fixes:</h4>
 <ul>
@@ -2378,7 +2549,7 @@ Using the btrfs driver can still be enforced by creating a respective <a href="h
   <entry>
     <id>https://github.com/flatcar/scripts/releases/tag/alpha-3549.0.0</id>
     <title>3549.0.0</title>
-    <updated>2025-07-08T15:54:58.783925+00:00</updated>
+    <updated>2025-08-20T07:43:42.200342+00:00</updated>
     <content type="html"><![CDATA[<p><em>Changes since <strong>Alpha 3535.0.0</strong></em></p>
 <h4>Security fixes:</h4>
 <ul>
@@ -2444,7 +2615,7 @@ Using the btrfs driver can still be enforced by creating a respective <a href="h
   <entry>
     <id>https://github.com/flatcar/scripts/releases/tag/alpha-3535.0.0</id>
     <title>3535.0.0</title>
-    <updated>2025-07-08T15:54:58.722589+00:00</updated>
+    <updated>2025-08-20T07:43:42.190203+00:00</updated>
     <content type="html"><![CDATA[<p><em>Changes since <strong>Alpha 3510.0.0</strong></em></p>
 <h4>Security fixes:</h4>
 <ul>
@@ -2512,7 +2683,7 @@ Using the btrfs driver can still be enforced by creating a respective <a href="h
   <entry>
     <id>https://github.com/flatcar/scripts/releases/tag/alpha-3510.0.0</id>
     <title>3510.0.0</title>
-    <updated>2025-07-08T15:54:58.673926+00:00</updated>
+    <updated>2025-08-20T07:43:42.181507+00:00</updated>
     <content type="html"><![CDATA[<p><em>Changes since <strong>Alpha 3493.0.0</strong></em></p>
 <h4>Security fixes:</h4>
 <ul>
@@ -2565,7 +2736,7 @@ Using the btrfs driver can still be enforced by creating a respective <a href="h
   <entry>
     <id>https://github.com/flatcar/scripts/releases/tag/alpha-3493.0.0</id>
     <title>3493.0.0</title>
-    <updated>2025-07-08T15:54:58.626767+00:00</updated>
+    <updated>2025-08-20T07:43:42.172379+00:00</updated>
     <content type="html"><![CDATA[<p><em>Changes since <strong>Alpha 3480.0.0</strong></em></p>
 <h4>Security fixes:</h4>
 <ul>
@@ -2630,7 +2801,7 @@ Using the btrfs driver can still be enforced by creating a respective <a href="h
   <entry>
     <id>https://github.com/flatcar/scripts/releases/tag/alpha-3480.0.0</id>
     <title>3480.0.0</title>
-    <updated>2025-07-08T15:54:58.583317+00:00</updated>
+    <updated>2025-08-20T07:43:42.164065+00:00</updated>
     <content type="html"><![CDATA[<p><em>Changes since <strong>Alpha 3446.0.0</strong></em></p>
 <h4>Security fixes:</h4>
 <ul>
@@ -2682,7 +2853,7 @@ Using the btrfs driver can still be enforced by creating a respective <a href="h
   <entry>
     <id>https://github.com/flatcar/scripts/releases/tag/alpha-3446.0.0</id>
     <title>3446.0.0</title>
-    <updated>2025-07-08T15:54:58.554257+00:00</updated>
+    <updated>2025-08-20T07:43:42.158306+00:00</updated>
     <content type="html"><![CDATA[<p><em>Changes since <strong>Alpha 3432.0.0</strong></em></p>
 <h4>Security fixes:</h4>
 <ul>
@@ -2722,7 +2893,7 @@ Using the btrfs driver can still be enforced by creating a respective <a href="h
   <entry>
     <id>https://github.com/flatcar/scripts/releases/tag/alpha-3432.0.0</id>
     <title>3432.0.0</title>
-    <updated>2025-07-08T15:54:58.532404+00:00</updated>
+    <updated>2025-08-20T07:43:42.151471+00:00</updated>
     <content type="html"><![CDATA[<p><em>Changes since <strong>Alpha 3417.0.0</strong></em></p>
 <h4>Security fixes:</h4>
 <ul>
@@ -2777,7 +2948,7 @@ Using the btrfs driver can still be enforced by creating a respective <a href="h
   <entry>
     <id>https://github.com/flatcar/scripts/releases/tag/alpha-3417.0.0</id>
     <title>3417.0.0</title>
-    <updated>2025-07-08T15:54:58.506157+00:00</updated>
+    <updated>2025-08-20T07:43:42.144713+00:00</updated>
     <content type="html"><![CDATA[<p><em>Changes since <strong>Alpha 3402.0.1</strong></em></p>
 <h4>Security fixes:</h4>
 <ul>
@@ -2826,7 +2997,7 @@ Using the btrfs driver can still be enforced by creating a respective <a href="h
   <entry>
     <id>https://github.com/flatcar/scripts/releases/tag/alpha-3402.0.1</id>
     <title>3402.0.1</title>
-    <updated>2025-07-08T15:54:58.488314+00:00</updated>
+    <updated>2025-08-20T07:43:42.140236+00:00</updated>
     <content type="html"><![CDATA[<p><em>Changes since <strong>Alpha 3402.0.0</strong></em></p>
 <h4>Security fixes:</h4>
 <ul>
@@ -2852,7 +3023,7 @@ Using the btrfs driver can still be enforced by creating a respective <a href="h
   <entry>
     <id>https://github.com/flatcar/scripts/releases/tag/alpha-3402.0.0</id>
     <title>3402.0.0</title>
-    <updated>2025-07-08T15:54:58.445779+00:00</updated>
+    <updated>2025-08-20T07:43:42.127846+00:00</updated>
     <content type="html"><![CDATA[<p>New <strong>Alpha</strong> Release <strong>3402.0.0</strong></p>
 <p><em>Changes since <strong>Alpha 3374.0.0</strong></em></p>
 <h4>Security fixes:</h4>
@@ -2929,7 +3100,7 @@ Using the btrfs driver can still be enforced by creating a respective <a href="h
   <entry>
     <id>https://github.com/flatcar/scripts/releases/tag/alpha-3374.0.0</id>
     <title>3374.0.0</title>
-    <updated>2025-07-08T15:54:58.414946+00:00</updated>
+    <updated>2025-08-20T07:43:42.116554+00:00</updated>
     <content type="html"><![CDATA[<p><em>Changes since <strong>Alpha 3346.0.0</strong></em></p>
 <h4>Security fixes:</h4>
 <ul>
@@ -2994,7 +3165,7 @@ Using the btrfs driver can still be enforced by creating a respective <a href="h
   <entry>
     <id>https://github.com/kinvolk/manifest/releases/tag/v3346.0.0</id>
     <title>3346.0.0</title>
-    <updated>2025-07-08T15:54:58.385281+00:00</updated>
+    <updated>2025-08-20T07:43:42.105561+00:00</updated>
     <content type="html"><![CDATA[<p><em>Changes since <strong>Alpha 3305.0.1</strong></em></p>
 <h4>Security fixes:</h4>
 <ul>
@@ -3064,7 +3235,7 @@ Using the btrfs driver can still be enforced by creating a respective <a href="h
   <entry>
     <id>https://github.com/kinvolk/manifest/releases/tag/v3305.0.1</id>
     <title>3305.0.1</title>
-    <updated>2025-07-08T15:54:58.366822+00:00</updated>
+    <updated>2025-08-20T07:43:42.098552+00:00</updated>
     <content type="html"><![CDATA[<p>New Alpha Release 3305.0.1</p>
 <p>Changes since Alpha 3305.0.0</p>
 <h2>Security fixes:</h2>
@@ -3105,7 +3276,7 @@ Using the btrfs driver can still be enforced by creating a respective <a href="h
   <entry>
     <id>https://github.com/kinvolk/manifest/releases/tag/v3305.0.0</id>
     <title>3305.0.0</title>
-    <updated>2025-07-08T15:54:58.332394+00:00</updated>
+    <updated>2025-08-20T07:43:42.091281+00:00</updated>
     <content type="html"><![CDATA[<p>New <strong>Alpha</strong> Release <strong>3305.0.0</strong></p>
 <p><em>Changes since <strong>Alpha 3277.0.0</strong></em></p>
 <h4>Security fixes:</h4>
@@ -3155,7 +3326,7 @@ Using the btrfs driver can still be enforced by creating a respective <a href="h
   <entry>
     <id>https://github.com/kinvolk/manifest/releases/tag/v3277.0.0</id>
     <title>3277.0.0</title>
-    <updated>2025-07-08T15:54:58.305943+00:00</updated>
+    <updated>2025-08-20T07:43:42.083467+00:00</updated>
     <content type="html"><![CDATA[<p>New <strong>Alpha</strong> Release <strong>3277.0.0</strong></p>
 <p>Changes since <strong>Alpha 3255.0.0</strong></p>
 <h4>Security fixes:</h4>
@@ -3210,7 +3381,7 @@ Using the btrfs driver can still be enforced by creating a respective <a href="h
   <entry>
     <id>https://github.com/kinvolk/manifest/releases/tag/v3255.0.0</id>
     <title>3255.0.0</title>
-    <updated>2025-07-08T15:54:58.275627+00:00</updated>
+    <updated>2025-08-20T07:43:42.072509+00:00</updated>
     <content type="html"><![CDATA[<p>New <strong>Alpha</strong> Release <strong>3255.0.0</strong></p>
 <p><em>Changes since <strong>Alpha 3227.0.0</strong></em></p>
 <h4>Security fixes:</h4>
@@ -3288,7 +3459,7 @@ Using the btrfs driver can still be enforced by creating a respective <a href="h
   <entry>
     <id>https://github.com/kinvolk/manifest/releases/tag/v3227.0.0</id>
     <title>3227.0.0</title>
-    <updated>2025-07-08T15:54:58.254287+00:00</updated>
+    <updated>2025-08-20T07:43:42.063018+00:00</updated>
     <content type="html"><![CDATA[<p>New <strong>Alpha</strong> Release <strong>3227.0.0</strong></p>
 <p><em>Changes since <strong>Alpha 3200.0.0</strong></em></p>
 <h4>Security fixes:</h4>
@@ -3345,7 +3516,7 @@ Using the btrfs driver can still be enforced by creating a respective <a href="h
   <entry>
     <id>https://github.com/kinvolk/manifest/releases/tag/v3200.0.0</id>
     <title>3200.0.0</title>
-    <updated>2025-07-08T15:54:58.230407+00:00</updated>
+    <updated>2025-08-20T07:43:42.054091+00:00</updated>
     <content type="html"><![CDATA[<p>New <strong>Alpha</strong> Release <strong>3200.0.0</strong></p>
 <p><em>Changes since <strong>Alpha 3185.0.0</strong></em></p>
 <h4>Security fixes:</h4>
@@ -3414,7 +3585,7 @@ Using the btrfs driver can still be enforced by creating a respective <a href="h
   <entry>
     <id>https://github.com/kinvolk/manifest/releases/tag/v3185.0.0</id>
     <title>3185.0.0</title>
-    <updated>2025-07-08T15:54:58.188858+00:00</updated>
+    <updated>2025-08-20T07:43:42.043731+00:00</updated>
     <content type="html"><![CDATA[<p>New <strong>Alpha</strong> Release <strong>3185.0.0</strong></p>
 <p><strong>Changes since Alpha-3165.0.0</strong></p>
 <h4>Security fixes</h4>
@@ -3497,7 +3668,7 @@ Using the btrfs driver can still be enforced by creating a respective <a href="h
   <entry>
     <id>https://github.com/kinvolk/manifest/releases/tag/v3165.0.0</id>
     <title>3165.0.0</title>
-    <updated>2025-07-08T15:54:58.141219+00:00</updated>
+    <updated>2025-08-20T07:43:42.030127+00:00</updated>
     <content type="html"><![CDATA[<p>New <strong>Alpha</strong> Release <strong>3165.0.0</strong></p>
 <p><em>Changes since <strong>Alpha 3139.0.0</strong></em></p>
 <h4>Security fixes</h4>
@@ -3574,7 +3745,7 @@ Using the btrfs driver can still be enforced by creating a respective <a href="h
   <entry>
     <id>https://github.com/kinvolk/manifest/releases/tag/v3139.0.0</id>
     <title>3139.0.0</title>
-    <updated>2025-07-08T15:54:58.122032+00:00</updated>
+    <updated>2025-08-20T07:43:42.021500+00:00</updated>
     <content type="html"><![CDATA[<p>New <strong>Alpha</strong> Release <strong>3139.0.0</strong></p>
 <p><em>Changes since <strong>Alpha 3127.0.0</strong></em></p>
 <h4>Security fixes</h4>
@@ -3621,7 +3792,7 @@ Using the btrfs driver can still be enforced by creating a respective <a href="h
   <entry>
     <id>https://github.com/kinvolk/manifest/releases/tag/v3127.0.0</id>
     <title>3127.0.0</title>
-    <updated>2025-07-08T15:54:58.105307+00:00</updated>
+    <updated>2025-08-20T07:43:42.014629+00:00</updated>
     <content type="html"><![CDATA[<p>New <strong>Alpha</strong> release <strong>3127.0.0</strong></p>
 <p><strong>Changes since <strong>Alpha 3115.0.0</strong></strong></p>
 <h4>Security fixes:</h4>
@@ -3672,7 +3843,7 @@ Using the btrfs driver can still be enforced by creating a respective <a href="h
   <entry>
     <id>https://github.com/kinvolk/manifest/releases/tag/v3115.0.0</id>
     <title>3115.0.0</title>
-    <updated>2025-07-08T15:54:58.049050+00:00</updated>
+    <updated>2025-08-20T07:43:41.997457+00:00</updated>
     <content type="html"><![CDATA[<p>New <strong>Alpha</strong> release <strong>3115.0.0</strong></p>
 <p><em>Changes since <strong>Alpha 3066.0.0</strong></em></p>
 <h4>Known issues</h4>
@@ -3796,7 +3967,7 @@ Using the btrfs driver can still be enforced by creating a respective <a href="h
   <entry>
     <id>https://github.com/kinvolk/manifest/releases/tag/v3066.0.0</id>
     <title>3066.0.0</title>
-    <updated>2025-07-08T15:54:58.022055+00:00</updated>
+    <updated>2025-08-20T07:43:41.985447+00:00</updated>
     <content type="html"><![CDATA[<p>New <strong>Alpha</strong> Release <strong>3066.0.0</strong></p>
 <p><em>Changes since <strong>Alpha 3033.0.0</strong></em></p>
 <p><strong>Security fixes</strong></p>
@@ -3862,7 +4033,7 @@ Using the btrfs driver can still be enforced by creating a respective <a href="h
   <entry>
     <id>https://github.com/kinvolk/manifest/releases/tag/v3046.0.0</id>
     <title>3046.0.0</title>
-    <updated>2025-07-08T15:54:58.004165+00:00</updated>
+    <updated>2025-08-20T07:43:41.978056+00:00</updated>
     <content type="html"><![CDATA[<p>New <strong>Alpha</strong> release <strong>3046.0.0</strong></p>
 <p><em>Changes since <strong>Alpha 3033.0.0</strong></em></p>
 <p><strong>Security fixes</strong></p>
@@ -3919,7 +4090,7 @@ Using the btrfs driver can still be enforced by creating a respective <a href="h
   <entry>
     <id>https://github.com/kinvolk/manifest/releases/tag/v3033.0.0</id>
     <title>3033.0.0</title>
-    <updated>2025-07-08T15:54:57.980306+00:00</updated>
+    <updated>2025-08-20T07:43:41.967931+00:00</updated>
     <content type="html"><![CDATA[<p><strong>Update to CGroupsV2</strong></p>
 <p>As of Alpha version 2969.0.0, Flatcar Container Linux migrates to the unified cgroup hierarchy (aka CGroupsV2)! New nodes will utilize CGroupsV2 by default. Existing nodes remain on CGroupsV1 and need to be manually migrated to CGroupsV2. To learn more about CGroupsV2 on Flatcar Container Linux and the migration guide, please refer to<a href="https://flatcar-linux.org/docs/latest/container-runtimes/switching-to-unified-cgroups/"> https://flatcar-linux.org/docs/latest/container-runtimes/switching-to-unified-cgroups/</a></p>
 <p>New <strong>Alpha</strong> release <strong>3033.0.0</strong></p>
@@ -4001,7 +4172,7 @@ Using the btrfs driver can still be enforced by creating a respective <a href="h
   <entry>
     <id>https://github.com/kinvolk/manifest/releases/tag/v3005.0.1</id>
     <title>3005.0.1</title>
-    <updated>2025-07-08T15:54:57.966639+00:00</updated>
+    <updated>2025-08-20T07:43:41.961356+00:00</updated>
     <content type="html"><![CDATA[<p><strong>Update to CGroupsV2</strong></p>
 <p>As of Alpha version 2969.0.0, Flatcar Container Linux migrates to the unified cgroup hierarchy (aka CGroupsV2)! New nodes will utilize CGroupsV2 by default. Existing nodes remain on CGroupsV1 and need to be manually migrated to CGroupsV2. To learn more about CGroupsV2 on Flatcar Container Linux and the migration guide, please refer to <a href="https://flatcar-linux.org/docs/latest/container-runtimes/switching-to-unified-cgroups/">https://flatcar-linux.org/docs/latest/container-runtimes/switching-to-unified-cgroups/</a></p>
 <p>New <strong>Alpha</strong> release <strong>3005.0.1</strong></p>
@@ -4038,7 +4209,7 @@ Using the btrfs driver can still be enforced by creating a respective <a href="h
   <entry>
     <id>https://github.com/kinvolk/manifest/releases/tag/v3005.0.0</id>
     <title>3005.0.0</title>
-    <updated>2025-07-08T15:54:57.952149+00:00</updated>
+    <updated>2025-08-20T07:43:41.954473+00:00</updated>
     <content type="html"><![CDATA[<p><strong>Update to CGroupsV2</strong></p>
 <p>As of Alpha version 2969.0.0, Flatcar Container Linux migrates to the unified cgroup hierarchy (aka CGroupsV2)! New nodes will utilize CGroupsV2 by default. Existing nodes remain on CGroupsV1 and need to be manually migrated to CGroupsV2. To learn more about CGroupsV2 on Flatcar Container Linux and the migration guide, please refer to <a href="https://flatcar-linux.org/docs/latest/container-runtimes/switching-to-unified-cgroups/">https://flatcar-linux.org/docs/latest/container-runtimes/switching-to-unified-cgroups/</a></p>
 <p>New <strong>Alpha</strong> release <strong>3005.0.0</strong></p>
@@ -4099,7 +4270,7 @@ Using the btrfs driver can still be enforced by creating a respective <a href="h
   <entry>
     <id>https://github.com/kinvolk/manifest/releases/tag/v2983.0.0</id>
     <title>2983.0.0</title>
-    <updated>2025-07-08T15:54:57.932409+00:00</updated>
+    <updated>2025-08-20T07:43:41.946336+00:00</updated>
     <content type="html"><![CDATA[<p>New <strong>Alpha</strong> release <strong>2983.0.0</strong></p>
 <p><strong>Update to CGroupsV2</strong></p>
 <p>As of Alpha version 2969.0.0, Flatcar Container Linux migrates to the unified cgroup hierarchy (aka CGroupsV2)! New nodes will utilize CGroupsV2 by default. Existing nodes remain on CGroupsV1 and need to be manually migrated to CGroupsV2. To learn more about CGroupsV2 on Flatcar Container Linux and the migration guide, please refer to <a href="https://flatcar-linux.org/docs/latest/container-runtimes/switching-to-unified-cgroups/">https://flatcar-linux.org/docs/latest/container-runtimes/switching-to-unified-cgroups/</a></p>
@@ -4163,7 +4334,7 @@ Using the btrfs driver can still be enforced by creating a respective <a href="h
   <entry>
     <id>https://github.com/kinvolk/manifest/releases/tag/v2969.0.0</id>
     <title>2969.0.0</title>
-    <updated>2025-07-08T15:54:57.907960+00:00</updated>
+    <updated>2025-08-20T07:43:41.936640+00:00</updated>
     <content type="html"><![CDATA[<p><strong>Update to CGroupsV2</strong></p>
 <p>Flatcar Container Linux migrates to the unified cgroup hierarchy (aka cgroups v2)! New nodes will utilize cgroups v2 by default. Existing nodes remain on cgroups v1 and need to be manually migrated to cgroups v2. To learn more about the cgroups v2 on Flatcar Container Linux and the migration guide, please refer to <a href="https://flatcar-linux.org/docs/latest/container-runtimes/switching-to-unified-cgroups/">https://flatcar-linux.org/docs/latest/container-runtimes/switching-to-unified-cgroups/</a></p>
 <p><strong>Security fixes</strong></p>
@@ -4235,7 +4406,7 @@ Using the btrfs driver can still be enforced by creating a respective <a href="h
   <entry>
     <id>https://github.com/kinvolk/manifest/releases/tag/v2955.0.0</id>
     <title>2955.0.0</title>
-    <updated>2025-07-08T15:54:57.893789+00:00</updated>
+    <updated>2025-08-20T07:43:41.929429+00:00</updated>
     <content type="html"><![CDATA[<p><strong>Security fixes</strong></p>
 <ul>
 <li>Linux (<a href="https://nvd.nist.gov/vuln/detail/CVE-2021-37576">CVE-2021-37576</a>)</li>
@@ -4287,7 +4458,7 @@ Using the btrfs driver can still be enforced by creating a respective <a href="h
   <entry>
     <id>https://github.com/kinvolk/manifest/releases/tag/v2942.0.0</id>
     <title>2942.0.0</title>
-    <updated>2025-07-08T15:54:57.877157+00:00</updated>
+    <updated>2025-08-20T07:43:41.921542+00:00</updated>
     <content type="html"><![CDATA[<p><strong>Security Fixes</strong></p>
 <ul>
 <li>containerd (<a href="https://nvd.nist.gov/vuln/detail/CVE-2021-32760">CVE-2021-32760</a>)</li>
@@ -4349,7 +4520,7 @@ Using the btrfs driver can still be enforced by creating a respective <a href="h
   <entry>
     <id>https://github.com/kinvolk/manifest/releases/tag/v2920.0.0</id>
     <title>2920.0.0</title>
-    <updated>2025-07-08T15:54:57.865412+00:00</updated>
+    <updated>2025-08-20T07:43:41.915395+00:00</updated>
     <content type="html"><![CDATA[<p><strong>Security fixes</strong></p>
 <ul>
 <li>Linux (<a href="https://nvd.nist.gov/vuln/detail/CVE-2021-34693">CVE-2021-34693</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2021-33624">CVE-2021-33624</a>)</li>
@@ -4389,7 +4560,7 @@ Using the btrfs driver can still be enforced by creating a respective <a href="h
   <entry>
     <id>https://github.com/kinvolk/manifest/releases/tag/v2905.0.0</id>
     <title>2905.0.0</title>
-    <updated>2025-07-08T15:54:57.852402+00:00</updated>
+    <updated>2025-08-20T07:43:41.909157+00:00</updated>
     <content type="html"><![CDATA[<p><strong>Security fixes</strong></p>
 <ul>
 <li>Linux (<a href="https://nvd.nist.gov/vuln/detail/CVE-2020-26558">CVE-2020-26558</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2021-0129">CVE-2021-0129</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2020-24587">CVE-2020-24587</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2020-24586">CVE-2020-24586</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2020-24588">CVE-2020-24588</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2020-26139">CVE-2020-26139</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2020-26145">CVE-2020-26145</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2020-26147">CVE-2020-26147</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2020-26141">CVE-2020-26141</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2021-3564">CVE-2021-3564</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2021-28691">CVE-2021-28691</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2021-3587">CVE-2021-3587</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2021-3573">CVE-2021-3573</a>)</li>
@@ -4435,7 +4606,7 @@ Using the btrfs driver can still be enforced by creating a respective <a href="h
   <entry>
     <id>https://github.com/kinvolk/manifest/releases/tag/v2879.0.1</id>
     <title>2879.0.1</title>
-    <updated>2025-07-08T15:54:57.843755+00:00</updated>
+    <updated>2025-08-20T07:43:41.904691+00:00</updated>
     <content type="html"><![CDATA[<p><strong>Bug fixes</strong></p>
 <ul>
 <li>The Linux kernel IOMMU-related crash introduced in the 5.10.37 update got fixed through the 5.10.38 update (<a href="https://github.com/kinvolk/Flatcar/issues/400">Flatcar#400</a>)</li>
@@ -4464,7 +4635,7 @@ Using the btrfs driver can still be enforced by creating a respective <a href="h
   <entry>
     <id>https://github.com/kinvolk/manifest/releases/tag/v2879.0.0</id>
     <title>2879.0.0</title>
-    <updated>2025-07-08T15:54:57.832234+00:00</updated>
+    <updated>2025-08-20T07:43:41.898746+00:00</updated>
     <content type="html"><![CDATA[<p><strong>Security fixes</strong></p>
 <ul>
 <li>Linux (<a href="https://nvd.nist.gov/vuln/detail/CVE-2021-3491">CVE-2021-3491</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2021-31440">CVE-2021-31440</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2021-31829">CVE-2021-31829</a>)</li>
@@ -4513,7 +4684,7 @@ Using the btrfs driver can still be enforced by creating a respective <a href="h
   <entry>
     <id>https://github.com/kinvolk/manifest/releases/tag/v2857.0.0</id>
     <title>2857.0.0</title>
-    <updated>2025-07-08T15:54:57.815446+00:00</updated>
+    <updated>2025-08-20T07:43:41.889913+00:00</updated>
     <content type="html"><![CDATA[<p><strong>Security fixes</strong></p>
 <ul>
 <li>Linux (<a href="https://nvd.nist.gov/vuln/detail/CVE-2021-28964">CVE-2021-28964</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2021-28972">CVE-2021-28972</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2021-28971">CVE-2021-28971</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2021-28951">CVE-2021-28951</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2021-28952">CVE-2021-28952</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2021-29266">CVE-2021-29266</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2021-28688">CVE-2021-28688</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2021-29264">CVE-2021-29264</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2021-29649">CVE-2021-29649</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2021-29650">CVE-2021-29650</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2021-29646">CVE-2021-29646</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2021-29647">CVE-2021-29647</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2021-29154">CVE-2021-29154</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2021-29155">CVE-2021-29155</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2021-23133">CVE-2021-23133</a>)</li>
@@ -4574,7 +4745,7 @@ Using the btrfs driver can still be enforced by creating a respective <a href="h
   <entry>
     <id>https://github.com/kinvolk/manifest/releases/tag/v2823.0.0</id>
     <title>2823.0.0</title>
-    <updated>2025-07-08T15:54:57.799050+00:00</updated>
+    <updated>2025-08-20T07:43:41.881492+00:00</updated>
     <content type="html"><![CDATA[<p><strong>Security fixes</strong></p>
 <ul>
 <li>Linux (<a href="https://nvd.nist.gov/vuln/detail/CVE-2021-27365">CVE-2021-27365</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2021-27364">CVE-2021-27364</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2021-27363">CVE-2021-27363</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2021-28038">CVE-2021-28038</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2021-28039">CVE-2021-28039</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2021-28375">CVE-2021-28375</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2021-28660">CVE-2021-28660</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2021-27218">CVE-2021-27218</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2021-27219">CVE-2021-27219</a>)</li>
@@ -4627,7 +4798,7 @@ Using the btrfs driver can still be enforced by creating a respective <a href="h
   <entry>
     <id>https://github.com/kinvolk/manifest/releases/tag/v2801.0.1</id>
     <title>2801.0.1</title>
-    <updated>2025-07-08T15:54:57.786702+00:00</updated>
+    <updated>2025-08-20T07:43:41.875176+00:00</updated>
     <content type="html"><![CDATA[<p><strong>Security fixes</strong></p>
 <ul>
 <li>Linux - (<a href="https://nvd.nist.gov/vuln/detail/CVE-2020-25639">CVE-2020-25639</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2021-27365">CVE-2021-27365</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2021-27364">CVE-2021-27364</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2021-27363">CVE-2021-27363</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2021-28038">CVE-2021-28038</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2021-28039">CVE-2021-28039</a>)</li>
@@ -4662,7 +4833,7 @@ Using the btrfs driver can still be enforced by creating a respective <a href="h
   <entry>
     <id>https://github.com/kinvolk/manifest/releases/tag/v2801.0.0</id>
     <title>2801.0.0</title>
-    <updated>2025-07-08T15:54:57.774110+00:00</updated>
+    <updated>2025-08-20T07:43:41.869253+00:00</updated>
     <content type="html"><![CDATA[<p><strong>Security fixes</strong></p>
 <ul>
 <li>Linux (<a href="https://nvd.nist.gov/vuln/detail/CVE-2021-26931">CVE-2021-26931</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2021-26930">CVE-2021-26930</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2021-26932">CVE-2021-26932</a>)</li>
@@ -4710,7 +4881,7 @@ Using the btrfs driver can still be enforced by creating a respective <a href="h
   <entry>
     <id>https://github.com/kinvolk/manifest/releases/tag/v2783.0.0</id>
     <title>2783.0.0</title>
-    <updated>2025-07-08T15:54:57.757904+00:00</updated>
+    <updated>2025-08-20T07:43:41.860573+00:00</updated>
     <content type="html"><![CDATA[<p><strong>Security fixes</strong></p>
 <ul>
 <li>Linux (<a href="https://nvd.nist.gov/vuln/detail/CVE-2021-3347">CVE-2021-3347</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2021-3348">CVE-2021-3348</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2021-26708">CVE-2021-26708</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2021-20194">CVE-2021-20194</a>)</li>
@@ -4776,7 +4947,7 @@ Using the btrfs driver can still be enforced by creating a respective <a href="h
   <entry>
     <id>https://github.com/kinvolk/manifest/releases/tag/v2765.0.0</id>
     <title>2765.0.0</title>
-    <updated>2025-07-08T15:54:57.743126+00:00</updated>
+    <updated>2025-08-20T07:43:41.852395+00:00</updated>
     <content type="html"><![CDATA[<p><strong>Security fixes</strong></p>
 <ul>
 <li>Linux - <a href="https://nvd.nist.gov/vuln/detail/CVE-2020-28374">CVE-2020-28374</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2020-36158">CVE-2020-36158</a></li>
@@ -4831,7 +5002,7 @@ Using the btrfs driver can still be enforced by creating a respective <a href="h
   <entry>
     <id>https://github.com/kinvolk/manifest/releases/tag/v2748.0.0</id>
     <title>2748.0.0</title>
-    <updated>2025-07-08T15:54:57.731500+00:00</updated>
+    <updated>2025-08-20T07:43:41.845530+00:00</updated>
     <content type="html"><![CDATA[<p><strong>Security fixes</strong></p>
 <ul>
 <li>Linux
@@ -4887,7 +5058,7 @@ Using the btrfs driver can still be enforced by creating a respective <a href="h
   <entry>
     <id>https://github.com/kinvolk/manifest/releases/tag/v2723.0.0</id>
     <title>2723.0.0</title>
-    <updated>2025-07-08T15:54:57.718684+00:00</updated>
+    <updated>2025-08-20T07:43:41.838184+00:00</updated>
     <content type="html"><![CDATA[<p>Security fixes</p>
 <ul>
 <li>bsdiff
@@ -4964,7 +5135,7 @@ Using the btrfs driver can still be enforced by creating a respective <a href="h
   <entry>
     <id>https://github.com/kinvolk/manifest/releases/tag/v2705.0.0</id>
     <title>2705.0.0</title>
-    <updated>2025-07-08T15:54:57.707158+00:00</updated>
+    <updated>2025-08-20T07:43:41.832297+00:00</updated>
     <content type="html"><![CDATA[<p>Security fixes</p>
 <ul>
 <li>glibc (<a href="https://nvd.nist.gov/vuln/detail/CVE-2019-9169">CVE-2019-9169</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2019-6488">CVE-2019-6488</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2019-7309">CVE-2019-7309</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2020-10029">CVE-2020-10029</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2020-1751">CVE-2020-1751</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2020-6096">CVE-2020-6096</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2018-20796">CVE-2018-20796</a>)</li>
@@ -5002,7 +5173,7 @@ Using the btrfs driver can still be enforced by creating a respective <a href="h
   <entry>
     <id>https://github.com/kinvolk/manifest/releases/tag/v2697.0.0</id>
     <title>2697.0.0</title>
-    <updated>2025-07-08T15:54:57.693666+00:00</updated>
+    <updated>2025-08-20T07:43:41.824323+00:00</updated>
     <content type="html"><![CDATA[<p>Security fixes:</p>
 <ul>
 <li>Linux -  (<a href="https://nvd.nist.gov/vuln/detail/CVE-2020-27673">CVE-2020-27673</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2020-27675">CVE-2020-27675</a>)</li>
@@ -5078,7 +5249,7 @@ Using the btrfs driver can still be enforced by creating a respective <a href="h
   <entry>
     <id>https://github.com/kinvolk/manifest/releases/tag/v2671.0.0</id>
     <title>2671.0.0</title>
-    <updated>2025-07-08T15:54:57.673611+00:00</updated>
+    <updated>2025-08-20T07:43:41.816067+00:00</updated>
     <content type="html"><![CDATA[<p>Security fixes:</p>
 <ul>
 <li>Linux - <a href="https://nvd.nist.gov/vuln/detail/CVE-2020-27194">CVE-2020-27194</a></li>
@@ -5136,7 +5307,7 @@ Using the btrfs driver can still be enforced by creating a respective <a href="h
   <entry>
     <id>https://github.com/flatcar/manifest/releases/tag/v2661.0.0</id>
     <title>2661.0.0</title>
-    <updated>2025-07-08T15:54:57.661471+00:00</updated>
+    <updated>2025-08-20T07:43:41.809662+00:00</updated>
     <content type="html"><![CDATA[<p>Security fixes:</p>
 <ul>
 <li>Linux - <a href="https://nvd.nist.gov/vuln/detail/CVE-2020-25645">CVE-2020-25645</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2020-25643">CVE-2020-25643</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2020-25211">CVE-2020-25211</a></li>
@@ -5182,7 +5353,7 @@ Using the btrfs driver can still be enforced by creating a respective <a href="h
   <entry>
     <id>https://github.com/flatcar/manifest/releases/tag/v2643.0.0</id>
     <title>2643.0.0</title>
-    <updated>2025-07-08T15:54:57.638455+00:00</updated>
+    <updated>2025-08-20T07:43:41.799984+00:00</updated>
     <content type="html"><![CDATA[<p>Security fixes:</p>
 <ul>
 <li>Linux: <a href="https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2020-25284">CVE-2020-25284</a>, <a href="https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2020-14390">CVE-2020-14390</a></li>
@@ -5235,7 +5406,7 @@ Using the btrfs driver can still be enforced by creating a respective <a href="h
   <entry>
     <id>https://github.com/flatcar/manifest/releases/tag/v2632.0.0</id>
     <title>2632.0.0</title>
-    <updated>2025-07-08T15:54:57.626217+00:00</updated>
+    <updated>2025-08-20T07:43:41.793012+00:00</updated>
     <content type="html"><![CDATA[<p>Bug fixes:</p>
 <ul>
 <li>Fix resetting of DNS nameservers in systemd-networkd units (<a href="https://github.com/flatcar/systemd/pull/12">PR#12</a>)</li>
@@ -5277,7 +5448,7 @@ Using the btrfs driver can still be enforced by creating a respective <a href="h
   <entry>
     <id>https://github.com/flatcar/manifest/releases/tag/v2605.1.0</id>
     <title>2605.1.0</title>
-    <updated>2025-07-08T15:54:57.612049+00:00</updated>
+    <updated>2025-08-20T07:43:41.787868+00:00</updated>
     <content type="html"><![CDATA[<p>Bug fixes:</p>
 <ul>
 <li>Resolve ipset API incompatibility <a href="https://github.com/flatcar/Flatcar/issues/174">Flatcar#174</a></li>
@@ -5319,7 +5490,7 @@ Using the btrfs driver can still be enforced by creating a respective <a href="h
   <entry>
     <id>https://github.com/flatcar/manifest/releases/tag/v2605.0.0</id>
     <title>2605.0.0</title>
-    <updated>2025-07-08T15:54:57.602829+00:00</updated>
+    <updated>2025-08-20T07:43:41.782560+00:00</updated>
     <content type="html"><![CDATA[<p>Security fixes:</p>
 <ul>
 <li>Bind: fixes for <a href="https://nvd.nist.gov/vuln/detail/CVE-2020-8616">CVE-2020-8616</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2020-8617">CVE-2020-8617</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2020-8620">CVE-2020-8620</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2020-8621">CVE-2020-8621</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2020-8622">CVE-2020-8622</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2020-8623">CVE-2020-8623</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2020-8624">CVE-2020-8624</a></li>
@@ -5363,7 +5534,7 @@ Using the btrfs driver can still be enforced by creating a respective <a href="h
   <entry>
     <id>https://github.com/flatcar/manifest/releases/tag/v2592.0.0</id>
     <title>2592.0.0</title>
-    <updated>2025-07-08T15:54:57.591654+00:00</updated>
+    <updated>2025-08-20T07:43:41.776821+00:00</updated>
     <content type="html"><![CDATA[<p>Bug Fixes:</p>
 <ul>
 <li>Improved logic for GPT disk UUID randomization to fix booting on Packet c3.medium.x86 machines (<a href="https://github.com/flatcar/bootengine/pull/17">flatcar-linux/bootengine#17</a>)</li>
@@ -5412,7 +5583,7 @@ Using the btrfs driver can still be enforced by creating a respective <a href="h
   <entry>
     <id>https://github.com/flatcar/manifest/releases/tag/v2513.1.0</id>
     <title>2513.1.0</title>
-    <updated>2025-07-08T15:54:57.577265+00:00</updated>
+    <updated>2025-08-20T07:43:41.771417+00:00</updated>
     <content type="html"><![CDATA[<p>Security Fixes:</p>
 <ul>
 <li>Malicious URLs can cause Git to expose private credentials <a href="https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2020-5260">CVE-2020-5260</a></li>
@@ -5453,7 +5624,7 @@ Using the btrfs driver can still be enforced by creating a respective <a href="h
   <entry>
     <id>https://github.com/flatcar/manifest/releases/tag/v2513.0.1</id>
     <title>2513.0.1</title>
-    <updated>2025-07-08T15:54:57.569342+00:00</updated>
+    <updated>2025-08-20T07:43:41.767117+00:00</updated>
     <content type="html"><![CDATA[<h2>Flatcar updates</h2>
 <p>Security fixes:</p>
 <ul>
@@ -5488,7 +5659,7 @@ Using the btrfs driver can still be enforced by creating a respective <a href="h
   <entry>
     <id>https://github.com/flatcar/manifest/releases/tag/v2513.0.0</id>
     <title>2513.0.0</title>
-    <updated>2025-07-08T15:54:57.552938+00:00</updated>
+    <updated>2025-08-20T07:43:41.760727+00:00</updated>
     <content type="html"><![CDATA[<h2>Flatcar updates</h2>
 <p>Security fixes:</p>
 <ul>
@@ -5547,7 +5718,7 @@ Using the btrfs driver can still be enforced by creating a respective <a href="h
   <entry>
     <id>https://github.com/flatcar/manifest/releases/tag/v2492.0.0</id>
     <title>2492.0.0</title>
-    <updated>2025-07-08T15:54:57.538634+00:00</updated>
+    <updated>2025-08-20T07:43:41.755237+00:00</updated>
     <content type="html"><![CDATA[<h2>Flatcar updates</h2>
 <p>Bug fixes:</p>
 <ul>
@@ -5584,7 +5755,7 @@ Using the btrfs driver can still be enforced by creating a respective <a href="h
   <entry>
     <id>https://github.com/flatcar/manifest/releases/tag/v2466.0.0</id>
     <title>2466.0.0</title>
-    <updated>2025-07-08T15:54:57.527736+00:00</updated>
+    <updated>2025-08-20T07:43:41.750423+00:00</updated>
     <content type="html"><![CDATA[<h2>Flatcar updates</h2>
 <p>Bug fixes:</p>
 <ul>
@@ -5633,7 +5804,7 @@ Using the btrfs driver can still be enforced by creating a respective <a href="h
   <entry>
     <id>https://github.com/flatcar/manifest/releases/tag/v2430.0.0</id>
     <title>2430.0.0</title>
-    <updated>2025-07-08T15:54:57.519617+00:00</updated>
+    <updated>2025-08-20T07:43:41.746145+00:00</updated>
     <content type="html"><![CDATA[<h2>Flatcar updates</h2>
 <p>Bug fixes:</p>
 <ul>
@@ -5666,7 +5837,7 @@ Using the btrfs driver can still be enforced by creating a respective <a href="h
   <entry>
     <id>https://github.com/flatcar/manifest/releases/tag/v2411.0.0</id>
     <title>2411.0.0</title>
-    <updated>2025-07-08T15:54:57.510592+00:00</updated>
+    <updated>2025-08-20T07:43:41.741311+00:00</updated>
     <content type="html"><![CDATA[<h2>Flatcar updates</h2>
 <p>Security fixes:</p>
 <ul>
@@ -5714,7 +5885,7 @@ Using the btrfs driver can still be enforced by creating a respective <a href="h
   <entry>
     <id>https://github.com/flatcar/manifest/releases/tag/v2387.0.0</id>
     <title>2387.0.0</title>
-    <updated>2025-07-08T15:54:57.500830+00:00</updated>
+    <updated>2025-08-20T07:43:41.735991+00:00</updated>
     <content type="html"><![CDATA[<h2><a href="https://github.com/coreos/manifest/releases/tag/v2387.0.0">Upstream Container Linux updates</a>:</h2>
 <p>Security fixes:</p>
 <ul>
@@ -5749,7 +5920,7 @@ Using the btrfs driver can still be enforced by creating a respective <a href="h
   <entry>
     <id>https://github.com/flatcar/manifest/releases/tag/v2345.0.2</id>
     <title>2345.0.2</title>
-    <updated>2025-07-08T15:54:57.493871+00:00</updated>
+    <updated>2025-08-20T07:43:41.731953+00:00</updated>
     <content type="html"><![CDATA[<h2>Flatcar updates</h2>
 <p>Security fixes:</p>
 <ul>
@@ -5783,7 +5954,7 @@ Using the btrfs driver can still be enforced by creating a respective <a href="h
   <entry>
     <id>https://github.com/flatcar/manifest/releases/tag/v2345.0.1</id>
     <title>2345.0.1</title>
-    <updated>2025-07-08T15:54:57.486452+00:00</updated>
+    <updated>2025-08-20T07:43:41.727931+00:00</updated>
     <content type="html"><![CDATA[<h2>Flatcar updates</h2>
 <p>It is the first release done for both amd64 and arm64.</p>
 <p>Bug fixes:</p>
@@ -5818,7 +5989,7 @@ Using the btrfs driver can still be enforced by creating a respective <a href="h
   <entry>
     <id>https://github.com/flatcar/manifest/releases/tag/v2345.0.0</id>
     <title>2345.0.0</title>
-    <updated>2025-07-08T15:54:57.478143+00:00</updated>
+    <updated>2025-08-20T07:43:41.723635+00:00</updated>
     <content type="html"><![CDATA[<h2>Flatcar updates</h2>
 <p>Security fixes:</p>
 <ul>
@@ -5856,7 +6027,7 @@ Using the btrfs driver can still be enforced by creating a respective <a href="h
   <entry>
     <id>https://github.com/flatcar/manifest/releases/tag/v2331.0.0</id>
     <title>2331.0.0</title>
-    <updated>2025-07-08T15:54:57.468669+00:00</updated>
+    <updated>2025-08-20T07:43:41.718284+00:00</updated>
     <content type="html"><![CDATA[<h2>Flatcar updates</h2>
 <p>Security fixes:</p>
 <ul>
@@ -5900,7 +6071,7 @@ Using the btrfs driver can still be enforced by creating a respective <a href="h
   <entry>
     <id>https://github.com/flatcar/manifest/releases/tag/v2317.0.1</id>
     <title>2317.0.1</title>
-    <updated>2025-07-08T15:54:57.457614+00:00</updated>
+    <updated>2025-08-20T07:43:41.713632+00:00</updated>
     <content type="html"><![CDATA[<h2><a href="https://github.com/coreos/manifest/releases/tag/v2317.0.1">Upstream Container Linux updates</a>:</h2>
 <p>Bug fixes:</p>
 <ul>
@@ -5931,7 +6102,7 @@ Using the btrfs driver can still be enforced by creating a respective <a href="h
   <entry>
     <id>https://github.com/flatcar/manifest/releases/tag/v2303.0.0</id>
     <title>2303.0.0</title>
-    <updated>2025-07-08T15:54:57.450917+00:00</updated>
+    <updated>2025-08-20T07:43:41.709846+00:00</updated>
     <content type="html"><![CDATA[<h2><a href="https://github.com/coreos/manifest/releases/tag/v2303.0.0">Upstream Container Linux updates</a>:</h2>
 <p>Changes:</p>
 <ul>
@@ -5962,7 +6133,7 @@ Using the btrfs driver can still be enforced by creating a respective <a href="h
   <entry>
     <id>https://github.com/flatcar/manifest/releases/tag/v2296.0.0</id>
     <title>2296.0.0</title>
-    <updated>2025-07-08T15:54:57.441100+00:00</updated>
+    <updated>2025-08-20T07:43:41.705643+00:00</updated>
     <content type="html"><![CDATA[<h2><a href="https://github.com/coreos/manifest/releases/tag/v2296.0.0">Upstream Container Linux updates</a>:</h2>
 <p>Security fixes:</p>
 <ul>
@@ -5999,7 +6170,7 @@ Using the btrfs driver can still be enforced by creating a respective <a href="h
   <entry>
     <id>https://github.com/flatcar/manifest/releases/tag/v2275.1.0</id>
     <title>2275.1.0</title>
-    <updated>2025-07-08T15:54:57.428779+00:00</updated>
+    <updated>2025-08-20T07:43:41.701784+00:00</updated>
     <content type="html"><![CDATA[<h2><a href="https://github.com/coreos/manifest/releases/tag/v2275.1.0">Upstream Container Linux updates</a>:</h2>
 <p>Bug fixes:</p>
 <ul>
@@ -6028,7 +6199,7 @@ Using the btrfs driver can still be enforced by creating a respective <a href="h
   <entry>
     <id>https://github.com/flatcar/manifest/releases/tag/v2275.0.0</id>
     <title>2275.0.0</title>
-    <updated>2025-07-08T15:54:57.418316+00:00</updated>
+    <updated>2025-08-20T07:43:41.697860+00:00</updated>
     <content type="html"><![CDATA[<h2><a href="https://github.com/coreos/manifest/releases/tag/v2275.0.0">Upstream Container Linux updates</a>:</h2>
 <p>Security fixes:</p>
 <ul>
@@ -6060,7 +6231,7 @@ Using the btrfs driver can still be enforced by creating a respective <a href="h
   <entry>
     <id>https://github.com/flatcar/manifest/releases/tag/v2261.0.0</id>
     <title>2261.0.0</title>
-    <updated>2025-07-08T15:54:57.412030+00:00</updated>
+    <updated>2025-08-20T07:43:41.693951+00:00</updated>
     <content type="html"><![CDATA[<h2><a href="https://github.com/coreos/manifest/releases/tag/v2261.0.0">Upstream Container Linux updates</a>:</h2>
 <p>Security fixes:</p>
 <ul>
@@ -6093,7 +6264,7 @@ Using the btrfs driver can still be enforced by creating a respective <a href="h
   <entry>
     <id>https://github.com/flatcar/manifest/releases/tag/v2247.1.0</id>
     <title>2247.1.0</title>
-    <updated>2025-07-08T15:54:57.405900+00:00</updated>
+    <updated>2025-08-20T07:43:41.690143+00:00</updated>
     <content type="html"><![CDATA[<h2><a href="https://github.com/coreos/manifest/releases/tag/v2247.1.0">Upstream Container Linux updates</a>:</h2>
 <p>Security fixes:</p>
 <ul>
@@ -6126,7 +6297,7 @@ Using the btrfs driver can still be enforced by creating a respective <a href="h
   <entry>
     <id>https://github.com/flatcar/manifest/releases/tag/v2247.0.0</id>
     <title>2247.0.0</title>
-    <updated>2025-07-08T15:54:57.397976+00:00</updated>
+    <updated>2025-08-20T07:43:41.685178+00:00</updated>
     <content type="html"><![CDATA[<h2><a href="https://github.com/coreos/manifest/releases/tag/v2247.0.0">Upstream Container Linux updates</a>:</h2>
 <p>Security fixes:</p>
 <ul>
@@ -6163,7 +6334,7 @@ Using the btrfs driver can still be enforced by creating a respective <a href="h
   <entry>
     <id>https://github.com/flatcar/manifest/releases/tag/v2234.0.0</id>
     <title>2234.0.0</title>
-    <updated>2025-07-08T15:54:57.390943+00:00</updated>
+    <updated>2025-08-20T07:43:41.680661+00:00</updated>
     <content type="html"><![CDATA[<h2><a href="https://github.com/coreos/manifest/releases/tag/v2234.0.0">Upstream Container Linux updates</a>:</h2>
 <p>Security fixes:</p>
 <ul>
@@ -6199,7 +6370,7 @@ Using the btrfs driver can still be enforced by creating a respective <a href="h
   <entry>
     <id>https://github.com/flatcar/manifest/releases/tag/v2219.1.0</id>
     <title>2219.1.0</title>
-    <updated>2025-07-08T15:54:57.384569+00:00</updated>
+    <updated>2025-08-20T07:43:41.676703+00:00</updated>
     <content type="html"><![CDATA[<h2><a href="https://github.com/coreos/manifest/releases/tag/v2219.1.0">Upstream Container Linux updates</a>:</h2>
 <p>Security fixes:</p>
 <ul>
@@ -6233,7 +6404,7 @@ Using the btrfs driver can still be enforced by creating a respective <a href="h
   <entry>
     <id>https://github.com/flatcar/manifest/releases/tag/v2219.0.0</id>
     <title>2219.0.0</title>
-    <updated>2025-07-08T15:54:57.378579+00:00</updated>
+    <updated>2025-08-20T07:43:41.672968+00:00</updated>
     <content type="html"><![CDATA[<h2><a href="https://github.com/coreos/manifest/releases/tag/v2219.0.0">Upstream Container Linux updates</a>:</h2>
 <p>Bug fixes:</p>
 <ul>
@@ -6262,7 +6433,7 @@ Using the btrfs driver can still be enforced by creating a respective <a href="h
   <entry>
     <id>https://github.com/flatcar/manifest/releases/tag/v2205.0.0</id>
     <title>2205.0.0</title>
-    <updated>2025-07-08T15:54:57.373011+00:00</updated>
+    <updated>2025-08-20T07:43:41.669340+00:00</updated>
     <content type="html"><![CDATA[<h2><a href="https://github.com/coreos/manifest/releases/tag/v2205.0.0">Upstream Container Linux updates</a>:</h2>
 <p>Bug fixes:</p>
 <ul>
@@ -6291,7 +6462,7 @@ Using the btrfs driver can still be enforced by creating a respective <a href="h
   <entry>
     <id>https://github.com/flatcar/manifest/releases/tag/v2191.0.0</id>
     <title>2191.0.0</title>
-    <updated>2025-07-08T15:54:57.366899+00:00</updated>
+    <updated>2025-08-20T07:43:41.665443+00:00</updated>
     <content type="html"><![CDATA[<h2><a href="https://github.com/coreos/manifest/releases/tag/v2191.0.0">Upstream Container Linux updates</a>:</h2>
 <p>Security fixes:</p>
 <ul>
@@ -6326,7 +6497,7 @@ Using the btrfs driver can still be enforced by creating a respective <a href="h
   <entry>
     <id>https://github.com/flatcar/manifest/releases/tag/v2184.0.0</id>
     <title>2184.0.0</title>
-    <updated>2025-07-08T15:54:57.361085+00:00</updated>
+    <updated>2025-08-20T07:43:41.661539+00:00</updated>
     <content type="html"><![CDATA[<h2><a href="https://github.com/coreos/manifest/releases/tag/v2184.0.0">Upstream Container Linux updates</a>:</h2>
 <p>Bug fixes:</p>
 <ul>
@@ -6356,7 +6527,7 @@ Using the btrfs driver can still be enforced by creating a respective <a href="h
   <entry>
     <id>https://github.com/flatcar/manifest/releases/tag/v2163.2.1</id>
     <title>2163.2.1</title>
-    <updated>2025-07-08T15:54:57.354201+00:00</updated>
+    <updated>2025-08-20T07:43:41.657689+00:00</updated>
     <content type="html"><![CDATA[<h2><a href="https://github.com/coreos/manifest/releases/tag/v2163.2.1">Upstream Container Linux updates</a>:</h2>
 <p>Security fixes:</p>
 <ul>
@@ -6385,7 +6556,7 @@ Using the btrfs driver can still be enforced by creating a respective <a href="h
   <entry>
     <id>https://github.com/flatcar/manifest/releases/tag/v2163.1.0</id>
     <title>2163.1.0</title>
-    <updated>2025-07-08T15:54:57.347278+00:00</updated>
+    <updated>2025-08-20T07:43:41.654087+00:00</updated>
     <content type="html"><![CDATA[<h2><a href="https://github.com/coreos/manifest/releases/tag/v2163.1.0">Upstream Container Linux updates</a>:</h2>
 <p>Bug fixes:</p>
 <ul>
@@ -6410,7 +6581,7 @@ Using the btrfs driver can still be enforced by creating a respective <a href="h
   <entry>
     <id>https://github.com/flatcar/manifest/releases/tag/v2163.0.0</id>
     <title>2163.0.0</title>
-    <updated>2025-07-08T15:54:57.340125+00:00</updated>
+    <updated>2025-08-20T07:43:41.650028+00:00</updated>
     <content type="html"><![CDATA[<h2><a href="https://github.com/coreos/manifest/releases/tag/v2163.0.0">Upstream Container Linux updates</a>:</h2>
 <p>Security fixes:</p>
 <ul>
@@ -6444,7 +6615,7 @@ Using the btrfs driver can still be enforced by creating a respective <a href="h
   <entry>
     <id>https://github.com/flatcar/manifest/releases/tag/v2149.0.0</id>
     <title>2149.0.0</title>
-    <updated>2025-07-08T15:54:57.333780+00:00</updated>
+    <updated>2025-08-20T07:43:41.646001+00:00</updated>
     <content type="html"><![CDATA[<h2><a href="https://github.com/coreos/manifest/releases/tag/v2149.0.0">Upstream Container Linux updates</a>:</h2>
 <p>Updates:</p>
 <ul>
@@ -6473,7 +6644,7 @@ Using the btrfs driver can still be enforced by creating a respective <a href="h
   <entry>
     <id>https://github.com/flatcar/manifest/releases/tag/v2135.1.0</id>
     <title>2135.1.0</title>
-    <updated>2025-07-08T15:54:57.326447+00:00</updated>
+    <updated>2025-08-20T07:43:41.641836+00:00</updated>
     <content type="html"><![CDATA[<h2><a href="https://github.com/coreos/manifest/releases/tag/v2135.1.0">Upstream Container Linux updates</a>:</h2>
 <p>Security fixes:</p>
 <ul>
@@ -6503,7 +6674,7 @@ Using the btrfs driver can still be enforced by creating a respective <a href="h
   <entry>
     <id>https://github.com/flatcar/manifest/releases/tag/v2135.0.0</id>
     <title>2135.0.0</title>
-    <updated>2025-07-08T15:54:57.318751+00:00</updated>
+    <updated>2025-08-20T07:43:41.637324+00:00</updated>
     <content type="html"><![CDATA[<h2><a href="https://github.com/coreos/manifest/releases/tag/v2135.0.0">Upstream Container Linux updates</a>:</h2>
 <p>Security fixes:</p>
 <ul>
@@ -6544,7 +6715,7 @@ Using the btrfs driver can still be enforced by creating a respective <a href="h
   <entry>
     <id>https://github.com/flatcar/manifest/releases/tag/v2121.0.0</id>
     <title>2121.0.0</title>
-    <updated>2025-07-08T15:54:57.311324+00:00</updated>
+    <updated>2025-08-20T07:43:41.632696+00:00</updated>
     <content type="html"><![CDATA[<h2><a href="https://github.com/coreos/manifest/releases/tag/v2121.0.0">Upstream Container Linux updates</a>:</h2>
 <p>Security fixes:</p>
 <ul>
@@ -6586,7 +6757,7 @@ Using the btrfs driver can still be enforced by creating a respective <a href="h
   <entry>
     <id>https://github.com/flatcar/manifest/releases/tag/v2107.0.0</id>
     <title>2107.0.0</title>
-    <updated>2025-07-08T15:54:57.303367+00:00</updated>
+    <updated>2025-08-20T07:43:41.628026+00:00</updated>
     <content type="html"><![CDATA[<h2><a href="https://github.com/coreos/manifest/releases/tag/v2107.0.0">Upstream Container Linux updates</a>:</h2>
 <p>Security fixes:</p>
 <ul>
@@ -6618,7 +6789,7 @@ Using the btrfs driver can still be enforced by creating a respective <a href="h
   <entry>
     <id>https://github.com/flatcar/manifest/releases/tag/v2093.0.0</id>
     <title>2093.0.0</title>
-    <updated>2025-07-08T15:54:57.294792+00:00</updated>
+    <updated>2025-08-20T07:43:41.622477+00:00</updated>
     <content type="html"><![CDATA[<h2><a href="https://github.com/coreos/manifest/releases/tag/v2093.0.0">Upstream Container Linux updates</a>:</h2>
 <p>Security fixes:</p>
 <ul>
@@ -6664,7 +6835,7 @@ Using the btrfs driver can still be enforced by creating a respective <a href="h
   <entry>
     <id>https://github.com/flatcar/manifest/releases/tag/v2079.0.0</id>
     <title>2079.0.0</title>
-    <updated>2025-07-08T15:54:57.282621+00:00</updated>
+    <updated>2025-08-20T07:43:41.617284+00:00</updated>
     <content type="html"><![CDATA[<h2><a href="https://github.com/coreos/manifest/releases/tag/v2079.0.0">Upstream Container Linux updates</a>:</h2>
 <p>Security fixes:</p>
 <ul>
@@ -6707,7 +6878,7 @@ Using the btrfs driver can still be enforced by creating a respective <a href="h
   <entry>
     <id>https://github.com/flatcar/manifest/releases/tag/v2065.0.0</id>
     <title>2065.0.0</title>
-    <updated>2025-07-08T15:54:57.274257+00:00</updated>
+    <updated>2025-08-20T07:43:41.612465+00:00</updated>
     <content type="html"><![CDATA[<h2><a href="https://github.com/coreos/manifest/releases/tag/v2065.0.0">Upstream Container Linux updates</a>:</h2>
 <p>Security fixes:</p>
 <ul>
@@ -6741,7 +6912,7 @@ Using the btrfs driver can still be enforced by creating a respective <a href="h
   <entry>
     <id>https://github.com/flatcar/manifest/releases/tag/v2051.0.0</id>
     <title>2051.0.0</title>
-    <updated>2025-07-08T15:54:57.266668+00:00</updated>
+    <updated>2025-08-20T07:43:41.608033+00:00</updated>
     <content type="html"><![CDATA[<h2><a href="https://github.com/coreos/manifest/releases/tag/v2051.0.0">Upstream Container Linux updates</a>:</h2>
 <p>Security fixes:</p>
 <ul>
@@ -6778,7 +6949,7 @@ Using the btrfs driver can still be enforced by creating a respective <a href="h
   <entry>
     <id>https://github.com/flatcar/manifest/releases/tag/v2037.0.0</id>
     <title>2037.0.0</title>
-    <updated>2025-07-08T15:54:57.254184+00:00</updated>
+    <updated>2025-08-20T07:43:41.603492+00:00</updated>
     <content type="html"><![CDATA[<h2><a href="https://github.com/coreos/manifest/releases/tag/v2037.0.0">Upstream Container Linux updates</a>:</h2>
 <p>Security fixes:</p>
 <ul>
@@ -6815,7 +6986,7 @@ Using the btrfs driver can still be enforced by creating a respective <a href="h
   <entry>
     <id>https://github.com/flatcar/manifest/releases/tag/v2023.0.0</id>
     <title>2023.0.0</title>
-    <updated>2025-07-08T15:54:57.245232+00:00</updated>
+    <updated>2025-08-20T07:43:41.598720+00:00</updated>
     <content type="html"><![CDATA[<h2><a href="https://github.com/coreos/manifest/releases/tag/v2023.0.0">Upstream Container Linux updates</a>:</h2>
 <p>Security fixes:</p>
 <ul>
@@ -6855,7 +7026,7 @@ Using the btrfs driver can still be enforced by creating a respective <a href="h
   <entry>
     <id>https://github.com/flatcar/manifest/releases/tag/v2016.0.0</id>
     <title>2016.0.0</title>
-    <updated>2025-07-08T15:54:57.236103+00:00</updated>
+    <updated>2025-08-20T07:43:41.594467+00:00</updated>
     <content type="html"><![CDATA[<h2><a href="https://github.com/coreos/manifest/releases/tag/v2016.0.0">Upstream Container Linux updates</a>:</h2>
 <p>Bug fixes:</p>
 <ul>
@@ -6887,7 +7058,7 @@ Using the btrfs driver can still be enforced by creating a respective <a href="h
   <entry>
     <id>https://github.com/flatcar/manifest/releases/tag/v1995.0.0</id>
     <title>1995.0.0</title>
-    <updated>2025-07-08T15:54:57.227939+00:00</updated>
+    <updated>2025-08-20T07:43:41.590088+00:00</updated>
     <content type="html"><![CDATA[<h2><a href="https://github.com/coreos/manifest/releases/tag/v1995.0.0">Upstream Container Linux updates</a>:</h2>
 <p>Security fixes:</p>
 <ul>
@@ -6926,7 +7097,7 @@ Using the btrfs driver can still be enforced by creating a respective <a href="h
   <entry>
     <id>https://github.com/flatcar/manifest/releases/tag/v1981.0.0</id>
     <title>1981.0.0</title>
-    <updated>2025-07-08T15:54:57.220497+00:00</updated>
+    <updated>2025-08-20T07:43:41.586157+00:00</updated>
     <content type="html"><![CDATA[<h2><a href="https://github.com/coreos/manifest/releases/tag/v1981.0.0">Upstream Container Linux updates</a>:</h2>
 <p>Updates:</p>
 <ul>
@@ -6952,7 +7123,7 @@ Using the btrfs driver can still be enforced by creating a respective <a href="h
   <entry>
     <id>https://github.com/flatcar/manifest/releases/tag/v1967.0.0</id>
     <title>1967.0.0</title>
-    <updated>2025-07-08T15:54:57.213012+00:00</updated>
+    <updated>2025-08-20T07:43:41.581630+00:00</updated>
     <content type="html"><![CDATA[<h2><a href="https://github.com/coreos/manifest/releases/tag/v1967.0.0">Upstream Container Linux updates</a>:</h2>
 <p>Security fixes:</p>
 <ul>
@@ -6991,7 +7162,7 @@ Using the btrfs driver can still be enforced by creating a respective <a href="h
   <entry>
     <id>https://github.com/flatcar/manifest/releases/tag/v1953.0.0</id>
     <title>1953.0.0</title>
-    <updated>2025-07-08T15:54:57.204058+00:00</updated>
+    <updated>2025-08-20T07:43:41.576937+00:00</updated>
     <content type="html"><![CDATA[<h2><a href="https://github.com/coreos/manifest/releases/tag/v1953.0.0">Upstream Container Linux updates</a>:</h2>
 <p>Security fixes:</p>
 <ul>
@@ -7029,7 +7200,7 @@ Using the btrfs driver can still be enforced by creating a respective <a href="h
   <entry>
     <id>https://github.com/flatcar/manifest/releases/tag/v1939.0.0</id>
     <title>1939.0.0</title>
-    <updated>2025-07-08T15:54:57.195920+00:00</updated>
+    <updated>2025-08-20T07:43:41.571933+00:00</updated>
     <content type="html"><![CDATA[<h2><a href="https://github.com/coreos/manifest/releases/tag/v1939.0.0">Upstream Container Linux updates</a>:</h2>
 <p>Security fixes:</p>
 <ul>
@@ -7071,7 +7242,7 @@ Using the btrfs driver can still be enforced by creating a respective <a href="h
   <entry>
     <id>https://github.com/flatcar/manifest/releases/tag/v1925.0.0</id>
     <title>1925.0.0</title>
-    <updated>2025-07-08T15:54:57.187377+00:00</updated>
+    <updated>2025-08-20T07:43:41.567325+00:00</updated>
     <content type="html"><![CDATA[<h2>Flatcar updates</h2>
 <p>Changes:</p>
 <ul>
@@ -7109,7 +7280,7 @@ Using the btrfs driver can still be enforced by creating a respective <a href="h
   <entry>
     <id>https://github.com/flatcar/manifest/releases/tag/v1911.0.2</id>
     <title>1911.0.2</title>
-    <updated>2025-07-08T15:54:57.179469+00:00</updated>
+    <updated>2025-08-20T07:43:41.563513+00:00</updated>
     <content type="html"><![CDATA[<h2><a href="https://github.com/coreos/manifest/releases/tag/v1911.0.2">Upstream Container Linux updates</a>:</h2>
 <p>Bug fixes:</p>
 <ul>
@@ -7138,7 +7309,7 @@ Using the btrfs driver can still be enforced by creating a respective <a href="h
   <entry>
     <id>https://github.com/flatcar/manifest/releases/tag/v1897.0.0</id>
     <title>1897.0.0</title>
-    <updated>2025-07-08T15:54:57.170983+00:00</updated>
+    <updated>2025-08-20T07:43:41.559347+00:00</updated>
     <content type="html"><![CDATA[<h2><a href="https://github.com/coreos/manifest/releases/tag/v1897.0.0">Upstream Container Linux updates</a>:</h2>
 <p>Bug fixes:</p>
 <ul>
@@ -7178,7 +7349,7 @@ Using the btrfs driver can still be enforced by creating a respective <a href="h
   <entry>
     <id>https://github.com/flatcar/manifest/releases/tag/v1883.0.0</id>
     <title>1883.0.0</title>
-    <updated>2025-07-08T15:54:57.164100+00:00</updated>
+    <updated>2025-08-20T07:43:41.555009+00:00</updated>
     <content type="html"><![CDATA[<h2><a href="https://github.com/coreos/manifest/releases/tag/v1883.0.0">Upstream Container Linux updates</a>:</h2>
 <p>Changes:</p>
 <ul>
@@ -7212,7 +7383,7 @@ Using the btrfs driver can still be enforced by creating a respective <a href="h
   <entry>
     <id>https://github.com/flatcar/manifest/releases/tag/v1871.0.0</id>
     <title>1871.0.0</title>
-    <updated>2025-07-08T15:54:57.155094+00:00</updated>
+    <updated>2025-08-20T07:43:41.550220+00:00</updated>
     <content type="html"><![CDATA[<h2><a href="https://github.com/coreos/manifest/releases/tag/v1871.0.0">Upstream Container Linux updates</a>:</h2>
 <p>Security fixes:</p>
 <ul>
@@ -7251,7 +7422,7 @@ Using the btrfs driver can still be enforced by creating a respective <a href="h
   <entry>
     <id>https://github.com/flatcar/manifest/releases/tag/v1855.1.0</id>
     <title>1855.1.0</title>
-    <updated>2025-07-08T15:54:57.147378+00:00</updated>
+    <updated>2025-08-20T07:43:41.546061+00:00</updated>
     <content type="html"><![CDATA[<h2><a href="https://github.com/coreos/manifest/releases/tag/v1855.1.0">Upstream Container Linux updates</a>:</h2>
 <p>Security fixes:</p>
 <ul>
@@ -7284,7 +7455,7 @@ Using the btrfs driver can still be enforced by creating a respective <a href="h
   <entry>
     <id>https://github.com/flatcar/manifest/releases/tag/v1855.0.0</id>
     <title>1855.0.0</title>
-    <updated>2025-07-08T15:54:57.140860+00:00</updated>
+    <updated>2025-08-20T07:43:41.542077+00:00</updated>
     <content type="html"><![CDATA[<h2><a href="https://github.com/coreos/manifest/releases/tag/v1855.0.0">Upstream Container Linux updates</a>:</h2>
 <p>Changes:</p>
 <ul>
@@ -7316,7 +7487,7 @@ Using the btrfs driver can still be enforced by creating a respective <a href="h
   <entry>
     <id>https://github.com/flatcar/manifest/releases/tag/v1849.0.0</id>
     <title>1849.0.0</title>
-    <updated>2025-07-08T15:54:57.134665+00:00</updated>
+    <updated>2025-08-20T07:43:41.538102+00:00</updated>
     <content type="html"><![CDATA[<h2><a href="https://github.com/coreos/manifest/releases/tag/v1849.0.0">Upstream Container Linux updates</a>:</h2>
 <p>Changes:</p>
 <ul>
@@ -7349,7 +7520,7 @@ Using the btrfs driver can still be enforced by creating a respective <a href="h
   <entry>
     <id>https://github.com/flatcar/manifest/releases/tag/v1828.0.0</id>
     <title>1828.0.0</title>
-    <updated>2025-07-08T15:54:57.124075+00:00</updated>
+    <updated>2025-08-20T07:43:41.533139+00:00</updated>
     <content type="html"><![CDATA[<h2><a href="https://github.com/coreos/manifest/releases/tag/v1828.0.0">Upstream Container Linux updates</a>:</h2>
 <p>Security fixes:</p>
 <ul>
@@ -7393,7 +7564,7 @@ Using the btrfs driver can still be enforced by creating a respective <a href="h
   <entry>
     <id>https://github.com/flatcar/manifest/releases/tag/v1814.0.0</id>
     <title>1814.0.0</title>
-    <updated>2025-07-08T15:54:57.116367+00:00</updated>
+    <updated>2025-08-20T07:43:41.528337+00:00</updated>
     <content type="html"><![CDATA[<h2><a href="https://github.com/coreos/manifest/releases/tag/v1814.0.0">Upstream Container Linux updates</a>:</h2>
 <p>Bug fixes:</p>
 <ul>
@@ -7432,7 +7603,7 @@ Using the btrfs driver can still be enforced by creating a respective <a href="h
   <entry>
     <id>https://github.com/flatcar/manifest/releases/tag/v1800.1.0</id>
     <title>1800.1.0</title>
-    <updated>2025-07-08T15:54:57.111309+00:00</updated>
+    <updated>2025-08-20T07:43:41.524544+00:00</updated>
     <content type="html"><![CDATA[<h2><a href="https://github.com/coreos/manifest/releases/tag/v1800.1.0">Upstream Container Linux updates</a>:</h2>
 <p>Bug fixes:</p>
 <ul>
@@ -7457,7 +7628,7 @@ Using the btrfs driver can still be enforced by creating a respective <a href="h
   <entry>
     <id>https://github.com/flatcar/manifest/releases/tag/v1800.0.0</id>
     <title>1800.0.0</title>
-    <updated>2025-07-08T15:54:57.102974+00:00</updated>
+    <updated>2025-08-20T07:43:41.518767+00:00</updated>
     <content type="html"><![CDATA[<h2><a href="https://github.com/coreos/manifest/releases/tag/v1800.0.0">Upstream Container Linux updates</a>:</h2>
 <p>Security fixes:</p>
 <ul>
@@ -7506,7 +7677,7 @@ Using the btrfs driver can still be enforced by creating a respective <a href="h
   <entry>
     <id>https://github.com/flatcar/manifest/releases/tag/v1786.2.0</id>
     <title>1786.2.0</title>
-    <updated>2025-07-08T15:54:57.088785+00:00</updated>
+    <updated>2025-08-20T07:43:41.513892+00:00</updated>
     <content type="html"><![CDATA[<h2><a href="https://github.com/coreos/manifest/releases/tag/v1786.2.0">Upstream Container Linux updates</a>:</h2>
 <p>Security fixes:</p>
 <ul>
@@ -7540,7 +7711,7 @@ Using the btrfs driver can still be enforced by creating a respective <a href="h
   <entry>
     <id>https://github.com/flatcar/manifest/releases/tag/v1786.1.0</id>
     <title>1786.1.0</title>
-    <updated>2025-07-08T15:54:57.081451+00:00</updated>
+    <updated>2025-08-20T07:43:41.510043+00:00</updated>
     <content type="html"><![CDATA[<h2><a href="https://github.com/coreos/manifest/releases/tag/v1786.1.0">Upstream Container Linux updates</a>:</h2>
 <p>Bug fixes:</p>
 <ul>
@@ -7566,7 +7737,7 @@ Using the btrfs driver can still be enforced by creating a respective <a href="h
   <entry>
     <id>https://github.com/flatcar/manifest/releases/tag/v1786.0.1</id>
     <title>1786.0.1</title>
-    <updated>2025-07-08T15:54:57.069589+00:00</updated>
+    <updated>2025-08-20T07:43:41.503612+00:00</updated>
     <content type="html"><![CDATA[<h2><a href="https://github.com/coreos/manifest/releases/tag/v1786.0.1">Upstream Container Linux updates</a>:</h2>
 <p>Security fixes:</p>
 <ul>
@@ -7619,7 +7790,7 @@ Using the btrfs driver can still be enforced by creating a respective <a href="h
   <entry>
     <id>https://github.com/flatcar/manifest/releases/tag/v1772.0.0</id>
     <title>1772.0.0</title>
-    <updated>2025-07-08T15:54:57.059610+00:00</updated>
+    <updated>2025-08-20T07:43:41.497844+00:00</updated>
     <content type="html"><![CDATA[<h2><a href="https://github.com/coreos/manifest/releases/tag/v1772.0.0">Upstream Container Linux updates</a>:</h2>
 <p>Bug fixes:</p>
 <ul>
@@ -7662,7 +7833,7 @@ Using the btrfs driver can still be enforced by creating a respective <a href="h
   <entry>
     <id>https://github.com/flatcar/manifest/releases/tag/v1758.0.0</id>
     <title>1758.0.0</title>
-    <updated>2025-07-08T15:54:57.046963+00:00</updated>
+    <updated>2025-08-20T07:43:41.491943+00:00</updated>
     <content type="html"><![CDATA[<h2><a href="https://github.com/coreos/manifest/releases/tag/v1758.0.0">Upstream Container Linux updates</a>:</h2>
 <p>Security fixes:</p>
 <ul>
@@ -7715,7 +7886,7 @@ Using the btrfs driver can still be enforced by creating a respective <a href="h
   <entry>
     <id>https://github.com/flatcar/manifest/releases/tag/v1745.0.0</id>
     <title>1745.0.0</title>
-    <updated>2025-07-08T15:54:57.035013+00:00</updated>
+    <updated>2025-08-20T07:43:41.485138+00:00</updated>
     <content type="html"><![CDATA[<h2>Flatcar updates</h2>
 <p>Initial Flatcar release.</p>
 <p>Notes:</p>
