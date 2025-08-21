@@ -71,7 +71,48 @@ NTP synchronized: yes
                   Sun 2015-11-01 01:00:00 EST
 ```
 
-## Time synchronization
+### Setting the time zone via Ignition
+
+If you are aware of the downsides to setting a system time zone that is different from the default UTC time zone, you can set a different system time zone by setting the local time zone configuration file, https://www.freedesktop.org/software/systemd/man/localtime.html[`/etc/localtime`], to be an absolute or relative symlink to a `tzfile` entry under `/usr/share/zoneinfo/`.
+It is recommended that you set the same time zone across all your machines in the cluster.
+
+For example, you can set the time zone to `America/New_York` by using a Butane config like the following:
+
+```shell
+variant: fcos
+version: 1.6.0
+storage:
+  links:
+    - path: /etc/localtime
+      target: ../usr/share/zoneinfo/America/New_York
+```
+
+<details>
+
+<summary>Remark to other references </summary>
+If you come accross https://github.com/flatcar/Flatcar/issues/491#issuecomment-908316042 and wondering whether you have to use the fields "overwrite": true and "filesystem": "root" unlike in Fedora Core OS?
+Here is the ansser: https://github.com/flatcar/Flatcar/issues/1836#issuecomment-3175310460
+
+</details>
+
+
+
+## Time synchronization to HOST
+
+To keep in sync with the host's timezone, you can mount the timezone configuraiton file to Flatcar Container Linux. 
+You add the following to your mount configration section
+
+```shell
+        volumeMounts:
+        - name: localtime
+          mountPath: /etc/localtime
+      volumes:
+      - name: localtime
+        hostPath:
+          path: /etc/localtime
+```
+
+## Time synchronization to NTP
 
 Flatcar Container Linux clusters use NTP to synchronize the clocks of member nodes, and all machines start an NTP client at boot. The operating system uses [`systemd-timesyncd(8)`][systemd-timesyncd] as the default NTP client. Use `systemctl` to check which service is running:
 
