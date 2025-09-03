@@ -52,6 +52,7 @@ The table below give an overview on the supported Flatcar extensions.
 | `nvidia-drivers-*`                        | `flatcar-nvidia-drivers-*`           | 4344.0.0 – …        | [NVIDIA][nvidiaextension] |                         |
 | `podman`                                  | `flatcar-podman`                     | 3941.0.0 – …        |                           |                         |
 | `python`                                  | `flatcar-python`                     | 4012.0.0 – …        |                           |                         |
+| `tools`                                   | `flatcar-tools`                      | 4459.0.0 – …        |                           |           ✅            |
 | `zfs`                                     | `flatcar-zfs`                        | 3913.0.0 – …        | [Storage][zfsextension]   |                         |
 | n/a[^1]                                   | `oem-*`                              | 3760.2.0 – …        |                           |           ✅            |
 
