@@ -34,30 +34,28 @@ cd /mnt/work
 
 ```shell
 modules=/opt/modules  # Adjust this writable storage location as needed.
-sudo mkdir -p "${modules}" "${modules}.wd"
-```
+sudo mkdir -p "${modules}.wd"
 
-Create a mount unit to use `/opt/modules` at boot - `/etc/systemd/system/usr-lib-modules.mount`:
-```ini
-[Unit]
-Description=Custom Kernel Modules
-Before=local-fs.target
-ConditionPathExists=/opt/modules
+# prepare the structure for kernel-modules sysext
+sudo mkdir -p /var/lib/extensions/kernel-modules/usr/lib/{extension-release.d,modules}
 
-[Mount]
-Type=overlay
-What=overlay
-Where=/usr/lib/modules
-Options=lowerdir=/usr/lib/modules,upperdir=/opt/modules,workdir=/opt/modules.wd
+# the kmod depends on current kernel and architecture, so include it in the metadata
+# this causes systemd-sysext to skip loading the sysext after upgrade
+source /etc/os-release && \
+    printf "ID=flatcar\nVERSION_ID=%s\nARCHITECTURE=%s\n" \
+    "$VERSION_ID" \
+    "$(hostnamectl | grep 'Architecture:' | awk '{print $2}')" \
+    | sudo tee /var/lib/extensions/kernel-modules/usr/lib/extension-release.d/extension-release.kernel-modules
 
-[Install]
-WantedBy=local-fs.target
-```
+sudo tee /var/lib/extensions/kernel-modules/usr/lib/extension-release.d/extension-release.kernel-modules <<EOF
+ID=flatcar
+VERSION_ID=$(. /etc/os-release && echo $VERSION_ID)
+ARCHITECTURE=$(hostnamectl | grep 'Architecture:' | awk '{print $2}')
+EOF
 
-Enable the unit so this overlay becomes available:
-
-```shell
-sudo systemctl enable --now usr-lib-modules.mount
+sudo mount -t overlay overlay \
+    -o lowerdir=/usr/lib/modules,upperdir=/var/lib/extensions/kernel-modules/usr/lib/modules/,workdir=/opt/modules.wd \
+    /var/lib/extensions/kernel-modules/usr/lib/modules/
 ```
 
 ## Prepare a Flatcar Container Linux development container
@@ -84,7 +82,7 @@ Start the development container with the host's writable modules directory mount
 Since the container requires access to loopback devices, `--capability=CAP_NET_ADMIN` is required.
 ```shell
 sudo systemd-nspawn \
-    --bind=/usr/lib/modules \
+    --bind=/var/lib/extensions/kernel-modules/usr/lib/modules:/usr/lib/modules \
     --capability=CAP_NET_ADMIN \
     --image=flatcar_developer_container.bin
 ```
@@ -106,4 +104,22 @@ In case the installation step didn't update the module dependency files automati
 
 ```shell
 sudo depmod
+```
+
+## Clean up and activate the sysext
+
+Exit the developer container and unmount the path on host and actvate the built sysext.
+
+```shell
+# unmount the overlay
+sudo umount /var/lib/extensions/kernel-modules/usr/lib/modules/
+
+# verify the final contents
+find /var/lib/extensions/kernel-modules/
+
+# merge the freshly created sysext
+sudo systemd-sysext refresh
+
+# load the module
+sudo modprobe <module name>
 ```
