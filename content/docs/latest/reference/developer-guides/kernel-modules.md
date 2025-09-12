@@ -41,8 +41,10 @@ Create a mount unit to use `/opt/modules` at boot - `/etc/systemd/system/usr-lib
 ```ini
 [Unit]
 Description=Custom Kernel Modules
-Before=local-fs.target
 ConditionPathExists=/opt/modules
+Before=sysinit.target
+After=systemd-sysext.service
+DefaultDependencies=no
 
 [Mount]
 Type=overlay
@@ -51,7 +53,7 @@ Where=/usr/lib/modules
 Options=lowerdir=/usr/lib/modules,upperdir=/opt/modules,workdir=/opt/modules.wd
 
 [Install]
-WantedBy=local-fs.target
+UpheldBy=systemd-sysext.service
 ```
 
 Enable the unit so this overlay becomes available:
