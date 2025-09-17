@@ -115,7 +115,7 @@ Now the member and admin roles are created, the admin role is a composite role w
 
 1. Click on `Client Scopes > nebraska-dedicated`.
 2. Click on `Configure a new mapper`
-2. Click on `Use client role`
+2. Click on `User Client Role`
 2. Set the name as `roles`, Select the `Mapper Type` as `User Client Role`, `Token Claim Name` as `roles` and Select `Claim JSON Type` as String.
 3. Click `Save`
 
@@ -163,7 +163,7 @@ Now the member and admin roles are created, the admin role is a composite role w
 1. Click on `Create Application`.
 2. Provide the name as `nebraska`, select `Single Page Application` (SPA).
 3. Click `Create`
-4. Click on the `settings` tab.
+4. Click on the `Settings` tab.
 5. Under `Application URIs` section:
    - **Allowed Callback URLs**: `http://localhost:8000/auth/callback`
    - **Allowed Web Origins**: `http://localhost:8000` (for CORS)
@@ -193,9 +193,7 @@ Now the member and admin roles are created, the admin role is a composite role w
      --http-static-dir frontend/dist
    ```
 
-<p align="center">
-  <img width="100%" src="../images/auth0-application.gif">
-</p>
+{{< presentation "auth0-setup" >}}
 
 ## Adding roles scope to token
 
@@ -207,7 +205,7 @@ Now the member and admin roles are created, the admin role is a composite role w
 
 ```js
 exports.onExecutePostLogin = async (event, api) => {
-  const namespace = "http://kinvolk.io";
+  const namespace = "http://nebraska.io"; // this value is just an example
 
   if (event.authorization) {
     api.accessToken.setCustomClaim(
@@ -225,10 +223,11 @@ exports.onExecutePostLogin = async (event, api) => {
 9. Find the newly created action on the right side (switch to the `custom` tab).
 10. Drag & Drop the action between the `Start` and `Complete` steps in the flow.
 11. Click `Apply`.
+12. Go to `User Management` and add the role to your users.
 
-Now the action that adds the roles to the token will be triggered after each login and the roles will be available in the key `http://kinvolk.io/roles`.
+Now the action that adds the roles to the token will be triggered after each login and the roles will be available in the key `http://nebraska.io/roles`.
 
-Note: The `oidc-roles-path` argument accepts a JSONPath to fetch roles from the token, in this case set the value to `http://kinvolk\.io/roles`.
+Note: The `oidc-roles-path` argument accepts a JSONPath to fetch roles from the token, in this case set the value to `"http://nebraska\.io/roles"`.
 
 {{< presentation "auth0-roles-setup" >}}
 
