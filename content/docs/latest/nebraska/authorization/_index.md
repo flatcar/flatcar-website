@@ -115,9 +115,9 @@ Now the member and admin roles are created, the admin role is a composite role w
 
 1. Click on `Client Scopes > nebraska-dedicated`.
 2. Click on `Configure a new mapper`
-2. Click on `User Client Role`
-2. Set the name as `roles`, Select the `Mapper Type` as `User Client Role`, `Token Claim Name` as `roles` and Select `Claim JSON Type` as String.
-3. Click `Save`
+3. Click on `User Client Role`
+4. Set the name as `roles`, Select the `Mapper Type` as `User Client Role`, `Token Claim Name` as `roles` and Select `Claim JSON Type` as String.
+5. Click `Save`
 
 {{< presentation "keycloak-scope-token" >}}
 
@@ -237,35 +237,17 @@ Note: The `oidc-roles-path` argument accepts a JSONPath to fetch roles from the 
 
 - Create a new `organization` in Github.
 
-- Now you need a Github app, go to `https://github.com/organizations/<ORG>/settings/apps/new` and fill
-  the following fields:
-  - `GitHub App name` - just put some fancy name.
-
+- Now you need to create an OAuth App, go to `https://github.com/organizations/<your-organization>/settings/applications` (Your Organization Settings > Developer Settongs > OAuth Apps) and fill the following fields:
+  - `Application name` - just put some fancy name.
   - `Homepage URL` - `http://localhost:8000`
+  - `User authorization callback URL` - `http://localhost:5556/dex/callback`
 
-  - `User authorization callback URL` - `http://0.0.0.0:5556/dex/callback`
-
-  - `Permissions` - `Access: Read-only` to `Organization members`
-
-  - `User permissions` - none needed
-
-  - `Subscribe to events` - tick `Membership`, `Organization` and `Team`
-
-  - `Where can this GitHub App be installed?` - `Only on this account`
-
-- Press `Create GitHub App` button
+- Press `Create Application` button
 
 - Next thing you'll get is `OAuth credentials` at the bottom of the
   page of the app you just created, we will need both `Client ID` and
   `Client secret`
-
-- You also need to install the app you just created
-  - Go to `https://github.com/organizations/<ORG>/settings/apps`
-
-  - Click `Edit` button for your new app
-
-  - Choose `Install App` on the left of the page and perform the
-    installation
+- The OAuth app should already be installed to your org.
 
 ## Creating Github Teams
 
@@ -282,15 +264,14 @@ Note: The `oidc-roles-path` argument accepts a JSONPath to fetch roles from the 
 > example.yaml
 
 ```yaml
-issuer: http://0.0.0.0:5556/dex
+issuer: http://localhost:5556/dex
 
 storage:
-  type: sqlite3
-  config:
-    file: /var/dex/dex.db
+  type: memory
 
 web:
   http: 0.0.0.0:5556
+  allowedOrigins: ["*"]
 
 staticClients:
   - id: nebraska
@@ -306,28 +287,30 @@ connectors:
     config:
       clientID: <Client ID>
       clientSecret: <Client Secret>
-      redirectURI: http://0.0.0.0:5556/dex/callback
+      redirectURI: http://localhost:5556/dex/callback
       loadAllGroups: true
       teamNameField: slug
       useLoginAsID: true
-
-enablePasswordDB: true
 ```
 
 - Run Dex using docker with the example configuration.
 
-> docker run -p 5556:5556 -v ${PWD}/example.yaml:/etc/dex/example.yaml -v ${PWD}/dex.db:/var/dex/dex.db ghcr.io/dexidp/dex:v2.28.1 dex serve /etc/dex/example.yaml
+```sh
+docker run -p 5556:5556 -v ${PWD}/example.yaml:/etc/dex/example.yaml ghcr.io/dexidp/dex:v2.44.0 dex serve /etc/dex/example.yaml
+```
 
 ## Running nebraska
 
-> nebraska --auth-mode oidc \
->  --oidc-admin-roles <organization>:admin \
->  --oidc-viewer-roles <organization>:viewer \
->  --oidc-client-id nebraska \
->  --oidc-issuer-url http://127.0.0.1:5556/dex \
->  --oidc-roles-path groups \
->  --oidc-scopes groups,openid,profile \
->  --http-static-dir $PWD/frontend/dist
+```sh
+backend/bin/nebraska --debug --auth-mode oidc \
+  --oidc-roles-path groups \
+  --oidc-admin-roles admin \
+  --oidc-viewer-roles viewer \
+  --oidc-client-id nebraska \
+  --oidc-issuer-url http://localhost:5556/dex \
+  --oidc-scopes groups,openid,profile \
+  --http-static-dir frontend/dist
+```
 
 # Preparing Okta as an OIDC provider for Nebraska
 
@@ -341,10 +324,11 @@ enablePasswordDB: true
    - **App integration name**: `Nebraska`
    - **Grant type**: Authorization Code (with PKCE automatically enabled for SPAs)
    - **Sign-in redirect URIs**: `http://localhost:8000/auth/callback`
-   - **Sign-out redirect URIs**: `http://localhost:8000` (optional)
+   - **Sign-out redirect URIs**: `http://localhost:8000`
    - **Trusted Origins** (under Security > API):
      - Add `http://localhost:8000` for CORS
 6. In `Assignments`, assign users or groups who should have access.
+   - App → Assignments → Assign > Assign to People or Assign to Groups and pick users/groups who should access the app.
 7. Note your `Client ID` from the application's General tab.
 
 ## Configure groups/roles claims
@@ -361,12 +345,12 @@ enablePasswordDB: true
 ## Start Nebraska with Okta
 
 ```bash
-nebraska --auth-mode oidc \
+backend/bin/nebraska --debug --auth-mode oidc \
   --oidc-client-id <your-client-id> \
   --oidc-issuer-url https://<your-domain>.okta.com/oauth2/default \
   --oidc-admin-roles nebraska_admin \
   --oidc-viewer-roles nebraska_viewer \
-  --http-static-dir $PWD/frontend/dist
+  --http-static-dir frontend/dist
 ```
 
 # Preparing Azure AD (Microsoft Entra ID) as an OIDC provider for Nebraska
@@ -405,13 +389,13 @@ nebraska --auth-mode oidc \
 ## Start Nebraska with Azure AD
 
 ```bash
-nebraska --auth-mode oidc \
+backend/bin/nebraska --debug --auth-mode oidc \
   --oidc-client-id <your-application-id> \
   --oidc-issuer-url https://login.microsoftonline.com/<your-tenant-id>/v2.0 \
   --oidc-admin-roles <admin-group-id> \
   --oidc-viewer-roles <viewer-group-id> \
   --oidc-roles-path groups \
-  --http-static-dir $PWD/frontend/dist
+  --http-static-dir frontend/dist
 ```
 
 Note: Azure AD returns group IDs (GUIDs) rather than group names in the token. You'll need to use the group IDs in your role configuration.
@@ -496,31 +480,20 @@ $ helm install my-nebraska nebraska/nebraska --values nebraska-values.yaml
   - Check for trailing slashes or protocol mismatches (http vs https)
 
 - **JWT validation failed / User has no access**
+  - Inspect your access token
   - Check that roles are correctly configured in your OIDC provider
   - Verify the roles path matches your token structure (use `--oidc-roles-path` if needed)
   - For Auth0, ensure you created an API and set the audience parameter
 
 - **Frequent re-authentication after page refresh**
-  - This is expected behavior as tokens are stored in-memory for security
   - Configure longer access token expiration in your OIDC provider (1-4 hours recommended)
   - SSO session will handle re-authentication transparently if still valid
+  - Go to your providers token settings (either under realm or specific client) and increase the access token lifespan from minutes to hours
 
 - **Auth0: "JWT malformed" or decode errors**
   - Ensure Implicit grant is disabled in application settings
   - Verify audience parameter is set correctly
   - Check that you created an API in Auth0 and using its identifier
-
-## General Issues
-
-- **I'm getting a blank page!**
-  - You likely visited nebraska frontend website before, so browser
-    likely has cached the `index.html` page, so it won't get it from
-    Nebraska, but instead start asking for some CSS and javascript
-    stuff outright, which it won't get. That results in a blank
-    page. Force the browser to get `index.html` from Nebraska by
-    either doing a force refresh (ctrl+f5 on firefox), or by cleaning
-    the cache for localhost (or the server where the Nebraska instance
-    is deployed).
 
 # Legacy OIDC Configuration
 
