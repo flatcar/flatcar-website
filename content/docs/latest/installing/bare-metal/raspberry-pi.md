@@ -133,7 +133,7 @@ The options that we will be using with the scripts are:
       "flatcar.autologin",
       "usbcore.autosuspend=-1"
     ]
-  }
+  },
   "passwd": {
     "users": [
       {
