@@ -3,7 +3,7 @@
   {{ range $i, $channel := $.Site.Data.licenses.info.flatcar.channels }}
     {{ $active := $i | eq 0 }}
     <li class="nav-item">
-      <a class="nav-link {{ if $active }}active{{ end }}" id="{{ $channel }}-tab" data-toggle="tab" href="#{{ $channel }}" aria-controls="{{ $channel }}" aria-current="page">{{ $channel }}</a>
+      <a class="nav-link {{ if $active }}active{{ end }}" id="{{ $channel }}-tab" data-bs-toggle="tab" href="#{{ $channel }}" aria-controls="{{ $channel }}" aria-current="page">{{ $channel }}</a>
     </li>
   {{ end }}
   </li>
