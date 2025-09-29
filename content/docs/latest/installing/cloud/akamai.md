@@ -213,6 +213,7 @@ into [more specific topics][doc-index].
 
 * If the instance is booted with a Private IP option, the IP will not be set automatically on Flatcar. It is the "Linode helpers" that take care of this, to do so on Flatcar: `ip addr add "${COREOS_AKAMAI_PRIVATE_IPV4_0}" dev eth0`
 * It is not possible to configure SSH keys against a user account with Afterburn. If SSH keys are needed on the instance, it must be done through Ignition. (See: https://github.com/coreos/afterburn/issues/1111 and https://www.linode.com/community/questions/24938/v1ssh-keys-is-empty-when-deploying-a-private-image)
+* The instance will not use the full disk size until a reboot is done (from Flatcar or from the Akamai/Linode API). (See: https://github.com/flatcar/Flatcar/issues/1875)
 
 [akamai-connected-cloud]: https://www.linode.com/
 [doc-index]: ../../
