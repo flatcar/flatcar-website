@@ -50,6 +50,7 @@ The table below give an overview on the supported Flatcar extensions.
 | n/a[^1]                                   | `docker-flatcar`                     | 3794.0.0  – …       |                           |           ✅            |
 | `incus`                                   | `flatcar-incus`                      | 4285.0.0  – …       | [Incus][incusextension]   |                         |
 | `nvidia-drivers-*`                        | `flatcar-nvidia-drivers-*`           | 4344.0.0 – …        | [NVIDIA][nvidiaextension] |                         |
+| `overlaybd`                               | `flatcar-overlaybd`                  | 4426.0.0 – …        | [OverlayBD][overlaybdext] |                         |
 | `podman`                                  | `flatcar-podman`                     | 3941.0.0 – …        |                           |                         |
 | `python`                                  | `flatcar-python`                     | 4012.0.0 – …        |                           |                         |
 | `zfs`                                     | `flatcar-zfs`                        | 3913.0.0 – …        | [Storage][zfsextension]   |                         |
@@ -214,4 +215,5 @@ sudo SYSTEMD_LOG_LEVEL=debug systemd-sysext refresh
 [incusextension]: ../../container-runtimes/incus
 [sysext-bakery]: https://flatcar.github.io/sysext-bakery
 [nvidiaextension]: ../../setup/customization/using-nvidia
+[overlaybdext]: ../../setup/customization/overlaybd-artifact-streaming
 [zfsextension]: ../../setup/storage/zfs
