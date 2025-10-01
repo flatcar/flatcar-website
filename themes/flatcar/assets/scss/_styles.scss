@@ -44,7 +44,7 @@ h6 {
 // Buttons
 
 .btn-md {
-  @include button-size($btn-padding-y-md, $btn-padding-x-md, $btn-font-size-md, $btn-line-height-md, $btn-border-radius-md);
+  @include button-size($btn-padding-y-md, $btn-padding-x-md, $btn-font-size-md, $btn-border-radius-md);
   letter-spacing: 1px;
 }
 
@@ -252,12 +252,12 @@ h6 {
   padding-bottom: 40px;
 }
 
-.carousel-indicators li {
-  background: $carousel-indicator-bg;
+.carousel-indicators [data-bs-target] {
+  background-color: $carousel-indicator-bg;
   opacity: 1;
 
   &.active {
-    background: $carousel-indicator-active-bg;
+    background-color: $carousel-indicator-active-bg;
   }
 }
 
@@ -265,13 +265,21 @@ h6 {
 
 .pagination {
   align-items: center;
+  justify-content: center;
 }
 
 .page-link {
   font-weight: $font-weight-semi-bold;
-  min-width: 1.75em;
+  min-width: 2.5em;
+  min-height: 2.5em;
+  width: 2.5em;
+  height: 2.5em;
+  padding: 0;
   text-align: center;
   transition: color 0.3s, background-color 0.3s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .page-item:first-child, .page-item:last-child {
