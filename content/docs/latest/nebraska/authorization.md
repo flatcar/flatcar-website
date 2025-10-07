@@ -163,20 +163,20 @@ Now the member and admin roles are created, the admin role is a composite role w
 2. Provide the name as `nebraska`, select `Single Page Application` (SPA).
 3. Click `Create`
 4. Click on the `Settings` tab.
-5. Under `Application URIs` section:
+5. Under `Application URIs` section set the followings:
    - **Allowed Callback URLs**: `http://localhost:8000/auth/callback`
    - **Allowed Web Origins**: `http://localhost:8000` (for CORS)
    - **Allowed Logout URLs**: `http://localhost:8000/`
 6. Under `Advanced Settings > Grant Types`:
-   - Ensure `Authorization Code` is checked
+   - Ensure `Authorization Code` and (optionally) `Refresh Token` are checked
    - Ensure `Implicit` is **unchecked**
 7. Click on `Save Changes`
 
 ## Create an API for audience parameter
 
-1. Go to `Applications > APIs` in the Auth0 dashboard.
+1. Navigate to `Applications > APIs` in the Auth0 dashboard using the main menu.
 2. Click `Create API`.
-3. Set a name (e.g., `Nebraska API") and identifier (e.g., `http://localhost`).
+3. Set a name (e.g., `Nebraska API`) and identifier (e.g., `http://localhost`).
    - Note: The identifier doesn't need to be a real URL, it's just a unique string.
 4. Click `Create`.
 5. Use this identifier as the `--oidc-audience` parameter when starting Nebraska.
@@ -196,7 +196,7 @@ Now the member and admin roles are created, the admin role is a composite role w
 
 ## Adding roles scope to token
 
-1. Click on `Actions > Library` and find the `Create Action` menu from top right.
+1. Go to `Actions > Library` using the main menu and find the `Create Action` menu from top right.
 2. Click on `Build from scratch` option.
 3. Provide a name for the new action.
 4. Choose the `Login / Post Login` trigger type and the recommended runtime.
@@ -216,7 +216,7 @@ exports.onExecutePostLogin = async (event, api) => {
 };
 ```
 
-6. Click on `Deploy`. Now the action to add the roles to the token is setup, but then we yet have to create the trigger for it.
+6. Click on `Deploy`. Now, the action to add the roles to the token is setup, but then we yet have to create the trigger for it.
 7. Go to `Triggers` under the `Actions` main menu.
 8. Choose the `post-login` flow.
 9. Find the newly created action on the right side (switch to the `custom` tab).
@@ -226,7 +226,7 @@ exports.onExecutePostLogin = async (event, api) => {
 
 Now the action that adds the roles to the token will be triggered after each login and the roles will be available in the key `http://nebraska.io/roles`.
 
-Note: The `oidc-roles-path` argument accepts a JSONPath to fetch roles from the token, in this case set the value to `"http://nebraska\.io/roles"`.
+Note: The `oidc-roles-path` argument accepts a JSONPath to fetch roles from the token, in this case, set the value to `"http://nebraska\.io/roles"`. Be aware that the period characters need to be escaped.
 
 {{< presentation "auth0-roles-setup" >}}
 
@@ -235,24 +235,21 @@ Note: The `oidc-roles-path` argument accepts a JSONPath to fetch roles from the 
 ## Setting up a Github App to be used as a connector for Dex
 
 - Create a new `organization` in Github.
-
-- Now you need to create an OAuth App, go to `https://github.com/organizations/<your-organization>/settings/applications` (Your Organization Settings > Developer Settongs > OAuth Apps) and fill the following fields:
+- Now you need to create an OAuth App, go to `https://github.com/organizations/<your-organization>/settings/applications` (Your Organization Settings > Developer Settings > OAuth Apps) and fill the following fields:
   - `Application name` - just put some fancy name.
   - `Homepage URL` - `http://localhost:8000`
   - `User authorization callback URL` - `http://localhost:5556/dex/callback`
-
 - Press `Create Application` button
-
-- Next thing you'll get is `OAuth credentials` at the bottom of the
+- Next thing you'll need to obtain is a `OAuth credentials` at the bottom of the
   page of the app you just created, we will need both `Client ID` and
   `Client secret`
 - The OAuth app should already be installed to your org.
 
 ## Creating Github Teams
 
+- In you organization, go to teams
 - Create two teams in your organization with the following names
   `admin` and `viewer`.
-
 - Add the admin users to both `admin` and `viewer` team. Add the non-admin users to
   `viewer` team.
 
@@ -319,7 +316,7 @@ backend/bin/nebraska --debug --auth-mode oidc \
 2. Navigate to `Applications > Applications`.
 3. Click `Create App Integration`.
 4. Select `OIDC - OpenID Connect` and then `Single-Page Application`.
-5. Configure the application:
+5. Configure the application with the followings:
    - **App integration name**: `Nebraska`
    - **Grant type**: Authorization Code (with {{< glossary_tooltip term_id="pkce" text="PKCE" >}} automatically enabled for SPAs)
    - **Sign-in redirect URIs**: `http://localhost:8000/auth/callback`
@@ -327,7 +324,7 @@ backend/bin/nebraska --debug --auth-mode oidc \
    - **Trusted Origins** (under Security > API):
      - Add `http://localhost:8000` for CORS
 6. In `Assignments`, assign users or groups who should have access.
-   - App → Assignments → Assign > Assign to People or Assign to Groups and pick users/groups who should access the app.
+   - Go to `App → Assignments → Assign` and find `Assign to People` or `Assign to Groups` and pick users/groups who should access the app.
 7. Note your `Client ID` from the application's General tab.
 
 ## Configure groups/roles claims
