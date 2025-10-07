@@ -47,16 +47,15 @@ because the defaults are set at half.
 - Start the database (see the section above if you need a quick setup).
 
 - Start the Nebraska backend:
-  - `nebraska -auth-mode noop -http-static-dir $PWD/frontend/dist
--http-log`
+  - `nebraska -auth-mode noop -http-static-dir $PWD/frontend/dist -http-log`
 
 - In the browser, access `http://localhost:8000`
 
 # Deploying Nebraska with OIDC authentication mode
 
-> **⚠️ OIDC Implementation Updated**
+> **⚠️ OIDC Implementation Updated ⚠️**
 >
-> Nebraska now uses Authorization Code Flow + PKCE with public clients for enhanced security.
+> Nebraska now uses {{< glossary_tooltip term_id="auth_code_flow" text="Authorization Code Flow" >}} + {{< glossary_tooltip term_id="pkce" text="PKCE" >}} with public clients for enhanced security.
 >
 > - **New in v2.13**: Frontend handles OIDC flow directly, no client secrets required
 > - **Upgrading?** See the [OIDC Migration Guide](https://github.com/flatcar/nebraska/blob/main/docs/oidc-migration-guide.md)
@@ -77,18 +76,18 @@ because the defaults are set at half.
     start-dev
   ```
 
-- Open http://localhost:8080 in your browser to access keycloak UI and login with the username admin and password as admin.
+- Open `http://localhost:8080` in your browser to access keycloak UI and login with the username `admin` and password `admin`.
 
 ## Creating a client
 
-1. Click on `Clients` menu option and click `Create`.
-2. Set the client name as `nebraska` and click `Save`.
-3. Change the `Access Type` to `public` (for SPA/public client).
-4. Ensure `Direct Access Grants Enabled` is OFF (not needed for PKCE flow).
-5. Ensure `Standard Flow Enabled` is ON (for Authorization Code Flow).
-6. Set `Valid Redirect URIs` to `http://localhost:8000/auth/callback`.
+1. Click on `Clients` menu option and inside the `Clients list` tab click `Create client`.
+2. Set the `Client ID` as `nebraska` and click `Save`.
+3. Keep the `Client authentication` `off`, this changes the `Access Type` to `public` (for SPA/public client).
+4. Ensure `Direct Access Grants` is unchecked (not needed for {{< glossary_tooltip term_id="pkce" text="PKCE" >}} flow).
+5. Ensure `Standard Flow` is checked (for Authorization Code Flow).
+6. Set `Valid redirect URIs` to `http://localhost:8000/auth/callback`.
 7. Set `Valid post logout redirect URIs` to `http://localhost:8000/`.
-8. Set `Web Origins` to `http://localhost:8000` (use `+` to allow all Valid Redirect URIs origins for CORS).
+8. Set `Web Origins` to `http://localhost:8000` to allow your base URL for CORS.
 
 {{< presentation "keycloak-create-client" >}}
 
@@ -96,16 +95,16 @@ because the defaults are set at half.
 
 ### Member Role
 
-1. Click on `Roles` menu option and select `Create Role`.
+1. In "nebraska" client details screen, find "Roles" tab and click "Create role"
 2. Provide a name for the member role, here we will use `nebraska_member`.
 3. Click `Save`.
 
 ### Admin Role
 
-1. Click on `Roles` menu option and select `Create Role`.
+1. In "nebraska" client details screen, find "Roles" tab and click "Create role"
 2. Provide a name for the admin role, here we will use `nebraska_admin`.
 3. Click `Save`.
-4. After the admin role is created enable composion: Go to associated roles, and add `nebraska_member`.
+4. After the admin role is created, enable composition: Go to "Associated roles" tab, click "Assign role", select "Client roles" and add `nebraska_member`.
 
 Now the member and admin roles are created, the admin role is a composite role which comprises of member role.
 
@@ -113,9 +112,9 @@ Now the member and admin roles are created, the admin role is a composite role w
 
 ## Adding roles scope to token
 
-1. Click on `Client Scopes > nebraska-dedicated`.
-2. Click on `Configure a new mapper`
-3. Click on `User Client Role`
+1. In `nebraska` client details screen, find `Client Scopes` tab and select `nebraska-dedicated`.
+2. Click on `Configure a new mapper`.
+3. Click on `User Client Role`.
 4. Set the name as `roles`, Select the `Mapper Type` as `User Client Role`, `Token Claim Name` as `roles` and Select `Claim JSON Type` as String.
 5. Click `Save`
 
@@ -124,7 +123,7 @@ Now the member and admin roles are created, the admin role is a composite role w
 ## Attaching Roles to User
 
 1. Click on `Users` menu option and click `admin`.
-2. Go to `Role Mapping` tab and select `nebraska_admin` role and click on assign. If you want to provide only member access access select the member role.
+2. Go to `Role Mapping` tab, click `Assign role`, select `Client role` and pick both `nebraska_admin` and `nebraska_member` roles and click on `Assign`. If you want to provide only member access, select the `nebraska_member` role only.
 
 {{< presentation "keycloak-assign-roles" >}}
 
@@ -148,8 +147,8 @@ Now the member and admin roles are created, the admin role is a composite role w
   ```
 
   **Optional flags:**
-  - `--oidc-roles-path`: Custom JSON path for roles (default: "roles")
-  - `--oidc-scopes`: OIDC scopes (default: "openid,profile,email")
+  - `--oidc-roles-path`: Custom JSON path for roles (default: `roles`)
+  - `--oidc-scopes`: OIDC scopes (default: `openid,profile,email`)
   - `--oidc-audience`: Required for some providers like Auth0
   - `--oidc-management-url`: URL for user account management
   - `--oidc-logout-url`: Fallback logout URL if not in OIDC discovery
@@ -177,7 +176,7 @@ Now the member and admin roles are created, the admin role is a composite role w
 
 1. Go to `Applications > APIs` in the Auth0 dashboard.
 2. Click `Create API`.
-3. Set a name (e.g., "Nebraska API") and identifier (e.g., `http://localhost`).
+3. Set a name (e.g., `Nebraska API") and identifier (e.g., `http://localhost`).
    - Note: The identifier doesn't need to be a real URL, it's just a unique string.
 4. Click `Create`.
 5. Use this identifier as the `--oidc-audience` parameter when starting Nebraska.
@@ -322,7 +321,7 @@ backend/bin/nebraska --debug --auth-mode oidc \
 4. Select `OIDC - OpenID Connect` and then `Single-Page Application`.
 5. Configure the application:
    - **App integration name**: `Nebraska`
-   - **Grant type**: Authorization Code (with PKCE automatically enabled for SPAs)
+   - **Grant type**: Authorization Code (with {{< glossary_tooltip term_id="pkce" text="PKCE" >}} automatically enabled for SPAs)
    - **Sign-in redirect URIs**: `http://localhost:8000/auth/callback`
    - **Sign-out redirect URIs**: `http://localhost:8000`
    - **Trusted Origins** (under Security > API):
