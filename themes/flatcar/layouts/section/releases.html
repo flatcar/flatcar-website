@@ -31,7 +31,7 @@
                       <span class="version">{{ $chan.current.version }}</span>
                     </div>
                   </div>
-                  <div class="float-start text-start">
+                  <div class="text-start">
                   {{ range $j, $arch := $chan.current.architectures }}
                     <a class="arch small fw-light" href="https://{{ $chan.current.channel }}.release.flatcar-linux.net/{{ $arch }}-usr/current/">
                       {{ $arch }}</a>
