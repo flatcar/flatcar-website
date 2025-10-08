@@ -73,7 +73,7 @@ NTP synchronized: yes
 
 ### Setting the time zone via Ignition
 
-If you are aware of the downsides to setting a system time zone that is different from the default UTC time zone, you can set a different system time zone by setting the local time zone configuration file, https://www.freedesktop.org/software/systemd/man/localtime.html[`/etc/localtime`], to be an absolute or relative symlink to a `tzfile` entry under `/usr/share/zoneinfo/`.
+If you are aware of the downsides to setting a system time zone that is different from the default UTC time zone, you can set a different system time zone by setting the local time zone configuration file,[`/etc/localtime`][localtime], to be an absolute or relative symlink to a `tzfile` entry under `/usr/share/zoneinfo/`.
 It is recommended that you set the same time zone across all your machines in the cluster.
 
 For example, you can set the time zone to `America/New_York` by using a Butane config like the following:
@@ -86,11 +86,12 @@ storage:
     - path: /etc/localtime
       target: ../usr/share/zoneinfo/America/New_York
 ```
-
+`"overwrite": true`
 <details>
 
 <summary>Remark to other references </summary>
-If you come accross https://github.com/flatcar/Flatcar/issues/491#issuecomment-908316042 and wondering whether you have to use the fields "overwrite": true and "filesystem": "root" unlike in Fedora Core OS?
+
+If you come accross  https://github.com/flatcar/Flatcar/issues/491#issuecomment-908316042 and wondering whether you have to use the fields `"overwrite": true` and `"filesystem": "root"` unlike in Fedora Core OS?
 Here is the ansser: https://github.com/flatcar/Flatcar/issues/1836#issuecomment-3175310460
 
 </details>
@@ -249,9 +250,11 @@ storage:
           restrict [::1]
 ```
 
+[localtime]: https://www.freedesktop.org/software/systemd/man/localtime.html
 [timedatectl]: http://www.freedesktop.org/software/systemd/man/timedatectl.html
 [ntp.org]: http://ntp.org/
 [systemd-timesyncd]: http://www.freedesktop.org/software/systemd/man/systemd-timesyncd.service.html
 [systemd.network]: http://www.freedesktop.org/software/systemd/man/systemd.network.html
 [timesyncd.conf]: http://www.freedesktop.org/software/systemd/man/timesyncd.conf.html
 [butane-configs]: ../../provisioning/config-transpiler
+[issuecomment-908316042] https://github.com/flatcar/Flatcar/issues/491#issuecomment-908316042
