@@ -89,7 +89,7 @@
               {{ range $i, $channel := $channels }}
               {{ $chan := index $.Site.Data.releases $channel.name }}
               <li class="nav-item">
-                <a class="nav-link {{ if eq $chan.current.channel " stable" }}active{{ end }}"
+                <a class="nav-link {{ if eq $chan.current.channel "stable" }}active{{ end }}"
                   id="{{ $chan.current.channel }}-release-tab" data-bs-toggle="tab"
                   href="#{{ $chan.current.channel }}-release" aria-controls="{{ $chan.current.channel }}-release" {{ if
                   eq $chan.current.channel "stable" }}aria-current="page" {{ end }}>
@@ -103,7 +103,7 @@
               <div class="tab-content p-3" id="release-tabs-content">
                 {{ range $i, $channel := $channels }}
                 {{ $chan := index $.Site.Data.releases $channel.name }}
-                <div class="tab-pane fade {{ if eq $chan.current.channel " stable" }} active show {{ end }}"
+                <div class="tab-pane fade {{ if eq $chan.current.channel "stable" }} active show {{ end }}"
                   id="{{ $chan.current.channel }}-release" role="tabpanel"
                   aria-labelledby="{{ $chan.current.channel }}-release-tab">
                   <div style="text-align: right;">
