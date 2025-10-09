@@ -1,3 +1,4 @@
 ---
 title: Glossary
+headless: true
 ---
