@@ -31,7 +31,7 @@ of a table for analyze).
 We advise to change the mentioned configuration in order to have autovacuum
 and autoanalyse run when about 5,000 rows change. This value was chosen
 based on getting the autovacuum to run every day, as it's large enough
-to not cause the autovac to run all the time, but about the right size
+to not cause the autovacuum to run all the time, but about the right size
 to make a difference for query statistics and reducing table bloat.
 
 You can verify (and eventually use) this [SQL file](./autovacuum-tune.sql)
@@ -82,12 +82,12 @@ because the defaults are set at half.
 
 1. Click on `Clients` menu option and inside the `Clients list` tab click `Create client`.
 2. Set the `Client ID` as `nebraska` and click `Save`.
-3. Keep the `Client authentication` `off`, this changes the `Access Type` to `public` (for SPA/public client).
+3. Keep the `Client authentication` at the `off` setting, this changes the `Access Type` to `public` ({{< glossary_tooltip term_id="auth_code_flow" text="SPA/public client" >}}).
 4. Ensure `Direct Access Grants` is unchecked (not needed for {{< glossary_tooltip term_id="pkce" text="PKCE" >}} flow).
 5. Ensure `Standard Flow` is checked (for Authorization Code Flow).
 6. Set `Valid redirect URIs` to `http://localhost:8000/auth/callback`.
 7. Set `Valid post logout redirect URIs` to `http://localhost:8000/`.
-8. Set `Web Origins` to `http://localhost:8000` to allow your base URL for CORS.
+8. Set `Web Origins` to `http://localhost:8000` to allow your base URL for {{< glossary_tooltip term_id="cors" text="CORS" >}}.
 
 {{< presentation "keycloak-create-client" >}}
 
@@ -95,18 +95,18 @@ because the defaults are set at half.
 
 ### Member Role
 
-1. In "nebraska" client details screen, find "Roles" tab and click "Create role"
+1. In `nebraska` client details screen, find `Roles` tab and click `Create role`.
 2. Provide a name for the member role, here we will use `nebraska_member`.
 3. Click `Save`.
 
 ### Admin Role
 
-1. In "nebraska" client details screen, find "Roles" tab and click "Create role"
+1. In `nebraska` client details screen, find `Roles` tab and click `Create role`.
 2. Provide a name for the admin role, here we will use `nebraska_admin`.
 3. Click `Save`.
-4. After the admin role is created, enable composition: Go to "Associated roles" tab, click "Assign role", select "Client roles" and add `nebraska_member`.
+4. After the admin role is created, enable composition: Go to `Associated roles` tab, click `Assign role`, select `Client roles` and add `nebraska_member`.
 
-Now the member and admin roles are created, the admin role is a composite role which comprises of member role.
+Now the member and admin roles are created, the admin role is a composite role which comprises of the member role.
 
 {{< presentation "keycloak-create-roles" >}}
 
@@ -115,8 +115,8 @@ Now the member and admin roles are created, the admin role is a composite role w
 1. In `nebraska` client details screen, find `Client Scopes` tab and select `nebraska-dedicated`.
 2. Click on `Configure a new mapper`.
 3. Click on `User Client Role`.
-4. Set the name as `roles`, Select the `Mapper Type` as `User Client Role`, `Token Claim Name` as `roles` and Select `Claim JSON Type` as String.
-5. Click `Save`
+4. Set the name as `roles`, select the `Mapper Type` as `User Client Role`, set `Token Claim Name` as `roles` and select `Claim JSON Type` as `String`.
+5. Click `Save`.
 
 {{< presentation "keycloak-scope-token" >}}
 
@@ -129,7 +129,7 @@ Now the member and admin roles are created, the admin role is a composite role w
 
 ## Nebraska
 
-- Go to the nebraska project directory and run `make`
+- Go to the nebraska project directory and run `make`.
 
 - Start the database (see the section above if you need a quick setup).
 
@@ -153,7 +153,7 @@ Now the member and admin roles are created, the admin role is a composite role w
   - `--oidc-management-url`: URL for user account management
   - `--oidc-logout-url`: Fallback logout URL if not in OIDC discovery
 
-- In the browser, access `http://localhost:8000`
+- In the browser, access `http://localhost:8000`.
 
 # Preparing Auth0 as an OIDC provider for Nebraska
 
@@ -161,16 +161,16 @@ Now the member and admin roles are created, the admin role is a composite role w
 
 1. Click on `Create Application`.
 2. Provide the name as `nebraska`, select `Single Page Application` (SPA).
-3. Click `Create`
+3. Click `Create`.
 4. Click on the `Settings` tab.
-5. Under `Application URIs` section set the followings:
+5. Under `Application URIs` section set the following:
    - **Allowed Callback URLs**: `http://localhost:8000/auth/callback`
-   - **Allowed Web Origins**: `http://localhost:8000` (for CORS)
+   - **Allowed Web Origins**: `http://localhost:8000` (for {{< glossary_tooltip term_id="cors" text="CORS" >}})
    - **Allowed Logout URLs**: `http://localhost:8000/`
 6. Under `Advanced Settings > Grant Types`:
-   - Ensure `Authorization Code` and (optionally) `Refresh Token` are checked
-   - Ensure `Implicit` is **unchecked**
-7. Click on `Save Changes`
+   - Ensure `Authorization Code` and (optionally) `Refresh Token` are checked.
+   - Ensure `Implicit` is **unchecked**.
+7. Click on `Save Changes`.
 
 ## Create an API for audience parameter
 
@@ -180,7 +180,7 @@ Now the member and admin roles are created, the admin role is a composite role w
    - Note: The identifier doesn't need to be a real URL, it's just a unique string.
 4. Click `Create`.
 5. Use this identifier as the `--oidc-audience` parameter when starting Nebraska.
-6. Find the `<your-client-id>` and `<your-domain>` from the Auth0 dashboard: `Applications > nebraska > Settings`
+6. Find the `<your-client-id>` and `<your-domain>` in the Auth0 dashboard (in `Applications > nebraska > Settings`) and use them in the invocation below:
    ```bash
    backend/bin/nebraska --debug --auth-mode oidc \
      --oidc-client-id <your-client-id> \
@@ -234,30 +234,27 @@ Note: The `oidc-roles-path` argument accepts a JSONPath to fetch roles from the 
 
 ## Setting up a Github App to be used as a connector for Dex
 
-- Create a new `organization` in Github.
+- Create a new organization in Github.
 - Now you need to create an OAuth App, go to `https://github.com/organizations/<your-organization>/settings/applications` (Your Organization Settings > Developer Settings > OAuth Apps) and fill the following fields:
-  - `Application name` - just put some fancy name.
-  - `Homepage URL` - `http://localhost:8000`
-  - `User authorization callback URL` - `http://localhost:5556/dex/callback`
-- Press `Create Application` button
-- Next thing you'll need to obtain is a `OAuth credentials` at the bottom of the
+  - `Application name`: just put some fancy name
+  - `Homepage URL`: `http://localhost:8000`
+  - `User authorization callback URL` : `http://localhost:5556/dex/callback`
+- Press `Create Application` button.
+- Next thing you'll need to obtain is `OAuth credentials` at the bottom of the
   page of the app you just created, we will need both `Client ID` and
-  `Client secret`
+  `Client secret`.
 - The OAuth app should already be installed to your org.
 
 ## Creating Github Teams
 
-- In you organization, go to teams
-- Create two teams in your organization with the following names
-  `admin` and `viewer`.
-- Add the admin users to both `admin` and `viewer` team. Add the non-admin users to
-  `viewer` team.
+- In your organization, go to teams.
+- Create two teams in your organization with names `admin` and `viewer`.
+- Add the admin users to both `admin` and `viewer` teams. Add the non-admin users to
+  the `viewer` team.
 
 ## Configuring and Running Dex IDP
 
-- Create a configuration for Dex based on the example.
-
-> example.yaml
+- Create a configuration for Dex based on the example. Save it to `example.yaml`:
 
 ```yaml
 issuer: http://localhost:5556/dex
@@ -289,7 +286,7 @@ connectors:
       useLoginAsID: true
 ```
 
-- Run Dex using docker with the example configuration.
+- Run Dex using docker with the example configuration:
 
 ```sh
 docker run -p 5556:5556 -v ${PWD}/example.yaml:/etc/dex/example.yaml ghcr.io/dexidp/dex:v2.44.0 dex serve /etc/dex/example.yaml
@@ -316,13 +313,13 @@ backend/bin/nebraska --debug --auth-mode oidc \
 2. Navigate to `Applications > Applications`.
 3. Click `Create App Integration`.
 4. Select `OIDC - OpenID Connect` and then `Single-Page Application`.
-5. Configure the application with the followings:
+5. Configure the application with the following:
    - **App integration name**: `Nebraska`
    - **Grant type**: Authorization Code (with {{< glossary_tooltip term_id="pkce" text="PKCE" >}} automatically enabled for SPAs)
    - **Sign-in redirect URIs**: `http://localhost:8000/auth/callback`
    - **Sign-out redirect URIs**: `http://localhost:8000`
    - **Trusted Origins** (under Security > API):
-     - Add `http://localhost:8000` for CORS
+     - Add `http://localhost:8000` for {{< glossary_tooltip term_id="cors" text="CORS" >}}.
 6. In `Assignments`, assign users or groups who should have access.
    - Go to `App → Assignments → Assign` and find `Assign to People` or `Assign to Groups` and pick users/groups who should access the app.
 7. Note your `Client ID` from the application's General tab.
@@ -366,14 +363,14 @@ backend/bin/nebraska --debug --auth-mode oidc \
 ## Configure the application
 
 1. In your app registration, go to `Authentication`:
-   - Ensure the redirect URI is set correctly
-   - Under `Implicit grant and hybrid flows`, ensure both checkboxes are **unchecked**
-   - Configure `Logout URL`: `http://localhost:8000` (optional)
+   - Ensure the redirect URI is set correctly.
+   - Under `Implicit grant and hybrid flows`, ensure both checkboxes are **unchecked**.
+   - Configure `Logout URL` as `http://localhost:8000` (optional).
 2. Go to `API permissions`:
-   - Ensure `Microsoft Graph > User.Read` is present (default)
-   - Add any group permissions if using group-based roles
-3. For CORS, go to `Expose an API`:
-   - Add your application's URL to allowed origins if needed
+   - Ensure `Microsoft Graph > User.Read` is present (default).
+   - Add any group permissions if using group-based roles.
+3. For {{< glossary_tooltip term_id="cors" text="CORS" >}}, go to `Expose an API`:
+   - Add your application's URL to allowed origins if needed.
 
 ## Configure group claims (optional)
 
@@ -403,14 +400,14 @@ Helm Chart offers flexible configuration options such as:
 
 - Deploy a single-replica `PostgreSQL` database together with Nebraska. We use
   the container image and also the Helm Chart (as a subchart) from
-  [Bitnami](https://github.com/bitnami/charts/tree/master/bitnami/postgresql)
+  [Bitnami](https://github.com/bitnami/charts/tree/master/bitnami/postgresql).
 
 - Enabling / disabling, and configuring persistence for both Nebraska and PostgreSQL
-  (persistence is disabled by default)
+  (persistence is disabled by default).
 
-- Common deployment parameters (exposing through `Ingress`, replica count, etc.)
+- Common deployment parameters (exposing through `Ingress`, replica count, etc.).
 
-- All [Nebraska application configuration](https://github.com/flatcar/nebraska/tree/main/charts/nebraska#nebraska-configuration)
+- All [Nebraska application configuration](https://github.com/flatcar/nebraska/tree/main/charts/nebraska#nebraska-configuration).
 
 For the complete list of all available customization options, please read the
 [Helm Chart README](https://github.com/flatcar/nebraska/blob/main/charts/nebraska/README.md).
@@ -423,8 +420,7 @@ $ helm repo add nebraska https://flatcar.github.io/nebraska
 $ helm install my-nebraska nebraska/nebraska
 ```
 
-You probably need to customize the installation, then use a Helm values file.
-Eg.:
+You probably need to customize the installation, then use a Helm values file. For example:
 
 ```yaml
 # nebraska-values.yaml
@@ -467,34 +463,34 @@ $ helm install my-nebraska nebraska/nebraska --values nebraska-values.yaml
 
 ## Common OIDC Issues
 
-- **CORS errors in browser console**
-  - Ensure your OIDC provider has the Nebraska URL in allowed origins/CORS settings
-  - For development with frontend on port 3000, add `http://localhost:3000` to allowed origins
+- **{{< glossary_tooltip term_id="cors" text="CORS" >}} errors in browser console**
+  - Ensure your OIDC provider has the Nebraska URL in allowed origins/{{< glossary_tooltip term_id="cors" text="CORS" >}} settings.
+  - For development with frontend on port 3000, add `http://localhost:3000` to allowed origins.
 
 - **"Invalid redirect URI" error**
-  - Verify the callback URL is exactly `http://localhost:8000/auth/callback`
-  - Check for trailing slashes or protocol mismatches (http vs https)
+  - Verify the callback URL is exactly `http://localhost:8000/auth/callback`.
+  - Check for trailing slashes or protocol mismatches (http vs https).
 
 - **JWT validation failed / User has no access**
-  - Inspect your access token
-  - Check that roles are correctly configured in your OIDC provider
-  - Verify the roles path matches your token structure (use `--oidc-roles-path` if needed)
-  - For Auth0, ensure you created an API and set the audience parameter
+  - Inspect your access token.
+  - Check that roles are correctly configured in your OIDC provider.
+  - Verify the roles path matches your token structure (use `--oidc-roles-path` if needed).
+  - For Auth0, ensure you created an API and set the audience parameter.
 
 - **Frequent re-authentication after page refresh**
-  - Configure longer access token expiration in your OIDC provider (1-4 hours recommended)
-  - SSO session will handle re-authentication transparently if still valid
-  - Go to your providers token settings (either under realm or specific client) and increase the access token lifespan from minutes to hours
+  - Configure longer access token expiration in your OIDC provider (1-4 hours recommended).
+  - SSO session will handle re-authentication transparently if still valid.
+  - Go to your providers token settings (either under realm or specific client) and increase the access token lifespan from minutes to hours.
 
 - **Auth0: "JWT malformed" or decode errors**
-  - Ensure Implicit grant is disabled in application settings
-  - Verify audience parameter is set correctly
-  - Check that you created an API in Auth0 and using its identifier
+  - Ensure Implicit grant is disabled in application settings.
+  - Verify audience parameter is set correctly.
+  - Check that you created an API in Auth0 and using its identifier.
 
 # Legacy OIDC Configuration
 
 <details>
-<summary>Click to expand legacy configuration (for Nebraska versions before v2.x)</summary>
+<summary>Click to expand legacy configuration (for Nebraska versions before v2.x).</summary>
 
 ## Legacy Setup (Confidential Client)
 
@@ -502,26 +498,26 @@ Older versions of Nebraska used a confidential client setup with the backend han
 
 ### Key Differences:
 
-- Required `--oidc-client-secret` flag
-- Used redirect URI: `/login/cb` instead of `/auth/callback`
-- Client configured as "Confidential" instead of "Public"
-- Backend handled token storage with session management
+- Required `--oidc-client-secret` flag.
+- Used redirect URI: `/login/cb` instead of `/auth/callback`.
+- Client configured as "Confidential" instead of "Public".
+- Backend handled token storage with session management.
 
 ### Migration Steps:
 
 If upgrading from an older version:
 
 1. Update your OIDC provider:
-   - Change client type from "Confidential" to "Public"
-   - Update redirect URI from `/login/cb` to `/auth/callback`
-   - Add CORS/Web Origins configuration
-   - Remove client secret (no longer needed)
+   - Change client type from "Confidential" to "Public".
+   - Update redirect URI from `/login/cb` to `/auth/callback`.
+   - Add {{< glossary_tooltip term_id="cors" text="CORS" >}}/Web Origins configuration.
+   - Remove client secret (no longer needed).
 
 2. Update Nebraska configuration:
-   - Remove `--oidc-client-secret` flag
-   - Remove `--oidc-session-secret` flag (if used)
-   - Remove `--oidc-session-crypt-key` flag (if used)
-   - Add `--oidc-audience` for Auth0 (if applicable)
+   - Remove `--oidc-client-secret` flag.
+   - Remove `--oidc-session-secret` flag (if used).
+   - Remove `--oidc-session-crypt-key` flag (if used).
+   - Add `--oidc-audience` for Auth0 (if applicable).
 
 3. See the full [OIDC Migration Guide](https://github.com/flatcar/nebraska/blob/main/docs/oidc-migration-guide.md) for detailed instructions.
 
