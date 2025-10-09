@@ -56,7 +56,7 @@
                   {{ $title }}
                 {{ end }}
               </div>
-              <ul class="no-gutters footer-menu__list list-unstyled">
+              <ul class="g-0 footer-menu__list list-unstyled">
                 {{ range $section.Pages }}
                   {{ $footer_settings := default (dict) .Params.footer_menu }}
                   {{ if not $footer_settings.hide }}
