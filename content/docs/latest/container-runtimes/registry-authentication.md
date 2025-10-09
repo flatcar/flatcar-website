@@ -118,69 +118,6 @@ spec:
 
 For more information, check the [docker-registry Kubernetes secret][k8s-docker-registry] and [Kubernetes imagePullSecrets][k8s-image-pull] documentation.
 
-### rkt
-
-rkt stores registry-authentication in a JSON file stored in the directory `/etc/rkt/auth.d/`.
-
-`/etc/rkt/auth.d/registry.example.io.json`:
-
-```json
-{
-  "rktKind": "auth",
-  "rktVersion": "v1",
-  "domains": [
-    "https://registry.example.io/v0/"
-  ],
-  "type": "basic",
-  "credentials": {
-    "user": "giffeeLover93",
-    "password": "passphrases are great!"
-  }
-}
-```
-
-While you *can* embed your password in plaintext in this file, you should try using a disposable token instead. Check your registry documentation to see if it offers token-based authentication.
-
-Now rkt will authenticate with `https://registry.example.io/v0/` using the provided credentials to fetch images.
-
-For more information about rkt credentials, see the [rkt configuration docs][rkt-config].
-
-Just like with the Docker config, this file can be copied to `/etc/rkt/auth.d/registry.example.io.json` on a Flatcar Container Linux node during system provisioning with [a Butane Config][butane-configs].
-
-### Mesos
-
-Mesos uses a gzip-compressed archive of a `.docker/config.json` (directory and file) to access private repositories.
-
-Once you have followed the above steps to [create the docker registry auth config file][docker-instructions] create your Mesos configuration using `tar`:
-
-```shell
-tar cxf ~/.docker/config.json
-```
-
-The archive secret is referenced via the `uris` field in a container specification file:
-
-```json
-{
-  "id": "/some/name/or/id",
-  "cpus": 1,
-  "mem": 1024,
-  "instances": 1,
-  "container": {
-    "type": "DOCKER",
-    "docker": {
-      "image": "https://registry.example.io/v0/giffee_lover_93/some-image",
-      "network": "HOST"
-    }
-  },
-
-  "uris":  [
-      "file:///path/to/registry.example.io.tar.gz"
-  ]
-}
-```
-
-More thorough information about configuring Mesos registry authentication can be found on the ['Using a Private Docker Registry'][mesos-registry] documentation.
-
 ## Copying the config file with a Butane Config
 
 [Butane Configs][butane-configs] can be used to provision a Flatcar Container Linux node on first boot. Here we will use it to copy registry authentication config files to their appropriate destination on disk. This provides immediate access to your private Docker Hub and Quay image repositories without the need for manual intervention. The same Butane Config file can be used to copy registry auth configs onto an entire cluster of Flatcar Container Linux nodes.
