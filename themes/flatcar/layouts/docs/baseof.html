@@ -2,10 +2,17 @@
 <html lang="{{ .Site.Language.Lang }}">
   <head>
     {{ partial "head.html" . }}
-    <title>{{ if .IsHome }}{{ .Site.Title }}{{ else }}{{ with .Title }}{{ . }} | {{ end }}{{ .Site.Title }}{{ end }}</title>
+    <title>
+      {{ if .IsHome }}
+        {{ .Site.Title }}
+      {{ else }}
+        {{ with .Title }}{{ . }} |{{ end }}{{ .Site.Title }}
+      {{ end }}
+    </title>
   </head>
   <body class="td-{{ .Kind }}">
     {{ partial "header.html" . }}
+
 
     <main class="main docs-section">
       <div class="container">
@@ -22,24 +29,31 @@
             <div class="row">
               {{ $currentVersion := partial "docs/getcurrentversion" . }}
               {{ $latestVersion := partial "docs/getlatestversion" . }}
-              {{ if and (not $currentVersion | eq "") (not ($currentVersion | eq $latestVersion))}}
-              <div class="col-12 order-xl-first bg-warning p-4 m-2">
-                The version of the documentation you are reading is not the latest one!
-                {{ range (partial "docs/getversions" . ) }}
-                  {{ if eq (partial "docs/dirversion" .) $latestVersion }}
-                  &nbsp;See the <a href="{{ .Permalink }}">latest version</a>.
+              {{ if and (not ($currentVersion | eq "")) (not ($currentVersion | eq $latestVersion)) }}
+                <div class="col-12 order-xl-first bg-warning p-4 m-2">
+                  The version of the documentation you are reading is not the
+                  latest one!
+                  {{ range (partial "docs/getversions" . ) }}
+                    {{ if eq (partial "docs/dirversion" .) $latestVersion }}
+                      &nbsp;See the
+                      <a href="{{ .Permalink }}"><u>latest version</u></a>
+                      {{- "" -}}.
+                    {{ end }}
                   {{ end }}
-                {{ end }}
-              </div>
+                </div>
               {{ end }}
               <div class="col-12 col-lg-9 order-last order-lg-first">
-                {{ if not .Site.Params.ui.breadcrumb_disable }}{{ partial "breadcrumb.html" . }}{{ end }}
+                {{ if not .Site.Params.ui.breadcrumb_disable }}
+                  {{ partial "breadcrumb.html" . }}
+                {{ end }}
               </div>
               {{ $versions := partial "docs/getversions" . }}
               {{ if gt (len $versions) 1 }}
-              <div class="d-block d-md-none col-12 offset-sm-6 col-sm-6 offset-lg-0 col-lg-3 order-first order-lg-last text-end">
-                {{ partial "docs/versionchooser" . }}
-              </div>
+                <div
+                  class="d-block d-md-none col-12 offset-sm-6 col-sm-6 offset-lg-0 col-lg-3 order-first order-lg-last text-end"
+                >
+                  {{ partial "docs/versionchooser" . }}
+                </div>
               {{ end }}
 
             </div>
@@ -48,38 +62,31 @@
               {{ partial "feedback.html" .Site.Params.ui.feedback }}
             {{ end }}
 
+
             <div class="github-footer">
               <hr class="panel-line" />
-              {{ $gitthubEditUrl := default .Site.Params.docs.github_edit_url .Params.github_edit_url }}
-              {{ if $gitthubEditUrl }}
-                {{ $versionFilePath := "" }}
-                {{ $currentVersion := partial "docs/getversionsection" . }}
-                {{ if $currentVersion }}
-                  {{ $versionFilePath = path.Dir $currentVersion.File.Path }}
-                {{ end }}
-                {{ with .File }}
-                  {{ $filepath := .Path }}
-                  {{ $filepath = substr $filepath (len $versionFilePath) }}
-                  {{ $editLink := (print $gitthubEditUrl $filepath) }}
-                  <a
-                    href="{{ $editLink }}"
-                    class="btn btn-md mt-2"
-                    style="border: 2px solid #afafaf; padding: 4px 2px; font-weight: inherit;"
-                  >
-                    <i class="fab fa-github"></i> Edit this page
-                  </a>
-                {{ end }}
+              {{ if .File }}
+                {{/* .File.Path is relative to content dir (e.g., "docs/latest/installing/_index.md")
+                     Combined with base_github_edit_url to create the full GitHub edit link */}}
+                {{ $editLink := print (.Site.Params.docs.base_github_edit_url) .File.Path }}
+                <a
+                  href="{{ $editLink }}"
+                  class="btn btn-md mt-2"
+                  style="border: 2px solid #afafaf; padding: 4px 2px; font-weight: inherit;"
+                >
+                  <i class="fab fa-github"></i> Edit this page
+                </a>
               {{ end }}
 
               {{ $issuesUrl := default .Site.Params.docs.issues_url .Params.issues_url }}
               {{ if $issuesUrl }}
-              <a
-                href="{{ $issuesUrl }}"
-                class="btn btn-md mt-2"
-                style="border: 2px solid #afafaf; padding: 4px 2px; font-weight: inherit;"
-              >
-                <i class="fab fa-github"></i> File documentation issue
-              </a>
+                <a
+                  href="{{ $issuesUrl }}"
+                  class="btn btn-md mt-2"
+                  style="border: 2px solid #afafaf; padding: 4px 2px; font-weight: inherit;"
+                >
+                  <i class="fab fa-github"></i> File documentation issue
+                </a>
               {{ end }}
             </div>
 
@@ -97,11 +104,11 @@
 
     {{ partial "footer.html" . }}
     {{ block "scripts" . }}
-    {{- $jsFiles := slice -}}
-    {{- range (slice "js/fastsearch.js" "js/lunr.js" "js/anchor.js") -}}
-    {{- $jsFile := resources.GetMatch . | resources.Minify -}}
-    <script src="{{ $jsFile.Permalink }}"></script>
-    {{ end }}
+      {{- $jsFiles := slice -}}
+      {{- range (slice "js/fastsearch.js" "js/lunr.js" "js/anchor.js") -}}
+        {{- $jsFile := resources.GetMatch . | resources.Minify -}}
+        <script src="{{ $jsFile.Permalink }}"></script>
+      {{ end }}
     {{ end }}
   </body>
 </html>

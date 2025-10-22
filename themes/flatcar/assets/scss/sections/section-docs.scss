@@ -20,16 +20,34 @@ $topElemsVPadding: 1.4rem;
 
 #td-section-nav {
   padding-bottom: 50px;
+
+  @include media-breakpoint-down(md) {
+    padding-bottom: 0;
+  }
+
   & > ul.td-sidebar-nav__section {
     & > li.td-sidebar-nav__section-title {
       padding-left: $paddingLeft;
       padding-top: 2.5rem;
+      padding-right: $paddingLeft;
       border-bottom: 1px solid #e0dfdf;
 
       a {
         font-weight: bold;
         color: $black;
         font-size: 1rem;
+      }
+
+      // Flexbox container for title and version chooser
+      .d-flex {
+        width: 100%;
+        gap: 0.75rem;
+        align-items: center;
+
+        // Version chooser styling
+        .ms-auto {
+          margin-right: 0.5rem;
+        }
       }
     }
   }
