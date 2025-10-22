@@ -2,10 +2,15 @@
 <html>
   <head>
     {{- $redirectURL := default "" .Params.redirect_url -}}
-    {{- if .Params.external_docs -}}
-      {{- $docs := default (dict "name" "") (print "/docs/" (index .Params.external_docs 0)) -}}
-      {{- $redirectURL = $docs.name -}}
+
+    {{- /* If no explicit redirect_url, redirect to the latest docs */ -}}
+    {{- if eq $redirectURL "" -}}
+      {{- $latest := partial "docs/getlatestversion" . -}}
+      {{- if $latest -}}
+        {{- $redirectURL = printf "/docs/%s" $latest -}}
+      {{- end -}}
     {{- end -}}
+
     {{- if $redirectURL -}}
     <meta http-equiv="refresh" content="0; url='{{ $redirectURL }}'" />
     {{- end -}}
@@ -18,3 +23,4 @@
     {{- end -}}
   </body>
 </html>
+

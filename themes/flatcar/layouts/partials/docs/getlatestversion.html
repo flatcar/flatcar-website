@@ -1,13 +1,7 @@
-{{ $version := "" }}
-{{ if .Site.Params.docs.external_docs }}
-  {{ $version = (default "" .Params.latest_version) }}
-  {{ if eq $version "" }}
-    {{ $version = (index .Site.Params.docs.external_docs 0).name }}
-  {{ end }}
-{{ else }}
-  {{ if .Parent }}
-    {{ $version = partial "docs/getlatestversion" .Parent }}
-  {{ end }}
-{{ end }}
+{{- $ordered := partialCached "docs/getordereddocs" nil "docs-order" -}}
 
-{{ return $version }}
+{{- $latest := "" -}}
+{{- if gt (len $ordered) 0 -}}
+  {{- $latest = index $ordered (sub (len $ordered) 1) -}}
+{{- end -}}
+{{- return $latest -}}
