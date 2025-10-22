@@ -1,16 +1,33 @@
 {{ $versions := partial "docs/getversions" . }}
-<select class="form-select form-select-lg mb-3"
-  onchange="if (this.value) window.location.href=this.value"
-  title="Version"
->
-  {{ $current := partial "docs/getcurrentversion" . }}
-  {{ range $versions }}
-    {{ $version := partial "docs/dirversion" . }}
-    <option
-      value={{ .Permalink }}
-      {{ if eq $version $current }}selected{{ end }}
-    >
-      {{ $version }}
-    </option>
-  {{ end }}
-</select>
+{{ $current := partial "docs/getcurrentversion" . }}
+
+{{/* Sort by weight descending: highest (latest) first */}}
+{{ $sortedVersions := sort $versions "Params.weight" "desc" }}
+
+
+<div class="dropdown fs-6 version-chooser">
+  <button
+    class="badge round-pill border-0 text-bg-dark dropdown-toggle mb-2"
+    type="button"
+    data-bs-toggle="dropdown"
+    aria-expanded="false"
+    aria-label="Select documentation version"
+  >
+    {{ replace $current "-" "." }}
+  </button>
+  <ul class="dropdown-menu">
+    {{ range $sortedVersions }}
+      {{ $version := partial "docs/dirversion" . }}
+      {{ $isCurrent := eq $version $current }}
+
+      <li>
+        <a
+          class="dropdown-item {{ if $isCurrent }}selected{{ end }}"
+          href="{{ .Permalink }}"
+        >
+          {{ replace $version "-" "." }}
+        </a>
+      </li>
+    {{ end }}
+  </ul>
+</div>
