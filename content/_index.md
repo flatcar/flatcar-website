@@ -25,9 +25,11 @@ style:
     fgcolor: "#09bac8"
 hero:
   merge: true # Will merge these hero definitions into this section pages
-  button:
-    text: "Start using Flatcar"
-    link: "/docs/latest/#getting-started"
+  buttons:
+    - text: "Download"
+      link: "/releases/"
+    - text: "How to use Flatcar"
+      link: "/docs/latest/#getting-started"
   style:
     class: header-bg-flatcar
     bgcolor: '#12172c'
