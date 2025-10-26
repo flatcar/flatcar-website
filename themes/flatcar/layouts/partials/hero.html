@@ -49,9 +49,15 @@
               {{ if $description }}
                 <h2 {{ if $styles.descriptioncolor }}style="color: {{ $styles.descriptioncolor }}"{{ end }}>{{ $description }}</h2>
               {{ end }}
-              {{ if $hero.button }}
-                  <div>
-                      <a class="hero-button btn {{ default "btn-blue" $hero.button.class }}" href="{{ $hero.button.link }}">{{ $hero.button.text }}</a>
+              {{ if or $hero.button $hero.buttons }}
+                  <div class="d-flex flex-wrap justify-content-center gap-3">
+                      {{ if $hero.buttons }}
+                          {{ range $hero.buttons }}
+                              <a class="hero-button btn {{ default "btn-blue" .class }}" href="{{ .link }}">{{ .text }}</a>
+                          {{ end }}
+                      {{ else if $hero.button }}
+                          <a class="hero-button btn {{ default "btn-blue" $hero.button.class }}" href="{{ $hero.button.link }}">{{ $hero.button.text }}</a>
+                      {{ end }}
                       {{ with $hero.button.footnote }}
                       <p class="footnote">{{ replace .text "{{}}" (printf "<span>%v</span>" .count) | safeHTML }}</p>
                       {{ end }}
