@@ -28,7 +28,7 @@ hero:
   buttons:
     - text: "Download"
       link: "/releases/"
-    - text: "How to use Flatcar"
+    - text: "Getting Started"
       link: "/docs/latest/#getting-started"
   style:
     class: header-bg-flatcar
