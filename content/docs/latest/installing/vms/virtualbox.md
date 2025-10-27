@@ -1,5 +1,4 @@
 ---
-title: Running Flatcar Container Linux on VirtualBox
 title: Running on VirtualBox
 weight: 30
 aliases:
