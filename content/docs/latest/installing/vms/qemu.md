@@ -1,5 +1,4 @@
 ---
-title: Running Flatcar Container Linux on QEMU
 title: Running on QEMU
 weight: 30
 aliases:
