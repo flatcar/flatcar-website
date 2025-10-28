@@ -13,7 +13,7 @@
           <div class="col-12 col-md-3 col-xl-3 td-sidebar d-print-none">
             {{ partial "sidebar.html" . }}
           </div>
-          <div class="col-12 col-md-9 col-xl-8 pl-md-5 docs-reader" role="main">
+          <div class="col-12 col-md-9 col-xl-8 ps-md-5 docs-reader" role="main">
             <div class="row mt-2">
               <div class="col-12">
                 {{ partial "search" . }}
@@ -37,7 +37,7 @@
               </div>
               {{ $versions := partial "docs/getversions" . }}
               {{ if gt (len $versions) 1 }}
-              <div class="d-block d-md-none col-12 offset-sm-6 col-sm-6 offset-lg-0 col-lg-3 order-first order-lg-last text-right">
+              <div class="d-block d-md-none col-12 offset-sm-6 col-sm-6 offset-lg-0 col-lg-3 order-first order-lg-last text-end">
                 {{ partial "docs/versionchooser" . }}
               </div>
               {{ end }}

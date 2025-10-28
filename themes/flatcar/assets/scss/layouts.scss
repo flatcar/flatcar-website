@@ -50,14 +50,15 @@ figure {
 
 a {
   transition: color 0.3s;
+  text-decoration: none;
 }
 
 .container {
-  @include media-breakpoint-down(lg) {
+  @include media-breakpoint-down(xl) {
     width: calc(100vw - 48px);
   }
 
-  @include media-breakpoint-down(xs) {
+  @include media-breakpoint-down(sm) {
     width: calc(100vw - 32px);
   }
 }
@@ -66,11 +67,11 @@ section {
   padding-top: 20px;
   padding-bottom: 30px;
 
-  @include media-breakpoint-down(sm) {
+  @include media-breakpoint-down(md) {
     padding-top: 40px;
   }
 
-  @include media-breakpoint-down(xs) {
+  @include media-breakpoint-down(sm) {
     padding-top: 30px;
   }
 }
@@ -80,15 +81,15 @@ section {
   line-height: 1.75em;
   font-weight: $font-weight-extra-light;
 
-  @include media-breakpoint-down(md) {
+  @include media-breakpoint-down(xl) {
     font-size: 1.125rem;
   }
 
-  @include media-breakpoint-down(sm) {
+  @include media-breakpoint-down(lg) {
     font-size: 1rem;
   }
 
-  @include media-breakpoint-down(xs) {
+  @include media-breakpoint-down(md) {
     font-size: 0.875rem;
   }
 }
@@ -100,7 +101,7 @@ section {
 .page-header h2 {
   margin-bottom: 40px;
 
-  @include media-breakpoint-down(sm) {
+  @include media-breakpoint-down(lg) {
     margin-bottom: 20px;
   }
 }
@@ -118,7 +119,7 @@ section {
   .navigation__icon {
     margin-right: 30px;
 
-    @include media-breakpoint-down(xs) {
+    @include media-breakpoint-down(sm) {
       margin-right: 20px;
     }
 
@@ -180,7 +181,7 @@ section {
   background: $black;
   padding: 20px 0px;
 
-  @include media-breakpoint-down(xs) {
+  @include media-breakpoint-down(sm) {
     padding: 30px 0;
   }
 
@@ -195,7 +196,7 @@ section {
     > .row {
       flex-wrap: nowrap;
 
-      @include media-breakpoint-down(xs) {
+      @include media-breakpoint-down(sm) {
         flex-wrap: wrap;
       }
     }
@@ -213,7 +214,7 @@ section {
   flex-shrink: 0;
   padding-left: 86px !important;
 
-  @include media-breakpoint-down(xs) {
+  @include media-breakpoint-down(sm) {
     margin-bottom: 30px;
     padding-left: 0 !important;
     padding-top: 60px !important;
@@ -241,7 +242,7 @@ section {
       box-shadow: 1.5em 1.5em 0 0 $white;
     }
 
-    @include media-breakpoint-down(xs) {
+    @include media-breakpoint-down(sm) {
       transform: rotate(-45deg) translateY(-100%);
       right: 0;
     }
@@ -252,11 +253,11 @@ section {
   margin-bottom: 0;
   flex-wrap: nowrap !important;
 
-  @include media-breakpoint-down(sm) {
+  @include media-breakpoint-down(md) {
     flex-wrap: wrap !important;
   }
 
-  @include media-breakpoint-down(xs) {
+  @include media-breakpoint-down(sm) {
     flex-wrap: wrap;
   }
 }
@@ -326,7 +327,7 @@ section {
     }
 
     & > * {
-      @include media-breakpoint-down(md) {
+      @include media-breakpoint-down(lg) {
         margin-bottom: 44px;
       }
     }
@@ -396,7 +397,7 @@ section {
     max-width: 370px;
     background: linear-gradient(180deg, $gray-400 calc(100% - 30px), $white calc(100% - 30px));
 
-    @include media-breakpoint-down(md) {
+    @include media-breakpoint-down(lg) {
       margin-left: auto;
       margin-right: auto;
       margin-top: 44px;
@@ -432,7 +433,7 @@ section {
       color: $flatcar-blue;
     }
 
-    @include media-breakpoint-down(md) {
+    @include media-breakpoint-down(lg) {
       margin-left: auto;
       margin-right: auto;
       text-align: center;
@@ -500,7 +501,7 @@ main.notfound {
   h1 {
     font-size: 2.3rem;
 
-    @include media-breakpoint-down(md) {
+    @include media-breakpoint-down(lg) {
       font-size: 1.8rem;
     }
   }
@@ -510,7 +511,7 @@ main.notfound {
     font-size: 1.7rem;
     font-weight: normal;
 
-    @include media-breakpoint-down(md) {
+    @include media-breakpoint-down(lg) {
       font-size: 1.4rem;
     }
 
@@ -523,7 +524,7 @@ main.notfound {
     padding: 0;
     margin: 0;
 
-    @include media-breakpoint-down(md) {
+    @include media-breakpoint-down(lg) {
       max-width: 80%;
     }
   }

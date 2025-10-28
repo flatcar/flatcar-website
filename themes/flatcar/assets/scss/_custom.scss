@@ -28,7 +28,7 @@ $h2-font-size:  2.25rem;
 $h3-font-size:  2rem;
 $h5-font-size:  1.125rem;
 
-$headings-line-height:  1.47em;
+$headings-line-height:  1.47;
 $headings-margin-bottom:  0.31em;
 $headings-font-weight:   $font-weight-bold;
 
@@ -96,7 +96,7 @@ $grid-gutter-width: 40px;
 // Buttons
 
 $btn-font-size: 1rem;
-$btn-line-height: 1em;
+$btn-line-height: 1;
 
 $btn-padding-y: 1.33em;
 $btn-padding-x: 1.68em;
@@ -113,17 +113,17 @@ $btn-border-width: 0;
 $btn-padding-y-sm:  1.33em;
 $btn-padding-x-sm:  1.68em;
 $btn-font-size-sm:  0.75rem;
-$btn-line-height-sm:  1em;
+$btn-line-height-sm:  1;
 
 $btn-padding-y-md:  1.33em;
 $btn-padding-x-md:  1.875em;
 $btn-font-size-md:  1rem;
-$btn-line-height-md:  1em;
+$btn-line-height-md:  1;
 
 $btn-padding-y-lg:  1.33em;
 $btn-padding-x-lg:  2.44em;
 $btn-font-size-lg:  1rem;
-$btn-line-height-lg:  1em;
+$btn-line-height-lg:  1;
 
 // Forms
 
@@ -132,7 +132,7 @@ $label-margin-bottom: 0;
 $input-padding-y: 0.625em;
 $input-padding-x: 1.25em;
 $input-font-size: 16px;
-$input-line-height: 1.875em;
+$input-line-height: 1.875;
 $input-border-width:  1px;
 $input-color: $black;
 $input-border-color:  #E5E5E5;
@@ -141,8 +141,6 @@ $input-focus-border-color: #CCCCCC;
 $input-focus-box-shadow: none;
 
 $input-box-shadow: none;
-
-$input-height:   $input-line-height + $input-padding-y * 2;
 
 $input-placeholder-color: $black;
 
@@ -242,7 +240,7 @@ $carousel-indicator-transition:      background-color .6s ease;
 
 $pagination-padding-y:  .875em;
 $pagination-padding-x:  .585em;
-$pagination-line-height: 0em;
+$pagination-line-height: 0;
 $pagination-color:                  $black;
 $pagination-bg:                     $white;
 $pagination-border-width:           0;
@@ -255,8 +253,8 @@ $pagination-active-bg:              $green;
 $pagination-disabled-bg:            $gray !important;
 
 // Let's start by bring in all of bootstrap
-// Later we canbring in only what we need:
-// https://getbootstrap.com/docs/4.0/getting-started/theming/#importing
+// Later we can bring in only what we need:
+// https://getbootstrap.com/docs/5.3/customize/sass/
 @import "./bootstrap/bootstrap";
 
 // Elements overrides

@@ -25,10 +25,10 @@ Create 3 instances from the image above using our Ignition from `example.ign`:
 
 <div id="gce-create">
   <ul class="nav nav-tabs">
-    <li class="active"><a href="#stable-create" data-toggle="tab">Stable Channel</a></li>
-    <li><a href="#beta-create" data-toggle="tab">Beta Channel</a></li>
-    <li><a href="#alpha-create" data-toggle="tab">Alpha Channel</a></li>
-    <li><a href="#lts-create" data-toggle="tab">LTS Channel</a></li>
+    <li class="active"><a href="#stable-create" data-bs-toggle="tab">Stable Channel</a></li>
+    <li><a href="#beta-create" data-bs-toggle="tab">Beta Channel</a></li>
+    <li><a href="#alpha-create" data-bs-toggle="tab">Alpha Channel</a></li>
+    <li><a href="#lts-create" data-bs-toggle="tab">LTS Channel</a></li>
   </ul>
   <div class="tab-content coreos-docs-image-table">
     <div class="tab-pane active" id="stable-create">
