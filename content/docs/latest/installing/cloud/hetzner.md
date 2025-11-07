@@ -72,7 +72,7 @@ source "hcloud" "flatcar" {
 build {
   source "hcloud.flatcar" {
     name          = "x86"
-    server_type   = "cx22"
+    server_type   = "cx23"
     snapshot_name = "flatcar-${var.channel}-x86"
   }
 
