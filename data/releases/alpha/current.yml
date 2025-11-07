@@ -4,7 +4,7 @@ architectures:
 channel: alpha
 github_release:
   assets: []
-  assets_url: https://api.github.com/repos/flatcar/scripts/releases/254351037/assets
+  assets_url: https://api.github.com/repos/flatcar/scripts/releases/260578738/assets
   author:
     avatar_url: https://avatars.githubusercontent.com/u/500628?v=4
     events_url: https://api.github.com/users/sayanchowdhury/events{/privacy}
@@ -25,181 +25,72 @@ github_release:
     type: User
     url: https://api.github.com/users/sayanchowdhury
     user_view_type: public
-  body: " _Changes since **Alpha 4459.0.0**_\r\n \r\n #### Known bugs:\r\n - Updating\
-    \ with OEM or Flatcar extensions is broken when ue-rs parses the Omaha response\
-    \ and thusfalls back to downloading from the release server or bincache which\
-    \ may fail for self-hosted Nebraska updates or payloads passed with flatcar-update\
-    \ ([ue-rs#92](https://github.com/flatcar/ue-rs/issues/92))\r\n \r\n #### Security\
-    \ fixes:\r\n \r\n - Linux ([CVE-2025-39927](https://nvd.nist.gov/vuln/detail/CVE-2025-39927),\
-    \ [CVE-2025-39926](https://nvd.nist.gov/vuln/detail/CVE-2025-39926), [CVE-2025-39923](https://nvd.nist.gov/vuln/detail/CVE-2025-39923),\
-    \ [CVE-2025-39913](https://nvd.nist.gov/vuln/detail/CVE-2025-39913), [CVE-2025-39912](https://nvd.nist.gov/vuln/detail/CVE-2025-39912),\
-    \ [CVE-2025-39911](https://nvd.nist.gov/vuln/detail/CVE-2025-39911), [CVE-2025-39909](https://nvd.nist.gov/vuln/detail/CVE-2025-39909),\
-    \ [CVE-2025-39907](https://nvd.nist.gov/vuln/detail/CVE-2025-39907), [CVE-2025-39917](https://nvd.nist.gov/vuln/detail/CVE-2025-39917),\
-    \ [CVE-2025-39916](https://nvd.nist.gov/vuln/detail/CVE-2025-39916), [CVE-2025-39914](https://nvd.nist.gov/vuln/detail/CVE-2025-39914),\
-    \ [CVE-2025-39885](https://nvd.nist.gov/vuln/detail/CVE-2025-39885), [CVE-2025-39886](https://nvd.nist.gov/vuln/detail/CVE-2025-39886),\
-    \ [CVE-2025-39876](https://nvd.nist.gov/vuln/detail/CVE-2025-39876), [CVE-2025-39873](https://nvd.nist.gov/vuln/detail/CVE-2025-39873),\
-    \ [CVE-2025-39871](https://nvd.nist.gov/vuln/detail/CVE-2025-39871), [CVE-2025-39870](https://nvd.nist.gov/vuln/detail/CVE-2025-39870),\
-    \ [CVE-2025-39869](https://nvd.nist.gov/vuln/detail/CVE-2025-39869), [CVE-2025-39884](https://nvd.nist.gov/vuln/detail/CVE-2025-39884),\
-    \ [CVE-2025-39883](https://nvd.nist.gov/vuln/detail/CVE-2025-39883), [CVE-2025-39882](https://nvd.nist.gov/vuln/detail/CVE-2025-39882),\
-    \ [CVE-2025-39881](https://nvd.nist.gov/vuln/detail/CVE-2025-39881), [CVE-2025-39880](https://nvd.nist.gov/vuln/detail/CVE-2025-39880),\
-    \ [CVE-2025-39877](https://nvd.nist.gov/vuln/detail/CVE-2025-39877), [CVE-2025-39963](https://nvd.nist.gov/vuln/detail/CVE-2025-39963),\
-    \ [CVE-2025-39961](https://nvd.nist.gov/vuln/detail/CVE-2025-39961), [CVE-2025-39957](https://nvd.nist.gov/vuln/detail/CVE-2025-39957),\
-    \ [CVE-2025-39956](https://nvd.nist.gov/vuln/detail/CVE-2025-39956), [CVE-2025-39955](https://nvd.nist.gov/vuln/detail/CVE-2025-39955),\
-    \ [CVE-2025-39938](https://nvd.nist.gov/vuln/detail/CVE-2025-39938), [CVE-2025-39937](https://nvd.nist.gov/vuln/detail/CVE-2025-39937),\
-    \ [CVE-2025-39934](https://nvd.nist.gov/vuln/detail/CVE-2025-39934), [CVE-2025-39953](https://nvd.nist.gov/vuln/detail/CVE-2025-39953),\
-    \ [CVE-2025-39952](https://nvd.nist.gov/vuln/detail/CVE-2025-39952), [CVE-2025-39951](https://nvd.nist.gov/vuln/detail/CVE-2025-39951),\
-    \ [CVE-2025-39950](https://nvd.nist.gov/vuln/detail/CVE-2025-39950), [CVE-2025-39932](https://nvd.nist.gov/vuln/detail/CVE-2025-39932),\
-    \ [CVE-2025-39949](https://nvd.nist.gov/vuln/detail/CVE-2025-39949), [CVE-2025-39948](https://nvd.nist.gov/vuln/detail/CVE-2025-39948),\
-    \ [CVE-2025-39947](https://nvd.nist.gov/vuln/detail/CVE-2025-39947), [CVE-2025-39946](https://nvd.nist.gov/vuln/detail/CVE-2025-39946),\
-    \ [CVE-2025-39945](https://nvd.nist.gov/vuln/detail/CVE-2025-39945), [CVE-2025-39944](https://nvd.nist.gov/vuln/detail/CVE-2025-39944),\
-    \ [CVE-2025-39943](https://nvd.nist.gov/vuln/detail/CVE-2025-39943), [CVE-2025-39942](https://nvd.nist.gov/vuln/detail/CVE-2025-39942),\
-    \ [CVE-2025-39940](https://nvd.nist.gov/vuln/detail/CVE-2025-39940), [CVE-2025-39929](https://nvd.nist.gov/vuln/detail/CVE-2025-39929),\
-    \ [CVE-2025-39931](https://nvd.nist.gov/vuln/detail/CVE-2025-39931), [CVE-2024-57878](https://nvd.nist.gov/vuln/detail/CVE-2024-57878),\
-    \ [CVE-2024-57877](https://nvd.nist.gov/vuln/detail/CVE-2024-57877), [CVE-2024-57875](https://nvd.nist.gov/vuln/detail/CVE-2024-57875),\
-    \ [CVE-2024-57876](https://nvd.nist.gov/vuln/detail/CVE-2024-57876), [CVE-2024-57874](https://nvd.nist.gov/vuln/detail/CVE-2024-57874),\
-    \ [CVE-2025-23128](https://nvd.nist.gov/vuln/detail/CVE-2025-23128), [CVE-2025-23127](https://nvd.nist.gov/vuln/detail/CVE-2025-23127),\
-    \ [CVE-2025-23126](https://nvd.nist.gov/vuln/detail/CVE-2025-23126), [CVE-2025-23125](https://nvd.nist.gov/vuln/detail/CVE-2025-23125),\
-    \ [CVE-2025-23124](https://nvd.nist.gov/vuln/detail/CVE-2025-23124), [CVE-2024-57872](https://nvd.nist.gov/vuln/detail/CVE-2024-57872),\
-    \ [CVE-2024-57850](https://nvd.nist.gov/vuln/detail/CVE-2024-57850), [CVE-2024-57849](https://nvd.nist.gov/vuln/detail/CVE-2024-57849),\
-    \ [CVE-2024-57839](https://nvd.nist.gov/vuln/detail/CVE-2024-57839), [CVE-2024-57843](https://nvd.nist.gov/vuln/detail/CVE-2024-57843),\
-    \ [CVE-2024-48875](https://nvd.nist.gov/vuln/detail/CVE-2024-48875), [CVE-2024-48873](https://nvd.nist.gov/vuln/detail/CVE-2024-48873),\
-    \ [CVE-2024-47809](https://nvd.nist.gov/vuln/detail/CVE-2024-47809), [CVE-2024-47794](https://nvd.nist.gov/vuln/detail/CVE-2024-47794),\
-    \ [CVE-2024-47143](https://nvd.nist.gov/vuln/detail/CVE-2024-47143), [CVE-2024-47141](https://nvd.nist.gov/vuln/detail/CVE-2024-47141),\
-    \ [CVE-2024-45828](https://nvd.nist.gov/vuln/detail/CVE-2024-45828), [CVE-2024-43098](https://nvd.nist.gov/vuln/detail/CVE-2024-43098),\
-    \ [CVE-2024-53680](https://nvd.nist.gov/vuln/detail/CVE-2024-53680), [CVE-2024-52332](https://nvd.nist.gov/vuln/detail/CVE-2024-52332),\
-    \ [CVE-2024-50051](https://nvd.nist.gov/vuln/detail/CVE-2024-50051), [CVE-2024-49569](https://nvd.nist.gov/vuln/detail/CVE-2024-49569),\
-    \ [CVE-2024-48881](https://nvd.nist.gov/vuln/detail/CVE-2024-48881), [CVE-2024-48876](https://nvd.nist.gov/vuln/detail/CVE-2024-48876),\
-    \ [CVE-2024-41932](https://nvd.nist.gov/vuln/detail/CVE-2024-41932), [CVE-2024-41935](https://nvd.nist.gov/vuln/detail/CVE-2024-41935),\
-    \ [CVE-2024-56787](https://nvd.nist.gov/vuln/detail/CVE-2024-56787), [CVE-2024-56786](https://nvd.nist.gov/vuln/detail/CVE-2024-56786),\
-    \ [CVE-2024-56785](https://nvd.nist.gov/vuln/detail/CVE-2024-56785), [CVE-2024-56784](https://nvd.nist.gov/vuln/detail/CVE-2024-56784),\
-    \ [CVE-2024-56783](https://nvd.nist.gov/vuln/detail/CVE-2024-56783), [CVE-2024-56781](https://nvd.nist.gov/vuln/detail/CVE-2024-56781),\
-    \ [CVE-2024-56782](https://nvd.nist.gov/vuln/detail/CVE-2024-56782), [CVE-2024-56640](https://nvd.nist.gov/vuln/detail/CVE-2024-56640),\
-    \ [CVE-2024-56639](https://nvd.nist.gov/vuln/detail/CVE-2024-56639), [CVE-2024-56638](https://nvd.nist.gov/vuln/detail/CVE-2024-56638),\
-    \ [CVE-2024-56637](https://nvd.nist.gov/vuln/detail/CVE-2024-56637), [CVE-2024-56636](https://nvd.nist.gov/vuln/detail/CVE-2024-56636),\
-    \ [CVE-2024-56635](https://nvd.nist.gov/vuln/detail/CVE-2024-56635), [CVE-2024-56634](https://nvd.nist.gov/vuln/detail/CVE-2024-56634),\
-    \ [CVE-2024-56651](https://nvd.nist.gov/vuln/detail/CVE-2024-56651), [CVE-2024-56633](https://nvd.nist.gov/vuln/detail/CVE-2024-56633),\
-    \ [CVE-2024-56650](https://nvd.nist.gov/vuln/detail/CVE-2024-56650), [CVE-2024-56649](https://nvd.nist.gov/vuln/detail/CVE-2024-56649),\
-    \ [CVE-2024-56648](https://nvd.nist.gov/vuln/detail/CVE-2024-56648), [CVE-2024-56647](https://nvd.nist.gov/vuln/detail/CVE-2024-56647),\
-    \ [CVE-2024-56646](https://nvd.nist.gov/vuln/detail/CVE-2024-56646), [CVE-2024-56645](https://nvd.nist.gov/vuln/detail/CVE-2024-56645),\
-    \ [CVE-2024-56644](https://nvd.nist.gov/vuln/detail/CVE-2024-56644), [CVE-2024-56643](https://nvd.nist.gov/vuln/detail/CVE-2024-56643),\
-    \ [CVE-2024-56642](https://nvd.nist.gov/vuln/detail/CVE-2024-56642), [CVE-2024-56641](https://nvd.nist.gov/vuln/detail/CVE-2024-56641),\
-    \ [CVE-2024-56631](https://nvd.nist.gov/vuln/detail/CVE-2024-56631), [CVE-2024-56632](https://nvd.nist.gov/vuln/detail/CVE-2024-56632),\
-    \ [CVE-2024-56615](https://nvd.nist.gov/vuln/detail/CVE-2024-56615), [CVE-2024-56624](https://nvd.nist.gov/vuln/detail/CVE-2024-56624),\
-    \ [CVE-2024-56623](https://nvd.nist.gov/vuln/detail/CVE-2024-56623), [CVE-2024-56622](https://nvd.nist.gov/vuln/detail/CVE-2024-56622),\
-    \ [CVE-2024-56621](https://nvd.nist.gov/vuln/detail/CVE-2024-56621), [CVE-2024-56620](https://nvd.nist.gov/vuln/detail/CVE-2024-56620),\
-    \ [CVE-2024-56619](https://nvd.nist.gov/vuln/detail/CVE-2024-56619), [CVE-2024-56618](https://nvd.nist.gov/vuln/detail/CVE-2024-56618),\
-    \ [CVE-2024-56617](https://nvd.nist.gov/vuln/detail/CVE-2024-56617), [CVE-2024-56630](https://nvd.nist.gov/vuln/detail/CVE-2024-56630),\
-    \ [CVE-2024-56629](https://nvd.nist.gov/vuln/detail/CVE-2024-56629), [CVE-2024-56628](https://nvd.nist.gov/vuln/detail/CVE-2024-56628),\
-    \ [CVE-2024-56627](https://nvd.nist.gov/vuln/detail/CVE-2024-56627), [CVE-2024-56626](https://nvd.nist.gov/vuln/detail/CVE-2024-56626),\
-    \ [CVE-2024-56625](https://nvd.nist.gov/vuln/detail/CVE-2024-56625), [CVE-2024-56616](https://nvd.nist.gov/vuln/detail/CVE-2024-56616),\
-    \ [CVE-2024-56592](https://nvd.nist.gov/vuln/detail/CVE-2024-56592), [CVE-2024-56591](https://nvd.nist.gov/vuln/detail/CVE-2024-56591),\
-    \ [CVE-2024-56590](https://nvd.nist.gov/vuln/detail/CVE-2024-56590), [CVE-2024-56589](https://nvd.nist.gov/vuln/detail/CVE-2024-56589),\
-    \ [CVE-2024-56588](https://nvd.nist.gov/vuln/detail/CVE-2024-56588), [CVE-2024-56587](https://nvd.nist.gov/vuln/detail/CVE-2024-56587),\
-    \ [CVE-2024-56614](https://nvd.nist.gov/vuln/detail/CVE-2024-56614), [CVE-2024-56613](https://nvd.nist.gov/vuln/detail/CVE-2024-56613),\
-    \ [CVE-2024-56586](https://nvd.nist.gov/vuln/detail/CVE-2024-56586), [CVE-2024-56612](https://nvd.nist.gov/vuln/detail/CVE-2024-56612),\
-    \ [CVE-2024-56611](https://nvd.nist.gov/vuln/detail/CVE-2024-56611), [CVE-2024-56610](https://nvd.nist.gov/vuln/detail/CVE-2024-56610),\
-    \ [CVE-2024-56609](https://nvd.nist.gov/vuln/detail/CVE-2024-56609), [CVE-2024-56608](https://nvd.nist.gov/vuln/detail/CVE-2024-56608),\
-    \ [CVE-2024-56607](https://nvd.nist.gov/vuln/detail/CVE-2024-56607), [CVE-2024-56606](https://nvd.nist.gov/vuln/detail/CVE-2024-56606),\
-    \ [CVE-2024-56605](https://nvd.nist.gov/vuln/detail/CVE-2024-56605), [CVE-2024-56604](https://nvd.nist.gov/vuln/detail/CVE-2024-56604),\
-    \ [CVE-2024-56603](https://nvd.nist.gov/vuln/detail/CVE-2024-56603), [CVE-2024-56585](https://nvd.nist.gov/vuln/detail/CVE-2024-56585),\
-    \ [CVE-2024-56602](https://nvd.nist.gov/vuln/detail/CVE-2024-56602), [CVE-2024-56601](https://nvd.nist.gov/vuln/detail/CVE-2024-56601),\
-    \ [CVE-2024-56600](https://nvd.nist.gov/vuln/detail/CVE-2024-56600), [CVE-2024-56599](https://nvd.nist.gov/vuln/detail/CVE-2024-56599),\
-    \ [CVE-2024-56598](https://nvd.nist.gov/vuln/detail/CVE-2024-56598), [CVE-2024-56597](https://nvd.nist.gov/vuln/detail/CVE-2024-56597),\
-    \ [CVE-2024-56596](https://nvd.nist.gov/vuln/detail/CVE-2024-56596), [CVE-2024-56595](https://nvd.nist.gov/vuln/detail/CVE-2024-56595),\
-    \ [CVE-2024-56594](https://nvd.nist.gov/vuln/detail/CVE-2024-56594), [CVE-2024-56593](https://nvd.nist.gov/vuln/detail/CVE-2024-56593),\
-    \ [CVE-2024-56583](https://nvd.nist.gov/vuln/detail/CVE-2024-56583), [CVE-2024-56584](https://nvd.nist.gov/vuln/detail/CVE-2024-56584))\r\
-    \n - binutils ([CVE-2025-5244](https://www.cve.org/CVERecord?id=CVE-2025-5244),\
-    \ [CVE-2025-5245](https://www.cve.org/CVERecord?id=CVE-2025-5245), [CVE-2025-8225](https://www.cve.org/CVERecord?id=CVE-2025-8225))\r\
-    \n - curl ([CVE-2025-9086](https://www.cve.org/CVERecord?id=CVE-2025-9086), [CVE-2025-10148](https://www.cve.org/CVERecord?id=CVE-2025-10148))\r\
-    \n - go ([CVE-2025-47910](https://www.cve.org/CVERecord?id=CVE-2025-47910))\r\n\
-    \ - libpcre2 ([CVE-2025-58050](https://www.cve.org/CVERecord?id=CVE-2025-58050))\r\
-    \n - libxml2 ([libxml2-20250908](https://gitlab.gnome.org/GNOME/libxml2/-/releases/v2.13.9))\r\
-    \n - libxslt ([CVE-2025-7424](https://www.cve.org/CVERecord?id=CVE-2025-7424),\
-    \ [CVE-2025-7425](https://www.cve.org/CVERecord?id=CVE-2025-7425))\r\n - net-tools\
-    \ ([CVE-2025-46836](https://www.cve.org/CVERecord?id=CVE-2025-46836))\r\n \r\n\
-    \ #### Bug fixes:\r\n \r\n - Enabled `CONFIG_MEMCG_V1` to mitigate cgroupsv1 removal\
-    \ (e.g JVM) ([Flatcar#1884](https://github.com/flatcar/Flatcar/issues/1884))\r\
-    \n - Fixed the QEMU launcher script to include HVF acceleration on arm64-based\
-    \ Macs for faster performance ([Flatcar#1901](https://github.com/flatcar/Flatcar/issues/1901))\r\
-    \n \r\n #### Changes:\r\n \r\n - Increased all partition sizes: `/boot` to 1 GB,\
-    \ the two `/usr` partitions to 2 GB, `/oem` to 1 GB so that we can use more space\
-    \ in a few years when we can assume that most nodes run the new partition layout\
-    \ - existing nodes can still update for the next years ([scripts#3027](https://github.com/flatcar/scripts/pull/3027))\r\
-    \n - Reduced the kernel+initrd size on `/boot` by half. Flatcar now uses a minimal\
-    \ first stage initrd just to access the `/usr` partition and then switches to\
-    \ the full initrd that does the full system preparation as before. Since this\
-    \ means that the set of kernel modules available in the first initrd is reduced,\
-    \ please report any impact.\r\n - Scaleway: SSH keys are now fetched _via_ Afterburn\
-    \ ([scripts#3277](https://github.com/flatcar/scripts/pull/3277))\r\n - Scaleway:\
-    \ The hostname is now set _via_ Afterburn ([scripts#3277](https://github.com/flatcar/scripts/pull/3277))\r\
-    \n \r\n #### Updates:\r\n \r\n- Afterburn ([5.10.0](https://coreos.github.io/afterburn/release-notes/#afterburn-5100))\r\
-    \n- Linux ([6.12.51](https://git.kernel.org/pub/scm/linux/kernel/git/stable/linux.git/tag/?h=v6.12.51)\
-    \ (includes [6.12.48](https://git.kernel.org/pub/scm/linux/kernel/git/stable/linux.git/tag/?h=v6.12.48),\
-    \ [6.12.49](https://git.kernel.org/pub/scm/linux/kernel/git/stable/linux.git/tag/?h=v6.12.49),\
-    \ [6.12.50](https://git.kernel.org/pub/scm/linux/kernel/git/stable/linux.git/tag/?h=v6.12.50)))\r\
-    \n- Linux Firmware ([20250917](https://git.kernel.org/pub/scm/linux/kernel/git/firmware/linux-firmware.git/tag/?h=20250917))\r\
-    \n- SDK: azure-core ([1.16.1](https://github.com/Azure/azure-sdk-for-cpp/releases/tag/azure-core_1.16.1))\r\
-    \n- SDK: azure-identity ([1.13.1](https://github.com/Azure/azure-sdk-for-cpp/releases/tag/azure-identity_1.13.1))\r\
-    \n- SDK: go ([1.24.7](https://go.dev/doc/devel/release#go1.24.minor))\r\n- SDK:\
-    \ pkgcheck ([0.10.37](https://github.com/pkgcore/pkgcheck/releases/tag/v0.10.37))\r\
-    \n- SDK: rust ([1.89.0](https://blog.rust-lang.org/2025/08/07/Rust-1.89.0/))\r\
-    \n- base, dev: bash ([5.3_p3](https://lists.gnu.org/archive/html/bug-bash/2025-07/msg00005.html))\r\
-    \n- base, dev: btrfs-progs ([6.16](https://github.com/kdave/btrfs-progs/releases/tag/v6.16))\r\
-    \n- base, dev: coreutils ([9.7](https://lists.gnu.org/archive/html/info-gnu/2025-04/msg00006.html)\
-    \ (includes [9.6](https://savannah.gnu.org/news/?id=10715)))\r\n- base, dev: cryptsetup\
-    \ ([2.8.1](https://gitlab.com/cryptsetup/cryptsetup/-/raw/v2.8.1/docs/v2.8.1-ReleaseNotes))\r\
-    \n- base, dev: curl ([8.16.0](https://curl.se/ch/8.16.0.html))\r\n- base, dev:\
-    \ expat ([2.7.2](https://github.com/libexpat/libexpat/blob/R_2_7_2/expat/Changes))\r\
-    \n- base, dev: gcc ([14.3.1_p20250801](https://gcc.gnu.org/pipermail/gcc/2025-May/246078.html))\r\
-    \n- base, dev: hwdata ([0.398](https://github.com/vcrhonek/hwdata/releases/tag/v0.398))\r\
-    \n- base, dev: libffi ([3.5.2](https://github.com/libffi/libffi/releases/tag/v3.5.2))\r\
-    \n- base, dev: libnftnl ([1.3.0](https://lwn.net/Articles/1032725/))\r\n- base,\
-    \ dev: libxml2 ([2.13.9](https://gitlab.gnome.org/GNOME/libxml2/-/releases/v2.13.9))\r\
-    \n- base, dev: ncurses ([6.5_p20250802](https://invisible-island.net/ncurses/NEWS.html#t20250802))\r\
-    \n- base, dev: nftables ([1.1.4](https://www.netfilter.org/projects/nftables/files/changes-nftables-1.1.4.txt))\r\
-    \n- base, dev: readline ([8.3_p1](https://lists.gnu.org/archive/html/bug-bash/2025-07/msg00005.html))\r\
-    \n- base, dev: samba ([4.22.3](https://www.samba.org/samba/history/samba-4.22.3.html)\
-    \ (includes [4.21.0](https://www.samba.org/samba/history/samba-4.21.0.html), [4.22.0](https://www.samba.org/samba/history/samba-4.22.0.html),\
-    \ [4.22.1](https://www.samba.org/samba/history/samba-4.22.1.html), [4.22.2](https://www.samba.org/samba/history/samba-4.22.2.html)))\r\
-    \n- base, dev: talloc ([2.4.3](https://gitlab.com/samba-team/samba/-/commit/77229f73c20af69ab0f3c96efbb229ff64a9dfe4))\r\
-    \n- base, dev: tdb ([1.4.13](https://gitlab.com/samba-team/samba/-/commit/70a8c7a89a6d62d2ff172d79b5f4e6439300b88d))\r\
-    \n- base, dev: tevent ([0.16.2](https://gitlab.com/samba-team/samba/-/commit/8d398acbbb7fdc0ff50fe6ba80433deaf92515c6))\r\
-    \n- ca-certificates ([3.117](https://firefox-source-docs.mozilla.org/security/nss/releases/nss_3_117.html)\
-    \ (includes [3.116](https://firefox-source-docs.mozilla.org/security/nss/releases/nss_3_116.html)))\r\
-    \n- dev, sysext-incus: squashfs-tools ([4.7.2](https://github.com/plougher/squashfs-tools/releases/tag/4.7.2)\
-    \ (includes [4.7.1](https://github.com/plougher/squashfs-tools/releases/tag/4.7.1)))\r\
-    \n- dev: binutils ([2.45](https://lists.gnu.org/archive/html/info-gnu/2025-07/msg00009.html))\r\
-    \n- open-vm-tools ([13.0.5](https://github.com/vmware/open-vm-tools/releases/tag/stable-13.0.5))\r\
-    \n- sysext-incus, sysext-podman, vmware: fuse ([3.17.4](https://github.com/libfuse/libfuse/releases/tag/fuse-3.17.4))\r\
-    \n- sysext-nvidia-drivers-570, sysext-nvidia-drivers-570-open: nvidia-drivers\
-    \ (570.190)\r\n- sysext-podman: gpgme ([2.0.0](https://git.gnupg.org/cgi-bin/gitweb.cgi?p=gpgme.git;a=blob_plain;f=NEWS;h=cd0e093bf83fe47b6773fb478fced07d8409fbe0;hb=e17ba578861905857da0a514b4fc9b88a57f7346))\r\
-    \n- sysext-python: charset-normalizer ([3.4.3](https://github.com/jawah/charset_normalizer/releases/tag/3.4.3))\r\
-    \n- sysext-python: jaraco-functools ([4.3.0](https://raw.githubusercontent.com/jaraco/jaraco.functools/refs/tags/v4.3.0/NEWS.rst))\r\
-    \n- sysext-python: markdown-it-py ([4.0.0](https://github.com/executablebooks/markdown-it-py/releases/tag/v4.0.0))\r\
-    \n- sysext-python: pip ([25.2](https://raw.githubusercontent.com/pypa/pip/refs/tags/25.2/NEWS.rst))\r\
-    \n- sysext-python: requests ([2.32.5](https://github.com/psf/requests/releases/tag/v2.32.5))\r\
-    \n"
-  created_at: '2025-10-12T21:29:05Z'
+  body: " _Changes since **Alpha 4487.0.0**_\r\n \r\n #### Security fixes:\r\n \r\n\
+    \ - Linux ([CVE-2025-40107](https://nvd.nist.gov/vuln/detail/CVE-2025-40107),\
+    \ [CVE-2025-40028](https://nvd.nist.gov/vuln/detail/CVE-2025-40028), [CVE-2025-40027](https://nvd.nist.gov/vuln/detail/CVE-2025-40027),\
+    \ [CVE-2025-40026](https://nvd.nist.gov/vuln/detail/CVE-2025-40026), [CVE-2025-40000](https://nvd.nist.gov/vuln/detail/CVE-2025-40000),\
+    \ [CVE-2025-39995](https://nvd.nist.gov/vuln/detail/CVE-2025-39995), [CVE-2025-40052](https://nvd.nist.gov/vuln/detail/CVE-2025-40052),\
+    \ [CVE-2025-40061](https://nvd.nist.gov/vuln/detail/CVE-2025-40061), [CVE-2025-40060](https://nvd.nist.gov/vuln/detail/CVE-2025-40060),\
+    \ [CVE-2025-40059](https://nvd.nist.gov/vuln/detail/CVE-2025-40059), [CVE-2025-40058](https://nvd.nist.gov/vuln/detail/CVE-2025-40058),\
+    \ [CVE-2025-40057](https://nvd.nist.gov/vuln/detail/CVE-2025-40057), [CVE-2025-40056](https://nvd.nist.gov/vuln/detail/CVE-2025-40056),\
+    \ [CVE-2025-40055](https://nvd.nist.gov/vuln/detail/CVE-2025-40055), [CVE-2025-40081](https://nvd.nist.gov/vuln/detail/CVE-2025-40081),\
+    \ [CVE-2025-40080](https://nvd.nist.gov/vuln/detail/CVE-2025-40080), [CVE-2025-40079](https://nvd.nist.gov/vuln/detail/CVE-2025-40079),\
+    \ [CVE-2025-40078](https://nvd.nist.gov/vuln/detail/CVE-2025-40078), [CVE-2025-40071](https://nvd.nist.gov/vuln/detail/CVE-2025-40071),\
+    \ [CVE-2025-40070](https://nvd.nist.gov/vuln/detail/CVE-2025-40070), [CVE-2025-40068](https://nvd.nist.gov/vuln/detail/CVE-2025-40068),\
+    \ [CVE-2025-40067](https://nvd.nist.gov/vuln/detail/CVE-2025-40067), [CVE-2025-40062](https://nvd.nist.gov/vuln/detail/CVE-2025-40062),\
+    \ [CVE-2025-40053](https://nvd.nist.gov/vuln/detail/CVE-2025-40053), [CVE-2025-40029](https://nvd.nist.gov/vuln/detail/CVE-2025-40029),\
+    \ [CVE-2025-40038](https://nvd.nist.gov/vuln/detail/CVE-2025-40038), [CVE-2025-40037](https://nvd.nist.gov/vuln/detail/CVE-2025-40037),\
+    \ [CVE-2025-40036](https://nvd.nist.gov/vuln/detail/CVE-2025-40036), [CVE-2025-40035](https://nvd.nist.gov/vuln/detail/CVE-2025-40035),\
+    \ [CVE-2025-40033](https://nvd.nist.gov/vuln/detail/CVE-2025-40033), [CVE-2025-40051](https://nvd.nist.gov/vuln/detail/CVE-2025-40051),\
+    \ [CVE-2025-40049](https://nvd.nist.gov/vuln/detail/CVE-2025-40049), [CVE-2025-40031](https://nvd.nist.gov/vuln/detail/CVE-2025-40031),\
+    \ [CVE-2025-40048](https://nvd.nist.gov/vuln/detail/CVE-2025-40048), [CVE-2025-40047](https://nvd.nist.gov/vuln/detail/CVE-2025-40047),\
+    \ [CVE-2025-40045](https://nvd.nist.gov/vuln/detail/CVE-2025-40045), [CVE-2025-40044](https://nvd.nist.gov/vuln/detail/CVE-2025-40044),\
+    \ [CVE-2025-40043](https://nvd.nist.gov/vuln/detail/CVE-2025-40043), [CVE-2025-40039](https://nvd.nist.gov/vuln/detail/CVE-2025-40039),\
+    \ [CVE-2025-40030](https://nvd.nist.gov/vuln/detail/CVE-2025-40030), [CVE-2025-40018](https://nvd.nist.gov/vuln/detail/CVE-2025-40018),\
+    \ [CVE-2025-40004](https://nvd.nist.gov/vuln/detail/CVE-2025-40004), [CVE-2025-40032](https://nvd.nist.gov/vuln/detail/CVE-2025-40032),\
+    \ [CVE-2025-40042](https://nvd.nist.gov/vuln/detail/CVE-2025-40042), [CVE-2025-40019](https://nvd.nist.gov/vuln/detail/CVE-2025-40019))\r\
+    \n \r\n #### Bug fixes:\r\n \r\n - Alpha only: Fixed systemd-sysext payload handling\
+    \ for air-gapped/self-hosted updates which was a known bug for 4487.0.0 ([ue-rs#93](https://github.com/flatcar/ue-rs/pull/93))\r\
+    \n - Excluded TUN/TAP interfaces from the default DHCP network configuration to\
+    \ solve conflicts with the programs that created them ([Flatcar#1933](https://github.com/flatcar/Flatcar/issues/1933))\r\
+    \n - Fixed Intel microcode updates which were broken in recent Alpha and Beta\
+    \ releases by switching back to built-in extra firmware instead of early cpio\
+    \ inclusion ([Flatcar#1909](https://github.com/flatcar/Flatcar/issues/1909))\r\
+    \n - Fixed a kernel boot warning when loading an explicit list of kernel modules\
+    \ in the minimal first-stage initrd ([Flatcar#1934](https://github.com/flatcar/Flatcar/issues/1934))\r\
+    \n - Fixed that the needed Flatcar extensions don't get removed on update which\
+    \ caused a re-download ([update_engine#51](https://github.com/flatcar/update_engine/pull/51))\r\
+    \n \r\n #### Changes:\r\n \r\n - Added support for the kernel cmdline parameters\
+    \ `flatcar.release_file_server_url` and `flatcar.dev_file_server_url` to specify\
+    \ custom servers where Flatcar extensions should be downloaded on boot ([bootengine#112](https://github.com/flatcar/bootengine/pull/112))\r\
+    \n - Alpha only: Reduced Azure image size again to 30 GB as before by shrinking\
+    \ the root partition to compensate for the growth of the other partitions ([scripts#3460](https://github.com/flatcar/scripts/pull/3460))\r\
+    \n - Scaleway: The Linux console is now attached to the correct console port.\
+    \ ([scripts#3383](https://github.com/flatcar/scripts/pull/3383))\r\n \r\n ####\
+    \ Updates:\r\n \r\n - Linux ([6.12.54](https://git.kernel.org/pub/scm/linux/kernel/git/stable/linux.git/tag/?h=v6.12.54)\
+    \ (includes [6.12.53](https://git.kernel.org/pub/scm/linux/kernel/git/stable/linux.git/tag/?h=v6.12.53),\
+    \ [6.12.52](https://git.kernel.org/pub/scm/linux/kernel/git/stable/linux.git/tag/?h=v6.12.52)))"
+  created_at: '2025-11-05T08:00:24Z'
   draft: false
-  html_url: https://github.com/flatcar/scripts/releases/tag/alpha-4487.0.0
-  id: 254351037
+  html_url: https://github.com/flatcar/scripts/releases/tag/alpha-4487.0.1
+  id: 260578738
   immutable: false
   name: ''
-  node_id: RE_kwDOB2MTHs4PKRa9
+  node_id: RE_kwDOB2MTHs4PiB2y
   prerelease: false
-  published_at: '2025-10-14T12:33:30Z'
-  tag_name: alpha-4487.0.0
-  tarball_url: https://api.github.com/repos/flatcar/scripts/tarball/alpha-4487.0.0
+  published_at: '2025-11-07T10:36:39Z'
+  tag_name: alpha-4487.0.1
+  tarball_url: https://api.github.com/repos/flatcar/scripts/tarball/alpha-4487.0.1
   target_commitish: main
-  updated_at: '2025-10-14T12:33:30Z'
-  upload_url: https://uploads.github.com/repos/flatcar/scripts/releases/254351037/assets{?name,label}
-  url: https://api.github.com/repos/flatcar/scripts/releases/254351037
-  zipball_url: https://api.github.com/repos/flatcar/scripts/zipball/alpha-4487.0.0
+  updated_at: '2025-11-07T10:36:39Z'
+  upload_url: https://uploads.github.com/repos/flatcar/scripts/releases/260578738/assets{?name,label}
+  url: https://api.github.com/repos/flatcar/scripts/releases/260578738
+  zipball_url: https://api.github.com/repos/flatcar/scripts/zipball/alpha-4487.0.1
 image_packages:
   containerd: 2.0.5
   docker: 28.0.4
   ignition: 2.22.0
-  kernel: 6.12.51
+  kernel: 6.12.54
   systemd: '257'
 release: current
-version: 4487.0.0
+version: 4487.0.1
