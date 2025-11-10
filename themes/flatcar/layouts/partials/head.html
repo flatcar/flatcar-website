@@ -81,6 +81,34 @@
     <meta name="twitter:creator" content="@flatcar" />
     <meta name="twitter:site" content="@flatcar" />
 
+    <!-- Theme initialization script (must run before page renders) -->
+    <script>
+        (function() {
+            const THEME_AUTO = 'auto';
+            const THEME_LIGHT = 'light';
+            const THEME_DARK = 'dark';
+
+            function getStoredMode() {
+                return localStorage.getItem('theme-mode') || THEME_AUTO;
+            }
+
+            function getSystemTheme() {
+                return window.matchMedia('(prefers-color-scheme: dark)').matches ? THEME_DARK : THEME_LIGHT;
+            }
+
+            function getEffectiveTheme(mode) {
+                if (mode === THEME_AUTO) {
+                    return getSystemTheme();
+                }
+                return mode;
+            }
+
+            const mode = getStoredMode();
+            const effectiveTheme = getEffectiveTheme(mode);
+            document.documentElement.setAttribute('data-bs-theme', effectiveTheme);
+        })();
+    </script>
+
     <link rel="stylesheet" href="/css/font-awesome-6-5-2.min.css" media="print" onload="this.media='all'">
     <link rel="stylesheet" href="/css/bootstrap.min.css">
 

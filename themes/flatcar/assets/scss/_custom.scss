@@ -252,6 +252,21 @@ $pagination-active-color:           $white;
 $pagination-active-bg:              $green;
 $pagination-disabled-bg:            $gray !important;
 
+// Dark mode variable overrides
+// Override Bootstrap's dark mode defaults with Flatcar-appropriate colors
+$body-bg-dark: #1a1a1a !default;
+$body-color-dark: #e5e5e5 !default;
+$body-secondary-color-dark: rgba($body-color-dark, .75) !default;
+$body-secondary-bg-dark: #2a2a2a !default;
+$body-tertiary-color-dark: rgba($body-color-dark, .5) !default;
+$body-tertiary-bg-dark: #242424 !default;
+$body-emphasis-color-dark: $white !default;
+$border-color-dark: #444444 !default;
+$border-color-translucent-dark: rgba($white, .15) !default;
+$headings-color-dark: $white !default;
+$link-color-dark: $flatcar-blue !default;
+$link-hover-color-dark: $cyan !default;
+
 // Let's start by bring in all of bootstrap
 // Later we can bring in only what we need:
 // https://getbootstrap.com/docs/5.3/customize/sass/

@@ -211,3 +211,41 @@ body:not(.mobile-menu_open) {
     }
   }
 }
+
+// Theme dropdown styles
+.theme-dropdown-toggle {
+  .theme-current-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .theme-icon {
+    display: block;
+  }
+}
+
+.theme-dropdown-menu {
+  min-width: 180px;
+}
+
+.theme-option {
+  cursor: pointer;
+
+  .dropdown-item__title {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    .theme-checkmark {
+      margin-left: 0.5rem;
+      font-weight: bold;
+      color: $yellow;
+      visibility: hidden;
+    }
+  }
+
+  &:hover .theme-checkmark {
+    // Keep checkmark visibility as-is on hover (controlled by JS)
+  }
+}

@@ -19,6 +19,11 @@ function closeMenu(elem) {
 // Dropdown navigation for mobile
 document.querySelectorAll(".nav-item.dropdown .nav-link").forEach(function(item) {
   item.addEventListener("click", function(e) {
+    // Skip theme dropdown - it has its own handling
+    if(this.classList.contains('theme-dropdown-toggle')) {
+      return;
+    }
+
     e.preventDefault();
     if(document.body.classList.contains('mobile-menu_open')) {
       if(!this.classList.contains('nav-link_selected')) {
@@ -87,3 +92,163 @@ document.querySelectorAll(".contact-cookies-consent-notice").forEach(
     }
   }
 );
+
+// Dark mode theme switcher with three modes: auto, light, dark
+window.ThemeSwitcher = (function() {
+  const THEME_AUTO = 'auto';
+  const THEME_LIGHT = 'light';
+  const THEME_DARK = 'dark';
+
+  function log(message, data) {
+    console.log('[ThemeSwitcher]', message, data || '');
+  }
+
+  function getStoredMode() {
+    const mode = localStorage.getItem('theme-mode') || THEME_AUTO;
+    log('getStoredMode:', mode);
+    return mode;
+  }
+
+  function setStoredMode(mode) {
+    log('setStoredMode:', mode);
+    localStorage.setItem('theme-mode', mode);
+  }
+
+  function getSystemTheme() {
+    const isDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+    const theme = isDark ? THEME_DARK : THEME_LIGHT;
+    log('getSystemTheme:', theme);
+    return theme;
+  }
+
+  function getEffectiveTheme(mode) {
+    if (mode === THEME_AUTO) {
+      return getSystemTheme();
+    }
+    return mode;
+  }
+
+  function applyTheme(mode) {
+    log('applyTheme called with mode:', mode);
+    const effectiveTheme = getEffectiveTheme(mode);
+    log('effectiveTheme:', effectiveTheme);
+
+    document.documentElement.setAttribute('data-bs-theme', effectiveTheme);
+    setStoredMode(mode);
+    updateThemeUI(mode, effectiveTheme);
+
+    log('Theme applied successfully');
+  }
+
+  function updateThemeUI(mode, effectiveTheme) {
+    log('updateThemeUI:', { mode, effectiveTheme });
+
+    // Update dropdown button icon
+    const dropdownBtn = document.querySelector('.theme-dropdown-toggle');
+    if (dropdownBtn) {
+      const iconContainer = dropdownBtn.querySelector('.theme-current-icon');
+      if (iconContainer) {
+        let iconHtml = '';
+        if (mode === THEME_AUTO) {
+          iconHtml = '<svg class="theme-icon" width="20" height="20" fill="currentColor" viewBox="0 0 16 16"><use xlink:href="#auto-icon"/></svg>';
+        } else if (effectiveTheme === THEME_DARK) {
+          iconHtml = '<svg class="theme-icon" width="20" height="20" fill="currentColor" viewBox="0 0 16 16"><use xlink:href="#moon-icon"/></svg>';
+        } else {
+          iconHtml = '<svg class="theme-icon" width="20" height="20" fill="currentColor" viewBox="0 0 16 16"><use xlink:href="#sun-icon"/></svg>';
+        }
+        iconContainer.innerHTML = iconHtml;
+        log('Updated dropdown icon');
+      }
+    } else {
+      log('WARNING: dropdown button not found');
+    }
+
+    // Update checkmarks in dropdown menu
+    const options = document.querySelectorAll('.theme-option');
+    log('Found theme options:', options.length);
+
+    options.forEach(option => {
+      const optionMode = option.getAttribute('data-theme-mode');
+      const checkmark = option.querySelector('.theme-checkmark');
+      if (checkmark) {
+        checkmark.style.visibility = optionMode === mode ? 'visible' : 'hidden';
+        log(`Checkmark for ${optionMode}:`, checkmark.style.visibility);
+      }
+    });
+  }
+
+  function setThemeMode(mode) {
+    log('setThemeMode called with:', mode);
+    applyTheme(mode);
+
+    // Close the Bootstrap dropdown
+    const dropdownElement = document.querySelector('.theme-dropdown-toggle');
+    if (dropdownElement && window.bootstrap) {
+      const dropdown = bootstrap.Dropdown.getInstance(dropdownElement);
+      if (dropdown) {
+        dropdown.hide();
+        log('Dropdown closed');
+      }
+    }
+  }
+
+  // Initialize theme on DOM ready
+  function init() {
+    log('Initializing theme switcher...');
+
+    const currentMode = getStoredMode();
+    const effectiveTheme = getEffectiveTheme(currentMode);
+
+    // Apply initial theme
+    document.documentElement.setAttribute('data-bs-theme', effectiveTheme);
+    updateThemeUI(currentMode, effectiveTheme);
+
+    // Add click handlers to theme options using event delegation
+    const themeDropdown = document.querySelector('.theme-dropdown-menu');
+    if (themeDropdown) {
+      log('Theme dropdown found, attaching event listener');
+      themeDropdown.addEventListener('click', function(e) {
+        const themeOption = e.target.closest('.theme-option');
+        if (themeOption) {
+          e.preventDefault();
+          e.stopPropagation();
+          const mode = themeOption.getAttribute('data-theme-mode');
+          log('Theme option clicked:', mode);
+          setThemeMode(mode);
+        }
+      });
+    } else {
+      log('ERROR: Theme dropdown not found!');
+    }
+
+    // Listen for system theme changes (only matters when in auto mode)
+    window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', function(e) {
+      log('System theme changed:', e.matches ? 'dark' : 'light');
+      const currentMode = getStoredMode();
+      if (currentMode === THEME_AUTO) {
+        const effectiveTheme = e.matches ? THEME_DARK : THEME_LIGHT;
+        document.documentElement.setAttribute('data-bs-theme', effectiveTheme);
+        updateThemeUI(currentMode, effectiveTheme);
+      }
+    });
+
+    log('Theme switcher initialized');
+  }
+
+  // Run on DOM ready
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', init);
+  } else {
+    init();
+  }
+
+  // Expose public API for debugging
+  return {
+    setThemeMode: setThemeMode,
+    getStoredMode: getStoredMode,
+    getSystemTheme: getSystemTheme,
+    THEME_AUTO: THEME_AUTO,
+    THEME_LIGHT: THEME_LIGHT,
+    THEME_DARK: THEME_DARK
+  };
+})();

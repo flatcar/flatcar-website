@@ -56,4 +56,58 @@
               </li>
           {{ end }}
       {{ end }}
+      <li class="nav-item dropdown">
+          <a href="#" class="nav-link dropdown-toggle theme-dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Theme selector">
+            <span class="theme-current-icon">
+              <svg class="theme-icon" width="20" height="20" fill="currentColor" viewBox="0 0 16 16">
+                <use xlink:href="#auto-icon"/>
+              </svg>
+            </span>
+            <span class="navbar__link-underline"></span>
+          </a>
+          <div class="dropdown-menu theme-dropdown-menu">
+            <a href="#" class="dropdown-item theme-option" data-theme-mode="auto">
+              <div class="dropdown-item__icon">
+                <svg width="20" height="20" fill="currentColor" viewBox="0 0 16 16">
+                  <use xlink:href="#auto-icon"/>
+                </svg>
+              </div>
+              <div class="dropdown-item__description">
+                <div class="dropdown-item__title">
+                  Auto
+                  <span class="theme-checkmark">✓</span>
+                </div>
+                <p class="dropdown-item__text">Follow system</p>
+              </div>
+            </a>
+            <a href="#" class="dropdown-item theme-option" data-theme-mode="light">
+              <div class="dropdown-item__icon">
+                <svg width="20" height="20" fill="currentColor" viewBox="0 0 16 16">
+                  <use xlink:href="#sun-icon"/>
+                </svg>
+              </div>
+              <div class="dropdown-item__description">
+                <div class="dropdown-item__title">
+                  Light
+                  <span class="theme-checkmark">✓</span>
+                </div>
+                <p class="dropdown-item__text">Light theme</p>
+              </div>
+            </a>
+            <a href="#" class="dropdown-item theme-option" data-theme-mode="dark">
+              <div class="dropdown-item__icon">
+                <svg width="20" height="20" fill="currentColor" viewBox="0 0 16 16">
+                  <use xlink:href="#moon-icon"/>
+                </svg>
+              </div>
+              <div class="dropdown-item__description">
+                <div class="dropdown-item__title">
+                  Dark
+                  <span class="theme-checkmark">✓</span>
+                </div>
+                <p class="dropdown-item__text">Dark theme</p>
+              </div>
+            </a>
+          </div>
+      </li>
     </ul>
