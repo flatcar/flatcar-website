@@ -31,7 +31,8 @@ $vmName = "my_flatcar_01"
 $vmDisk = "flatcar_production_hyperv_vhdx_image.vhdx"
 
 New-VM -Name $vmName -MemoryStartupBytes 2GB `
-    -BootDevice VHD -SwitchName "Default Switch" -VHDPath $vmDisk -Generation 2
+    -BootDevice VHD -SwitchName "Default Switch" `
+    -VHDPath (Resolve-Path $vmDisk) -Generation 2
 Set-VMFirmware -EnableSecureBoot "Off" -VMName $vmName
 
 # The core user password is set to foo
@@ -134,14 +135,16 @@ $vmName = "my_flatcar_01"
 $vmDisk = "flatcar_production_hyperv_vhdx_image.vhdx"
 
 # For Generation 1 VM
-New-VM -Name $vmName -MemoryStartupBytes 2GB `
-    -BootDevice VHD -SwitchName "Default Switch" -VHDPath $vmDisk -Generation 1
+New-VM -Name $vmName -MemoryStartupBytes 4GB `
+    -BootDevice VHD -SwitchName "Default Switch" -VHDPath (Resolve-Path $vmDisk) -Generation 1
 
 # For Generation 2 VM
 New-VM -Name $vmName -MemoryStartupBytes 2GB `
-    -BootDevice VHD -SwitchName "Default Switch" -VHDPath $vmDisk -Generation 2
+    -BootDevice VHD -SwitchName "Default Switch" -VHDPath (Resolve-Path $vmDisk) -Generation 2
 # Generation 2 VM needs to have secure boot disabled, as the images are not signed
 Set-VMFirmware -EnableSecureBoot "Off" -VMName $vmName
+Set-VM -AutomaticCheckpointsEnabled:$false -VMName $vmName
+Set-VMProcessor -VMName $vmName -Count 4
 
 # Now, add the config-drive file as DvdDrive
 Add-VMDvdDrive -VMName $vmName -Path "config-drive.iso"
