@@ -13,8 +13,8 @@ import json
 
 known_architectures = ['amd64', 'arm64']
 def release_arch_exists(origin_server, channel, arch, release, auth=None):
-    code = requests.get('{}/{}/{}-usr/{}/version.txt'.format(
-        origin_server, channel, arch, release), auth=auth).status_code
+    code = requests.get('{}/{}-usr/{}/version.txt'.format(
+        origin_server.format(channel=channel), arch, release), auth=auth).status_code
     if code == 401:
         raise Exception('forbidden, set LTS_USER and LTS_PASSWORD env vars')
     return code == 200
@@ -58,7 +58,7 @@ class Releases:
 
 class ReleaseInfo:
     def __init__(self,
-                 origin_server='https://origin.release.flatcar-linux.net',
+                 origin_server='https://{channel}.release.flatcar-linux.net',
                  channel='stable',
                  release='current',
                  auth=None):
@@ -80,8 +80,8 @@ class ReleaseInfo:
                 self.architectures.append(arch)
 
         # Assume that versions are the same for each architecture of a release
-        version = requests.get('{}/{}/{}-usr/{}/version.txt'.format(
-            self.origin_server, self.channel, self.architectures[0], self.release), auth=self.auth)
+        version = requests.get('{}/{}-usr/{}/version.txt'.format(
+            self.origin_server.format(channel=self.channel), self.architectures[0], self.release), auth=self.auth)
         version.raise_for_status()
         for line in io.StringIO(version.text):
             match = re.search(r'^FLATCAR_VERSION=(\d+\.\d+\.\d+)$', line)
@@ -89,8 +89,8 @@ class ReleaseInfo:
                 self.version = match.group(1)
                 break
 
-        licenses = requests.get('{}/{}/{}-usr/{}/flatcar_production_image_licenses.json'.format(  # noqa: E501
-            self.origin_server, self.channel, self.architectures[0], self.release), auth=self.auth)
+        licenses = requests.get('{}/{}-usr/{}/flatcar_production_image_licenses.json'.format(  # noqa: E501
+            self.origin_server.format(channel=self.channel), self.architectures[0], self.release), auth=self.auth)
         licenses.raise_for_status()
         packages = {"sys-kernel/coreos-kernel": "kernel",
                     "app-containers/docker": "docker",
