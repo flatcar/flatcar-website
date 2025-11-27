@@ -1,7 +1,7 @@
 .section-content__list {
   margin-top: 68px !important;
 
-  @include media-breakpoint-down(xs) {
+  @include media-breakpoint-down(sm) {
     margin-top: 64px !important;
   }
 }
@@ -15,7 +15,7 @@
   .card-text {
     margin-bottom: 22px;
 
-    @include media-breakpoint-down(xs) {
+    @include media-breakpoint-down(sm) {
       margin-bottom: 30px;
     }
   }
@@ -35,13 +35,13 @@
   .section-content__item {
     position: static;
 
-    @include media-breakpoint-down(sm) {
+    @include media-breakpoint-down(md) {
       padding: 0;
     }
   }
 
   .section-content__item + .section-content__item {
-    @include media-breakpoint-down(sm) {
+    @include media-breakpoint-down(md) {
       margin-top: 60px;
       padding: 0;
     }
@@ -68,7 +68,7 @@
 
 .section-work-on {
   .section-header {
-    @include media-breakpoint-down(xs) {
+    @include media-breakpoint-down(sm) {
       text-align: left !important;
     }
   }
@@ -93,7 +93,7 @@
       }
     }
 
-    @include media-breakpoint-down(xs) {
+    @include media-breakpoint-down(sm) {
       padding-left: 38px;
       padding-top: 0;
 

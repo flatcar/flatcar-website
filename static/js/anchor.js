@@ -18,11 +18,11 @@ the class attribute modification.
 
 */
 
-(function ($) {
+(function () {
     'use strict';
 
     // Headers' anchor link that shows on hover
-    $(function () {
+    document.addEventListener('DOMContentLoaded', function () {
         // append anchor links to headings in markdown.
         var article = document.getElementsByTagName('main')[0];
         if (!article) {
@@ -51,4 +51,4 @@ the class attribute modification.
         });
     });
 
-}(jQuery));
+}());

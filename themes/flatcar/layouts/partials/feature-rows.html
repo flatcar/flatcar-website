@@ -30,7 +30,7 @@
                     <div class="col-12 p-0">
                     <div class="row align-items-top justify-content-between d-none d-md-flex mt-6">
                         {{ range . }}
-                        <div class="col-12 col-md-6 col-lg-4 pr-5">
+                        <div class="col-12 col-md-6 col-lg-4 pe-5">
                             <div class="card">
                             {{ if .icon }}
                             <div class="card-header" role="presentation">
@@ -45,13 +45,13 @@
                         </div>
                         {{ end }}
                     </div>
-                    <div class="row no-gutters d-none d-block d-md-none mt-5">
-                        <div id="productCarousel-{{ $productId }}" class="carousel slide" data-ride="carousel">
-                        <ol class="carousel-indicators">
+                    <div class="row g-0 d-block d-md-none mt-5">
+                        <div id="productCarousel-{{ $productId }}" class="carousel slide" data-bs-ride="carousel">
+                        <div class="carousel-indicators">
                             {{ range $index,$item := . }}
-                            <li data-target="#productCarousel-{{ $productId }}" data-slide-to="{{ $index }}" class="{{ if eq $index 0 }}active{{ end }}"></li>
+                            <button type="button" data-bs-target="#productCarousel-{{ $productId }}" data-bs-slide-to="{{ $index }}" class="{{ if eq $index 0 }}active{{ end }}" aria-current="{{ if eq $index 0 }}true{{ else }}false{{ end }}" aria-label="Slide {{ add $index 1 }}"></button>
                             {{ end }}
-                        </ol>
+                        </div>
                         <div class="carousel-inner">
                             {{ range $index,$item := . }}
                             <div class="carousel-item {{ if eq $index 0 }}active{{ end }}">

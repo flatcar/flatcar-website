@@ -4,12 +4,12 @@
   background-position: center top;
   background-size: cover;
   color: $white;
-
+  
   &:last-child {
     padding-bottom: 120px;
   }
 
-  @include media-breakpoint-down(md) {
+  @include media-breakpoint-down(lg) {
     padding-top: 100px;
     padding-bottom: 100px;
   }
@@ -65,7 +65,7 @@
     padding-bottom: 44px;
     margin-bottom: 22px;
 
-    @include media-breakpoint-down(md) {
+    @include media-breakpoint-down(lg) {
       padding-top: 0 !important;
       padding-bottom: 0 !important;
     }
@@ -75,7 +75,7 @@
       margin-left: auto;
       margin-right: auto;
 
-      @include media-breakpoint-down(md) {
+      @include media-breakpoint-down(lg) {
         margin-top: 7%;
         max-height: 150px;
       }
@@ -83,7 +83,7 @@
   }
 
   .section-content {
-    @include media-breakpoint-down(md) {
+    @include media-breakpoint-down(lg) {
       padding-top: 44px;
       padding-right: 0;
       padding-left: 0;
@@ -100,11 +100,18 @@
 
   .section-feature {
     text-align: center;
+    color: inherit;
 
     .card-header {
       img {
         height: 40px;
       }
+    }
+    
+    .card {
+      background-color: transparent;
+      border: none;
+      color: inherit;
     }
   }
 
@@ -204,7 +211,7 @@
         margin-left: auto;
         margin-right: auto;
 
-        @include media-breakpoint-down(md) {
+        @include media-breakpoint-down(lg) {
           margin-top: 7%;
           max-height: 150px;
         }
@@ -215,7 +222,7 @@
       h2 {
         font-size: 3.2rem;
 
-        @include media-breakpoint-down(md) {
+        @include media-breakpoint-down(lg) {
           font-size: xx-large;
         }
       }
@@ -252,11 +259,11 @@
       font-size: large;
       max-width: 60%;
 
-      @include media-breakpoint-down(md) {
+      @include media-breakpoint-down(lg) {
         max-width: 80%;
       }
 
-      @include media-breakpoint-down(sm) {
+      @include media-breakpoint-down(lg) {
         max-width: 100%;
       }
     }
@@ -276,7 +283,7 @@
       min-height: 55px;
       height: 55px;
 
-      @include media-breakpoint-down(sm) {
+      @include media-breakpoint-down(md) {
         font-size: small;
       }
 
@@ -303,11 +310,11 @@
     td, th {
       padding-right: 24px;
 
-      @include media-breakpoint-down(md) {
+      @include media-breakpoint-down(lg) {
         padding-right: 15px;
       }
 
-      @include media-breakpoint-down(sm) {
+      @include media-breakpoint-down(md) {
         padding-right: 5px;
       }
     }
@@ -349,7 +356,7 @@
       font-size: normal;
       max-width: 80%;
 
-      @include media-breakpoint-down(md) {
+      @include media-breakpoint-down(lg) {
         max-width: 100%;
         margin-top: 0;
       }
@@ -390,11 +397,11 @@
       padding-right: 24px;
       padding-left: 24px;
 
-      @include media-breakpoint-down(md) {
+      @include media-breakpoint-down(lg) {
         padding-right: 15px;
       }
 
-      @include media-breakpoint-down(sm) {
+      @include media-breakpoint-down(md) {
         padding-right: 5px;
       }
     }
@@ -456,7 +463,7 @@
     color: $flatcar-blue;
     font-size: 2.7rem;
 
-    @include media-breakpoint-down(md) {
+    @include media-breakpoint-down(lg) {
       font-size: 2rem;
     }
   }
@@ -475,7 +482,7 @@
   .subproduct-title {
     font-size: 2.8rem;
 
-    @include media-breakpoint-down(md) {
+    @include media-breakpoint-down(lg) {
       font-size: 2rem;
     }
   }
@@ -616,7 +623,7 @@
       font-size: 18px;
       width: auto;
 
-      @include media-breakpoint-down(md) {
+      @include media-breakpoint-down(lg) {
         font-size: x-large;
       }
 
@@ -662,7 +669,7 @@
   }
 
   h2 {
-    @include media-breakpoint-down(sm) {
+    @include media-breakpoint-down(md) {
       font-size: xx-large;
     }
   }
@@ -725,18 +732,6 @@
     min-width: 315px;
   }
 
-  .card-columns {
-    column-count: 1;
-
-    @include media-breakpoint-up(md) {
-      column-count: 2;
-    }
-
-    @include media-breakpoint-up(lg) {
-      column-count: 4;
-    }
-  }
-
   .notes-area {
     $dark-text: #474747;
     background-color: #F6F6F7;
@@ -785,7 +780,7 @@
         margin-right: auto;
         text-align: center;
 
-        @include media-breakpoint-down(sm) {
+        @include media-breakpoint-down(md) {
           min-width: 40%;
           max-width: 40%;
           white-space: nowrap;
@@ -799,7 +794,7 @@
           }
         }
 
-        @include media-breakpoint-down(sm) {
+        @include media-breakpoint-down(md) {
           max-width: 25%;
         }
       }

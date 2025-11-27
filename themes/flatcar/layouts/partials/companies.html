@@ -48,9 +48,9 @@
       </div>
     {{ end }}
   </div>
-  <div class="no-gutters d-none d-flex d-md-none mt-2">
+  <div class="g-0 d-flex d-md-none mt-2">
     {{ $carouselId := (print "companyLogosCarousel_" $section_name "_" $key) }}
-    <div id="{{ $carouselId }}" class="carousel slide" data-ride="carousel">
+    <div id="{{ $carouselId }}" class="carousel slide" data-bs-ride="carousel">
       {{ $perPage := 4 }}
       {{ $fullPages := div (len $names) $perPage }}
       {{ $remainder := mod (len $names) $perPage }}
@@ -58,11 +58,11 @@
       {{ if gt $remainder 0 }}
         {{ $numPages = add $fullPages 1 }}
       {{ end }}
-      <ol class="carousel-indicators {{ if eq $numPages 1 }}d-none{{ end }}">
+      <div class="carousel-indicators {{ if eq $numPages 1 }}d-none{{ end }}">
         {{ range $index,$_item := (seq $numPages) }}
-          <li data-target="#{{ $carouselId }}" data-slide-to="{{ $index }}" class="{{ if eq $index 0 }}active{{ end }}"></li>
+          <button type="button" data-bs-target="#{{ $carouselId }}" data-bs-slide-to="{{ $index }}" class="{{ if eq $index 0 }}active{{ end }}" aria-current="{{ if eq $index 0 }}true{{ else }}false{{ end }}" aria-label="Slide {{ add $index 1 }}"></button>
         {{ end }}
-      </ol>
+      </div>
       <div class="carousel-inner">
         {{ range $pageNum,$_item := (seq $numPages) }}
           <div class="carousel-item {{ if eq $pageNum 0 }}active{{ end }}">

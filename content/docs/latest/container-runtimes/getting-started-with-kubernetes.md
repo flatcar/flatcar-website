@@ -47,8 +47,8 @@ Here are two examples to setup a control plane with [Butane][butane]. The first 
 
 <div>
   <ul class="nav nav-tabs">
-    <li class="active"><a href="#sysext" class="active" data-toggle="tab">With systemd-sysext and updates</a></li>
-    <li><a href="#no-sysext" data-toggle="tab">With plain binaries and no updates</a></li>
+    <li class="active"><a href="#sysext" class="active" data-bs-toggle="tab">With systemd-sysext and updates</a></li>
+    <li><a href="#no-sysext" data-bs-toggle="tab">With plain binaries and no updates</a></li>
   </ul>
   <div class="tab-content coreos-docs-image-table">
     <div class="tab-pane active" id="sysext">
@@ -225,8 +225,8 @@ Here's are two examples for a [butane][butane] configuration to setup the nodes.
 
 <div>
   <ul class="nav nav-tabs">
-    <li class="active"><a class="active" href="#sysext-nodes" data-toggle="tab">With systemd-sysext and updates</a></li>
-    <li><a href="#no-sysext-nodes" data-toggle="tab">With plain binaries and no updates</a></li>
+    <li class="active"><a class="active" href="#sysext-nodes" data-bs-toggle="tab">With systemd-sysext and updates</a></li>
+    <li><a href="#no-sysext-nodes" data-bs-toggle="tab">With plain binaries and no updates</a></li>
   </ul>
   <div class="tab-content coreos-docs-image-table">
     <div class="tab-pane active" id="sysext-nodes">

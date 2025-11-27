@@ -1,5 +1,4 @@
 ---
-title: Running Flatcar Container Linux on VirtualBox
 title: Running on VirtualBox
 weight: 30
 aliases:
@@ -36,9 +35,9 @@ Flatcar Container Linux is designed to be updated automatically with different s
 
 <div id="virtualbox-create">
   <ul class="nav nav-tabs">
-    <li class="active"><a href="#stable-create" data-toggle="tab">Stable Channel</a></li>
-    <li><a href="#beta-create" data-toggle="tab">Beta Channel</a></li>
-    <li><a href="#alpha-create" data-toggle="tab">Alpha Channel</a></li>
+    <li class="active"><a href="#stable-create" data-bs-toggle="tab">Stable Channel</a></li>
+    <li><a href="#beta-create" data-bs-toggle="tab">Beta Channel</a></li>
+    <li><a href="#alpha-create" data-bs-toggle="tab">Alpha Channel</a></li>
   </ul>
   <div class="tab-content coreos-docs-image-table">
     <div class="tab-pane" id="alpha-create">

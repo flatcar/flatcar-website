@@ -8,10 +8,10 @@ $topElemsVPadding: 1.4rem;
 }
 
 .td-sidebar__inner {
-  padding-top: calc(.8 + .2rem);
+  padding-top: calc(0.8 + 0.2rem);
   position: relative;
   @include media-breakpoint-up(md) {
-    padding-top: calc(#{$topElemsVPadding} + .2rem);
+    padding-top: calc(#{$topElemsVPadding} + 0.2rem);
     position: -webkit-sticky; /* Safari */
     position: sticky;
     top: 0;
@@ -42,7 +42,8 @@ $topElemsVPadding: 1.4rem;
     display: block !important;
   }
 
-  ul, li {
+  ul,
+  li {
     list-style: none;
     border: none;
     padding: 0;
@@ -50,8 +51,9 @@ $topElemsVPadding: 1.4rem;
 
   .td-sidebar-link {
     display: block;
-    padding-bottom: .5rem;
+    padding-bottom: 0.5rem;
     line-height: 1.5rem;
+    text-decoration: none;
   }
 
   .td-sidebar-link__section {
@@ -64,7 +66,7 @@ $topElemsVPadding: 1.4rem;
       border-left: none;
       margin-left: 0.83em;
       display: inline-block;
-      vertical-align: .255em;
+      vertical-align: 0.255em;
       content: "";
       transform: rotate(45deg) translate(-0.17em, 0.17em);
     }
@@ -73,7 +75,7 @@ $topElemsVPadding: 1.4rem;
   .td-sidebar-nav__section {
     & > li > ul {
       padding-left: $paddingLeft;
-      padding-right: .3rem;
+      padding-right: 0.3rem;
     }
 
     #docs {
@@ -81,16 +83,16 @@ $topElemsVPadding: 1.4rem;
         border-bottom: 1px solid #e0dfdf;
 
         & > li {
-            padding-left: $paddingLeft;
+          padding-left: $paddingLeft;
 
-            & > a {
-              color: #474747;
-              font-size: 1rem;
+          & > a {
+            color: #474747;
+            font-size: 1rem;
 
-              &.active {
-                color: $flatcar-darker-blue;
-              }
+            &.active {
+              color: $flatcar-darker-blue;
             }
+          }
         }
 
         & > li > ul {
@@ -102,10 +104,9 @@ $topElemsVPadding: 1.4rem;
     }
 
     li {
-
       a {
         color: #717171;
-        font-size: .9rem;
+        font-size: 0.9rem;
 
         &.active {
           color: $flatcar-darker-blue;
@@ -120,7 +121,7 @@ $topElemsVPadding: 1.4rem;
   }
 
   & > .td-sidebar-nav__section {
-    & > li >ul {
+    & > li > ul {
       padding-left: 0;
     }
   }
@@ -158,7 +159,10 @@ $sideBarWidth: 350px;
     font-size: 1.5rem;
   }
 
-  h2, h3, h4, h5 {
+  h2,
+  h3,
+  h4,
+  h5 {
     line-height: 1.2;
     padding-top: 1rem;
   }
@@ -167,14 +171,15 @@ $sideBarWidth: 350px;
     margin-bottom: 30px;
   }
 
-  td, th {
+  td,
+  th {
     height: 45px;
     border-bottom: 1px solid #e0dfdf;
     padding: 15px 25px 10px 25px;
   }
 
   thead {
-    background-color: #F6F6F7;
+    background-color: #f6f6f7;
   }
 
   pre {
@@ -184,6 +189,13 @@ $sideBarWidth: 350px;
 
   p {
     margin-bottom: 1rem;
+  }
+
+  /* reset for paragraphs that are inside lists */
+  ul p,
+  ol p,
+  li p {
+    margin-bottom: 0;
   }
 
   ul.nav-tabs {
@@ -248,6 +260,7 @@ $sideBarWidth: 350px;
       font-size: 1rem;
       & > a {
         color: $gray-600;
+        text-decoration: none;
       }
     }
   }
@@ -297,7 +310,8 @@ $sideBarWidth: 350px;
   overflow-y: scroll;
   height: calc(100vh - 5rem);
 
-  ul, ol {
+  ul,
+  ol {
     list-style: none;
 
     li {
@@ -322,7 +336,7 @@ $sideBarWidth: 350px;
   .page-header {
     h1 {
       font-size: 3.5rem;
-      font-family: 'Overpass Mono';
+      font-family: "Overpass Mono";
 
       @include media-breakpoint-down(sm) {
         font-size: 2rem;
@@ -346,7 +360,7 @@ $sideBarWidth: 350px;
   }
 
   .card {
-    border: 1px solid rgba(0, 0, 0, .1);
+    border: 1px solid rgba(0, 0, 0, 0.1);
     background-color: $white;
     height: 100%;
 
@@ -375,7 +389,8 @@ $sideBarWidth: 350px;
 
       li {
         list-style: none;
-        background: url('/images/list-item-arrow-icon.svg') no-repeat center left;
+        background: url("/images/list-item-arrow-icon.svg") no-repeat center
+          left;
         padding: 5px 0 0 30px;
         margin: 0;
         margin-bottom: 7px;
@@ -410,7 +425,7 @@ $sideBarWidth: 350px;
 
       p {
         color: #717171;
-        font-size: .9rem;
+        font-size: 0.9rem;
       }
     }
   }
@@ -429,7 +444,11 @@ $sideBarWidth: 350px;
     }
   }
 
-  h1, h2, h3, h4, h5 {
+  h1,
+  h2,
+  h3,
+  h4,
+  h5 {
     & > a {
       color: $black;
 
@@ -444,5 +463,5 @@ $sideBarWidth: 350px;
   background-color: $gray-100;
   border: 1px solid $gray-200;
   border-left: 4px solid $flatcar-blue;
-  padding: .5rem;
+  padding: 0.5rem;
 }
