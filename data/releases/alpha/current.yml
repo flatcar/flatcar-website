@@ -4,7 +4,7 @@ architectures:
 channel: alpha
 github_release:
   assets: []
-  assets_url: https://api.github.com/repos/flatcar/scripts/releases/261410850/assets
+  assets_url: https://api.github.com/repos/flatcar/scripts/releases/265069957/assets
   author:
     avatar_url: https://avatars.githubusercontent.com/u/500628?v=4
     events_url: https://api.github.com/users/sayanchowdhury/events{/privacy}
@@ -25,112 +25,52 @@ github_release:
     type: User
     url: https://api.github.com/users/sayanchowdhury
     user_view_type: public
-  body: "_Changes since **Alpha 4487.0.1**_\r\n \r\n#### Security fixes:\r\n \r\n\
-    \ - containerd ([CVE-2024-25621](https://www.cve.org/CVERecord?id=CVE-2024-25621),\
-    \ [CVE-2025-64329](https://www.cve.org/CVERecord?id=CVE-2025-64329))\r\n - expat\
-    \ ([CVE-2025-59375](https://www.cve.org/CVERecord?id=CVE-2025-59375))\r\n - intel-microcode\
-    \ ([CVE-2024-28956](https://www.cve.org/CVERecord?id=CVE-2024-28956), [CVE-2024-43420](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-43420),\
-    \ [CVE-2024-45332](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-45332),\
-    \ [CVE-2025-20012](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2025-20012),\
-    \ [CVE-2025-20054](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2025-20054),\
-    \ [CVE-2025-20103](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2025-20103),\
-    \ [CVE-2025-20623](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2025-20623),\
-    \ [CVE-2025-24495](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2025-24495),\
-    \ [CVE-2025-20053](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2025-20053),\
-    \ [CVE-2025-20109](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2025-20109),\
-    \ [CVE-2025-22839](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2025-22839),\
-    \ [CVE-2025-22840](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2025-22840),\
-    \ [CVE-2025-22889](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2025-22889),\
-    \ [CVE-2025-26403](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2025-26403))\r\
-    \n - nvidia-drivers ([CVE-2025-23280](https://www.cve.org/CVERecord?id=CVE-2025-23280),\
-    \ [CVE-2025-23282](https://www.cve.org/CVERecord?id=CVE-2025-23282), [CVE-2025-23300](https://www.cve.org/CVERecord?id=CVE-2025-23300),\
-    \ [CVE-2025-23330](https://www.cve.org/CVERecord?id=CVE-2025-23330), [CVE-2025-23332](https://www.cve.org/CVERecord?id=CVE-2025-23332),\
-    \ [CVE-2025-23345](https://www.cve.org/CVERecord?id=CVE-2025-23345))\r\n - openssh\
-    \ ([CVE-2025-61984](https://www.cve.org/CVERecord?id=CVE-2025-61984), [CVE-2025-61985](https://www.cve.org/CVERecord?id=CVE-2025-61985))\r\
-    \n - openssl ([CVE-2025-9230](https://www.cve.org/CVERecord?id=CVE-2025-9230),\
-    \ [CVE-2025-9231](https://www.cve.org/CVERecord?id=CVE-2025-9231), [CVE-2025-9232](https://www.cve.org/CVERecord?id=CVE-2025-9232))\r\
-    \n - runc ([CVE-2025-31133](https://www.cve.org/CVERecord?id=CVE-2025-31133),\
-    \ [CVE-2025-52565](https://www.cve.org/CVERecord?id=CVE-2025-52565), [CVE-2025-52881](https://www.cve.org/CVERecord?id=CVE-2025-52881))\r\
-    \n \r\n#### Bug fixes:\r\n \r\n - Alpha only: Added Fusion SCSI disk drivers back\
-    \ to the initrd after they got lost in the rework ([Flatcar#1924](https://github.com/flatcar/Flatcar/issues/1924))\r\
-    \n - Configured the services in the overlaybd sysext to start automatically like\
-    \ the other sysexts. Note that the sysext must be enabled at boot time for this\
-    \ to happen, otherwise you need to call `systemd-tmpfiles --create` and `systemctl\
-    \ daemon-reload` first.\r\n \r\n#### Changes:\r\n \r\n - Alpha only: Reduced Azure\
-    \ image size again to 30 GB as before by shrinking the root partition to compensate\
-    \ for the growth of the other partitions ([scripts#3460](https://github.com/flatcar/scripts/pull/3460))\r\
-    \n - The way that files for building custom kernel modules are installed has changed\
-    \ from a Ubuntu-inspired method to the standard upstream kernel method. In the\
-    \ unlikely event that this breaks your module builds, please let the Flatcar team\
-    \ know immediately.\r\n \r\n#### Updates:\r\n \r\n - Linux Firmware ([20251011](https://git.kernel.org/pub/scm/linux/kernel/git/firmware/linux-firmware.git/tag/?h=20251011),\
-    \ [20251021](https://git.kernel.org/pub/scm/linux/kernel/git/firmware/linux-firmware.git/tag/?h=20251021))\r\
-    \n - SDK: cmake ([3.31.9](https://cmake.org/cmake/help/v3.31/release/3.31.html#id1))\r\
-    \n - SDK: go ([1.25.1](https://go.dev/doc/devel/release#go1.25.minor) (includes\
-    \ [1.25](https://go.dev/doc/go1.25)))\r\n - SDK: qemu ([10.0.5](https://wiki.qemu.org/ChangeLog/10.0))\r\
-    \n - azure, dev: inotify-tools ([4.25.9.0](https://github.com/inotify-tools/inotify-tools/releases/tag/4.25.9.0))\r\
-    \n - azure, stackit: chrony ([4.8](https://gitlab.com/chrony/chrony/-/raw/4.8/NEWS))\r\
-    \n - base, dev: bind ([9.18.38](https://bind9.readthedocs.io/en/v9.18.38/notes.html#notes-for-bind-9-18-38))\r\
-    \n - base, dev: bpftool ([7.6.0](https://github.com/libbpf/bpftool/releases/tag/v7.6.0))\r\
-    \n - base, dev: btrfs-progs ([6.16.1](https://github.com/kdave/btrfs-progs/releases/tag/v6.16.1))\r\
-    \n - base, dev: expat ([2.7.3](https://raw.githubusercontent.com/libexpat/libexpat/refs/tags/R_2_7_3/expat/Changes))\r\
-    \n - base, dev: gettext ([0.23.2](https://gitweb.git.savannah.gnu.org/gitweb/?p=gettext.git;a=blob_plain;f=NEWS;h=a5cc8a63eb4f06e4a1171afda862812feb67d693;hb=e8e6cb71aec0de1f5758ac21327bb8cd69e33731)\
-    \ (includes [0.23.1](https://gitweb.git.savannah.gnu.org/gitweb/?p=gettext.git;a=blob_plain;f=NEWS;h=4aafedf9b10a66891838e1f35c7af020c6124ee0;hb=d9b0432a825bfe3fc72f9a081d295a9528cd8aac),\
-    \ [0.23.0](https://gitweb.git.savannah.gnu.org/gitweb/?p=gettext.git;a=blob_plain;f=NEWS;h=9d87d45408f510d15856a1dda8a9376573f0a9c5;hb=c12b25dc82104691ca80c4da1cbc538fcab42bf5)))\r\
-    \n - base, dev: git ([2.51.0](https://github.com/git/git/blob/v2.51.0/Documentation/RelNotes/2.51.0.adoc)\
-    \ (includes [2.50.0](https://github.com/git/git/blob/v2.50.0/Documentation/RelNotes/2.50.0.adoc)))\r\
-    \n - base, dev: intel-microcode ([20250812](https://github.com/intel/Intel-Linux-Processor-Microcode-Data-Files/releases/tag/microcode-20250812)\
-    \ (includes [20250512](https://github.com/intel/Intel-Linux-Processor-Microcode-Data-Files/releases/tag/microcode-20250512)))\r\
-    \n - base, dev: libxml2 ([2.14.6](https://gitlab.gnome.org/GNOME/libxml2/-/releases/v2.14.6)\
-    \ (includes [2.14.5](https://gitlab.gnome.org/GNOME/libxml2/-/releases/v2.14.5),\
-    \ [2.14.4](https://gitlab.gnome.org/GNOME/libxml2/-/releases/v2.14.4), [2.14.3](https://gitlab.gnome.org/GNOME/libxml2/-/releases/v2.14.3),\
-    \ [2.14.2](https://gitlab.gnome.org/GNOME/libxml2/-/releases/v2.14.2), [2.14.1](https://gitlab.gnome.org/GNOME/libxml2/-/releases/v2.14.1),\
-    \ [2.14.0](https://gitlab.gnome.org/GNOME/libxml2/-/releases/v2.14.0)))\r\n -\
-    \ base, dev: nftables ([1.1.5](https://www.netfilter.org/projects/nftables/files/changes-nftables-1.1.5.txt))\r\
-    \n - base, dev: nvidia-drivers-service (amd64) ([535.274.02](https://docs.nvidia.com/datacenter/tesla/tesla-release-notes-535-274-02/index.html))\r\
-    \n - base, dev: nvidia-drivers-service (arm64) ([570.195.03](https://docs.nvidia.com/datacenter/tesla/tesla-release-notes-570-195-03/index.html))\r\
-    \n - base, dev: openssh ([10.2_p1](https://www.openssh.com/txt/release-10.2) (includes\
-    \ [10.1](https://www.openssh.com/txt/release-10.1)))\r\n - base, dev: openssl\
-    \ ([3.4.3](https://github.com/openssl/openssl/releases/tag/openssl-3.4.3))\r\n\
-    \ - base, dev: xfsprogs ([6.16.0](https://web.git.kernel.org/pub/scm/fs/xfs/xfsprogs-dev.git/tree/doc/CHANGES?h=v6.16.0)\
-    \ (includes [6.15.0](https://web.git.kernel.org/pub/scm/fs/xfs/xfsprogs-dev.git/tree/doc/CHANGES?h=v6.15.0)))\r\
-    \n - sysext-containerd: containerd ([2.1.5](https://github.com/containerd/containerd/releases/tag/v2.1.5)\
-    \ (includes [2.1.4](https://github.com/containerd/containerd/releases/tag/v2.1.4)))\r\
-    \n - sysext-containerd: runc ([1.3.3](https://github.com/opencontainers/runc/releases/tag/v1.3.3)\
-    \ (includes [1.3.2](https://github.com/opencontainers/runc/releases/tag/v1.3.2),\
-    \ [1.3.1](https://github.com/opencontainers/runc/releases/tag/v1.3.1)))\r\n -\
-    \ sysext-nvidia-drivers-535, sysext-nvidia-drivers-535-open: nvidia-drivers ([535.274.02](https://docs.nvidia.com/datacenter/tesla/tesla-release-notes-535-274-02/index.html))\r\
-    \n - sysext-nvidia-drivers-570, sysext-nvidia-drivers-570-open: nvidia-drivers\
-    \ ([570.195.03](https://docs.nvidia.com/datacenter/tesla/tesla-release-notes-570-195-03/index.html))\r\
-    \n - sysext-podman: crun ([1.21](https://github.com/containers/crun/releases/tag/1.21))\r\
-    \n - sysext-podman: netavark ([1.15.2](https://github.com/containers/netavark/releases/tag/v1.15.2)\
-    \ (includes [1.15.1](https://github.com/containers/netavark/releases/tag/v1.15.1),\
-    \ [1.15.0](https://github.com/containers/netavark/releases/tag/v1.15.0)))\r\n\
-    \ - sysext-podman: passt ([2025.06.11](https://archives.passt.top/passt-user/20250611175947.7d540ddc@elisabeth/T/#u))\r\
-    \n - sysext-python: platformdirs ([4.4.0](https://github.com/tox-dev/platformdirs/releases/tag/4.4.0))\r\
-    \n - sysext-python: typing-extensions ([4.15.0](https://raw.githubusercontent.com/python/typing_extensions/refs/tags/4.15.0/CHANGELOG.md))\r\
-    \n - systemd ([257.9](https://github.com/systemd/systemd/blob/147c30b613960bc24595435bd902a5c4beb5aba9/NEWS#L3))\r\
-    \n"
-  created_at: '2025-11-12T10:48:31Z'
+  body: " _Changes since **Alpha 4515.0.0**_\r\n \r\n #### Security fixes:\r\n \r\n\
+    \ - Linux ([CVE-2025-40177](https://nvd.nist.gov/vuln/detail/CVE-2025-40177),\
+    \ [CVE-2025-40176](https://nvd.nist.gov/vuln/detail/CVE-2025-40176), [CVE-2025-40172](https://nvd.nist.gov/vuln/detail/CVE-2025-40172),\
+    \ [CVE-2025-40173](https://nvd.nist.gov/vuln/detail/CVE-2025-40173), [CVE-2025-40166](https://nvd.nist.gov/vuln/detail/CVE-2025-40166),\
+    \ [CVE-2025-40167](https://nvd.nist.gov/vuln/detail/CVE-2025-40167), [CVE-2025-40165](https://nvd.nist.gov/vuln/detail/CVE-2025-40165),\
+    \ [CVE-2025-40162](https://nvd.nist.gov/vuln/detail/CVE-2025-40162), [CVE-2025-40133](https://nvd.nist.gov/vuln/detail/CVE-2025-40133),\
+    \ [CVE-2025-40095](https://nvd.nist.gov/vuln/detail/CVE-2025-40095), [CVE-2025-40094](https://nvd.nist.gov/vuln/detail/CVE-2025-40094),\
+    \ [CVE-2025-40093](https://nvd.nist.gov/vuln/detail/CVE-2025-40093), [CVE-2025-40092](https://nvd.nist.gov/vuln/detail/CVE-2025-40092),\
+    \ [CVE-2025-40090](https://nvd.nist.gov/vuln/detail/CVE-2025-40090), [CVE-2025-40088](https://nvd.nist.gov/vuln/detail/CVE-2025-40088),\
+    \ [CVE-2025-40105](https://nvd.nist.gov/vuln/detail/CVE-2025-40105), [CVE-2025-40104](https://nvd.nist.gov/vuln/detail/CVE-2025-40104),\
+    \ [CVE-2025-40103](https://nvd.nist.gov/vuln/detail/CVE-2025-40103), [CVE-2025-40101](https://nvd.nist.gov/vuln/detail/CVE-2025-40101),\
+    \ [CVE-2025-40100](https://nvd.nist.gov/vuln/detail/CVE-2025-40100), [CVE-2025-40099](https://nvd.nist.gov/vuln/detail/CVE-2025-40099),\
+    \ [CVE-2025-40096](https://nvd.nist.gov/vuln/detail/CVE-2025-40096), [CVE-2025-40087](https://nvd.nist.gov/vuln/detail/CVE-2025-40087),\
+    \ [CVE-2025-40085](https://nvd.nist.gov/vuln/detail/CVE-2025-40085), [CVE-2025-40040](https://nvd.nist.gov/vuln/detail/CVE-2025-40040),\
+    \ [CVE-2025-40106](https://nvd.nist.gov/vuln/detail/CVE-2025-40106), [CVE-2025-40084](https://nvd.nist.gov/vuln/detail/CVE-2025-40084),\
+    \ [CVE-2025-40211](https://nvd.nist.gov/vuln/detail/CVE-2025-40211), [CVE-2025-40209](https://nvd.nist.gov/vuln/detail/CVE-2025-40209))\r\
+    \n \r\n #### Bug fixes:\r\n \r\n - Fixed SSSD startup failure by adding back LDB\
+    \ modules into the image, which got lost after a Samba update ([Flatcar#1919](https://github.com/flatcar/Flatcar/issues/1919))\r\
+    \n - Fixed the loading of kernel modules from system extensions via udev (e.g.\
+    \ at boot time).([flatcar/scripts#3367](https://github.com/flatcar/scripts/pull/3367))\r\
+    \n \r\n #### Changes:\r\n- Added Nutanix images ([flatcar/scripts#3311](https://github.com/flatcar/scripts/pull/3311))\r\
+    \n\r\n #### Updates:\r\n \r\n - Linux ([6.12.58](https://git.kernel.org/pub/scm/linux/kernel/git/stable/linux.git/tag/?h=v6.12.58)\
+    \ (includes [6.12.57](https://git.kernel.org/pub/scm/linux/kernel/git/stable/linux.git/tag/?h=v6.12.57),\
+    \ [6.12.56](https://git.kernel.org/pub/scm/linux/kernel/git/stable/linux.git/tag/?h=v6.12.56),\
+    \ [6.12.55](https://git.kernel.org/pub/scm/linux/kernel/git/stable/linux.git/tag/?h=v6.12.55)))"
+  created_at: '2025-11-23T19:17:18Z'
   draft: false
-  html_url: https://github.com/flatcar/scripts/releases/tag/alpha-4515.0.0
-  id: 261410850
+  html_url: https://github.com/flatcar/scripts/releases/tag/alpha-4515.0.1
+  id: 265069957
   immutable: false
   name: ''
-  node_id: RE_kwDOB2MTHs4PlNAi
+  node_id: RE_kwDOB2MTHs4PzKWF
   prerelease: false
-  published_at: '2025-11-12T14:58:15Z'
-  tag_name: alpha-4515.0.0
-  tarball_url: https://api.github.com/repos/flatcar/scripts/tarball/alpha-4515.0.0
+  published_at: '2025-11-25T09:54:30Z'
+  tag_name: alpha-4515.0.1
+  tarball_url: https://api.github.com/repos/flatcar/scripts/tarball/alpha-4515.0.1
   target_commitish: main
-  updated_at: '2025-11-12T14:58:15Z'
-  upload_url: https://uploads.github.com/repos/flatcar/scripts/releases/261410850/assets{?name,label}
-  url: https://api.github.com/repos/flatcar/scripts/releases/261410850
-  zipball_url: https://api.github.com/repos/flatcar/scripts/zipball/alpha-4515.0.0
+  updated_at: '2025-11-25T09:54:30Z'
+  upload_url: https://uploads.github.com/repos/flatcar/scripts/releases/265069957/assets{?name,label}
+  url: https://api.github.com/repos/flatcar/scripts/releases/265069957
+  zipball_url: https://api.github.com/repos/flatcar/scripts/zipball/alpha-4515.0.1
 image_packages:
   containerd: 2.1.5
   docker: 28.0.4
   ignition: 2.22.0
-  kernel: 6.12.54
+  kernel: 6.12.58
   systemd: '257'
 release: current
-version: 4515.0.0
+version: 4515.0.1
