@@ -15,7 +15,7 @@
 <li class="breadcrumb-item{{ if $isActive }} active{{ end }}" {{ if $isActive }}aria-current="page"{{ end }}>
 	{{ $title := .p1.LinkTitle }}
 	{{ if .p1.Params.use_dir_name | or .p1.Parent.Params.children_are_versions }}
-		{{ $title = partial "docs/dirversion" .p1 }}
+		{{ $title = replace (partial "docs/dirversion" .p1) "-" "." }}
 	{{ end }}
 	{{ $link := .p1.RelPermalink }}
 	{{ if .p1.Params.sidebar.link }}
