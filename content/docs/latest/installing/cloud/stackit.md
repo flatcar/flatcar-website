@@ -75,7 +75,7 @@ NETWORK_ID=$(
   stackit network create --name "${NETWORK_NAME}" \
     --project-id "${PROJECT_ID}" \
     -o json -y | \
-  jq  -r ".networkId"
+  jq  -r ".id"
 )
 ```
 
