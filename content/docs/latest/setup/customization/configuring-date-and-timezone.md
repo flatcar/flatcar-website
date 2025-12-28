@@ -257,4 +257,4 @@ storage:
 [systemd.network]: http://www.freedesktop.org/software/systemd/man/systemd.network.html
 [timesyncd.conf]: http://www.freedesktop.org/software/systemd/man/timesyncd.conf.html
 [butane-configs]: ../../provisioning/config-transpiler
-[issuecomment-908316042] https://github.com/flatcar/Flatcar/issues/491#issuecomment-908316042
+[issuecomment-908316042]: https://github.com/flatcar/Flatcar/issues/491#issuecomment-908316042
