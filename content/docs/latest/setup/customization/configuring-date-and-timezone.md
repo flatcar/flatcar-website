@@ -101,7 +101,7 @@ Here is the ansser: https://github.com/flatcar/Flatcar/issues/1836#issuecomment-
 ## Time synchronization to HOST
 
 To keep in sync with the host's timezone, you can mount the timezone configuraiton file to Flatcar Container Linux. 
-You add the following to your mount configration section
+You add the following to your mount configuration section
 
 ```shell
         volumeMounts:
