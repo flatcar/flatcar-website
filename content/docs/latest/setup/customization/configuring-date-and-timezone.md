@@ -79,8 +79,8 @@ It is recommended that you set the same time zone across all your machines in th
 For example, you can set the time zone to `America/New_York` by using a Butane config like the following:
 
 ```shell
-variant: fcos
-version: 1.6.0
+variant: flatcar
+version: 1.1.0
 storage:
   links:
     - path: /etc/localtime
