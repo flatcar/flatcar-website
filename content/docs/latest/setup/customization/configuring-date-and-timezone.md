@@ -103,7 +103,7 @@ Here is the ansser: https://github.com/flatcar/Flatcar/issues/1836#issuecomment-
 To keep in sync with the host's timezone, you can mount the timezone configuration file to Flatcar Container Linux. 
 You add the following to your mount configuration section
 
-```shell
+```yaml
         volumeMounts:
         - name: localtime
           mountPath: /etc/localtime
