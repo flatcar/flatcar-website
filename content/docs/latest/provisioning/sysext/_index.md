@@ -6,7 +6,6 @@ weight: 39
 
 Flatcar Container Linux bundles various software components with fixed versions together into one release.
 For users that require a particular version of a software component this means that the software needs to be supplied out of band and overwrite the built-in software copy.
-In the past Torcx was introduced as a way to switch between Docker versions.
 Another approach we recommended was to [store binaries in `/opt/bin`](../../container-runtimes/use-a-custom-docker-or-containerd-version/) and prefer them in the `PATH`.
 
 For long time already, the systemd project provided the portable services feature to address deploying custom services.
@@ -19,11 +18,6 @@ Here's some blog posts you can read for more context:
 1. https://www.flatcar.org/blog/2024/04/os-innovation-with-systemd-sysext/
 2. https://www.flatcar.org/blog/2023/07/summer-2023-my-internship-experience/
 3. https://www.flatcar.org/blog/2023/12/extending-flatcar-say-goodbye-to-torcx-and-hello-to-systemd-sysext/
-
-## Torcx deprecation
-
-Since systemd-sysext is a more generic and maintained solution than Torcx, it replaced Torcx since Flatcar version 3794.0.0 and the last major version to include Torcx was 3760.
-Any Torcx usage should be migrated by converting your Torcx image with the `convert_torcx_image.sh` helper script from the [`sysext-bakery`][sysext-bakery] repository, mentioned later in this document. The inbuilt Docker and containerd versions can be disabled which is also showed further below.
 
 ## Types of systemd-sysext images
 
@@ -120,7 +114,7 @@ Upholds=docker.socket
 ## Supplying your sysext image from Ignition
 
 The following Butane Config YAML can be be transpiled to Ignition JSON and will download a custom Docker+containerd sysext image on first boot.
-It also takes care of disabling Torcx and future built-in Docker and containerd sysext images we plan to ship in Flatcar (to revert this, you can find the original target of the symlinks in `/usr/share/flatcar/etc/extensions/` - as said, this is not yet shipped).
+It also takes care of disabling built-in Docker and containerd sysext images (to revert this, you can find the original target of the symlinks in `/usr/share/flatcar/etc/extensions/`).
 
 ```yaml
 variant: flatcar
@@ -131,7 +125,6 @@ storage:
       mode: 0644
       contents:
         source: https://myserver.net/mydocker.raw
-    - path: /etc/systemd/system-generators/torcx-generator
   links:
     - path: /etc/extensions/docker-flatcar.raw
       target: /dev/null
@@ -168,17 +161,6 @@ To ease the process, the [`create_docker_sysext.sh`](https://raw.githubuserconte
 ./create_docker_sysext.sh 20.10.13 mydocker
 [… writes mydocker.raw into current directory …]
 ```
-
-## Converting a Torcx image
-
-In case you have an existing Torcx image you can convert it with the [`convert_torcx_image.sh`](https://raw.githubusercontent.com/flatcar/sysext-bakery/main/convert_torcx_image.sh) helper script (Currently only Torcx tar balls are supported and the conversion is done on best effort):
-
-```
-./convert_torcx_image.sh TORCXTAR SYSEXTNAME
-[… writes SYSEXTNAME.raw into the current directory …]
-```
-
-Please make also sure that your don't have a `containerd.service` drop in file under `/etc` that uses Torcx paths.
 
 ## Updating custom sysext images
 
