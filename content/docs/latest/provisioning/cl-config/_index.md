@@ -1,12 +1,13 @@
 ---
-title: Container Linux Config Transpiler
-linktitle: Container Linux Config Transpiler
+title: "[DEPRECATED / EOL] Container Linux Config Transpiler"
 description: YAML configuration format used to generate Ignition configs.
 weight: 20
 aliases:
     - ../os/provisioning
     - ../reference/migrating-to-clcs/provisioning
 ---
+
+:warning: TL; DR: Use [Butane](../config-transpiler). While Flatcar does support both Ignition spec version (2.x and 3.x), we encourage folks to use [Butane](../config-transpiler) first but we still maintain / document backward compatibility for users who still rely on Ignition 2.x. :warning:
 
 Flatcar Container Linux automates machine provisioning with a specialized system for applying initial configuration. This system implements a process of (trans)compilation and validation for machine configs, and an atomic service to apply validated configurations to machines.
 

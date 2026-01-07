@@ -19,7 +19,7 @@ The resulting Ignition config is very much not intended to be human-friendly. It
 [butane]: https://github.com/coreos/butane/
 [ignition]: https://github.com/coreos/ignition
 
-**Note:**: Butane is utilized to generate Ignition v3+ configurations. If you are still utilizing a version of Container Linux that requires Ignition v2, you can refer to the [Container Linux Config Transpiler][cl-config] documentation. This particularly applies to those using the current LTS releases.
+**Note:** Butane is utilized to generate Ignition v3+ configurations. If you are still utilizing a version of Container Linux that requires Ignition v2, you can refer to the [Container Linux Config Transpiler][cl-config] documentation.
 
 ## Why a two-step process?
 
