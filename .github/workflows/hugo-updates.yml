@@ -44,7 +44,7 @@ jobs:
 
       - name: Create PR for modules
         if: steps.update-modules.outputs.changed == 'true'
-        uses: peter-evans/create-pull-request@v7
+        uses: peter-evans/create-pull-request@v8
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
           branch: "update/hugo-modules-${{ github.run_number }}"
@@ -95,7 +95,7 @@ jobs:
 
       - name: Create PR for version update
         if: steps.hugo-version.outputs.current != steps.hugo.outputs.latest
-        uses: peter-evans/create-pull-request@v7
+        uses: peter-evans/create-pull-request@v8
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
           branch: "update/hugo-${{ steps.hugo.outputs.latest }}"
