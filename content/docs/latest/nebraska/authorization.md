@@ -346,6 +346,43 @@ backend/bin/nebraska --debug --auth-mode oidc \
   --http-static-dir frontend/dist
 ```
 
+# Preparing Pocket ID as an OIDC provider for Nebraska
+
+[Pocket ID](https://pocket-id.org) is a simple, self-hosted OIDC provider. It's ideal for homelabs and small deployments.
+
+## Configure Pocket ID Application
+
+1. Log in to your Pocket ID admin panel.
+2. Navigate to `OIDC Clients` and create a new client.
+3. Configure the client with the following:
+   - **Name**: `Nebraska`
+   - **Callback URLs**: `http://localhost:8000/auth/callback`
+   - **Logout URLs**: `http://localhost:8000/`
+4. Note the `Client ID` from the client settings.
+
+## Configure User Groups
+
+1. Navigate to `User Groups` in Pocket ID.
+2. Create groups for Nebraska access (e.g., `nebraska-admin`, `nebraska-member`).
+3. Assign users to the appropriate groups and allow the user to sign into the newly created client.
+
+## Start Nebraska with Pocket ID
+
+Pocket ID includes group membership in the UserInfo endpoint response, but **not** in the access token. You must use the `--oidc-use-userinfo` flag:
+
+```bash
+backend/bin/nebraska --debug --auth-mode oidc \
+  --oidc-client-id <your-client-id> \
+  --oidc-issuer-url https://<your-pocket-id-instance>/ \
+  --oidc-admin-roles nebraska-admin \
+  --oidc-viewer-roles nebraska-member \
+  --oidc-roles-path groups \
+  --oidc-use-userinfo \
+  --http-static-dir frontend/dist
+```
+
+> **Important**: The `--oidc-use-userinfo` flag is required for Pocket ID. Without it, Nebraska will fail with "token does not contain roles at path 'groups'" because Pocket ID only provides group claims via the UserInfo endpoint or ID token if configured.
+
 # Preparing Azure AD (Microsoft Entra ID) as an OIDC provider for Nebraska
 
 ## Register a new application
