@@ -60,18 +60,76 @@ version: 1.0.0
 
 storage:
   files:
-  - path: /etc/flatcar/enabled-sysext.conf
-    contents:
-      inline: |
-        nvidia-drivers-570-open
+    - path: /etc/flatcar/enabled-sysext.conf
+      contents:
+        inline: |
+          nvidia-drivers-570-open
+    - path: /opt/extensions/nvidia-runtime/nvidia-runtime-v1.17.9-x86-64.raw
+      mode: 0644
+      contents:
+        source: https://extensions.flatcar.org/extensions/nvidia-runtime-v1.17.9-x86-64.raw
+  links:
+    - target: /opt/extensions/nvidia-runtime/nvidia-runtime-v1.17.9-x86-64.raw
+      path: /etc/extensions/nvidia-runtime.raw
+      hard: false
 ```
 
 ### Testing
 
 Once the installation is complete (either via `nvidia.service` or sysext), you will have access to various NVIDIA commands. To verify the installation, run the command:
 
+```bash
+nvidia-smi
++-----------------------------------------------------------------------------------------+
+| NVIDIA-SMI 570.181                Driver Version: 570.181        CUDA Version: 12.8     |
+|-----------------------------------------+------------------------+----------------------+
+| GPU  Name                 Persistence-M | Bus-Id          Disp.A | Volatile Uncorr. ECC |
+| Fan  Temp   Perf          Pwr:Usage/Cap |           Memory-Usage | GPU-Util  Compute M. |
+|                                         |                        |               MIG M. |
+|=========================================+========================+======================|
+|   0  NVIDIA L40S                    Off |   00000000:05:00.0 Off |                    0 |
+| N/A   31C    P0             63W /  350W |       0MiB /  46068MiB |      4%      Default |
+|                                         |                        |                  N/A |
++-----------------------------------------+------------------------+----------------------+
+
++-----------------------------------------------------------------------------------------+
+| Processes:                                                                              |
+|  GPU   GI   CI              PID   Type   Process name                        GPU Memory |
+|        ID   ID                                                               Usage      |
+|=========================================================================================|
+|  No running processes found                                                             |
++-----------------------------------------------------------------------------------------+
 ```
-# nvidia-smi
+
+Verify the container workload works
+```bash
+sudo ctr images pull nvcr.io/nvidia/k8s/cuda-sample:vectoradd-cuda12.5.0
+sudo ctr run --rm --gpus 0 \
+    nvcr.io/nvidia/k8s/cuda-sample:vectoradd-cuda12.5.0 \
+    vectoradd
+```
+
+The output of the container should look like this
+```bash
+[Vector addition of 50000 elements]
+Copy input data from the host memory to the CUDA device
+CUDA kernel launch with 196 blocks of 256 threads
+Copy output data from the CUDA device to the host memory
+Test PASSED
+Done
+```
+
+### Kubernetes usage
+
+For Kubernetes usage, it is required to disable the driver and toolkit when installing the [NVIDIA GPU operator][nvidia-gpu-operator].
+```bash
+helm repo add nvidia https://helm.ngc.nvidia.com/nvidia
+helm install --wait --generate-name \
+    -n gpu-operator --create-namespace \
+    nvidia/gpu-operator \
+    --set driver.enabled=false \
+    --set toolkit.enabled=false
 ```
 
 [official-sysext]: https://www.flatcar.org/docs/latest/provisioning/sysext/#flatcar-release-extensions-official
+[nvidia-gpu-operator]: https://github.com/NVIDIA/gpu-operator
