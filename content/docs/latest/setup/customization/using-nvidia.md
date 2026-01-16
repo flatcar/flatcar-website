@@ -34,6 +34,16 @@ storage:
         nvidia-drivers-570-open
 ```
 
+You have to download the nvidia runtime separately as well. Without this nvidia driver setup will fail.
+```yaml
+# ...
+  - path: /etc/extensions/nvidia-runtime.raw
+    contents:
+      source: https://extensions.flatcar.org/extensions/nvidia-runtime-v1.18.1-x86-64.raw
+```
+
+See https://github.com/flatcar/sysext-bakery/releases/tag/nvidia-runtime to find the latest version.
+
 ### `nvidia.service` method
 
 During the initial boot, the `nvidia.service` automates hardware detection and triggers driver installation within a dedicated Flatcar developer container, ensuring a streamlined process. The current version of the installed NVIDIA driver can be found in the `/usr/share/flatcar/nvidia-metadata` file, assuming it's a vanilla installation and the version hasn't been customized (see below).
