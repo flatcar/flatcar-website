@@ -12,6 +12,28 @@ Currently, there are two ways of installing NVIDIA drivers. First is using the b
 
 We recommend using the prebuilt sysexts, but the `nvidia.service` is kept for backwards compatibility.
 
+### Prebuilt sysext method
+
+Flatcar provides official NVIDIA drivers sysext, built with every Flatcar release. As the kernel modules are built together with the kernel, they are signed with the ephemeral kernel modules signing key, which is important for secure boot support. During provisioning, the NVIDIA drivers sysext is downloaded and activated. The `nvidia.service` automatically detects an NVIDIA sysext has already been loaded and skips downloading and building them from source (therefore the version specified in `NVIDIA_DRIVER_VERSION` will be ignored).
+
+The drivers come in two flavours: open and non-open for `amd64` architecture.
+
+To activate the NVIDIA sysext:
+```yaml
+---
+# config.yaml
+# butane < config.yaml > config.json
+variant: flatcar
+version: 1.0.0
+
+storage:
+  files:
+  - path: /etc/flatcar/enabled-sysext.conf
+    contents:
+      inline: |
+        nvidia-drivers-570-open
+```
+
 ### `nvidia.service` method
 
 During the initial boot, the `nvidia.service` automates hardware detection and triggers driver installation within a dedicated Flatcar developer container, ensuring a streamlined process. The current version of the installed NVIDIA driver can be found in the `/usr/share/flatcar/nvidia-metadata` file, assuming it's a vanilla installation and the version hasn't been customized (see below).
@@ -44,27 +66,6 @@ storage:
           NVIDIA_DRIVER_VERSION=460.106.00
 ```
 
-### Prebuilt sysext method
-
-Flatcar provides official NVIDIA drivers sysext, built with every Flatcar release. As the kernel modules are built together with the kernel, they are signed with the ephemeral kernel modules signing key, which is important for secure boot support. During provisioning, the NVIDIA drivers sysext is downloaded and activated. The `nvidia.service` automatically detects an NVIDIA sysext has already been loaded and skips downloading and building them from source (therefore the version specified in `NVIDIA_DRIVER_VERSION` will be ignored).
-
-The drivers come in two flavours: open and non-open for `amd64` architecture.
-
-To activate the NVIDIA sysext:
-```yaml
----
-# config.yaml
-# butane < config.yaml > config.json
-variant: flatcar
-version: 1.0.0
-
-storage:
-  files:
-  - path: /etc/flatcar/enabled-sysext.conf
-    contents:
-      inline: |
-        nvidia-drivers-570-open
-```
 
 ### Testing
 
