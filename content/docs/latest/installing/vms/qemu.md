@@ -64,7 +64,7 @@ Once QEMU is installed you can download and start the latest Flatcar Container L
 
 ### Choosing a channel
 
-Flatcar Container Linux is designed to be updated automatically with different schedules per channel. You can [disable this feature][update-strategies], although we don't recommend it. Read the [release notes][release-notes] for specific features and bug fixes.
+Flatcar Container Linux is designed to be updated automatically with different schedules per channel. You can [disable this feature][update-strategies], although we don't recommend it. Read the [release notes][release-notes] for specific features and bug fixes. To verify the images and scripts, import the key as described here [image-signing-key][image-signing-key].
 
 <div id="qemu-images">
   <ul class="nav nav-tabs">
@@ -183,3 +183,4 @@ Now that you have a machine booted it is time to play around. Check out the [Fla
 [flatcar-dev]: https://groups.google.com/forum/#!forum/flatcar-linux-dev
 [matrix]: https://app.element.io/#/room/#flatcar:matrix.org
 [butane-configs]: ../../provisioning/config-transpiler
+[image-signing-key]: ../../../../security/image-signing-key.md
