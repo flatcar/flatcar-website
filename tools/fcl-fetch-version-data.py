@@ -13,8 +13,8 @@
 
 import glob
 import json
-import re
 import sys
+import shlex
 import urllib.request
 
 import yaml
@@ -27,9 +27,14 @@ def latestVersion(channel = 'stable', board = 'amd64-usr'):
     url = 'https://%s.release.flatcar-linux.net/%s/current/version.txt' % (channel, board)
     try:
         versionTxt = fetch(url)
-        match = re.findall('FLATCAR_VERSION=(.*)', versionTxt)
-        if len(match) > 0:
-            return match[0]
+        s = shlex.shlex(versionTxt, posix = True, punctuation_chars = '=')
+        s.whitespace_split = True
+        for item in s:
+            if item == 'FLATCAR_VERSION':
+                items = list(s)
+                if len(items) < 2 or items[0] != '=':
+                    raise 'malformed version.txt'
+                return items[1]
     except:
         return 'unreleased'
 
