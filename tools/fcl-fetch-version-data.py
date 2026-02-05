@@ -17,12 +17,16 @@ import re
 import sys
 import yaml
 
-from urllib.request import urlopen
+from urllib.request import urlopen, Request
 from urllib.error import HTTPError
 
 
 def fetch(url):
-    response = urlopen(url).read().decode('utf-8')
+    # Set a custom User Agent string to avoid Cloudflare blocking.
+    headers = {'User-Agent': 'Flatcar Container Linux AMI querying tool for generating documentation'}
+    request = Request(url, headers=headers)
+    response = urlopen(request).read().decode('utf-8')
+    return response
 
 def latestVersion(channel = 'stable', board = 'amd64-usr'):
     url = 'https://%s.release.flatcar-linux.net/%s/current/version.txt' % (channel, board)
