@@ -40,7 +40,7 @@ class Releases:
             releases_data = requests.get('{}/{}/{}-usr/'.format(
                 self.origin_server, self.channel, arch), headers=headers, auth=self.auth)
             if releases_data.status_code == 401:
-                raise Execption('forbidden, set LTS_USER and LTS_PASSWORD env vars')
+                raise Exception('forbidden, set LTS_USER and LTS_PASSWORD env vars')
             if releases_data.status_code != 200:
                 continue
             releases += [release['Name'] for release in releases_data.json()]
