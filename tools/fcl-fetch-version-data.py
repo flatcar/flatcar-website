@@ -15,13 +15,14 @@ import glob
 import json
 import re
 import sys
-import urllib.request
-
 import yaml
+
+from urllib.request import urlopen
+from urllib.error import HTTPError
 
 
 def fetch(url):
-    return urllib.request.urlopen(url).read().decode('utf-8')
+    response = urlopen(url).read().decode('utf-8')
 
 def latestVersion(channel = 'stable', board = 'amd64-usr'):
     url = 'https://%s.release.flatcar-linux.net/%s/current/version.txt' % (channel, board)
@@ -30,7 +31,9 @@ def latestVersion(channel = 'stable', board = 'amd64-usr'):
         match = re.findall('FLATCAR_VERSION=(.*)', versionTxt)
         if len(match) > 0:
             return match[0]
-    except:
+    except HTTPError as e:
+        if e.status != 404:
+            raise
         return 'unreleased'
 
 def listAMIs(channel = 'stable', board = 'amd64-usr'):
@@ -38,7 +41,9 @@ def listAMIs(channel = 'stable', board = 'amd64-usr'):
     try:
         allAMIs = json.loads(fetch(url))
         return allAMIs['amis']
-    except:
+    except HTTPError as e:
+        if e.status != 404:
+            raise
         return []
 
 def main(file_to_replace):
