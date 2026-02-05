@@ -59,6 +59,7 @@ because the defaults are set at half.
 >
 > - **New in v2.13**: Frontend handles OIDC flow directly, no client secrets required
 > - **Upgrading?** See the [OIDC Migration Guide](https://github.com/flatcar/nebraska/blob/main/docs/oidc-migration-guide.md)
+> - **Looking for legacy setup?** See the [previous version of this documentation](/docs/23-10-2025/nebraska/authorization/)
 
 ## Preparing Keycloak as an OIDC provider for Nebraska
 

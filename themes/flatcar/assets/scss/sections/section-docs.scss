@@ -1,5 +1,7 @@
 $paddingLeft: 1.5rem;
 $topElemsVPadding: 1.4rem;
+$headerTransitionTime: 0.3s;
+$headerTransitionEasing: ease;
 
 .docs {
   .header {
@@ -8,10 +10,11 @@ $topElemsVPadding: 1.4rem;
 }
 
 .td-sidebar__inner {
-  padding-top: calc(0.8 + 0.2rem);
+  padding-top: calc(0.8rem + 0.2rem + var(--navbar-shrink-compensation, 0px));
   position: relative;
+  transition: padding-top $headerTransitionTime $headerTransitionEasing;
   @include media-breakpoint-up(md) {
-    padding-top: calc(#{$topElemsVPadding} + 0.2rem);
+    padding-top: calc(#{$topElemsVPadding} + 0.2rem + var(--navbar-shrink-compensation, 0px));
     position: -webkit-sticky; /* Safari */
     position: sticky;
     top: 0;
@@ -20,16 +23,34 @@ $topElemsVPadding: 1.4rem;
 
 #td-section-nav {
   padding-bottom: 50px;
+
+  @include media-breakpoint-down(md) {
+    padding-bottom: 0;
+  }
+
   & > ul.td-sidebar-nav__section {
     & > li.td-sidebar-nav__section-title {
       padding-left: $paddingLeft;
       padding-top: 2.5rem;
+      padding-right: $paddingLeft;
       border-bottom: 1px solid #e0dfdf;
 
       a {
         font-weight: bold;
         color: $black;
         font-size: 1rem;
+      }
+
+      // Flexbox container for title and version chooser
+      .d-flex {
+        width: 100%;
+        gap: 0.75rem;
+        align-items: center;
+
+        // Version chooser styling
+        .ms-auto {
+          margin-right: 0.5rem;
+        }
       }
     }
   }
@@ -275,10 +296,7 @@ $sideBarWidth: 350px;
   }
 
   & > *:first-child {
-    padding-top: 160px !important;
-    @include media-breakpoint-up(md) {
-      padding-top: 130px !important;
-    }
+    padding-top: 130px !important;
   }
 
   .github-footer {
