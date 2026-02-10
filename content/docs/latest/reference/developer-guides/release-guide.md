@@ -141,7 +141,7 @@ cat sdk_container/.repo/manifests/version.txt | grep FLATCAR_VERSION
 
 ### Prepare the Build Tags for Jenkins Builds
 
-Releases are built from release tags on the `flatcar-MAJOR` branches of the `scripts`, `coreos-overlay`, and `portage-stable` repositories.
+Releases are built from release tags on the `flatcar-MAJOR` branches of the `scripts` repository.
 
 **Important:** Unless propagating a major version between channels, use the major version currently assigned to the target channel.
 
