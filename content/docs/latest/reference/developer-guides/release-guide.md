@@ -423,23 +423,6 @@ curl -s https://public.update.flatcar-linux.net/v1/update/ \
 
 ## Post-Release Tasks
 
-### Update Current Symlink on Origin Server
-
-After completing all previous steps, update the `current` symlink:
-
-```bash
-ssh core@origin.release.flatcar-linux.net
-set-symlink.sh alpha:1786.0.0 beta:1781.2.0
-```
-
-**Additional step during infrastructure migration:**
-
-SSH into an Origin node (IPs available on cloud.linode.com) and update:
-
-```bash
-sudo vim /mnt/buckets/cloudflare-flatcar/channel-info.txt
-```
-
 ### Create GitHub Release
 
 > **Important:** Complete this **before** updating the website, as it serves as the data source.
@@ -497,7 +480,6 @@ sudo vim /mnt/buckets/cloudflare-flatcar/channel-info.txt
 Post release notes to:
 
 * **Open Flatcar users group:** <https://groups.google.com/g/flatcar-linux-user>
-* **Closed Flatcar customers group:** <https://groups.google.com/a/kinvolk.io/g/kinvolk-flatcar-release-updates/>
 
 **Posting guidelines:**
 
@@ -505,29 +487,8 @@ Post release notes to:
 * Subscribe and lock the topic (announcements aren't for feedback)
 * Ensure proper formatting with line breaks before listing release changes
 
-#### Security Notes Distribution
-
-Post security notes (detailed CVE list) to:
-
-* **Closed Kinvolk customers security announce group:** <https://groups.google.com/a/kinvolk.io/g/security-announce>
-
-**Important:** Select the mailing list as sender.
-
 #### Additional Channels
 
 * Social media accounts
 * [Matrix](https://matrix.to/#/#flatcar:matrix.org)
 * [Kubernetes Slack](https://kubernetes.slack.com/archives/C03GQ8B5XNJ)
-
-### Update Documentation
-
-**Requirements:**
-
-* Update Flatcar versions in documentation
-* Update AMIs in EC2 docs
-* Wait for the `website` repo PR to be merged
-
-**Deployment options:**
-
-1. **Automatic:** Wait for daily rebuild at 02:00 Berlin time (monitor #bot-website)
-2. **Manual:** Request Netlify force update from Joaquim or Chris
