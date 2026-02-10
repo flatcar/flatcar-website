@@ -128,7 +128,7 @@ Creating a new LTS major release is similar to the Beta-to-Stable transition, wi
 
 First, update the OS codename by setting `OS_CODENAME=LTS 20xy` in `scripts:build_library/set_lsb_release` on the `flatcar-3xyz` branch. For example, use `OS_CODENAME="LTS 2025"` for a 2025 LTS release.
 
-Next, update the LTS info by adding a `MAJOR:YEAR:supported:ARCHS` entry in `flatcar-linux-infra:ansible/roles/origin-local-storage/files/lts-info-source` (for example: `3815:2025:supported:amd64,arm64`). Make sure to run Ansible before publishing on Origin.
+Next, update the LTS info manually in <https://flatcar.cdn.cncf.io/channel-info.txt> and add a redirection on the Origin servers.
 
 **Verification:**
 
@@ -484,7 +484,6 @@ Backup Origin servers automatically fetch new files from the primary via SSH. Se
 
 #### Azure SKUs
 
-* **Effort:** ~5 minutes of manual work
 * **Process:** Requires manual interaction with Azure Marketplace portal
 
 #### AWS Marketplace
