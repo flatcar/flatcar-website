@@ -226,7 +226,6 @@ VERSION=4564.0.0 SDK_VERSION=4564.0.0 CHANNEL=alpha ./tag-release
 **What this does:**
 
 * Creates tags based on the current state of `flatcar-MAJOR` branch in each repository
-* Updates `coreos-overlay` and `portage-stable` submodules in `scripts` repository
 * Updates the version file
 
 **Verify tags were created:**
