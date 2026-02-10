@@ -114,8 +114,6 @@ datediff 2013-07-01 today  # for Fedora, use ddiff on Debian
 **This creates branches in:**
 
 * `flatcar/scripts`
-* `flatcar/coreos-overlay`
-* `flatcar/portage-stable`
 
 ### Prepare a New LTS Major Version
 
