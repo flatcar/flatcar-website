@@ -372,39 +372,7 @@ PIPELINE_BRANCH: flatcar-master    # Branch with Jenkins pipeline definitions
 * AMI lists: `bincache/boards/$VERSION/`
 * Image checksums: `bincache/boards/$VERSION/flatcar_production_*.DIGESTS`
 
-### Copy Artifacts to Origin Server
-
-> **Prerequisites:** Run this only after the `container/release` job completes and all files are uploaded to bincache.
-
-**Distribution flow:** Build artifacts are initially stored in bincache, then fetched to the Origin server, which distributes them via caching servers that back `{alpha,beta,stable}.release.flatcar-linux.net`.
-
-**Execute sync:**
-
-```bash
-ssh core@origin.release.flatcar-linux.net
-
-# Sync multiple channels at once
-copy-to-origin.sh alpha:4564.0.0 beta:4500.2.0
-
-# Or one at a time
-copy-to-origin.sh stable:4450.3.0
-```
-
-**Verify sync completed:**
-
-```bash
-# Check files are present on origin
-ssh core@origin.release.flatcar-linux.net \
-  "ls -lh /var/www/alpha/amd64-usr/4564.0.0/"
-
-# Verify via public URL
-curl -I https://alpha.release.flatcar-linux.net/amd64-usr/4564.0.0/version.txt
-# Should return: HTTP/1.1 200 OK
-```
-
-**Backup servers:**
-
-Backup Origin servers automatically fetch new files from the primary via SSH. See [infra docs](https://github.com/flatcar/flatcar-linux-infra/blob/master/docs/operations/set-up-origin-server.md#switch-the-primary-origin-server) for details.
+**Artifact distribution:** The pipeline automatically handles copying build artifacts from bincache to the CloudFlare CDN bucket for distribution via `{alpha,beta,stable}.release.flatcar-linux.net`.
 
 ### Publish Cloud Provider Images
 
