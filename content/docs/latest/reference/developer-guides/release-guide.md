@@ -354,6 +354,19 @@ Navigate the downstream job tree:
 
 ## Release Execution
 
+### Generate Release Notes
+
+After the build and testing are complete, generate release notes in preparation for the go/no-go meeting that will approve the release.
+
+**Source:**
+
+* Output from `show-changes` tool in `container/image_changes` job
+* Select `Timestamps: None` in the sidebar before copying
+
+**Template:**
+
+Use the Flatcar [HackMD template](https://hackmd.io/IOXhY5GAQeKEdGk0JXG4sw) to create release notes.
+
 ### Run the Release Job
 
 Once the release build is ready, run the `container/release` job to publish AWS, Azure, and GCE images and store the AMI lists in the bincache release folder.
@@ -409,33 +422,6 @@ curl -s https://public.update.flatcar-linux.net/v1/update/ \
 ```
 
 ## Post-Release Tasks
-
-### Generate Release Notes
-
-**Source:**
-
-* Output from `show-changes` tool in `container/image_changes` job
-* Select `Timestamps: None` in the sidebar before copying
-
-**Template:**
-
-Use the Flatcar [HackMD template](https://hackmd.io/IOXhY5GAQeKEdGk0JXG4sw) to create release notes.
-
-**Manual execution:**
-
-```bash
-flatcar-build-scripts/show-changes beta-3066.1.0 alpha-3087.0.0
-```
-
-**Generate fixed kernel CVEs:**
-
-The `show-fixed-kernel-cves.py` tool dynamically generates the list of fixed Linux CVEs.
-
-```bash
-# -f: Latest Linux version on Flatcar website for the channel
-# -t: Highest version from update changelog section
-./show-fixed-kernel-cves.py --from_version 5.15.37 --to_version 5.15.43
-```
 
 ### Update Current Symlink on Origin Server
 
