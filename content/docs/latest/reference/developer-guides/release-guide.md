@@ -401,6 +401,7 @@ flatcar-build-scripts/coreos-overlay-diff.py \
 * Image size remains within acceptable limits (±500MB from previous release)
 * Critical packages updated to secure versions (kernel, systemd, Docker)
 * No missing dependencies
+* No important deleted files 
 
 ### Push Fixes and Update Tags
 
