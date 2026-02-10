@@ -95,7 +95,7 @@ Create a new Alpha release with a new major version by branching `flatcar-MAJOR`
 
 * Introduces new features to the channels
 * Contains release tags for all channels as it progresses from Alpha to Stable
-* Is maintained until a Stable release is done from a newer `flatcar-MAJOR` branch
+* Is maintained until a Stable release is done from a newer `flatcar-MAJOR` branch or promoted to LTS channel
 
 **Create the branch:**
 
