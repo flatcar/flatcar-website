@@ -89,7 +89,7 @@ The Jenkins master runs in a VM without direct service exposure. Access requires
 
 ### Prepare Branches for New Major Versions (Feature Alpha Release)
 
-Create a new Alpha release with a new major version by branching `flatcar-MAJOR` from `main` for the `scripts`, `coreos-overlay`, and `portage-stable` repositories.
+Create a new Alpha release with a new major version by branching `flatcar-MAJOR` from `main` for the `scripts` repository.
 
 **The `flatcar-MAJOR` branch:**
 
