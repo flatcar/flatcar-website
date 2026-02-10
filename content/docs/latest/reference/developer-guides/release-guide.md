@@ -338,15 +338,6 @@ View the `container/image_changes` job output (select `Timestamps: None` to copy
 * No missing dependencies
 * No important deleted files 
 
-### Push Fixes and Update Tags
-
-The version git tag and its submodules reference specific release tags on the `flatcar-MAJOR` branch of `scripts`, `coreos-overlay`, and `portage-stable` repositories.
-
-**After pushing fixes:**
-
-1. Rerun `flatcar-build-scripts/tag-release` to update the tags
-2. Rebuild Jenkins jobs: `packages`, `vms`, or `test`
-
 ### Monitor Pipeline Builds
 
 Navigate the downstream job tree:
