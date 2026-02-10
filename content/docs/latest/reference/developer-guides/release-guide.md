@@ -330,42 +330,6 @@ While QA should occur during PRs and nightly builds, perform a final review befo
 
 View the `container/image_changes` job output (select `Timestamps: None` to copy).
 
-**Get detailed changes:**
-
-Run [coreos-overlay-diff.py](https://github.com/flatcar/flatcar-build-scripts/blob/master/coreos-overlay-diff.py):
-
-```bash
-# Replace with your versions
-NEW_VERSION=alpha-4564.0.0
-OLD_VERSION=alpha-4500.0.0
-
-# Step 1: Show individual commits that differ
-flatcar-build-scripts/coreos-overlay-diff.py \
-  --coreos-overlay coreos-overlay --no-diff --no-prs \
-  --ours=$NEW_VERSION $OLD_VERSION | less -R
-
-flatcar-build-scripts/coreos-overlay-diff.py \
-  --coreos-overlay portage-stable --no-diff --no-prs \
-  --ours=$NEW_VERSION $OLD_VERSION | less -R
-
-flatcar-build-scripts/coreos-overlay-diff.py \
-  --coreos-overlay flatcar-scripts --no-diff --no-prs \
-  --ours=$NEW_VERSION $OLD_VERSION | less -R
-
-# Step 2: Show PR links from merge commits for release notes annotations
-flatcar-build-scripts/coreos-overlay-diff.py \
-  --coreos-overlay coreos-overlay --no-diff --no-commits \
-  --ours=$NEW_VERSION $OLD_VERSION | less -R
-
-flatcar-build-scripts/coreos-overlay-diff.py \
-  --coreos-overlay portage-stable --no-diff --no-commits \
-  --ours=$NEW_VERSION $OLD_VERSION | less -R
-
-flatcar-build-scripts/coreos-overlay-diff.py \
-  --coreos-overlay flatcar-scripts --no-diff --no-commits \
-  --ours=$NEW_VERSION $OLD_VERSION | less -R
-```
-
 **Key things to check:**
 
 * No unexpected package downgrades
