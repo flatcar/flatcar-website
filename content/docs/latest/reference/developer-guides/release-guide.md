@@ -339,7 +339,7 @@ PIPELINE_BRANCH: flatcar-master    # Branch with Jenkins pipeline definitions
 
 ### Check Essential Job Status
 
-Not every job must succeed during the build process, but you should ensure these critical jobs have completed successfully: `container/image_changes` for package diff and size analysis, `container/vms` for VM image generation across all formats, and `container/test` for all vendor tests including AWS, Azure, GCE, and others.
+Not every job must succeed during the build process, but you should ensure these critical jobs have completed successfully: `container/image_changes` for package diff and size analysis, `container/vms` for VM image generation across all formats, and `container/test` for all vendor tests including AWS, Azure, GCP, and others.
 
 ### Re-run Failed Tests
 
