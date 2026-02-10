@@ -276,13 +276,6 @@ test_formats_arm64: ""              # Empty string to run all tests
 PIPELINE_BRANCH: flatcar-master    # Branch with Jenkins pipeline definitions
 ```
 
-**Note:** To limit testing to specific formats, specify them:
-
-```yaml
-test_formats_amd64: "qemu_uefi"    # Only test QEMU UEFI on amd64
-test_formats_arm64: "qemu_uefi"    # Only test QEMU UEFI on arm64
-```
-
 ### Build With SDK (New Major Release)
 
 For new major releases or releases requiring a new SDK build, start a `container/sdk` job.
