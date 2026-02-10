@@ -258,28 +258,6 @@ PORTAGE_REF=ghi789jkl012 \
   VERSION=4564.3.0 SDK_VERSION=4564.0.0 CHANNEL=stable ./tag-release
 ```
 
-#### Updating Tags
-
-> **Warning:** Tags can be updated by rerunning the script, but this should **never** be done after the release is published (except for embargoed patches applied during build). Use only for bugs detected during release testing.
-
-**Hot Fixes:**
-
-For hot fixes that only apply a specific patch on top of a release (without unreleased `flatcar-MAJOR` content):
-
-1. Create build branches from the release tag  
-   *(Note: `./mirror-repos-branch` doesn't currently support this)*
-
-2. Create release tags for these branches:
-
-   ```bash
-   SCRIPTS_REF=origin/YOUR-RELEASE-BRANCH \
-   OVERLAY_REF=origin/YOUR-RELEASE-BRANCH \
-   PORTAGE_REF=origin/YOUR-RELEASE-BRANCH \
-   ./tag-release
-   ```
-
-**Next Step:** Once tags are created successfully, proceed to the Jenkins build pipelines.
-
 ## Build Process
 
 Navigate to the Jenkins dashboard to start the build.
