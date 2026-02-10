@@ -353,7 +353,7 @@ While QA should occur during PRs and nightly builds, perform a final review befo
 
 * Compare release to previous version
 * Check updated packages
-* Verify image changes (files shipped, image size, etc.)
+* Verify image changes (files shipped, files deleted, image size, etc.)
 
 **Get package changes:**
 
