@@ -299,7 +299,7 @@ PIPELINE_BRANCH: flatcar-master    # Branch with Jenkins pipeline definitions
 
 **Build Process:**
 
-1. SDK is built using the seed SDK
+1. The new SDK is built using the seed SDK
 2. New SDK is used to build the release
 3. Both amd64 and arm64 artifacts are generated
 4. Test suite runs for all platforms
