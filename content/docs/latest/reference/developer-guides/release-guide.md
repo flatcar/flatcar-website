@@ -237,26 +237,6 @@ for REPO in scripts coreos-overlay portage-stable; do
 done
 ```
 
-**Pin specific commits:**
-
-To adjust to specific commits or recreate tags with pinned commits:
-
-```bash
-# Pin specific commits (useful for cherry-picking fixes)
-OVERLAY_REF=<COMMIT_SHA> PORTAGE_REF=<COMMIT_SHA> \
-  VERSION=<VERSION> SDK_VERSION=<SDK_VERSION> CHANNEL=<CHANNEL> ./tag-release
-
-# Example pinning overlay commit:
-OVERLAY_REF=c1b0fd2e3dcf17c463672643fee10deac152fe5f \
-  VERSION=4564.3.0 SDK_VERSION=4564.0.0 CHANNEL=stable ./tag-release
-
-# Example pinning all three repositories:
-SCRIPTS_REF=abc123def456 \
-OVERLAY_REF=def456ghi789 \
-PORTAGE_REF=ghi789jkl012 \
-  VERSION=4564.3.0 SDK_VERSION=4564.0.0 CHANNEL=stable ./tag-release
-```
-
 ## Build Process
 
 Navigate to the Jenkins dashboard to start the build.
