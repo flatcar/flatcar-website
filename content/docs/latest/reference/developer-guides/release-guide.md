@@ -43,6 +43,8 @@ Ensure the following requirements are satisfied before starting the release proc
 
 **Verify access:**
 
+Make sure the [GitHub CLI `gh`](https://cli.github.com/manual/) is installed and authenticated:
+
 ```bash
 # Check flatcar-linux access
 gh api /orgs/flatcar/members/$(gh api user -q .login) 2>/dev/null && echo "✓ Access confirmed" || echo "✗ Access denied"
@@ -93,7 +95,6 @@ Create a new Alpha release with a new major version by branching `flatcar-MAJOR`
 
 **The `flatcar-MAJOR` branch:**
 
-* Introduces new features to the channels
 * Contains release tags for all channels as it progresses from Alpha to Stable
 * Is maintained until a Stable release is done from a newer `flatcar-MAJOR` branch or promoted to LTS channel
 
@@ -111,9 +112,7 @@ datediff 2013-07-01 today  # for Fedora, use ddiff on Debian
 # ./mirror-repos-branch main flatcar-4564
 ```
 
-**This creates branches in:**
-
-* `flatcar/scripts`
+This creates branches in `flatcar/scripts`.
 
 ### Prepare a New LTS Major Version
 
@@ -226,7 +225,7 @@ VERSION=4564.0.0 SDK_VERSION=4564.0.0 CHANNEL=alpha ./tag-release
 **What this does:**
 
 * Creates tags based on the current state of `flatcar-MAJOR` branch in each repository
-* Updates the version file
+* Updates the version file in `sdk_container/.repo/manifests/version.txt`
 
 **Verify tags were created:**
 
