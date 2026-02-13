@@ -134,5 +134,5 @@ helm install --wait --generate-name \
 ```
 
 [official-sysext]: https://www.flatcar.org/docs/latest/provisioning/sysext/#flatcar-release-extensions-official
-[flatcar-sysext-bakery-nvidia-runtime]: [https://github.com/flatcar/sysext-bakery/releases/tag/nvidia-runtime]
+[flatcar-sysext-bakery-nvidia-runtime]: https://github.com/flatcar/sysext-bakery/releases/tag/nvidia-runtime
 [nvidia-gpu-operator]: https://github.com/NVIDIA/gpu-operator
