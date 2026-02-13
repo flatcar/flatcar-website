@@ -48,7 +48,9 @@ storage:
 
 Flatcar provides official NVIDIA drivers sysext, built with every Flatcar release. As the kernel modules are built together with the kernel, they are signed with the ephemeral kernel modules signing key, which is important for secure boot support. During provisioning, the NVIDIA drivers sysext is downloaded and activated. The `nvidia.service` automatically detects an NVIDIA sysext has already been loaded and skips downloading and building them from source (therefore the version specified in `NVIDIA_DRIVER_VERSION` will be ignored).
 
-The drivers come in two flavours: open and non-open for `amd64` architecture.
+The drivers come in two flavours: open and non-open for `amd64` architecture.  
+
+You can find the latest `nvidia-runtime` releases [here][flatcar-sysext-bakery-nvidia-runtime].
 
 To activate the NVIDIA sysext:
 ```yaml
@@ -132,4 +134,5 @@ helm install --wait --generate-name \
 ```
 
 [official-sysext]: https://www.flatcar.org/docs/latest/provisioning/sysext/#flatcar-release-extensions-official
+[flatcar-sysext-bakery-nvidia-runtime]: [https://github.com/flatcar/sysext-bakery/releases/tag/nvidia-runtime]
 [nvidia-gpu-operator]: https://github.com/NVIDIA/gpu-operator
