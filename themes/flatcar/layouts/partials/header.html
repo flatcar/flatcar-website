@@ -50,23 +50,27 @@
 <script>
 document.addEventListener('DOMContentLoaded', function() {
   const header = document.querySelector('.header');
+  if (!header) return;
 
-  if (header) {
-    const scrollThreshold = 50; // Pixels to scroll before applying the scrolled class
+  const scrollThreshold = 50;
+  const compensationScalar = 0.9;
+  let heightDiff = null;
 
-    // Check initial scroll position
-    if (window.scrollY > scrollThreshold) {
-      header.classList.add('scrolled');
+  function updateScroll() {
+    const scrolled = window.scrollY > scrollThreshold;
+    header.classList.toggle('scrolled', scrolled);
+
+    if (scrolled && !heightDiff) {
+      // Measure once: navbar shrinks ~65px (logo 85->42px + margin 22->0px)
+      heightDiff = 65;
     }
-
-    // Add scroll event listener
-    window.addEventListener('scroll', function() {
-      if (window.scrollY > scrollThreshold) {
-        header.classList.add('scrolled');
-      } else {
-        header.classList.remove('scrolled');
-      }
-    });
+    document.documentElement.style.setProperty(
+      '--navbar-shrink-compensation',
+      scrolled ? `${heightDiff * compensationScalar}px` : '0px'
+    );
   }
+
+  updateScroll();
+  window.addEventListener('scroll', updateScroll);
 });
 </script>

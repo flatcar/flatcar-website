@@ -1,0 +1,28 @@
+{{/* Returns a slice of version directory names (e.g. ["v2.10", "v3.01", "v3.23"])
+  sorted by .Params.weight ascending (latest = last)
+  For equal weights, sorted alphabetically by directory name for deterministic ordering
+*/}}
+
+{{ $result := slice }}
+
+{{ $docsSection := site.GetPage "section" "docs" }}
+{{ if $docsSection }}
+  {{ range $docsSection.Sections }}
+    {{/* Get directory name from path: docs/latest/_index.md -> latest */}}
+    {{ $dir := path.Base (path.Dir .File.Path) }}
+    {{ $result = $result | append (dict "dir" $dir "weight" (.Params.weight | default 0) "name" $dir) }}
+  {{ end }}
+{{ end }}
+
+{{/* Two-stage sort for deterministic ordering:
+     1. Sort by name (alphabetically)
+     2. Sort by weight (stable sort preserves name order for equal weights) */}}
+{{ $sorted := sort $result "name" "asc" }}
+{{ $sorted = sort $sorted "weight" "asc" }}
+
+{{ $dirs := slice }}
+{{ range $sorted }}
+  {{ $dirs = $dirs | append .dir }}
+{{ end }}
+
+{{ return $dirs }}

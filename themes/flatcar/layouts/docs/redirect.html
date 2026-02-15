@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html>
   <head>
-    {{- $docs := default (dict "name" "") (index .Site.Params.docs.external_docs 0) -}}
-    {{- $redirectURL := $docs.name -}}
+    {{- $latest := partial "docs/getlatestversion" . -}}
+    {{- $redirectURL := printf "%s" $latest -}}
     <meta http-equiv="refresh" content="0; url='/docs/{{ $redirectURL }}'" />
   </head>
   <body>
