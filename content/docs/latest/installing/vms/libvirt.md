@@ -228,42 +228,24 @@ Now that you have a machine booted it is time to play around. Check out the [Fla
 
 ## Terraform
 
-The [`libvirt` Terraform Provider](https://github.com/dmacvicar/terraform-provider-libvirt/) allows to quickly deploy machines in a declarative way.
-This is especially useful for local development of a configuration that is also in use on a cloud provider.
+The [`libvirt` Terraform Provider](https://github.com/dmacvicar/terraform-provider-libvirt/) lets you describe Flatcar machines declaratively, powering automation that can be reused across bare metal, virtualization, and cloud environments.
 Read more about using Terraform and Flatcar [here](../../provisioning/terraform/).
 
-The following Terraform v0.13 module may serve as a base for your own setup.
-A new disk volume pool will be created in `/var/tmp` as precaution to not modify the base image by accident.
-
-First, prepare the base image and make sure you don't boot it via the [`flatcar_production_qemu.sh`](https://stable.release.flatcar-linux.net/amd64-usr/current/flatcar_production_qemu.sh) script or similar:
-
-```sh
-cd ~/Downloads
-wget https://stable.release.flatcar-linux.net/amd64-usr/current/flatcar_production_qemu_image.img
-mv flatcar_production_qemu_image.img flatcar_production_qemu_image-libvirt-import.img
-# optional, increase the image by 5 GB:
-qemu-img resize flatcar_production_qemu_image-libvirt-import.img +5G
-```
-
-It will only be used once for the import and can be deleted afterwards even when new VMs are added.
+The following snippet shows the simplest working configuration: it downloads the Stable channel image, keeps it immutable, creates a CoW layer for the writable system disk, renders Ignition, and feeds it to the guest via fw_cfg so you can provision a single VM in just a few commands.
 
 Start with a `libvirt-machines.tf` file that contains the main declarations:
 
 ```
 terraform {
-  required_version = ">= 0.13"
+  required_version = ">= 1.0"
   required_providers {
     libvirt = {
       source  = "dmacvicar/libvirt"
-      version = "0.6.3"
+      version = "0.9.2"
     }
     ct = {
       source  = "poseidon/ct"
-      version = "0.7.1"
-    }
-    template = {
-      source  = "hashicorp/template"
-      version = "~> 2.2.0"
+      version = "0.14.0"
     }
   }
 }
@@ -272,167 +254,148 @@ provider "libvirt" {
   uri = "qemu:///system"
 }
 
-resource "libvirt_pool" "volumetmp" {
-  name = "${var.cluster_name}-pool"
-  type = "dir"
-  path = "/var/tmp/${var.cluster_name}-pool"
+data "ct_config" "flatcar" {
+  content = <<-YAML
+    variant: flatcar
+    version: 1.1.0
+    passwd:
+      users:
+        - name: core
+          ssh_authorized_keys:
+            - ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIFakeKeyForDocExampleOnly # fake key. replace with your own!
+  YAML
+  strict = false
 }
 
-resource "libvirt_volume" "base" {
-  name   = "flatcar-base"
-  source = var.base_image
-  pool   = libvirt_pool.volumetmp.name
-  format = "qcow2"
+resource "libvirt_ignition" "flatcar" {
+  name    = "flatcar-simple.ign"
+  content = data.ct_config.flatcar.rendered
 }
 
-resource "libvirt_volume" "vm-disk" {
-  for_each = toset(var.machines)
-  # workaround: depend on libvirt_ignition.ignition[each.key], otherwise the VM will use the old disk when the user-data changes
-  name           = "${var.cluster_name}-${each.key}-${md5(libvirt_ignition.ignition[each.key].id)}.qcow2"
-  base_volume_id = libvirt_volume.base.id
-  pool           = libvirt_pool.volumetmp.name
-  format         = "qcow2"
-}
-
-resource "libvirt_ignition" "ignition" {
-  for_each = toset(var.machines)
-  name     = "${var.cluster_name}-${each.key}-ignition"
-  pool     = libvirt_pool.volumetmp.name
-  content  = data.ct_config.vm-ignitions[each.key].rendered
-}
-
-resource "libvirt_domain" "machine" {
-  for_each = toset(var.machines)
-  name     = "${var.cluster_name}-${each.key}"
-  vcpu     = var.virtual_cpus
-  memory   = var.virtual_memory
-
-  fw_cfg_name     = "opt/org.flatcar-linux/config"
-  coreos_ignition = libvirt_ignition.ignition[each.key].id
-
-  disk {
-    volume_id = libvirt_volume.vm-disk[each.key].id
+resource "libvirt_volume" "flatcar_base" {
+  name = "flatcar-base-4459.2.3"
+  pool = "default"
+  # Stable channel QCOW2 from Flatcar. Treat it as immutable; reuse this volume for many VMs.
+  create = {
+    content = {
+      url = "https://stable.release.flatcar-linux.net/amd64-usr/current/flatcar_production_qemu_image.img"
+    }
   }
-
-  graphics {
-    listen_type = "address"
-  }
-
-  # dynamic IP assignment on the bridge, NAT for Internet access
-  network_interface {
-    network_name   = "default"
-    wait_for_lease = true
+  target = {
+    format = {
+      type = "qcow2"
+    }
   }
 }
 
-data "ct_config" "vm-ignitions" {
-  for_each = toset(var.machines)
-  content  = data.template_file.vm-configs[each.key].rendered
+resource "libvirt_volume" "flatcar_disk" {
+  name     = "flatcar-simple-system.qcow2"
+  pool     = "default"
+  capacity = 21474836480
+  # writable disk is a qcow2 overlay so the base image remains untouched (copy-on-write).
+  backing_store = {
+    path = libvirt_volume.flatcar_base.path
+    format = {
+      type = "qcow2"
+    }
+  }
+  target = {
+    format = {
+      type = "qcow2"
+    }
+  }
 }
 
-data "template_file" "vm-configs" {
-  for_each = toset(var.machines)
-  template = file("${path.module}/machine-${each.key}.yaml.tmpl")
+resource "libvirt_domain" "flatcar_simple" {
+  name        = "flatcar-simple"
+  memory      = 2048
+  memory_unit = "MiB"
+  vcpu        = 2
+  type        = "kvm"
+  autostart   = false
 
-  vars = {
-    ssh_keys = jsonencode(var.ssh_keys)
-    name     = each.key
+  os = {
+    type    = "hvm"
+    arch    = "x86_64"
+    machine = "q35"
+  }
+
+  features = {
+    acpi = true # required so QEMU accepts fw_cfg-delivered Ignition on q35/OVMF.
+  }
+
+  sys_info = [
+    {
+      fw_cfg = {
+        entry = [
+          {
+            name = "opt/org.flatcar-linux/config"
+            file = libvirt_ignition.flatcar.path
+            # fw_cfg delivers the ignition blob directly to the guest firmware.
+            value = ""
+          }
+        ]
+      }
+    }
+  ]
+
+  devices = {
+    disks = [
+      {
+        driver = {
+          name = "qemu"
+          type = "qcow2"
+        }
+        target = {
+          dev = "vda"
+          bus = "virtio"
+        }
+        source = {
+          volume = {
+            pool   = libvirt_volume.flatcar_disk.pool
+            volume = libvirt_volume.flatcar_disk.name
+          }
+        }
+      }
+    ]
+
+    interfaces = [
+      {
+        model = {
+          type = "virtio"
+        }
+        source = {
+          network = {
+            network = "default"
+          }
+        }
+        # single virtio interface on the host's default bridge; adjust if you have custom networking.
+        mac = {
+          address = "52:54:00:45:00:01"
+        }
+      }
+    ]
+
+    consoles = [
+      {
+        type        = "pty"
+        target_type = "virtio"
+      }
+    ]
+
+    graphics = null
+  }
+
+  lifecycle {
+    replace_triggered_by = [
+      libvirt_volume.flatcar_disk.id
+    ]
+    # rebuilding the disk happens whenever the system volume changes, e.g., new Ignition config.
   }
 }
 ```
 
-Create a `variables.tf` file that declares the variables used above:
-
-```
-variable "machines" {
-  type        = list(string)
-  description = "Machine names, corresponding to machine-NAME.yaml.tmpl files"
-}
-
-variable "cluster_name" {
-  type        = string
-  description = "Cluster name used as prefix for the machine names"
-}
-
-variable "ssh_keys" {
-  type        = list(string)
-  description = "SSH public keys for user 'core'"
-}
-
-variable "base_image" {
-  type        = string
-  description = "Path to unpacked Flatcar Container Linux image flatcar_production_qemu_image.img (probably after a qemu-img resize IMG +5G)"
-}
-
-variable "virtual_memory" {
-  type        = number
-  default     = 2048
-  description = "Virtual RAM in MB"
-}
-
-variable "virtual_cpus" {
-  type        = number
-  default     = 1
-  description = "Number of virtual CPUs"
-}
-```
-
-An `outputs.tf` file shows the resulting IP addresses:
-
-```
-output "ip-addresses" {
-  value = {
-    for key in var.machines :
-    "${var.cluster_name}-${key}" => libvirt_domain.machine[key].network_interface.0.addresses.*
-  }
-  # or instead of outputs, use dig CLUSTERNAME-VMNAME @192.168.122.1
-}
-```
-
-Now you can use the module by declaring the variables and a Container Linux Configuration for a machine.
-First create a `terraform.tfvars` file with your settings:
-
-```
-base_image     = "file:///home/myself/Downloads/flatcar_production_qemu_image-libvirt-import.img"
-cluster_name  = "mycluster"
-machines     = ["mynode"]
-virtual_memory = 768
-ssh_keys     = ["ssh-rsa AA... me@mail.net"]
-```
-
-Create the configuration for `mynode` in the file `machine-mynode.yaml.tmpl`:
-
-```yaml
----
-passwd:
-  users:
-    - name: core
-      ssh_authorized_keys: ${ssh_keys}
-storage:
-  files:
-    - path: /home/core/works
-      filesystem: root
-      mode: 0755
-      contents:
-        inline: |
-          #!/bin/bash
-          set -euo pipefail
-          hostname="$(hostname)"
-          echo My name is ${name} and the hostname is $${hostname}
-```
-
-Finally, run Terraform v0.13 as follows to create the machine:
-
-```
-terraform init
-terraform apply
-```
-
-View the VMs in `virt-manager` where you can see the VGA console.
-Log in via `ssh -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null core@IPADDRESS` with the printed IP address.
-
-When you make a change to `machine-mynode.yaml.tmpl` and run `terraform apply` again, the instance and its disk will be replaced.
-
+Run `terraform init && terraform plan` followed by `terraform apply` to create (or update) this Flatcar VM; the domain doesn't start automatically. You can start it with `virsh start --console flatcar-simple`, see the autologin console for `core`, or log in via SSH once the IP is printed in the Terraform output. Editing Terraform resources or the Ignition payload alone leaves the existing system disk intact with `firstboot=false`, so rerunning `terraform apply` will not rerun Ignition unless you taint `libvirt_volume.flatcar_disk` (or otherwise recreate that volume) to force a fresh copy-on-write disk.
 [flatcar-dev]: https://groups.google.com/forum/#!forum/flatcar-linux-dev
 [matrix]: https://app.element.io/#/room/#flatcar:matrix.org
 [config-transpiler]: ../../provisioning/config-transpiler
