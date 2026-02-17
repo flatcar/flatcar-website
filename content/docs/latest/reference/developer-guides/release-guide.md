@@ -370,7 +370,7 @@ scripts_ref: alpha-4564.0.0         # Your release version tag
 PIPELINE_BRANCH: flatcar-master    # Branch with Jenkins pipeline definitions
 ```
 
-**Success criteria:** Verify that all AMI IDs are generated and stored, Azure VHD blobs are uploaded, GCE images are published to the project, and there are no upload failures in the job log.
+**Success criteria:** Verify that all AMI IDs are generated and stored, Azure VHD blobs are uploaded, GCP images are published to the project, and there are no upload failures in the job log.
 
 **Output artifacts:**
 
