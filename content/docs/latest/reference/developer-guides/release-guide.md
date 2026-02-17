@@ -361,7 +361,7 @@ _NOTES_:
 
 ### Run the Release Job
 
-Once the release build is ready and the Go/No-go meeting result is "Go", run the `container/release` job to publish AWS, Azure, and GCE images and store the AMI lists in the bincache release folder.
+Once the release build is ready and the Go/No-go meeting result is "Go", run the `container/release` job to publish AWS, Azure, and GCP images and store the AMI lists in the bincache release folder.
 
 **Parameters:**
 
