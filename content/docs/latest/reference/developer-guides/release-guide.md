@@ -293,7 +293,7 @@ Not every job must succeed during the build process, but you should ensure these
 
 ### Re-run Failed Tests
 
-Tests may fail for transient reasons such as IaaS provider provisioning failures, networking issues, or external service outages (e.g., quay.io). Re-run tests as necessary to verify actual failures versus infrastructure issues.
+Tests may fail for transient reasons such as IaaS provider provisioning failures, networking issues, or external service outages (e.g., ghcr.io). Re-run tests as necessary to verify actual failures versus infrastructure issues.
 
 ### Quality Assurance Review
 
