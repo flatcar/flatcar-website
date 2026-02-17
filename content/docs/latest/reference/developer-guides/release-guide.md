@@ -344,11 +344,24 @@ After the build and testing are complete, generate release notes in preparation 
 
 **Template:**
 
-Use the Flatcar [HackMD template](https://hackmd.io/IOXhY5GAQeKEdGk0JXG4sw) to create release notes.
+Use the Flatcar [HackMD template](https://hackmd.io/IOXhY5GAQeKEdGk0JXG4sw) to create release notes and run the "go/no-go" meeting once the release notes are done.
+
+### Go/No-go meeting
+
+This is an async and offline meeting on Matrix. The goal of this meeting is to validate, by the rest of the maintainers, the current state of the release before public promotion. To be reviewed:
+* tests summary
+* changelog / release notes
+* social posts
+
+The content of the message to trigger the Go/No-go meeting is available in the HackMD document release template.
+
+_NOTES_:
+* Time the go/no-go meeting (e.g lazy consensus in 3 hours)
+* Don't wait for all maintainers to vote (more than 50% is enough)
 
 ### Run the Release Job
 
-Once the release build is ready, run the `container/release` job to publish AWS, Azure, and GCE images and store the AMI lists in the bincache release folder.
+Once the release build is ready and the Go/No-go meeting result is "Go", run the `container/release` job to publish AWS, Azure, and GCE images and store the AMI lists in the bincache release folder.
 
 **Parameters:**
 
