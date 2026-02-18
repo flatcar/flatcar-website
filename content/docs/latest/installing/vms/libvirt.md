@@ -273,12 +273,21 @@ resource "libvirt_ignition" "flatcar" {
 }
 
 resource "libvirt_volume" "flatcar_base" {
-  name = "flatcar-base-4459.2.3"
+  name = "flatcar-${var.channel}-${var.version}"
   pool = "default"
   # Stable channel QCOW2 from Flatcar. Treat it as immutable; reuse this volume for many VMs.
   create = {
     content = {
-      url = "https://stable.release.flatcar-linux.net/amd64-usr/current/flatcar_production_qemu_image.img"
+      url = "https://${var.channel}.release.flatcar-linux.net/amd64-usr/${var.version}/flatcar_production_qemu_image.img"
+...
+variable "version" {
+  type = string
+  default = "current"
+}
+variable "channel" {
+  type = string
+  default = "stable"
+}
     }
   }
   target = {
