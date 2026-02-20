@@ -237,11 +237,11 @@ Start with a `libvirt-machines.tf` file that contains the main declarations:
 
 ```
 terraform {
-  required_version = ">= 1.0"
+  required_version = ">= 1.4"
   required_providers {
     libvirt = {
       source  = "dmacvicar/libvirt"
-      version = "0.9.2"
+      version = "= 0.9.2"
     }
     ct = {
       source  = "poseidon/ct"
@@ -254,7 +254,49 @@ provider "libvirt" {
   uri = "qemu:///system"
 }
 
-data "ct_config" "flatcar" {
+variable "vm_name" {
+  description = "Name of the VM"
+  type        = string
+  default     = "flatcar-simple"
+}
+
+variable "mac" {
+  description = "MAC address for the VM"
+  type        = string
+  default     = "52:54:00:45:00:01"
+}
+
+variable "memory_mib" {
+  description = "Memory size (MiB) for the VM"
+  type        = number
+  default     = 2048
+}
+
+variable "vcpu" {
+  description = "vCPU count for the VM"
+  type        = number
+  default     = 2
+}
+
+variable "disk_capacity_bytes" {
+  description = "System disk capacity in bytes (default 20 GiB)"
+  type        = number
+  default     = 21474836480
+}
+
+variable "channel" {
+  description = "Flatcar Channel for the VM"
+  type        = string
+  default     = "stable"
+}
+
+variable "release" {
+  description = "Flatcar Release for the VM"
+  type        = string
+  default     = "4459.2.3"
+}
+
+data "ct_config" "flatcar_simple" {
   content = <<-YAML
     variant: flatcar
     version: 1.1.0
@@ -262,34 +304,27 @@ data "ct_config" "flatcar" {
       users:
         - name: core
           ssh_authorized_keys:
-            - ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIFakeKeyForDocExampleOnly # fake key. replace with your own!
+            - ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIFakeKeyForDocExampleOnly
   YAML
-  strict = false
+  strict  = false
 }
 
-resource "libvirt_ignition" "flatcar" {
-  name    = "flatcar-simple.ign"
-  content = data.ct_config.flatcar.rendered
+resource "libvirt_ignition" "flatcar_simple" {
+  name    = "${var.vm_name}.ign"
+  content = data.ct_config.flatcar_simple.rendered
 }
 
 resource "libvirt_volume" "flatcar_base" {
-  name = "flatcar-${var.channel}-${var.version}"
+  name = "flatcar-base-${var.channel}-${var.release}"
   pool = "default"
-  # Stable channel QCOW2 from Flatcar. Treat it as immutable; reuse this volume for many VMs.
+  # Flatcar base image — treat as immutable. Reuse across many VMs; never written to directly.
+
   create = {
     content = {
-      url = "https://${var.channel}.release.flatcar-linux.net/amd64-usr/${var.version}/flatcar_production_qemu_image.img"
-...
-variable "version" {
-  type = string
-  default = "current"
-}
-variable "channel" {
-  type = string
-  default = "stable"
-}
+      url = "https://${var.channel}.release.flatcar-linux.net/amd64-usr/${var.release}/flatcar_production_qemu_image.img"
     }
   }
+
   target = {
     format = {
       type = "qcow2"
@@ -297,29 +332,52 @@ variable "channel" {
   }
 }
 
-resource "libvirt_volume" "flatcar_disk" {
-  name     = "flatcar-simple-system.qcow2"
+resource "terraform_data" "system_volume" {
+  # tracks every value that should cause the system disk to be recreated from scratch.
+  # terraform_data is replaced (not just updated) when triggers_replace changes,
+  # which cascades to libvirt_volume.flatcar_simple_system via replace_triggered_by below.
+  triggers_replace = {
+    vm_name  = var.vm_name
+    capacity = var.disk_capacity_bytes
+    ignition = libvirt_ignition.flatcar_simple.id  # ignition content changed
+    base     = libvirt_volume.flatcar_base.id       # base image replaced
+  }
+}
+
+resource "libvirt_volume" "flatcar_simple_system" {
+  name     = "${var.vm_name}-system.qcow2"
   pool     = "default"
-  capacity = 21474836480
-  # writable disk is a qcow2 overlay so the base image remains untouched (copy-on-write).
+  capacity = var.disk_capacity_bytes
+
+  # writable system disk is a qcow2 overlay backed by flatcar_base — copy-on-write,
+  # so the base image is never modified regardless of what the VM writes.
   backing_store = {
     path = libvirt_volume.flatcar_base.path
     format = {
       type = "qcow2"
     }
   }
+
   target = {
     format = {
       type = "qcow2"
     }
   }
+
+  lifecycle {
+    # the libvirt provider rejects in-place updates on volumes entirely.
+    # ignore_changes = all prevents Terraform from ever planning a Modify;
+    # all replacement decisions are driven by terraform_data.system_volume above.
+    ignore_changes       = all
+    replace_triggered_by = [terraform_data.system_volume]
+  }
 }
 
 resource "libvirt_domain" "flatcar_simple" {
-  name        = "flatcar-simple"
-  memory      = 2048
+  name        = var.vm_name
+  memory      = var.memory_mib
   memory_unit = "MiB"
-  vcpu        = 2
+  vcpu        = var.vcpu
   type        = "kvm"
   autostart   = false
 
@@ -330,7 +388,9 @@ resource "libvirt_domain" "flatcar_simple" {
   }
 
   features = {
-    acpi = true # required so QEMU accepts fw_cfg-delivered Ignition on q35/OVMF.
+    # acpi = true is REQUIRED when delivering Ignition via fw_cfg on a q35/OVMF machine.
+    # Without it QEMU rejects the fw_cfg entry and Ignition never runs.
+    acpi = true
   }
 
   sys_info = [
@@ -338,9 +398,9 @@ resource "libvirt_domain" "flatcar_simple" {
       fw_cfg = {
         entry = [
           {
-            name = "opt/org.flatcar-linux/config"
-            file = libvirt_ignition.flatcar.path
-            # fw_cfg delivers the ignition blob directly to the guest firmware.
+            name  = "opt/org.flatcar-linux/config"
+            # fw_cfg passes the Ignition blob directly to the guest firmware — no disk or network required.
+            file  = libvirt_ignition.flatcar_simple.path
             value = ""
           }
         ]
@@ -361,8 +421,8 @@ resource "libvirt_domain" "flatcar_simple" {
         }
         source = {
           volume = {
-            pool   = libvirt_volume.flatcar_disk.pool
-            volume = libvirt_volume.flatcar_disk.name
+            pool   = libvirt_volume.flatcar_simple_system.pool
+            volume = libvirt_volume.flatcar_simple_system.name
           }
         }
       }
@@ -378,9 +438,9 @@ resource "libvirt_domain" "flatcar_simple" {
             network = "default"
           }
         }
-        # single virtio interface on the host's default bridge; adjust if you have custom networking.
+        # single virtio NIC on the default libvirt bridge; adjust to your network if needed.
         mac = {
-          address = "52:54:00:45:00:01"
+          address = var.mac
         }
       }
     ]
@@ -396,15 +456,16 @@ resource "libvirt_domain" "flatcar_simple" {
   }
 
   lifecycle {
+    # domain must be recreated whenever the system disk is replaced,
+    # otherwise libvirt keeps the old domain definition pointing at the new disk.
     replace_triggered_by = [
-      libvirt_volume.flatcar_disk.id
+      libvirt_volume.flatcar_simple_system.id
     ]
-    # rebuilding the disk happens whenever the system volume changes, e.g., new Ignition config.
   }
 }
 ```
 
-Run `terraform init && terraform plan` followed by `terraform apply` to create (or update) this Flatcar VM; the domain doesn't start automatically. You can start it with `virsh start --console flatcar-simple` (or add `running = true` to the Terraform domain definition), see the autologin console for `core`, or log in via SSH once the IP is printed in the Terraform output. Editing Terraform resources or the Ignition payload alone leaves the existing system disk intact with `firstboot=false`, so rerunning `terraform apply` will not rerun Ignition unless you taint `libvirt_volume.flatcar_disk` (or otherwise recreate that volume) to force a fresh copy-on-write disk.
+Run `terraform init && terraform plan` followed by `terraform apply` to create (or update) this Flatcar VM; the domain doesn't start automatically. You can start it with `virsh start --console flatcar-simple` (or add `running = true` to the Terraform domain definition), see the autologin console for `core`, or log in via SSH once the IP is printed in the Terraform output. Editing Terraform resources or the Ignition payload alone leaves the existing system disk intact with `firstboot=false`, so rerunning `terraform apply` will not rerun Ignition unless you taint `libvirt_volume.flatcar_simple_system` (or otherwise recreate that volume) to force a fresh copy-on-write disk.
 [flatcar-dev]: https://groups.google.com/forum/#!forum/flatcar-linux-dev
 [matrix]: https://app.element.io/#/room/#flatcar:matrix.org
 [config-transpiler]: ../../provisioning/config-transpiler
