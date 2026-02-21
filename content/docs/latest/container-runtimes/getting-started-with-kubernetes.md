@@ -214,7 +214,7 @@ flatcar-node1   Ready    control-plane   5m30s   v1.33.2
 If you want to coordinate the nodes reboot when there is a new Kubernetes sysext image or a Flatcar update, you can deploy [`Kured`][kured]:
 ```bash
 latest=$(curl -s https://api.github.com/repos/kubereboot/kured/releases | jq -r '.[0].tag_name')
-kubectl apply -f "https://github.com/kubereboot/kured/releases/download/$latest/kured-$latest-dockerhub.yaml"
+kubectl apply -f "https://github.com/kubereboot/kured/releases/download/$latest/kured-$latest-combined.yaml"
 ```
 
 We can now prepare the nodes to join the cluster.
