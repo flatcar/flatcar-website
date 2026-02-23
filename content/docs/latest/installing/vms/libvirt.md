@@ -235,7 +235,7 @@ The following snippet shows the simplest working configuration: it downloads the
 
 Start with a `libvirt-machines.tf` file that contains the main declarations:
 
-```
+```hcl
 terraform {
   required_version = ">= 1.4"
   required_providers {
@@ -466,6 +466,7 @@ resource "libvirt_domain" "flatcar_simple" {
 ```
 
 Run `terraform init && terraform plan` followed by `terraform apply` to create (or update) this Flatcar VM; the domain doesn't start automatically. You can start it with `virsh start --console flatcar-simple` (or add `running = true` to the Terraform domain definition), see the autologin console for `core`, or log in via SSH once the IP is printed in the Terraform output. Editing Terraform resources or the Ignition payload alone leaves the existing system disk intact with `firstboot=false`, so rerunning `terraform apply` will not rerun Ignition unless you taint `libvirt_volume.flatcar_simple_system` (or otherwise recreate that volume) to force a fresh copy-on-write disk.
+
 [flatcar-dev]: https://groups.google.com/forum/#!forum/flatcar-linux-dev
 [matrix]: https://app.element.io/#/room/#flatcar:matrix.org
 [config-transpiler]: ../../provisioning/config-transpiler
