@@ -367,3 +367,27 @@ a:hover {
   background-color: $flatcar-blue;
   border-color: $flatcar-blue;
 }
+// Copy button styles for code blocks (Issue #2022)
+.copy-btn {
+  float: right;
+  margin: 4px;
+  padding: 2px 6px;
+  font-size: 0.8em;
+  cursor: pointer;
+  background: #eee;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  transition: background 0.2s ease;
+}
+
+.copy-btn:hover {
+  background: #ddd;
+}
+
+pre code {
+  background-color: #f5f5f5;
+  padding: 1em;
+  border-radius: 6px;
+  display: block;
+  overflow-x: auto;
+}
