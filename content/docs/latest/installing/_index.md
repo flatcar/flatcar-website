@@ -172,6 +172,8 @@ To disable downloading updates altogether either disable the `update-engine` ser
 
 ### More on configuring and operating Flatcar Container Linux
 
+Our [Flatcar learning series][learning-series] has in-depth coverage of specific areas of using Flatcar.
+
 The documentation includes a whole section on configuration, operation, and maintenance.
 Have a look at the [setup guide][setup] for more information.
 
@@ -195,7 +197,7 @@ and bare metal servers:
 
 With any of these guides you will have machines up and running in a few minutes.
 
-
+[learning-series]: ../learning-series
 [update-strategies]: ../setup/releases/update-strategies
 [update-conf]: ../setup/releases/update-conf
 [setup]: ../setup
