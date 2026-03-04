@@ -1,12 +1,13 @@
 ---
-title: Container Linux Config Transpiler
-linktitle: Container Linux Config Transpiler
+title: "[DEPRECATED / EOL] Container Linux Config Transpiler"
 description: YAML configuration format used to generate Ignition configs.
 weight: 20
 aliases:
     - ../os/provisioning
     - ../reference/migrating-to-clcs/provisioning
 ---
+
+:warning: TL; DR: Use [Butane](../config-transpiler). While Flatcar does support both Ignition spec version (2.x and 3.x), we encourage folks to use [Butane](../config-transpiler) first but we still maintain / document backward compatibility for users who still rely on Ignition 2.x. :warning:
 
 Flatcar Container Linux automates machine provisioning with a specialized system for applying initial configuration. This system implements a process of (trans)compilation and validation for machine configs, and an atomic service to apply validated configurations to machines.
 
@@ -60,7 +61,7 @@ As shown in this diagram, `ct` is manually invoked only when users are manually 
 
 The Container Linux Config Transpiler abstracts the details of configuring Flatcar Container Linux. It's responsible for transforming a Container Linux Config written by a user into an Ignition Config to be consumed by instances of Flatcar Container Linux.
 
-The Container Linux Config Transpiler command line interface, `ct` for short, can be downloaded from its [GitHub Releases page][download-ct] or used via Docker (`cat example.yaml | docker run --rm -i ghcr.io/flatcar/ct:latest --platform=YOURPLATFORM`).
+The Container Linux Config Transpiler command line interface, `ct` for short, can be downloaded from its [GitHub Releases page][download-ct] or used via Docker (`cat example.yaml | docker run --rm -i --platform=YOURPLATFORM ghcr.io/flatcar/ct:latest`).
 
 The following config will configure an etcd cluster using the machine's public and private IP addresses:
 

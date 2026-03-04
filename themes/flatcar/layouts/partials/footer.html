@@ -56,7 +56,7 @@
                   {{ $title }}
                 {{ end }}
               </div>
-              <ul class="no-gutters footer-menu__list list-unstyled">
+              <ul class="g-0 footer-menu__list list-unstyled">
                 {{ range $section.Pages }}
                   {{ $footer_settings := default (dict) .Params.footer_menu }}
                   {{ if not $footer_settings.hide }}
@@ -132,8 +132,7 @@
   </symbol>
   </svg>
 
-  <script src="/js/jquery-3.4.1.min.js"></script>
-  <script src="/js/bootstrap.min.js"></script>
+  <script src="/js/bootstrap.bundle.min.js"></script>
   {{- $common := resources.Get "js/common.js" -}}
   {{- $js := slice $common | resources.Concat "js/common.js" -}}
   <script src="{{ $js.Permalink }}"></script>

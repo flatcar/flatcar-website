@@ -11,9 +11,9 @@
   {{ if not .Site.Params.ui.sidebar_search_disable }}
   <form class="td-sidebar__search d-flex align-items-center text-center">
     {{/* partial "search-input.html" . */}}
-    <button class="btn btn-link td-sidebar__toggle d-md-none p-0 ml-3 fas fa-bars" type="button" data-toggle="collapse" data-target="#td-section-nav" aria-controls="td-docs-nav" aria-expanded="false" aria-label="Toggle section navigation">
+    <button class="btn btn-link td-sidebar__toggle d-md-none p-0 ms-3 fas fa-bars" type="button" data-bs-toggle="collapse" data-bs-target="#td-section-nav" aria-controls="td-docs-nav" aria-expanded="false" aria-label="Toggle section navigation">
     </button>
-    <button class="btn btn-link td-sidebar__toggle d-md-none p-0" type="button" data-toggle="collapse" data-target="#td-section-nav" aria-controls="td-docs-nav" aria-expanded="false" aria-label="Toggle section navigation">
+    <button class="btn btn-link td-sidebar__toggle d-md-none p-0" type="button" data-bs-toggle="collapse" data-bs-target="#td-section-nav" aria-controls="td-docs-nav" aria-expanded="false" aria-label="Toggle section navigation">
       <img src="/images/menu-swap-outline.svg" />
     </button>
   </form>
@@ -44,7 +44,7 @@
   {{ if $parent }}
   {{ $useCollapse := not $parent.Params.children_are_versions }}
   <li class="td-sidebar-nav__section-title">
-    <a  href="#{{ $sid }}" role="" {{ if $useCollapse }}data-toggle="collapse"{{ end }} class="align-left pl-0 pr-2{{ if not $show }} collapsed{{ end }}{{ if $active}} active{{ end }} td-sidebar-link {{ if $useCollapse }}td-sidebar-link__section{{ end }}">
+    <a  href="#{{ $sid }}" role="" {{ if $useCollapse }}data-bs-toggle="collapse"{{ end }} class="align-left ps-0 pe-2{{ if not $show }} collapsed{{ end }}{{ if $active}} active{{ end }} td-sidebar-link {{ if $useCollapse }}td-sidebar-link__section{{ end }}">
       {{ $title := default $s.Title $s.LinkTitle }}
       {{ if $s.Params.use_dir_name | or $parent.Params.children_are_versions }}
         {{ $tit2le := partial "docs/dirversion" $s }}
@@ -52,7 +52,7 @@
 
       {{ $title }}
       {{ if $s.Parent.Params.children_are_versions }}
-        <span style="margin-left: 1rem;" class="badge badge-pill badge-dark">{{ partial "docs/getcurrentversion" $s }}</span>
+        <span style="margin-left: 1rem;" class="badge rounded-pill bg-dark">{{ partial "docs/getcurrentversion" $s }}</span>
       {{ end }}
     </a>
   </li>

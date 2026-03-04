@@ -17,10 +17,10 @@ Flatcar Container Linux is designed to be updated automatically with different s
 
 <div id="vmware-images">
   <ul class="nav nav-tabs">
-    <li class="active"><a href="#stable" data-toggle="tab">Stable Channel</a></li>
-    <li><a href="#beta" data-toggle="tab">Beta Channel</a></li>
-    <li><a href="#alpha" data-toggle="tab">Alpha Channel</a></li>
-    <li><a href="#lts" data-toggle="tab">LTS Channel</a></li>
+    <li class="active"><a href="#stable" data-bs-toggle="tab">Stable Channel</a></li>
+    <li><a href="#beta" data-bs-toggle="tab">Beta Channel</a></li>
+    <li><a href="#alpha" data-bs-toggle="tab">Alpha Channel</a></li>
+    <li><a href="#lts" data-bs-toggle="tab">LTS Channel</a></li>
   </ul>
   <div class="tab-content coreos-docs-image-table">
     <div class="tab-pane active" id="stable">
@@ -157,7 +157,7 @@ For DHCP you don't need to specify any networkd units.
 After transpilation, the resulting JSON content can be used in `guestinfo.ignition.config.data` after encoding it to base64 and setting `guestinfo.ignition.config.data.encoding` to `base64`.
 If DHCP is used, the JSON file can also be uploaded to a web server and fetched by Ignition if the HTTP(s) URL is given in `guestinfo.ignition.config.url`.
 
-Beginning with Flatcar major version 3248, fetching remote resources in Ignition or with torcx is not only supported with DHCP but also by using `guestinfo.afterburn.initrd.network-kargs` to define a custom network configuration, here an [example for a static IP address](https://coreos.github.io/afterburn/usage/initrd-network-cmdline/#vmware).
+Beginning with Flatcar major version 3248, fetching remote resources in Ignition is not only supported with DHCP but also by using `guestinfo.afterburn.initrd.network-kargs` to define a custom network configuration, here an [example for a static IP address](https://coreos.github.io/afterburn/usage/initrd-network-cmdline/#vmware).
 
 IP configuration specified via `guestinfo.interface.*` and `guestinfo.dns.*` variables is currently not supported with Ignition and will only work if you provide coreos-cloudinit data (cloud-config or a script) as userdata.
 

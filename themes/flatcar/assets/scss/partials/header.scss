@@ -110,7 +110,7 @@ main > *.header-bg-grid:first-child {
       $black;
   }
 
-  @include media-breakpoint-down(md) {
+  @include media-breakpoint-down(lg) {
     background:
       linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(0,0,0,0) 25%, rgba(0,0,0,0) 75%, rgba(0,0,0,1) 100%),
       url(/images/grid.svg)
@@ -181,7 +181,7 @@ main > *.header-bg-triangles:first-child {
 }
 
 .header__navigation {
-  @include media-breakpoint-down(sm) {
+  @include media-breakpoint-down(md) {
     text-align: center;
     margin-top: 60px;
   }
@@ -194,15 +194,15 @@ main > *.header-bg-triangles:first-child {
 .header__link {
   margin-left: 72px;
 
-  @include media-breakpoint-down(lg) {
+  @include media-breakpoint-down(xl) {
     margin-left: 60px;
   }
 
-  @include media-breakpoint-down(md) {
+  @include media-breakpoint-down(lg) {
     margin-left: 3.3vw;
   }
 
-  @include media-breakpoint-down(sm) {
+  @include media-breakpoint-down(md) {
     margin-left: 0;
     margin-top: 78px;
     padding: 1.38em 5.58em;
@@ -210,11 +210,11 @@ main > *.header-bg-triangles:first-child {
     font-size: 16px;
   }
 
-  @include media-breakpoint-down(xs) {
+  @include media-breakpoint-down(sm) {
     width: 100%;
   }
 }
-@include media-breakpoint-down(sm) {
+@include media-breakpoint-down(md) {
   body.mobile-menu_open {
     .header {
       position: fixed;

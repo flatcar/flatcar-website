@@ -18,7 +18,7 @@ A Kubernetes basic scenario (deploy a simple Nginx) is being tested on Flatcar a
 One way to contribute to Flatcar would be to extend the covered CNIs (example: [kubenet][kubenet]) or to provide more complex scenarios (example: [cilium extension][cilium]).
 
 This is a compatibility matrix between Flatcar and Kubernetes deployed using vanilla components and Flatcar provided software:
-| :arrow_down: Flatcar channel \ Kubernetes Version :arrow_right: | 1.28               | 1.29               | 1.30               | 1.31 | 1.32 | 1.33 |
+| :arrow_down: Flatcar channel \ Kubernetes Version :arrow_right: | 1.30               | 1.31               | 1.32               | 1.33 | 1.34 | 1.35 |
 |--------------------------------------|--------------------|--------------------|--------------------|---------------------------------|------|------|
 | Alpha                                | :large_orange_diamond: | :large_orange_diamond: |:large_orange_diamond: |:white_check_mark: |:white_check_mark: |:white_check_mark: |
 | Beta                                 | :large_orange_diamond: | :large_orange_diamond: |:large_orange_diamond: |:white_check_mark: |:white_check_mark: |:white_check_mark: |
@@ -47,8 +47,8 @@ Here are two examples to setup a control plane with [Butane][butane]. The first 
 
 <div>
   <ul class="nav nav-tabs">
-    <li class="active"><a href="#sysext" class="active" data-toggle="tab">With systemd-sysext and updates</a></li>
-    <li><a href="#no-sysext" data-toggle="tab">With plain binaries and no updates</a></li>
+    <li class="active"><a href="#sysext" class="active" data-bs-toggle="tab">With systemd-sysext and updates</a></li>
+    <li><a href="#no-sysext" data-bs-toggle="tab">With plain binaries and no updates</a></li>
   </ul>
   <div class="tab-content coreos-docs-image-table">
     <div class="tab-pane active" id="sysext">
@@ -214,7 +214,7 @@ flatcar-node1   Ready    control-plane   5m30s   v1.33.2
 If you want to coordinate the nodes reboot when there is a new Kubernetes sysext image or a Flatcar update, you can deploy [`Kured`][kured]:
 ```bash
 latest=$(curl -s https://api.github.com/repos/kubereboot/kured/releases | jq -r '.[0].tag_name')
-kubectl apply -f "https://github.com/kubereboot/kured/releases/download/$latest/kured-$latest-dockerhub.yaml"
+kubectl apply -f "https://github.com/kubereboot/kured/releases/download/$latest/kured-$latest-combined.yaml"
 ```
 
 We can now prepare the nodes to join the cluster.
@@ -225,8 +225,8 @@ Here's are two examples for a [butane][butane] configuration to setup the nodes.
 
 <div>
   <ul class="nav nav-tabs">
-    <li class="active"><a class="active" href="#sysext-nodes" data-toggle="tab">With systemd-sysext and updates</a></li>
-    <li><a href="#no-sysext-nodes" data-toggle="tab">With plain binaries and no updates</a></li>
+    <li class="active"><a class="active" href="#sysext-nodes" data-bs-toggle="tab">With systemd-sysext and updates</a></li>
+    <li><a href="#no-sysext-nodes" data-bs-toggle="tab">With plain binaries and no updates</a></li>
   </ul>
   <div class="tab-content coreos-docs-image-table">
     <div class="tab-pane active" id="sysext-nodes">
@@ -358,10 +358,6 @@ to the following directories on the host file system:
 - `/var/lib/containerd/`
 
 And that it has access to the following binaries on the host file system and that they are included in `PATH`:
-- For Flatcar releases until major version 3760:
-  - `/run/torcx/unpack/docker/bin/containerd-shim-runc-v1`
-  - `/run/torcx/unpack/docker/bin/containerd-shim-runc-v2`
-- For Flatcar releases above major version 3760:
   - `/usr/bin/containerd-shim-runc-v1`
   - `/usr/bin/containerd-shim-runc-v2`
 
