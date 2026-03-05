@@ -15,6 +15,42 @@ updates.
 
 If you're new to Flatcar and if you're looking for a brief introduction on getting Flatcar up and running, please have a look at our [quickstart guide][quick-start].
 
+Find more elaborate guides covering specific aspects of Flatcar use in our [Flatcar self-paced learning series][learning-series].
+
+### Core Tenets
+
+1. **Immutable and image-based**.
+
+- In contrast to general purpose Linux distributions, the OS cannot be modified. The OS partition is read-only and dm-verity protected. OS binaries cannot be changed. Updates *always* update *all* binaries of the base OS, including kernel and initrd.
+- There is no way to install applications to the Flatcar base OS; you get what's shipped in the OS image, that's it.
+- There is no package manager or package management; tools shipped with the OS image cannot be added / removed or individually updated. This prevents version drift: any given Flatcar release version corresponds to the complete version set of all tools and binaries shipped with the respective OS release.
+
+1. **Minimal and optimised for container workloads**.
+
+- The OS ships the minimal set of tools necessary to run container workloads: docker and containerd.
+- Basic tools and utilities for setting up nodes (partitioning, crypto, volume management, networking tools etc.) are also included.
+- User-level services and applications must be run as container images, or, when OS level access is required, as [system extensions][sysext].
+
+1. **Fully automated**
+
+- Provisioning and operations are fully automated.
+- Nodes are configured via [declarative configuration][config-examples] that is passed to node provisioning. The configuration is applied **once**, at first boot, preventing configuration drift.
+
+1. **Thoroughly tested and self-updating**
+
+- We never break user workloads, ever. We guarantee even major distribution upgrades are seamless and frictionless, user workloads will continue to run.
+- Flatcar releases, nightlies, and even pull requests to the OS repository are thoroughly and rigorously tested. Our automated test suite covers well over 100 scenario tests.
+- Flatcar supports atomic in-place updates of the OS, with flexibly customisable scheduling / signaling of node refreshes (reboots).
+- Flatcar also supports atomic, fully automatable roll-backs in case of issues.
+- Flatcar users have the opportunity to field-test incoming releases via Beta canaries, and report issues with their workloads.
+  No Beta with known issues will ever transition to Stable.
+
+1. **Community stewarded, not vendor driven**
+
+- Flatcar is a CloudNative Computing Foundation project.
+- Flatcar maintainers and contributors come from a variety of backgrounds and work for different employers, or participate privately in the project.
+  Flatcar is not a vendor driven product nor aims to ever be one.
+
 ### Installing Flatcar
 
 Flatcar Container Linux runs on most cloud providers, virtualization
@@ -166,15 +202,8 @@ APIs and troubleshooting guides for working with Flatcar Container Linux.
 * [Migrating from cloud-config to Container Linux Config][migrating-from-cloud-config]
 * [Flatcar Supply Chain Security (SLSA and SPDX SBOM)][supply-chain-security] detailing security mechanisms employed at build / release time as well as at run-time to ensure validity of inputs processed and outputs shipped.
 
-### Tutorial
-Flatcar tutorial to deep dive into some Flatcar fundamental concepts.
-* [Introduction][tutorial-introduction]
-* [Hands-on 1: Discovering][tutorial-hands-on-1]
-* [Hands-on 2: Provisioning][tutorial-hands-on-2]
-* [Hands-on 3: Deploying][tutorial-hands-on-3]
-* [Hands-on 4: Updating][tutorial-hands-on-4]
-
 [quick-start]: installing
+[learning-series]: learning-series
 [supply-chain-security]: reference/supply-chain
 [ignition-what]: provisioning/ignition/
 [ignition-boot]: provisioning/ignition/boot-process
@@ -261,11 +290,6 @@ Flatcar tutorial to deep dive into some Flatcar fundamental concepts.
 [kubernetes]: container-runtimes/getting-started-with-kubernetes
 [ha-kubernetes]: container-runtimes/high-availability-kubernetes
 [using-nvidia]: setup/customization/using-nvidia
-[tutorial-introduction]: tutorial/
-[tutorial-hands-on-1]: tutorial/hands-on-1
-[tutorial-hands-on-2]: tutorial/hands-on-2
-[tutorial-hands-on-3]: tutorial/hands-on-3
-[tutorial-hands-on-4]: tutorial/hands-on-4
 [scaleway]: installing/community-platforms/scaleway
 [ovhcloud]: installing/community-platforms/ovhcloud
 [akamai]: installing/cloud/akamai
