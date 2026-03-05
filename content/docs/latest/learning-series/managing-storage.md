@@ -334,7 +334,7 @@ Reboot the VM to verify the passphrase works:
 sudo reboot
 ```
 
-The VM will stop booting at the initrd stage and prompt for you passphrase.
+The VM will stop booting at the initrd stage and prompt for your passphrase.
 
 
 ### Done!

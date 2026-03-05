@@ -1,6 +1,6 @@
 ---
 title: "Flatcar Self-Paced Learning Series: Basic Operation and Local Testing"
-linktitle: Basic Contifuration and Testing
+linktitle: Basic Configuration and Testing
 weight: 1
 author: Lexi Nadolski, Thilo Fromm
 ---
@@ -8,7 +8,7 @@ author: Lexi Nadolski, Thilo Fromm
 Flatcar does only one thing: it runs container workloads.
 You can’t install anything (no package manager), nor are you supposed to ever interact with the OS outside automation.
 
-This session will set you up with Flatcar on your local maching and cover foundational basics.
+This session will set you up with Flatcar on your local machine and cover foundational basics.
 Don't worry, we'll use a Flatcar VM - your host is safe.
 Goal of this session is to create a foundation for all succeeding sessions in the series, and to provide a lightweight workflow to experiment and test configurations locally.
 You do not need to have any experience with Flatcar, and you'll need only very little Linux experience.
@@ -33,7 +33,7 @@ In this first session, you will learn:
 We will need a number of tools installed on your local laptop or workstation for this session.
 
 * On Mac, please install `homebrew`
-* On Windows, make sure [wsl 2](https://learn.microsoft.com/en-us/windows/wsl/install) is installed and a distribution is installed (the default Ubuntu will do fine).
+* On Windows, make sure [WSL 2](https://learn.microsoft.com/en-us/windows/wsl/install) is installed and a distribution is installed (the default Ubuntu will do fine).
 * Linux is generally fine; you should be able to install everything using your distribution's package manager.
 
 Using your  package manager, install:
@@ -78,13 +78,13 @@ cd flatcar
 Before we can use Flatcar locally we will need to download an OS image.
 You can find a list of all releases here: https://www.flatcar.org/releases/
 
-For the purpose of this session we will use the latest Alpha release of Flatcar's QEmu image.
+For the purpose of this session we will use the latest Alpha release of Flatcar's QEMU image.
 Don't worry - every Alpha release is thoroughly tested and must pass the same tests as Beta and Stable.
 
 On Mac and on Linux systems running on ARM64 hardware you will need to download ARM64 images; on Windows/WSL and Linux on x86 hardware we'll use x86-64 images (or `amd64` in Flatcar lingo).
 
 * The latest ARM64 Alpha release images are at https://alpha.release.flatcar-linux.net/arm64-usr/current/
-* Amd64 images are at https://alpha.release.flatcar-linux.net/amd-usr/current/
+* Amd64 images are at https://alpha.release.flatcar-linux.net/amd64-usr/current/
 
 We need to download the following files:
 
@@ -150,7 +150,7 @@ Note that you are automatically logged in as user `core`.
 `core` is an unprivileged user, but has password-less `sudo` access.
 You can switch to the `root` account at any time via
 ```
-sudo –i
+sudo -i
 ```
 
 You can now interactively explore Flatcar and look around a bit.
