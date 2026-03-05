@@ -139,7 +139,7 @@ Check it out!
 ls -la /
 ```
 
-Try creating a file sin `/usr`:
+Try creating a file in `/usr`:
 ```sh
 echo 'test' > /usr/testfile
 ```
@@ -527,8 +527,8 @@ Waits for e.g. 10 minutes]
     RD -- yes --> RN
 ```
 
-We will use a flag file, `/run//run/first-boot-healthy`, to signify that the boot is healthy (i.e. either 1. or 2. above returned successful).
-This allows us to flexibly use systemd`s `ConditionPathExists` unit conditions to wire up our logic as well as a [`path`](https://www.freedesktop.org/software/systemd/man/latest/systemd.path.html) unit to ultimately trigger the start of `update_engine`.
+We will use a flag file, `/run/first-boot-healthy`, to signify that the boot is healthy (i.e. either 1. or 2. above returned successful).
+This allows us to flexibly use systemd's `ConditionPathExists` unit conditions to wire up our logic as well as a [`path`](https://www.freedesktop.org/software/systemd/man/latest/systemd.path.html) unit to ultimately trigger the start of `update_engine`.
 
 Let's lay this out!
 
