@@ -93,20 +93,10 @@ We need to download the following files:
 * `flatcar_production_qemu_uefi_efi_vars.qcow2`
 * `flatcar_production_qemu_uefi_image.img`
 
-With a little bit of shell programming we can automate the above:
 ```sh
 # change this to 'amd64-usr' for intel and AMD systems
-url='https://alpha.release.flatcar-linux.net/arm64-usr/current/'
-```
-
-Then
-```sh
-for i in flatcar_production_qemu_uefi.sh \
-         flatcar_production_qemu_uefi_efi_code.qcow2 \
-         flatcar_production_qemu_uefi_efi_vars.qcow2 \
-         flatcar_production_qemu_uefi_image.img; do
-      wget $url$i
-done 
+arch="arm64-usr"
+wget https://alpha.release.flatcar-linux.net/"${arch}"/current/{flatcar_production_qemu_uefi.sh,flatcar_production_qemu_uefi_efi_code.qcow2,flatcar_production_qemu_uefi_efi_vars.qcow2,flatcar_production_qemu_uefi_image.img}
 
 chmod 755 flatcar_production_qemu_uefi.sh 
 ```
