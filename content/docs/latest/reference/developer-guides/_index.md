@@ -16,6 +16,7 @@ We also provide OEM functionality for cloud providers and similar use cases to c
 * [SDK build process][sdk-bootstrapping]
 * [Disk layout][disk-layout]
 * [Kola integration testing framework][mantle-utils]
+* [Release guide][release-guide]
 
 [sdk-tips]: sdk-tips-and-tricks
 [disk-layout]: sdk-disk-partitions
@@ -24,3 +25,4 @@ We also provide OEM functionality for cloud providers and similar use cases to c
 [kernel-modules]: kernel-modules
 [sdk-bootstrapping]: sdk-bootstrapping
 [mantle-utils]: https://github.com/flatcar/mantle/blob/flatcar-master/README.md#kola
+[release-guide]: release-guide
