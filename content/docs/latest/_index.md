@@ -202,14 +202,6 @@ APIs and troubleshooting guides for working with Flatcar Container Linux.
 * [Migrating from cloud-config to Container Linux Config][migrating-from-cloud-config]
 * [Flatcar Supply Chain Security (SLSA and SPDX SBOM)][supply-chain-security] detailing security mechanisms employed at build / release time as well as at run-time to ensure validity of inputs processed and outputs shipped.
 
-### Tutorial
-Flatcar tutorial to deep dive into some Flatcar fundamental concepts.
-* [Introduction][tutorial-introduction]
-* [Hands-on 1: Discovering][tutorial-hands-on-1]
-* [Hands-on 2: Provisioning][tutorial-hands-on-2]
-* [Hands-on 3: Deploying][tutorial-hands-on-3]
-* [Hands-on 4: Updating][tutorial-hands-on-4]
-
 [quick-start]: installing
 [learning-series]: learning-series
 [supply-chain-security]: reference/supply-chain
@@ -298,11 +290,6 @@ Flatcar tutorial to deep dive into some Flatcar fundamental concepts.
 [kubernetes]: container-runtimes/getting-started-with-kubernetes
 [ha-kubernetes]: container-runtimes/high-availability-kubernetes
 [using-nvidia]: setup/customization/using-nvidia
-[tutorial-introduction]: tutorial/
-[tutorial-hands-on-1]: tutorial/hands-on-1
-[tutorial-hands-on-2]: tutorial/hands-on-2
-[tutorial-hands-on-3]: tutorial/hands-on-3
-[tutorial-hands-on-4]: tutorial/hands-on-4
 [scaleway]: installing/community-platforms/scaleway
 [ovhcloud]: installing/community-platforms/ovhcloud
 [akamai]: installing/cloud/akamai
