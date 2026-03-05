@@ -90,7 +90,7 @@ cat webserver.yaml | docker run --rm -i quay.io/coreos/butane:latest > webserver
 
 Now start the VM with this configuration, and redirect host port 12345 to VM port 80:
 ```sh
-./flatcar_production_qemu_uefi.sh -i webserver.json -f 12345:80 -snapshot -nographic
+./flatcar_production_qemu_uefi.sh -i webserver.json -f 12345:80 -- -snapshot -nographic
 ```
 
 After a few seconds you should be able to connect to [http://localhost:12345](http://localhost:12345) on your local machine and marvel at the web page you've deployed.
@@ -261,7 +261,7 @@ cat webserver.yaml | docker run --rm -v "$(pwd):/files" -i quay.io/coreos/butane
 Did you fix it?
 Let's fire it up!
 ```sh
-./flatcar_production_qemu_uefi.sh -i webserver.json -f 12345:80 -snapshot -nographic
+./flatcar_production_qemu_uefi.sh -i webserver.json -f 12345:80 -- -snapshot -nographic
 ```
 
 # Securing our service: Users and Groups
@@ -415,7 +415,7 @@ cat webserver.yaml | docker run --rm -v "$(pwd):/files" -i quay.io/coreos/butane
 
 Let's run it:
 ```sh
-./flatcar_production_qemu_uefi.sh -i webserver.json -f 12345:80 -snapshot -nographic
+./flatcar_production_qemu_uefi.sh -i webserver.json -f 12345:80 -- -snapshot -nographic
 ```
 
 In the VM, verify that the user exists, and check access rights to the files we ship:
