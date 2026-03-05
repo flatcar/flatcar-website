@@ -94,9 +94,9 @@ We need to download the following files:
 * `flatcar_production_qemu_uefi_image.img`
 
 ```sh
-# change this to 'amd64-usr' for intel and AMD systems
-arch="arm64-usr"
-wget https://alpha.release.flatcar-linux.net/"${arch}"/current/{flatcar_production_qemu_uefi.sh,flatcar_production_qemu_uefi_efi_code.qcow2,flatcar_production_qemu_uefi_efi_vars.qcow2,flatcar_production_qemu_uefi_image.img}
+# change this to 'amd64' for intel and AMD systems
+arch="arm64"
+wget https://alpha.release.flatcar-linux.net/"${arch}"-usr/current/{flatcar_production_qemu_uefi.sh,flatcar_production_qemu_uefi_efi_code.qcow2,flatcar_production_qemu_uefi_efi_vars.qcow2,flatcar_production_qemu_uefi_image.img}
 
 chmod 755 flatcar_production_qemu_uefi.sh 
 ```
@@ -235,8 +235,12 @@ Now we start the VM again, with 2 new changes:
 - We’ll forward the local machine’s port 12345 to the VM’s port 80, so we can connect to the VM’s NGINX from your machine.
 
 ```
-./flatcar_production_qemu_uefi.sh -i nginx.json -f 12345:80 -nographic -snapshot 
+./flatcar_production_qemu_uefi.sh -i nginx.json -f 12345:80 -- -nographic -snapshot
 ```
+Did you note that an additional `--` snuck into our command line?
+That's because we're using _script options_ for the first time.
+These options (`-i nginx.json -f 12345:80`) go to the wrapper script `flatcar_production_qemu_uefi.sh`, while the others (`-nographic -snapshot`) are passed straight to `qemu`.
+It's not required to use `--`, but it improves the command's readability and understandability.
 
 The VM boots and after a short while you will be able to connect to [http://localhost:12345](http://localhost:12345) with a browser from your local machine and see the default NGINX web page.
 

@@ -48,12 +48,7 @@ arch='amd64'
 Then run
 
 ```sh
-for i in flatcar_production_qemu_uefi.sh \
-         flatcar_production_qemu_uefi_efi_code.qcow2 \
-         flatcar_production_qemu_uefi_efi_vars.qcow2 \
-         flatcar_production_qemu_uefi_image.img; do
-      wget https://alpha.release.flatcar-linux.net/$arch-usr/$release/$i
-done 
+wget https://alpha.release.flatcar-linux.net/"${arch}"-usr/"${release}"/{flatcar_production_qemu_uefi.sh,flatcar_production_qemu_uefi_efi_code.qcow2,flatcar_production_qemu_uefi_efi_vars.qcow2,flatcar_production_qemu_uefi_image.img}
 
 chmod 755 flatcar_production_qemu_uefi.sh 
 ```
@@ -115,7 +110,7 @@ systemd:
 Then transpile and start.
 ```sh
 cat nginx.yaml | docker run --rm -i quay.io/coreos/butane:latest > nginx.json 
-./flatcar_production_qemu_uefi.sh -i nginx.json -f 12345:80 -nographic -snapshot
+./flatcar_production_qemu_uefi.sh -i nginx.json -f 12345:80 -- -nographic -snapshot
 ```
 
 **NOTE** We'll require `root` access for most of what we do in this session, as we're introspecting sensitive areas of the system.
@@ -594,7 +589,7 @@ echo "First boot after upgrade detected"
 
 <br />
 
-The script will generate a file `/run//run/first-boot-healthy` only if this is NOT the first boot after an update.
+The script will generate a file `/run/first-boot-healthy` only if this is NOT the first boot after an update.
 
 We also need a corresponding service definition to run it.
 
@@ -613,7 +608,7 @@ We also need a corresponding service definition to run it.
 #### 2. Force a health check that ensures our critical service is running
 
 If step 1. did detect a first boot after upgrade, the system is not marked healthy yet.
-We can define a simple service unit that creates `/run//run/first-boot-healthy`.
+We can define a simple service unit that creates `/run/first-boot-healthy`.
 Users can then make their critical services depend on this unit, so all these need to start before our unit runs.
 
 Consider this service definition:
@@ -634,7 +629,7 @@ Consider this service definition:
         WantedBy=multi-user.target
 ```
 
-It runs after `is-first-boot-after-upgrade.service`, and it will only run when `/run//run/first-boot-healthy` hasn't been created yet.
+It runs after `is-first-boot-after-upgrade.service`, and it will only run when `/run/first-boot-healthy` hasn't been created yet.
 
 Users could now use
 
@@ -882,10 +877,10 @@ systemd:
 
 And don't forget to transpile 😉
 
-Start a fresh Flatcar VM from our second-to-last Beta release image.
+Start a fresh Flatcar VM from our second-to-last Alpha release image.
 
 ```sh
-./flatcar_production_qemu_uefi.sh -i nginx.json -f 12345:80 -nographic -snapshot
+./flatcar_production_qemu_uefi.sh -i nginx.json -f 12345:80 -- -nographic -snapshot
 ```
 
 After boot, become root (`sudo -i`).
