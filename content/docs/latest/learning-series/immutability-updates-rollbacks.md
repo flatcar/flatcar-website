@@ -1,5 +1,5 @@
 ---
-title: "Flatcar Self-Paced Learning Series: Immutable OS, Boot Process, In‐Place Updates, and Automating Roll-back"
+title: "Flatcar Self-Paced Learning Series: Immutable OS, Boot Process, In‐Place Updates, and Automating Rollback"
 linktitle: Updates, Roll-Backs, Immutability
 weight: 5
 author: Lexi Nadolski, Thilo Fromm
@@ -933,7 +933,7 @@ Flatcar Container Linux by Kinvolk alpha YYY for QEMU
 
 Rollback successful!
 
-Since we're now back to the previous version, step #1 above should mark the boot as healthy (so the instance does not continune to reboot).
+Since we're now back to the previous version, step #1 above should mark the boot as healthy (so the instance does not continue to reboot).
 Great job - we just built an automated roll-back into a known good environment when a critical service does not come up after an OS upgrade.
 
 ## Done!
