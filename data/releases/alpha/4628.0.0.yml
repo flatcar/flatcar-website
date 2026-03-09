@@ -1,10 +1,10 @@
 architectures:
 - amd64
 - arm64
-channel: stable
+channel: alpha
 github_release:
   assets: []
-  assets_url: https://api.github.com/repos/flatcar/scripts/releases/294704532/assets
+  assets_url: https://api.github.com/repos/flatcar/scripts/releases/294703816/assets
   author:
     avatar_url: https://avatars.githubusercontent.com/u/28657343?v=4
     events_url: https://api.github.com/users/tormath1/events{/privacy}
@@ -25,8 +25,8 @@ github_release:
     type: User
     url: https://api.github.com/users/tormath1
     user_view_type: public
-  body: "_Changes since **Stable 4459.2.3**_\r\n\r\n#### Security fixes:\r\n\r\n-\
-    \ Linux ([CVE-2026-23145](https://nvd.nist.gov/vuln/detail/CVE-2026-23145), [CVE-2026-23144](https://nvd.nist.gov/vuln/detail/CVE-2026-23144),\
+  body: "_Changes since **Alpha 4593.0.0**_\r\n\r\n#### Security fixes:\r\n\r\n- Linux\
+    \ ([CVE-2026-23145](https://nvd.nist.gov/vuln/detail/CVE-2026-23145), [CVE-2026-23144](https://nvd.nist.gov/vuln/detail/CVE-2026-23144),\
     \ [CVE-2026-23142](https://nvd.nist.gov/vuln/detail/CVE-2026-23142), [CVE-2026-23141](https://nvd.nist.gov/vuln/detail/CVE-2026-23141),\
     \ [CVE-2026-23054](https://nvd.nist.gov/vuln/detail/CVE-2026-23054), [CVE-2026-23053](https://nvd.nist.gov/vuln/detail/CVE-2026-23053),\
     \ [CVE-2026-23050](https://nvd.nist.gov/vuln/detail/CVE-2026-23050), [CVE-2026-23049](https://nvd.nist.gov/vuln/detail/CVE-2026-23049),\
@@ -133,40 +133,141 @@ github_release:
     \ [CVE-2026-23237](https://nvd.nist.gov/vuln/detail/CVE-2026-23237), [CVE-2026-23238](https://nvd.nist.gov/vuln/detail/CVE-2026-23238),\
     \ [CVE-2026-23236](https://nvd.nist.gov/vuln/detail/CVE-2026-23236), [CVE-2026-23235](https://nvd.nist.gov/vuln/detail/CVE-2026-23235),\
     \ [CVE-2026-23234](https://nvd.nist.gov/vuln/detail/CVE-2026-23234), [CVE-2026-23233](https://nvd.nist.gov/vuln/detail/CVE-2026-23233),\
-    \ [CVE-2025-71238](https://nvd.nist.gov/vuln/detail/CVE-2025-71238))\r\n- openssh\
-    \ ([CVE-2025-61984](https://www.cve.org/CVERecord?id=CVE-2025-61984), [CVE-2025-61985](https://www.cve.org/CVERecord?id=CVE-2025-61985))\r\
-    \n\r\n\r\n#### Updates:\r\n\r\n- base, dev: openssh ([10.2_p1](https://www.openssh.com/txt/release-10.2)\
-    \ (includes [10.1](https://www.openssh.com/txt/release-10.1)))\r\n- ca-certificates\
-    \ ([3.120.1](https://firefox-source-docs.mozilla.org/security/nss/releases/nss_3_120_1.html))\r\
+    \ [CVE-2025-71238](https://nvd.nist.gov/vuln/detail/CVE-2025-71238))\r\n- bind\
+    \ ([CVE-2025-40778](https://www.cve.org/CVERecord?id=CVE-2025-40778), [CVE-2025-40780](https://www.cve.org/CVERecord?id=CVE-2025-40780),\
+    \ [CVE-2025-8677](https://www.cve.org/CVERecord?id=CVE-2025-8677))\r\n- gnutls\
+    \ ([CVE-2025-9820](https://www.cve.org/CVERecord?id=CVE-2025-9820))\r\n- go ([CVE-2025-61727](https://www.cve.org/CVERecord?id=CVE-2025-61727),\
+    \ [CVE-2025-61729](https://www.cve.org/CVERecord?id=CVE-2025-61729))\r\n- libarchive\
+    \ ([CVE-2025-60753](https://www.cve.org/CVERecord?id=CVE-2025-60753))\r\n- podman\
+    \ ([CVE-2025-9566](https://www.cve.org/CVERecord?id=CVE-2025-9566), [CVE-2025-52881](https://www.cve.org/CVERecord?id=CVE-2025-52881))\r\
+    \n- urllib3 ([CVE-2025-66418](https://www.cve.org/CVERecord?id=CVE-2025-66418),\
+    \ [CVE-2025-66471](https://www.cve.org/CVERecord?id=CVE-2025-66471), [2026-21441](https://www.cve.org/CVERecord?id=CVE-2026-21441))\r\
+    \n\r\n#### Bug fixes:\r\n\r\n- Added full terminfo database to support modern\
+    \ terminals like foot and Alacritty.\r\n- Enabled back PAM sssd support for LDAP\
+    \ authentication ([scripts#3696](https://github.com/flatcar/scripts/pull/3696))\r\
+    \n\r\n#### Changes:\r\n\r\n- Dropped the \"Oklo\" release codename as it was never\
+    \ updated in a meaningful way.\r\n- Function tracer (ftrace) enabled in ARM64\
+    \ builds. (Enables CONFIG_FUNCTION_TRACER & CONFIG_DYNAMIC_FTRACE for observability\
+    \ and security tools) ([flatcar/scripts#3685](https://github.com/flatcar/scripts/pull/3685))\r\
+    \n- Moved systemd-sysext image mounting into the initrd, so that system extensions\
+    \ can better define the behavior of the final system at boot without workarounds\
+    \ to apply settings late at boot. This means `.wants` symlinks for systemd units\
+    \ work as expected now and, therefore, we dropped the `ensure-sysext.service`\
+    \ workaround. We still recommend extensions to keep their workarounds, e.g., using\
+    \ `.upholds` instead of `.wants`, to better support live reloading. A skipping\
+    \ logic prevents an extension refresh late at boot but only if no changes were\
+    \ found. For extensions that are not stored on a custom filesystem, such as a\
+    \ separate `/var` partition, the new extension mounting from the initrd won't\
+    \ be able to load them early but they will be picked up late at boot through the\
+    \ extension refresh. This is another case where it's good if extensions keep workarounds\
+    \ for late loading.\r\n- OS-dependent sysexts (e.g., docker-flatcar, containerd-flatcar,\
+    \ podman, zfs, nvidia) are now cryptographically signed using dm-verity roothash\
+    \ signatures. This enables stricter sysext policies via systemd-sysext and provides\
+    \ a foundation for verifying user-provided extensions in future releases. The\
+    \ format changed from squashfs to erofs-based Discoverable Disk Images (DDI).\
+    \ OEM sysexts (e.g., oem-azure, oem-gce) are now also signed and built during\
+    \ the image phase to ensure consistent signing with the same ephemeral key. ([scripts#3162](https://github.com/flatcar/scripts/pull/3162))\r\
+    \n- Switched `/etc/` from a custom overlayfs for A/B updates to using a systemd-confext\
+    \ extension providing the default contents by using systemd-confext in the mutable\
+    \ mode where `/etc/` gets used as upperdir [scripts#3555](https://github.com/flatcar/scripts/pull/3555)\r\
+    \n\r\n#### Updates:\r\n\r\n- azure, dev, sysext-python: urllib3 ([2.6.3](https://raw.githubusercontent.com/urllib3/urllib3/refs/tags/2.6.3/CHANGES.rst))\r\
+    \n- base, dev: bash ([5.3_p9](https://cgit.git.savannah.gnu.org/cgit/bash.git/log/?id=637f5c8696a6adc9b4519f1cd74aa78492266b7f))\r\
+    \n- base, dev: bind ([9.18.42](https://bind9.readthedocs.io/en/v9.18.42/notes.html#notes-for-bind-9-18-42))\r\
+    \n- base, dev: binutils-config ([5.6](https://gitweb.gentoo.org/proj/binutils-config.git/log/?h=v5.6))\r\
+    \n- base, dev: btrfs-progs ([6.17.1](https://github.com/kdave/btrfs-progs/releases/tag/v6.17.1))\r\
+    \n- base, dev: ca-certificates ([3.120.1](https://firefox-source-docs.mozilla.org/security/nss/releases/nss_3_120_1.html))\r\
+    \n- base, dev: coreutils ([9.9](https://lists.gnu.org/archive/html/coreutils-announce/2025-11/msg00000.html))\r\
+    \n- base, dev: cri-tools ([1.33.0](https://github.com/kubernetes-sigs/cri-tools/releases/tag/v1.33.0))\r\
+    \n- base, dev: curl ([8.17.0](https://curl.se/ch/8.17.0.html))\r\n- base, dev:\
+    \ elfutils ([0.194](https://inbox.sourceware.org/elfutils-devel/CAJDtP-S0rYAOZQeDZvMtPkQztgK9RboWtYwpqNLCNGNdaSGn-A@mail.gmail.com/T/#u))\r\
+    \n- base, dev: git ([2.52.0](https://raw.githubusercontent.com/git/git/refs/tags/v2.52.0/Documentation/RelNotes/2.52.0.adoc))\r\
+    \n- base, dev: gnutls ([3.8.11](https://lists.gnu.org/archive/html/info-gnu/2025-11/msg00003.html))\r\
+    \n- base, dev: kexec-tools ([2.0.32](https://github.com/horms/kexec-tools/commits/v2.0.32/))\r\
+    \n- base, dev: libarchive ([3.8.5](https://github.com/libarchive/libarchive/releases/tag/v3.8.5)\
+    \ (includes [3.8.4](https://github.com/libarchive/libarchive/releases/tag/v3.8.4),\
+    \ [3.8.3](https://github.com/libarchive/libarchive/releases/tag/v3.8.3), [3.8.2](https://github.com/libarchive/libarchive/releases/tag/v3.8.2)))\r\
+    \n- base, dev: libcap ([2.77](https://sites.google.com/site/fullycapable/release-notes-for-libcap#h.mr55t4z9vzea))\r\
+    \n- base, dev: libnftnl ([1.3.1](https://lwn.net/Articles/1049279/))\r\n- base,\
+    \ dev: libnl ([3.11.0](https://lists.infradead.org/pipermail/libnl/2024-October/002441.html))\r\
+    \n- base, dev: libnvme ([1.16.1](https://github.com/linux-nvme/libnvme/releases/tag/v1.16.1)\
+    \ (includes [1.16](https://github.com/linux-nvme/libnvme/releases/tag/v1.16)))\r\
+    \n- base, dev: libpcre2 ([10.47](https://github.com/PCRE2Project/pcre2/releases/tag/pcre2-10.47))\r\
+    \n- base, dev: libxml2 ([2.15.1](https://gitlab.gnome.org/GNOME/libxml2/-/releases/v2.15.1)\
+    \ (includes [2.15.0](https://gitlab.gnome.org/GNOME/libxml2/-/releases/v2.15.0)))\r\
+    \n- base, dev: nvme-cli ([2.16](https://github.com/linux-nvme/nvme-cli/releases/tag/v2.16))\r\
+    \n- base, dev: pambase ([20251104](https://gitweb.gentoo.org/proj/pambase.git/log/?h=pambase-20251104))\r\
+    \n- base, dev: readline ([8.3_p3](https://cgit.git.savannah.gnu.org/cgit/readline.git/log/?id=553d6bb272f26400d6d4d1cac7c1df84c447449b))\r\
+    \n- base, dev: selinux-base ([2.20250618](https://github.com/SELinuxProject/refpolicy/releases/tag/RELEASE_2_20250618))\r\
+    \n- base, dev: systemd ([258.2](https://github.com/systemd/systemd/releases/tag/v258))\r\
+    \n- base, dev: thin-provisioning-tools ([1.3.1](https://raw.githubusercontent.com/device-mapper-utils/thin-provisioning-tools/refs/tags/v1.3.1/CHANGES))\r\
+    \n- base, dev: usbutils ([019](https://git.kernel.org/pub/scm/linux/kernel/git/gregkh/usbutils.git/plain/NEWS?h=v019))\r\
+    \n- base, dev: userspace-rcu ([0.15.5](https://lwn.net/Articles/1046059/))\r\n\
+    - base, dev: xfsprogs ([6.17.0](https://web.git.kernel.org/pub/scm/fs/xfs/xfsprogs-dev.git/plain/doc/CHANGES?h=v6.17.0))\r\
+    \n- dev: bash-completion ([2.17.0](https://github.com/scop/bash-completion/releases/tag/2.17.0))\r\
+    \n- dev: binutils ([2.45.1](https://sourceware.org/pipermail/binutils/2025-November/145592.html))\r\
+    \n- dev: cJSON ([1.7.19](https://github.com/DaveGamble/cJSON/releases/tag/v1.7.19))\r\
+    \n- dev: gcc-config ([2.12.2](https://gitweb.gentoo.org/proj/gcc-config.git/log/?h=v2.12.2))\r\
+    \n- dev: portage ([3.0.72](https://gitweb.gentoo.org/proj/portage.git/plain/NEWS?h=portage-3.0.72)\
+    \ (includes [3.0.71](https://gitweb.gentoo.org/proj/portage.git/plain/NEWS?h=portage-3.0.71),\
+    \ [3.0.70](https://gitweb.gentoo.org/proj/portage.git/plain/NEWS?h=portage-3.0.70)))\r\
+    \n- dev, sysext-incus: squashfs-tools ([4.7.4](https://github.com/plougher/squashfs-tools/releases?q=4.7.4))\r\
     \n- Linux ([6.12.74](https://git.kernel.org/pub/scm/linux/kernel/git/stable/linux.git/tag/?h=v6.12.74)\
-    \ (includes [6.12.73](https://git.kernel.org/pub/scm/linux/kernel/git/stable/linux.git/tag/?h=v6.12.73),\
-    \ [6.12.72](https://git.kernel.org/pub/scm/linux/kernel/git/stable/linux.git/tag/?h=v6.12.72),\
+    \ (includes [6.12.73](https://lwn.net/Articles/1059031),[6.12.72](https://git.kernel.org/pub/scm/linux/kernel/git/stable/linux.git/tag/?h=v6.12.72),\
     \ [6.12.71](https://git.kernel.org/pub/scm/linux/kernel/git/stable/linux.git/tag/?h=v6.12.71),\
     \ [6.12.70](https://git.kernel.org/pub/scm/linux/kernel/git/stable/linux.git/tag/?h=v6.12.70),\
     \ [6.12.69](https://git.kernel.org/pub/scm/linux/kernel/git/stable/linux.git/tag/?h=v6.12.69),\
     \ [6.12.68](https://git.kernel.org/pub/scm/linux/kernel/git/stable/linux.git/tag/?h=v6.12.68),\
-    \ [6.12.67](https://git.kernel.org/pub/scm/linux/kernel/git/stable/linux.git/tag/?h=v6.12.67)))"
-  created_at: '2026-03-03T09:41:49Z'
+    \ [6.12.67](https://git.kernel.org/pub/scm/linux/kernel/git/stable/linux.git/tag/?h=v6.12.67)))\r\
+    \n- Linux Firmware ([20260110](https://git.kernel.org/pub/scm/linux/kernel/git/firmware/linux-firmware.git/tag/?h=20260110))\r\
+    \n- open-vm-tools ([13.0.10](https://github.com/vmware/open-vm-tools/releases/tag/stable-13.0.10))\r\
+    \n- SDK: cmake ([4.1.4](https://cmake.org/cmake/help/v4.1/release/4.1.html#updates))\r\
+    \n- SDK: crossdev ([20251214](https://gitweb.gentoo.org/proj/crossdev.git/log/?h=20251214))\r\
+    \n- SDK: go ([1.25.5](https://go.dev/doc/devel/release#go1.25.minor))\r\n- SDK:\
+    \ perl ([5.42.0](https://perldoc.perl.org/perl5420delta))\r\n- SDK: rust ([1.91.0](https://blog.rust-lang.org/2025/10/30/Rust-1.91.0/)\
+    \ (includes [1.90.0](https://blog.rust-lang.org/2025/09/18/Rust-1.90.0/)))\r\n\
+    - sysext-containerd: containerd ([2.2.0](https://github.com/containerd/containerd/releases/tag/v2.2.0))\r\
+    \n- sysext-containerd: runc ([1.4.0](https://github.com/opencontainers/runc/releases/tag/v1.4.0))\r\
+    \n- sysext-docker: docker ([28.2.2](https://github.com/moby/moby/releases/tag/v28.2.2)\
+    \ (includes [28.2.1](https://github.com/moby/moby/releases/tag/v28.2.1), [28.2.0](https://github.com/moby/moby/releases/tag/v28.2.0),\
+    \ [28.1.1](https://github.com/moby/moby/releases/tag/v28.1.1), [28.1.0](https://github.com/moby/moby/releases/tag/v28.1.0)))\r\
+    \n- sysext-docker: docker-cli ([28.4.0](https://github.com/moby/moby/releases/tag/v28.4.0)\
+    \ (includes [28.3.0](https://github.com/moby/moby/releases/tag/v28.3.0), [28.2.0](https://github.com/moby/moby/releases/tag/v28.2.0),\
+    \ [28.1.0](https://github.com/moby/moby/releases/tag/v28.1.0)))\r\n- sysext-incus:\
+    \ incus ([6.0.5](https://discuss.linuxcontainers.org/t/incus-6-0-5-lts-has-been-released/24445))\r\
+    \n- sysext-incus: lxc ([6.0.5](https://discuss.linuxcontainers.org/t/lxc-6-0-5-lts-has-been-released/24438))\r\
+    \n- sysext-incus: lxcfs ([6.0.5](https://discuss.linuxcontainers.org/t/lxcfs-6-0-5-lts-has-been-released/24437))\r\
+    \n- sysext-nvidia-drivers-570, sysext-nvidia-drivers-570-open: nvidia-drivers\
+    \ (570.207)\r\n- sysext-podman: containers-image ([5.35.0](https://github.com/containers/image/releases/tag/v5.35.0))\r\
+    \n- sysext-podman: podman ([5.7.0](https://github.com/containers/podman/releases/tag/v5.7.0)\
+    \ (includes [5.6.0](https://github.com/containers/podman/releases/tag/v5.6.0)))\r\
+    \n- sysext-python: charset-normalizer ([3.4.4](https://github.com/jawah/charset_normalizer/releases/tag/3.4.4))\r\
+    \n- sysext-python: idna ([3.11](https://github.com/kjd/idna/releases/tag/v3.11))\r\
+    \n- sysext-python: msgpack ([1.1.2](https://github.com/msgpack/msgpack-python/releases/tag/v1.1.2))\r\
+    \n- sysext-python: pip ([25.3](https://github.com/pypa/pip/blob/25.3/NEWS.rst))\r\
+    \n- sysext-python: setuptools-scm ([9.2.2](https://github.com/pypa/setuptools-scm/releases/tag/v9.2.2))\r\
+    \n- sysext-python: trove-classifiers ([2025.11.14.15](https://github.com/pypa/trove-classifiers/releases/tag/2025.11.14.15))\r\
+    \n- sysext-zfs: zfs ([2.3.4](https://github.com/openzfs/zfs/releases/tag/zfs-2.3.4))"
+  created_at: '2026-03-05T12:19:11Z'
   draft: false
-  html_url: https://github.com/flatcar/scripts/releases/tag/stable-4459.2.4
-  id: 294704532
+  html_url: https://github.com/flatcar/scripts/releases/tag/alpha-4628.0.0
+  id: 294703816
   immutable: false
   name: ''
-  node_id: RE_kwDOB2MTHs4RkNWU
+  node_id: RE_kwDOB2MTHs4RkNLI
   prerelease: false
-  published_at: '2026-03-09T13:30:55Z'
-  tag_name: stable-4459.2.4
-  tarball_url: https://api.github.com/repos/flatcar/scripts/tarball/stable-4459.2.4
+  published_at: '2026-03-09T13:29:55Z'
+  tag_name: alpha-4628.0.0
+  tarball_url: https://api.github.com/repos/flatcar/scripts/tarball/alpha-4628.0.0
   target_commitish: main
-  updated_at: '2026-03-09T13:30:55Z'
-  upload_url: https://uploads.github.com/repos/flatcar/scripts/releases/294704532/assets{?name,label}
-  url: https://api.github.com/repos/flatcar/scripts/releases/294704532
-  zipball_url: https://api.github.com/repos/flatcar/scripts/zipball/stable-4459.2.4
+  updated_at: '2026-03-09T13:29:55Z'
+  upload_url: https://uploads.github.com/repos/flatcar/scripts/releases/294703816/assets{?name,label}
+  url: https://api.github.com/repos/flatcar/scripts/releases/294703816
+  zipball_url: https://api.github.com/repos/flatcar/scripts/zipball/alpha-4628.0.0
 image_packages:
-  containerd: 2.0.7
-  docker: 28.0.4
-  ignition: 2.22.0
+  containerd: 2.2.0
+  docker: 28.2.2
+  ignition: 2.24.0
   kernel: 6.12.74
-  systemd: '256'
-release: current
-version: 4459.2.4
+  systemd: '258'
+release: 4628.0.0
+version: 4628.0.0
