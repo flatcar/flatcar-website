@@ -187,6 +187,34 @@ $sideBarWidth: 350px;
     padding: 1rem;
   }
 
+  .code-block {
+    margin-bottom: 1rem;
+    overflow-x: auto;
+
+    .highlight {
+      margin-bottom: 0;
+    }
+
+    pre {
+      padding-bottom: 0;
+    }
+
+    .btn-copy {
+      background: none;
+      border: none !important;
+      color: #908caa;
+      line-height: 1;
+      padding: 0.25rem 0.5rem;
+      z-index: 1;
+      font-size: 0.875rem;
+      cursor: pointer;
+
+      &:hover {
+        color: #e0def4;
+      }
+    }
+  }
+
   p {
     margin-bottom: 1rem;
   }
