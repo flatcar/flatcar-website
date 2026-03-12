@@ -80,6 +80,29 @@ function getCookie(cname) {
   return "";
 }
 
+// Copy button for code blocks
+document.querySelectorAll('.code-block .btn-copy').forEach(function(btn) {
+  btn.addEventListener('click', function() {
+    var code = btn.closest('.code-block').querySelector('code');
+    if (!code) return;
+    navigator.clipboard.writeText(code.textContent).then(function() {
+      btn.innerHTML = '<i class="fa-solid fa-check"></i>';
+      setTimeout(function() {
+        btn.innerHTML = '<i class="fa-regular fa-copy"></i>';
+      }, 2000);
+    });
+  });
+});
+
+// Copy code for codenew shortcode
+function copyCode(id) {
+  var el = document.getElementById(id);
+  if (!el) return;
+  var code = el.querySelector('td code') || el.querySelector('code');
+  if (!code) return;
+  navigator.clipboard.writeText(code.textContent).then(function() {});
+}
+
 document.querySelectorAll(".contact-cookies-consent-notice").forEach(
   function (item) {
     if (getCookie("cookieconsent_status") !== "allow") {
