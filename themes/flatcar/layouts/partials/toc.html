@@ -2,7 +2,10 @@
 {{ if not .Params.notoc }}
 {{ with .TableOfContents }}
 {{ if ge (len .) 200 }}
-{{ . }}
+<div class="toc-wrapper">
+  <div class="toc-header">ON THIS PAGE</div>
+  {{ . }}
+</div>
 {{ end }}
 {{ end }}
 {{ end }}
