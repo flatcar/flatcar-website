@@ -1,202 +1,264 @@
-// ==========================================
-// Based on: https://gist.github.com/cmod/5410eae147e4318164258742dd053993
-//
+// Modal search powered by Pagefind
+(function() {
+  var searchWrapper = document.getElementById('search-wrapper');
+  if (!searchWrapper) return;
 
-var fuse; // holds our search engine
-var indexes = {};
-var lunars = {};
-var searchVisible = false;
-var firstRun = true; // allow us to delay loading json data unless search activated
-var list = document.getElementById('searchResultsList'); // targets the <ul>
-var first = list.firstChild; // first child of search list
-var last = list.lastChild; // last child of search list
-var maininput = document.getElementById('searchInput'); // input box for search
-var searchResults = document.getElementById("searchResults");
-var resultsAvailable = false; // Did we get any search results?
+  var searchToggle = document.getElementById('search-toggle');
+  var searchInput = document.getElementById('searchbar');
+  var searchResults = document.getElementById('searchresults');
+  var searchResultsHeader = document.getElementById('searchresults-header');
+  var searchOverlay = searchWrapper.querySelector('.search-overlay');
+  var pagefind = null;
+  var version = searchWrapper.dataset.searchVersion;
+  var currentQuery = '';
 
-// ==========================================
-// The main keyboard event listener running the show
-//
-document.addEventListener('keydown', function(event) {
-  // Typing / focuses search
-  if (event.key === '/') {
-      // Load json search index if first time invoking search
-      // Means we don't load json unless searches are going to happen; keep user payload small unless needed
-
-
-      // Toggle visibility of search box
-      if (!searchVisible) {
-        maininput.focus(); // put focus in input box so you can just start typing
-        searchVisible = true; // search visible
-        event.preventDefault();
-        maininput.value = '';
-      }
-      // else {
-      //   searchResults.style.visibility = "hidden"; // hide search box
-      //   document.activeElement.blur(); // remove focus from search box
-      //   searchVisible = false; // search not visible
-      // }
+  // Append highlight param to a URL
+  function addHighlight(url, query) {
+    if (!query) return url;
+    var separator = url.indexOf('?') === -1 ? '?' : '&';
+    return url + separator + 'highlight=' + encodeURIComponent(query);
   }
 
-  // Close search box
-  if (event.key === 'Escape') {
-    if (searchVisible) {
-      maininput.value = '';
-      searchResults.style.visibility = "hidden";
-      document.activeElement.blur();
-      searchVisible = false;
-    }
+  function openSearch() {
+    searchWrapper.classList.remove('hidden');
+    searchToggle.setAttribute('aria-expanded', 'true');
+    searchInput.focus();
+    searchInput.select();
+    document.body.style.overflow = 'hidden';
   }
 
-  // Next result
-  if (event.key === 'ArrowDown') {
-    if (resultsAvailable) {
-      event.preventDefault(); // stop window from scrolling
-      if ( document.activeElement == maininput) { first.focus(); } // if the currently focused element is the main input --> focus the first <li>
-      else if ( document.activeElement == last ) { last.focus(); } // if we're at the bottom, stay there
-      else { document.activeElement.parentElement.nextSibling.firstElementChild.focus(); } // otherwise select the next search result
-    }
+  function closeSearch() {
+    searchWrapper.classList.add('hidden');
+    searchToggle.setAttribute('aria-expanded', 'false');
+    searchInput.value = '';
+    searchInput.removeAttribute('aria-activedescendant');
+    searchResults.innerHTML = '';
+    searchResultsHeader.textContent = '';
+    document.body.style.overflow = '';
+    currentQuery = '';
   }
 
-  // Previous result
-  if (event.key === 'ArrowUp') {
-    if (resultsAvailable) {
-      event.preventDefault(); // stop window from scrolling
-      if ( document.activeElement == maininput) { maininput.focus(); } // If we're in the input box, do nothing
-      else if ( document.activeElement == first) { maininput.focus(); } // If we're at the first item, go to input box
-      else { document.activeElement.parentElement.previousSibling.firstElementChild.focus(); } // Otherwise, select the search result above the current active one
-    }
+  async function initPagefind() {
+    if (pagefind) return;
+    pagefind = await import('/pagefind/pagefind.js');
+    await pagefind.init();
   }
-});
 
+  async function doSearch(query) {
+    currentQuery = query;
 
-// ==========================================
-// execute search as each character is typed
-//
-let searchThrottleId = -1;
-maininput.onkeyup = function(e) {
-  if (e.code.startsWith('Key')) {
-    if (!fuse && firstRun) {
-      loadSearch(); // loads our json data and builds fuse.js search index
-      firstRun = false; // let's never do this again
+    if (!query) {
+      searchResults.innerHTML = '';
+      searchResultsHeader.textContent = '';
+      searchInput.removeAttribute('aria-activedescendant');
       return;
     }
 
-    if (searchThrottleId >= 0) {
-      clearTimeout(searchThrottleId);
+    await initPagefind();
+
+    var filters = version ? { version: [version] } : {};
+    var search = await pagefind.search(query, { filters: filters });
+
+    if (search.results.length === 0) {
+      searchResultsHeader.textContent = 'No results found.';
+      searchResults.innerHTML = '';
+      searchInput.removeAttribute('aria-activedescendant');
+      return;
     }
-    searchThrottleId = setTimeout(() => {
-      searchThrottleId = -1;
-      searchVisible = true;
-      executeSearch(this.value);
-    },
-    150);
+
+    searchResultsHeader.textContent = search.results.length + ' result' + (search.results.length === 1 ? '' : 's') + ' found';
+
+    // Load first 20 results
+    var results = await Promise.all(search.results.slice(0, 20).map(function(r) { return r.data(); }));
+    var html = '';
+    for (var i = 0; i < results.length; i++) {
+      var result = results[i];
+      var href = addHighlight(result.url, query);
+      html += '<li class="search-result" role="option" id="search-result-' + i + '">' +
+        '<a href="' + href + '" tabindex="-1">' +
+          '<span class="search-result-title">' + result.meta.title + '</span>' +
+          '<span class="search-result-excerpt">' + result.excerpt + '</span>' +
+        '</a>' +
+      '</li>';
+    }
+    searchResults.innerHTML = html;
+    searchInput.removeAttribute('aria-activedescendant');
   }
-}
 
+  // Debounced search
+  var searchTimeout = -1;
+  searchInput.addEventListener('input', function() {
+    if (searchTimeout >= 0) clearTimeout(searchTimeout);
+    searchTimeout = setTimeout(function() {
+      searchTimeout = -1;
+      doSearch(searchInput.value);
+    }, 150);
+  });
 
-// ==========================================
-// fetch some json without jquery
-//
-function fetchJSONFile(path, callback) {
-  var httpRequest = new XMLHttpRequest();
-  httpRequest.onreadystatechange = function() {
-    if (httpRequest.readyState === 4) {
-      if (httpRequest.status === 200) {
-        var data = JSON.parse(httpRequest.responseText);
-          if (callback) callback(data);
-      }
-    }
-  };
-  httpRequest.open('GET', path);
-  httpRequest.send();
-}
+  // Open search
+  searchToggle.addEventListener('click', function(e) {
+    e.preventDefault();
+    openSearch();
+  });
 
+  // Close on overlay click
+  searchOverlay.addEventListener('click', closeSearch);
 
-// ==========================================
-// load our search index, only executed once
-// on first call of search box (CMD-/)
-//
-function loadSearch() {
-  let searchTerms = maininput.value;
-  if (!!searchTerms && !resultsAvailable) {
-    list.innerHTML = '<li class="no-results">Searching…</li>';
-  }
-  fetchJSONFile((window.location.baseurl || '') + '/index.json', function(data) {
-    index = data;
-
-    function makeIndex(version, data) {
-      return lunr(function() {
-        this.ref('permalink');
-        this.field('title');
-        this.field('permalink');
-        this.field('categories');
-        this.field('contentList');
-        this.field('tags');
-        data[version].forEach(p => {
-          let index = indexes[version] || {};
-          index[p.permalink] = p
-          indexes[version] = index
-
-          this.add(p);
-        });
-      });
-    }
-
-    Object.keys(data).forEach(version => {
-      lunars[version] = makeIndex(version, data);
-    });
-
-    // Let's a seach here because we may have taken a while to fetch all the info.
-    let searchTerms = maininput.value;
-    if (!!searchTerms && !resultsAvailable) {
-      executeSearch(searchTerms);
+  // Close on result link click
+  searchResults.addEventListener('click', function(e) {
+    if (e.target.tagName === 'A' || e.target.closest('a')) {
+      closeSearch();
     }
   });
-}
 
+  // Keyboard shortcuts
+  document.addEventListener('keydown', function(e) {
+    var isOpen = !searchWrapper.classList.contains('hidden');
 
-// ==========================================
-// using the index we loaded on CMD-/, run
-// a search query (for "term") every time a letter is typed
-// in the search box
-//
-function executeSearch(term) {
-  if (Object.keys(lunars).length === 0) {
-    return;
-  }
+    // "S" to open search (only when not in an input/textarea/contenteditable)
+    if ((e.key === 's' || e.key === 'S') && !e.ctrlKey && !e.metaKey && !e.altKey && !isOpen) {
+      var el = document.activeElement;
+      var tag = el.tagName;
+      if (tag !== 'INPUT' && tag !== 'TEXTAREA' && tag !== 'SELECT' && !el.isContentEditable) {
+        e.preventDefault();
+        openSearch();
+      }
+    }
 
-  searchResults.style.visibility = "visible";
+    // Escape to close
+    if (e.key === 'Escape' && isOpen) {
+      closeSearch();
+    }
 
-  let version = maininput.dataset.searchVersion;
+    // Arrow key navigation and Enter within results
+    if (isOpen) {
+      var items = searchResults.querySelectorAll('.search-result a');
+      if (items.length === 0) return;
 
-  if (!resultsAvailable) {
-    list.innerHTML = '<li class="no-results">Searching…</li>';
-  }
+      var focused = document.activeElement;
+      var currentIndex = Array.prototype.indexOf.call(items, focused);
 
-  let results = lunars[version].search(term + '*');
-  let searchitems = ''; // our results bucket
-
-  if (results.length === 0) { // no results based on what was typed into the input box
-    resultsAvailable = false;
-    searchitems = '<li class="no-results">No results. Try different search terms.</li>';
-  } else { // build our html
-    for (let result of results.slice(0,100)) {
-      let item = indexes[version][result.ref];
-      if (item.title === 0) {
-        continue;
+      if (e.key === 'ArrowDown') {
+        e.preventDefault();
+        var nextIndex;
+        if (focused === searchInput) {
+          nextIndex = 0;
+        } else if (currentIndex >= 0 && currentIndex < items.length - 1) {
+          nextIndex = currentIndex + 1;
+        }
+        if (nextIndex !== undefined) {
+          items[nextIndex].focus();
+          items[nextIndex].scrollIntoView({ block: 'nearest' });
+          searchInput.setAttribute('aria-activedescendant', 'search-result-' + nextIndex);
+        }
       }
 
-      let contents = `<span class="contents">${item.contentList.slice(0, 100).join(' ')}<span>`
-      searchitems += `<li><a href="${item.permalink}" tabindex="0"><span class="title">${item.title}</span><br />${contents}</a></li>`;
+      if (e.key === 'ArrowUp') {
+        e.preventDefault();
+        if (currentIndex === 0) {
+          searchInput.focus();
+          searchInput.removeAttribute('aria-activedescendant');
+        } else if (currentIndex > 0) {
+          var prevIndex = currentIndex - 1;
+          items[prevIndex].focus();
+          items[prevIndex].scrollIntoView({ block: 'nearest' });
+          searchInput.setAttribute('aria-activedescendant', 'search-result-' + prevIndex);
+        }
+      }
+
+      // Enter on focused result
+      if (e.key === 'Enter') {
+        if (currentIndex >= 0) {
+          items[currentIndex].click();
+        } else if (focused === searchInput && items.length > 0) {
+          window.location.href = items[0].href;
+        }
+      }
     }
-    resultsAvailable = true;
+  });
+
+  // === Highlight on page load ===
+  // When arriving on a page with ?highlight=term, highlight all instances in the content
+  var params = new URLSearchParams(window.location.search);
+  var highlightTerm = params.get('highlight');
+  if (highlightTerm) {
+    var content = document.querySelector('[data-pagefind-body]') || document.querySelector('.td-content');
+    if (content) {
+      highlightInElement(content, highlightTerm);
+
+      // Scroll to first highlight
+      var firstMark = content.querySelector('mark.search-highlight');
+      if (firstMark) {
+        firstMark.scrollIntoView({ block: 'center', behavior: 'smooth' });
+      }
+
+      // Add a dismiss bar
+      var bar = document.createElement('div');
+      bar.className = 'search-highlight-bar';
+      bar.innerHTML = '<span>Highlighted: <strong>' + escapeHtml(highlightTerm) + '</strong></span>' +
+        '<button type="button" aria-label="Clear highlights">Clear</button>';
+      bar.querySelector('button').addEventListener('click', function() {
+        clearHighlights(content);
+        bar.remove();
+        // Remove highlight param from URL
+        var url = new URL(window.location);
+        url.searchParams.delete('highlight');
+        history.replaceState(null, '', url.toString());
+      });
+      content.parentElement.insertBefore(bar, content);
+    }
   }
 
-  list.innerHTML = searchitems;
-  if (results.length > 0) {
-    first = list.firstChild.firstElementChild; // first result container — used for checking against keyboard up/down location
-    last = list.lastChild.firstElementChild; // last result container — used for checking against keyboard up/down location
+  function escapeHtml(str) {
+    var div = document.createElement('div');
+    div.textContent = str;
+    return div.innerHTML;
   }
-}
 
+  function highlightInElement(el, term) {
+    var words = term.trim().split(/\s+/);
+    var walker = document.createTreeWalker(el, NodeFilter.SHOW_TEXT, null);
+    var textNodes = [];
+    while (walker.nextNode()) textNodes.push(walker.currentNode);
+
+    for (var i = 0; i < textNodes.length; i++) {
+      var node = textNodes[i];
+      // Skip nodes inside script/style/mark tags
+      if (node.parentElement.closest('script, style, mark, .search-highlight-bar')) continue;
+
+      var text = node.textContent;
+      var regex = new RegExp('(' + words.map(escapeRegex).join('|') + ')', 'gi');
+      if (!regex.test(text)) continue;
+
+      var fragment = document.createDocumentFragment();
+      var lastIndex = 0;
+      text.replace(regex, function(match, p1, offset) {
+        if (offset > lastIndex) {
+          fragment.appendChild(document.createTextNode(text.slice(lastIndex, offset)));
+        }
+        var mark = document.createElement('mark');
+        mark.className = 'search-highlight';
+        mark.textContent = match;
+        fragment.appendChild(mark);
+        lastIndex = offset + match.length;
+      });
+      if (lastIndex < text.length) {
+        fragment.appendChild(document.createTextNode(text.slice(lastIndex)));
+      }
+      node.parentNode.replaceChild(fragment, node);
+    }
+  }
+
+  function escapeRegex(str) {
+    return str.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+  }
+
+  function clearHighlights(el) {
+    var marks = el.querySelectorAll('mark.search-highlight');
+    for (var i = 0; i < marks.length; i++) {
+      var mark = marks[i];
+      mark.replaceWith(document.createTextNode(mark.textContent));
+    }
+    el.normalize();
+  }
+})();
