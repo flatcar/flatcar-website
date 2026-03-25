@@ -51,7 +51,6 @@ platforms and bare metal servers.
  * [Amazon EC2][ec2]
  * [Microsoft Azure][azure]
  * [Google Compute Engine][gce]
- * [Equinix Metal][equinix-metal]
  * [VMware][vmware]
  * [DigitalOcean][digital-ocean]
  * [Hetzner][hetzner]
@@ -218,7 +217,6 @@ APIs and troubleshooting guides for working with Flatcar Container Linux.
 [gce]: installing/cloud/gcp
 [azure]: installing/cloud/azure
 [qemu]: installing/vms/qemu
-[equinix-metal]: installing/cloud/equinix-metal
 [libvirt]: installing/vms/libvirt
 [virtualbox]: installing/vms/virtualbox
 [vagrant]: installing/vms/vagrant

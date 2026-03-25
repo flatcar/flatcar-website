@@ -183,7 +183,6 @@ Check out the guides on [running Flatcar Container Linux][running-container-linu
 * [EC2][ec2-docs]
 * [Azure][azure-docs]
 * [GCE][gce-docs]
-* [Equinix Metal][equinix-metal-docs]
 virtualization platforms / private clouds:
 * [Vagrant][vagrant-docs]
 * [VMware][vmware-docs]
@@ -211,7 +210,6 @@ With any of these guides you will have machines up and running in a few minutes.
 [qemu-docs]: vms/qemu
 [qemu-ssh]: vms/qemu#ssh-config
 [libvirt-docs]: vms/libvirt
-[equinix-metal-docs]: cloud/equinix-metal
 [pxe-docs]: bare-metal/booting-with-pxe
 [ipxe-docs]: bare-metal/booting-with-ipxe
 [iso-docs]: bare-metal/booting-with-iso

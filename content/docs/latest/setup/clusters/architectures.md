@@ -87,7 +87,7 @@ Once you have a small cluster up and running, you can install a Kubernetes on th
 
 ### Configuring the machines
 
-For more information on getting started with this architecture, see the Flatcar Container Linux documentation on [supported platforms][flatcar-supported]. These include [Amazon EC2][flatcar-ec2], [Equinix Metal][flatcar-equinix-metal], [Azure][flatcar-azure], [Google Compute Platform][flatcar-gce], [bare metal iPXE][flatcar-bm], [Digital Ocean][flatcar-do], and many more community supported platforms.
+For more information on getting started with this architecture, see the Flatcar Container Linux documentation on [supported platforms][flatcar-supported]. These include [Amazon EC2][flatcar-ec2], [Azure][flatcar-azure], [Google Compute Platform][flatcar-gce], [bare metal iPXE][flatcar-bm], [Digital Ocean][flatcar-do], and many more community supported platforms.
 
 Boot the desired number of machines with the same Butane Config and discovery token. The Butane Config specifies which services will be started on each machine.
 
@@ -225,7 +225,6 @@ storage:
 [flatcar-channels]: https://www.flatcar-linux.org/releases/
 [flatcar-supported]: ../../
 [flatcar-ec2]: ../../installing/cloud/aws-ec2
-[flatcar-equinix-metal]: ../../installing/cloud/equinix-metal
 [flatcar-azure]: ../../installing/cloud/azure
 [flatcar-gce]: ../../installing/cloud/gcp
 [flatcar-do]: ../../installing/cloud/digitalocean
