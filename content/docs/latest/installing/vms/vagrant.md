@@ -154,15 +154,6 @@ Connect to the machine:
 vagrant ssh core-01 -- -A
 ```
 
-### Start machine using Vagrant's VMware provider
-
-If you have purchased the [VMware Vagrant provider](http://www.vagrantup.com/vmware), run the following commands:
-
-```shell
-vagrant up --provider vmware_fusion
-vagrant ssh core-01 -- -A
-```
-
 ## Shared folder setup
 
 Optionally, you can share a folder from your laptop into the virtual machine. This is useful for easily getting code and Dockerfiles into Flatcar Container Linux.
