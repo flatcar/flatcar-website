@@ -93,7 +93,7 @@
   }
 }
 
-.nav-item.dropdown  {
+.nav-item.dropdown:not(:has(.theme-switcher__toggle))  {
   &:hover,&.focus {
     @include media-breakpoint-up(md) {
       > .dropdown-menu {
@@ -143,7 +143,8 @@
 
   @include media-breakpoint-down(md) {
     margin-left: 0;
-    margin-top: 26px;
+    margin-top: 0.75em;
+    padding-bottom: 0.25em;
   }
 }
 
@@ -223,6 +224,12 @@ $_theme-switcher-shadow-dark: 0 0.125rem 0.5rem rgba(0, 0, 0, 0.5);
   svg { width: 100%; height: 100%; }
 }
 
+.navbar-nav .theme-switcher__toggle {
+  &, &:hover, &:focus, &.show {
+    color: $white;
+  }
+}
+
 .theme-switcher__toggle {
   &::after {
     display: none;
@@ -251,8 +258,8 @@ $_theme-switcher-shadow-dark: 0 0.125rem 0.5rem rgba(0, 0, 0, 0.5);
   --bs-dropdown-bg: #{$black};
   --bs-dropdown-color: #{$white};
   --bs-dropdown-link-color: #{$white};
-  --bs-dropdown-link-hover-bg: var(--bs-tertiary-bg);
-  --bs-dropdown-link-hover-color: var(--bs-body-color);
+  --bs-dropdown-link-hover-bg: #{rgba($white, 0.15)};
+  --bs-dropdown-link-hover-color: #{$white};
 
   min-width: auto;
   width: max-content;
@@ -262,22 +269,24 @@ $_theme-switcher-shadow-dark: 0 0.125rem 0.5rem rgba(0, 0, 0, 0.5);
   border: 1px solid transparent;
   box-shadow: $_theme-switcher-shadow;
 
-  right: 0;
-  left: auto;
-
   @include media-breakpoint-down(md) {
-    &.show {
-      width: 100%;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-    }
+    --bs-dropdown-bg: transparent;
+    border: none;
+    box-shadow: none;
+    width: 100%;
+    padding: 0;
   }
 
   [data-bs-theme="dark"] & {
     --bs-dropdown-bg: var(--bs-secondary-bg);
     box-shadow: $_theme-switcher-shadow-dark;
     border-color: var(--bs-border-color-translucent);
+
+    @include media-breakpoint-down(md) {
+      --bs-dropdown-bg: transparent;
+      box-shadow: none;
+      border-color: transparent;
+    }
   }
 
   .dropdown-item {
@@ -293,6 +302,7 @@ $_theme-switcher-shadow-dark: 0 0.125rem 0.5rem rgba(0, 0, 0, 0.5);
     @include media-breakpoint-down(md) {
       justify-content: center;
       width: auto;
+      color: #{$white};
     }
   }
 

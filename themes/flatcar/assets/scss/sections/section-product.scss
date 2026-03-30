@@ -4,7 +4,7 @@
   background-position: center top;
   background-size: cover;
   color: $white;
-  
+
   &:last-child {
     padding-bottom: 120px;
   }
@@ -107,7 +107,7 @@
         height: 40px;
       }
     }
-    
+
     .card {
       background-color: transparent;
       border: none;
@@ -659,12 +659,11 @@
 }
 
 .releases {
-  $gray-text: #717171;
-  $border-color: #DEE2E6;
+  background-color: var(--bs-tertiary-bg);
 
   .article {
     a {
-      color: $flatcar-darker-blue;
+      color: var(--flatcar-accent);
     }
   }
 
@@ -675,10 +674,11 @@
   }
 
   .card {
-    border: 1px solid $border-color;
+    background-color: var(--bs-body-bg);
+    border: 1px solid var(--bs-border-color);
 
     .card-header {
-      background-color: #F6F6F7;
+      background-color: var(--bs-tertiary-bg);
 
       h5 {
         font-size: 1.5em;
@@ -687,7 +687,7 @@
       .version {
         font-size: .9em;
         font-weight: bolder;
-        color: $gray-text;
+        color: var(--bs-secondary-color);
       }
 
       a.arch {
@@ -702,7 +702,7 @@
       .release-date {
         font-size: .8rem;
         font-weight: bolder;
-        color: $gray-text;
+        color: var(--bs-secondary-color);
       }
     }
 
@@ -711,20 +711,20 @@
 
       p {
         font-size: .8em;
-        color: #474747;
+        color: var(--bs-body-color);
       }
     }
 
     .card-footer {
-      border-top: 1px solid $border-color;
+      border-top: 1px solid var(--bs-border-color);
       font-size: 0.7em;
     }
   }
 
   .special {
-    background-color: $gray-100;
+    background-color: var(--bs-tertiary-bg);
     .card-header {
-      border-bottom: 1px solid $gray-400;
+      border-bottom: 1px solid var(--bs-border-color);
     }
   }
 
@@ -733,13 +733,12 @@
   }
 
   .notes-area {
-    $dark-text: #474747;
-    background-color: #F6F6F7;
+    background-color: var(--bs-tertiary-bg);
     padding-left: auto;
     padding-right: auto;
 
     ul.nav-tabs {
-      border-bottom: 1px solid #dee2e6;
+      border-bottom: 1px solid var(--bs-border-color);
       padding-left: auto;
       padding-right: auto;
       max-width: 1200px;
@@ -748,7 +747,7 @@
         margin-right: 50px;
 
         a {
-          color: $dark-text;
+          color: var(--bs-body-color);
 
           &:hover {
             text-decoration: none;
@@ -764,7 +763,7 @@
 
           &.active {
             font-weight: bold;
-            color: $flatcar-darker-blue;
+            color: var(--flatcar-accent);
             border-bottom: 2px solid $flatcar-blue;
           }
 
@@ -806,7 +805,7 @@
 
     a.arch {
       text-decoration: underline;
-      color: $black;
+      color: var(--bs-body-color);
 
       &:hover {
         color: $flatcar-blue;
@@ -814,11 +813,11 @@
     }
 
     p.date {
-      color: $gray-text;
+      color: var(--bs-secondary-color);
     }
 
     .packages {
-      color: $dark-text;
+      color: var(--bs-body-color);
     }
 
     .release-list {
@@ -827,7 +826,7 @@
       }
 
       .release-notes {
-        color: $dark-text;
+        color: var(--bs-body-color);
         overflow-wrap: anywhere;
       }
 
@@ -837,11 +836,9 @@
 
         hr {
           width: 80%;
-          border-top: 1px solid $gray-400;
+          border-top: 1px solid var(--bs-border-color);
         }
       }
     }
   }
 }
-
-

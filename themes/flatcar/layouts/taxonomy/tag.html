@@ -1,27 +1,23 @@
-<!DOCTYPE html>
-<html>
+<!doctype html>
+<html lang="{{ .Site.Language.Lang }}">
+  <head>
     {{ partial "head.html" . }}
-    <body>
-        {{ partial "header.html" . }}
-        <main class="main">
-            <div class="header-bg-stripes">
-                <div class="container">
-                    <div class="row align-items-center justify-content-center page-header">
-                        <div class="col-12 p-0 align-items-center text-center">
-                            <h2 class="section-title">Posts Tagged #{{ .Title }}</h2>
-                        </div>
-                    </div>
-                </div>
+    {{ partial "theme-mode.html" (dict "part" "head" "page" .) }}
+  </head>
+  <body>
+    {{ partial "header.html" . }}
+    <main class="main blog">
+        {{ partial "hero" . }}
+        <div class="container pt-4">
+            <div class="align-items-center justify-content-center page-header">
+                {{ partial "paginator.html" (.Paginate (.Pages.ByDate.Reverse)) }}
             </div>
-            <div class="container pt-4">
-                <div class="align-items-center justify-content-center page-header">
-                    {{ partial "paginator.html" (.Paginate (.Pages.ByDate.Reverse)) }}
-                </div>
-                <div class="row justify-content-center pagination-wrap">
-                    {{ template "_internal/pagination.html" . }}
-                </div>
+            <div class="row justify-content-center pagination-wrap">
+                {{ template "_internal/pagination.html" . }}
             </div>
-        </main>
-        {{ partial "footer.html" . }}
-    </body>
+        </div>
+    </main>
+    {{ partial "footer.html" . }}
+    {{ partial "theme-mode.html" (dict "part" "body" "page" .) }}
+  </body>
 </html>

@@ -1,5 +1,4 @@
 .blog-page {
-  padding-top: 50px;
 
   .post-hero {
     margin-bottom: 106px;
@@ -52,7 +51,7 @@
     background-size: auto 100%;
     background-position: center center;
     background-repeat: no-repeat;
-    background-color: black;
+    background-color: var(--flatcar-surface-inverse);
 
     img {
       position: absolute;
@@ -65,7 +64,7 @@
   }
 
   .post-hero__content {
-    background-color: #f6f6f7;
+    background-color: var(--bs-tertiary-bg);
   }
 }
 
@@ -96,13 +95,13 @@
 
 .card-body {
   .post__date {
-    color: $gray-700;
+    color: var(--bs-secondary-color);
     font-weight: normal;
   }
 
   .authors {
     font-weight: bold;
-    color: $gray-800;
+    color: var(--bs-body-color);
   }
 
   p {
@@ -120,25 +119,32 @@
   }
 }
 
+.blog-page {
+  --blog-hero-overlap: 250px;
+
+  .banner {
+    padding-bottom: var(--blog-hero-overlap);
+  }
+
+  .post-hero {
+    margin-top: calc(-1 * var(--blog-hero-overlap));
+    position: relative;
+    z-index: 1;
+  }
+}
+
 .blog-page, .blog {
-  .header-bg-stripes {
-    background: none !important;
-    color: $black !important;
-
-    &:after {
-      content: "";
-      background-color: $flatcar-bg-blue;
-      position: absolute;
-      top: 0;
-      height: 420px;
-      width: 100%;
-      left: 0;
-      z-index: -1;
-
-      @include media-breakpoint-up(md) {
-        height: 520px;
-      }
+  .banner {
+    h1 {
+      font-size: calc(1.325rem + .9vw);
+      font-family: inherit;
+      font-weight: $font-weight-semi-bold;
     }
+  }
+
+  .authors {
+    color: var(--bs-body-color);
+    margin-top: 1.5rem;
   }
 
   .article {
@@ -153,14 +159,14 @@
     table {
       thead {
         th {
-          background-color: $black;
-          color: $white;
+          background-color: var(--flatcar-surface-inverse);
+          color: var(--flatcar-surface-inverse-color);
         }
       }
 
       tbody {
         td {
-          border-bottom: 1px solid $gray-200;
+          border-bottom: 1px solid var(--bs-border-color);
         }
       }
 

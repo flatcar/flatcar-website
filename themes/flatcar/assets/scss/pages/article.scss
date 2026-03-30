@@ -23,7 +23,7 @@
 
   a {
     text-decoration:none;
-    color: $flatcar-darker-blue;
+    color: var(--bs-link-color);
     font-weight: bold;
     transition: background 0.5s cubic-bezier(.33,.66,.66,1);//font
 
@@ -35,7 +35,11 @@
 
   ::selection {
     background: $flatcar-dark-blue;
-    color: white;
+    color: $white;
+  }
+
+  [data-bs-theme="dark"] & ::selection {
+    background: lighten($flatcar-dark-blue, 30%);
   }
 
   .article__product-link {
@@ -103,7 +107,7 @@
   }
 
   .article__author {
-    color: $gray-600;
+    color: var(--bs-secondary-color);
 
     p {
       font-size: .9rem;
@@ -111,7 +115,7 @@
   }
 
   .section-title {
-    margin-bottom: 30px;
+    margin-bottom: 10px;
   }
 
   .authors {
@@ -120,7 +124,7 @@
 }
 
 .article__related {
-  background-color: $gray-100;
+  background-color: var(--bs-tertiary-bg);
   padding: 4rem 0 8rem 0;
 
   @include media-breakpoint-down(md) {
@@ -133,15 +137,15 @@
 
   .card {
     padding: 0;
-    background: $white;
-    border: 1px solid $gray-200;
+    background: var(--bs-body-bg);
+    border: 1px solid var(--bs-border-color);
     font-size: 1rem;
     max-width: 320px;
     min-height: 340px;
     height: 100%;
 
     a {
-      color: $black;
+      color: var(--bs-body-color);
     }
 
     a:hover {
@@ -167,7 +171,7 @@
 
     .card-date {
       font-size: .9rem;
-      color: $gray-600;
+      color: var(--bs-secondary-color);
     }
   }
 }
