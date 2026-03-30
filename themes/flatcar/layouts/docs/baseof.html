@@ -2,7 +2,7 @@
 <html lang="{{ .Site.Language.Lang }}">
   <head>
     {{ partial "head.html" . }}
-    <title>{{ if .IsHome }}{{ .Site.Title }}{{ else }}{{ with .Title }}{{ . }} | {{ end }}{{ .Site.Title }}{{ end }}</title>
+    {{ partial "theme-mode.html" (dict "part" "head" "page" .) }}
   </head>
   <body class="td-{{ .Kind }}">
     {{ partial "header.html" . }}
@@ -64,7 +64,6 @@
                   <a
                     href="{{ $editLink }}"
                     class="btn btn-md mt-2"
-                    style="border: 2px solid #afafaf; padding: 4px 2px; font-weight: inherit;"
                   >
                     <i class="fab fa-github"></i> Edit this page
                   </a>
@@ -76,7 +75,6 @@
               <a
                 href="{{ $issuesUrl }}"
                 class="btn btn-md mt-2"
-                style="border: 2px solid #afafaf; padding: 4px 2px; font-weight: inherit;"
               >
                 <i class="fab fa-github"></i> File documentation issue
               </a>
@@ -96,6 +94,7 @@
     </main>
 
     {{ partial "footer.html" . }}
+    {{ partial "theme-mode.html" (dict "part" "body" "page" .) }}
     {{ block "scripts" . }}
     {{- $jsFiles := slice -}}
     {{- range (slice "js/fastsearch.js" "js/lunr.js" "js/anchor.js") -}}

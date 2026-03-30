@@ -51,15 +51,16 @@ params:
         branch: "master"
         dir: "content/docs"
 
-pygmentsCodefences: true
-pygmentsCodefencesGuessSyntax: true
-pygmentsStyle: "vs"
-
 markup:
   defaultMarkdownHandler: goldmark
   goldmark:
     renderer:
       unsafe: true
+  highlight:
+    noClasses: false
+    codeFences: true
+    guessSyntax: true
+    style: vs
 
 assetDir: static
 

@@ -252,6 +252,26 @@ $pagination-active-color:           $white;
 $pagination-active-bg:              $green;
 $pagination-disabled-bg:            $gray !important;
 
+// Dark surface scale
+$flatcar-dark-900: #1a1a1a;
+$flatcar-dark-800: #242424;
+$flatcar-dark-700: #2a2a2a;
+$flatcar-dark-500: #444444;
+
+// Bootstrap dark-mode overrides (must precede @import "bootstrap")
+$body-bg-dark:                  $flatcar-dark-900;
+$body-color-dark:               #e5e5e5;
+$body-secondary-color-dark:     rgba($body-color-dark, .75);
+$body-secondary-bg-dark:        $flatcar-dark-700;
+$body-tertiary-color-dark:      rgba($body-color-dark, .5);
+$body-tertiary-bg-dark:         $flatcar-dark-800;
+$body-emphasis-color-dark:      $white;
+$border-color-dark:             $flatcar-dark-500;
+$border-color-translucent-dark: rgba($white, .15);
+$headings-color-dark:           $white;
+$link-color-dark:               $flatcar-blue;
+$link-hover-color-dark:         $cyan;
+
 // Let's start by bring in all of bootstrap
 // Later we can bring in only what we need:
 // https://getbootstrap.com/docs/5.3/customize/sass/

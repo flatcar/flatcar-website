@@ -56,4 +56,41 @@
               </li>
           {{ end }}
       {{ end }}
+      {{ if not .IsHome }}
+      {{- $themes := slice
+            (dict "mode" "auto"  "icon" "auto-icon" "label" "Auto"  "desc" "Follow system")
+            (dict "mode" "light" "icon" "sun-icon"  "label" "Light" "desc" "Light theme")
+            (dict "mode" "dark"  "icon" "moon-icon" "label" "Dark"  "desc" "Dark theme")
+      -}}
+      <li class="nav-item dropdown">
+          <a href="#" class="nav-link dropdown-toggle theme-switcher__toggle" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Theme selector">
+            <span class="theme-switcher__current-icon">
+              <svg class="theme-switcher__icon" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+                <use href="#auto-icon" xlink:href="#auto-icon"/>
+              </svg>
+            </span>
+            <span class="navbar__link-underline"></span>
+          </a>
+          <div class="dropdown-menu theme-switcher__menu">
+            {{- range $themes }}
+            <a href="#" class="dropdown-item theme-switcher__option" data-theme-mode="{{ .mode }}">
+              <div class="dropdown-item__icon">
+                <svg width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+                  <use href="#{{ .icon }}" xlink:href="#{{ .icon }}"/>
+                </svg>
+              </div>
+              <div class="dropdown-item__description">
+                <div class="dropdown-item__title">
+                  {{ .label }}
+                  <span class="theme-switcher__checkmark">
+                    <svg fill="currentColor" viewBox="0 0 16 16"><use href="#check-icon" xlink:href="#check-icon"/></svg>
+                  </span>
+                </div>
+                <p class="dropdown-item__text">{{ .desc }}</p>
+              </div>
+            </a>
+            {{- end }}
+          </div>
+      </li>
+      {{ end }}
     </ul>

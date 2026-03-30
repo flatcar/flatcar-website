@@ -1,3 +1,18 @@
+// Flatcar custom properties
+
+:root,
+[data-bs-theme="light"] {
+  --flatcar-accent: #{$flatcar-darker-blue};
+  --flatcar-surface-inverse: #{$black};
+  --flatcar-surface-inverse-color: #{$white};
+}
+
+[data-bs-theme="dark"] {
+  --flatcar-accent: #{$flatcar-blue};
+  --flatcar-surface-inverse: #{$flatcar-dark-700};
+  --flatcar-surface-inverse-color: #{$white};
+}
+
 // Headings
 
 h2 {

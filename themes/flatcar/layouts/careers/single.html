@@ -1,19 +1,23 @@
-<!DOCTYPE html>
-<html>
+<!doctype html>
+<html lang="{{ .Site.Language.Lang }}">
+  <head>
     {{- partial "head.html" . -}}
-    <body>
-        {{- partial "header.html" . -}}
-        <main class="main job-posting-page">
-            <article class="article">
-            <div class="container">
-                <div class="row">
-                    <div class="">
-                    {{ .Content }}
-                    </div>
+    {{ partial "theme-mode.html" (dict "part" "head" "page" .) }}
+  </head>
+  <body>
+    {{- partial "header.html" . -}}
+    <main class="main job-posting-page">
+        <article class="article">
+        <div class="container">
+            <div class="row">
+                <div class="">
+                {{ .Content }}
                 </div>
             </div>
-            </article>
-        </main>
-        {{- partial "footer.html" . -}}
-    </body>
+        </div>
+        </article>
+    </main>
+    {{- partial "footer.html" . -}}
+    {{ partial "theme-mode.html" (dict "part" "body" "page" .) }}
+  </body>
 </html>
