@@ -8,6 +8,10 @@
   flex-direction: column;
   text-align: center;
 
+  [data-bs-theme="dark"] & {
+    border-bottom: 1px solid rgba(148, 180, 214, 0.12);
+  }
+
   .banner-bg {
     overflow: hidden;
     position: absolute;
@@ -94,7 +98,7 @@
       text-shadow: 0 0 10px #000022, 0 0 20px #000022, 0 0 40px #000022;
       span {
           color: white;
-          weight: bold;
+          font-weight: bold;
       }
   }
 }

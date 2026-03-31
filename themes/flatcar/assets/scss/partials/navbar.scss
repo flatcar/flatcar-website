@@ -278,9 +278,9 @@ $_theme-switcher-shadow-dark: 0 0.125rem 0.5rem rgba(0, 0, 0, 0.5);
   }
 
   [data-bs-theme="dark"] & {
-    --bs-dropdown-bg: var(--bs-secondary-bg);
-    box-shadow: $_theme-switcher-shadow-dark;
-    border-color: var(--bs-border-color-translucent);
+    --bs-dropdown-bg: #{$flatcar-dark-800};
+    box-shadow: 0 0.25rem 1rem rgba(0, 0, 0, 0.45), 0 0 0 1px rgba(8, 162, 175, 0.06);
+    border-color: #{$flatcar-dark-500};
 
     @include media-breakpoint-down(md) {
       --bs-dropdown-bg: transparent;

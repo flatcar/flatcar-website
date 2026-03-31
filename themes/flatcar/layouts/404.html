@@ -1,25 +1,23 @@
 <!doctype html>
 <html lang="{{ .Site.Language.Lang }}">
   <head>
-    {{- partial "head.html" . -}}
-    {{ partial "theme-mode.html" (dict "part" "head" "page" .) }}
+    {{- partial "head.html" . -}} {{ partial "theme-mode.html" (dict "part"
+    "head" "page" .) }}
   </head>
   <body>
     <main class="main notfound row">
-        <div class="mx-auto my-auto content">
-            <img src="/images/404.svg" alt="404" class="main" />
+      <div class="mx-auto my-auto content">
+        <img src="/images/404.svg" alt="404" class="main" />
 
-            <h1>Whoops! Something's missing!</h1>
-            <h2>Not to worry, head back <a href="/">home</a>!</h2>
-        </div>
+        <h1>Whoops! Something's missing!</h1>
+        <h2>Not to worry, head back <a href="/">home</a>!</h2>
+      </div>
     </main>
 
-    {{ block "scripts" . }}
-        {{ $common := resources.Get "js/common.js" }}
+    {{ block "scripts" . }} {{ $common := resources.Get "js/common.js" }} {{ $js
+    := slice $common | resources.Concat "js/bundle.js" }}
 
-        {{ $js := slice $common | resources.Concat "js/bundle.js" }}
-
-        <script src="{{ $js.Permalink }}"></script>
-    {{ end }}
+    <script src="{{ $js.Permalink }}"></script>
+    {{ end }} {{ partial "theme-mode.html" (dict "part" "body" "page" .) }}
   </body>
 </html>

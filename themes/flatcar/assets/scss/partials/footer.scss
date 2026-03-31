@@ -100,6 +100,14 @@
     color: $gray;
   }
 
+  [data-bs-theme="dark"] & {
+    color: rgba($body-color-dark, .45);
+
+    a {
+      color: rgba($body-color-dark, .45);
+    }
+  }
+
   @include media-breakpoint-up(xl) {
     margin-bottom: 1.67em;
   }
@@ -119,6 +127,10 @@
   color: $white;
   text-transform: capitalize;
   transition: color 0.3s;
+
+  [data-bs-theme="dark"] & {
+    color: rgba($body-color-dark, .70);
+  }
 
   &:hover {
     @include media-breakpoint-up(md) {

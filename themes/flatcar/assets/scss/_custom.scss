@@ -252,25 +252,40 @@ $pagination-active-color:           $white;
 $pagination-active-bg:              $green;
 $pagination-disabled-bg:            $gray !important;
 
-// Dark surface scale
-$flatcar-dark-900: #1a1a1a;
-$flatcar-dark-800: #242424;
-$flatcar-dark-700: #2a2a2a;
-$flatcar-dark-500: #444444;
+// Dark surface scale — blue-tinted for cohesion with brand teal
+// Inspired by Linear's deep navy palette & Vercel's tinted blacks.
+// Each step carries a subtle blue undertone (~220-230° hue) so that
+// the Flatcar teal accent feels *embedded* in the surface rather than
+// floating on neutral cardboard.
+$flatcar-dark-900: #080c12;   // deepest bg  — near-black with blue tint
+$flatcar-dark-800: #151d28;   // card / secondary bg — ink blue
+$flatcar-dark-700: #1a2332;   // elevated surfaces — muted navy
+$flatcar-dark-500: #2d3a4d;   // borders, dividers — desaturated slate
 
 // Bootstrap dark-mode overrides (must precede @import "bootstrap")
+//
+// Design rationale:
+//   • Body text is a cool off-white (#e2e8f0) — avoids the warm cast of
+//     pure #e5e5e5 which fights the blue surfaces.
+//   • Secondary / tertiary colors use the tinted scale so cards, sidebars,
+//     and code blocks all breathe the same blue-black atmosphere.
+//   • Border colors use the slate tones with translucency so they glow
+//     subtly rather than cutting hard lines.
+//   • Link accent stays $flatcar-blue but hover shifts to a brighter,
+//     slightly warmer cyan (#22d3ee) for a satisfying "pop" on interaction.
+
 $body-bg-dark:                  $flatcar-dark-900;
-$body-color-dark:               #e5e5e5;
-$body-secondary-color-dark:     rgba($body-color-dark, .75);
+$body-color-dark:               #e2e8f0;           // cool off-white (Tailwind slate-200)
+$body-secondary-color-dark:     rgba($body-color-dark, .70);
 $body-secondary-bg-dark:        $flatcar-dark-700;
-$body-tertiary-color-dark:      rgba($body-color-dark, .5);
+$body-tertiary-color-dark:      rgba($body-color-dark, .45);
 $body-tertiary-bg-dark:         $flatcar-dark-800;
-$body-emphasis-color-dark:      $white;
+$body-emphasis-color-dark:      #f1f5f9;           // near-white with blue tint (slate-100)
 $border-color-dark:             $flatcar-dark-500;
-$border-color-translucent-dark: rgba($white, .15);
-$headings-color-dark:           $white;
+$border-color-translucent-dark: rgba(148, 180, 214, .12); // blue-tinted translucency
+$headings-color-dark:           #f1f5f9;
 $link-color-dark:               $flatcar-blue;
-$link-hover-color-dark:         $cyan;
+$link-hover-color-dark:         #22d3ee;           // bright cyan — Tailwind cyan-400
 
 // Let's start by bring in all of bootstrap
 // Later we can bring in only what we need:
