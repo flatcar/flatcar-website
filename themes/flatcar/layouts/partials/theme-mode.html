@@ -3,33 +3,25 @@
 
   This partial emits two things depending on the "part" parameter:
 
-    1. "head" — An inline <script> that must go inside <head> before any
+    1. "head" - An inline script that must go inside head before any
        stylesheet to prevent a flash of the wrong theme (FOUC).
-    2. "body" — SVG icon sprites and the switcher JS bundle. Place this
-       at the end of <body>, before </body>.
+       On the landing page (.IsHome) no FOUC script is emitted - the page
+       stays in its default (light) state. The JS is told not to touch it
+       via data-theme-force="light" on body.
+    2. "body" - SVG icon sprites and the switcher JS bundle. Place this
+       at the end of body, before closing body tag.
 
-  Both parts are skipped on the landing page (.IsHome) since dark mode
-  is not supported there.
-
-  Usage in a layout template:
-
-    <head>
-      ...
-      {{ partial "theme-mode.html" (dict "part" "head" "page" .) }}
-    </head>
-    <body>
-      ...
-      {{ partial "theme-mode.html" (dict "part" "body" "page" .) }}
-    </body>
+  Both parts are emitted on ALL pages including the landing page, so the
+  navbar toggle is always functional and preferences are saved for other pages.
 
   The localStorage key "theme-mode" is shared between the inline script
-  and theme-switcher.js — they must stay in sync.
+  and theme-switcher.js - they must stay in sync.
 */}}
 
-{{ if not .page.IsHome }}
-
 {{ if eq .part "head" }}
+{{ if not .page.IsHome }}
 <script>(function(){try{var m=localStorage.getItem("theme-mode")||"auto"}catch(e){var m="auto"}var t=m==="auto"?window.matchMedia("(prefers-color-scheme:dark)").matches?"dark":"light":m;document.documentElement.setAttribute("data-bs-theme",t)})()</script>
+{{ end }}
 {{ end }}
 
 {{ if eq .part "body" }}
@@ -49,6 +41,4 @@
 </svg>
 {{- $theme := resources.Get "js/theme-switcher.js" | fingerprint -}}
 <script src="{{ $theme.Permalink }}"></script>
-{{ end }}
-
 {{ end }}

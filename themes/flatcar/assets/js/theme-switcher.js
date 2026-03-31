@@ -33,10 +33,21 @@
     return m === AUTO ? system() : m;
   }
 
+  function forcedTheme() {
+    var f = document.body && document.body.dataset.themeForce;
+    return f || null;
+  }
+
   function updateUI(mode) {
     var theme = resolve(mode);
 
-    document.documentElement.setAttribute("data-bs-theme", theme);
+    // On pages with data-theme-force (e.g. landing page), don't touch the
+    // data-bs-theme attribute on <html> at all — leave it exactly as the
+    // server rendered it. The icon and checkmark still reflect the user's
+    // actual choice so the preference is visible and saved for other pages.
+    if (!forcedTheme()) {
+      document.documentElement.setAttribute("data-bs-theme", theme);
+    }
 
     var btn = document.querySelector(".theme-switcher__toggle");
     if (btn) {

@@ -13,6 +13,15 @@
   --flatcar-surface-inverse-color: #f1f5f9;
 }
 
+.announcement-banner {
+  background-color: var(--announcement-bg);
+
+  [data-bs-theme="dark"] & {
+    background-color: rgba($yellow, 0.08);
+    border-left: 3px solid $yellow;
+  }
+}
+
 // Headings
 
 h2 {

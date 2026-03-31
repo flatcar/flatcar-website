@@ -56,7 +56,6 @@
               </li>
           {{ end }}
       {{ end }}
-      {{ if not .IsHome }}
       {{- $themes := slice
             (dict "mode" "auto"  "icon" "auto-icon" "label" "Auto"  "desc" "Follow system")
             (dict "mode" "light" "icon" "sun-icon"  "label" "Light" "desc" "Light theme")
@@ -92,5 +91,4 @@
             {{- end }}
           </div>
       </li>
-      {{ end }}
     </ul>

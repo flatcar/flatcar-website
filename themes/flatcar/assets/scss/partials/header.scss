@@ -44,7 +44,11 @@
   }
 
   &.scrolled {
-    background-color: $flatcar-dark-900;
+    background-color: $flatcar-dark-blue;
+
+    [data-bs-theme="dark"] & {
+      background-color: $flatcar-dark-900;
+    }
     .news_stripe {
       max-height: 0;
       padding: 0;

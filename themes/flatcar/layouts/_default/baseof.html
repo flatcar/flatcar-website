@@ -4,7 +4,7 @@
     {{ partial "head.html" . }}
     {{ partial "theme-mode.html" (dict "part" "head" "page" .) }}
   </head>
-  <body class="{{ if .IsHome }} home-page {{ end }}">
+  <body class="{{ if .IsHome }} home-page {{ end }}" {{ if .IsHome }}data-theme-force="light"{{ end }}>
     <a class="visually-hidden visually-hidden-focusable" href="#content">Skip to content</a>
     {{ partial "header.html" . }}
 
