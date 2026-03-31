@@ -5,17 +5,18 @@
     {{ partial "theme-mode.html" (dict "part" "head" "page" .) }}
   </head>
   <body>
+    <a class="visually-hidden visually-hidden-focusable" href="#content">Skip to content</a>
     {{ partial "header.html" . }}
-    <main class="main blog">
-        {{ partial "hero" . }}
-        <div class="container pt-4">
-            <div class="align-items-center justify-content-center page-header">
-                {{ partial "paginator.html" (.Paginate (.Pages.ByDate.Reverse)) }}
-            </div>
-            <div class="row justify-content-center pagination-wrap">
-                {{ template "_internal/pagination.html" . }}
-            </div>
+    <main class="main blog" id="content" role="main">
+      {{ partial "hero" . }}
+      <div class="container pt-4">
+        <div class="align-items-center justify-content-center page-header">
+          {{ partial "paginator.html" (.Paginate (.Pages.ByDate.Reverse)) }}
         </div>
+        <div class="row justify-content-center pagination-wrap">
+          {{ template "_internal/pagination.html" . }}
+        </div>
+      </div>
     </main>
     {{ partial "footer.html" . }}
     {{ partial "theme-mode.html" (dict "part" "body" "page" .) }}

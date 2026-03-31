@@ -47,15 +47,10 @@
 }
 
 .btn-black:hover, .btn-black:focus {
-  background: var(--_btn-fg);
   @include media-breakpoint-up(md) {
     color: var(--_btn-bg) !important;
     background: var(--_btn-fg);
     box-shadow: inset 0 0 0 3px var(--_btn-bg);
-  }
-
-  @include media-breakpoint-down(md) {
-    color: var(--_btn-fg) !important;
   }
 }
 

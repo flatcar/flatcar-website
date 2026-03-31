@@ -1,6 +1,7 @@
 $paddingLeft: 1.5rem;
 $topElemsVPadding: 1.4rem;
 $docs-container-max-width: 2048px;
+$sideBarWidth: 350px;
 
 .docs {
   .header {
@@ -14,6 +15,22 @@ $docs-container-max-width: 2048px;
       @include media-breakpoint-down(md) {
         max-width: 100%;
         width: 100%;
+      }
+    }
+
+    // Give the logo the same left margin as the sidebar nav items
+    // so it visually aligns with the menu below.
+    .navbar-brand {
+      @include media-breakpoint-up(md) {
+        margin-left: $paddingLeft;
+      }
+    }
+
+    // Keep the last nav item (theme switcher) from hugging the right
+    // edge of the viewport / scrollbar on docs pages.
+    .navbar-nav {
+      @include media-breakpoint-up(md) {
+        margin-right: $paddingLeft;
       }
     }
   }
@@ -139,7 +156,6 @@ $docs-container-max-width: 2048px;
   }
 }
 
-$sideBarWidth: 350px;
 .td-sidebar {
   background: var(--bs-tertiary-bg);
   padding: 0;
