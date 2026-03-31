@@ -16,3 +16,6 @@ This document tracks projects that integrate with Flatcar Container Linux. Pleas
 - [Google Cloud Platform](https://cloud.google.com/compute/docs/images#os-compute-support): Google's cloud computing solution. Offers Flatcar Container Linux.
 - [Microsoft Azure](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/category/compute?subcategories=operating-systems&page=1#): Microsoft's cloud computing solution. Offers Flatcar Container Linux.
 - [DigitalOcean](https://www.digitalocean.com/products/linux-distribution/coreos/): An independent cloud computing solution. Offers Flatcar Container Linux.
+
+## Security ecosystem
+- [Sysdig Secure](https://docs.sysdig.com/en/sysdig-secure/install-host-shield/): Provides runtime security and monitoring for Flatcar Container Linux.
