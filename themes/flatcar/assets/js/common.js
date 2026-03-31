@@ -26,8 +26,8 @@ document
         return;
       }
 
-      e.preventDefault();
       if (document.body.classList.contains("mobile-menu_open")) {
+        e.preventDefault();
         if (!this.classList.contains("nav-link_selected")) {
           document.querySelectorAll(".nav-link").forEach(function (elem) {
             elem.classList.remove("nav-link_selected");

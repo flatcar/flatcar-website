@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="{{ .Site.Language.Lang }}">
+<html lang="{{ .Site.Language.Lang }}" {{ if .IsHome }}data-bs-theme="light"{{ end }}>
   <head>
     {{ partial "head.html" . }}
     {{ partial "theme-mode.html" (dict "part" "head" "page" .) }}

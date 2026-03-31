@@ -14,6 +14,8 @@
 
 .navbar-brand {
   margin-right: 0;
+  view-transition-name: site-logo;
+  width: fit-content;
 
   img {
     max-height: 85px;
@@ -35,6 +37,11 @@
 }
 
 .navbar-nav {
+  view-transition-name: site-nav;
+
+  @include media-breakpoint-up(md) {
+    width: fit-content;
+  }
 
   > .nav-item {
     position: relative;

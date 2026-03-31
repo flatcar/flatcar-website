@@ -1,9 +1,21 @@
 $paddingLeft: 1.5rem;
 $topElemsVPadding: 1.4rem;
+$docs-container-max-width: 2048px;
 
 .docs {
   .header {
     background: $black !important;
+
+    // Match the header container width to the docs content container
+    // so the logo aligns flush with the sidebar's left edge.
+    .container {
+      max-width: $docs-container-max-width;
+
+      @include media-breakpoint-down(md) {
+        max-width: 100%;
+        width: 100%;
+      }
+    }
   }
 }
 
@@ -266,7 +278,7 @@ $sideBarWidth: 350px;
   }
 
   .container {
-    max-width: 2048px;
+    max-width: $docs-container-max-width;
 
     @include media-breakpoint-down(md) {
       max-width: 100%;

@@ -85,5 +85,33 @@
     {{ $style := resources.Get "scss/main.scss" | css.Sass $options | fingerprint}}
     <link rel="stylesheet" href="{{ $style.Permalink }}" integrity="{{ $style.Data.Integrity }}">
 
+    <!-- View Transitions: animate navbar between pages.
+         Raw CSS because Sass strips unknown at-rules.
+         Chrome 126+, Edge 126+, Safari 18+. Ignored elsewhere. -->
+    <style>
+    @view-transition { navigation: auto; }
+    ::view-transition-old(root) { animation: none; }
+    ::view-transition-new(root) { animation: none; }
+    ::view-transition-group(site-logo),
+    ::view-transition-group(site-nav) {
+      animation-duration: 0.3s;
+      animation-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    ::view-transition-old(site-logo),
+    ::view-transition-old(site-nav) {
+      animation: none;
+      opacity: 0;
+    }
+    ::view-transition-new(site-logo),
+    ::view-transition-new(site-nav) {
+      animation: none;
+    }
+    @media (prefers-reduced-motion) {
+      ::view-transition-group(*),
+      ::view-transition-old(*),
+      ::view-transition-new(*) { animation: none !important; }
+    }
+    </style>
+
     <!-- Favicon -->
     <link rel="shortcut icon" href="{{ $.Site.Params.favicon }}" />
