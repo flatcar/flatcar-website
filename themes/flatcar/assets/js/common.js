@@ -87,3 +87,23 @@ document.querySelectorAll(".contact-cookies-consent-notice").forEach(
     }
   }
 );
+document.addEventListener("DOMContentLoaded", () => {
+  document.querySelectorAll("pre code").forEach(block => {
+    const wrapper = block.parentNode;
+    wrapper.classList.add("code-block");
+
+    const button = document.createElement("button");
+    button.className = "copy-btn";
+    button.setAttribute("aria-label", "Copy to clipboard");
+    button.innerHTML = `
+      <i class="fa-regular fa-copy"></i>`;
+    wrapper.appendChild(button);
+
+    button.addEventListener("click", () => {
+      navigator.clipboard.writeText(block.innerText.trim()).then(() => {
+        button.classList.add("copied");
+        setTimeout(() => button.classList.remove("copied"), 1200);
+      });
+    });
+  });
+});
