@@ -57,6 +57,33 @@ categories:
 
 *TODO: Add more content sections (events, job postings, etc.)*
 
+## Documentation Versioning
+
+Documentation versions are stored in `content/docs/` and sorted by a `weight` parameter in each version's `_index.md` frontmatter. Higher weight = newer version.
+
+### Directory structure
+
+- Current version: `content/docs/latest/` (highest weight)
+- Snapshots: `content/docs/DD-MM-YYYY/` (date when they became outdated, lower weights)
+
+### Creating a new version snapshot
+
+When you need to snapshot the current documentation:
+
+1. **Rename `latest` to today's date and lower its weight**:
+   ```bash
+   mv content/docs/latest content/docs/$(date +%d-%m-%Y)
+   # Edit content/docs/DD-MM-YYYY/_index.md and set weight to previous value - 1
+   ```
+
+2. **Copy the snapshot back to `latest` with a higher weight**:
+   ```bash
+   cp -r content/docs/DD-MM-YYYY content/docs/latest
+   # Edit content/docs/latest/_index.md and set weight to highest value (e.g., 40)
+   ```
+
+3. **Make your changes** in `content/docs/latest/`
+
 ### Presentations
 
 Create HTML presentations from screenshots using Marp (requires Docker):
@@ -104,51 +131,3 @@ The above command will run a server with the the site available at `http://local
 ### Testing Pull requests
 
 Each pull request will run some checks and create a new preview of the changes that can be access by clicking on the Github pull request status section.
-
-### Testing documentation locally
-
-If you are working on documentation and would like to see the changes
-be reflected in a local run of the website, then you need to generate a
-module to import the docs and run the website locally with it.
-
-You can use the `tools/preview_docs.sh` script for conveniently generating
-an import module, e.g.:
-
-`./tools/preview_docs.sh ../flatcar-docs/docs new_latest`
-
-(this creates a `tmp_modules.yaml`)
-
-and then start the local server again with `make run`.
-
-## Changing the published documentation
-
-The documentation is set under `params.docs` in [config.yaml](./config.yaml) and
-should look similar to:
-
-```
-github_edit_url: https://github.com/flatcar/flatcar-docs/edit/main/docs/
-issues_url: https://github.com/kinvolk/flatcar/issues/new?labels=kind/docs
-external_docs:
-- repo: https://github.com/flatcar/flatcar-docs.git
-    name: "latest"
-    branch: "main"
-    dir: "docs"
-```
-
-If you want to add a new version of the documentation, this can be done by adding a new entry to external_docs:
-```
-external_docs:
-- repo: https://github.com/flatcar/flatcar-docs.git
-    name: "latest"
-    branch: "main"
-    dir: "docs"
-- repo: https://github.com/flatcar/flatcar-docs.git
-    name: "old"
-    branch: "tag-1.2.3"
-    dir: "docs"
-```
-
-This will pull the docs that were versioned by the `tag-1.2.3` and place them under a version called `old`.
-
-By default, the first version in the list of `external_docs` is considered to be
-the latest version and so it is the one linked to automatically in the site.
