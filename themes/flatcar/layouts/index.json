@@ -1,9 +1,0 @@
-{{- $.Scratch.Set "index" dict -}}
-{{- $index := dict -}}
-{{- range (where $.Site.Pages "Section" "docs")  -}}
-    {{- $key := (partial "docs/getcurrentversion" .) -}}
-    {{- $values := index ($.Scratch.Get "index") $key -}}
-    {{- $values = $values | append (dict "title" .Title "tags" .Params.tags "categories" .Params.categories "contentList" .PlainWords "permalink" .Permalink "section" .Section "searchDomain" .Params.search.domain) -}}
-    {{- $.Scratch.SetInMap "index" $key $values -}}
-{{- end -}}
-{{- $.Scratch.Get "index" | jsonify -}}

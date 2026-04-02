@@ -1,5 +1,6 @@
 all: getdeps docs presentations
 	hugo --theme=flatcar
+	npx -y pagefind --site public
 
 getdeps:
 	pip3 install --upgrade pyyaml
@@ -34,3 +35,4 @@ run:
 
 build-preview: getdeps docs
 	hugo --theme=flatcar -F -b ${DEPLOY_PRIME_URL}
+	npx -y pagefind --site public

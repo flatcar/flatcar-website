@@ -80,6 +80,121 @@ function getCookie(cname) {
   return "";
 }
 
+// Copy button for code blocks
+document.querySelectorAll('.code-block .btn-copy').forEach(function(btn) {
+  btn.addEventListener('click', function() {
+    var code = btn.closest('.code-block').querySelector('code');
+    if (!code) return;
+    navigator.clipboard.writeText(code.textContent).then(function() {
+      btn.innerHTML = '<i class="fa-solid fa-check"></i>';
+      setTimeout(function() {
+        btn.innerHTML = '<i class="fa-regular fa-copy"></i>';
+      }, 2000);
+    });
+  });
+});
+
+// Copy code for codenew shortcode
+function copyCode(id) {
+  var el = document.getElementById(id);
+  if (!el) return;
+  var code = el.querySelector('td code') || el.querySelector('code');
+  if (!code) return;
+  navigator.clipboard.writeText(code.textContent).then(function() {});
+}
+
+// TOC scroll tracking - highlight active section in "On This Page"
+(function() {
+  var toc = document.getElementById('TableOfContents');
+  if (!toc) return;
+
+  var tocLinks = toc.querySelectorAll('a');
+  if (!tocLinks.length) return;
+
+  var sections = [];
+  var linkMap = {};
+  var clickLockUntil = 0;
+
+  tocLinks.forEach(function(link) {
+    var href = link.getAttribute('href');
+    if (!href || href.charAt(0) !== '#') return;
+    var id = decodeURIComponent(href.substring(1));
+    var target = document.getElementById(id);
+    if (target) {
+      sections.push({ el: target, li: link.parentElement, id: id });
+      linkMap[id] = link.parentElement;
+    }
+  });
+
+  function clearActive() {
+    sections.forEach(function(s) {
+      s.li.classList.remove('active');
+    });
+  }
+
+  function setActiveById(id) {
+    clearActive();
+    if (linkMap[id]) {
+      linkMap[id].classList.add('active');
+    }
+  }
+
+  function updateActiveByScroll() {
+    // Skip scroll updates briefly after a click to prevent override
+    if (Date.now() < clickLockUntil) return;
+
+    var scrollPos = window.scrollY + 100;
+    var activeLi = null;
+
+    for (var i = 0; i < sections.length; i++) {
+      if (sections[i].el.offsetTop <= scrollPos) {
+        activeLi = sections[i].li;
+      }
+    }
+
+    clearActive();
+    if (activeLi) {
+      activeLi.classList.add('active');
+    }
+  }
+
+  function updateFromHash() {
+    var hash = window.location.hash;
+    if (hash) {
+      var id = decodeURIComponent(hash.substring(1));
+      if (linkMap[id]) {
+        setActiveById(id);
+        return true;
+      }
+    }
+    return false;
+  }
+
+  // Click on TOC links: highlight immediately, suppress scroll override
+  tocLinks.forEach(function(link) {
+    link.addEventListener('click', function() {
+      var href = link.getAttribute('href');
+      if (!href || href.charAt(0) !== '#') return;
+      var id = decodeURIComponent(href.substring(1));
+      clickLockUntil = Date.now() + 300;
+      setActiveById(id);
+    });
+  });
+
+  // Hash change (back/forward navigation)
+  window.addEventListener('hashchange', function() {
+    updateFromHash();
+  });
+
+  // Scroll tracking
+  window.addEventListener('scroll', updateActiveByScroll, { passive: true });
+
+  // Initial state: use hash if present, otherwise use scroll position
+  if (!updateFromHash()) {
+    updateActiveByScroll();
+  }
+})();
+
 document.querySelectorAll(".contact-cookies-consent-notice").forEach(
   function (item) {
     if (getCookie("cookieconsent_status") !== "allow") {
