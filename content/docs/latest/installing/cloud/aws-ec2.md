@@ -493,6 +493,287 @@ When you make a change to `machine-mynode.yaml.tmpl` and run `terraform apply` a
 
 You can find this Terraform module in the repository for [Flatcar Terraform examples](https://github.com/flatcar/flatcar-terraform/tree/main/aws).
 
+## Amazon EKS
+
+To use Flatcar Container Linux with Amazon Elastic Kubernetes Service (EKS), several items must be in your Butane configuration:
+
+* The Amazon EKS Kubelet binary
+* The CA Certificate of your EKS cluster (used for cluster authentication)
+* The awscli tool
+* The ECR credential provider (required to pull EKS-managed images like kube-proxy)
+
+Flatcar Container Linux nodes will also need everything any EKS [self-managed node requires](https://docs.aws.amazon.com/eks/latest/userguide/worker.html): the correct IAM roles, proper security group connectivity, proper tags, etc.
+
+A complete Butane example for a Flatcar Container Linux EKS node is provided below: 
+
+```yaml
+variant: flatcar
+version: 1.0.0
+
+storage:
+  directories:
+    - path: /opt/bin
+      mode: 0755
+    - path: /etc/kubernetes/pki
+      mode: 0700
+    - path: /var/lib/kubelet
+      mode: 0700
+
+  files:
+     # ---- Kernel parameters required by kubelet ----
+    - path: /etc/sysctl.d/90-kubernetes.conf
+      mode: 0644
+      contents:
+        inline: |
+          vm.overcommit_memory = 1
+          kernel.panic = 10
+
+    # ---- Install AWS CLI v2 ----
+    - path: /opt/bin/install-deps.sh
+      mode: 0755
+      contents:
+        inline: |
+          #!/bin/bash
+          set -euo pipefail
+
+          # AWS CLI v2
+          if [ ! -f /opt/bin/aws ]; then
+            curl -fsSL "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" \
+              -o /tmp/awscliv2.zip
+            unzip -q /tmp/awscliv2.zip -d /tmp/
+            /tmp/aws/install --install-dir /opt/aws/cli --bin-dir /opt/bin
+            rm -rf /tmp/aws /tmp/awscliv2.zip
+          fi
+
+          # EKS-patched kubelet (must use EKS build, not upstream, for v1beta1 exec credential support)
+          if [ ! -f /opt/bin/kubelet ]; then
+            curl -fsSL \
+              "https://s3.us-west-2.amazonaws.com/amazon-eks/${K8S_VERSION}/${eks_release_date}/bin/linux/amd64/kubelet" \
+              -o /opt/bin/kubelet
+            chmod +x /opt/bin/kubelet
+          fi
+
+          # ECR credential provider (required to pull EKS-managed images like kube-proxy)
+          if [ ! -f /opt/bin/ecr-credential-provider ]; then
+            curl -fsSL \
+              "https://s3.us-west-2.amazonaws.com/amazon-eks/${K8S_VERSION}/${eks_release_date}/bin/linux/amd64/ecr-credential-provider" \
+              -o /opt/bin/ecr-credential-provider
+            chmod +x /opt/bin/ecr-credential-provider
+          fi
+
+    # ---- ECR credential provider config (matches AL2023 nodeadm format) ----
+    - path: /etc/eks/image-credential-provider/config.json
+      mode: 0644
+      contents:
+        inline: |
+          {
+            "apiVersion": "kubelet.config.k8s.io/v1",
+            "kind": "CredentialProviderConfig",
+            "providers": [
+              {
+                "name": "ecr-credential-provider",
+                "matchImages": [
+                  "*.dkr.ecr.*.amazonaws.com",
+                  "*.dkr.ecr.*.amazonaws.com.cn",
+                  "*.dkr.ecr-fips.*.amazonaws.com",
+                  "*.dkr.ecr.us-iso-east-1.c2s.ic.gov",
+                  "*.dkr.ecr.us-isob-east-1.sc2s.sgov.gov"
+                ],
+                "defaultCacheDuration": "12h",
+                "apiVersion": "credentialprovider.kubelet.k8s.io/v1"
+              }
+            ]
+          }
+
+    # ---- Bootstrap: writes kubeconfig + kubelet-config ----
+    - path: /opt/bin/bootstrap-eks.sh
+      mode: 0755
+      contents:
+        inline: |
+          #!/bin/bash
+          set -euo pipefail
+
+          # IMDSv2
+          TOKEN=$(curl -sf -X PUT "http://169.254.169.254/latest/api/token" \
+            -H "X-aws-ec2-metadata-token-ttl-seconds: 21600")
+
+          # Node hostname (EKS uses private DNS as node name)
+          PRIVATE_DNS=$(curl -sf \
+            -H "X-aws-ec2-metadata-token: $TOKEN" \
+            http://169.254.169.254/latest/meta-data/hostname)
+
+          # AZ + instance ID for provider-id (required for EKS cloud controller
+          # to initialize the node and remove the 'uninitialized' taint)
+          AZ=$(curl -sf \
+            -H "X-aws-ec2-metadata-token: $TOKEN" \
+            http://169.254.169.254/latest/meta-data/placement/availability-zone)
+          INSTANCE_ID=$(curl -sf \
+            -H "X-aws-ec2-metadata-token: $TOKEN" \
+            http://169.254.169.254/latest/meta-data/instance-id)
+
+          # Kubeconfig with exec-based auth
+          cat > /etc/kubernetes/kubeconfig <<EOF
+          apiVersion: v1
+          kind: Config
+          clusters:
+          - cluster:
+              certificate-authority: /etc/kubernetes/pki/ca.crt
+              server: ${cluster_endpoint}
+            name: kubernetes
+          contexts:
+          - context:
+              cluster: kubernetes
+              user: kubelet
+            name: kubelet
+          current-context: kubelet
+          users:
+          - name: kubelet
+            user:
+              exec:
+                apiVersion: client.authentication.k8s.io/v1beta1
+                command: /opt/bin/aws
+                args:
+                  - eks
+                  - get-token
+                  - --cluster-name
+                  - ${cluster_name}
+                  - --region
+                  - ${aws_region}
+          EOF
+          chmod 600 /etc/kubernetes/kubeconfig
+
+          # Decode cluster CA for kubelet TLS verification
+          echo "${cluster_ca}" | base64 -d > /etc/kubernetes/pki/ca.crt
+
+          # kubelet configuration
+          cat > /etc/kubernetes/kubelet-config.yaml <<EOF
+          apiVersion: kubelet.config.k8s.io/v1beta1
+          kind: KubeletConfiguration
+          address: 0.0.0.0
+          authentication:
+            anonymous:
+              enabled: false
+            webhook:
+              enabled: true
+              cacheTTL: 2m
+            x509:
+              clientCAFile: /etc/kubernetes/pki/ca.crt
+          authorization:
+            mode: Webhook
+          clusterDNS:
+            - 172.20.0.10
+          clusterDomain: cluster.local
+          cgroupDriver: systemd
+          containerRuntimeEndpoint: unix:///run/containerd/containerd.sock
+          featureGates:
+            RotateKubeletServerCertificate: true
+          protectKernelDefaults: true
+          serializeImagePulls: false
+          serverTLSBootstrap: true
+          EOF
+
+          cat > /etc/kubernetes/node-hostname <<ENVEOF
+          NODE_HOSTNAME=$PRIVATE_DNS
+          PROVIDER_ID=aws:///$AZ/$INSTANCE_ID
+          ENVEOF
+
+    # ---- kubelet wrapper: sources node-hostname env file at runtime ----
+    - path: /opt/bin/start-kubelet.sh
+      mode: 0755
+      contents:
+        inline: |
+          #!/bin/bash
+          set -euo pipefail
+          . /etc/kubernetes/node-hostname
+          exec /opt/bin/kubelet \
+            --config=/etc/kubernetes/kubelet-config.yaml \
+            --kubeconfig=/etc/kubernetes/kubeconfig \
+            --cloud-provider=external \
+            --provider-id="$PROVIDER_ID" \
+            --hostname-override="$NODE_HOSTNAME" \
+            --image-credential-provider-bin-dir=/opt/bin \
+            --image-credential-provider-config=/etc/eks/image-credential-provider/config.json \
+            --node-labels=eks.amazonaws.com/nodegroup=${nodegroup_name},eks.amazonaws.com/compute-type=ec2 \
+            --v=2
+
+    # ---- containerd: configure pause image + systemd cgroup ----
+    - path: /etc/containerd/config.toml
+      overwrite: true
+      contents:
+        inline: |
+          version = 2
+
+          [plugins."io.containerd.grpc.v1.cri"]
+            sandbox_image = "${pause_image}"
+
+            [plugins."io.containerd.grpc.v1.cri".containerd.runtimes.runc]
+              runtime_type = "io.containerd.runc.v2"
+
+              [plugins."io.containerd.grpc.v1.cri".containerd.runtimes.runc.options]
+                SystemdCgroup = true
+
+systemd:
+  units:
+    # Pin version — disable auto-update and locksmith reboot coordinator
+    - name: update-engine.service
+      mask: true
+    - name: locksmithd.service
+      mask: true
+
+    - name: install-deps.service
+      enabled: true
+      contents: |
+        [Unit]
+        Description=Install AWS CLI and kubelet
+        After=network-online.target
+        Wants=network-online.target
+        ConditionPathExists=!/opt/bin/kubelet
+
+        [Service]
+        Type=oneshot
+        RemainAfterExit=yes
+        Environment=K8S_VERSION=${K8S_VERSION}
+        ExecStart=/opt/bin/install-deps.sh
+
+        [Install]
+        WantedBy=multi-user.target
+
+    - name: bootstrap-eks.service
+      enabled: true
+      contents: |
+        [Unit]
+        Description=Bootstrap EKS node
+        After=install-deps.service network-online.target
+        Requires=install-deps.service
+        ConditionPathExists=!/etc/kubernetes/kubeconfig
+
+        [Service]
+        Type=oneshot
+        RemainAfterExit=yes
+        ExecStart=/opt/bin/bootstrap-eks.sh
+
+        [Install]
+        WantedBy=multi-user.target
+
+    - name: kubelet.service
+      enabled: true
+      contents: |
+        [Unit]
+        Description=Kubernetes Kubelet
+        After=bootstrap-eks.service containerd.service
+        Requires=containerd.service
+        Wants=bootstrap-eks.service
+
+        [Service]
+        Restart=always
+        RestartSec=5
+        ExecStart=/opt/bin/start-kubelet.sh
+        ExecStartPre=/bin/bash -c "until [ -f /etc/kubernetes/kubeconfig ] && [ -f /etc/kubernetes/node-hostname ]; do sleep 2; done"
+
+        [Install]
+        WantedBy=multi-user.target
+```
+
 [quickstart]: ../
 [doc-index]: ../../
 [flatcar-user]: https://groups.google.com/forum/#!forum/flatcar-linux-user
