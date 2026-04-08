@@ -1,7 +1,7 @@
 ---
 title: Running Flatcar on Scaleway
 linktitle: Running on Scaleway
-weight: 10
+weight: 25
 ---
 
 These instructions will walk you through using Flatcar on [Scaleway][scaleway], importing an image, and running your first server using the command line interface. Please note that Scaleway is a community supported platform at the moment which means that the CI does not run on Scaleway images.

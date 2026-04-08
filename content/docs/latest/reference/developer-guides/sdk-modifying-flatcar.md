@@ -1,6 +1,6 @@
 ---
 title: Guide to building custom Flatcar images from source
-weight: 10
+weight: 5
 aliases:
     - ../../os/sdk-modifying-flatcar
     - ../../os/sdk-modifying-coreos

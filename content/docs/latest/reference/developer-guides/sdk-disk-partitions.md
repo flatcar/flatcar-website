@@ -1,6 +1,6 @@
 ---
 title: Flatcar Container Linux disk layout
-weight: 10
+weight: 50
 aliases:
     - ../../os/sdk-disk-partitions
 ---
