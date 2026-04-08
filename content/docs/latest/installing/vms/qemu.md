@@ -1,6 +1,6 @@
 ---
 title: Running on QEMU
-weight: 30
+weight: 10
 aliases:
     - ../../os/booting-with-qemu
     - ../../cloud-providers/booting-with-qemu

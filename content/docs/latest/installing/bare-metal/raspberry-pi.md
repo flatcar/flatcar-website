@@ -1,7 +1,7 @@
 ---
 title: Running Flatcar Container Linux on Raspberry Pi 4
 linktitle: Running on Raspberry Pi 4
-weight: 10
+weight: 50
 ---
 ### Hardware Requirements
 

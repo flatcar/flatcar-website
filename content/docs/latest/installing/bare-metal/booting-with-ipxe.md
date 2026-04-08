@@ -1,7 +1,7 @@
 ---
 title: Booting Flatcar Container Linux via iPXE
 linktitle: Booting via iPXE
-weight: 10
+weight: 30
 aliases:
     - ../../os/booting-with-ipxe
     - ../../bare-metal/booting-with-ipxe

@@ -4,7 +4,7 @@ linktitle: Using Google Cloud Launcher
 description: >
   How to use the Google Cloud Launcher Marketplace feature to launch
   Flatcar Container Linux on GCP
-weight: 15
+weight: 21
 aliases:
     - ../../os/using-google-cloud-launcher
     - ../../cloud-providers/using-google-cloud-launcher

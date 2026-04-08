@@ -1,7 +1,7 @@
 ---
 title: Running Flatcar Container Linux on DigitalOcean
 linktitle: Running on DigitalOcean
-weight: 20
+weight: 30
 aliases:
     - ../../os/booting-on-digitalocean
     - ../../cloud-providers/booting-on-digitalocean

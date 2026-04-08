@@ -1,7 +1,7 @@
 ---
 title: Running Flatcar Container Linux on Hetzner
 linktitle: Running on Hetzner
-weight: 20
+weight: 35
 aliases:
     - ../../os/booting-on-hetzner
     - ../../cloud-providers/booting-on-hetzner

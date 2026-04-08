@@ -1,7 +1,7 @@
 ---
 title: Booting Flatcar Container Linux via PXE
 linktitle: Booting via PXE
-weight: 10
+weight: 20
 aliases:
     - ../../os/booting-with-pxe
     - ../../bare-metal/booting-with-pxe

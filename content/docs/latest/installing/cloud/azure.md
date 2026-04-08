@@ -1,7 +1,7 @@
 ---
 title: Running Flatcar Container Linux on Microsoft Azure
 linktitle: Running on Microsoft Azure
-weight: 10
+weight: 15
 aliases:
     - ../../os/booting-on-azure
     - ../../cloud-providers/booting-on-azure

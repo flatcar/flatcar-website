@@ -1,7 +1,7 @@
 ---
 title: Running Flatcar Container Linux on VMware
 linktitle: Running on VMware
-weight: 10
+weight: 25
 aliases:
     - ../../os/booting-on-vmware
     - ../../cloud-providers/booting-on-vmware

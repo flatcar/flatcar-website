@@ -1,7 +1,7 @@
 ---
 title: Running Flatcar Container Linux on Vagrant
 linktitle: Running on Vagrant
-weight: 30
+weight: 40
 aliases:
     - ../../os/booting-on-vagrant
     - ../../cloud-providers/booting-on-vagrant
