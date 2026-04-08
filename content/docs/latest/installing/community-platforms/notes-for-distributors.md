@@ -1,6 +1,6 @@
 ---
 title: Notes for distributors
-weight: 10
+weight: 50
 aliases:
     - ../../os/notes-for-distributors
     - ../../bare-metal/notes-for-distributors

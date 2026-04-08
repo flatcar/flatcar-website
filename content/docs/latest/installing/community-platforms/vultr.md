@@ -1,7 +1,7 @@
 ---
 title: Running Flatcar Container Linux on a Vultr VPS
 linktitle: Running on a Vultr VPS
-weight: 10
+weight: 30
 aliases:
     - ../../os/booting-on-vultr
     - ../../community-platforms/booting-on-vultr

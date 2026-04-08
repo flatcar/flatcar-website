@@ -1,7 +1,7 @@
 ---
 title: Running Flatcar Container Linux on Rackspace
 linktitle: Running on Rackspace
-weight: 10
+weight: 20
 aliases:
     - ../../os/booting-on-rackspace
     - ../../community-platforms/booting-on-rackspace

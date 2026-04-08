@@ -1,6 +1,6 @@
 ---
 title: Building custom kernel modules
-weight: 10
+weight: 20
 aliases:
     - ../../os/kernel-modules
 ---

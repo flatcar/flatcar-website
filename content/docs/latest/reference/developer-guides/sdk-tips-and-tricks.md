@@ -1,6 +1,6 @@
 ---
 title: Tips and tricks
-weight: 10
+weight: 30
 aliases:
     - ../../os/sdk-tips-and-tricks
 ---

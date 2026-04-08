@@ -1,6 +1,6 @@
 ---
 title: SDK bootstrap process
-weight: 10
+weight: 40
 ---
 
 ## Introduction

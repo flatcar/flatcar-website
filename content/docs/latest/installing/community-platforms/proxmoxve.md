@@ -1,7 +1,7 @@
 ---
 title: Running Flatcar Container Linux on Proxmox VE
 linktitle: Running on Proxmox VE
-weight: 30
+weight: 40
 ---
 
 _Please note that Proxmox VE is not an officially supported platform at this time because the release tests don't run for it._
