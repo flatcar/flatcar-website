@@ -301,7 +301,7 @@ While the ChromiumOS heritage has faded and is barely visible nowadays, we heavi
 Contrary to traditional Linux distributions, Gentoo applications and “packages” are compiled at installation time.
 Gentoo itself does not ship packages - instead, it consists of a massive number of ebuild files to build applications at installation time (that’s an oversimplification as there are binary package caches, but that’s beyond the scope of this document).
 While the Flatcar SDK can be understood as a Gentoo derivative, the OS image is special.
-The OS image is not self-contained, i.e. it cannot install / update packages - it lacks both a compiler to build packages as well as tools to orchestrate builds and install the resulting binaries.
+The OS image cannot install or update packages on its own - it ships neither a compiler to build packages nor the tooling to orchestrate builds and install the resulting binaries.
 Instead, OS images are built via the SDK, by building packages in the SDK, then installing the binaries into a chroot environment.
 From the chroot environment, the resulting OS image is generated.
 
