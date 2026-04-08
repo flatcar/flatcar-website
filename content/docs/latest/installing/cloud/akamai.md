@@ -1,7 +1,7 @@
 ---
 title: Running Flatcar on Akamai Connected Cloud (Linode)
 linktitle: Running on Akamai
-weight: 10
+weight: 50
 ---
 
 These instructions will walk you throug running Flatcar on [Akamai Connected

@@ -1,7 +1,7 @@
 ---
 title: Running Flatcar Container Linux on libvirt
 linktitle: Running on libvirt
-weight: 30
+weight: 20
 aliases:
     - ../../os/booting-with-libvirt
     - ../../cloud-providers/booting-with-libvirt
