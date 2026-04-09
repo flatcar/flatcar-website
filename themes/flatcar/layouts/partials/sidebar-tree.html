@@ -2,12 +2,6 @@
 
 {{ $shouldDelayActive := ge (len .Site.Pages) 2000 }}
 <div id="td-sidebar-menu" class="td-sidebar__inner{{ if $shouldDelayActive }} d-none{{ end }}">
-  {{- $versions := partial "docs/getversions" . -}}
-  {{- if gt (len $versions) 1 -}}
-  <div class="text-center mb-0 mx-4 d-none d-md-block">
-    {{ partial "docs/versionchooser" . }}
-  </div>
-  {{- end -}}
   {{ if not .Site.Params.ui.sidebar_search_disable }}
   <form class="td-sidebar__search d-flex align-items-center text-center">
     {{/* partial "search-input.html" . */}}
@@ -43,18 +37,23 @@
   {{ end }}
   {{ if $parent }}
   {{ $useCollapse := not $parent.Params.children_are_versions }}
+  {{- $versions := partial "docs/getversions" $p -}}
   <li class="td-sidebar-nav__section-title">
-    <a  href="#{{ $sid }}" role="" {{ if $useCollapse }}data-bs-toggle="collapse"{{ end }} class="align-left ps-0 pe-2{{ if not $show }} collapsed{{ end }}{{ if $active}} active{{ end }} td-sidebar-link {{ if $useCollapse }}td-sidebar-link__section{{ end }}">
-      {{ $title := default $s.Title $s.LinkTitle }}
-      {{ if $s.Params.use_dir_name | or $parent.Params.children_are_versions }}
-        {{ $tit2le := partial "docs/dirversion" $s }}
-      {{ end }}
+    <div class="d-flex align-items-center">
+      <a  href="#{{ $sid }}" role="" {{ if $useCollapse }}data-bs-toggle="collapse"{{ end }} class="align-left{{ if not $parent.Params.children_are_versions }} ps-0 pe-2 td-sidebar-link{{ end }}{{ if $parent.Params.children_are_versions }} fs-6{{ end }}{{ if not $show }} collapsed{{ end }}{{ if $active}} active{{ end }}{{ if $useCollapse }} td-sidebar-link__section{{ end }}">
+        {{ $title := default $s.Title $s.LinkTitle }}
+        {{ if $s.Params.use_dir_name | or $parent.Params.children_are_versions }}
+          {{ $title := partial "docs/dirversion" $s }}
+        {{ end }}
 
-      {{ $title }}
-      {{ if $s.Parent.Params.children_are_versions }}
-        <span style="margin-left: 1rem;" class="badge rounded-pill bg-dark">{{ partial "docs/getcurrentversion" $s }}</span>
-      {{ end }}
-    </a>
+        {{ $title }}
+      </a>
+      {{- if and (gt (len $versions) 1) $parent.Params.children_are_versions -}}
+      <div class="d-none d-md-block ms-auto pe-2">
+        {{ partial "docs/versionchooser" $p }}
+      </div>
+      {{- end -}}
+    </div>
   </li>
   {{ end }}
   <li class="p-0">
