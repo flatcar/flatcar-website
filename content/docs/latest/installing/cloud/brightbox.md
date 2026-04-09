@@ -1,7 +1,7 @@
 ---
 title: Running Flatcar on Brightbox
 linktitle: Running on Brightbox
-weight: 10
+weight: 45
 ---
 
 These instructions will walk you through using Flatcar on Brightbox, importing a custom image, and running your first server using the command line interface. Please note that Brightbox is compatible with OpenStack: it is not a mistake if we refer to OpenStack images and specific variables.

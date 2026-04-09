@@ -1,7 +1,7 @@
 ---
 title: Running Flatcar Container Linux on Hyper-V
 linktitle: Running on Hyper-V
-weight: 30
+weight: 50
 ---
 
 _While we always welcome community contributions and fixes, please note that Hyper-V is not an officially supported platform at this time because the release tests don't run for it. (See the [platform overview](/#installing-flatcar).)_

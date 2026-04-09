@@ -1,7 +1,7 @@
 ---
 title: Running Flatcar Container Linux on Eucalyptus 3.4
 linktitle: Running on Eucalyptus 3.4
-weight: 10
+weight: 35
 aliases:
     - ../../os/booting-on-eucalyptus
     - ../../community-platforms/booting-on-eucalyptus

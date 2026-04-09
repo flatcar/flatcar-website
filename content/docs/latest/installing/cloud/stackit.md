@@ -1,7 +1,7 @@
 ---
 title: Running Flatcar on STACKIT
 linktitle: Running on STACKIT
-weight: 10
+weight: 55
 aliases:
     - ../../os/booting-on-stackit
     - ../../cloud-providers/booting-on-stackit

@@ -4,7 +4,7 @@ linktitle: Using flatcar-install script
 description: >
   How to use the flatcar-install script to install Flatcar from
   a running system.
-weight: 10
+weight: 40
 aliases:
     - ../../os/installing-to-disk
     - ../../bare-metal/installing-to-disk

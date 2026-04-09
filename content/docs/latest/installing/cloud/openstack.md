@@ -1,7 +1,7 @@
 ---
 title: Running Flatcar Container Linux on OpenStack
 linktitle: Running on OpenStack
-weight: 10
+weight: 40
 aliases:
     - ../../os/booting-on-openstack
     - ../../cloud-providers/booting-on-openstack
