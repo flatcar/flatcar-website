@@ -57,6 +57,9 @@ community_links:
           link: "https://x.com/flatcar"
     - title: "Ask Questions & Connect"
       items:
+        - title: "Discord"
+          icon: "discord"
+          link: "https://discord.gg/WzcVxuhYHX"
         - title: "Matrix"
           svg_path: "/images/matrix-icon.svg"
           link: "https://app.element.io/#/room/#flatcar:matrix.org"
