@@ -62,22 +62,13 @@ The OEM partition is also useful to force a particular Ignition configuration to
 For example, `flatcar-install` offers to write a `config.ign` Ignition file to the OEM partition through the `-i` flag.
 This file is used as preferred Ignition configuration even when Ignition cloud instance userdata is present. With the special `oem:///` file URL the config can copy files from the OEM Partition to the root filesystem (note: in case you have many binaries, the OEM partition may be too small and you have to either host them somewhere or place them directly on the root filesystem, see the next section).
 
-As done on most offered Flatcar cloud images, two additional Ignition files can be placed on the OEM partition and have broader purpose, independent of whether a `config.ign` Ignition file is used, the Ignition kernel command line URL, or Ignition cloud instance userdata.
-The first is `base/base.ign` which is always executed as basic mandatory setup.
-The second file `base/default.ign` has a special fallback function and gets executed only if the found instance userdata is not Ignition JSON.
-The common content of the file is to define a systemd service via Ignition that runs `coreos-cloudinit` to process the instance userdata later.
-Good examples are [`base/base.ign`](https://github.com/flatcar/coreos-overlay/blob/ad9c06df2c34be3c6d50ffb80f886bdae10b4809/coreos-base/oem-packet/files/base/base.ign) and [`base/default.ign`](https://github.com/flatcar/coreos-overlay/blob/ad9c06df2c34be3c6d50ffb80f886bdae10b4809/coreos-base/oem-packet/files/base/default.ign) files used for Equinix Metal images as they also make use of the `oem:///` source URL to refer to a file placed on the OEM partition.
-
 The `grub.cfg` file gets sourced by GRUB to set up the OEM ID which is used by systemd units to be started conditionally, or to set up kernel parameters like the Ignition config URL (`ignition.config.url`, to fetch the preferred config remotely), or settings required for the hardware.
 Again, a good example is the [`grub.cfg` file](https://github.com/flatcar/coreos-overlay/blob/ad9c06df2c34be3c6d50ffb80f886bdae10b4809/coreos-base/oem-packet/files/grub.cfg) used for Equinix Metal images to set the OEM ID and the kernel parameter `flatcar.autologin` to be able to use the serial console without having to configure a user password.
 
 ### Customizing the root partition
 
-To pre-configure the OS you can place binaries and configuration files directly on the root filesystem.
-The recommended way, however, is to use a `base/base.ign` or `config.ign` Ignition file in the OEM partition.
-The advantage is that a `base/base.ign` file even works when the user has the root filesystem recreation option specified in Ignition which reformats the root filesystem and discards any changes placed there directly.
+To pre-configure the OS, you can place binaries and configuration files directly on the root filesystem. When modifying the root filesystem, you should make sure that you only copy files over that are safe to copy. For example, you can place binaries into `/opt/bin` or configuration files under `/etc`, but you shouldn't initialize the root filesystem by booting it, even with a chroot (and calling `systemctl` there or even booting it up as container because this leads to the traps described in the next section, be aware).
 
-When modifying the root filesystem you should make sure that you only copy files over that are safe to copy, e.g., you can place binaries into `/opt/bin` or configuration files under `/etc` but you shouldn't initialize the root filesystem by booting it, even with a chroot (and calling `systemctl` there or even booting it up as container because this leads to the traps described in the next section, be aware).
 When you place systemd services under `/etc/systemd/system/my.service` and they have `WantedBy=multi-user.target` in the `[Install]` section you can pre-enable them with a symlink from `/etc/systemd/system/multi-user.target.wants/my.service` to `/etc/systemd/system/my.service`.
 
 You can even pre-populate the container image story by copying the folders `/var/lib/docker` and `/var/lib/containerd` over from a booted Flatcar instance.
