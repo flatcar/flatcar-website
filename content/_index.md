@@ -59,7 +59,7 @@ community_links:
       items:
         - title: "Discord"
           icon: "discord"
-          link: "https://discord.gg/WzcVxuhYHX"
+          link: "https://discord.gg/PMYjFUsJyq"
         - title: "Matrix"
           svg_path: "/images/matrix-icon.svg"
           link: "https://app.element.io/#/room/#flatcar:matrix.org"
