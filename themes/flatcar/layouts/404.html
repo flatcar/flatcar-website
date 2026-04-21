@@ -1,7 +1,8 @@
 <!doctype html>
 <html lang="{{ .Site.Language.Lang }}">
   <head>
-    {{- partial "head.html" . -}}
+    {{- partial "head.html" . -}} {{ partial "theme-mode.html" (dict "part"
+    "head" "page" .) }}
   </head>
   <body>
     <main class="main notfound row">
@@ -10,5 +11,6 @@
         <h2>Not to worry, head back <a href="/">home</a>!</h2>
       </div>
     </main>
+    {{ partial "theme-mode.html" (dict "part" "body" "page" .) }}
   </body>
 </html>
