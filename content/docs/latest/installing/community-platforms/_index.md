@@ -17,7 +17,6 @@ The platforms and providers listed below each provide support and documentation 
 * [Exoscale][exoscale]
 * [OVHcloud][ovhcloud]
 * [OracleCloud][oraclecloud]
-* [Rackspace Cloud][rackspace]
 * [Scaleway][scaleway]
 * [VMWare][vmware]
 * [Vultr VPS][vultr]
@@ -30,7 +29,6 @@ The platforms and providers listed below each provide support and documentation 
 * [VirtualBox][virtualbox]
 
 [exoscale]: exoscale
-[rackspace]: rackspace
 [vultr]: vultr
 [eucalyptus]: eucalyptus
 [scaleway]: scaleway
