@@ -1,7 +1,7 @@
 ---
 title: Running Flatcar Container Linux on Vagrant
 linktitle: Running on Vagrant
-weight: 30
+weight: 40
 aliases:
     - ../../os/booting-on-vagrant
     - ../../cloud-providers/booting-on-vagrant
@@ -151,15 +151,6 @@ vagrant up
 Connect to the machine:
 
 ```shell
-vagrant ssh core-01 -- -A
-```
-
-### Start machine using Vagrant's VMware provider
-
-If you have purchased the [VMware Vagrant provider](http://www.vagrantup.com/vmware), run the following commands:
-
-```shell
-vagrant up --provider vmware_fusion
 vagrant ssh core-01 -- -A
 ```
 

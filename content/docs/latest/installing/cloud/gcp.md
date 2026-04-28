@@ -1,7 +1,7 @@
 ---
 title: Running Flatcar Container Linux on Google Compute Engine
 linktitle: Running on Google Compute Engine
-weight: 15
+weight: 20
 aliases:
     - ../../os/booting-on-google-compute-engine
     - ../../cloud-providers/booting-on-google-compute-engine

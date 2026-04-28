@@ -1,7 +1,7 @@
 ---
 title: Running Flatcar Container Linux on KubeVirt
 linktitle: Running on KubeVirt
-weight: 30
+weight: 60
 ---
 
 _While we always welcome community contributions and fixes, please note that KubeVirt is not an officially supported platform at this time because the release tests don't run for it. (See the [platform overview](/#installing-flatcar).)_

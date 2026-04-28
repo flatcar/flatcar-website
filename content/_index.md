@@ -57,6 +57,9 @@ community_links:
           link: "https://x.com/flatcar"
     - title: "Ask Questions & Connect"
       items:
+        - title: "Discord"
+          icon: "discord"
+          link: "https://discord.gg/PMYjFUsJyq"
         - title: "Matrix"
           svg_path: "/images/matrix-icon.svg"
           link: "https://app.element.io/#/room/#flatcar:matrix.org"
@@ -147,7 +150,7 @@ grid_statements:
 
   statements:
     - '<div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
-      <iframe title="Youtube video showing Flatcar Container Linux" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;" src="https://www.youtube.com/embed/9lSH7GvLGWQ" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+      <iframe title="Youtube video showing Flatcar Container Linux" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;" src="https://www.youtube.com/embed/9lSH7GvLGWQ" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen referrerpolicy="strict-origin-when-cross-origin"></iframe>
     </div>'
 sponsors_section: true
 providers_section: true

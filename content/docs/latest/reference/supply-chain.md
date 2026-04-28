@@ -1,6 +1,6 @@
 ---
 title: Supply chain security mechanisms
-weight: 10
+weight: 40
 ---
 
 

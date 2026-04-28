@@ -1,7 +1,7 @@
 ---
 title: Incus
 description: Operate Incus from Flatcar
-weight: 11
+weight: 13
 ---
 
 While Flatcar proposes Containerd and Docker by default, [Incus][incus] can be used to run containers. The goal of this guide is not to re-write the Incus documentation but to give key aspects of Incus usage on Flatcar.
