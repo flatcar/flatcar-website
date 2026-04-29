@@ -38,10 +38,10 @@ hero:
 community_section: true
 community_links:
   groups:
-    - title: "Contribute & Collaborate"
+    - title: "Get Involved"
       items:
-        - title: "GitHub"
-          link: "https://github.com/flatcar"
+        - title: "Contributing Guide"
+          link: "https://github.com/flatcar/Flatcar/blob/main/CONTRIBUTING.md"
           icon: "github"
           class: "github-wordmark"
     - title: "Stay Updated & Follow Us"
