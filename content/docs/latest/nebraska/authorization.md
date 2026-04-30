@@ -51,6 +51,10 @@ because the defaults are set at half.
 
 - In the browser, access `http://localhost:8000`
 
+## Custom CA Certificates
+
+If your OIDC provider or update server uses a certificate signed by a non-public CA (e.g., internal CA or Let's Encrypt staging), pass `--ca-file=/path/to/ca-bundle.pem` to trust it. The custom CAs are added to the system trust store — existing system CAs remain trusted. This applies to both the OIDC client and the syncer. In Helm deployments, set `config.caFile` instead.
+
 # Deploying Nebraska with OIDC authentication mode
 
 > **⚠️ OIDC Implementation Updated ⚠️**
@@ -481,6 +485,9 @@ $ helm install my-nebraska nebraska/nebraska --values nebraska-values.yaml
   - Configure longer access token expiration in your OIDC provider (1-4 hours recommended).
   - SSO session will handle re-authentication transparently if still valid.
   - Go to your providers token settings (either under realm or specific client) and increase the access token lifespan from minutes to hours.
+
+- **"x509: certificate signed by unknown authority"**
+  - Use `--ca-file` to trust your OIDC provider's or update server's CA certificate.
 
 - **Auth0: "JWT malformed" or decode errors**
   - Ensure Implicit grant is disabled in application settings.
