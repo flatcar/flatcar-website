@@ -62,9 +62,9 @@ h6 {
     width: 100%;
     height: 2px;
     position: absolute;
-    top: 0%;
+    top:  0;
     left: 0;
-    width: 100%;
+    width: 100;
     transition: all 0.3s;
 
     &:before,
@@ -366,4 +366,59 @@ a:hover {
 .page-item.active .page-link, .page-link:hover {
   background-color: $flatcar-blue;
   border-color: $flatcar-blue;
+}
+// Copy button -> styles for code blocks (solves Issue #2022)
+div.highlight {
+  position: relative;
+  .copy-btn {
+    position: absolute;
+    top: 12px;
+    right: 12px;
+    width: 33px;       /* shrink to fit text-field */
+    min-width: 16px;   /* icon size ain't spilling out */
+    height: 17px;
+    margin: 4px;
+    padding: 6px 8px;
+    font-size: 0.75em;
+    cursor: pointer;
+    background: $gray-100; /* neutral bg */
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    color: #333;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background 0.2s ease, color 0.2s ease;
+
+    &:hover {
+      background: $gray-100;
+      color: $black;
+    }
+
+    &:active {
+      background: $gray-100;
+    }
+
+    &.copied {
+      background: $flatcar-blue; /* cyan-blue feedback */
+      color: white;
+      border-color: $flatcar-blue;
+    }
+  }
+
+  pre {
+    code {
+      background-color: $gray-100; /* distinct background for copy target */
+      padding: 1em;
+      border-radius: 6px;
+      display: block;
+      overflow-x: auto;
+      font-family: "Fira Code", monospace;
+
+      &.copied {
+        background-color: $green; /* highlight when copied */
+        transition: background-color 0.3s ease;
+      }
+    }
+  }
 }
