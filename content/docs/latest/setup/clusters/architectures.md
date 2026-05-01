@@ -23,7 +23,7 @@ Most of these scenarios dedicate a few machines, bare metal or virtual, to runni
 |------|--------------------|-------------|------------|
 | Low  | Laptop development | Minutes     | No         |
 
-If you're developing locally but plan to run containers in production, it's best practice to mirror that environment locally. Run Docker commands on your laptop that control a Flatcar Container Linux VM in VMware Fusion or Virtual box to mirror your container production environment locally.
+If you're developing locally but plan to run containers in production, it's best practice to mirror that environment locally. Run Docker commands on your laptop that control a Flatcar Container Linux VM in QEMU to mirror your container production environment locally.
 
 ### Configuring your laptop
 
