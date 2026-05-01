@@ -8,7 +8,7 @@ aliases:
 
 Docker is an open-source project that makes creating and managing Linux containers really easy. Containers are like extremely lightweight VMs – they allow code to run in isolation from other containers but safely share the machine’s resources, all without the overhead of a hypervisor.
 
-Docker containers can boot extremely fast (in milliseconds!) which gives you unprecedented flexibility in managing load across your cluster. For example, instead of running chef on each of your VMs, it’s faster and more reliable to have your build system create a container and launch it on the appropriate number of Flatcar Container Linux hosts. This guide will show you how to launch a container, install some software on it, commit that container, and optionally launch it on another Flatcar Container Linux machine. Before starting, make sure you've got at least one Flatcar Container Linux machine up and running &mdash; try it on [Amazon EC2][aws-ec2] or locally with [Vagrant][vagrant].
+Docker containers can boot extremely fast (in milliseconds!) which gives you unprecedented flexibility in managing load across your cluster. For example, instead of running chef on each of your VMs, it’s faster and more reliable to have your build system create a container and launch it on the appropriate number of Flatcar Container Linux hosts. This guide will show you how to launch a container, install some software on it, commit that container, and optionally launch it on another Flatcar Container Linux machine. Before starting, make sure you've got at least one Flatcar Container Linux machine up and running &mdash; try it on [Amazon EC2][aws-ec2] or locally with [QEMU].
 
 ## Docker CLI basics
 
@@ -169,7 +169,7 @@ docker run -d -p 80:80 registry.example.com:5000/myname/myapache /usr/sbin/apach
  * [docker's Getting Started Guide](https://docs.docker.com/mac/started/)
 
 [aws-ec2]: ../installing/cloud/aws-ec2
-[vagrant]: ../installing/vms/vagrant
+[QEMU]: ../installing/vms/qemu
 [docker-cli]: https://docs.docker.com/engine/reference/commandline/cli/
 [docker-signup]: https://hub.docker.com/account/signup/
 [systemd-getting-started]: ../setup/systemd/getting-started
