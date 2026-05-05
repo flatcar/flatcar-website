@@ -38,7 +38,7 @@ There are two predominant ways that a Flatcar Container Linux image can be easil
 
 ### Ignition
 
-[Ignition][ignition] is a tool that acquires a JSON config file when a machine first boots, and uses this config to perform tasks such as formatting disks, creating files, modifying and creating users, and adding systemd units. How Ignition acquires this config file varies per-platform, and it is highly recommended that providers ensure Ignition supports their respective platform. In addition to providers supported by [upstream Ignition][ign-platforms], Flatcar [supports](https://github.com/flatcar/scripts/blob/main/sdk_container/src/third_party/coreos-overlay/sys-apps/ignition/files/0016-revert-internal-oem-drop-noop-OEMs.patch) cloudsigma, rackspace[-onmetal], and vagrant.
+[Ignition][ignition] is a tool that acquires a JSON config file when a machine first boots, and uses this config to perform tasks such as formatting disks, creating files, modifying and creating users, and adding systemd units. How Ignition acquires this config file varies per-platform, and it is highly recommended that providers ensure Ignition supports their respective platform. The list of providers supported by Ignition can be found [upstream][ign-platforms]. If your image introduces a new OEM sysext with a name that is not recognised as a provider by Ignition, then you must add a fallback to Flatcar's [bootengine].
 
 It is recommended that providers ensure that [Afterburn][coreos-metadata] has support for their platform. This will allow a nicer user experience, as Afterburn will be able to install users' ssh keys and users will be able to reference metadata variables in their systemd units.
 
@@ -61,3 +61,4 @@ Flatcar Container Linux will automatically parse and execute `/usr/share/oem/clo
 End-users should be able to provide an Ignition file to your platform while specifying their VM's parameters. This file should be made available to Flatcar Container Linux at the time of boot (e.g. at known network address, injected directly onto disk). Examples of these data sources can be found in the [Ignition documentation][ign-platforms].
 
 [ign-platforms]: https://github.com/coreos/ignition/blob/main/docs/supported-platforms.md
+[bootengine]: https://github.com/flatcar/bootengine/blob/a19dace6ad74359e6c3677fccadc36a7ce09767a/dracut/53ignition/ignition-setup-pre.sh#L36
