@@ -9,181 +9,137 @@ aliases:
 
 _While we always welcome community contributions and fixes, please note that Vagrant is not an officially supported platform at this time. (See the [platform overview](/#installing-flatcar).)_
 
-Running Flatcar Container Linux with Vagrant is one way to bring up a single machine or virtualize an entire cluster on your laptop. Since the true power of Flatcar Container Linux can be seen with a cluster, we're going to concentrate on that. Instructions for a single machine can be found [towards the end](#single-machine) of the guide.
+Running Flatcar Container Linux with Vagrant is one way to bring up a single machine or virtualize an entire cluster on your laptop.
 
 You can direct questions to the [Matrix channel][matrix] or [mailing list][flatcar-dev].
 
-## Install Vagrant and VirtualBox
+## Install Vagrant and VirtualBox (or Parallels)
 
-Vagrant is a simple-to-use command line virtual machine manager. There are install packages available for Windows, Linux and OS X. Find the latest installer on the [Vagrant downloads page][vagrant]. Be sure to get version 2.0.4 or greater, to be able to detect Flatcar images correctly.
+Vagrant is a simple-to-use command line virtual machine manager. There are install packages available for Windows, Linux, and macOS. Find the latest installer on the [Vagrant downloads page](https://developer.hashicorp.com/vagrant/install).
 
-[vagrant]: http://www.vagrantup.com/downloads.html
-
-Vagrant can use either the free VirtualBox provider or the commercial VMware provider. Instructions for both are below. For the VirtualBox provider, version 4.3.10 or greater is required.
+Vagrant is most commonly used in conjunction with [VirtualBox](https://www.virtualbox.org), which is free. It also supports several more "providers", but the only other one supported by Flatcar is [Parallels](https://www.parallels.com/products/desktop/) on macOS.
 
 ## Install Flatcar Container Linux
 
-You can import the flatcar box and boot it with Vagrant.
-You'll find it in `https://${CHANNEL}.release.flatcar-linux.net/amd64-usr/${VERSION}/flatcar_production_vagrant.box`.
-Make sure you download the signature (it's available in `https://${CHANNEL}.release.flatcar-linux.net/amd64-usr/${VERSION}/flatcar_production_vagrant.box.sig`) and check it before proceeding.
+Vagrant's images are known as boxes. They are shipped alongside JSON-based metadata. Unfortunately, Vagrant doesn't support verifying the metadata's signature with GPG, but it does at least verify the box's checksum. The following assumes the Flatcar **alpha** channel. Select your chosen provider when prompted.
 
-For example, to get the latest alpha:
+```text
+$ vagrant box add https://alpha.release.flatcar-linux.net/amd64-usr/current/flatcar_production_vagrant.json
+==> box: Loading metadata for box 'https://alpha.release.flatcar-linux.net/amd64-usr/current/flatcar_production_vagrant.json'
+This box can work with multiple providers! The providers that it
+can work with are listed below. Please review the list and choose
+the provider you will be working with.
 
-```shell
-$ wget https://alpha.release.flatcar-linux.net/amd64-usr/current/flatcar_production_vagrant.box
-$ wget https://alpha.release.flatcar-linux.net/amd64-usr/current/flatcar_production_vagrant.box.sig
-$ gpg --verify flatcar_production_vagrant.box.sig
-gpg: assuming signed data in 'flatcar_production_vagrant.box'
-gpg: Signature made Thu 15 Mar 2018 10:29:23 AM CET
-gpg:                using RSA key A621F1DA96C93C639506832D603443A1D0FC498C
-gpg: Good signature from "Flatcar Buildbot (Official Builds) <buildbot@flatcar-linux.org>" [ultimate]
-$ vagrant box add flatcar-alpha flatcar_production_vagrant.box
-==> box: Box file was not detected as metadata. Adding it directly...
-==> box: Adding box 'flatcar-alpha' (v0) for provider:
-    box: Unpacking necessary files from: file:///tmp/flatcar_production_vagrant.box
-==> box: Successfully added box 'flatcar-alpha' (v0) for 'virtualbox'!
+1) virtualbox
+2) parallels
+
+Enter your choice: 1
+==> box: Adding box 'flatcar-alpha' (v4669.0.0) for provider: virtualbox (amd64)
+    box: Downloading: https://bincache.flatcar-linux.net/images/amd64/4669.0.0/flatcar_production_vagrant.box
+    box: Calculating and comparing box checksum...
+==> box: Successfully added box 'flatcar-alpha' (v4669.0.0) for 'virtualbox' (amd64)!
+```
+
+Create the configuration file for your environment, known as a `Vagrantfile`.
+
+```text
 $ vagrant init flatcar-alpha
 A `Vagrantfile` has been placed in this directory. You are now
 ready to `vagrant up` your first virtual environment! Please read
 the comments in the Vagrantfile as well as documentation on
 `vagrantup.com` for more information on using Vagrant.
-$ vagrant up
-Bringing machine 'default' up with 'virtualbox' provider...
-==> default: Importing base box 'flatcar-alpha'...
-==> default: Matching MAC address for NAT networking...
-==> default: Setting the name of the VM: vagrant_default_1520510346048_14823
-==> default: Clearing any previously set network interfaces...
-==> default: Preparing network interfaces based on configuration...
-    default: Adapter 1: nat
-==> default: Forwarding ports...
-    default: 22 (guest) => 2222 (host) (adapter 1)
-==> default: Running 'pre-boot' VM customizations...
-==> default: Booting VM...
-==> default: Waiting for machine to boot. This may take a few minutes...
-    default: SSH address: 127.0.0.1:2222
-    default: SSH username: core
-    default: SSH auth method: private key
-==> default: Machine booted and ready!
-$ vagrant ssh
-Last login: Thu Mar 15 17:02:25 UTC 2018 from 10.0.2.2 on ssh
-Flatcar Container Linux by Kinvolk alpha (1702.1.0)
-core@localhost ~ $
+```
+
+## Starting a single machine
+
+You can customise the `Vagrantfile` at this point, but it will support a single machine without any changes. Bring up the VM and connect to it with SSH:
+
+```shell
+vagrant up
+vagrant ssh
+```
+
+It will continue to run in the background. Don't forget to destroy it to free up resources:
+
+```shell
+vagrant destroy
 ```
 
 ## Starting a cluster
 
-You can configure your Vagrant machine by having a `Vagrantfile` example file:
+Additional machines can be defined in the `Vagrantfile`. They can be configured differently. See Vagrant's documentation for more details.
 
 ```ruby
-ENV["TERM"] = "xterm-256color"
-ENV["LC_ALL"] = "en_US.UTF-8"
-
-Vagrant.require_version '>= 2.0.4'
-
 Vagrant.configure('2') do |config|
-  config.ssh.username = 'core'
-  config.ssh.insert_key = true
-  config.vm.box = 'flatcar-alpha'
-  config.vm.synced_folder '.', '/vagrant', disabled: true
-  config.vm.provider :virtualbox do |v|
-    v.check_guest_additions = false
-    v.functional_vboxsf = false
-    v.cpus = 2
-    v.memory = 2048
+  config.vm.define 'flatcar-01' do |c|
   end
-  config.vm.define 'core-01' do |c|
+  config.vm.define 'flatcar-02' do |c|
   end
-  config.vm.define 'core-02' do |c|
-  end
-  config.vm.define 'core-03' do |c|
+  config.vm.define 'flatcar-03' do |c|
   end
 end
 ```
 
-### Start machines using Vagrant's default VirtualBox provider
-
-Start the machine(s):
-
-```shell
-vagrant up
-```
-
-List the status of the running machines:
+`vagrant up` will bring up all of them. To see the status of each:
 
 ```shell
 $ vagrant status
 Current machine states:
 
-core-01                   running (virtualbox)
-core-02                   running (virtualbox)
-core-03                   running (virtualbox)
+flatcar-01                running (virtualbox)
+flatcar-02                running (virtualbox)
+flatcar-03                running (virtualbox)
 
 This environment represents multiple VMs. The VMs are all listed
 above with their current state. For more information about a specific
 VM, run `vagrant status NAME`.
 ```
 
-Connect to one of the machines:
+To connect to one of the machines, specify the name:
 
 ```shell
-vagrant ssh core-01 -- -A
-```
-
-### Start machines using Vagrant's VMware provider
-
-If you have purchased the [VMware Vagrant provider](http://www.vagrantup.com/vmware), run the following commands:
-
-```shell
-vagrant up --provider vmware_fusion
-vagrant ssh core-01 -- -A
-```
-
-## Single machine
-
-To start a single machine, we need to provide some config parameters in cloud-config format via the `user-data` file.
-
-Start the machine:
-
-```shell
-vagrant up
-```
-
-Connect to the machine:
-
-```shell
-vagrant ssh core-01 -- -A
+vagrant ssh flatcar-01
 ```
 
 ## Shared folder setup
 
-Optionally, you can share a folder from your laptop into the virtual machine. This is useful for easily getting code and Dockerfiles into Flatcar Container Linux.
+You can optionally share a folder from your laptop into the virtual machine by modifying the `Vagrantfile`. This is useful for easily getting code and other files into the environment. Note that Flatcar does not include VirtualBox's shared folder driver, so NFS-based sharing must be used. Flatcar also disables NFS over UDP as recommended, but Vagrant still uses it by default, so tell it to use TCP instead. The default NAT network is not sufficient for NFS, so a private network is needed too. Adjust the IP address as necessary.
 
-```ini
-config.vm.synced_folder ".", "/home/core/share", id: "core", :nfs => true,  :mount_options   => ['nolock,vers=3,udp']
+```ruby
+config.vm.synced_folder ".", "/home/core/share", id: "core", type: "nfs", nfs_udp: false
+config.vm.network "private_network", ip: "192.168.33.10"
 ```
 
-After a 'vagrant reload' you will be prompted for your local machine password.
+Use `vagrant reload` to apply this to your existing VM. Vagrant needs to modify `/etc/exports`, so you will be prompted for your local machine password.
 
 ## New box versions
 
-Flatcar Container Linux is a rolling release distribution and versions that are out of date will automatically update. If you want to start from the most up to date version you will need to make sure that you have the latest box file of Flatcar Container Linux. You can do this using `vagrant box update` - or, simply remove the old box file and Vagrant will download the latest one the next time you `vagrant up`.
+Flatcar Container Linux is a rolling release distribution and versions that are out of date will automatically update. To initially deploy VMs with the most recent version, you must fetch the latest box file. Vagrant remembers where to download this from. This assumes you used a "current" URL when you initially added the box.
 
 ```shell
-vagrant box remove flatcar-alpha vmware_fusion
-vagrant box remove flatcar-alpha virtualbox
+vagrant box update
 ```
 
-If you'd like to download the box separately, you can download the URL contained in the Vagrantfile and add it manually:
+## Provisioning
 
-```shell
-vagrant box add flatcar-alpha <path-to-box-file>
-```
+Vagrant can do some provisioning by itself, but Flatcar is usually provisioned with Ignition or cloud-config. These can be used in conjunction with Vagrant, but Parallels is not supported by Ignition.
+
+### Ignition
+
+Write a [Butane configuration][butane-configs] and transpile it, placing the resulting file alongside the `Vagrantfile` as `config.ign`. Vagrant will then pick it up automatically.
+
+Unfortunately, a VirtualBox restriction limits the permitted size of `config.ign` to just 1024 bytes. This is barely enough for an SSH key and/or a URL to a remote configuration. Anything further must therefore be done in a remote configuration. See [Ignition issue #2226](https://github.com/coreos/ignition/issues/2226) for more details.
+
+### cloud-config
+
+Simply put your cloud-config file alongside the `Vagrantfile` as `user-data`. Vagrant will then pick it up automatically. Note that cloud-config is considered a legacy mechanism.
 
 ## Using Flatcar Container Linux
 
-Now that you have a machine booted it is time to play around. Check out the [Flatcar Container Linux Quickstart][quickstart] guide, learn about [CoreOS Container Linux clustering with Vagrant](https://coreos.com/blog/coreos-clustering-with-vagrant/), or dig into [more specific topics][doc-index].
+Now that you have a machine booted it is time to play around. Check out the [Flatcar Container Linux Quickstart][quickstart] guide or dig into [more specific topics][doc-index].
 
 [flatcar-dev]: https://groups.google.com/forum/#!forum/flatcar-linux-dev
 [matrix]: https://app.element.io/#/room/#flatcar:matrix.org
+[butane-configs]: ../../provisioning/config-transpiler
 [quickstart]: ../
 [doc-index]: ../../
