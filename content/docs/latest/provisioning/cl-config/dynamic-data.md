@@ -29,7 +29,6 @@ This is the information available in each provider.
 | EC2                | ✓          | ✓              | ✓             |                |               |
 | GCE                | ✓          | ✓              | ✓             |                |               |
 | OpenStack-Metadata | ✓          | ✓              | ✓             |                |               |
-| Vagrant-Virtualbox | ✓          | ✓              |               |                |               |
 
 ## Custom metadata providers
 
