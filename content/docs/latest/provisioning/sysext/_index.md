@@ -25,7 +25,7 @@ For Flatcar, two types of systemd-sysext images are provided:
 
 - Official:
   - enabled: These are extensions that are shipped along with the base image like Docker, Containerd, OEM partition. These are "opt-out".
-  - disabled: These are "opt-in" like ZFS, Podman or Python and one needs to write the extension name in `/etc/flatcar/enabled-sysext.conf` to pull the extension at boot. Similar to enabled extensions, those are built in Flatcar's CI and are distributed from the release servers. 
+  - disabled: These are "opt-in" like ZFS, Podman or Python and one needs to write the extension name in `/etc/flatcar/enabled-sysext.conf` to pull the extension at first boot. Similar to enabled extensions, those are built in Flatcar's CI and are distributed from the release servers. 
 - Community supported: These are extensions from the Flatcar [sysext-bakery releases](https://github.com/flatcar/sysext-bakery/releases) and they are not tested in CI. 
 
 ## OEM software as systemd-sysext images
@@ -52,7 +52,8 @@ The table below give an overview on the supported Flatcar extensions.
 
 [^1]: n/a here because those sysexts are already enabled by default
 
-Users can enable Flatcar extensions by writing one name per line to `/etc/flatcar/enabled-sysext.conf`.
+Users can enable Flatcar extensions by writing one name per line to `/etc/flatcar/enabled-sysext.conf` from Ignition.
+This file is only read at first boot.
 For now there are no pre-enabled release extensions but once Flatcar would move parts of the base image out into extensions, these would be pre-enabled as entries in `/usr/share/flatcar/enabled-sysext.conf`. They can be disabled with a `-NAME` entry in `/etc/flatcar/enabled-sysext.conf`.
 
 ### Remove Docker and / or Containerd from Flatcar
