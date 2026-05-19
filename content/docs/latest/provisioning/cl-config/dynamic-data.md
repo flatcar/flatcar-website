@@ -28,9 +28,7 @@ This is the information available in each provider.
 | Digital Ocean      | ✓          | ✓              | ✓             | ✓              | ✓             |
 | EC2                | ✓          | ✓              | ✓             |                |               |
 | GCE                | ✓          | ✓              | ✓             |                |               |
-| Packet             | ✓          | ✓              | ✓             |                | ✓             |
 | OpenStack-Metadata | ✓          | ✓              | ✓             |                |               |
-| Vagrant-Virtualbox | ✓          | ✓              |               |                |               |
 
 ## Custom metadata providers
 

@@ -8,7 +8,7 @@ aliases:
 
 The guides in this document aim to enable engineers to update, and to extend, packages in both the Flatcar OS image as well as the SDK, to suit their own needs.
 Overarching goal of this collection of how-tos is to help you to scratch your own itch, to set you up to play with Flatcar.
-We’ll cover everything you need to make the changes you want, and to produce an image for the runtime environment(s) you want to use Flatcar in (e.g. AWS, qemu, Packet, etc).
+We’ll cover everything you need to make the changes you want, and to produce an image for the runtime environment(s) you want to use Flatcar in (e.g. AWS, QEMU, etc).
 By the end of the guide you will build a developer image that you can run under qemu and have tools for making changes to the OS image like adding or removing packages, or shipping custom kernels.
 Note that we chose this guide's "qemu" image target solely to enable local testing; the same process can be used to produce images for any and all targets (cloud providers etc.) supported by Flatcar.
 

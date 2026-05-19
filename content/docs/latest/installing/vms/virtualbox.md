@@ -10,25 +10,6 @@ _While we always welcome community contributions and fixes, please note that Vir
 
 These instructions will walk you through running Flatcar Container Linux on Oracle VM VirtualBox.
 
-## Building the virtual disk
-
-There is a script that simplifies building the VDI image. It downloads a bare-metal image, verifies it with GPG, and converts that image to a VDI image.
-
-The script is located on [GitHub](https://github.com/flatcar/scripts/blob/main/contrib/create-coreos-vdi). The running host must support VirtualBox tools.
-
-As first step, you must download the script and make it executable.
-
-```shell
-wget https://raw.githubusercontent.com/flatcar/scripts/main/contrib/create-coreos-vdi
-chmod +x create-coreos-vdi
-```
-
-To run the script, you can specify a destination location and the Flatcar Container Linux version.
-
-```shell
-./create-coreos-vdi -d /data/VirtualBox/Templates
-```
-
 ## Choose a channel
 
 Flatcar Container Linux is designed to be updated automatically with different schedules per channel. You can [disable this feature][update-strategies], although we don't recommend it. Read the [release notes][release-notes] for specific features and bug fixes.
@@ -42,84 +23,132 @@ Flatcar Container Linux is designed to be updated automatically with different s
   <div class="tab-content coreos-docs-image-table">
     <div class="tab-pane" id="alpha-create">
       <p>The Alpha channel closely tracks master and is released frequently. The newest versions of system libraries and utilities will be available for testing. The current version is Flatcar Container Linux {{< param alpha_channel >}}.</p>
-      <p>Create a disk image from this channel by running:</p>
+      <p>Download the OVF configuration file and VMDK disk image by running:</p>
 <pre>
-./create-coreos-vdi -V alpha
+mkdir flatcar; cd flatcar
+wget https://alpha.release.flatcar-linux.net/amd64-usr/current/flatcar_production_virtualbox.ovf
+wget https://alpha.release.flatcar-linux.net/amd64-usr/current/flatcar_production_virtualbox.ovf.sig
+wget https://alpha.release.flatcar-linux.net/amd64-usr/current/flatcar_production_virtualbox_image.vmdk.bz2
+wget https://alpha.release.flatcar-linux.net/amd64-usr/current/flatcar_production_virtualbox_image.vmdk.bz2.sig
 </pre>
     </div>
     <div class="tab-pane" id="beta-create">
       <p>The Beta channel consists of promoted Alpha releases. The current version is Flatcar Container Linux {{< param beta_channel >}}.</p>
-      <p>Create a disk image from this channel by running:</p>
+      <p>Download the OVF configuration file and VMDK disk image by running:</p>
 <pre>
-./create-coreos-vdi -V beta
+mkdir flatcar; cd flatcar
+wget https://beta.release.flatcar-linux.net/amd64-usr/current/flatcar_production_virtualbox.ovf
+wget https://beta.release.flatcar-linux.net/amd64-usr/current/flatcar_production_virtualbox.ovf.sig
+wget https://beta.release.flatcar-linux.net/amd64-usr/current/flatcar_production_virtualbox_image.vmdk.bz2
+wget https://beta.release.flatcar-linux.net/amd64-usr/current/flatcar_production_virtualbox_image.vmdk.bz2.sig
 </pre>
     </div>
   <div class="tab-pane active" id="stable-create">
       <p>The Stable channel should be used by production clusters. Versions of Flatcar Container Linux are battle-tested within the Beta and Alpha channels before being promoted. The current version is Flatcar Container Linux {{< param stable_channel >}}.</p>
-      <p>Create a disk image from this channel by running:</p>
+      <p>Download the OVF configuration file and VMDK disk image by running:</p>
 <pre>
-./create-coreos-vdi -V stable
+mkdir flatcar; cd flatcar
+wget https://stable.release.flatcar-linux.net/amd64-usr/current/flatcar_production_virtualbox.ovf
+wget https://stable.release.flatcar-linux.net/amd64-usr/current/flatcar_production_virtualbox.ovf.sig
+wget https://stable.release.flatcar-linux.net/amd64-usr/current/flatcar_production_virtualbox_image.vmdk.bz2
+wget https://stable.release.flatcar-linux.net/amd64-usr/current/flatcar_production_virtualbox_image.vmdk.bz2.sig
 </pre>
     </div>
   </div>
 </div>
 
-After the script has finished successfully, the Flatcar Container Linux image will be available at the specified destination location or at the current location. The file name will be something like:
+## Verify and decompress the image
+
+Ensure that what you have downloaded has a good signature:
 
 ```shell
-coreos_production_stable.vdi
+gpg --verify flatcar_production_virtualbox.ovf.sig
+gpg --verify flatcar_production_virtualbox_image.vmdk.bz2.sig
 ```
 
-## Creating a config-drive
-
-Cloud-config can be specified by attaching a [config-drive](https://github.com/flatcar/coreos-cloudinit/blob/master/Documentation/config-drive.md) with the label `config-2`. This is commonly done through whatever interface allows for attaching CD-ROMs or new drives.
-
-Note that the config-drive standard was originally an OpenStack feature, which is why you'll see strings containing `openstack`. This filepath needs to be retained, although Flatcar Container Linux supports config-drive on all platforms.
-
-For more information on customization that can be done with cloud-config, head on over to the [cloud-config guide](https://github.com/flatcar/coreos-cloudinit/blob/master/Documentation/cloud-config.md).
-
-You need a config-drive to configure at least one SSH key to access the virtual machine. If you are in hurry, you can create a basic config-drive with following steps:
+The disk image needs to be decompressed before use:
 
 ```shell
-wget https://raw.github.com/flatcar/scripts/main/contrib/create-basic-configdrive
-chmod +x create-basic-configdrive
-./create-basic-configdrive -H my_vm01 -S ~/.ssh/id_rsa.pub
+bunzip2 flatcar_production_virtualbox_image.vmdk.bz2
 ```
-
-An ISO file named `my_vm01.iso` will be created that will configure a virtual machine to accept your SSH key and set its name to my_vm01.
 
 ## Deploying a new virtual machine on VirtualBox
 
-Use the built image as the base image. Clone that image for each new virtual machine and set the desired size.
+### Note for Windows users
 
-```shell
-VBoxManage clonehd coreos_production_stable.vdi my_vm01.vdi
-# Resize virtual disk to 10 GB
-VBoxManage modifyhd my_vm01.vdi --resize 10240
+The following steps use the `VBoxManage` command, which is not in the `PATH` on Windows by default. Temporarily add it to the `PATH` like so:
+
+```powershell
+$env:PATH += ";C:\Program Files\Oracle\VirtualBox"
 ```
 
-At boot time, the Flatcar Container Linux will detect that the volume size has changed and will resize the filesystem accordingly.
+### Import the OVF configuration file and VMDK disk image
 
-Open VirtualBox Manager and go to Machine > New. Type the desired machine name and choose 'Linux' as the type and 'Linux 2.6 / 3.x (64 bit)' as the version.
+Importing with no additional arguments will clone the disk image and use the default configuration defined in the OVF. You can give the VM a custom name and override certain properties such as the amount of memory and the number of CPUs. When giving any additional arguments, you must start them with `--vsys=0`.
 
-Next, choose the desired memory size; at least 2 GB for an optimal experience.
+```shell
+VBoxManage import flatcar_production_virtualbox.ovf --vsys=0 --vmname=myflatcar --memory=4096 --cpus=4
+```
 
-Then, choose 'Use an existing virtual hard drive file' and find the new cloned image.
+If you don't give a custom name, one will be generated for you and shown in the output.
 
-Click on the 'Create' button to create the virtual machine.
+### Resize the disk
 
-Next, go to the settings from the created virtual machine. Then click on the Storage tab and load the created config-drive into the CD/DVD drive.
+By default, the root filesystem will hold roughly 12GB. If this is too small, you can resize the image, and Flatcar will adjust the root filesystem at boot time. Find the disk's UUID within the VM's details:
 
-Click on the 'OK' button and the virtual machine will be ready to be started.
+```shell
+VBoxManage showvminfo myflatcar
+```
+
+Then resize the disk as required:
+
+```shell
+VBoxManage modifymedium disk 1f768d59-256f-4fee-96f5-c12624d4f0f0 --resize 20480
+```
+
+### Make the VM accessible
+
+If you were to start the VM now, you would not be able to log in because the automatic console login would be disabled, the SSH port would not be exposed, and no SSH keys would be added. Expose the VM's SSH port via port 2222 on the host:
+
+```shell
+VBoxManage modifyvm myflatcar --nat-pf1=ssh,tcp,127.0.0.1,2222,,22
+```
+
+An SSH key must be inserted into the VM by provisioning it with Ignition. First, write a [Butane configuration]
+[butane-configs] containing your public SSH key and transpile it. Then attach the transpiled configuration to the VM as a property:
+
+#### Bash (Linux, macOS)
+```shell
+VBoxManage guestproperty set myflatcar /Ignition/Config "$(< config.ign)"
+```
+
+#### PowerShell (Windows)
+```powershell
+VBoxManage guestproperty set myflatcar /Ignition/Config (Get-Content -Raw config.ign)
+```
+
+Unfortunately, a VirtualBox restriction limits the permitted size of such properties to just 1024 bytes. This is barely enough for an SSH key and/or a URL to a remote configuration. Anything further must therefore be done in a remote configuration. See [Ignition issue #2226](https://github.com/coreos/ignition/issues/2226) for more details.
+
+### Start the VM
+
+Once configured as necessary, start the VM:
+
+```shell
+VBoxManage startvm myflatcar
+```
+
+This will open a window for the VM's display. You can run the VM headless instead:
+
+```shell
+VBoxManage startvm myflatcar --type=headless
+```
 
 ## Logging in
 
-Networking can take a bit of time to come up under VirtualBox, and the IP is needed in order to connect to it. Press enter a few times at the login prompt to see an IP address pop up. If you see VirtualBox NAT IP 10.0.2.15, go to the virtual machine settings and click the Network tab then Port Forwarding. Add the rule "Host Port: 2222; Guest Port 22" then connect using the command `ssh core@localhost -p2222`.
-
-Now, login using your private SSH key.
+Assuming you're using NAT networking and have exposed SSH via host port 2222, log in using your private SSH key like so:
 
 ```shell
-ssh core@192.168.56.101
+ssh -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null -l core -p 2222 127.0.0.1
 ```
 
 ## Using Flatcar Container Linux
@@ -128,6 +157,6 @@ Now that you have a machine booted it is time to play around. Check out the [Fla
 
 [update-strategies]: ../../setup/releases/update-strategies
 [release-notes]: https://flatcar-linux.org/releases
+[butane-configs]: ../../provisioning/config-transpiler
 [quickstart]: ../
 [doc-index]: ../../
-
