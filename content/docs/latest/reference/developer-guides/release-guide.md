@@ -351,7 +351,7 @@ Use the Flatcar [HackMD template](https://hackmd.io/IOXhY5GAQeKEdGk0JXG4sw) to c
 
 ### Go/No-go meeting
 
-This is an async and offline meeting on Matrix. The goal of this meeting is to validate, by the rest of the maintainers, the current state of the release before public promotion. To be reviewed:
+This is an async and offline meeting on Discord. The goal of this meeting is to validate, by the rest of the maintainers, the current state of the release before public promotion. To be reviewed:
 * tests summary
 * changelog / release notes
 * social posts
@@ -485,5 +485,5 @@ Post release notes to:
 #### Additional Channels
 
 * Social media accounts
-* [Matrix](https://matrix.to/#/#flatcar:matrix.org)
+* [Discord](https://discord.gg/PMYjFUsJyq)
 * [Kubernetes Slack](https://kubernetes.slack.com/archives/C03GQ8B5XNJ)

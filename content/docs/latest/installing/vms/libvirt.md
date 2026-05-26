@@ -13,7 +13,7 @@ that you already have a running libvirt setup and `virt-install` tool. If you
 don’t have that, other solutions are most likely easier.
 At the end of the document there are instructions for deploying with Terraform.
 
-You can direct questions to the [Matrix channel][matrix] or [mailing list][flatcar-dev].
+You can direct questions to the [Discord server][discord] or [mailing list][flatcar-dev].
 
 ## Download the Flatcar Container Linux image
 
@@ -468,7 +468,7 @@ resource "libvirt_domain" "flatcar_simple" {
 Run `terraform init && terraform plan` followed by `terraform apply` to create (or update) this Flatcar VM; the domain doesn't start automatically. You can start it with `virsh start --console flatcar-simple` (or add `running = true` to the Terraform domain definition), see the autologin console for `core`, or log in via SSH once the IP is printed in the Terraform output. Editing Terraform resources or the Ignition payload alone leaves the existing system disk intact with `firstboot=false`, so rerunning `terraform apply` will not rerun Ignition unless you taint `libvirt_volume.flatcar_simple_system` (or otherwise recreate that volume) to force a fresh copy-on-write disk.
 
 [flatcar-dev]: https://groups.google.com/forum/#!forum/flatcar-linux-dev
-[matrix]: https://app.element.io/#/room/#flatcar:matrix.org
+[discord]: https://discord.gg/PMYjFUsJyq
 [config-transpiler]: ../../provisioning/config-transpiler
 [update-strategies]: ../../setup/releases/update-strategies
 [release-notes]: https://flatcar-linux.org/releases
