@@ -177,5 +177,5 @@ next iteration of the [Image-based Linux Summit](https://lwn.net/Articles/946526
 and the ["All Systems Go!"](https://all-systems-go.io/) conference
 are good community spaces to discuss this. In the meantime, feel free to
 join the [Flatcar Office Hours](https://github.com/flatcar/Flatcar/?tab=readme-ov-file#monthly-office-hours-and-developer-syncs)
-and [Matrix](https://app.element.io/#/room/%23flatcar:matrix.org) chat
+and [Discord](https://discord.gg/PMYjFUsJyq) chat
 to bring up your use case. 

@@ -14,8 +14,8 @@ change ensures your workloads are not unexpectedly disrupted. We encourage you
 to enable CGroupsV2 on legacy CGroupsV1 nodes to ensure successful updates. The
 LTS-2024 channel (major release series 4081) will continue supporting CGroupsV1. This channel will receive regular updates until early 2026, and hit EOL in mid-2026.
 
-If you have any questions, feel free to join our [Matrix
-channel](https://app.element.io/#/room/#flatcar:matrix.org), or participate in
+If you have any questions, feel free to join our [Discord
+server](https://discord.gg/PMYjFUsJyq), or participate in
 our [Office Hours](https://meet.flatcar.org/OfficeHours) / [Developer
 Sync](https://meet.flatcar.org/OfficeHours) calls.
 "

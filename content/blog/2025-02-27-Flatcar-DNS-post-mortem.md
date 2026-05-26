@@ -74,7 +74,7 @@ We recognize the impact this incident had on our users, and we deeply appreciate
 
 We would like to extend our warmest thanks to our Linux Foundation peers who tirelessly worked with us to resolve the issues.
 
-Thank you for being part of the Flatcar community. If you have any questions or feedback, feel free to reach out via our [matrix channel](https://app.element.io/#/room/#flatcar:matrix.org), GitHub discussions, or Kubernetes Slack (\#flatcar).
+Thank you for being part of the Flatcar community. If you have any questions or feedback, feel free to reach out via our [Discord server](https://discord.gg/PMYjFUsJyq), GitHub discussions, or Kubernetes Slack (\#flatcar).
 
 **\- The Flatcar Team & LF IT**
 
