@@ -18,6 +18,7 @@ The platforms and providers listed below each provide support and documentation 
 * [OVHcloud][ovhcloud]
 * [Rackspace Cloud][rackspace]
 * [Scaleway][scaleway]
+* [VMWare][vmware]
 * [Vultr VPS][vultr]
 
 ## Other providers
@@ -37,3 +38,4 @@ The platforms and providers listed below each provide support and documentation 
 [official-support]: ../../
 [ovhcloud]: ovhcloud
 [proxmoxve]: proxmoxve
+[vmware]: vmware
