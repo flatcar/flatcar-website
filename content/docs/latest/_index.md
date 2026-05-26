@@ -223,7 +223,7 @@ APIs and troubleshooting guides for working with Flatcar Container Linux.
 [hyper-v]: installing/vms/hyper-v
 [kubevirt]: installing/vms/kubevirt
 [proxmoxve]: installing/community-platforms/proxmoxve
-[vmware]: installing/cloud/vmware
+[vmware]: installing/community-platforms/vmware
 [cluster-architectures]: setup/clusters/architectures
 [update-strategies]: setup/releases/update-strategies
 [clustering-machines]: setup/clusters/discovery
