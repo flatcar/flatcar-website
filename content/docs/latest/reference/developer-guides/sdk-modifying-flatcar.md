@@ -16,7 +16,7 @@ Note that we chose this guide's "qemu" image target solely to enable local testi
 
 Flatcar Container Linux is an open source project. All of the source for Flatcar Container Linux is available on [github][github-flatcar]. If you find issues with these docs or the code please send a pull request.
 
-Please direct questions and suggestions to the [#flatcar:matrix.org Matrix channel][matrix] or [mailing list][flatcar-dev].
+Please direct questions and suggestions to the [Discord server][discord] or [mailing list][flatcar-dev].
 
 Some resources provided by the community and the Flatcar's maintainers are also available as an introduction to the Flatcar modification process:
 
@@ -796,7 +796,7 @@ Take a look at the [SDK bootstrap process](sdk-bootstrapping) to learn how to bu
 
 [flatcar-dev]: https://groups.google.com/forum/#!forum/flatcar-linux-dev
 [github-flatcar]: https://github.com/flatcar
-[matrix]: https://app.element.io/#/room/#flatcar:matrix.org
+[discord]: https://discord.gg/PMYjFUsJyq
 [ghcr-sdk]: https://github.com/orgs/flatcar/packages
 [scripts]: https://github.com/flatcar/scripts
 [flatcar-releases]: https://www.flatcar-linux.org/releases/

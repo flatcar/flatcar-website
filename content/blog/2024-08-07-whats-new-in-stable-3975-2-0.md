@@ -40,7 +40,7 @@ More than 2000 commits on Stable 3975.2.0 by 24+ contributors, among them 7 are 
 
 ## Getting Involved
 - Even if new major Stable are being tested and validated since several months on Beta channel, it remains possible for your workload to show some trouble. In such a case, please open an issue on the Flatcar [tracker](https://github.com/flatcar/Flatcar/issues/new?assignees=&labels=kind%2Fbug&projects=&template=bug_report.md&title=)
-- Join the Flatcar [Matrix](https://app.element.io/#/room/#flatcar:matrix.org) or on [Slack](https://kubernetes.slack.com/archives/C03GQ8B5XNJ).
+- Join the Flatcar [Discord](https://discord.gg/PMYjFUsJyq) or on [Slack](https://kubernetes.slack.com/archives/C03GQ8B5XNJ).
 - Add 📅 [Google Calendar](https://calendar.google.com/calendar/u/0/embed?src=c_ii991mqrpta9en8o7ofd4v19g4@group.calendar.google.com)([iCal](https://calendar.google.com/calendar/ical/c_ii991mqrpta9en8o7ofd4v19g4%40group.calendar.google.com/public/basic.ics)) with both our Office Hours and Developer Sync meeting series. We would love you to come join us in these meetings.
 - Watch and 🌟 star the project on [GitHub](https://github.com/flatcar/Flatcar). This is a great way to show your appreciation for the project and the maintainers 💖
 - As we grow, we would like to know our community and who are using Flatcar. If you are using Flatcar in your company, please add your company as a [Flatcar](https://github.com/flatcar/Flatcar/blob/main/ADOPTERS.md) Adopter on GitHub.

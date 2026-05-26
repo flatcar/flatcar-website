@@ -7,7 +7,7 @@ aliases:
     - ../../cloud-providers/booting-on-ec2
 ---
 
-The current AMIs for all Flatcar Container Linux channels and EC2 regions are listed below and updated frequently. Using CloudFormation is the easiest way to launch a cluster, but it is also possible to follow the manual steps at the end of the article. Questions can be directed to the Flatcar Container Linux [Matrix channel][matrix] or [user mailing list][flatcar-user].
+The current AMIs for all Flatcar Container Linux channels and EC2 regions are listed below and updated frequently. Using CloudFormation is the easiest way to launch a cluster, but it is also possible to follow the manual steps at the end of the article. Questions can be directed to the Flatcar Container Linux [Discord server][discord] or [user mailing list][flatcar-user].
 
 At the end of the document there are instructions for deploying with Terraform.
 
@@ -499,7 +499,7 @@ You can find this Terraform module in the repository for [Flatcar Terraform exam
 [docker-docs]: https://docs.docker.io
 [etcd-docs]: https://etcd.io/docs
 [update-strategies]: ../../setup/releases/update-strategies
-[matrix]: https://app.element.io/#/room/#flatcar:matrix.org
+[discord]: https://discord.gg/PMYjFUsJyq
 [release-notes]: https://flatcar-linux.org/releases
 [ec2-user-data]: http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/user-data.html
 [butane-configs]: ../../provisioning/config-transpiler
