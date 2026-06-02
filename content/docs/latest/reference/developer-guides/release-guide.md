@@ -487,3 +487,4 @@ Post release notes to:
 * Social media accounts
 * [Discord](https://discord.gg/PMYjFUsJyq)
 * [Kubernetes Slack](https://kubernetes.slack.com/archives/C03GQ8B5XNJ)
+* [CNCF Slack](https://cloud-native.slack.com/archives/C07LW8GQ4F9)
