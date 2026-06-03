@@ -1,12 +1,12 @@
 ---
 title: How to Contribute
 content_type: contribute
-weight: 130
+weight: 120
 ---
 
 Flatcar documentation is released under the [Apache 2.0 License][asl], and we welcome contributions. Check out the [help-wanted tag][help-wanted] in this project's Issues list for good places to start participating.
 
-Submit fixes and additions in the form of [GitHub *Pull Requests* (PRs)][pull-requests]. The general process is the typical git fork-branch-PR-review-merge cycle:
+Submit fixes and additions in the form of [GitHub _Pull Requests_ (PRs)][pull-requests]. The general process is the typical git fork-branch-PR-review-merge cycle:
 
 1. Fork this repository into your GitHub account
 2. Make changes in a topic branch or your fork's `master`
@@ -49,7 +49,6 @@ We happily accept accurate translations. Please send the documents as a pull req
 1. Name the files identically to the originals, but put them beneath a directory named for the translation's `gettext` locale. For example: `JA_JP/doc`, `ZH_CN/doc,` or `KO_KN/doc`.
 
 2. Add an explanation about the translated document to the top of the file: "These documents were translated into Esperanto by Community Member <person@example.com> and last updated on 2015-12-01. If you find inaccuracies or problems please file an issue on GitHub."
-
 
 [asl]: https://github.com/flatcar/flatcar-docs/blob/main/LICENSE
 [flatcar-docs]: https://flatcar.org/docs/latest/
