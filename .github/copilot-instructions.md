@@ -8,7 +8,6 @@ applyTo: "**"
 - The Linux distribution is called **Flatcar Container Linux**.
 
 ## Specifics
-- The singular possessive form of CoreOS is *CoreOS's*.
 - Deployments occur *on-premises* (never "on-premise").
 - Expand acronyms on first use, with the short form in parentheses: Trusted Platform Module (TPM).
 
