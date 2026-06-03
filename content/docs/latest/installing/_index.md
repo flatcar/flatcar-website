@@ -205,7 +205,7 @@ With any of these guides you will have machines up and running in a few minutes.
 [azure-docs]: cloud/azure
 [gce-docs]: cloud/gcp
 [vagrant-docs]: vms/vagrant
-[vmware-docs]: cloud/vmware
+[vmware-docs]: community-platforms/vmware
 [virtualbox-docs]: vms/virtualbox
 [qemu-docs]: vms/qemu
 [qemu-ssh]: vms/qemu#ssh-config
