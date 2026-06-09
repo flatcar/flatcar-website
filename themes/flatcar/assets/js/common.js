@@ -94,15 +94,6 @@ document.querySelectorAll('.code-block .btn-copy').forEach(function(btn) {
   });
 });
 
-// Copy code for codenew shortcode
-function copyCode(id) {
-  var el = document.getElementById(id);
-  if (!el) return;
-  var code = el.querySelector('td code') || el.querySelector('code');
-  if (!code) return;
-  navigator.clipboard.writeText(code.textContent).then(function() {});
-}
-
 // TOC scroll tracking - highlight active section in "On This Page"
 (function() {
   var toc = document.getElementById('TableOfContents');
