@@ -1,7 +1,7 @@
 ---
 title: "[DEPRECATED / EOL] Container Linux Config Transpiler"
 description: YAML configuration format used to generate Ignition configs.
-weight: 20
+weight: 45
 aliases:
     - ../os/provisioning
     - ../reference/migrating-to-clcs/provisioning
