@@ -1,6 +1,6 @@
 ---
 title: Virtual Machines
-linktitle: Running on Vagrant
+linktitle: Virtual Machines
 weight: 40
 aliases:
     - /docs/latest/installing/vms/vagrant/
