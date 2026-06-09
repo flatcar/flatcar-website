@@ -57,6 +57,7 @@ platforms and bare metal servers.
  * [OpenStack][openstack]
  * [Brightbox][brightbox]
  * [Scaleway][scaleway] (community support)
+ * [OracleCloud][oraclecloud] (community support)
  * [OVHcloud][ovhcloud] (community support)
  * [Akamai/Linode][akamai]
  * [STACKIT][stackit]
@@ -280,6 +281,7 @@ APIs and troubleshooting guides for working with Flatcar Container Linux.
 [ha-kubernetes]: container-runtimes/high-availability-kubernetes
 [using-nvidia]: setup/customization/using-nvidia
 [scaleway]: installing/community-platforms/scaleway
+[oraclecloud]: installing/community-platforms/oraclecloud
 [ovhcloud]: installing/community-platforms/ovhcloud
 [akamai]: installing/cloud/akamai
 [nebraska]: nebraska

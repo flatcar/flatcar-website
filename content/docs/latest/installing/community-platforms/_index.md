@@ -16,6 +16,7 @@ The platforms and providers listed below each provide support and documentation 
 
 * [Exoscale][exoscale]
 * [OVHcloud][ovhcloud]
+* [OracleCloud][oraclecloud]
 * [Rackspace Cloud][rackspace]
 * [Scaleway][scaleway]
 * [VMWare][vmware]
@@ -39,3 +40,4 @@ The platforms and providers listed below each provide support and documentation 
 [ovhcloud]: ovhcloud
 [proxmoxve]: proxmoxve
 [vmware]: vmware
+[oraclecloud]: oraclecloud
