@@ -42,7 +42,7 @@ The following command will create a single instance through the Azure CLI.
       <div class="channel-info">
         <p>The Stable channel should be used by production clusters. Versions of Flatcar Container Linux are battle-tested within
         the Beta and Alpha channels before being promoted. The current version is Flatcar Container Linux {{< param stable_channel >}}.</p>
-        <pre>
+        {{< highlight bash >}}
 $ az vm image list --all -p kinvolk -f flatcar -s stable-gen2 --query '[-1]'  # Query the image name urn specifier
 {
   "architecture": "x64",
@@ -53,13 +53,13 @@ $ az vm image list --all -p kinvolk -f flatcar -s stable-gen2 --query '[-1]'  # 
   "version": "{{< param stable_channel >}}"
 }
 $ az vm create --name node-1 --resource-group group-1 --admin-username core --user-data config.ign --image kinvolk:flatcar-container-linux-free:stable-gen2:{{< param stable_channel >}}
-        </pre>
+{{< /highlight >}}
       </div>
     </div>
     <div class="tab-pane" id="beta">
       <div class="channel-info">
         <p>The Beta channel consists of promoted Alpha releases. The current version is Flatcar Container Linux {{< param beta_channel >}}.</p>
-        <pre>
+        {{< highlight bash >}}
 $ az vm image list --all -p kinvolk -f flatcar -s beta-gen2 --query '[-1]'  # Query the image name urn specifier
 {
   "architecture": "x64",
@@ -70,14 +70,14 @@ $ az vm image list --all -p kinvolk -f flatcar -s beta-gen2 --query '[-1]'  # Qu
   "version": "{{< param beta_channel >}}"
 }
 $ az vm create --name node-1 --resource-group group-1 --admin-username core --user-data config.ign --image kinvolk:flatcar-container-linux-free:beta-gen2:{{< param beta_channel >}}
-        </pre>
+{{< /highlight >}}
       </div>
     </div>
     <div class="tab-pane" id="alpha">
       <div class="channel-info">
         <p>The Alpha channel closely tracks the master branch and is released frequently. The newest versions of system
         libraries and utilities are available for testing in this channel. The current version is Flatcar Container Linux {{< param alpha_channel >}}.</p>
-        <pre>
+        {{< highlight bash >}}
 $ az vm image list --all -p kinvolk -f flatcar -s alpha-gen2 --query '[-1]'
 {
   "architecture": "x64",
@@ -88,13 +88,13 @@ $ az vm image list --all -p kinvolk -f flatcar -s alpha-gen2 --query '[-1]'
   "version": "{{< param alpha_channel >}}"
 }
 $ az vm create --name node-1 --resource-group group-1 --admin-username core --user-data config.ign --image kinvolk:flatcar-container-linux-free:alpha-gen2:{{< param alpha_channel >}}
-        </pre>
+{{< /highlight >}}
       </div>
     </div>
     <div class="tab-pane" id="lts">
       <div class="channel-info">
         <p>LTS release streams are maintained for an extended lifetime of 18 months. The yearly LTS streams have an overlap of 6 months. The current version is Flatcar Container Linux {{< param lts_channel >}}.</p>
-        <pre>
+        {{< highlight bash >}}
 $ az vm image list --all -p kinvolk -f flatcar -s {{< param lts_azure_sku >}}-gen2 --query '[-1]'
 {
   "architecture": "x64",
@@ -105,7 +105,7 @@ $ az vm image list --all -p kinvolk -f flatcar -s {{< param lts_azure_sku >}}-ge
   "version": "{{< param lts_channel >}}"
 }
 $ az vm create --name node-1 --resource-group group-1 --admin-username core --user-data config.ign --image kinvolk:flatcar-container-linux-free:{{< param lts_azure_sku >}}-gen2:{{< param lts_channel >}}
-        </pre>
+{{< /highlight >}}
       </div>
     </div>
   </div>

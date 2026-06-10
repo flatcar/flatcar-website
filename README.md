@@ -60,6 +60,34 @@ categories:
 
 *TODO: Add more content sections (events, job postings, etc.)*
 
+### Code snippets
+
+Code snippets are syntax-highlighted with Chroma (configured under `markup.highlight` in [`config.yaml`](./config.yaml)) and wrapped in a `.code-block` container that provides a copy-to-clipboard button. Two authoring forms render identically; pick the one that fits the surrounding markup.
+
+**1. Fenced code blocks (preferred)** — use these in normal Markdown:
+
+````markdown
+```bash
+echo "hello"
+```
+````
+
+These go through the [`render-codeblock.html`](./themes/flatcar/layouts/_default/_markup/render-codeblock.html) Markdown render hook, which adds the `.code-block` wrapper and copy button automatically.
+
+**2. The `highlight` shortcode** — use this inside raw HTML blocks (for example `<div class="tab-pane">`, where Goldmark treats the contents as opaque HTML and will not parse fenced blocks):
+
+```text
+<div class="tab-pane" id="stable">
+  {{< highlight bash >}}
+echo "hello"
+  {{< /highlight >}}
+</div>
+```
+
+The theme overrides Hugo's built-in `highlight` shortcode at [`themes/flatcar/layouts/shortcodes/highlight.html`](./themes/flatcar/layouts/shortcodes/highlight.html) so it emits the same `.code-block` wrapper, copy button, and padding as fenced blocks. The first positional argument is the language (use `bash`, `yaml`, `go`, …); `shell` is aliased to `bash`.
+
+Do **not** add raw `<pre>…</pre>` blocks — they bypass both Chroma and the copy-button wrapper.
+
 ### Presentations
 
 Create HTML presentations from screenshots using Marp (requires Docker):
