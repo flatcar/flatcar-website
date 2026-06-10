@@ -56,7 +56,7 @@ Here are two examples to setup a control plane with [Butane][butane]. The first 
         This is an example using systemd-sysext and systemd-sysupdate. NOTE: We are using <a href="https://kured.dev/docs/">Kured</a> to coordinate nodes reboot when there is a new Kubernetes sysext image available (or if Flatcar has been updated), hence the /run/reboot-required file.
         **Note:** In these examples, the hostname is manually set via initial provisioning (`/etc/hostname`).
         In cloud environments, the hostname can be set dynamically from metadata exposed at `/run/metadata/flatcar`
-        <pre>
+        {{< highlight yaml >}}
 ---
 version: 1.0.0
 variant: flatcar
@@ -110,13 +110,13 @@ systemd:
         ExecStart=/usr/bin/chown -R core:core /home/core/.kube
         [Install]
         WantedBy=multi-user.target
-        </pre>
+{{< /highlight >}}
       </div>
     </div>
     <div class="tab-pane" id="no-sysext">
       <div class="channel-info">
         :warning: To ease the reading, we voluntarily omitted the checksums of the downloaded artifacts.
-        <pre>
+        {{< highlight yaml >}}
 ---
 version: 1.0.0
 variant: flatcar
@@ -185,7 +185,7 @@ systemd:
         ExecStart=/usr/bin/chown -R core:core /home/core/.kube
         [Install]
         WantedBy=multi-user.target
-        </pre>
+{{< /highlight >}}
       </div>
     </div>
   </div>
@@ -232,7 +232,7 @@ Here's are two examples for a [butane][butane] configuration to setup the nodes.
     <div class="tab-pane active" id="sysext-nodes">
       <div class="channel-info">
         This is an example using systemd-sysext and systemd-sysupdate. NOTE: We are using <a href="https://kured.dev/docs/">Kured</a> to coordinate nodes reboot when there is a new Kubernetes sysext image available (or if Flatcar has been updated), hence the /run/reboot-required file.
-        <pre>
+        {{< highlight yaml >}}
 ---
 version: 1.0.0
 variant: flatcar
@@ -283,13 +283,13 @@ systemd:
         ExecStart=/usr/bin/kubeadm join $(output from 'kubeadm token create --print-join-command')
         [Install]
         WantedBy=multi-user.target
-        </pre>
+{{< /highlight >}}
       </div>
     </div>
     <div class="tab-pane" id="no-sysext-nodes">
       <div class="channel-info">
         :warning: To ease the reading, we voluntarily omitted the checksums of the downloaded artifacts.
-        <pre>
+        {{< highlight yaml >}}
 ---
 version: 1.0.0
 variant: flatcar
@@ -336,7 +336,7 @@ systemd:
         ExecStart=/opt/bin/kubeadm join $(output from 'kubeadm token create --print-join-command')
         [Install]
         WantedBy=multi-user.target
-        </pre>
+{{< /highlight >}}
       </div>
     </div>
   </div>

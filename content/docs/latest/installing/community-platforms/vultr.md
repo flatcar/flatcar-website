@@ -55,7 +55,8 @@ Flatcar Container Linux is designed to be updated automatically with different s
       </div>
       <p>A sample script will look like this:</p>
 
-<pre>#!ipxe
+{{< highlight bash >}}
+#!ipxe
 
 # Location of your shell script.
 set cloud-config-url http://example.com/cloud-config-bootstrap.sh
@@ -64,7 +65,7 @@ set base-url https://alpha.release.flatcar-linux.net/amd64-usr/current
 kernel ${base-url}/flatcar_production_pxe.vmlinuz cloud-config-url=${cloud-config-url}
 initrd ${base-url}/flatcar_production_pxe_image.cpio.gz
 boot
-</pre>
+{{< /highlight >}}
   </div>
     <div class="tab-pane" id="beta">
       <div class="channel-info">
@@ -72,7 +73,8 @@ boot
       </div>
       <p>A sample script will look like this:</p>
 
-<pre>#!ipxe
+{{< highlight bash >}}
+#!ipxe
 
 # Location of your shell script.
 set cloud-config-url http://example.com/cloud-config-bootstrap.sh
@@ -80,7 +82,8 @@ set cloud-config-url http://example.com/cloud-config-bootstrap.sh
 set base-url https://beta.release.flatcar-linux.net/amd64-usr/current
 kernel ${base-url}/flatcar_production_pxe.vmlinuz cloud-config-url=${cloud-config-url}
 initrd ${base-url}/flatcar_production_pxe_image.cpio.gz
-boot</pre>
+boot
+{{< /highlight >}}
   </div>
     <div class="tab-pane active" id="stable">
       <div class="channel-info">
@@ -88,7 +91,8 @@ boot</pre>
       </div>
       <p>A sample script will look like this:</p>
 
-<pre>#!ipxe
+{{< highlight bash >}}
+#!ipxe
 
 # Location of your shell script.
 set cloud-config-url http://example.com/cloud-config-bootstrap.sh
@@ -96,7 +100,8 @@ set cloud-config-url http://example.com/cloud-config-bootstrap.sh
 set base-url https://stable.release.flatcar-linux.net/amd64-usr/current
 kernel ${base-url}/flatcar_production_pxe.vmlinuz cloud-config-url=${cloud-config-url}
 initrd ${base-url}/flatcar_production_pxe_image.cpio.gz
-boot</pre>
+boot
+{{< /highlight >}}
   </div>
   </div>
 </div>

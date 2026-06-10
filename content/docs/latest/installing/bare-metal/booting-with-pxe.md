@@ -104,7 +104,7 @@ PXE booted machines cannot currently update themselves when new versions are rel
       <p>The Alpha channel closely tracks master and is released frequently. The newest versions of system libraries and utilities will be available for testing. The current version is Flatcar Container Linux {{< param alpha_channel >}}.</p>
       <p>In the config above you can see that a Kernel image and a initramfs file is needed. Download these two files into your tftp root.</p>
       <p>The <code>flatcar_production_pxe.vmlinuz.sig</code> and <code>flatcar_production_pxe_image.cpio.gz.sig</code> files can be used to <a href="../../community-platforms/notes-for-distributors#importing-images">verify the downloaded files</a>.</p>
-      <pre>
+      {{< highlight bash >}}
 cd /var/lib/tftpboot
 wget https://alpha.release.flatcar-linux.net/amd64-usr/current/flatcar_production_pxe.vmlinuz
 wget https://alpha.release.flatcar-linux.net/amd64-usr/current/flatcar_production_pxe.vmlinuz.sig
@@ -112,13 +112,13 @@ wget https://alpha.release.flatcar-linux.net/amd64-usr/current/flatcar_productio
 wget https://alpha.release.flatcar-linux.net/amd64-usr/current/flatcar_production_pxe_image.cpio.gz.sig
 gpg --verify flatcar_production_pxe.vmlinuz.sig
 gpg --verify flatcar_production_pxe_image.cpio.gz.sig
-      </pre>
+{{< /highlight >}}
     </div>
     <div class="tab-pane" id="beta-create">
       <p>The Beta channel consists of promoted Alpha releases. The current version is Flatcar Container Linux {{< param beta_channel >}}.</p>
       <p>In the config above you can see that a Kernel image and a initramfs file is needed. Download these two files into your tftp root.</p>
       <p>The <code>flatcar_production_pxe.vmlinuz.sig</code> and <code>flatcar_production_pxe_image.cpio.gz.sig</code> files can be used to <a href="../../community-platforms/notes-for-distributors#importing-images">verify the downloaded files</a>.</p>
-      <pre>
+      {{< highlight bash >}}
 cd /var/lib/tftpboot
 wget https://beta.release.flatcar-linux.net/amd64-usr/current/flatcar_production_pxe.vmlinuz
 wget https://beta.release.flatcar-linux.net/amd64-usr/current/flatcar_production_pxe.vmlinuz.sig
@@ -126,13 +126,13 @@ wget https://beta.release.flatcar-linux.net/amd64-usr/current/flatcar_production
 wget https://beta.release.flatcar-linux.net/amd64-usr/current/flatcar_production_pxe_image.cpio.gz.sig
 gpg --verify flatcar_production_pxe.vmlinuz.sig
 gpg --verify flatcar_production_pxe_image.cpio.gz.sig
-      </pre>
+{{< /highlight >}}
     </div>
     <div class="tab-pane active" id="stable-create">
       <p>The Stable channel should be used by production clusters. Versions of Flatcar Container Linux are battle-tested within the Beta and Alpha channels before being promoted. The current version is Flatcar Container Linux {{< param stable_channel >}}.</p>
       <p>In the config above you can see that a Kernel image and a initramfs file is needed. Download these two files into your tftp root.</p>
       <p>The <code>flatcar_production_pxe.vmlinuz.sig</code> and <code>flatcar_production_pxe_image.cpio.gz.sig</code> files can be used to <a href="../../community-platforms/notes-for-distributors#importing-images">verify the downloaded files</a>.</p>
-      <pre>
+      {{< highlight bash >}}
 cd /var/lib/tftpboot
 wget https://stable.release.flatcar-linux.net/amd64-usr/current/flatcar_production_pxe.vmlinuz
 wget https://stable.release.flatcar-linux.net/amd64-usr/current/flatcar_production_pxe.vmlinuz.sig
@@ -140,7 +140,7 @@ wget https://stable.release.flatcar-linux.net/amd64-usr/current/flatcar_producti
 wget https://stable.release.flatcar-linux.net/amd64-usr/current/flatcar_production_pxe_image.cpio.gz.sig
 gpg --verify flatcar_production_pxe.vmlinuz.sig
 gpg --verify flatcar_production_pxe_image.cpio.gz.sig
-      </pre>
+{{< /highlight >}}
     </div>
   </div>
 </div>
