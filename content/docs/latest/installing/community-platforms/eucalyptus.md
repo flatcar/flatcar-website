@@ -26,7 +26,7 @@ Flatcar Container Linux is designed to be updated automatically with different s
   <div class="tab-content coreos-docs-image-table">
     <div class="tab-pane" id="alpha-create">
       <p>The Alpha channel closely tracks master and is released frequently. The newest versions of system libraries and utilities will be available for testing. The current version is Flatcar Container Linux {{< param alpha_channel >}}.</p>
-      <pre>
+      {{< highlight bash >}}
 $ wget -q https://alpha.release.flatcar-linux.net/amd64-usr/current/flatcar_production_openstack_image.img.bz2
 $ bunzip2 flatcar_production_openstack_image.img.bz2
 $ qemu-img convert -O raw flatcar_production_openstack_image.img flatcar_production_openstack_image.raw
@@ -37,11 +37,11 @@ $ euca-upload-bundle -m /var/tmp/flatcar_production_openstack_image.raw.manifest
 Uploaded flatcar-production/flatcar_production_openstack_image.raw.manifest.xml
 $ euca-register flatcar-production/flatcar_production_openstack_image.raw.manifest.xml --virtualization-type hvm --name "Flatcar Container Linux-Production"
 emi-E4A33D45
-      </pre>
+{{< /highlight >}}
     </div>
     <div class="tab-pane" id="beta-create">
       <p>The Beta channel consists of promoted Alpha releases. The current version is Flatcar Container Linux {{< param beta_channel >}}.</p>
-      <pre>
+      {{< highlight bash >}}
 $ wget -q https://beta.release.flatcar-linux.net/amd64-usr/current/flatcar_production_openstack_image.img.bz2
 $ bunzip2 flatcar_production_openstack_image.img.bz2
 $ qemu-img convert -O raw flatcar_production_openstack_image.img flatcar_production_openstack_image.raw
@@ -52,11 +52,11 @@ $ euca-upload-bundle -m /var/tmp/flatcar_production_openstack_image.raw.manifest
 Uploaded flatcar-production/flatcar_production_openstack_image.raw.manifest.xml
 $ euca-register flatcar-production/flatcar_production_openstack_image.raw.manifest.xml --virtualization-type hvm --name "Flatcar Container Linux-Production"
 emi-E4A33D45
-      </pre>
+{{< /highlight >}}
     </div>
     <div class="tab-pane active" id="stable-create">
       <p>The Stable channel should be used by production clusters. Versions of Flatcar Container Linux are battle-tested within the Beta and Alpha channels before being promoted. The current version is Flatcar Container Linux {{< param stable_channel >}}.</p>
-      <pre>
+      {{< highlight bash >}}
 $ wget -q https://stable.release.flatcar-linux.net/amd64-usr/current/flatcar_production_openstack_image.img.bz2
 $ bunzip2 flatcar_production_openstack_image.img.bz2
 $ qemu-img convert -O raw flatcar_production_openstack_image.img flatcar_production_openstack_image.raw
@@ -67,7 +67,7 @@ $ euca-upload-bundle -m /var/tmp/flatcar_production_openstack_image.raw.manifest
 Uploaded flatcar-production/flatcar_production_openstack_image.raw.manifest.xml
 $ euca-register flatcar-production/flatcar_production_openstack_image.raw.manifest.xml --virtualization-type hvm --name "Flatcar Container Linux-Production"
 emi-E4A33D45
-      </pre>
+{{< /highlight >}}
     </div>
   </div>
 </div>

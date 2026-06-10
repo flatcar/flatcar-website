@@ -79,14 +79,16 @@ Flatcar Container Linux is designed to be updated automatically with different s
        </div>
       <p>There are two files you need: the disk image (provided in qcow2
       format) and the wrapper shell script to start QEMU.</p>
-      <pre>mkdir flatcar; cd flatcar
+      {{< highlight bash >}}
+mkdir flatcar; cd flatcar
 wget https://stable.release.flatcar-linux.net/amd64-usr/current/flatcar_production_qemu.sh
 wget https://stable.release.flatcar-linux.net/amd64-usr/current/flatcar_production_qemu.sh.sig
 wget https://stable.release.flatcar-linux.net/amd64-usr/current/flatcar_production_qemu_image.img
 wget https://stable.release.flatcar-linux.net/amd64-usr/current/flatcar_production_qemu_image.img.sig
 gpg --verify flatcar_production_qemu.sh.sig
 gpg --verify flatcar_production_qemu_image.img.sig
-chmod +x flatcar_production_qemu.sh</pre>
+chmod +x flatcar_production_qemu.sh
+{{< /highlight >}}
     </div>
     <div class="tab-pane" id="alpha">
       <div class="channel-info">
@@ -94,14 +96,16 @@ chmod +x flatcar_production_qemu.sh</pre>
       </div>
       <p>There are two files you need: the disk image (provided in qcow2
       format) and the wrapper shell script to start QEMU.</p>
-      <pre>mkdir flatcar; cd flatcar
+      {{< highlight bash >}}
+mkdir flatcar; cd flatcar
 wget https://alpha.release.flatcar-linux.net/amd64-usr/current/flatcar_production_qemu.sh
 wget https://alpha.release.flatcar-linux.net/amd64-usr/current/flatcar_production_qemu.sh.sig
 wget https://alpha.release.flatcar-linux.net/amd64-usr/current/flatcar_production_qemu_image.img
 wget https://alpha.release.flatcar-linux.net/amd64-usr/current/flatcar_production_qemu_image.img.sig
 gpg --verify flatcar_production_qemu.sh.sig
 gpg --verify flatcar_production_qemu_image.img.sig
-chmod +x flatcar_production_qemu.sh</pre>
+chmod +x flatcar_production_qemu.sh
+{{< /highlight >}}
     </div>
     <div class="tab-pane" id="beta">
       <div class="channel-info">
@@ -109,14 +113,16 @@ chmod +x flatcar_production_qemu.sh</pre>
       </div>
       <p>There are two files you need: the disk image (provided in qcow2
       format) and the wrapper shell script to start QEMU.</p>
-      <pre>mkdir flatcar; cd flatcar
+      {{< highlight bash >}}
+mkdir flatcar; cd flatcar
 wget https://beta.release.flatcar-linux.net/amd64-usr/current/flatcar_production_qemu.sh
 wget https://beta.release.flatcar-linux.net/amd64-usr/current/flatcar_production_qemu.sh.sig
 wget https://beta.release.flatcar-linux.net/amd64-usr/current/flatcar_production_qemu_image.img
 wget https://beta.release.flatcar-linux.net/amd64-usr/current/flatcar_production_qemu_image.img.sig
 gpg --verify flatcar_production_qemu.sh.sig
 gpg --verify flatcar_production_qemu_image.img.sig
-chmod +x flatcar_production_qemu.sh</pre>
+chmod +x flatcar_production_qemu.sh
+{{< /highlight >}}
     </div>
   </div>
 </div>
