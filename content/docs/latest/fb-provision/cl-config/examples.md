@@ -3,8 +3,8 @@ title: Container Linux Config Examples
 linktitle: Examples
 weight: 20
 aliases:
-    - ../../container-linux-config-transpiler/doc/examples
-    - ../../container-linux-config-transpiler/examples
+  - ../../container-linux-config-transpiler/doc/examples
+  - ../../container-linux-config-transpiler/examples
 ---
 
 Here you can find a bunch of simple examples for using Container Linux configs, with some explanations about what they do. The examples here are in no way comprehensive, for a full list of all the available fields check out the [config-transpiler specification][spec].
@@ -72,7 +72,7 @@ python -c "import crypt,random,string; print(crypt.crypt(input('clear-text passw
 perl -e 'print crypt("password","\$6\$SALT\$") . "\n"'
 ```
 
-Using a higher number of rounds will help create more secure passwords, but given enough time, password hashes can be reversed.  On most RPM based distributions there is a tool called mkpasswd available in the `expect` package, but this does not handle "rounds" nor advanced hashing algorithms.
+Using a higher number of rounds will help create more secure passwords, but given enough time, password hashes can be reversed. On most RPM based distributions there is a tool called mkpasswd available in the `expect` package, but this does not handle "rounds" nor advanced hashing algorithms.
 
 ## Storage and files
 
@@ -182,13 +182,13 @@ This example creates a networkd unit to set the IP address on the `enp2s0` inter
 
 ```yaml
 etcd:
-  version:                     "3.0.15"
-  name:                        "{HOSTNAME}"
-  advertise_client_urls:       "http://{PRIVATE_IPV4}:2379"
+  version: "3.0.15"
+  name: "{HOSTNAME}"
+  advertise_client_urls: "http://{PRIVATE_IPV4}:2379"
   initial_advertise_peer_urls: "http://{PRIVATE_IPV4}:2380"
-  listen_client_urls:          "http://0.0.0.0:2379"
-  listen_peer_urls:            "http://{PRIVATE_IPV4}:2380"
-  initial_cluster:             "{HOSTNAME}=http://{PRIVATE_IPV4}:2380"
+  listen_client_urls: "http://0.0.0.0:2379"
+  listen_peer_urls: "http://{PRIVATE_IPV4}:2380"
+  initial_cluster: "{HOSTNAME}=http://{PRIVATE_IPV4}:2380"
 ```
 
 This example will create a dropin for the `etcd-member` systemd unit, configuring it to use the specified version and adding all the specified options. This will also enable the `etcd-member` unit.
@@ -199,16 +199,16 @@ This is referencing dynamic data that isn't known until an instance is booted. F
 
 ```yaml
 update:
-  group:  "beta"
+  group: "beta"
 locksmith:
   reboot_strategy: "etcd-lock"
-  window_start:    "Sun 1:00"
-  window_length:   "2h"
+  window_start: "Sun 1:00"
+  window_length: "2h"
 ```
 
 This example configures the Container Linux instance to be a member of the beta group, configures locksmithd to acquire a lock in etcd before rebooting for an update, and only allows reboots during a 2 hour window starting at 1 AM on Sundays.
 
-[spec]: ../config-transpiler/configuration
-[dropins]: ../../setup/systemd/drop-in-units
-[networkd]: ../../setup/customization/network-config-with-networkd
+[spec]: ../butane/configuration
+[dropins]: ../../os-config/host-config/drop-in-units
+[networkd]: ../../os-config/network/network-config-with-networkd
 [dynamic-data]: ../dynamic-data

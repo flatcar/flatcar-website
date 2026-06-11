@@ -55,4 +55,4 @@ systemd:
 
 More information on further tuning each governor is available in the [Kernel Documentation](https://www.kernel.org/doc/Documentation/cpu-freq/governors.txt)
 
-[butane-configs]: ../../provisioning/config-transpiler
+[butane-configs]: ../../fb-provision/butane

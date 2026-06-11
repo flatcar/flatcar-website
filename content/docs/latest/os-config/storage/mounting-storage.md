@@ -151,6 +151,6 @@ If the mount fails, dependent units will not start.
 
 Check the [`systemd mount` docs][systemd-mount-man] to learn about the available options. Examples specific to [EC2][ec2-disk], [Google Compute Engine][gcp-disk] can be used as a starting point.
 
-[ec2-disk]: ../../installing/cloud/aws-ec2#instance-storage
-[gcp-disk]: ../../installing/cloud/gcp#additional-storage
+[ec2-disk]: ../../deploy/cloud/aws-ec2#instance-storage
+[gcp-disk]: ../../deploy/cloud/gcp#additional-storage
 [systemd-mount-man]: http://www.freedesktop.org/software/systemd/man/systemd.mount.html

@@ -229,5 +229,5 @@ This example creates a networkd unit to set the IP address on the `enp2s0` inter
 
 
 [spec]: ./configuration
-[dropins]: ../../setup/systemd/drop-in-units
-[networkd]: ../../setup/customization/network-config-with-networkd
+[dropins]: ../../os-config/host-config/drop-in-units
+[networkd]: ../../os-config/network/network-config-with-networkd

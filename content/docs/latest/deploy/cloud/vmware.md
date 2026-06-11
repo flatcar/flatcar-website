@@ -164,7 +164,7 @@ IP configuration specified via `guestinfo.interface.*` and `guestinfo.dns.*` var
 
 ### Templating with Butane Configs and setting up metadata
 
-On many cloud providers Ignition will run the [`coreos-metadata.service`](../../provisioning/ignition/dynamic-data) (which runs `afterburn`) to set up [node metadata](../../provisioning/cl-config/dynamic-data). This is not the case with VMware because the network setup is defined by you and nothing generic that `afterburn` would know about.
+On many cloud providers Ignition will run the [`coreos-metadata.service`](../../fb-provision/ignition/dynamic-data) (which runs `afterburn`) to set up [node metadata](../../fb-provision/cl-config/dynamic-data). This is not the case with VMware because the network setup is defined by you and nothing generic that `afterburn` would know about.
 
 Here's a Butane configuration example to setup an `etcd` instance with a custom `coreos-metadata.service`:
 
@@ -316,7 +316,7 @@ kernel_arguments:
 
 With `should_exist` instead of `should_not_exist` the argument would be added if it isn't set in `grub.cfg` already.
 
-Read more about setting kernel command line parameters this way [here](../../../setup/customization/other-settings/#adding-custom-kernel-boot-options).
+Read more about setting kernel command line parameters this way [here](../../os-config/host-config/other-settings#adding-custom-kernel-boot-options).
 
 In case you want to disable the autologin on the console with Ignition v2 where no `kernelArguments` directive exists, you can use the following directive in your Container Linux Config YAML.
 To take effect it requires an additional reboot.
@@ -358,8 +358,8 @@ systemd:
 
 Now that you have a machine booted, it's time to explore. Check out the [Flatcar Container Linux Quickstart][quickstart] guide, or dig into [more specific topics][docs].
 
-[cl-configs]: ../../provisioning/cl-config
-[update-strategies]: ../../setup/releases/update-strategies
+[cl-configs]: ../../fb-provision/cl-config
+[update-strategies]: ../../updates-releases/releases/update-strategies
 [release-notes]: https://flatcar-linux.org/releases
 [quickstart]: ../
 [docs]: ../../
@@ -369,5 +369,5 @@ Now that you have a machine booted, it's time to explore. Check out the [Flatcar
 [vcloud director]: http://blogs.vmware.com/vsphere/2012/06/leveraging-vapp-vm-custom-properties-in-vcloud-director.html
 [ovf-selfconfig]: http://blogs.vmware.com/vapp/2009/07/selfconfiguration-and-the-ovf-environment.html
 [guestinfo]: #defining-the-ignition-config-or-coreos-cloudinit-cloud-config-in-guestinfo
-[transpiler]: ../../provisioning/config-transpiler/
+[transpiler]: ../../fb-provision/butane/
 [ovftool]: https://www.vmware.com/support/developer/ovf/

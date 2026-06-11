@@ -69,4 +69,4 @@ May 24 14:30:20 localhost systemd[1]: Stopped ACPI event daemon.
 
 Beginning with Flatcar major release 3402, qemu-guest-agent is part of all images and can handle certain lifecycle operations without acpid. The agent service will automatically be enabled if a virtio-port with the name `org.qemu.guest_agent.0` is detected. For Openstack it is necessary to launch the instance with `hw_qemu_guest_agent=yes` set. For Proxmox, you have to set "QEMU Guest Agent" to "Enabled" in Virtual Machine Options.
 
-[butane]: ../../provisioning/ignition/specification/#ignition-v3
+[butane]: ../../fb-provision/ignition/specification#ignition-v3

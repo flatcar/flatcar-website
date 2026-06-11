@@ -182,4 +182,4 @@ For more information about configuring Flatcar Container Linux hosts with `syste
 [systemd-getting-started]: ../systemd/getting-started
 [openssh-manual]: http://www.openssh.com/cgi-bin/man.cgi?query=sshd_config
 [mozilla-ssh-rec]: https://wiki.mozilla.org/Security/Guidelines/OpenSSH#Modern_.28OpenSSH_6.7.2B.29
-[butane-configs]: ../../provisioning/config-transpiler
+[butane-configs]: ../../fb-provision/butane

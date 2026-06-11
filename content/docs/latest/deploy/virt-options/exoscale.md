@@ -15,8 +15,8 @@ Flatcar Container Linux is designed to be updated automatically with different s
 The Exoscale Flatcar Container Linux image is built officially and each instance deployment is a unique fresh instance. By default, only the stable channel is deployed on Exoscale, you can easily [switch to Beta or Alpha channel][switching-channels].
 
 
-[reboot-docs]: ../../setup/releases/update-strategies
-[switching-channels]: ../../setup/releases/switching-channels
+[reboot-docs]: ../../updates-releases/releases/update-strategies
+[switching-channels]: ../../updates-releases/releases/switching-channels
 [release-notes]: https://flatcar-linux.org/releases
 [cloud-config-docs]: https://github.com/flatcar/coreos-cloudinit/blob/master/Documentation/cloud-config.md
 

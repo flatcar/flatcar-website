@@ -8,7 +8,7 @@ aliases:
 
 Flatcar Container Linux bundles various software components with fixed versions together into one release.
 For users that require a particular version of a software component this means that the software needs to be supplied out of band and overwrite the built-in software copy.
-Another approach we recommended was to [store binaries in `/opt/bin`](../../container-runtimes/use-a-custom-docker-or-containerd-version/) and prefer them in the `PATH`.
+Another approach we recommended was to [store binaries in `/opt/bin`](../orchestrate/containers/use-a-custom-docker-or-containerd-version/) and prefer them in the `PATH`.
 
 For long time already, the systemd project provided the portable services feature to address deploying custom services.
 However, since it only covered the service itself without making the client binaries available on the user, it didn't really fit the use case fully.
@@ -198,8 +198,8 @@ To get more information about found incompatibilities during merging, enable the
 sudo SYSTEMD_LOG_LEVEL=debug systemd-sysext refresh
 ```
 
-[incusextension]: ../../container-runtimes/incus
+[incusextension]: ../orchestrate/containers/incus
 [sysext-bakery]: https://flatcar.github.io/sysext-bakery
-[nvidiaextension]: ../../setup/customization/using-nvidia
-[overlaybdext]: ../../setup/customization/overlaybd-artifact-streaming
-[zfsextension]: ../../setup/storage/zfs
+[nvidiaextension]: ../os-config/host-config/using-nvidia
+[overlaybdext]: ../os-config/network/overlaybd-artifact-streaming
+[zfsextension]: ../os-config/storage/zfs

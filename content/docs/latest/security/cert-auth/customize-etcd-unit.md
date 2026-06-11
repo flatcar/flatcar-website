@@ -3,9 +3,9 @@ title: Customizing the etcd unit
 description: How to setup etcd to use client certificates.
 weight: 50
 aliases:
-    - /docs/latest/setup/customization/customize-etcd-unit/
-    - ../../os/customize-etcd-unit
-    - ../../clusters/customization/customize-etcd-unit
+  - /docs/latest/setup/customization/customize-etcd-unit/
+  - ../../os/customize-etcd-unit
+  - ../../clusters/customization/customize-etcd-unit
 ---
 
 The etcd systemd unit can be customized by overriding the unit that ships with the default Flatcar Container Linux settings. Common use-cases for doing this are covered below.
@@ -22,21 +22,21 @@ Note that more etcd settings are needed for a proper configuration.
 variant: flatcar
 version: 1.0.0
 systemd:
- units:
-   - name: etcd-member.service
-     enabled: true
-     dropins:
-       - name: 20-clct-etcd-member.conf
-         contents: |
-           [Service]
-           ExecStart=
-           ExecStart=/usr/lib/coreos/etcd-wrapper $ETCD_OPTS \
-             --ca-file="/path/to/CA.pem" \
-             --cert-file="/path/to/server.crt" \
-             --key-file="/path/to/server.key" \
-             --peer-ca-file="/path/to/CA.pem" \
-             --peer-cert-file="/path/to/peers.crt" \
-             --peer-key-file="/path/to/peers.key"
+  units:
+    - name: etcd-member.service
+      enabled: true
+      dropins:
+        - name: 20-clct-etcd-member.conf
+          contents: |
+            [Service]
+            ExecStart=
+            ExecStart=/usr/lib/coreos/etcd-wrapper $ETCD_OPTS \
+              --ca-file="/path/to/CA.pem" \
+              --cert-file="/path/to/server.crt" \
+              --key-file="/path/to/server.key" \
+              --peer-ca-file="/path/to/CA.pem" \
+              --peer-cert-file="/path/to/peers.crt" \
+              --peer-key-file="/path/to/peers.key"
 
 storage:
   files:
@@ -97,4 +97,4 @@ storage:
           -----END RSA PRIVATE KEY-----
 ```
 
-[self-signed-howto]: ../security/generate-self-signed-certificates
+[self-signed-howto]: ./generate-self-signed-certificates

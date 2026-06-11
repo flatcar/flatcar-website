@@ -2,11 +2,10 @@
 title: Getting Started
 weight: 10
 aliases:
-    - /docs/latest/provisioning/config-transpiler/getting-started/
-    - ../../container-linux-config-transpiler/doc/getting-started
-    - ../../container-linux-config-transpiler/getting-started
+  - /docs/latest/provisioning/config-transpiler/getting-started/
+  - ../../container-linux-config-transpiler/doc/getting-started
+  - ../../container-linux-config-transpiler/getting-started
 ---
-
 
 `butane` is a tool that will consume a Butane configuration and produce an Ignition configuration file that can be given to a Container Linux machine when it first boots to set the machine up. Using this config, a machine can be told to create users, format the root filesystem, set up the network, install systemd units, and more.
 
@@ -53,9 +52,9 @@ While quite similar, there are some changes needed to migrate a Container Linux 
 - File entries can't specify filesystems anymore as was done with `filesystem: root` or `filesystem: oem`. Instead, they use the full path, and which filesystem this is depends on whether and how the initrd mount path is set for each specified filesystem.
 - Units only have the `enabled` field, support for `enable` got removed.
 
-[1]: ../config-transpiler/configuration
+[1]: ../butane/configuration
 [2]: https://coreos.github.io/ignition/supported-platforms/
 [3]: https://coreos.github.io/butane/examples/
 [4]: https://github.com/coreos/butane/releases
 [dynamic]: ../ignition/dynamic-data/
-[cluster]: ../../setup/clusters/
+[cluster]: ../../orchestrate/clusters/
