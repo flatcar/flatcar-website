@@ -130,4 +130,4 @@ Another problem are the generated SSH host keys which you have to delete, otherw
 More problems come with weak account credentials used for the setup, e.g., when you have a dummy account with a password you have to remove the account again, and if you set up dummy SSH keys for the `core` user as common with Vagrant, you have to remove them, too. If for bootstrapping you used a `config.ign` file in the OEM partition, this, too, has to be removed.
 You can have a look at the [`image-builder`](https://github.com/kubernetes-sigs/image-builder) Packer and Ansible configuration which avoids most of the common pitfalls but, again, this is not a complete list because it depends on the software components you interact with.
 
-[ignition]: ../../provisioning/ignition
+[ignition]: ../ignition

@@ -3,9 +3,9 @@ title: Migrating from cloud-config to Container Linux Config
 linktitle: Migrating from cloud-config
 weight: 40
 aliases:
-    - ../../os/migrating-to-clcs
-    - ../../reference/migrating-to-clcs
-    - migrating-to-clcs
+  - ../../os/migrating-to-clcs
+  - ../../reference/migrating-to-clcs
+  - migrating-to-clcs
 ---
 
 Flatcar Container Linux started as a fork of CoreOS Container Linux. Historically, the recommended way to provision a CoreOS Container Linux machine was with a cloud-config. This was a YAML file specifying things like systemd units to run, users that should exist, and files that should be written. This file would be given to a CoreOS Container Linux machine, and saved on disk. Then a utility called coreos-cloudinit running in a systemd unit would read this file, look at the system state, and make necessary changes on every boot.
@@ -27,11 +27,11 @@ In a cloud-config, etcd version 2 can be enabled and configured by using the `co
 
 coreos:
   etcd2:
-    discovery:                   "https://discovery.etcd.io/<token>"
-    advertise-client-urls:       "http://$public_ipv4:2379"
+    discovery: "https://discovery.etcd.io/<token>"
+    advertise-client-urls: "http://$public_ipv4:2379"
     initial-advertise-peer-urls: "http://$private_ipv4:2380"
-    listen-client-urls:          "http://0.0.0.0:2379,http://0.0.0.0:4001"
-    listen-peer-urls:            "http://$private_ipv4:2380,http://$private_ipv4:7001"
+    listen-client-urls: "http://0.0.0.0:2379,http://0.0.0.0:4001"
+    listen-peer-urls: "http://$private_ipv4:2380,http://$private_ipv4:7001"
 ```
 
 etcd can be configured in a more general way with a Container Linux Config. This CL Config will use the etcd-member.service systemd unit rather than the etcd2 service understood by cloud-config and coreos-cloudinit. The etcd-member service will download a version of etcd of the user's choosing and run it. This means that in a Container Linux Config both etcd v2 and v3 can be configured.
@@ -40,7 +40,7 @@ This is done under the etcd section:
 
 ```yaml
 etcd:
-    version: 3.1.6
+  version: 3.1.6
 ```
 
 Omitting the version specification declares that the unit file should use the version of etcd matching the running version of Flatcar Container Linux.
@@ -49,12 +49,12 @@ Configuration options in this section can be provided the same way as they were 
 
 ```yaml
 etcd:
-  name:                        "{HOSTNAME}"
-  advertise_client_urls:       "{PRIVATE_IPV4}:2379"
+  name: "{HOSTNAME}"
+  advertise_client_urls: "{PRIVATE_IPV4}:2379"
   initial_advertise_peer_urls: "{PRIVATE_IPV4}:2380"
-  listen_client_urls:          "http://0.0.0.0:2379"
-  listen_peer_urls:            "http://{PRIVATE_IPV4}:2380"
-  initial_cluster:             "%m=http://{PRIVATE_IPV4}:2380"
+  listen_client_urls: "http://0.0.0.0:2379"
+  listen_peer_urls: "http://{PRIVATE_IPV4}:2380"
+  initial_cluster: "%m=http://{PRIVATE_IPV4}:2380"
 ```
 
 ## flannel
@@ -66,14 +66,14 @@ Flannel is easily configurable in a cloud-config the same way etcd is, by using 
 
 coreos:
   flannel:
-      etcd_prefix: "/coreos.com/network2"
+    etcd_prefix: "/coreos.com/network2"
 ```
 
 The flannel section in a Container Linux Config is used the same way, and a version can optionally be specified for flannel as well.
 
 ```yaml
 flannel:
-  version:     0.7.0
+  version: 0.7.0
   etcd_prefix: "/coreos.com/network2"
 ```
 
@@ -86,7 +86,7 @@ The `coreos.locksmith.*` section in a cloud-config can be used to configure the 
 
 coreos:
   locksmith:
-      endpoint: "http://example.com:2379"
+    endpoint: "http://example.com:2379"
 ```
 
 Locksmith can be configured in the same way under the locksmith section of a Container Linux Config, but some of the accepted options are slightly different. Also the reboot strategy is set in the locksmith section, instead of the update section. Check out the [Container Linux Config schema][ct-config] to see what options are available.
@@ -94,7 +94,7 @@ Locksmith can be configured in the same way under the locksmith section of a Con
 ```yaml
 locksmith:
   reboot_strategy: "reboot"
-  etcd_endpoints:  "http://example.com:2379"
+  etcd_endpoints: "http://example.com:2379"
 ```
 
 ## update
@@ -106,15 +106,15 @@ The `coreos.update.*` section can be used to configure the reboot strategy, upda
 coreos:
   update:
     reboot-strategy: "etcd-lock"
-    group:           "stable"
-    server:          "https://public.update.flatcar-linux.net/v1/update/"
+    group: "stable"
+    server: "https://public.update.flatcar-linux.net/v1/update/"
 ```
 
 In the update section in a Container Linux Config the group and server can be configured, but the reboot-strategy option has been moved under the locksmith section.
 
 ```yaml
 update:
-  group:  "stable"
+  group: "stable"
   server: "https://public.update.flatcar-linux.net/v1/update/"
 ```
 
@@ -250,8 +250,8 @@ The Container Linux Config is intentionally more generalized than a cloud-config
 storage:
   files:
     - filesystem: "root"
-      path:       "/etc/hostname"
-      mode:       0644
+      path: "/etc/hostname"
+      mode: 0644
       contents:
         inline: coreos1
 ```
@@ -278,7 +278,7 @@ This same information can be added to the Container Linux Config in the `passwd.
 ```yaml
 passwd:
   users:
-    - name:          "elroy"
+    - name: "elroy"
       password_hash: "$6$5s2u6/jR$un0AvWnqilcgaNB3Mkxd5yYv6mTlWfOoCYHZmfi3LDKVltj.E8XNKEcwWm..."
       ssh_authorized_keys:
         - "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQC0g+ZTxC7weoIJLUafOgrm+h..."
@@ -294,9 +294,9 @@ The `write_files` section in a cloud-config can be used to specify files and the
 ```yaml
 #cloud-config
 write_files:
-  - path:        "/etc/resolv.conf"
+  - path: "/etc/resolv.conf"
     permissions: "0644"
-    owner:       "root"
+    owner: "root"
     content: |
       nameserver 8.8.8.8
 ```
@@ -307,8 +307,8 @@ This can be done in a Container Linux Config with the `storage.files.*` section.
 storage:
   files:
     - filesystem: "root"
-      path:       "/etc/resolv.conf"
-      mode:       0644
+      path: "/etc/resolv.conf"
+      mode: 0644
       contents:
         inline: |
           nameserver 8.8.8.8
@@ -334,8 +334,8 @@ There is no analogous section in a Container Linux Config, however the `/etc/hos
 storage:
   files:
     - filesystem: "root"
-      path:       "/etc/hosts"
-      mode:       0644
+      path: "/etc/hosts"
+      mode: 0644
       contents:
         inline: |
           127.0.0.1 localhost
@@ -345,5 +345,5 @@ storage:
 
 [provisioning]: _index.md
 [dynamic-data]: ../dynamic-data
-[ct-config]: ../config-transpiler/configuration
+[ct-config]: ../butane/configuration
 [ignition]: ../ignition

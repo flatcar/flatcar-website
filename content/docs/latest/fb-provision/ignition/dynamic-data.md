@@ -76,7 +76,7 @@ systemd:
         WantedBy=multi-user.target
 ```
 
-You can find another example in the [VMware docs](../../installing/cloud/vmware.md).
+You can find another example in the [VMware docs](../../deploy/cloud/vmware.md).
 
 
 [afterburndocs]: https://github.com/coreos/afterburn/blob/main/docs/usage/attributes.md#metadata-attributes

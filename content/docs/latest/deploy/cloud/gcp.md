@@ -115,7 +115,7 @@ The Dockerfile for the `ghcr.io/flatcar/google-cloud-flatcar-image-upload` image
 
 ## Upgrade from CoreOS Container Linux
 
-You can also [upgrade from an existing CoreOS Container Linux system](../../migrating-from-coreos/update-from-container-linux).
+You can also [upgrade from an existing CoreOS Container Linux system](../../coreos-migration/update-from-container-linux).
 
 ## Butane Config
 
@@ -316,8 +316,8 @@ The resulting image can then be deployed to a container on each Flatcar node.
 
 Now that you have a machine booted it is time to play around. Check out the [Flatcar Container Linux Quickstart][quickstart] guide or dig into [more specific topics][doc-index].
 
-[mounting-storage]: ../../setup/storage/mounting-storage
+[mounting-storage]: ../../os-config/storage/mounting-storage
 [quickstart]: ../
 [doc-index]: ../../
-[update-strategies]: ../../setup/releases/update-strategies
-[cl-configs]: ../../provisioning/config-transpiler
+[update-strategies]: ../../updates-releases/releases/update-strategies
+[cl-configs]: ../../fb-provision/butane

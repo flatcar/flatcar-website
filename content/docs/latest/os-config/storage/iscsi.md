@@ -131,4 +131,4 @@ See the [mounting storage docs][mounting-storage] for an example.
 
 [iscsi-wiki]: https://en.wikipedia.org/wiki/ISCSI
 [mounting-storage]: mounting-storage
-[butane-configs]: ../../provisioning/config-transpiler
+[butane-configs]: ../../fb-provision/butane

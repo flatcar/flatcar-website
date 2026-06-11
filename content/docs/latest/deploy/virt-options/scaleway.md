@@ -113,7 +113,7 @@ Terraform examples are available here: https://github.com/flatcar/flatcar-terraf
 Kosmos is a Scaleway service that deploys a Kubernetes control plane on Scaleway and allows you to add nodes outside of Scaleway (other cloud providers, on-premise, etc.).
 At this moment, the Scaleway Node Agent used to join the existing cluster is not open-source and does not yet support immutable OS. A request has been made to support OS where Kubeadm and Kubelet would be already available in the path.
 
-[butane-configs]: ../../provisioning/config-transpiler
+[butane-configs]: ../../fb-provision/butane
 [cli]: https://github.com/scaleway/scaleway-cli
 [doc-index]: ../../
 [quickstart]: ../

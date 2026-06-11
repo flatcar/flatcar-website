@@ -248,7 +248,7 @@ Some file types are commonly identified with more than one file name extension. 
 
 
 [command-line-grammar]: #command-line-grammar
-[configuring-dns]: ../../setup/customization/configuring-dns
+[configuring-dns]: ../os-config/network/configuring-dns
 [flatcar-docs]: https://docs.flatcar-linux.org/
 [economist-hyphens]: http://www.economist.com/news/books-and-arts/21723088-hyphens-can-be-tricky-they-need-not-drive-you-crazy-hysteria-over-hyphens
 [eos]: https://faculty.washington.edu/heagerty/Courses/b572/public/StrunkWhite.pdf "The Elements of Style"

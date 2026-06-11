@@ -4,9 +4,9 @@ linktitle: Environment Variables
 description: How to configure and use environment variables in systemd units.
 weight: 30
 aliases:
-    - /docs/latest/setup/systemd/environment-variables/
-    - ../../os/using-environment-variables-in-systemd-units
-    - ../../clusters/customization/using-environment-variables-in-systemd-units
+  - /docs/latest/setup/systemd/environment-variables/
+  - ../../os/using-environment-variables-in-systemd-units
+  - ../../clusters/customization/using-environment-variables-in-systemd-units
 ---
 
 ## Environment directive
@@ -110,8 +110,8 @@ storage:
 
 Where:
 
-* `/etc/systemd/system.conf.d/10-default-env.conf` config file will set default environment variables for all systemd units.
-* `/etc/profile.env` will set environment variables for all users logged in Flatcar Container Linux.
+- `/etc/systemd/system.conf.d/10-default-env.conf` config file will set default environment variables for all systemd units.
+- `/etc/profile.env` will set environment variables for all users logged in Flatcar Container Linux.
 
 ### etcd2.service unit advanced example
 
@@ -121,16 +121,16 @@ A [complete example][etcd-cluster-reconfiguration] of combining environment vari
 
 For more systemd examples, check out these documents:
 
- * [Customizing Docker][customizing-docker]
- * [Customizing the SSH Daemon][customizing-sshd]
- * [Using systemd Drop-In Units][drop-in]
- * [etcd Cluster Runtime Reconfiguration on Flatcar Container Linux][etcd-cluster-reconfiguration]
+- [Customizing Docker][customizing-docker]
+- [Customizing the SSH Daemon][customizing-sshd]
+- [Using systemd Drop-In Units][drop-in]
+- [etcd Cluster Runtime Reconfiguration on Flatcar Container Linux][etcd-cluster-reconfiguration]
 
 [drop-in]: drop-in-units
-[customizing-sshd]: ../security/customizing-sshd#changing-the-sshd-port
-[customizing-etcd]: ../customization/customize-etcd-unit
-[customizing-docker]: ../../container-runtimes/customizing-docker#using-a-dockercfg-file-for-authentication
-[butane-configs]: ../../provisioning/config-transpiler
+[customizing-sshd]: ../../security/cert-auth/customizing-sshd#changing-the-sshd-port
+[customizing-etcd]: ../../security/cert-auth/customize-etcd-unit
+[customizing-docker]: ../../orchestrate/containers/customizing-docker#using-a-dockercfg-file-for-authentication
+[butane-configs]: ../../fb-provision/butane
 [etcd-discovery]: ../clusters/cluster-discovery
 [systemd-udev]: udev-rules
 [etcd-cluster-reconfiguration]: https://github.com/coreos/docs/blob/master/etcd/etcd-live-cluster-reconfiguration.md

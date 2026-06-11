@@ -250,12 +250,12 @@ Now that you have a machine booted it is time to play around. Check out the [Fla
 [append-initrd]: http://www.syslinux.org/wiki/index.php?title=SYSLINUX#INITRD_initrd_file
 [flatcar-user]: https://groups.google.com/forum/#!forum/flatcar-linux-user
 [discord]: https://discord.gg/PMYjFUsJyq
-[butane-configs]: ../../provisioning/config-transpiler
-[ignition]: ../../provisioning/ignition
-[ignition-kargs-ip]: ../../provisioning/ignition/network-configuration/#using-static-ip-addresses-with-ignition
+[butane-configs]: ../../fb-provision/butane
+[ignition]: ../../fb-provision/ignition
+[ignition-kargs-ip]: ../../fb-provision/ignition/network-configuration#using-static-ip-addresses-with-ignition
 [oem]: ../community-platforms/notes-for-distributors#image-customization
 [installing-to-disk]: installing-to-disk
-[update-strategies]: ../../setup/releases/update-strategies
+[update-strategies]: ../../updates-releases/releases/update-strategies
 [release-notes]: https://flatcar-linux.org/releases
 [quickstart]: ../
 [doc-index]: ../../

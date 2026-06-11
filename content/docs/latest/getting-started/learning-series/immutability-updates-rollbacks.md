@@ -4,7 +4,7 @@ linktitle: Updates, Roll-Backs, Immutability
 weight: 5
 author: Lexi Nadolski, Thilo Fromm
 aliases:
-    - /docs/latest/learning-series/immutability-updates-rollbacks/
+  - /docs/latest/learning-series/immutability-updates-rollbacks/
 ---
 
 In this session, we’ll do a deep dive into Flatcar's immutability and partition layout, and dissect the operating system's start-up process.
@@ -18,12 +18,13 @@ While a bit dry, these are necessary to understand the innerworks of in-place up
 
 The session builds on the session "Basic Operation and Local Testing".
 It assumes you
+
 - have created a local test environment.
 - are able to start ephemeral Flatcar VMs.
 - know how to transpile Butane YAML to Ignition JSON.
 - pass Ignition JSON configuration to a VM at launch.
 
-## Download a *previous* OS release
+## Download a _previous_ OS release
 
 In the Basics session, we downloaded the latest Alpha.
 Since we want to perform live in-place updates in this session, we need to use a less-than-latest release.
@@ -32,10 +33,10 @@ Go to https://www.flatcar.org/releases/#alpha-release, scroll down a bit until y
 
 As before, download
 
-* `flatcar_production_qemu_uefi.sh` which we also need to make executable
-* `flatcar_production_qemu_uefi_efi_code.qcow2`
-* `flatcar_production_qemu_uefi_efi_vars.qcow2`
-* `flatcar_production_qemu_uefi_image.img`
+- `flatcar_production_qemu_uefi.sh` which we also need to make executable
+- `flatcar_production_qemu_uefi_efi_code.qcow2`
+- `flatcar_production_qemu_uefi_efi_vars.qcow2`
+- `flatcar_production_qemu_uefi_image.img`
 
 Or use the bash automation below.
 Adjust `release` and `arch` to your needs.
@@ -52,7 +53,7 @@ Then run
 ```sh
 wget https://alpha.release.flatcar-linux.net/"${arch}"-usr/"${release}"/{flatcar_production_qemu_uefi.sh,flatcar_production_qemu_uefi_efi_code.qcow2,flatcar_production_qemu_uefi_efi_vars.qcow2,flatcar_production_qemu_uefi_image.img}
 
-chmod 755 flatcar_production_qemu_uefi.sh 
+chmod 755 flatcar_production_qemu_uefi.sh
 ```
 
 ## Flatcar Partition Layout
@@ -62,6 +63,7 @@ It will check for updates regularly, and stage and reboot by default.
 We can avoid that by simply not starting the update client.
 
 ```yaml
+
 ...
 systemd:
   units:
@@ -110,16 +112,19 @@ systemd:
 <br />
 
 Then transpile and start.
+
 ```sh
-cat nginx.yaml | docker run --rm -i quay.io/coreos/butane:latest > nginx.json 
+cat nginx.yaml | docker run --rm -i quay.io/coreos/butane:latest > nginx.json
 ./flatcar_production_qemu_uefi.sh -i nginx.json -f 12345:80 -- -nographic -snapshot
 ```
 
 **NOTE** We'll require `root` access for most of what we do in this session, as we're introspecting sensitive areas of the system.
 Once the VM finished booting, use
+
 ```sh
 sudo -i
 ```
+
 to switch to the root account.
 
 Leave the VM running for interactively exploring the Flatcar OS.
@@ -132,16 +137,19 @@ Everything else is either sym-linked into `/usr`- like `/bin`, `/sbin`, `/lib`, 
 Or it is generated at first boot (see the tmpfiles step below).
 
 Check it out!
+
 ```sh
 ls -la /
 ```
 
 Try creating a file in `/usr`:
+
 ```sh
 echo 'test' > /usr/testfile
 ```
 
 Let's check out how the OS disk is used. Which partitions of the OS disk are mounted?
+
 ```sh
 mount | grep vda
 ```
@@ -149,7 +157,8 @@ mount | grep vda
 Wait, `/` and `/oem` are there, but not `/usr`?
 Well, this needs a bit of detective work.
 
-First, we can verify `/usr` *is*, in fact, based on a partition on `/dev/vda`:
+First, we can verify `/usr` _is_, in fact, based on a partition on `/dev/vda`:
+
 ```sh
 rootdev -s /usr
 ```
@@ -157,26 +166,31 @@ rootdev -s /usr
 returns `vda3`. But why doesn't it show up in our mounts?
 
 Let's check what is actually mounted on `/usr`:
+
 ```sh
 mount | grep -w /usr
 ```
 
 Let's ignore the `systemd-sysext` line for now; we'll elaborate on this in a later session.
 So `/usr` is handled by devicemapper, more specifically
+
 ```sh
 ls -la /dev/mapper/usr
 ```
 
 it's `dm-0`. Let's ask the device mapper about it, then:
+
 ```sh
 dmsetup status /dev/dm-0
 ```
 
 OOOoohh, it's a [dm-verity](https://docs.kernel.org/admin-guide/device-mapper/verity.html) device!
+
 - DM-Verity is a special Device Mapper storage that is guaranteed to be read-only - in fact, verity of the storage bits is guarded by cryptographic checksums.
-- DM-Verity was added to the Linux kernel in 2011 by [Netflix and Google](https://lwn.net/Articles/459420/), and is used in Chromebooks - which share  ancestry with Flatcar.
+- DM-Verity was added to the Linux kernel in 2011 by [Netflix and Google](https://lwn.net/Articles/459420/), and is used in Chromebooks - which share ancestry with Flatcar.
 
 So let's see which partition `dm-0` is actually using:
+
 ```sh
 veritysetup status usr
 ```
@@ -187,11 +201,11 @@ So dm-verity inserts itself by means of a device mapper layer between the physic
 
 For now we have:
 
-* `/` backed by `vda9`- the root partition. This is populated at first boot; we'll discuss in a second how exactly that happens. There's also a reason why it is the last partition in the table. Find out more below.
-* `/oem` backed by `vda6` contains vendor specific tools (think `wa-agent` in the Azure image, or `amazon-ssm-agent` for AWS).
-* `/usr` is a device mapper storage 
-  * backed by `dm-0`, the verity layer, which is
-  * backed by `vda3`, the currently active OS partition.
+- `/` backed by `vda9`- the root partition. This is populated at first boot; we'll discuss in a second how exactly that happens. There's also a reason why it is the last partition in the table. Find out more below.
+- `/oem` backed by `vda6` contains vendor specific tools (think `wa-agent` in the Azure image, or `amazon-ssm-agent` for AWS).
+- `/usr` is a device mapper storage
+  - backed by `dm-0`, the verity layer, which is
+  - backed by `vda3`, the currently active OS partition.
 
 There are other partitions, some of which are reserved and are currently not in use. EFI-SYSTEM, ROOT, USR-A / USR-B, and OEM are the most interesting ones.
 
@@ -218,7 +232,7 @@ user space release #A]
     USR4b[USR-B
 user space release #B]
     ROOT[Pivot to root w/ USR-A or USR-B mounted to /usr]
-    EFI1 --> EFI2 
+    EFI1 --> EFI2
     EFI2 --Partition A is active--> EFI3a --> USR4a --> ROOT
     EFI2 --Partition B is active--> EFI3b --> USR4b --> ROOT
 ```
@@ -232,7 +246,7 @@ The boot process is quite similar to regular Linux start-up, with minor Flatcar 
 5. Ignition finishes, root is switched from the initrd to the root filesystem, and systemd reloads all services.
 6. `ROOT` and `USR-*` Regular system services start.
 
-Flatcar's OS disk (see [partition table](../developer-guides/sdk-disk-partitions/#partition-table) in our public docs) contains 2 separate partitions for OS user spaces. The respective two kernel+initrd blobs are stored together in the `EFI-SYSTEM` partition.
+Flatcar's OS disk (see [partition table](../../devguide/sdk-disk-partitions/#partition-table) in our public docs) contains 2 separate partitions for OS user spaces. The respective two kernel+initrd blobs are stored together in the `EFI-SYSTEM` partition.
 
 Let's explore ourselves!
 
@@ -359,8 +373,8 @@ Services and modifications to services (drop-ins, masks, enablement) shipped wit
 - **100% reversible**. You can roll back to the previous version in case of issues, to boot into a known-good environment. Roll-backs are automatable / customisable to your needs, and atomic too.
 - **Update from any version to any (newer) version**. Flatcar can be updated from any previous release to the latest release.
 
-After all that theory we'll now *FINALLY* get back to some more hands-on stuff.
-This is the reason we downloaded a *previous* OS release.
+After all that theory we'll now _FINALLY_ get back to some more hands-on stuff.
+This is the reason we downloaded a _previous_ OS release.
 So let's go and update!
 
 First, open a browser and point it to [http://localhost:12345](http://localhost:12345).
@@ -446,13 +460,13 @@ Lastly, let's consult partition table attributes:
 cgpt show /dev/vda
 ```
 
-We see that `USR-B` now is active (higher priority than `USR-A`) *and* "successful".
+We see that `USR-B` now is active (higher priority than `USR-A`) _and_ "successful".
 This is because `update_engine` makes sure the `successful` attribute is set when it starts.
 
 ### Critical Services and Updates: Automating Roll-Backs
 
 The above discusses OS mechanism to boot into new OS versions and declare the new OS release stable - solely based on the successful start-up of `update_engine`.
-It's quite easy to build on this and to devise a set-up that ensures critical services come up *before* a new release is declared stable.
+It's quite easy to build on this and to devise a set-up that ensures critical services come up _before_ a new release is declared stable.
 
 ```mermaid
 ---
@@ -478,6 +492,7 @@ Otherwise we risk ending up in a reboot loop when our "critical services" don't 
 
 A respective dependency chain can be built with systemd units and seamlessly integrated into the generic Flatcar start-up.
 For this, we want:
+
 1. A check for determining if this is the first boot after an upgrade.
    It should declare the system "healthy" straight away only if this is not a first boot after upgrade.
    We can build this in a short shell script from what we've learned about Flatcars partition labels above.
@@ -486,7 +501,6 @@ For this, we want:
    After all dependencies were satisfied, the update is healthy.
 3. A trigger for `update_engine` to only start when either 1. or 2. marked the boot as healthy.
 4. A timer that triggers a reboot if neither 1. nor 2. concluded successfully.
-
 
 ```mermaid
 ---
@@ -596,15 +610,15 @@ The script will generate a file `/run/first-boot-healthy` only if this is NOT th
 We also need a corresponding service definition to run it.
 
 ```yaml
-    - name: is-first-boot-after-upgrade.service
-      enabled: true
-      contents: |
-        [Unit]
-        Description=Detect if this is a first boot after an OS upgrade.
-        [Service]
-        ExecStart=/opt/detect-first-boot-after-upgrade.sh
-        [Install]
-        WantedBy=multi-user.target
+- name: is-first-boot-after-upgrade.service
+  enabled: true
+  contents: |
+    [Unit]
+    Description=Detect if this is a first boot after an OS upgrade.
+    [Service]
+    ExecStart=/opt/detect-first-boot-after-upgrade.sh
+    [Install]
+    WantedBy=multi-user.target
 ```
 
 #### 2. Force a health check that ensures our critical service is running
@@ -616,19 +630,19 @@ Users can then make their critical services depend on this unit, so all these ne
 Consider this service definition:
 
 ```yaml
-    - name: first-boot-healtcheck.service
-      enabled: true
-      contents: |
-        [Unit]
-        Description=Meta service to mark the first boot after an OS upgrade as healthy.
-        After=is-first-boot-after-upgrade.service
-        Requires=is-first-boot-after-upgrade.service
-        ConditionPathExists=!/run/first-boot-healthy
-        [Service]
-        ExecStartPre=/usr/bin/echo "All critical services are up, start-up is healthy."
-        ExecStart=/usr/bin/touch /run/first-boot-healthy
-        [Install]
-        WantedBy=multi-user.target
+- name: first-boot-healtcheck.service
+  enabled: true
+  contents: |
+    [Unit]
+    Description=Meta service to mark the first boot after an OS upgrade as healthy.
+    After=is-first-boot-after-upgrade.service
+    Requires=is-first-boot-after-upgrade.service
+    ConditionPathExists=!/run/first-boot-healthy
+    [Service]
+    ExecStartPre=/usr/bin/echo "All critical services are up, start-up is healthy."
+    ExecStart=/usr/bin/touch /run/first-boot-healthy
+    [Install]
+    WantedBy=multi-user.target
 ```
 
 It runs after `is-first-boot-after-upgrade.service`, and it will only run when `/run/first-boot-healthy` hasn't been created yet.
@@ -657,27 +671,27 @@ Fortunately, path units can be used to work around this, and to start arbitrary 
 Let's add a path unit that starts `update_engine` for us when our flag file is created
 
 ```yaml
-    - name: first-boot-healthy.path
-      enabled: true
-      contents: |
-        [Unit]
-        Description=Triggers either after the first boot after an OS upgrade was healthy or if there was no OS upgrade.
-        [Path]
-        PathExists=/run/first-boot-healthy
-        Unit=update-engine.service
-        [Install]
-        WantedBy=multi-user.target
+- name: first-boot-healthy.path
+  enabled: true
+  contents: |
+    [Unit]
+    Description=Triggers either after the first boot after an OS upgrade was healthy or if there was no OS upgrade.
+    [Path]
+    PathExists=/run/first-boot-healthy
+    Unit=update-engine.service
+    [Install]
+    WantedBy=multi-user.target
 ```
 
-And ensure it does *not* start when the flag file does not exists - this effectively covers all `wants:` and `requires:` dependencies of other units on `update_engine` spread across Flatcar.
+And ensure it does _not_ start when the flag file does not exists - this effectively covers all `wants:` and `requires:` dependencies of other units on `update_engine` spread across Flatcar.
 
 ```yaml
-    - name: update-engine.service
-      dropins:
-        - name: first-boot-healthy-must-exist.conf
-          contents: |
-            [Unit]
-            ConditionPathExists=/run/first-boot-healthy
+- name: update-engine.service
+  dropins:
+    - name: first-boot-healthy-must-exist.conf
+      contents: |
+        [Unit]
+        ConditionPathExists=/run/first-boot-healthy
 ```
 
 #### 4. Reboot after timeout if healthy flag was not set
@@ -685,28 +699,28 @@ And ensure it does *not* start when the flag file does not exists - this effecti
 Lastly, we define a timer unit that waits a set amount of time after systemd started, before starting a service which, if `/run/first-boot-healthy` does not exist, triggers a reboot.
 
 ```yaml
-    - name: reboot-after-unhealthy-upgrade.timer
-      enabled: true
-      contents: |
-        [Unit]
-        Description=Triggers a reboot (causing a rollback) when the OS is unhealthy after an upgrade
-        [Timer]
-        OnStartupSec=60
-        [Install]
-        WantedBy=timers.target
+- name: reboot-after-unhealthy-upgrade.timer
+  enabled: true
+  contents: |
+    [Unit]
+    Description=Triggers a reboot (causing a rollback) when the OS is unhealthy after an upgrade
+    [Timer]
+    OnStartupSec=60
+    [Install]
+    WantedBy=timers.target
 
-    - name: reboot-after-unhealthy-upgrade.service
-      contents: |
-        [Unit]
-        Description=Triggers a reboot (causing a rollback) when the OS is unhealthy after an upgrade
-        ConditionPathExists=!/run/first-boot-healthy
-        [Service]
-        ExecStartPre=/usr/bin/echo "WARNING: unclean boot detected after OS upgrade."
-        ExecStartPre=/usr/bin/echo "WARNING: Rebooting to trigger a roll-back."
-        ExecStart=/usr/bin/reboot
+- name: reboot-after-unhealthy-upgrade.service
+  contents: |
+    [Unit]
+    Description=Triggers a reboot (causing a rollback) when the OS is unhealthy after an upgrade
+    ConditionPathExists=!/run/first-boot-healthy
+    [Service]
+    ExecStartPre=/usr/bin/echo "WARNING: unclean boot detected after OS upgrade."
+    ExecStartPre=/usr/bin/echo "WARNING: Rebooting to trigger a roll-back."
+    ExecStart=/usr/bin/reboot
 ```
 
-**Note** that the timeout is *very* tight - 60 seconds - in this example.
+**Note** that the timeout is _very_ tight - 60 seconds - in this example.
 This is for Demo purposes; in production environments this should align to the expected critical service start-up time, likely 10 minutes or more.
 
 #### Finishing touches and test run
@@ -889,7 +903,7 @@ After boot, become root (`sudo -i`).
 Check the NGINX web server from your local browser, and check the status of the various services we defined:
 
 ```sh
-systemctl status nginx.service update-engine.service is-first-boot-after-upgrade.service first-boot-healtcheck.service reboot-after-unhealthy-upgrade.service -l --no-pager 
+systemctl status nginx.service update-engine.service is-first-boot-after-upgrade.service first-boot-healtcheck.service reboot-after-unhealthy-upgrade.service -l --no-pager
 ```
 
 Among other things, we can see that `reboot-after-unhealthy-upgrade.service` tried to start 60 seconds after boot, but fortunately did not trigger a reboot as its precondition was not met (the non-existence of `/run/first-boot-healthy`).
@@ -926,7 +940,6 @@ Flatcar Container Linux by Kinvolk alpha YYY for QEMU
 ```
 
 `XXXX` should be the Alpha release we downloaded at the beginning of this session.
-
 
 Rollback successful!
 

@@ -96,7 +96,7 @@ If you want to configure SSH keys in order to log in, mount disks or configure o
 For more information on using ECS, check out the [official Amazon documentation][ecs-docs].
 
 [aws-ecs]: http://aws.amazon.com/ecs/
-[boot-ec2]: ../../installing/cloud/aws-ec2
-[butane-configs]: ../../provisioning/config-transpiler
-[ignition-docs]: ../../provisioning/ignition
+[boot-ec2]: ../../deploy/cloud/aws-ec2
+[butane-configs]: ../../fb-provision/butane
+[ignition-docs]: ../../fb-provision/ignition
 [ecs-docs]: http://aws.amazon.com/documentation/ecs/

@@ -10,7 +10,7 @@ aliases:
     - ../../clusters/management/update-conf
 ---
 
-Flatcar Container Linux uses [`update_engine`][update_engine] to check and fetch new updates from the [Nebraska Update Service](../../nebraska).
+Flatcar Container Linux uses [`update_engine`][update_engine] to check and fetch new updates from the [Nebraska Update Service](../nebraska).
 
 ## Location
 

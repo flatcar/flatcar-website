@@ -186,7 +186,7 @@ ID          TYPE       NAME   DESCRIPTION        ARCHITECTURE   IMAGE SIZE
 
 ### Requirements
 
-- [Butane](../../provisioning/config-transpiler/)
+- [Butane](../../fb-provision/butane/)
 - [Hetzner Cloud CLI](https://github.com/hetznercloud/cli) (`hcloud`)
 - Snapshots from the previous section
 - SSH Key
@@ -202,7 +202,7 @@ hcloud ssh-key create --public-key-from-file ~/.ssh/<your-ssh-key>.pub --name my
 
 ### Server configuration
 
-Flatcar allows you to configure machine parameters, launch systemd units on startup and more via [Butane Configs](../../provisioning/config-transpiler/). These configs are then transpiled into Ignition JSON configs and given to booting machines.
+Flatcar allows you to configure machine parameters, launch systemd units on startup and more via [Butane Configs](../../fb-provision/butane/). These configs are then transpiled into Ignition JSON configs and given to booting machines.
 We're going to provide our Butane Config to Hetzner via the user-data flag.
 
 The `coreos-metadata.service` saves metadata variables to `/run/metadata/flatcar`. Systemd units can use them with `EnvironmentFile=/run/metadata/flatcar` in the `[Service]` section when setting `Requires=coreos-metadata.service` and `After=coreos-metadata.service` in the `[Unit]` section.

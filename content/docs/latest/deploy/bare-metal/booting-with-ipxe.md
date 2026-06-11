@@ -162,13 +162,13 @@ Similar to the [OEM partition][oem] in Flatcar Container Linux disk images, iPXE
 
 Now that you have a machine booted it is time to play around. Check out the [Flatcar Container Linux Quickstart][quickstart] guide or dig into [more specific topics][doc-index].
 
-[cl-configs]: ../../provisioning/cl-config
-[butane-configs]: ../../provisioning/config-transpiler
-[ignition]: ../../provisioning/ignition
-[ignition-kargs-ip]: ../../provisioning/ignition/network-configuration/#using-static-ip-addresses-with-ignition
+[cl-configs]: ../../fb-provision/cl-config
+[butane-configs]: ../../fb-provision/butane
+[ignition]: ../../fb-provision/ignition
+[ignition-kargs-ip]: ../../fb-provision/ignition/network-configuration#using-static-ip-addresses-with-ignition
 [oem]: ../community-platforms/notes-for-distributors#image-customization
 [installing-to-disk]: installing-to-disk
-[update-strategies]: ../../setup/releases/update-strategies
+[update-strategies]: ../../updates-releases/releases/update-strategies
 [release-notes]: https://flatcar-linux.org/releases
 [pxe-installation]: booting-with-pxe#installation
 [pxe-custom-oem]: booting-with-pxe#adding-a-custom-oem

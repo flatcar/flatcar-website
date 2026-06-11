@@ -124,7 +124,7 @@ systemd:
         RequiredBy=local-fs.target
 ```
 
-For more information about mounting storage, Amazon's [own documentation](http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/InstanceStorage.html) is the best source. You can also read about [mounting storage on Flatcar Container Linux](../../setup/storage/mounting-storage).
+For more information about mounting storage, Amazon's [own documentation](http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/InstanceStorage.html) is the best source. You can also read about [mounting storage on Flatcar Container Linux](../../os-config/storage/mounting-storage).
 
 ### Adding more machines
 
@@ -218,7 +218,7 @@ Now that you have a machine booted it is time to play around. Check out the [Fla
 ## Terraform
 
 The [`aws`](https://registry.terraform.io/providers/hashicorp/aws/latest/docs) Terraform Provider allows to deploy machines in a declarative way.
-Read more about using Terraform and Flatcar [here](../../provisioning/terraform/).
+Read more about using Terraform and Flatcar [here](../../fb-provision/infrastructure/).
 
 The following Terraform v0.13 module may serve as a base for your own setup.
 It will also take care of registering your SSH key at AWS EC2 and managing the network environment with Terraform.
@@ -499,8 +499,8 @@ You can find this Terraform module in the repository for [Flatcar Terraform exam
 [flatcar-user]: https://groups.google.com/forum/#!forum/flatcar-linux-user
 [docker-docs]: https://docs.docker.io
 [etcd-docs]: https://etcd.io/docs
-[update-strategies]: ../../setup/releases/update-strategies
+[update-strategies]: ../../updates-releases/releases/update-strategies
 [discord]: https://discord.gg/PMYjFUsJyq
 [release-notes]: https://flatcar-linux.org/releases
 [ec2-user-data]: http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/user-data.html
-[butane-configs]: ../../provisioning/config-transpiler
+[butane-configs]: ../../fb-provision/butane

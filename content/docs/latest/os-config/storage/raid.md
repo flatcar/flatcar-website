@@ -67,5 +67,5 @@ storage:
 * `/etc/mdadm.conf` cannot be used to configure a RAID array containing the root filesystem.
 * Since Ignition cannot modify the type GUID of existing partitions, the default `ROOT` partition cannot be reused as a component of a RAID array. A future version of Ignition will support resizing the `ROOT` partition and changing its type GUID, allowing it to be used as part of a RAID array.
 
-[butane-configs]: ../../provisioning/config-transpiler
-[partition-table]: ../../reference/developer-guides/sdk-disk-partitions/#partition-table
+[butane-configs]: ../../fb-provision/butane
+[partition-table]: ../../devguide/sdk-disk-partitions#partition-table

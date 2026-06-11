@@ -24,7 +24,7 @@ Flatcar Container Linux is designed to be reliably updated via a continuous stre
 
 For more information, [read more about the disk layout][chromium disk format] used by Chromium and ChromeOS, which inspired the layout used by Flatcar Container Linux.
 
-[OEM docs]: ../../installing/community-platforms/notes-for-distributors
+[OEM docs]: ../deploy/virt-options/notes-for-distributors
 [chromium disk format]: https://www.chromium.org/chromium-os/developer-library/reference/device/disk-format/
 
 ## Mounted filesystems
@@ -54,7 +54,7 @@ The chosen partition is initially mounted at `/sysusr` by the initrd using [Flat
 
 The OEM partition is mounted at `/usr/share/oem`.
 
-[manual rollback docs]: ../../setup/debug/manual-rollbacks
+[manual rollback docs]: ../diagnostics/manual-rollbacks
 [GRUB patches]: https://github.com/flatcar/scripts/tree/main/sdk_container/src/third_party/coreos-overlay/coreos/user-patches/sys-boot/grub
 [supply chain docs]: ../supply-chain
 [verity hash code]: https://github.com/flatcar/scripts/blob/17ea3f2265df0c146b4b811eb9fad1abe35b21a2/build_library/build_image_util.sh#L820-L827
