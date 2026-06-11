@@ -429,7 +429,7 @@ For information on using Flatcar Container Linux check out the [Flatcar Containe
 ## Terraform
 
 The [`azurerm`](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs) Terraform Provider allows to deploy machines in a declarative way.
-Read more about using Terraform and Flatcar [here](../../provisioning/terraform/).
+Read more about using Terraform and Flatcar [here](../../fb-provision/infrastructure/).
 
 The following Terraform v0.13 module may serve as a base for your own setup.
 
@@ -633,7 +633,7 @@ You can resolve the latest Flatcar Stable version with this shell command:
 curl -sSfL https://stable.release.flatcar-linux.net/amd64-usr/current/version.txt | grep -m 1 FLATCAR_VERSION_ID= | cut -d = -f 2
 ```
 
-The machine name listed in the `machines` variable is used to retrieve the corresponding [Container Linux Config](../../provisioning/config-transpiler/configuration) template from the `cl/` subfolder.
+The machine name listed in the `machines` variable is used to retrieve the corresponding [Container Linux Config](../../fb-provision/butane/configuration) template from the `cl/` subfolder.
 For each machine in the list, you should have a `machine-NAME.yaml.tmpl` file with a corresponding name.
 
 Create the configuration for `mynode` in the file `cl/machine-mynode.yaml.tmpl`:
@@ -755,13 +755,13 @@ storage:
 [flatcar-user]: https://groups.google.com/forum/#!forum/flatcar-linux-user
 [etcd-docs]: https://etcd.io/docs
 [quickstart]: ../
-[reboot-docs]: ../../setup/releases/update-strategies
+[reboot-docs]: ../../updates-releases/releases/update-strategies
 [azure-cli]: https://docs.microsoft.com/en-us/cli/azure/overview
-[butane-configs]: ../../provisioning/config-transpiler
+[butane-configs]: ../../fb-provision/butane
 [irc]: irc://irc.freenode.org:6667/#flatcar
 [docs]: ../../
 [resource-group]: https://docs.microsoft.com/en-us/azure/architecture/best-practices/naming-conventions#naming-rules-and-restrictions
 [storage-account]: https://docs.microsoft.com/en-us/azure/storage/common/storage-account-overview#naming-storage-accounts
 [azure-flatcar-image-upload]: https://github.com/flatcar/flatcar-cloud-image-uploader
 [release-notes]: https://flatcar.org/releases
-[update-docs]: ../../setup/releases/update-strategies
+[update-docs]: ../../updates-releases/releases/update-strategies

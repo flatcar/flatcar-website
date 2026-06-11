@@ -4,9 +4,9 @@ linktitle: Getting Started
 description: An introduction to the most important systemd concepts used in Flatcar.
 weight: 10
 aliases:
-    - /docs/latest/setup/systemd/getting-started/
-    - ../../os/getting-started-with-systemd
-    - ../../clusters/management/getting-started-with-systemd
+  - /docs/latest/setup/systemd/getting-started/
+  - ../../os/getting-started-with-systemd
+  - ../../clusters/management/getting-started-with-systemd
 ---
 
 systemd is an init system that provides many powerful features for starting, stopping, and managing processes. Within Flatcar Container Linux, you will almost exclusively use systemd to manage the lifecycle of your Docker containers.
@@ -70,21 +70,21 @@ Feb 11 17:46:28 localhost docker[23470]: Hello World
 ```
 
 - [Overview of systemctl](systemctl)
-- [Reading the System Log](../debug/reading-the-system-log)
+- [Reading the System Log](../../diagnostics/reading-the-system-log)
 
 ## Advanced unit files
 
 systemd provides a high degree of functionality in your unit files. Here's a curated list of useful features listed in the order they'll occur in the lifecycle of a unit:
 
-| Name    | Description |
-|---------|-------------|
-| ExecStartPre | Commands that will run before `ExecStart`. |
-| ExecStart | Main commands to run for this unit. |
-| ExecStartPost | Commands that will run after all `ExecStart` commands have completed. |
-| ExecReload | Commands that will run when this unit is reloaded via `systemctl reload foo.service` |
-| ExecStop | Commands that will run when this unit is considered failed or if it is stopped via `systemctl stop foo.service` |
-| ExecStopPost | Commands that will run after `ExecStop` has completed. |
-| RestartSec | The amount of time to sleep before restarting a service. Useful to prevent your failed service from attempting to restart itself every 100ms. |
+| Name          | Description                                                                                                                                   |
+| ------------- | --------------------------------------------------------------------------------------------------------------------------------------------- |
+| ExecStartPre  | Commands that will run before `ExecStart`.                                                                                                    |
+| ExecStart     | Main commands to run for this unit.                                                                                                           |
+| ExecStartPost | Commands that will run after all `ExecStart` commands have completed.                                                                         |
+| ExecReload    | Commands that will run when this unit is reloaded via `systemctl reload foo.service`                                                          |
+| ExecStop      | Commands that will run when this unit is considered failed or if it is stopped via `systemctl stop foo.service`                               |
+| ExecStopPost  | Commands that will run after `ExecStop` has completed.                                                                                        |
+| RestartSec    | The amount of time to sleep before restarting a service. Useful to prevent your failed service from attempting to restart itself every 100ms. |
 
 The full list is located on the [systemd man page](http://www.freedesktop.org/software/systemd/man/systemd.service.html).
 
@@ -126,12 +126,12 @@ While it's possible to manage the starting, stopping, and removal of the contain
 
 In our last example we had to hardcode our IP address when we announced our container in etcd. That's not scalable and systemd has a few variables built in to help us out. Here's a few of the most useful:
 
-| Variable | Meaning | Description |
-|----------|---------|-------------|
-| `%n` | Full unit name | Useful if the name of your unit is unique enough to be used as an argument on a command. |
-| `%m` | Machine ID | Useful for namespacing etcd keys by machine. Example: `/machines/%m/units` |
-| `%b` | BootID | Similar to the machine ID, but this value is random and changes on each boot |
-| `%H` | Hostname | Allows you to run the same unit file across many machines. Useful for service discovery. Example: `/domains/example.com/%H:8081` |
+| Variable | Meaning        | Description                                                                                                                      |
+| -------- | -------------- | -------------------------------------------------------------------------------------------------------------------------------- |
+| `%n`     | Full unit name | Useful if the name of your unit is unique enough to be used as an argument on a command.                                         |
+| `%m`     | Machine ID     | Useful for namespacing etcd keys by machine. Example: `/machines/%m/units`                                                       |
+| `%b`     | BootID         | Similar to the machine ID, but this value is random and changes on each boot                                                     |
+| `%H`     | Hostname       | Allows you to run the same unit file across many machines. Useful for service discovery. Example: `/domains/example.com/%H:8081` |
 
 A full list of specifiers can be found on the [systemd man page](http://www.freedesktop.org/software/systemd/man/systemd.unit.html#Specifiers).
 
@@ -139,10 +139,10 @@ A full list of specifiers can be found on the [systemd man page](http://www.free
 
 Since systemd is based on symlinks, there are a few interesting tricks you can leverage that are very powerful when used with containers. If you create multiple symlinks to the same unit file, the following variables become available to you:
 
-| Variable | Meaning | Description |
-|----------|---------|-------------|
-| `%p` | Prefix name | Refers to any string before `@` in your unit name. |
-| `%i` | Instance name | Refers to the string between the `@` and the suffix. |
+| Variable | Meaning       | Description                                          |
+| -------- | ------------- | ---------------------------------------------------- |
+| `%p`     | Prefix name   | Refers to any string before `@` in your unit name.   |
+| `%i`     | Instance name | Refers to the string between the `@` and the suffix. |
 
 In our earlier example we had to hardcode our IP address when registering within etcd:
 

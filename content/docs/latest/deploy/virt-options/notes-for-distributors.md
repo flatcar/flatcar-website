@@ -43,7 +43,7 @@ There are two predominant ways that a Flatcar Container Linux image can be easil
 
 It is recommended that providers ensure that [Afterburn][coreos-metadata] has support for their platform. This will allow a nicer user experience, as Afterburn will be able to install users' ssh keys and users will be able to reference metadata variables in their systemd units.
 
-[ignition]: ../../provisioning/ignition
+[ignition]: ../../fb-provision/ignition
 [coreos-metadata]: https://github.com/coreos/afterburn/
 
 ### Cloud config
@@ -55,7 +55,7 @@ Providers that previously supported cloud-config should continue to do so, as no
 Flatcar Container Linux will automatically parse and execute `/usr/share/oem/cloud-config.yml` if it exists.
 
 [ignition-blog]: https://www.toddpigram.com/2016/04/introducing-ignition-new-coreos-machine.html
-[butane-configs]: ../../provisioning/config-transpiler
+[butane-configs]: ../../fb-provision/butane
 
 ## Handling end-user Ignition files
 

@@ -3,8 +3,8 @@ title: Reading the system log
 description: How to use journalctl to understand what's going on.
 weight: 15
 aliases:
-    - /docs/latest/setup/debug/reading-the-system-log/
-    - ../../os/reading-the-system-log
+  - /docs/latest/setup/debug/reading-the-system-log/
+  - ../../os/reading-the-system-log
 ---
 
 `journalctl` is your interface into a single machine's journal/logging. All service files insert data into the systemd journal. There are a few helpful commands to read the journal:
@@ -42,6 +42,7 @@ Dec 22 12:32:39 localhost docker[9772]: apache2: Could not reliably determine th
 ## Read the user journal from the current user
 
 It might be required to add a user different from `core` user to the `systemd-journal` group to read the user journal. It can be done with this Butane config:
+
 ```yaml
 variant: flatcar
 version: 1.0.0
@@ -131,9 +132,9 @@ systemd:
 ```
 
 [drop-ins]: ../systemd/drop-in-units
-[butane-configs]: ../../provisioning/config-transpiler
+[butane-configs]: ../fb-provision/butane
 
 ## More information
 
-<a class="btn btn-default" href="../../systemd/getting-started">Getting Started with systemd</a>
-<a class="btn btn-default" href="../../customization/network-config-with-networkd">Network Configuration with networkd</a>
+<a class="btn btn-default" href="../os-config/systemd/getting-started">Getting Started with systemd</a>
+<a class="btn btn-default" href="../os-config/network/network-config-with-networkd">Network Configuration with networkd</a>

@@ -108,7 +108,7 @@ core@srv-f0lo3 ~ $ systemctl status nginx
 
 Now that you have a machine booted it is time to play around. Check out the [Flatcar Container Linux Quickstart][quickstart] guide or dig into [more specific topics][doc-index].
 
-[butane-configs]: ../../provisioning/config-transpiler
+[butane-configs]: ../../fb-provision/butane
 [brightbox]: https://cloud.brightbox.com/
 [cli]: https://www.brightbox.com/docs/reference/cli
 [doc-index]: ../../

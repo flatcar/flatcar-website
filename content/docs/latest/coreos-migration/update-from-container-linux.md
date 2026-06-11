@@ -110,4 +110,4 @@ sudo update_engine_client -update
 ```
 
 [migrate-from-container-linux]: _index.md
-[manual-rollback]: ../setup/debug/manual-rollbacks/#performing-a-manual-rollback
+[manual-rollback]: ../diagnostics/manual-rollbacks#performing-a-manual-rollback

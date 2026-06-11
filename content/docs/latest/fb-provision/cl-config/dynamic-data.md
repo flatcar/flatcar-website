@@ -81,7 +81,7 @@ etcd:
   initial_cluster:             "{HOSTNAME}=http://{PRIVATE_IPV4}:2380"
 ```
 
-You can find another example in the [VMware docs](../../installing/cloud/vmware.md).
+You can find another example in the [VMware docs](../../deploy/cloud/vmware.md).
 
 ## Behind the scenes
 

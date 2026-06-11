@@ -47,7 +47,7 @@ At the end of the document there are instructions for deploying with Terraform.
 </div>
 -->
 
-[reboot-docs]: ../../setup/releases/update-strategies
+[reboot-docs]: ../../updates-releases/releases/update-strategies
 [release-notes]: https://www.flatcar-linux.org/releases/
 
 ## Butane Configs
@@ -200,7 +200,7 @@ Now that you have a machine booted it is time to play around. Check out the [Fla
 ## Terraform
 
 The [`digitalocean`](https://registry.terraform.io/providers/digitalocean/digitalocean/latest/docs) Terraform Provider allows to deploy machines in a declarative way.
-Read more about using Terraform and Flatcar [here](../../provisioning/terraform/).
+Read more about using Terraform and Flatcar [here](../../fb-provision/infrastructure/).
 
 The following Terraform v0.13 module may serve as a base for your own setup.
 It will also take care of registering your SSH key at Digital Ocean and creating a custom image.
@@ -383,7 +383,7 @@ When you make a change to `machine-mynode.yaml.tmpl` and run `terraform apply` a
 
 You can find this Terraform module in the repository for [Flatcar Terraform examples](https://github.com/flatcar/flatcar-terraform/tree/main/digitalocean).
 
-[butane-configs]: ../../provisioning/config-transpiler
+[butane-configs]: ../../fb-provision/butane
 [do-api-docs]: https://developers.digitalocean.com/documentation/v2/
 [do-keys-docs]: https://developers.digitalocean.com/documentation/v2/#ssh-keys
 [do-list-keys-docs]: https://developers.digitalocean.com/documentation/v2/#list-all-keys

@@ -105,7 +105,7 @@ core@10-0-0-3 ~ $
 
 Now that you have a machine booted it is time to play around. Check out the [Flatcar Container Linux Quickstart][quickstart] guide or dig into [more specific topics][doc-index].
 
-[update-strategies]: ../../setup/releases/update-strategies
+[update-strategies]: ../../updates-releases/releases/update-strategies
 [release-notes]: https://flatcar-linux.org/releases
 [quickstart]: ../
 [doc-index]: ../../

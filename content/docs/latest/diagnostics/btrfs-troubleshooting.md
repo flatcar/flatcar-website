@@ -4,9 +4,9 @@ linktitle: Troubleshooting btrfs
 description: Tips and tricks for solving issues related to btrfs on Flatcar.
 weight: 30
 aliases:
-    - /docs/latest/setup/debug/btrfs-troubleshooting/
-    - ../../os/btrfs-troubleshooting
-    - ../../clusters/debug/btrfs-troubleshooting
+  - /docs/latest/setup/debug/btrfs-troubleshooting/
+  - ../../os/btrfs-troubleshooting
+  - ../../clusters/debug/btrfs-troubleshooting
 ---
 
 btrfs is a copy-on-write filesystem with full support in the upstream Linux kernel and several desirable features. In the past, Flatcar Container Linux shipped with a btrfs root filesystem to support Docker filesystem requirements at the time. As of version 561.0.0, Flatcar Container Linux ships with ext4 as the default root filesystem by default while still supporting Docker. Btrfs is still supported and works with the latest Flatcar Container Linux releases and Docker, but we recommend using ext4.
@@ -80,7 +80,7 @@ Balance on '/' is running
 
 ## Adding a new physical disk
 
-New physical disks can be added to an existing btrfs filesystem. The first step is to have the new block device [mounted on the machine](../storage/mounting-storage). Afterwards, let btrfs know about the new device and re-balance the file system. The key step here is re-balancing, which will move the data and metadata across both block devices. Expect this process to take some time:
+New physical disks can be added to an existing btrfs filesystem. The first step is to have the new block device [mounted on the machine](../os-config/storage/mounting-storage). Afterwards, let btrfs know about the new device and re-balance the file system. The key step here is re-balancing, which will move the data and metadata across both block devices. Expect this process to take some time:
 
 ```shell
 btrfs device add /dev/sdc /

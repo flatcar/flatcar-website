@@ -3,11 +3,11 @@ title: "[DEPRECATED / EOL] Container Linux Config Transpiler"
 description: YAML configuration format used to generate Ignition configs.
 weight: 45
 aliases:
-    - ../os/provisioning
-    - ../reference/migrating-to-clcs/provisioning
+  - ../os/provisioning
+  - ../reference/migrating-to-clcs/provisioning
 ---
 
-:warning: TL; DR: Use [Butane](../config-transpiler). While Flatcar does support both Ignition spec version (2.x and 3.x), we encourage folks to use [Butane](../config-transpiler) first but we still maintain / document backward compatibility for users who still rely on Ignition 2.x. :warning:
+:warning: TL; DR: Use [Butane](../butane). While Flatcar does support both Ignition spec version (2.x and 3.x), we encourage folks to use [Butane](../butane) first but we still maintain / document backward compatibility for users who still rely on Ignition 2.x. :warning:
 
 Flatcar Container Linux automates machine provisioning with a specialized system for applying initial configuration. This system implements a process of (trans)compilation and validation for machine configs, and an atomic service to apply validated configurations to machines.
 
@@ -34,16 +34,16 @@ Use variable replacement to configure the etcd service with the provisioning tar
 
 ```yaml
 etcd:
-  advertise_client_urls:       http://{PUBLIC_IPV4}:2379
+  advertise_client_urls: http://{PUBLIC_IPV4}:2379
   initial_advertise_peer_urls: http://{PRIVATE_IPV4}:2380
-  listen_client_urls:          http://0.0.0.0:2379
-  listen_peer_urls:            http://{PRIVATE_IPV4}:2380
-  discovery:                   https://discovery.etcd.io/<token>
+  listen_client_urls: http://0.0.0.0:2379
+  listen_peer_urls: http://{PRIVATE_IPV4}:2380
+  discovery: https://discovery.etcd.io/<token>
 ```
 
 `PUBLIC_IPV4` and `PRIVATE_IPV4` are automatically populated from the environment in which Flatcar Container Linux runs, if this metadata exists. Given the many different environments in which Flatcar Container Linux can run, it's difficult if not impossible to accurately determine these variables in every instance. Be certain to check this value as a troubleshooting measure.
 
-For example, the default metadata for an EC2 environment would be used: `public_ipv4` and `local_ipv4`. On Azure, *either* the virtual IP or public IP could be used for the `PUBLIC_IPV4` (`ct` makes a best guess and uses the virtual IP, but this could change in the future), and the dynamic IP would be used for the `PRIVATE_IPV4`. On bare metal, this information cannot be reliably derived in a general manner, so these variables cannot be used.
+For example, the default metadata for an EC2 environment would be used: `public_ipv4` and `local_ipv4`. On Azure, _either_ the virtual IP or public IP could be used for the `PUBLIC_IPV4` (`ct` makes a best guess and uses the virtual IP, but this could change in the future), and the dynamic IP would be used for the `PRIVATE_IPV4`. On bare metal, this information cannot be reliably derived in a general manner, so these variables cannot be used.
 
 Because variable expansion is unpredictable and complex, and because it is also common for users to inadvertently write invalid configs, the use of a transformation tool is strongly encouraged. The default tool recommended for this task is the [Config Transpiler][ct] (ct for short). The Config Transpiler will validate and transform a Container Linux Config into the format that Flatcar Container Linux can consume: the Ignition Config.
 
@@ -67,11 +67,11 @@ The following config will configure an etcd cluster using the machine's public a
 
 ```yaml
 etcd:
-  advertise_client_urls:       http://{PUBLIC_IPV4}:2379
+  advertise_client_urls: http://{PUBLIC_IPV4}:2379
   initial_advertise_peer_urls: http://{PRIVATE_IPV4}:2380
-  listen_client_urls:          http://0.0.0.0:2379
-  listen_peer_urls:            http://{PRIVATE_IPV4}:2380
-  discovery:                   https://discovery.etcd.io/<token>
+  listen_client_urls: http://0.0.0.0:2379
+  listen_peer_urls: http://{PRIVATE_IPV4}:2380
+  discovery: https://discovery.etcd.io/<token>
 ```
 
 As suggested earlier, `ct` requires information about the target environment before it can transform configs which use templating. If this config is passed to `ct` without any other arguments, `ct` fails with the following error message:
@@ -81,7 +81,7 @@ $ ct < example.yml
 error: platform must be specified to use templating
 ```
 
-This message states that because the config takes advantage of templating (in this case,  `PUBLIC_IPV4`), `ct` must be invoked with the `--platform` argument. This extra information is used by `ct` to make the platform-specific customizations necessary. Keeping the Container Linux Config and the invocation arguments separate allows the Container Linux Config to remain largely platform independent.
+This message states that because the config takes advantage of templating (in this case, `PUBLIC_IPV4`), `ct` must be invoked with the `--platform` argument. This extra information is used by `ct` to make the platform-specific customizations necessary. Keeping the Container Linux Config and the invocation arguments separate allows the Container Linux Config to remain largely platform independent.
 
 CT can be invoked again and given Amazon EC2 as an example:
 
@@ -96,14 +96,18 @@ This time, `ct` successfully runs and produces the following Ignition Config:
 {
   "ignition": { "version": "2.0.0" },
   "systemd": {
-    "units": [{
-      "name": "etcd-member.service",
-      "enable": true,
-      "dropins": [{
-        "name": "20-clct-etcd-member.conf",
-        "contents": "[Unit]\nRequires=coreos-metadata.service\nAfter=coreos-metadata.service\n\n[Service]\nEnvironmentFile=/run/metadata/coreos\nExecStart=\nExecStart=/usr/lib/flatcar/etcd-wrapper $ETCD_OPTS \\\n  --listen-peer-urls=\"http://${COREOS_EC2_IPV4_LOCAL}:2380\" \\\n  --listen-client-urls=\"http://0.0.0.0:2379\" \\\n  --initial-advertise-peer-urls=\"http://${COREOS_EC2_IPV4_LOCAL}:2380\" \\\n  --advertise-client-urls=\"http://${COREOS_EC2_IPV4_PUBLIC}:2379\" \\\n  --discovery=\"https://discovery.etcd.io/\u003ctoken\u003e\""
-      }]
-    }]
+    "units": [
+      {
+        "name": "etcd-member.service",
+        "enable": true,
+        "dropins": [
+          {
+            "name": "20-clct-etcd-member.conf",
+            "contents": "[Unit]\nRequires=coreos-metadata.service\nAfter=coreos-metadata.service\n\n[Service]\nEnvironmentFile=/run/metadata/coreos\nExecStart=\nExecStart=/usr/lib/flatcar/etcd-wrapper $ETCD_OPTS \\\n  --listen-peer-urls=\"http://${COREOS_EC2_IPV4_LOCAL}:2380\" \\\n  --listen-client-urls=\"http://0.0.0.0:2379\" \\\n  --initial-advertise-peer-urls=\"http://${COREOS_EC2_IPV4_LOCAL}:2380\" \\\n  --advertise-client-urls=\"http://${COREOS_EC2_IPV4_PUBLIC}:2379\" \\\n  --discovery=\"https://discovery.etcd.io/\u003ctoken\u003e\""
+          }
+        ]
+      }
+    ]
   }
 }
 ```
@@ -138,9 +142,9 @@ For a [number of reasons][vs], coreos-cloudinit has been deprecated in favor of 
 
 Now that the basics of Container Linux Configs have been covered, a good next step is to read through the [examples][examples] and start experimenting. The [troubleshooting guide][troubleshooting] is a good reference for debugging issues.
 
-[clc]: ../config-transpiler/configuration
+[clc]: ../butane/configuration
 [cloudinit]: https://github.com/kinvolk/coreos-cloudinit
-[ct]: ../config-transpiler/
+[ct]: ../butane/
 [download-ct]: https://github.com/flatcar/container-linux-config-transpiler/releases
 [etcd]: https://github.com/etcd-io/etcd
 [examples]: examples
