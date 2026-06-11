@@ -140,7 +140,7 @@ $ systemctl status nginx
 
 Now that you have a machine booted it is time to play around. Check out the [Flatcar Container Linux Quickstart][quickstart] guide or dig into [more specific topics][doc-index].
 
-[butane-configs]: ../../provisioning/config-transpiler
+[butane-configs]: ../../fb-provision/butane
 [doc-index]: ../../
 [ovhcloud]: https://www.ovhcloud.com/en/
 [ovhcloud-documentation-create]: https://help.ovhcloud.com/csm/en-public-cloud-compute-getting-started?id=kb_article_view&sysparm_article=KB0051009

@@ -380,4 +380,4 @@ A json file `.dockercfg` can be created in your home directory that holds authen
 [self-signed-certs]: ../setup/security/generate-self-signed-certificates
 [systemd-socket]: https://www.freedesktop.org/software/systemd/man/systemd.socket.html
 [systemd-env-vars]: ../setup/systemd/environment-variables/#system-wide-environment-variables
-[butane-configs]: ../../provisioning/config-transpiler
+[butane-configs]: ../../fb-provision/butane

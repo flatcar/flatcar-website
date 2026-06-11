@@ -3,9 +3,9 @@ title: Using systemd and udev rules
 description: How to run units when specific udev events trigger.
 weight: 35
 aliases:
-    - /docs/latest/setup/systemd/udev-rules/
-    - ../../os/using-systemd-and-udev-rules
-    - ../../clusters/management/using-systemd-and-udev-rules
+  - /docs/latest/setup/systemd/udev-rules/
+  - ../../os/using-systemd-and-udev-rules
+  - ../../clusters/management/using-systemd-and-udev-rules
 ---
 
 In our example we will use libvirt VM with Flatcar Container Linux and run systemd unit on disk attach event. First of all we have to create systemd unit file `/etc/systemd/system/device-attach.service`:
@@ -75,13 +75,13 @@ systemd:
 
 For more systemd examples, check out these documents:
 
- * [Customizing Docker][customizing-docker]
- * [Customizing the SSH Daemon][customizing-sshd]
- * [Using systemd Drop-In Units][drop-in]
+- [Customizing Docker][customizing-docker]
+- [Customizing the SSH Daemon][customizing-sshd]
+- [Using systemd Drop-In Units][drop-in]
 
 [drop-in]: drop-in-units
-[customizing-sshd]: ../security/customizing-sshd#changing-the-sshd-port
-[customizing-docker]: ../../container-runtimes/customizing-docker#using-a-dockercfg-file-for-authentication
+[customizing-sshd]: ../../security/cert-auth/customizing-sshd#changing-the-sshd-port
+[customizing-docker]: ../../orchestrate/containers/customizing-docker#using-a-dockercfg-file-for-authentication
 
 ## More information
 

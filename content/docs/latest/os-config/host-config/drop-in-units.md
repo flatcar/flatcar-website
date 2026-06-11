@@ -4,9 +4,9 @@ linktitle: Drop-In Units
 description: How to customize the running system by using drop-in units.
 weight: 20
 aliases:
-    - /docs/latest/setup/systemd/drop-in-units/
-    - ../../os/using-systemd-drop-in-units
-    - ../../clusters/customization/using-systemd-drop-in-units
+  - /docs/latest/setup/systemd/drop-in-units/
+  - ../../os/using-systemd-drop-in-units
+  - ../../clusters/customization/using-systemd-drop-in-units
 ---
 
 There are two methods of overriding default Flatcar Container Linux settings in unit files: copying the unit file from `/usr/lib64/systemd/system` to `/etc/systemd/system` and modifying the chosen settings. Alternatively, one can create a directory named `unit.d` within `/etc/systemd/system` and place a drop-in file `name.conf` there that only changes the specific settings one is interested in. Note that multiple such drop-in files are read if present.
@@ -156,9 +156,9 @@ systemd-delta --type=extended
 
 For more examples using systemd customization, check out these documents:
 
- * [Customizing Docker](../../container-runtimes/customizing-docker#using-a-dockercfg-file-for-authentication)
- * [Customizing the SSH Daemon](../security/customizing-sshd#changing-the-sshd-port)
- * [Using Environment Variables in systemd Units](../environment-variables)
+- [Customizing Docker](../../orchestrate/containers/customizing-docker#using-a-dockercfg-file-for-authentication)
+- [Customizing the SSH Daemon](../../security/cert-auth/customizing-sshd#changing-the-sshd-port)
+- [Using Environment Variables in systemd Units](../environment-variables)
 
 ## More Information
 

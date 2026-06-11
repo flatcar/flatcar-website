@@ -3,7 +3,7 @@ title: Infrastructure as Code
 description: Provision Flatcar Container Linux with an Ignition configuration through Terraform
 weight: 40
 aliases:
-    - /docs/latest/provisioning/terraform/
+  - /docs/latest/provisioning/terraform/
 ---
 
 Flatcar Container Linux fits well with Terraform for the principle of Immutable Infrastructure where you deploy a node and, instead of making changes via SSH, you destroy it and deploy a new node.
@@ -134,9 +134,8 @@ resource "null_resource" "reboot-when-ignition-changes" {
 
 You can find the full code for working examples in this [git repository][example-repo].
 
-
-[cloud]: ../../installing/cloud/
-[butane-configs]: ../config-transpiler
+[cloud]: ../../deploy/cloud/
+[butane-configs]: ../butane
 [terraform-ct-provider]: https://registry.terraform.io/providers/poseidon/ct/latest
 [terraform-ignition-provider]: https://registry.terraform.io/providers/community-terraform-providers/ignition/latest
 [boot-process]: ../ignition/boot-process/#reprovisioning

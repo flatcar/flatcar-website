@@ -205,9 +205,9 @@ Check out the guides on [running Flatcar Container Linux][running-container-linu
 
 With any of these guides you will have machines up and running in a few minutes.
 
-[learning-series]: ../learning-series
-[update-strategies]: ../setup/releases/update-strategies
-[update-conf]: ../setup/releases/update-conf
+[learning-series]: ./learning-series
+[update-strategies]: ../updates-releases/releases/update-strategies
+[update-conf]: ../updates-releases/releases/update-conf
 [setup]: ../setup
 [running-container-linux]: ../#installing-flatcar
 [ec2-docs]: cloud/aws-ec2
@@ -223,11 +223,11 @@ With any of these guides you will have machines up and running in a few minutes.
 [ipxe-docs]: bare-metal/booting-with-ipxe
 [iso-docs]: bare-metal/booting-with-iso
 [install-docs]: bare-metal/installing-to-disk
-[ignition]: ../provisioning/ignition/
-[cl-configs]: ../provisioning/cl-config
-[butane-configs]: ../provisioning/config-transpiler
-[butane-examples]: ../provisioning/config-transpiler/examples
-[butane-spec]: ../provisioning/config-transpiler/configuration
-[systemd]: ../setup/systemd/getting-started
+[ignition]: ../fb-provision/ignition/
+[cl-configs]: ../fb-provision/cl-config
+[butane-configs]: ../fb-provision/butane
+[butane-examples]: ../fb-provision/butane/examples
+[butane-spec]: ../fb-provision/butane/configuration
+[systemd]: ../os-config/systemd/getting-started
 [container-image]: https://quay.io/repository/coreos/butane
 [butane]: https://github.com/coreos/butane/releases

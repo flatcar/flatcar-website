@@ -3,9 +3,9 @@ title: Update and reboot strategies
 description: How to configure when you Flatcar instances should reboot.
 weight: 30
 aliases:
-    - /docs/latest/setup/releases/update-strategies/
-    - ../../os/update-strategies
-    - ../../clusters/creation/update-strategies
+  - /docs/latest/setup/releases/update-strategies/
+  - ../../os/update-strategies
+  - ../../clusters/creation/update-strategies
 ---
 
 The overarching goal of Flatcar Container Linux is to secure the Internet's backend infrastructure. We believe that automatically updating the operating system is one of the best tools to achieve this goal.
@@ -37,11 +37,11 @@ The `update-engine.service` responsible for downloading and applying the updates
 
 These locksmithd strategies control how a reboot occurs when update-engine indicates that one is needed:
 
-| Strategy      | Description                                                                  |
-|---------------|------------------------------------------------------------------------------|
-| `etcd-lock`   | Reboot after first taking a distributed lock in etcd (reboot window applies) |
-| `reboot`      | Reboot immediately after an update is applied (reboot window applies)        |
-| `off`         | Do not reboot after updates are applied                                      |
+| Strategy    | Description                                                                  |
+| ----------- | ---------------------------------------------------------------------------- |
+| `etcd-lock` | Reboot after first taking a distributed lock in etcd (reboot window applies) |
+| `reboot`    | Reboot immediately after an update is applied (reboot window applies)        |
+| `off`       | Do not reboot after updates are applied                                      |
 
 You can configure a reboot window in which reboots are allowed to happen through one of the strategies.
 
@@ -242,6 +242,7 @@ echo "$VER"
 # or if you know which version to update to, set it like VER=3033.2.1 (no channel info needed)
 wget "https://update.release.flatcar-linux.net/${ARCH}-usr/${VER}/flatcar_production_update.gz"
 ```
+
 If you run a Flatcar cloud vendor image that needs OEM tools, also download the `oem-NAME.gz` file from the subfolder in the above URL, same for Flatcar extensions which need the `flatcar-NAME.gz` files.
 
 On the airgapped machine (here with the file `flatcar_production_update.gz` in the current folder):
@@ -348,9 +349,9 @@ storage:
           touch /run/reboot-required
 ```
 
-[ipxe-boot-script]: ../../installing/bare-metal/booting-with-ipxe#setting-up-ipxe-boot-script
-[rollback]: ../debug/manual-rollbacks
+[ipxe-boot-script]: ../../deploy/bare-metal/booting-with-ipxe#setting-up-ipxe-boot-script
+[rollback]: ../../diagnostics/manual-rollbacks
 [reboot-windows]: https://github.com/flatcar/locksmith#reboot-windows
-[systemd-env-vars]: ../systemd/environment-variables/#system-wide-environment-variables
-[transpiler]: ../../provisioning/config-transpiler/
-[update-from-container-linux]: ../../migrating-from-coreos/update-from-container-linux
+[systemd-env-vars]: ../../os-config/host-config/environment-variables/#system-wide-environment-variables
+[transpiler]: ../../fb-provision/butane/
+[update-from-container-linux]: ../../coreos-migration/update-from-container-linux

@@ -20,7 +20,7 @@ https://discovery.etcd.io/6a28e078895c5ec737174db2419bb2f3
 ```
 
 The discovery URL can be provided to each Flatcar Container Linux machine
-via [Butane Configs](../../provisioning/config-transpiler). The rest of this guide will
+via [Butane Configs](../../fb-provision/butane). The rest of this guide will
 explain what's happening behind the scenes, but if you're trying to get
 clustered as quickly as possible, all you need to do is provide a _fresh,
 unique_ discovery token in your config.

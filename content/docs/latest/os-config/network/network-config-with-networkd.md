@@ -3,9 +3,9 @@ title: Network configuration with networkd
 description: How to setup static networking, turn on/off ipv4/ipv6, and debugging tips.
 weight: 40
 aliases:
-    - /docs/latest/setup/customization/network-config-with-networkd/
-    - ../../os/network-config-with-networkd
-    - ../../clusters/customization/network-config-with-networkd
+  - /docs/latest/setup/customization/network-config-with-networkd/
+  - ../../os/network-config-with-networkd
+  - ../../clusters/customization/network-config-with-networkd
 ---
 
 Flatcar Container Linux machines are preconfigured with [networking customized][notes-for-distributors] for each platform. You can write your own networkd units to replace or override the units created for each platform. This article covers a subset of networkd functionality. You can view the [full docs here](http://www.freedesktop.org/software/systemd/man/systemd-networkd.service.html).
@@ -174,7 +174,8 @@ $ ip -4 addr show dev eth0
        valid_lft forever preferred_lft forever
     inet 10.0.1.101/24 brd 10.0.1.255 scope global secondary eth0
        valid_lft forever preferred_lft forever
- ```
+```
+
 By executing the command `ip -4 addr show dev <interface_name>`, you can obtain detailed information about the eth0 interface. The output includes the interface's state, such as whether it is UP or DOWN, its assigned IP addresses, the corresponding subnet masks, and other relevant details.
 
 ## Debugging networkd
@@ -223,8 +224,8 @@ systemd:
 
 - [networkd full documentation](http://www.freedesktop.org/software/systemd/man/systemd-networkd.service.html)
 - [Getting Started with systemd](../systemd/getting-started)
-- [Reading the System Log](../debug/reading-the-system-log)
+- [Reading the System Log](../../diagnostics/reading-the-system-log)
 
-[butane-configs]: ../../provisioning/config-transpiler
+[butane-configs]: ../../fb-provision/butane
 [drop-ins]: ../systemd/drop-in-units
-[notes-for-distributors]: ../../installing/community-platforms/notes-for-distributors
+[notes-for-distributors]: ../../deploy/virt-options/notes-for-distributors

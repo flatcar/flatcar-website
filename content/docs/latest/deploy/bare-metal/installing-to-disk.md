@@ -172,10 +172,10 @@ Now that you have a machine booted it is time to play around. Check out the [Fla
 
 [quickstart]: ../
 [docs-root]: ../../
-[update-strategies]: ../../setup/releases/update-strategies
+[update-strategies]: ../../updates-releases/releases/update-strategies
 [release-notes]: https://flatcar-linux.org/releases
 [flatcar-iso]: booting-with-iso
 [butane-section]: #butane-configs
 [flatcar-install]: https://raw.githubusercontent.com/flatcar/init/flatcar-master/bin/flatcar-install
-[cl-configs]: ../../provisioning/cl-config
-[butane]: ../../provisioning/config-transpiler
+[cl-configs]: ../../fb-provision/cl-config
+[butane]: ../../fb-provision/butane

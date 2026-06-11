@@ -93,6 +93,6 @@ storage:
 [systemd-networkd]: http://www.freedesktop.org/software/systemd/man/systemd-networkd.service.html
 [resolved.conf]: http://www.freedesktop.org/software/systemd/man/resolved.conf.html
 [nsswitch.conf]: http://man7.org/linux/man-pages/man5/nsswitch.conf.5.html
-[butane-configs]: ../../provisioning/config-transpiler
+[butane-configs]: ../../fb-provision/butane
 [networkd-config]: network-config-with-networkd
 [kubernetes]: https://kubernetes.io/docs/tasks/administer-cluster/dns-debugging-resolution/#known-issues
