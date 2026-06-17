@@ -23,7 +23,7 @@ Most of these scenarios dedicate a few machines, bare metal or virtual, to runni
 |------|--------------------|-------------|------------|
 | Low  | Laptop development | Minutes     | No         |
 
-If you're developing locally but plan to run containers in production, it's best practice to mirror that environment locally. Run Docker commands on your laptop that control a Flatcar Container Linux VM in VMware Fusion or Virtual box to mirror your container production environment locally.
+If you're developing locally but plan to run containers in production, it's best practice to mirror that environment locally. Run Docker commands on your laptop that control a Flatcar Container Linux VM in QEMU to mirror your container production environment locally.
 
 ### Configuring your laptop
 
@@ -51,8 +51,7 @@ systemd:
 
 This file is used to provision your local Flatcar Container Linux machine on its first boot. This sets up and enables the Docker API, which is how you can use Docker on your laptop. The Docker CLI manages containers running within the VM, *not* on your personal operating system.
 
-Using the Butane Config Transpiler, or `butane` ([download][butane-download]), convert the above yaml into an [Ignition][ignition-getting-started]. Alternatively, copy the contents of the Igntion tab in the above example. Once you have the Ignition configuration file, pass it to your provider.
-In addition to providers supported by [upstream Ignition][ignition-supported], Flatcar [supports](https://github.com/flatcar/scripts/blob/main/sdk_container/src/third_party/coreos-overlay/sys-apps/ignition/files/0018-revert-internal-oem-drop-noop-OEMs.patch) cloudsigma, hyperv, interoute, niftycloud, rackspace[-onmetal], and vagrant.
+Using the Butane Config Transpiler, or `butane` ([download][butane-download]), convert the above yaml into an [Ignition][ignition-getting-started]. Alternatively, copy the contents of the Ignition tab in the above example. Once you have the Ignition configuration file, pass it to your provider. The list of providers supported by Ignition can be found [upstream][ignition-supported].
 
 Once the local VM is running, tell your Docker binary on your personal operating system to use the remote port by exporting an environment variable and start running Docker commands. Run these commands in a terminal *on your local operating system (MacOS or Linux), not in the Flatcar Container Linux virtual machine*:
 
