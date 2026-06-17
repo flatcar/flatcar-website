@@ -1,0 +1,8 @@
+{{- $lang := .Type -}}
+{{- if eq $lang "shell" }}{{ $lang = "bash" }}{{ end -}}
+<div class="code-block position-relative">
+  <button class="btn btn-sm btn-copy position-absolute top-0 end-0 m-2" title="Copy to clipboard" aria-label="Copy to clipboard">
+    <i class="fa-regular fa-copy"></i>
+  </button>
+  {{ highlight .Inner $lang .Options }}
+</div>

@@ -1,5 +1,6 @@
 all: getdeps docs presentations
 	hugo --theme=flatcar
+	npx -y pagefind@1.4.0 --site public
 
 getdeps:
 	pip3 install --upgrade pyyaml
@@ -32,5 +33,13 @@ presentations:
 run:
 	hugo server --theme=flatcar --buildFuture --watch --disableFastRender --config ./config.yaml\,./tmp_modules.yaml
 
+# Like 'run' but builds to disk first so pagefind search works locally.
+# Note: no live-reload; re-run after content changes.
+serve: docs
+	hugo --theme=flatcar --buildFuture
+	npx -y pagefind@1.4.0 --site public
+	cd public && python3 -m http.server 1313
+
 build-preview: getdeps docs
 	hugo --theme=flatcar -F -b ${DEPLOY_PRIME_URL}
+	npx -y pagefind@1.4.0 --site public
