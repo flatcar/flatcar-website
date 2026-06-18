@@ -33,19 +33,27 @@ Create 3 instances from the image above using our Ignition from `example.ign`:
   <div class="tab-content coreos-docs-image-table">
     <div class="tab-pane active" id="stable-create">
       <p>The Stable channel should be used by production clusters. Versions of Flatcar Container Linux are battle-tested within the Beta and Alpha channels before being promoted. The current version is Flatcar Container Linux {{< param stable_channel >}}.</p>
-      <pre>gcloud compute instances create flatcar1 flatcar2 flatcar3 --image-project kinvolk-public --image-family flatcar-stable --zone us-central1-a --machine-type n1-standard-1 --metadata-from-file user-data=config.ign</pre>
+      {{< highlight bash >}}
+gcloud compute instances create flatcar1 flatcar2 flatcar3 --image-project kinvolk-public --image-family flatcar-stable --zone us-central1-a --machine-type n1-standard-1 --metadata-from-file user-data=config.ign
+{{< /highlight >}}
     </div>
     <div class="tab-pane" id="beta-create">
       <p>The Beta channel consists of promoted Alpha releases. The current version is Flatcar Container Linux {{< param beta_channel >}}.</p>
-      <pre>gcloud compute instances create flatcar1 flatcar2 flatcar3 --image-project kinvolk-public --image-family flatcar-beta --zone us-central1-a --machine-type n1-standard-1 --metadata-from-file user-data=config.ign</pre>
+      {{< highlight bash >}}
+gcloud compute instances create flatcar1 flatcar2 flatcar3 --image-project kinvolk-public --image-family flatcar-beta --zone us-central1-a --machine-type n1-standard-1 --metadata-from-file user-data=config.ign
+{{< /highlight >}}
     </div>
     <div class="tab-pane" id="alpha-create">
       <p>The Alpha channel closely tracks master and is released frequently. The newest versions of system libraries and utilities will be available for testing. The current version is Flatcar Container Linux {{< param alpha_channel >}}.</p>
-      <pre>gcloud compute instances create flatcar1 flatcar2 flatcar3 --image-project kinvolk-public --image-family flatcar-alpha --zone us-central1-a --machine-type n1-standard-1 --metadata-from-file user-data=config.ign</pre>
+      {{< highlight bash >}}
+gcloud compute instances create flatcar1 flatcar2 flatcar3 --image-project kinvolk-public --image-family flatcar-alpha --zone us-central1-a --machine-type n1-standard-1 --metadata-from-file user-data=config.ign
+{{< /highlight >}}
     </div>
     <div class="tab-pane" id="lts-create">
       <p>LTS release streams are maintained for an extended lifetime of 18 months. The yearly LTS streams have an overlap of 6 months. The current version is Flatcar Container Linux {{< param lts_channel >}}.</p>
-      <pre>gcloud compute instances create flatcar1 flatcar2 flatcar3 --image-project kinvolk-public --image-family flatcar-lts --zone us-central1-a --machine-type n1-standard-1 --metadata-from-file user-data=config.ign</pre>
+      {{< highlight bash >}}
+gcloud compute instances create flatcar1 flatcar2 flatcar3 --image-project kinvolk-public --image-family flatcar-lts --zone us-central1-a --machine-type n1-standard-1 --metadata-from-file user-data=config.ign
+{{< /highlight >}}
     </div>
   </div>
 </div>

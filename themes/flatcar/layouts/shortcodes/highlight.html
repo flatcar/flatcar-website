@@ -1,0 +1,12 @@
+{{- /* Override built-in highlight shortcode to match render-codeblock.html so
+       in-HTML snippets (e.g. inside <div class="tab-pane">) get the same
+       .code-block wrapper, copy button, and padding as fenced code blocks. */ -}}
+{{- $lang := .Get 0 -}}
+{{- if eq $lang "shell" }}{{ $lang = "bash" }}{{ end -}}
+{{- $opts := .Get 1 | default "" -}}
+<div class="code-block position-relative">
+  <button class="btn btn-sm btn-copy position-absolute top-0 end-0 m-2" title="Copy to clipboard" aria-label="Copy to clipboard">
+    <i class="fa-regular fa-copy"></i>
+  </button>
+  {{ highlight (trim .Inner "\n") $lang $opts }}
+</div>

@@ -24,21 +24,27 @@ Flatcar Container Linux is designed to be updated automatically with different s
       <div class="channel-info">
         <p>The Alpha channel closely tracks master and is released frequently. The newest versions of system libraries and utilities will be available for testing. The current version is Flatcar Container Linux {{< param alpha_channel >}}.</p>
         <p>The following command can be used to determine the image IDs for Alpha:</p>
-        <pre>supernova production image-list | grep 'Flatcar Container Linux (Alpha)'</pre>
+        {{< highlight bash >}}
+supernova production image-list | grep 'Flatcar Container Linux (Alpha)'
+{{< /highlight >}}
       </div>
     </div>
     <div class="tab-pane" id="beta">
       <div class="channel-info">
         <p>The Beta channel consists of promoted Alpha releases. The current version is Flatcar Container Linux {{< param beta_channel >}}.</p>
         <p>The following command can be used to determine the image IDs for Beta:</p>
-        <pre>supernova production image-list | grep 'Flatcar Container Linux (Beta)'</pre>
+        {{< highlight bash >}}
+supernova production image-list | grep 'Flatcar Container Linux (Beta)'
+{{< /highlight >}}
       </div>
     </div>
     <div class="tab-pane active" id="stable">
       <div class="channel-info">
         <p>The Stable channel should be used by production clusters. Versions of Flatcar Container Linux are battle-tested within the Beta and Alpha channels before being promoted. The current version is Flatcar Container Linux {{< param stable_channel >}}.</p>
         <p>The following command can be used to determine the image IDs for Stable:</p>
-        <pre>supernova production image-list | grep 'Flatcar Container Linux (Stable)'</pre>
+        {{< highlight bash >}}
+supernova production image-list | grep 'Flatcar Container Linux (Stable)'
+{{< /highlight >}}
       </div>
     </div>
   </div>
@@ -158,17 +164,25 @@ Check you make sure the key is in your list by running `supernova production key
   <div class="tab-content coreos-docs-image-table">
     <div class="tab-pane" id="alpha-create">
       <p>Boot a new Cloud Server with our new keypair and specify optional cloud-config data:</p>
-      <pre>supernova production boot --image &lt;image-id&gt; --flavor performance1-2 --key-name flatcar-key --user-data ~/cloud_config.yml --config-drive true My_Flatcar_Server</pre>
+      {{< highlight bash >}}
+supernova production boot --image &lt;image-id&gt; --flavor performance1-2 --key-name flatcar-key --user-data ~/cloud_config.yml --config-drive true My_Flatcar_Server
+{{< /highlight >}}
       <p>Boot a new OnMetal Server with our new keypair and specify optional cloud-config data:</p>
-      <pre>supernova production boot --image &lt;image-id&gt; --flavor onmetal-compute1 --key-name flatcar-key --user-data ~/cloud_config.yml --config-drive true My_Flatcar_Server</pre>
+      {{< highlight bash >}}
+supernova production boot --image &lt;image-id&gt; --flavor onmetal-compute1 --key-name flatcar-key --user-data ~/cloud_config.yml --config-drive true My_Flatcar_Server
+{{< /highlight >}}
     </div>
     <div class="tab-pane" id="beta-create">
       <p>Boot a new Cloud Server with our new keypair and specify optional cloud-config data:</p>
-      <pre>supernova production boot --image &lt;image-id&gt; --flavor performance1-2 --key-name flatcar-key --user-data ~/cloud_config.yml --config-drive true My_Flatcar_Server</pre>
+      {{< highlight bash >}}
+supernova production boot --image &lt;image-id&gt; --flavor performance1-2 --key-name flatcar-key --user-data ~/cloud_config.yml --config-drive true My_Flatcar_Server
+{{< /highlight >}}
     </div>
     <div class="tab-pane active" id="stable-create">
       <p>Boot a new Cloud Server with our new keypair and specify optional cloud-config data:</p>
-      <pre>supernova production boot --image &lt;image-id&gt; --flavor performance1-2 --key-name flatcar-key --user-data ~/cloud_config.yml --config-drive true My_Flatcar_Server</pre>
+      {{< highlight bash >}}
+supernova production boot --image &lt;image-id&gt; --flavor performance1-2 --key-name flatcar-key --user-data ~/cloud_config.yml --config-drive true My_Flatcar_Server
+{{< /highlight >}}
     </div>
   </div>
 </div>
