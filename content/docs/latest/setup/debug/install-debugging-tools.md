@@ -125,3 +125,40 @@ Press ^] three times within 1s to kill container.
 [root@srv-3qy0p ~]# dnf -y install emacs-nox
 [root@srv-3qy0p ~]# emacs /media/root/etc/systemd/system/newapp.service
 ```
+
+## Early boot debugging over console
+
+When you need an interactive shell inside the initramfs before the system boots (for example to inspect units or mounts before systemd starts userspace), you can drop into rd.break and direct all I/O to the serial console only.
+
+This kernel command line disables VGA output and uses the serial port as the sole interactive console:
+
+```
+rd.break rd.shell rd.debug loglevel=7 console=ttyS0,115200n8 earlycon=ttyS0,115200 systemd.show_status=yes systemd.log_level=debug systemd.log_target=console
+```
+
+Notes:
+- Only specify a single console= to ensure the serial port is the exclusive input console. If your platform injects console=tty0 by default, remove it so the display is not used.
+- Replace ttyS0,115200n8 with the device/speed appropriate for your platform:
+  - PC/QEMU (16550A): ttyS0,115200n8 (earlycon=ttyS0,115200)
+  - Virtio console: hvc0 (earlycon=hvc0; speed not required)
+  - Many ARM platforms: ttyAMA0,115200 (earlycon=ttyAMA0,115200)
+- Some cloud providers (e.g., Scaleway) require that you explicitly configure the instance to expose the serial console and that you pass the correct console= parameter for their environment. Consult the provider’s documentation for the exact device name.
+- rd.break opens a shell in the initramfs; rd.shell also drops you to a shell if the initramfs hits an error. rd.debug and loglevel=7 increase verbosity. systemd.show_status=yes and systemd.log_target=console print systemd status and logs to the console early, which is particularly useful when services fail to start without visible errors on the default console.
+- Security: these options yield an unauthenticated root shell in early boot. Remove them once you have finished debugging.
+
+Switching between serial and VGA:
+- Serial-only (disable VGA): use a single console= pointing to the serial port (as shown above).
+- VGA-only (no serial input): use console=tty0.
+- Mirror output to both but keep serial interactive: list both consoles and put serial last (the last console= receives input):
+  ```
+  ... console=tty0 console=ttyS0,115200n8
+  ```
+  Put tty0 last if you want the keyboard/display to be interactive instead.
+
+Verifying the active console and TTY:
+- Effective kernel cmdline: `cat /proc/cmdline`
+- Active kernel consoles: `cat /sys/class/tty/console/active`
+- Current TTY in the shell: `tty`
+- Boot-time console messages: `dmesg | grep -i console`
+
+This approach is helpful when debugging early-boot issues (e.g., systemd units that do not start and do not report errors on the default console). By forcing rd.break on the serial console with maximum verbosity, you can interactively inspect the environment before the root pivot and service start-up.
