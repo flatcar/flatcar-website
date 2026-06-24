@@ -2,88 +2,215 @@
 {{ $styles := .Params.style }}
 {{ $channels := .Params.channels }}
 {{ $section := .Section }}
+{{ $stableChan := index $.Site.Data.releases "stable" }}
 
 <section class="releases">
   <article class="article">
-    <div class="container">
-    <p>
-    A Flatcar instance receives <b>automatic</b> updates from a specific release channel. The <i>Stable</i> channel is the default, and new major releases only appear there after passing through the <i>Alpha</i> and <i>Beta</i> channels. Each release channel always points to the latest release in that particular channel, linked as the <code>current</code> release. Each release has a version number and separate release notes. Learn more about updating and release channels in the <a href="https://www.flatcar.org/docs/latest/setup/releases/switching-channels/">channel docs</a>. Click <code>amd64</code> or <code>arm64</code> to download images for the channel's <code>current</code> release from the channel overview below, or for a particular version from the release notes below that. Then, you will be able to choose from many images for various platforms. The <a href="https://www.flatcar.org/docs/latest/installing/">installation docs</a> have a quick start guide and information about public images directly available at each cloud provider.
-    </p>
-    </div>
-    <div class="container" align="center">
-    <h4 >Release schedule</h4>
-    <p>
-    Release planning and schedules for upcoming releases are available on our <a href="https://github.com/orgs/flatcar/projects/7/views/24">GitHub project</a>.
-    </p>
-    </div>
-    <div class="container">
-      <h2 class="text-center mb-5 mt-3">Release Channels</h2>
-      <div class="card-deck-wrapper">
-        <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 g-4">
-          {{ range $i, $channel := $channels }}
-          {{ $chan := index $.Site.Data.releases $channel.name }}
-          <div class="col mb-4 {{ default "" $channel.style }}">
-            <div class="card">
-              <div class="card-header align-middle p-3">
-                <div class="row">
-                  <div class="col">
-                    <h5 class="d-inline">
-                      <a href="#{{ $chan.current.channel }}-release" style="border-bottom: none; box-shadow: none;"
-                        onclick="javascript:document.getElementById('{{ $chan.current.channel }}-release-tab').click(); document.documentElement.scrollTop = document.getElementById('release-tabs').offsetTop;">
-                        {{ $channel.title }}
-                      </a>
-                    </h5>
-                  </div>
-                  <div class="col text-end align-bottom pt-1">
-                    <span class="version">{{ $chan.current.version }}</span>
-                  </div>
-                </div>
-                <div class="text-start">
-                  {{ range $j, $arch := $chan.current.architectures }}
-                  <a class="arch small fw-light"
-                    href="https://{{ $chan.current.channel }}.release.flatcar-linux.net/{{ $arch }}-usr/current/">
-                    {{ $arch }}</a>
-                  {{ end }}
-                </div>
-                <div>
-                  <span class="release-date">
-                    Release Date: <span class="fw-light">{{ dateFormat "Jan 2, 2006"
-                      $chan.current.github_release.published_at }}</span>
-                  </span>
-                </div>
+
+    {{/* ── GET FLATCAR: platform grid by architecture ── */}}
+    <div class="releases-platforms" id="get-flatcar">
+      <div class="container">
+        <h2 class="text-center mb-2">Download Images</h2>
+        <p class="text-center text-muted mb-4">
+          Choose your architecture to see every platform where Flatcar is available.
+          Images link to the <strong>current Stable</strong> release ({{ $stableChan.current.version }}).
+        </p>
+
+        {{/* Architecture toggle */}}
+        <div class="releases-arch-toggle d-flex justify-content-center mb-4" id="arch-tabs" role="radiogroup" aria-label="Select architecture">
+          <label class="arch-radio active">
+            <input type="radio" name="arch-select" value="amd64" checked autocomplete="off" data-bs-target="#amd64-pane">
+            <span class="arch-radio__label">
+              <span class="fa-solid fa-microchip me-1"></span> amd64 (x86_64)
+            </span>
+          </label>
+          <label class="arch-radio">
+            <input type="radio" name="arch-select" value="arm64" autocomplete="off" data-bs-target="#arm64-pane">
+            <span class="arch-radio__label">
+              <span class="fa-solid fa-microchip me-1"></span> arm64 (AArch64)
+            </span>
+          </label>
+        </div>
+
+        <div class="tab-content" id="arch-tabs-content">
+          {{ range $archIdx, $arch := slice "amd64" "arm64" }}
+          <div class="tab-pane fade {{ if eq $arch "amd64" }}show active{{ end }}" id="{{ $arch }}-pane" role="tabpanel" aria-labelledby="{{ $arch }}-tab">
+            {{ $baseURL := print "https://stable.release.flatcar-linux.net/" $arch "-usr/current/" }}
+
+            {{/* ─ ISO / Direct Download ─ */}}
+            <h5 class="platform-category-heading"><span class="fa-solid fa-download me-2"></span>ISO / Direct Download</h5>
+            <div class="row row-cols-2 row-cols-sm-3 row-cols-md-4 row-cols-lg-6 g-3 mb-4">
+              <div class="col">
+                <a href="{{ $baseURL }}flatcar_production_iso_image.iso" class="platform-card" title="Download ISO Image">
+                  <span class="fa-solid fa-compact-disc platform-card__icon"></span>
+                  <span class="platform-card__label">ISO Image</span>
+                </a>
               </div>
-              <div class="card-body p-3">
-                <p>{{ $channel.description }}</p>
-              </div>
-              <div class="card-footer p-3">
-                {{ range $pkg, $ver := $chan.current.image_packages }}
-                {{ $.Scratch.SetInMap "pkgPkgMap" $pkg $pkg }}
-                {{ end }}
-                {{ $pkgSorted := $.Scratch.GetSortedMapValues "pkgPkgMap" }}
-                {{ $.Scratch.Delete "pkgPkgMap" }}
-                {{ range $i, $ver := sort $chan.current.image_packages "" }}
-                <span class="fw-bold">{{ index $pkgSorted $i }} -<span class="fw-light"> {{ $ver }}</span><br />
-                  {{ end }}
+              <div class="col">
+                <a href="{{ $baseURL }}" class="platform-card" target="_blank" rel="noopener" title="Browse all files">
+                  <span class="fa-solid fa-folder-open platform-card__icon"></span>
+                  <span class="platform-card__label">All Files</span>
+                </a>
               </div>
             </div>
+
+            {{/* ─ Cloud Providers ─ */}}
+            <h5 class="platform-category-heading"><span class="fa-solid fa-cloud me-2"></span>Cloud Providers</h5>
+            <div class="row row-cols-2 row-cols-sm-3 row-cols-md-4 row-cols-lg-6 g-3 mb-4">
+              {{ $clouds := slice
+                (dict "name" "AWS" "icon" "fa-brands fa-aws" "docs" "/docs/latest/installing/cloud/aws-ec2/")
+                (dict "name" "Azure" "icon" "fa-brands fa-microsoft" "docs" "/docs/latest/installing/cloud/azure/")
+                (dict "name" "Google Cloud" "icon" "fa-brands fa-google" "docs" "/docs/latest/installing/cloud/gcp/")
+                (dict "name" "DigitalOcean" "icon" "fa-brands fa-digital-ocean" "docs" "/docs/latest/installing/cloud/digitalocean/")
+                (dict "name" "Hetzner" "icon" "fa-solid fa-server" "docs" "/docs/latest/installing/cloud/hetzner/")
+                (dict "name" "Akamai" "icon" "fa-solid fa-globe" "docs" "/docs/latest/installing/cloud/akamai/")
+                (dict "name" "Scaleway" "icon" "fa-solid fa-cloud" "docs" "/docs/latest/installing/cloud/scaleway/")
+                (dict "name" "Exoscale" "icon" "fa-solid fa-cloud" "docs" "/docs/latest/installing/cloud/exoscale/")
+                (dict "name" "OpenStack" "icon" "fa-solid fa-cloud" "docs" "/docs/latest/installing/cloud/openstack/")
+                (dict "name" "CloudStack" "icon" "fa-solid fa-cloud" "docs" "/docs/latest/installing/cloud/cloudstack/")
+                (dict "name" "Brightbox" "icon" "fa-solid fa-cloud" "docs" "/docs/latest/installing/cloud/brightbox/")
+                (dict "name" "Rackspace" "icon" "fa-solid fa-cloud" "docs" "/docs/latest/installing/cloud/rackspace/")
+              }}
+              {{ range $clouds }}
+              <div class="col">
+                <a href="{{ .docs }}" class="platform-card" title="Deploy on {{ .name }}">
+                  <span class="{{ .icon }} platform-card__icon"></span>
+                  <span class="platform-card__label">{{ .name }}</span>
+                </a>
+              </div>
+              {{ end }}
+            </div>
+
+            {{/* ─ On-premises / Virtualization ─ */}}
+            <h5 class="platform-category-heading"><span class="fa-solid fa-building me-2"></span>On-Premises &amp; Virtualization</h5>
+            <div class="row row-cols-2 row-cols-sm-3 row-cols-md-4 row-cols-lg-6 g-3 mb-4">
+              {{ $virt := slice
+                (dict "name" "VMware" "icon" "fa-solid fa-server" "docs" "/docs/latest/installing/vms/vmware/")
+                (dict "name" "QEMU / KVM" "icon" "fa-solid fa-desktop" "docs" "/docs/latest/installing/vms/qemu/")
+                (dict "name" "Hyper-V" "icon" "fa-brands fa-microsoft" "docs" "/docs/latest/installing/vms/hyper-v/")
+                (dict "name" "VirtualBox" "icon" "fa-solid fa-box" "docs" "/docs/latest/installing/vms/virtualbox/")
+                (dict "name" "Proxmox VE" "icon" "fa-solid fa-server" "docs" "/docs/latest/installing/vms/proxmoxve/")
+                (dict "name" "KubeVirt" "icon" "fa-solid fa-cubes" "docs" "/docs/latest/installing/vms/kubevirt/")
+                (dict "name" "Parallels" "icon" "fa-solid fa-display" "docs" "/docs/latest/installing/vms/parallels/")
+                (dict "name" "Xen" "icon" "fa-solid fa-server" "docs" "/docs/latest/installing/vms/xen/")
+                (dict "name" "Incus" "icon" "fa-solid fa-cube" "docs" "/docs/latest/installing/vms/incus/")
+                (dict "name" "Nutanix" "icon" "fa-solid fa-server" "docs" "/docs/latest/installing/cloud/nutanix/")
+                (dict "name" "STACKIT" "icon" "fa-solid fa-cloud" "docs" "/docs/latest/installing/cloud/stackit/")
+              }}
+              {{ range $virt }}
+              <div class="col">
+                <a href="{{ .docs }}" class="platform-card" title="Deploy on {{ .name }}">
+                  <span class="{{ .icon }} platform-card__icon"></span>
+                  <span class="platform-card__label">{{ .name }}</span>
+                </a>
+              </div>
+              {{ end }}
+            </div>
+
+            {{/* ─ Bare Metal / Other ─ */}}
+            <h5 class="platform-category-heading"><span class="fa-solid fa-hard-drive me-2"></span>Bare Metal &amp; Other</h5>
+            <div class="row row-cols-2 row-cols-sm-3 row-cols-md-4 row-cols-lg-6 g-3 mb-4">
+              {{ $baremetal := slice
+                (dict "name" "PXE / iPXE" "icon" "fa-solid fa-network-wired" "docs" "/docs/latest/installing/bare-metal/booting-with-pxe/")
+                (dict "name" "Vagrant" "icon" "fa-solid fa-terminal" "docs" "/docs/latest/installing/vms/vagrant/")
+                (dict "name" "Container" "icon" "fa-brands fa-docker" "docs" "/docs/latest/installing/")
+              }}
+              {{ range $baremetal }}
+              <div class="col">
+                <a href="{{ .docs }}" class="platform-card" title="{{ .name }}">
+                  <span class="{{ .icon }} platform-card__icon"></span>
+                  <span class="platform-card__label">{{ .name }}</span>
+                </a>
+              </div>
+              {{ end }}
+            </div>
+
           </div>
           {{ end }}
         </div>
       </div>
+    </div>
 
-      <div class="row justify-content-center py-3 py-lg-5">
-        <div class="col-12 text-center">
-          <a href="/releases-feed/releases.xml" class="feed-button button btn btn-black mt-2"><span
-              class="fa fa-rss"></span> ATOM feed (all releases)</a>
-          <a href="/releases-json/releases.json" class="feed-button button btn btn-black mt-2"><span class="fa"></span>
-            JSON feed (all releases)</a>
+    {{/* ── RELEASE CHANNELS ── */}}
+    <div class="releases-channels" id="channels">
+      <div class="container">
+        <h2 class="text-center mb-2">Release Channels</h2>
+        <p class="text-center text-muted mb-4">
+          Flatcar automatically updates itself from its assigned channel.
+          New releases progress through Alpha &rarr; Beta &rarr; Stable.
+          <a href="/docs/latest/setup/releases/switching-channels/">Learn more</a>.
+        </p>
+        <div class="card-deck-wrapper">
+          <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 g-4">
+            {{ range $i, $channel := $channels }}
+            {{ $chan := index $.Site.Data.releases $channel.name }}
+            <div class="col mb-4">
+              <div class="card">
+                <div class="card-header align-middle p-3">
+                  <div class="row">
+                    <div class="col">
+                      <h5 class="d-inline">
+                        <a href="#{{ $chan.current.channel }}-release" style="border-bottom: none; box-shadow: none;"
+                          onclick="document.getElementById('{{ $chan.current.channel }}-release-tab').click(); setTimeout(function(){ document.getElementById('release-tabs').scrollIntoView({behavior:'smooth'}); }, 100); return false;">
+                          {{ $channel.title }}
+                        </a>
+                      </h5>
+                    </div>
+                    <div class="col text-end align-bottom pt-1">
+                      <span class="version">{{ $chan.current.version }}</span>
+                    </div>
+                  </div>
+                  <div class="text-start">
+                    {{ range $j, $arch := $chan.current.architectures }}
+                    <a class="arch small fw-light"
+                      href="https://{{ $chan.current.channel }}.release.flatcar-linux.net/{{ $arch }}-usr/current/">
+                      {{ $arch }}</a>
+                    {{ end }}
+                  </div>
+                  <div>
+                    <span class="release-date">
+                      Release Date: <span class="fw-light">{{ dateFormat "Jan 2, 2006"
+                        $chan.current.github_release.published_at }}</span>
+                    </span>
+                  </div>
+                </div>
+                <div class="card-body p-3">
+                  <p>{{ $channel.description }}</p>
+                </div>
+                <div class="card-footer p-3">
+                  {{ range $pkg, $ver := $chan.current.image_packages }}
+                  {{ $.Scratch.SetInMap (print "pkgMap" $i) $pkg $pkg }}
+                  {{ end }}
+                  {{ $pkgSorted := $.Scratch.GetSortedMapValues (print "pkgMap" $i) }}
+                  {{ $.Scratch.Delete (print "pkgMap" $i) }}
+                  {{ range $k, $ver := sort $chan.current.image_packages "" }}
+                  <span class="fw-bold">{{ index $pkgSorted $k }} -<span class="fw-light"> {{ $ver }}</span></span><br />
+                  {{ end }}
+                </div>
+              </div>
+            </div>
+            {{ end }}
+          </div>
+        </div>
+
+        <div class="row justify-content-center py-3 py-lg-5">
+          <div class="col-12 text-center">
+            <a href="/releases-feed/releases.xml" class="feed-button button btn btn-black mt-2"><span
+                class="fa fa-rss"></span> ATOM feed (all releases)</a>
+            <a href="/releases-json/releases.json" class="feed-button button btn btn-black mt-2"><span class="fa"></span>
+              JSON feed (all releases)</a>
+            <a href="https://github.com/orgs/flatcar/projects/7/views/24" class="feed-button button btn btn-black mt-2" target="_blank" rel="noopener"><span class="fa-brands fa-github me-1"></span>
+              Release Schedule</a>
+          </div>
         </div>
       </div>
     </div>
-    <div class="notes-area">
+
+    {{/* ── RELEASE NOTES ── */}}
+    <div class="notes-area" id="release-notes">
       <div class="container">
         <div class="row">
-          <div class="text-center w-100 py-4 py-lg-6 px-0">
+          <div class="text-center w-100 py-4 py-lg-5 px-0">
             <h2>Release Notes</h2>
           </div>
 
@@ -141,15 +268,46 @@
         </div>
       </div>
     </div>
-    </div>
-  </article>
-</section> <!-- container -->
 
-<script src="https://cdn.jsdelivr.net/npm/masonry-layout@4.2.2/dist/masonry.pkgd.min.js"
-  integrity="sha384-GNFwBvfVxBkLMJpYMOABq3c+d3KnQxudP/mGPkzpZSTYykLBNsZEnG2D9G/X/+7D" crossorigin="anonymous"
-  async></script>
+  </article>
+</section>
+
 <script>
   window.onload = function () {
+    // Architecture radio toggle
+    document.querySelectorAll('.arch-radio input[type="radio"]').forEach(function(radio) {
+      radio.addEventListener('change', function() {
+        // Update active class on labels
+        document.querySelectorAll('.arch-radio').forEach(function(label) {
+          label.classList.remove('active');
+        });
+        this.closest('.arch-radio').classList.add('active');
+
+        // Switch panes
+        var target = this.getAttribute('data-bs-target');
+        document.querySelectorAll('#arch-tabs-content .tab-pane').forEach(function(pane) {
+          pane.classList.remove('show', 'active');
+        });
+        var pane = document.querySelector(target);
+        if (pane) {
+          pane.classList.add('show', 'active');
+        }
+      });
+    });
+
+    // Toggle chevron rotation on collapse events
+    document.querySelectorAll('.release-entry__header').forEach(function(header) {
+      var target = document.querySelector(header.getAttribute('data-bs-target'));
+      if (target) {
+        target.addEventListener('show.bs.collapse', function() {
+          header.querySelector('.release-entry__toggle-icon').style.transform = 'rotate(90deg)';
+        });
+        target.addEventListener('hide.bs.collapse', function() {
+          header.querySelector('.release-entry__toggle-icon').style.transform = 'rotate(0deg)';
+        });
+      }
+    });
+
     var anchor = window.location.hash.substring(1);
     if (!anchor) return;
 
@@ -158,23 +316,30 @@
 
     // Check if element is visible
     if (elem.offsetParent === null) {
-      if (anchor.startsWith("release")) {
-        // Find the parent tab pane and get its associated tab
+      if (anchor.startsWith("release-") && !anchor.endsWith("-release")) {
+        // It's a specific version anchor like release-4593.2.2
         var tabPane = elem.closest('.tab-pane');
         if (tabPane) {
           var tabId = tabPane.getAttribute('aria-labelledby');
           var tab = document.getElementById(tabId);
           if (tab) {
-            // Trigger Bootstrap 5 tab
             var bsTab = new bootstrap.Tab(tab);
             bsTab.show();
             setTimeout(function () {
+              // Expand the release entry
+              var entry = elem.closest('.release-entry');
+              if (entry) {
+                var collapseEl = entry.querySelector('.collapse');
+                if (collapseEl && !collapseEl.classList.contains('show')) {
+                  new bootstrap.Collapse(collapseEl, {show: true});
+                }
+              }
               elem.scrollIntoView({behavior: 'smooth', block: 'start'});
             }, 200);
           }
         }
-      }
-      if (anchor.endsWith("release")) {
+      } else if (anchor.endsWith("-release")) {
+        // It's a channel tab anchor like stable-release
         var tab = document.getElementById(anchor + "-tab");
         if (tab) {
           var bsTab = new bootstrap.Tab(tab);
@@ -186,6 +351,20 @@
             }
           }, 200);
         }
+      }
+    } else {
+      // Element is visible but might need expanding
+      if (anchor.startsWith("release-") && !anchor.endsWith("-release")) {
+        var entry = elem.closest('.release-entry');
+        if (entry) {
+          var collapseEl = entry.querySelector('.collapse');
+          if (collapseEl && !collapseEl.classList.contains('show')) {
+            new bootstrap.Collapse(collapseEl, {show: true});
+          }
+        }
+        setTimeout(function() {
+          elem.scrollIntoView({behavior: 'smooth', block: 'start'});
+        }, 100);
       }
     }
   }
