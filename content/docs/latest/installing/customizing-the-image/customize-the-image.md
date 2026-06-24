@@ -62,8 +62,7 @@ The OEM partition is also useful to force a particular Ignition configuration to
 For example, `flatcar-install` offers to write a `config.ign` Ignition file to the OEM partition through the `-i` flag.
 This file is used as preferred Ignition configuration even when Ignition cloud instance userdata is present. With the special `oem:///` file URL the config can copy files from the OEM Partition to the root filesystem (note: in case you have many binaries, the OEM partition may be too small and you have to either host them somewhere or place them directly on the root filesystem, see the next section).
 
-The `grub.cfg` file gets sourced by GRUB to set up the OEM ID which is used by systemd units to be started conditionally, or to set up kernel parameters like the Ignition config URL (`ignition.config.url`, to fetch the preferred config remotely), or settings required for the hardware.
-Again, a good example is the [`grub.cfg` file](https://github.com/flatcar/coreos-overlay/blob/ad9c06df2c34be3c6d50ffb80f886bdae10b4809/coreos-base/oem-packet/files/grub.cfg) used for Equinix Metal images to set the OEM ID and the kernel parameter `flatcar.autologin` to be able to use the serial console without having to configure a user password.
+The `grub.cfg` file gets sourced by GRUB to set up the OEM ID which is used by systemd units to be started conditionally, or to set up kernel parameters like the Ignition config URL (`ignition.config.url`, to fetch the preferred config remotely), or settings required for the hardware. Again, a good example is the [`grub.cfg` file](https://github.com/flatcar/scripts/blob/835069d9851546138cd0eb2e24968430ee3d8e4e/build_library/oem/azure/grub.cfg) used in Azure images, which sets the OEM ID, configures the serial console per-architecture, and adds the `flatcar.autologin` kernel parameter to spawn a console shell automatically without a password.
 
 ### Customizing the root partition
 

@@ -38,11 +38,8 @@ vmware-vdiskmanager -x 20Gb flatcar_developer_vmware_insecure.vmx
 
 ## VirtualBox
 
-Use qemu-img or vmware-vdiskmanager as described above. VirtualBox does not support resizing VMDK disk images, only VDI and VHD disks. Meanwhile VirtualBox only supports using VMDK disk images with the OVF config file format used for importing/exporting virtual machines.
-
-If you have have no other options you can try converting the VMDK disk image to a VDI image and configuring a new virtual machine with it:
+`VBoxManage` can easily resize VMDK disk images. You can also use qemu-img or vmware-vdiskmanager as described above.
 
 ```shell
-VBoxManage clonehd old.vmdk new.vdi --format VDI
-VBoxManage modifyhd new.vdi --resize 20480
+VBoxManage modifymedium disk flatcar_production_virtualbox_image.vmdk --resize 20480
 ```
