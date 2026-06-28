@@ -87,7 +87,7 @@ storage:
       target: ../usr/share/zoneinfo/America/New_York
       overwrite: true
 ```
-`overwrite: true` is optinal to force recreation if `/etc/localtime` already exists.
+`overwrite: true` is optional; it forces recreation if `/etc/localtime` already exists.
 <details>
 
 <summary>Remark to other references </summary>
