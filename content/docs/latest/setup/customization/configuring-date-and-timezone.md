@@ -90,30 +90,30 @@ storage:
 `overwrite: true` is optional; it forces recreation if `/etc/localtime` already exists.
 <details>
 
-<summary>Remark to other references </summary>
+<summary>Notes on other references</summary>
 
- If you come across [this older Ignition v2 example][issuecomment-908316042] and wonder whether you have to use the fields `overwrite: true` and `filesystem: root` (unlike in Fedora CoreOS):
- See https://github.com/flatcar/Flatcar/issues/1836#issuecomment-3175310460 for details.
+If you come across [this older Ignition v2 example][issuecomment-908316042] and wonder whether you have to use the fields `overwrite: true` and `filesystem: root` (unlike in Fedora CoreOS):
+See <https://github.com/flatcar/Flatcar/issues/1836#issuecomment-3175310460> for details.
 
 </details>
 
 
 
 ## Time zone synchronization with the host
-	
- To keep a container's time zone in sync with the host, you can mount the host's `/etc/localtime` into the container.
- Add the following to your mount configuration section:
+
+To keep a container's time zone in sync with the host, you can mount the host's `/etc/localtime` into the container.
+Add the following to your mount configuration section (for example, in a Kubernetes Pod spec):
 
 ```yaml
- volumeMounts:
-   - name: localtime
-     mountPath: /etc/localtime
-     readOnly: true
- volumes:
-   - name: localtime
-     hostPath:
-       path: /etc/localtime
-       type: File
+volumeMounts:
+  - name: localtime
+    mountPath: /etc/localtime
+    readOnly: true
+volumes:
+  - name: localtime
+    hostPath:
+      path: /etc/localtime
+      type: File
 ```
 
 ## Time synchronization to NTP
