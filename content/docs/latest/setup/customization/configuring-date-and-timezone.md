@@ -80,7 +80,7 @@ For example, you can set the time zone to `America/New_York` by using a Butane c
 
 ```yaml
 variant: flatcar
-version: 1.1.0
+version: 1.0.0
 storage:
   links:
     - path: /etc/localtime
