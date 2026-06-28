@@ -73,44 +73,47 @@ NTP synchronized: yes
 
 ### Setting the time zone via Ignition
 
-If you are aware of the downsides to setting a system time zone that is different from the default UTC time zone, you can set a different system time zone by setting the local time zone configuration file,[`/etc/localtime`][localtime], to be an absolute or relative symlink to a `tzfile` entry under `/usr/share/zoneinfo/`.
+If you are aware of the downsides to setting a system time zone that is different from the default UTC time zone, you can set a different system time zone by setting the local time zone configuration file, [`/etc/localtime`][localtime], to be an absolute or relative symlink to a `tzfile` entry under `/usr/share/zoneinfo/`.
 It is recommended that you set the same time zone across all your machines in the cluster.
 
 For example, you can set the time zone to `America/New_York` by using a Butane config like the following:
 
-```shell
+```yaml
 variant: flatcar
 version: 1.1.0
 storage:
   links:
     - path: /etc/localtime
       target: ../usr/share/zoneinfo/America/New_York
+      overwrite: true
 ```
-`"overwrite": true`
+`overwrite: true` is optinal to force recreation if `/etc/localtime` already exists.
 <details>
 
 <summary>Remark to other references </summary>
 
-If you come accross  https://github.com/flatcar/Flatcar/issues/491#issuecomment-908316042 and wondering whether you have to use the fields `"overwrite": true` and `"filesystem": "root"` unlike in Fedora Core OS?
-Here is the ansser: https://github.com/flatcar/Flatcar/issues/1836#issuecomment-3175310460
+ If you come across [this older Ignition v2 example][issuecomment-908316042] and wonder whether you have to use the fields `overwrite: true` and `filesystem: root` (unlike in Fedora CoreOS):
+ See https://github.com/flatcar/Flatcar/issues/1836#issuecomment-3175310460 for details.
 
 </details>
 
 
 
-## Time synchronization to HOST
-
-To keep in sync with the host's timezone, you can mount the timezone configuration file to Flatcar Container Linux. 
-You add the following to your mount configuration section
+## Time zone synchronization with the host
+	
+ To keep a container's time zone in sync with the host, you can mount the host's `/etc/localtime` into the container.
+ Add the following to your mount configuration section:
 
 ```yaml
-        volumeMounts:
-        - name: localtime
-          mountPath: /etc/localtime
-      volumes:
-      - name: localtime
-        hostPath:
-          path: /etc/localtime
+ volumeMounts:
+   - name: localtime
+     mountPath: /etc/localtime
+     readOnly: true
+ volumes:
+   - name: localtime
+     hostPath:
+       path: /etc/localtime
+       type: File
 ```
 
 ## Time synchronization to NTP
