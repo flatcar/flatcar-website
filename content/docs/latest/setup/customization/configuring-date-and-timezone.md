@@ -74,7 +74,7 @@ NTP synchronized: yes
 ### Setting the time zone via Ignition
 
 If you are aware of the downsides to setting a system time zone that is different from the default UTC time zone, you can set a different system time zone by setting the local time zone configuration file, [`/etc/localtime`][localtime], to be an absolute or relative symlink to a `tzfile` entry under `/usr/share/zoneinfo/`.
-It is recommended that you set the same time zone across all your machines in the cluster.
+If you choose a non-UTC time zone, it is recommended that you set the same time zone across all your machines in the cluster.
 
 For example, you can set the time zone to `America/New_York` by using a Butane config like the following:
 
@@ -96,8 +96,6 @@ If you come across [this older Ignition v2 example][issuecomment-908316042] and 
 See <https://github.com/flatcar/Flatcar/issues/1836#issuecomment-3175310460> for details.
 
 </details>
-
-
 
 ## Time zone synchronization with the host
 
