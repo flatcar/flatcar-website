@@ -11,7 +11,9 @@ Flatcar Container Linux is an immutable operating system (OS) that can securely 
 
 ### How does it work?
 
-Gentoo Linux is the core OS for Flatcar because it's extremely flexible and modular. Gentoo makes it possible to create a minimal, immutable OS that is just a container host and nothing else. As a result, the Flatcar OS is very lightweight, secure, and scales easily because it only provides components for containerization. It also has automatic updates that make it more convenient to use and ensures that instances are always up to date. 
+Gentoo Linux is the underlying technology of Flatcar. It was chosen because it's an extremely flexible and modular OS. With modifications from ChromeOS and CoreOS, the Flatcar team used Gentoo to create a minimal, immutable OS that is just a container host and nothing else.  
+
+As a result, the Flatcar OS is very lightweight, secure, and scales easily because it only provides components for containerization. It also has automatic updates that make it more convenient to use and ensures that instances are always up to date. 
 
 ### Core Tenets
 
