@@ -33,7 +33,22 @@ Flatcar Container Linux skips all these steps. All you have to do is write a pro
 You don't install Flatcar, you provision it. 
 The following diagram illustrates the workflow for Flatcar provisioning.
 
-![Flatcar Provisioning Workflow](assets/flatflow.png)
+```mermaid
+flowchart TD
+    A["YAML"] --> B(("Butane"))
+    B --> C["JSON"]
+    C --> D(("Ignition"))
+    D --> E["Flatcar OS" ]
+
+    classDef rect fill:#f9f9f9,stroke:#333,stroke-width:2px;
+    classDef oval fill:#e6f3ff,stroke:#333,stroke-width:2px;
+    classDef para fill:#fff2cc,stroke:#333,stroke-width:2px;
+    
+    class A,C rect;
+    class B,D oval;
+    class E para;
+```
+
 Flatcar recommends that you provision your Linux container following these steps:
 
 1. Write a YAML configuration file for the Butane transpiler app following this specification: [Butane Specification](https://lemon-wave-085522403-593.westeurope.1.azurestaticapps.net/docs/latest/fb-provision/butane/).
