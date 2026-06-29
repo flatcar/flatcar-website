@@ -681,6 +681,30 @@
     }
   }
 
+  // ── Intro explanation ──
+  .releases-intro {
+    padding: 48px 0 32px;
+
+    &__text {
+      max-width: 780px;
+      margin: 0 auto;
+      font-size: 1rem;
+      line-height: 1.7;
+      color: $dark-text;
+
+      p {
+        margin-bottom: 12px;
+      }
+
+      code {
+        background: rgba(8, 162, 175, .08);
+        padding: 2px 6px;
+        border-radius: 3px;
+        font-size: .9em;
+      }
+    }
+  }
+
   // ── Platform grid ──
   .releases-platforms {
     padding: 56px 0 40px;
@@ -746,6 +770,73 @@
     }
   }
 
+  // ── Channel selector pills ──
+  .releases-channel-select {
+    gap: 0;
+    flex-wrap: wrap;
+    justify-content: center;
+
+    .channel-pill {
+      position: relative;
+      display: inline-flex;
+      flex-direction: column;
+      align-items: center;
+      border: 2px solid $border-color;
+      border-radius: 0;
+      padding: 8px 20px;
+      cursor: pointer;
+      background: $white;
+      transition: all .15s ease;
+      user-select: none;
+      margin-left: -2px;
+      min-width: 100px;
+      text-align: center;
+
+      &:first-child {
+        border-radius: 6px 0 0 6px;
+        margin-left: 0;
+      }
+
+      &:last-child {
+        border-radius: 0 6px 6px 0;
+      }
+
+      input[type="radio"] {
+        position: absolute;
+        opacity: 0;
+        width: 0;
+        height: 0;
+      }
+
+      &.active {
+        background-color: $flatcar-bg-blue;
+        border-color: $flatcar-bg-blue;
+        color: $white;
+        z-index: 1;
+
+        .channel-pill__version {
+          color: rgba(255, 255, 255, .7);
+        }
+      }
+
+      &:not(.active):hover {
+        background-color: rgba(8, 162, 175, .08);
+        border-color: $flatcar-bg-blue;
+      }
+
+      &__label {
+        font-weight: 600;
+        font-size: .95rem;
+      }
+
+      &__version {
+        font-size: .7rem;
+        color: $gray-text;
+        margin-top: 2px;
+      }
+    }
+  }
+
   .platform-category-heading {
     font-size: 1rem;
     font-weight: 700;
@@ -759,25 +850,60 @@
   }
 
   .platform-card {
+    position: relative;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
     border: 1px solid $border-color;
     border-radius: 8px;
-    padding: 20px 8px;
-    text-decoration: none;
-    color: $dark-text;
     background: $white;
     transition: all 0.15s ease;
     height: 100%;
     text-align: center;
+    overflow: hidden;
 
     &:hover {
       border-color: $flatcar-blue;
       box-shadow: 0 2px 8px rgba(8, 162, 175, 0.15);
-      color: $flatcar-darker-blue;
+    }
+
+    &__download {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 20px 8px 16px;
       text-decoration: none;
+      color: $dark-text;
+      width: 100%;
+      height: 100%;
+
+      &:hover {
+        color: $flatcar-darker-blue;
+        text-decoration: none;
+      }
+    }
+
+    &__docs {
+      position: absolute;
+      top: 4px;
+      right: 4px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 24px;
+      height: 24px;
+      border-radius: 4px;
+      font-size: .7rem;
+      color: $gray-text;
+      text-decoration: none;
+      transition: background-color .15s ease, color .15s ease;
+
+      &:hover {
+        background-color: rgba(8, 162, 175, .15);
+        color: $flatcar-darker-blue;
+      }
     }
 
     &__icon {
