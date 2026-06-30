@@ -9,8 +9,6 @@ aliases:
 
 The Flatcar Container Linux community has provided support for Flatcar Container Linux on a number of platforms beyond those [officially supported][official-support] (i.e, fully covered in the automated tests) by Kinvolk.
 
-
-
 The platforms and providers listed below each provide support and documentation for running Flatcar Container Linux:
 
 ## Cloud providers
@@ -25,18 +23,13 @@ The platforms and providers listed below each provide support and documentation 
 ## Other providers
 
 * [Eucalyptus][eucalyptus]
-* [Proxmox VE][proxmoxve]
-* [Vagrant][vagrant]
-* [VirtualBox][virtualbox]
 
-[exoscale]: exoscale
-[vultr]: vultr
-[eucalyptus]: eucalyptus
-[scaleway]: scaleway
-[vagrant]: ../vms/vagrant
-[virtualbox]: ../vms/virtualbox
-[official-support]: ../../
-[ovhcloud]: ovhcloud
-[oraclecloud]: oraclecloud
-[proxmoxve]: proxmoxve
-[vmware]: vmware
+## Flatcar provides the following Virtualization Options: 
+
+ * [QEMU][qemu]
+ * [libVirt][libvirt]
+ * [VirtualBox][virtualbox] (community support)
+ * [Vagrant][vagrant] (community support)
+ * [Hyper-V][hyper-v] (community support)
+ * [KubeVirt][kubevirt] (community support)
+ * [Proxmox VE][proxmoxve] (community support)
