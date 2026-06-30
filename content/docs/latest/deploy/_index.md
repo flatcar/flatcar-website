@@ -23,10 +23,10 @@ Source section: `deploy/` (renamed from `installing/` in the refactored branch).
 | STACKIT | Official |
 | Brightbox | Official |
 | Exoscale | Community |
-| Scaleway | Community (moved to `virt-options/` in this branch) |
-| OracleCloud | Community (moved to `virt-options/`) |
-| OVHcloud | Community (moved to `virt-options/`) |
-| Vultr | Community (new in this branch) |
+| Scaleway | Community |
+| OracleCloud | Community |
+| OVHcloud | Community |
+| Vultr | Community |
 
 Ignition/Butane config is passed via the provider's **user data** / **custom data** field at instance creation.
 
