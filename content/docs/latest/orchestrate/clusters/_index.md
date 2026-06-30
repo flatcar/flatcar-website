@@ -9,3 +9,9 @@ weight: 40
 aliases:
     - /docs/latest/setup/clusters/
 ---
+
+Manage clusters with these technologies: 
+
+ * [Cluster architectures][cluster-architectures]
+ * [Clustering machines][clustering-machines]
+ * [Using Amazon EC2 Container Service][ec2-container-service]

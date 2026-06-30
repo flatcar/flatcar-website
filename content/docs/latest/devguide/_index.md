@@ -20,6 +20,15 @@ We also provide OEM functionality for cloud providers and similar use cases to c
 - [Kola integration testing framework][mantle-utils]
 - [Release guide][release-guide]
 
+### APIs and troubleshooting guides for working with Flatcar Container Linux.
+
+* [Developer guides][developer-guides]: Comprehensive guides on developing for Flatcar, working with the SDK, and on building and extending OS images.
+* [Integrations][integrations]
+* [Migrating from cloud-config to Container Linux Config][migrating-from-cloud-config]
+* [Flatcar Supply Chain Security (SLSA and SPDX SBOM)][supply-chain-security] detailing security mechanisms employed at build / release time as well as at run-time to ensure validity of inputs processed and outputs shipped.
+
+
+
 [sdk-tips]: sdk-tips-and-tricks
 [disk-layout]: sdk-disk-partitions
 [production-images]: sdk-building-production-images
