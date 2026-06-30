@@ -7,7 +7,7 @@ description: >
 
 # Flatcar Deployments
 
-Source section: `deploy/` (renamed from `installing/` in the refactored branch). Covers cloud providers, virtualization platforms, and bare metal.
+Covers cloud providers, virtualization platforms, and bare metal.
 
 ## Cloud Providers
 
