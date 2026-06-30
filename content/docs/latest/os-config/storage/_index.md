@@ -7,3 +7,12 @@ aliases:
     - /docs/latest/setup/storage/
     - ../clusters/scaling/
 ---
+
+Manage storage systems with these technologies:
+
+ * [Using RAID for the root filesystem][filesystem-placement]
+ * [Adding disk space][disk-space]
+ * [Mounting storage][mounting-storage]
+ * [iSCSI configuration][iscsi]
+ * [ZFS Extension][zfsextension]
+
