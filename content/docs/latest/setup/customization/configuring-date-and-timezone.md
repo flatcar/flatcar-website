@@ -71,7 +71,50 @@ NTP synchronized: yes
                   Sun 2015-11-01 01:00:00 EST
 ```
 
-## Time synchronization
+### Setting the time zone via Ignition
+
+If you are aware of the downsides to setting a system time zone that is different from the default UTC time zone, you can set a different system time zone by setting the local time zone configuration file, [`/etc/localtime`][localtime], to be an absolute or relative symlink to a `tzfile` entry under `/usr/share/zoneinfo/`.
+If you choose a non-UTC time zone, it is recommended that you set the same time zone across all your machines in the cluster.
+
+For example, you can set the time zone to `America/New_York` by using a Butane config like the following:
+
+```yaml
+variant: flatcar
+version: 1.0.0
+storage:
+  links:
+    - path: /etc/localtime
+      target: ../usr/share/zoneinfo/America/New_York
+      overwrite: true
+```
+`overwrite: true` is optional; it forces recreation if `/etc/localtime` already exists.
+<details>
+
+<summary>Notes on other references</summary>
+
+If you come across [this older Ignition v2 example][issuecomment-908316042] and wonder whether you have to use the fields `overwrite: true` and `filesystem: root` (unlike in Fedora CoreOS):
+See <https://github.com/flatcar/Flatcar/issues/1836#issuecomment-3175310460> for details.
+
+</details>
+
+## Time zone synchronization with the host
+
+To keep a container's time zone in sync with the host, you can mount the host's `/etc/localtime` into the container.
+Add the following to your mount configuration section (for example, in a Kubernetes Pod spec):
+
+```yaml
+volumeMounts:
+  - name: localtime
+    mountPath: /etc/localtime
+    readOnly: true
+volumes:
+  - name: localtime
+    hostPath:
+      path: /etc/localtime
+      type: File
+```
+
+## Time synchronization to NTP
 
 Flatcar Container Linux clusters use NTP to synchronize the clocks of member nodes, and all machines start an NTP client at boot. The operating system uses [`systemd-timesyncd(8)`][systemd-timesyncd] as the default NTP client. Use `systemctl` to check which service is running:
 
@@ -208,9 +251,11 @@ storage:
           restrict [::1]
 ```
 
+[localtime]: https://www.freedesktop.org/software/systemd/man/localtime.html
 [timedatectl]: http://www.freedesktop.org/software/systemd/man/timedatectl.html
 [ntp.org]: http://ntp.org/
 [systemd-timesyncd]: http://www.freedesktop.org/software/systemd/man/systemd-timesyncd.service.html
 [systemd.network]: http://www.freedesktop.org/software/systemd/man/systemd.network.html
 [timesyncd.conf]: http://www.freedesktop.org/software/systemd/man/timesyncd.conf.html
 [butane-configs]: ../../provisioning/config-transpiler
+[issuecomment-908316042]: https://github.com/flatcar/Flatcar/issues/491#issuecomment-908316042
