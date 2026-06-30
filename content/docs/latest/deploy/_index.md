@@ -7,9 +7,11 @@ description: >
 
 # Flatcar Deployments
 
-Covers cloud providers, virtualization platforms, and bare metal.
+Bare metal deployment of a Flatcar container is the most popular and optimal experience, nevertheless you deploy flatcar using a cloud provider or virtualization package or tool.
 
 ## Cloud Providers
+
+The following table lists cloud providers and whether support is provided officially through service agreements or by community forums.
 
 | Provider | Support |
 |---|---|
@@ -32,6 +34,8 @@ Ignition/Butane config is passed via the provider's **user data** / **custom dat
 
 ## Virtualization Options
 
+The following table lists virtualization platforms and products and whether support is provided officially through service agreements or by community forums.
+
 
 | Platform | Support |
 |---|---|
@@ -46,6 +50,8 @@ Ignition/Butane config is passed via the provider's **user data** / **custom dat
 | Eucalyptus | Community |
 
 ## Bare Metal
+
+The following table lists tools for deploying Flatcar on local hardware.
 
 | Method | Notes |
 |---|---|
