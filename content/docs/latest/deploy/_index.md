@@ -43,7 +43,7 @@ In the refactored branch, `virt-options/` consolidates VMs and some community pl
 | VirtualBox | Community |
 | Vagrant | Community |
 | Proxmox VE | Community |
-| OpenStack | Community (moved from cloud/ in this branch) |
+| OpenStack | Community |
 | Eucalyptus | Community |
 
 ### KubeVirt
