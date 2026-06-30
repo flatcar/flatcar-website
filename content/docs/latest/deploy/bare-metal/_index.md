@@ -15,6 +15,6 @@ script on an existing Linux system.
  * [Booting with PXE][pxe]
  * [Booting with iPXE][ipxe]
  * [Installing with flatcar-install][install-to-disk]
- * [ Raspberry Pi 4][running-flatcar-container-linux-on-raspberry-Pi-4]
+ * [Raspberry Pi 4][running-flatcar-container-linux-on-raspberry-Pi-4]
 
  
