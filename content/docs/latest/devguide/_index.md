@@ -27,7 +27,6 @@ We also provide OEM functionality for cloud providers and similar use cases to c
 * [Migrating from cloud-config to Container Linux Config][migrating-from-cloud-config]
 * [Flatcar Supply Chain Security (SLSA and SPDX SBOM)][supply-chain-security] detailing security mechanisms employed at build / release time as well as at run-time to ensure validity of inputs processed and outputs shipped.
 
--
 
 
 [sdk-tips]: sdk-tips-and-tricks
