@@ -28,11 +28,11 @@
         </p>
 
         {{/* Channel selector */}}
-        <div class="releases-channel-select d-flex justify-content-center mb-3">
+        <div class="releases-channel-select d-flex justify-content-center mb-3" role="radiogroup" aria-label="Select release channel">
           {{ range $i, $channel := $channels }}
           {{ $chan := index $.Site.Data.releases $channel.name }}
           <label class="channel-pill{{ if eq $i 0 }} active{{ end }}">
-            <input type="radio" name="channel-select" value="{{ $channel.name }}" {{ if eq $i 0 }}checked{{ end }} autocomplete="off">
+            <input type="radio" name="channel-select" value="{{ $channel.name }}" {{ if eq $i 0 }}checked tabindex="0"{{ else }}tabindex="-1"{{ end }} autocomplete="off">
             <span class="channel-pill__label">{{ $channel.title }}</span>
             <span class="channel-pill__version">{{ $chan.current.version }}</span>
           </label>
@@ -42,13 +42,13 @@
         {{/* Architecture toggle */}}
         <div class="releases-arch-toggle d-flex justify-content-center mb-4" id="arch-tabs" role="radiogroup" aria-label="Select architecture">
           <label class="arch-radio active">
-            <input type="radio" name="arch-select" value="amd64" checked autocomplete="off">
+            <input type="radio" name="arch-select" value="amd64" checked tabindex="0" autocomplete="off">
             <span class="arch-radio__label">
               <span class="fa-solid fa-microchip me-1"></span> amd64 (x86_64)
             </span>
           </label>
           <label class="arch-radio">
-            <input type="radio" name="arch-select" value="arm64" autocomplete="off">
+            <input type="radio" name="arch-select" value="arm64" tabindex="-1" autocomplete="off">
             <span class="arch-radio__label">
               <span class="fa-solid fa-microchip me-1"></span> arm64 (AArch64)
             </span>
@@ -65,21 +65,22 @@
             (dict "name" "DigitalOcean" "icon" "fa-brands fa-digital-ocean" "file" "flatcar_production_digitalocean_image.bin.bz2" "arch" "amd64" "docs" "/docs/latest/installing/cloud/digitalocean/")
             (dict "name" "Hetzner" "icon" "fa-solid fa-server" "file" "flatcar_production_hetzner_image.bin.bz2" "arch" "amd64 arm64" "docs" "/docs/latest/installing/cloud/hetzner/")
             (dict "name" "Akamai" "icon" "fa-solid fa-globe" "file" "flatcar_production_akamai_image.bin.gz" "arch" "amd64 arm64" "docs" "/docs/latest/installing/cloud/akamai/")
-            (dict "name" "Scaleway" "icon" "fa-solid fa-cloud" "file" "flatcar_production_scaleway_image.qcow2" "arch" "amd64 arm64" "docs" "/docs/latest/installing/community-platforms/scaleway/")
-            (dict "name" "Exoscale" "icon" "fa-solid fa-cloud" "file" "flatcar_production_exoscale_image.img.bz2" "arch" "amd64" "docs" "/docs/latest/installing/community-platforms/exoscale/")
-            (dict "name" "CloudStack" "icon" "fa-solid fa-cloud" "file" "flatcar_production_cloudstack_image.bin.bz2" "arch" "amd64" "docs" "/docs/latest/installing/community-platforms/")
+            (dict "name" "Scaleway" "icon" "fa-solid fa-cloud" "file" "flatcar_production_scaleway_image.qcow2" "arch" "amd64 arm64" "community" "true" "docs" "/docs/latest/installing/community-platforms/scaleway/")
+            (dict "name" "Exoscale" "icon" "fa-solid fa-cloud" "file" "flatcar_production_exoscale_image.img.bz2" "arch" "amd64" "community" "true" "docs" "/docs/latest/installing/community-platforms/exoscale/")
+            (dict "name" "CloudStack" "icon" "fa-solid fa-cloud" "file" "flatcar_production_cloudstack_image.bin.bz2" "arch" "amd64" "community" "true" "docs" "/docs/latest/installing/community-platforms/")
             (dict "name" "Brightbox" "icon" "fa-solid fa-cloud" "file" "flatcar_production_brightbox_image.img.bz2" "arch" "amd64 arm64" "docs" "/docs/latest/installing/cloud/brightbox/")
-            (dict "name" "Rackspace" "icon" "fa-solid fa-cloud" "file" "flatcar_production_rackspace_image.bin.bz2" "arch" "amd64" "docs" "/docs/latest/installing/community-platforms/")
+            (dict "name" "Rackspace" "icon" "fa-solid fa-cloud" "file" "flatcar_production_rackspace_image.bin.bz2" "arch" "amd64" "community" "true" "docs" "/docs/latest/installing/community-platforms/")
             (dict "name" "STACKIT" "icon" "fa-solid fa-cloud" "file" "flatcar_production_stackit_image.img" "arch" "amd64 arm64" "docs" "/docs/latest/installing/cloud/stackit/")
           }}
           {{ range $clouds }}
           <div class="col platform-col" data-arch="{{ .arch }}">
-            <div class="platform-card" title="Download {{ .name }} image">
+            <div class="platform-card{{ if .community }} platform-card--community{{ end }}" title="Download {{ .name }} image">
               <a href="https://stable.release.flatcar-linux.net/amd64-usr/current/{{ .file }}" class="platform-card__download" data-file="{{ .file }}">
                 <span class="{{ .icon }} platform-card__icon"></span>
                 <span class="platform-card__label">{{ .name }}</span>
               </a>
-              <a href="{{ .docs }}" class="platform-card__docs" title="{{ .name }} install guide"><span class="fa-solid fa-circle-info"></span></a>
+              {{ if .community }}<span class="platform-card__badge">Community</span>{{ end }}
+              <a href="{{ .docs }}" class="platform-card__docs" title="{{ .name }} install guide"><span class="fa-solid fa-book"></span></a>
             </div>
           </div>
           {{ end }}
@@ -89,23 +90,31 @@
         <h5 class="platform-category-heading"><span class="fa-solid fa-building me-2"></span>On-Premises &amp; Virtualization</h5>
         <div class="row row-cols-2 row-cols-sm-3 row-cols-md-4 row-cols-lg-6 g-3 mb-4">
           {{ $virt := slice
-            (dict "name" "OpenStack" "icon" "fa-solid fa-cloud" "file" "flatcar_production_openstack_image.img.bz2" "arch" "amd64 arm64" "docs" "/docs/latest/installing/cloud/openstack/")
-            (dict "name" "VMware" "icon" "fa-solid fa-server" "file" "flatcar_production_vmware_ova.ova" "arch" "amd64" "docs" "/docs/latest/installing/community-platforms/vmware/")
-            (dict "name" "QEMU / KVM" "icon" "fa-solid fa-desktop" "file" "flatcar_production_qemu_image.img.bz2" "fileArm64" "flatcar_production_qemu_uefi_image.img.bz2" "arch" "amd64 arm64" "docs" "/docs/latest/installing/vms/qemu/")
-            (dict "name" "Hyper-V" "icon" "fa-brands fa-microsoft" "file" "flatcar_production_hyperv_vhdx_image.vhdx.zip" "arch" "amd64" "docs" "/docs/latest/installing/vms/hyper-v/")
+            (dict "name" "OpenStack" "icon" "fa-solid fa-cloud" "file" "" "arch" "amd64 arm64" "docs" "/docs/latest/installing/cloud/openstack/")
+            (dict "name" "VMware" "icon" "fa-solid fa-server" "file" "" "arch" "amd64" "community" "true" "docs" "/docs/latest/installing/community-platforms/vmware/")
+            (dict "name" "QEMU / KVM" "icon" "fa-solid fa-desktop" "file" "" "arch" "amd64 arm64" "docs" "/docs/latest/installing/vms/qemu/")
+            (dict "name" "Hyper-V" "icon" "fa-brands fa-microsoft" "file" "" "arch" "amd64" "docs" "/docs/latest/installing/vms/hyper-v/")
             (dict "name" "VirtualBox" "icon" "fa-solid fa-box" "file" "flatcar_production_virtualbox_image.vmdk.bz2" "arch" "amd64" "docs" "/docs/latest/installing/vms/virtualbox/")
-            (dict "name" "Proxmox VE" "icon" "fa-solid fa-server" "file" "flatcar_production_proxmoxve_image.img" "arch" "amd64 arm64" "docs" "/docs/latest/installing/community-platforms/proxmoxve/")
+            (dict "name" "Proxmox VE" "icon" "fa-solid fa-server" "file" "flatcar_production_proxmoxve_image.img" "arch" "amd64 arm64" "community" "true" "docs" "/docs/latest/installing/community-platforms/proxmoxve/")
             (dict "name" "KubeVirt" "icon" "fa-solid fa-cubes" "file" "flatcar_production_kubevirt_image.qcow2" "arch" "amd64 arm64" "docs" "/docs/latest/installing/vms/kubevirt/")
-            (dict "name" "Nutanix" "icon" "fa-solid fa-server" "file" "flatcar_production_nutanix_image.img.bz2" "arch" "amd64" "docs" "/docs/latest/installing/community-platforms/")
+            (dict "name" "Nutanix" "icon" "fa-solid fa-server" "file" "flatcar_production_nutanix_image.img.bz2" "arch" "amd64" "community" "true" "docs" "/docs/latest/installing/community-platforms/")
           }}
           {{ range $virt }}
-          <div class="col platform-col" data-arch="{{ .arch }}"{{ if .fileArm64 }} data-file-arm64="{{ .fileArm64 }}"{{ end }}>
-            <div class="platform-card" title="Download {{ .name }} image">
-              <a href="https://stable.release.flatcar-linux.net/amd64-usr/current/{{ .file }}" class="platform-card__download" data-file="{{ .file }}"{{ if .fileArm64 }} data-file-arm64="{{ .fileArm64 }}"{{ end }}>
+          <div class="col platform-col" data-arch="{{ .arch }}">
+            <div class="platform-card{{ if .community }} platform-card--community{{ end }}" title="{{ if .file }}Download {{ .name }} image{{ else }}{{ .name }} install guide{{ end }}">
+              {{ if .file }}
+              <a href="https://stable.release.flatcar-linux.net/amd64-usr/current/{{ .file }}" class="platform-card__download" data-file="{{ .file }}">
                 <span class="{{ .icon }} platform-card__icon"></span>
                 <span class="platform-card__label">{{ .name }}</span>
               </a>
-              <a href="{{ .docs }}" class="platform-card__docs" title="{{ .name }} install guide"><span class="fa-solid fa-circle-info"></span></a>
+              {{ else }}
+              <a href="{{ .docs }}" class="platform-card__download platform-card__download--docs">
+                <span class="{{ .icon }} platform-card__icon"></span>
+                <span class="platform-card__label">{{ .name }}</span>
+              </a>
+              {{ end }}
+              {{ if .community }}<span class="platform-card__badge">Community</span>{{ end }}
+              <a href="{{ .docs }}" class="platform-card__docs" title="{{ .name }} install guide"><span class="fa-solid fa-book"></span></a>
             </div>
           </div>
           {{ end }}
@@ -117,17 +126,24 @@
           {{ $baremetal := slice
             (dict "name" "PXE / iPXE" "icon" "fa-solid fa-network-wired" "file" "flatcar_production_pxe.vmlinuz" "arch" "amd64 arm64" "docs" "/docs/latest/installing/bare-metal/booting-with-pxe/")
             (dict "name" "ISO Install" "icon" "fa-solid fa-compact-disc" "file" "flatcar_production_iso_image.iso" "arch" "amd64" "docs" "/docs/latest/installing/bare-metal/installing-to-disk/")
-            (dict "name" "Vagrant" "icon" "fa-solid fa-terminal" "file" "flatcar_production_vagrant.box" "arch" "amd64" "docs" "/docs/latest/installing/vms/vagrant/")
+            (dict "name" "Vagrant" "icon" "fa-solid fa-terminal" "file" "" "arch" "amd64" "docs" "/docs/latest/installing/vms/vagrant/")
             (dict "name" "Container" "icon" "fa-brands fa-docker" "file" "flatcar-container.tar.gz" "arch" "amd64 arm64" "docs" "/docs/latest/installing/")
           }}
           {{ range $baremetal }}
           <div class="col platform-col" data-arch="{{ .arch }}">
-            <div class="platform-card" title="Download {{ .name }} image">
+            <div class="platform-card" title="{{ if .file }}Download {{ .name }} image{{ else }}{{ .name }} install guide{{ end }}">
+              {{ if .file }}
               <a href="https://stable.release.flatcar-linux.net/amd64-usr/current/{{ .file }}" class="platform-card__download" data-file="{{ .file }}">
                 <span class="{{ .icon }} platform-card__icon"></span>
                 <span class="platform-card__label">{{ .name }}</span>
               </a>
-              <a href="{{ .docs }}" class="platform-card__docs" title="{{ .name }} install guide"><span class="fa-solid fa-circle-info"></span></a>
+              {{ else }}
+              <a href="{{ .docs }}" class="platform-card__download platform-card__download--docs">
+                <span class="{{ .icon }} platform-card__icon"></span>
+                <span class="platform-card__label">{{ .name }}</span>
+              </a>
+              {{ end }}
+              <a href="{{ .docs }}" class="platform-card__docs" title="{{ .name }} install guide"><span class="fa-solid fa-book"></span></a>
             </div>
           </div>
           {{ end }}
@@ -301,13 +317,10 @@
         }
       });
 
-      // Update download href, using arch-specific file if available
-      document.querySelectorAll('.platform-card__download').forEach(function(link) {
+      // Update download href (skip docs-linked cards without data-file)
+      document.querySelectorAll('.platform-card__download[data-file]').forEach(function(link) {
         var file = link.getAttribute('data-file');
-        if (arch === 'arm64') {
-          var arm64File = link.getAttribute('data-file-arm64');
-          if (arm64File) file = arm64File;
-        }
+        if (!file) return;
         link.setAttribute('href', baseURL + file);
       });
 
@@ -338,6 +351,33 @@
         updateDownloadLinks();
       });
     });
+
+    // ── Keyboard navigation for radio groups (arrow keys) ──
+    function setupRadioGroupKeyboard(groupSelector, itemSelector) {
+      var group = document.querySelector(groupSelector);
+      if (!group) return;
+      var radios = Array.from(group.querySelectorAll(itemSelector + ' input[type="radio"]'));
+      group.addEventListener('keydown', function(e) {
+        var idx = radios.indexOf(document.activeElement);
+        if (idx === -1) return;
+        var next = -1;
+        if (e.key === 'ArrowRight' || e.key === 'ArrowDown') {
+          next = (idx + 1) % radios.length;
+        } else if (e.key === 'ArrowLeft' || e.key === 'ArrowUp') {
+          next = (idx - 1 + radios.length) % radios.length;
+        }
+        if (next !== -1) {
+          e.preventDefault();
+          radios[idx].setAttribute('tabindex', '-1');
+          radios[next].setAttribute('tabindex', '0');
+          radios[next].focus();
+          radios[next].checked = true;
+          radios[next].dispatchEvent(new Event('change'));
+        }
+      });
+    }
+    setupRadioGroupKeyboard('.releases-channel-select', '.channel-pill');
+    setupRadioGroupKeyboard('.releases-arch-toggle', '.arch-radio');
 
     // Toggle chevron rotation on collapse events
     document.querySelectorAll('.release-entry__header').forEach(function(header) {
