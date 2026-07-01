@@ -302,9 +302,15 @@
 <script>
   window.onload = function () {
     // ── Update all download links based on selected channel + arch ──
+    var allowedChannels = ['stable', 'beta', 'alpha', 'lts'];
+    var allowedArchs = ['amd64', 'arm64'];
+
     function updateDownloadLinks() {
       var channel = document.querySelector('.channel-pill input[type="radio"]:checked').value;
       var arch = document.querySelector('.arch-radio input[type="radio"]:checked').value;
+
+      if (allowedChannels.indexOf(channel) === -1 || allowedArchs.indexOf(arch) === -1) return;
+
       var baseURL = 'https://' + channel + '.release.flatcar-linux.net/' + arch + '-usr/current/';
 
       // Show/hide platform cards based on arch support
@@ -320,7 +326,7 @@
       // Update download href (skip docs-linked cards without data-file)
       document.querySelectorAll('.platform-card__download[data-file]').forEach(function(link) {
         var file = link.getAttribute('data-file');
-        if (!file) return;
+        if (!file || !/^[\w.\-]+$/.test(file)) return;
         link.setAttribute('href', baseURL + file);
       });
 
@@ -394,7 +400,7 @@
 
     // ── Anchor handling ──
     var anchor = window.location.hash.substring(1);
-    if (!anchor) return;
+    if (!anchor || !/^[\w.\-]+$/.test(anchor)) return;
 
     var elem = document.getElementById(anchor);
     if (!elem) return;
