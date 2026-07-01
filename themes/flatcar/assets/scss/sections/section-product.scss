@@ -4,7 +4,7 @@
   background-position: center top;
   background-size: cover;
   color: $white;
-  
+
   &:last-child {
     padding-bottom: 120px;
   }
@@ -107,7 +107,7 @@
         height: 40px;
       }
     }
-    
+
     .card {
       background-color: transparent;
       border: none;
@@ -232,12 +232,13 @@
       content: "";
       display: block;
       height: 350px;
-      background: url(/images/features-bottom-pattern.svg) center calc(100% + 1px) repeat-x;
+      background: url(/images/features-bottom-pattern.svg) center
+        calc(100% + 1px) repeat-x;
     }
   }
 
   .comparison-table {
-    $tableColor: #09BAC8;
+    $tableColor: #09bac8;
     background-color: $flatcar-bg-blue;
     color: $white;
     font-size: smaller;
@@ -307,7 +308,8 @@
       }
     }
 
-    td, th {
+    td,
+    th {
       padding-right: 24px;
 
       @include media-breakpoint-down(lg) {
@@ -323,12 +325,13 @@
       content: "";
       display: block;
       height: 350px;
-      background: url(/images/features-bottom-pattern-white.svg) center calc(100% + 1px) repeat-x;
+      background: url(/images/features-bottom-pattern-white.svg) center
+        calc(100% + 1px) repeat-x;
     }
   }
 
   .pricing-table {
-    background-color: #F6F6F7;
+    background-color: #f6f6f7;
     padding-bottom: 64px;
     color: $black;
     font-size: smaller;
@@ -393,7 +396,8 @@
       border-bottom: 1px solid rgba(224, 223, 223, 1);
     }
 
-    td, th {
+    td,
+    th {
       padding-right: 24px;
       padding-left: 24px;
 
@@ -597,13 +601,13 @@
 
   .big-card {
     padding: 64px 44px 44px 44px;
-  };
+  }
 }
 
 .page-menus {
   background-color: $gray-100;
   margin-top: 0;
-  padding: .5rem 1rem !important;
+  padding: 0.5rem 1rem !important;
 
   .menu-button {
     font-size: x-large;
@@ -659,8 +663,11 @@
 }
 
 .releases {
+  padding-bottom: 0 !important;
+
   $gray-text: #717171;
-  $border-color: #DEE2E6;
+  $border-color: #dee2e6;
+  $dark-text: #474747;
 
   .article {
     a {
@@ -674,18 +681,311 @@
     }
   }
 
+  // ── Intro explanation ──
+  .releases-intro {
+    padding: 48px 0 32px;
+
+    &__text {
+      max-width: 780px;
+      margin: 0 auto;
+      font-size: 1rem;
+      line-height: 1.7;
+      color: $dark-text;
+
+      p {
+        margin-bottom: 12px;
+      }
+
+      code {
+        background: rgba(8, 162, 175, 0.08);
+        padding: 2px 6px;
+        border-radius: 3px;
+        font-size: 0.9em;
+      }
+    }
+  }
+
+  // ── Platform grid ──
+  .releases-platforms {
+    padding: 56px 0 40px;
+
+    .text-muted {
+      max-width: 640px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+  }
+
+  .releases-arch-toggle {
+    gap: 0;
+
+    .arch-radio {
+      position: relative;
+      display: inline-flex;
+      align-items: center;
+      border: 2px solid $border-color;
+      border-radius: 0;
+      color: $dark-text;
+      font-weight: 600;
+      font-size: 0.95rem;
+      padding: 8px 24px;
+      cursor: pointer;
+      background: $white;
+      transition: all 0.15s ease;
+      user-select: none;
+      margin-left: -2px;
+
+      &:first-child {
+        border-radius: 6px 0 0 6px;
+        margin-left: 0;
+      }
+
+      &:last-child {
+        border-radius: 0 6px 6px 0;
+      }
+
+      input[type="radio"] {
+        position: absolute;
+        opacity: 0;
+        width: 0;
+        height: 0;
+      }
+
+      &:has(input:focus-visible) {
+        outline: 2px solid $flatcar-bg-blue;
+        outline-offset: 2px;
+        z-index: 3;
+      }
+
+      &.active {
+        background-color: $flatcar-bg-blue;
+        border-color: $flatcar-bg-blue;
+        color: $white;
+        z-index: 1;
+      }
+
+      &:not(.active):hover {
+        background-color: rgba(8, 162, 175, 0.08);
+        border-color: $flatcar-bg-blue;
+      }
+
+      &__label {
+        display: inline-flex;
+        align-items: center;
+      }
+    }
+  }
+
+  // ── Channel selector pills ──
+  .releases-channel-select {
+    gap: 0;
+    flex-wrap: wrap;
+    justify-content: center;
+
+    .channel-pill {
+      position: relative;
+      display: inline-flex;
+      flex-direction: column;
+      align-items: center;
+      border: 2px solid $border-color;
+      border-radius: 0;
+      padding: 8px 20px;
+      cursor: pointer;
+      background: $white;
+      transition: all 0.15s ease;
+      user-select: none;
+      margin-left: -2px;
+      min-width: 100px;
+      text-align: center;
+
+      &:first-child {
+        border-radius: 6px 0 0 6px;
+        margin-left: 0;
+      }
+
+      &:last-child {
+        border-radius: 0 6px 6px 0;
+      }
+
+      input[type="radio"] {
+        position: absolute;
+        opacity: 0;
+        width: 0;
+        height: 0;
+      }
+
+      &:has(input:focus-visible) {
+        outline: 2px solid $flatcar-bg-blue;
+        outline-offset: 2px;
+        z-index: 3;
+      }
+
+      &.active {
+        background-color: $flatcar-bg-blue;
+        border-color: $flatcar-bg-blue;
+        color: $white;
+        z-index: 2;
+
+        .channel-pill__version {
+          color: rgba(255, 255, 255, 0.7);
+        }
+      }
+
+      &:not(.active):hover {
+        background-color: rgba(8, 162, 175, 0.08);
+        border-color: $flatcar-bg-blue;
+        z-index: 1;
+      }
+
+      &__label {
+        font-weight: 600;
+        font-size: 0.95rem;
+      }
+
+      &__version {
+        font-size: 0.7rem;
+        color: $gray-text;
+        margin-top: 2px;
+      }
+    }
+  }
+
+  .platform-category-heading {
+    font-size: 1rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    color: $gray-text;
+    border-bottom: 1px solid $border-color;
+    padding-bottom: 8px;
+    margin-bottom: 16px;
+    margin-top: 8px;
+  }
+
+  .platform-card {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid $border-color;
+    border-radius: 8px;
+    background: $white;
+    transition: all 0.15s ease;
+    height: 100%;
+    text-align: center;
+    overflow: hidden;
+
+    &:hover {
+      border-color: $flatcar-blue;
+      box-shadow: 0 2px 8px rgba(8, 162, 175, 0.15);
+    }
+
+    &__download {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 20px 8px 16px;
+      text-decoration: none;
+      color: $dark-text;
+      width: 100%;
+      height: 100%;
+
+      &:hover {
+        color: $flatcar-darker-blue;
+        text-decoration: none;
+      }
+
+      &:focus-visible {
+        outline: 2px solid $flatcar-bg-blue;
+        outline-offset: -2px;
+        border-radius: 8px;
+      }
+    }
+
+    &__docs {
+      position: absolute;
+      top: 4px;
+      right: 4px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 24px;
+      height: 24px;
+      border-radius: 4px;
+      font-size: 0.7rem;
+      color: $gray-text;
+      text-decoration: none;
+      transition:
+        background-color 0.15s ease,
+        color 0.15s ease;
+
+      &:hover {
+        background-color: rgba(8, 162, 175, 0.15);
+        color: $flatcar-darker-blue;
+      }
+
+      &:focus-visible {
+        outline: 2px solid $flatcar-bg-blue;
+        outline-offset: 1px;
+      }
+    }
+
+    &__icon {
+      font-size: 1.6rem;
+      margin-bottom: 8px;
+      color: $flatcar-blue;
+    }
+
+    &__label {
+      font-size: 0.82rem;
+      font-weight: 600;
+      line-height: 1.2;
+    }
+
+    &__badge {
+      position: absolute;
+      top: 0;
+      left: 0;
+      font-size: 0.55rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+      color: $flatcar-darker-blue;
+      background: rgba(8, 162, 175, 0.08);
+      border-bottom-right-radius: 6px;
+      border-top-left-radius: 7px;
+      padding: 3px 7px;
+      line-height: 1;
+    }
+  }
+
+  // ── Channel cards (original style) ──
+  .releases-channels {
+    background-color: #f6f6f7;
+    padding: 56px 0 48px;
+
+    .text-muted {
+      max-width: 640px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+  }
+
   .card {
     border: 1px solid $border-color;
+    background: $white;
 
     .card-header {
-      background-color: #F6F6F7;
+      background-color: #f6f6f7;
 
       h5 {
         font-size: 1.5em;
       }
 
       .version {
-        font-size: .9em;
+        font-size: 0.9em;
         font-weight: bolder;
         color: $gray-text;
       }
@@ -700,7 +1000,7 @@
       }
 
       .release-date {
-        font-size: .8rem;
+        font-size: 0.8rem;
         font-weight: bolder;
         color: $gray-text;
       }
@@ -710,7 +1010,7 @@
       min-height: 260px;
 
       p {
-        font-size: .8em;
+        font-size: 0.8em;
         color: #474747;
       }
     }
@@ -721,20 +1021,13 @@
     }
   }
 
-  .special {
-    background-color: $gray-100;
-    .card-header {
-      border-bottom: 1px solid $gray-400;
-    }
-  }
-
   .feed-button {
-    min-width: 315px;
+    min-width: 280px;
   }
 
+  // ── Release notes ──
   .notes-area {
-    $dark-text: #474747;
-    background-color: #F6F6F7;
+    background-color: #f6f6f7;
     padding-left: auto;
     padding-right: auto;
 
@@ -841,7 +1134,80 @@
         }
       }
     }
+
+    // ── Collapsible release entries ──
+    .release-entry {
+      border: 1px solid $border-color;
+      border-radius: 6px;
+      margin-bottom: 8px;
+      background: $white;
+      overflow: hidden;
+
+      &__header {
+        display: flex;
+        align-items: center;
+        padding: 12px 16px;
+        cursor: pointer;
+        user-select: none;
+        transition: background-color 0.1s ease;
+
+        &:hover {
+          background-color: rgba(8, 162, 175, 0.04);
+        }
+
+        &[aria-expanded="true"],
+        &:not(.collapsed) {
+          .release-entry__toggle-icon {
+            transform: rotate(90deg);
+          }
+        }
+      }
+
+      &__summary {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        flex-wrap: wrap;
+        width: 100%;
+      }
+
+      &__toggle-icon {
+        font-size: 0.7rem;
+        color: $gray-text;
+        transition: transform 0.2s ease;
+        flex-shrink: 0;
+      }
+
+      &__version {
+        font-weight: 700;
+        font-size: 1.3rem;
+        color: $black;
+        text-decoration: none;
+
+        &:hover {
+          color: $flatcar-darker-blue;
+        }
+      }
+
+      &__date {
+        font-size: 1rem;
+        color: $gray-text;
+      }
+
+      &__archs {
+        margin-left: auto;
+
+        a.arch {
+          font-size: 0.8rem;
+          margin-left: 6px;
+        }
+      }
+
+      &__body {
+        padding: 0 16px 16px;
+        border-top: 1px solid $border-color;
+        padding-top: 16px;
+      }
+    }
   }
 }
-
-
