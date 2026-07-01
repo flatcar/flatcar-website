@@ -1,10 +1,8 @@
 {{ $ctx := .ctx }}
-{{ $channel := "" }}
 {{ range $i, $release := sort .chan "version" "desc" }}
 {{ if not (hasPrefix $release.release "current") }}
-{{ $channel = $release.channel }}
 <div class="release-entry" id="release-{{ $release.version }}">
-  <div class="release-entry__header" data-bs-toggle="collapse" data-bs-target="#release-body-{{ $release.channel }}-{{ $release.version | replaceRE "\\." "-" }}" aria-expanded="{{ if eq $i 1 }}true{{ else }}false{{ end }}">
+  <div class="release-entry__header{{ if ne $i 0 }} collapsed{{ end }}" data-bs-toggle="collapse" data-bs-target="#release-body-{{ $release.channel }}-{{ $release.version | replaceRE "\\." "-" }}" aria-expanded="{{ if eq $i 0 }}true{{ else }}false{{ end }}">
     <div class="release-entry__summary">
       <span class="release-entry__toggle-icon fa-solid fa-chevron-right"></span>
       <a class="release-entry__version" href="#release-{{ $release.version }}" onclick="event.stopPropagation();">{{ $release.version }}</a>
@@ -16,7 +14,7 @@
       </span>
     </div>
   </div>
-  <div class="collapse {{ if eq $i 1 }}show{{ end }}" id="release-body-{{ $release.channel }}-{{ $release.version | replaceRE "\\." "-" }}">
+  <div class="collapse {{ if eq $i 0 }}show{{ end }}" id="release-body-{{ $release.channel }}-{{ $release.version | replaceRE "\\." "-" }}">
     <div class="release-entry__body">
       <div class="small packages mb-3">
         {{ range $pkg, $ver := $release.image_packages }}
