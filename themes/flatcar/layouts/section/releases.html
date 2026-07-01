@@ -2,7 +2,6 @@
 {{ $styles := .Params.style }}
 {{ $channels := .Params.channels }}
 {{ $section := .Section }}
-{{ $stableChan := index $.Site.Data.releases "stable" }}
 
 <section class="releases">
   <article class="article">
@@ -384,6 +383,9 @@
     }
     setupRadioGroupKeyboard('.releases-channel-select', '.channel-pill');
     setupRadioGroupKeyboard('.releases-arch-toggle', '.arch-radio');
+
+    // Initialize on page load
+    updateDownloadLinks();
 
     // Toggle chevron rotation on collapse events
     document.querySelectorAll('.release-entry__header').forEach(function(header) {
