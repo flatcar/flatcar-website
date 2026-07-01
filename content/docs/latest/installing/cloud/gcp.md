@@ -50,14 +50,15 @@ Create 3 instances from the image above using our Ignition from `example.ign`:
   </div>
 </div>
 
-## Uploading an Image
+## Uploading an image
 
 If you prefer, you can also run Flatcar Container Linux by uploading a custom image to your account.
 
 To do so, run the following command:
 
 ```shell
-docker run -it quay.io/kinvolk/google-cloud-flatcar-image-upload \
+docker run -it --rm \
+  ghcr.io/flatcar/google-cloud-flatcar-image-upload \
   --bucket-name <bucket name> \
   --project-id <project id>
 ```
@@ -70,28 +71,43 @@ Where:
 During execution, the script will ask you to log into your Google account and then create all necessary resources for
 uploading an image. It will then download the requested Flatcar Container Linux image and upload it to the Google Cloud.
 
+Interactive authentication can be avoided by passing a [JSON credentials file](https://developers.google.com/workspace/guides/create-credentials#create_credentials_for_a_service_account) through to the container:
+
+```shell
+docker run -it --rm \
+  --env GOOGLE_APPLICATION_CREDENTIALS=/tmp/credentials.json \
+  --volume /path/to/credentials.json:/tmp/credentials.json:ro \
+  ghcr.io/flatcar/google-cloud-flatcar-image-upload \
+  …
+```
+
 To see all available options, run:
 
 ```shell
-docker run -it quay.io/kinvolk/google-cloud-flatcar-image-upload --help
+docker run -it ghcr.io/flatcar/google-cloud-flatcar-image-upload --help
 
 Usage: /usr/local/bin/upload_images.sh [OPTION...]
 
  Required arguments:
   -b, --bucket-name Name of GCP bucket for storing images.
-  -p, --project-id  ID of the project for creating bucket.
+  -p, --project-id  ID of the project for creating bucket. Must be given if CLOUDSDK_CORE_PROJECT is not set.
 
  Optional arguments:
-  -c, --channel     Flatcar Container Linux release channel. Defaults to 'stable'.
-  -v, --version     Flatcar Container Linux version. Defaults to 'current'.
+  -c, --channel     Flatcar Linux release channel. Defaults to 'stable'.
+  -v, --version     Flatcar Linux version. Defaults to 'current'.
   -i, --image-name  Image name, which will be used later in Lokomotive configuration. Defaults to 'flatcar-<channel>'.
 
  Optional flags:
    -f, --force-reupload If used, image will be uploaded even if it already exist in the bucket.
    -F, --force-recreate If user, if compute image already exist, it will be removed and recreated.
+   -s, --skip-auth      Skip the authorization steps.
+   -u, --image-url      Use direct URL to image
+
+ Environment variables:
+   GOOGLE_APPLICATION_CREDENTIALS The credentials file referenced by this will be used for authorization if set.
 ```
 
-The Dockerfile for the `quay.io/kinvolk/google-cloud-flatcar-image-upload` image is managed [here][google-cloud-flatcar-image-upload].
+The Dockerfile for the `ghcr.io/flatcar/google-cloud-flatcar-image-upload` image is managed [here][google-cloud-flatcar-image-upload].
 
 [bucket]: https://cloud.google.com/storage/docs/key-terms#bucket-names
 [google-cloud-flatcar-image-upload]: https://github.com/flatcar/flatcar-cloud-image-uploader/blob/master/google-cloud-flatcar-image-upload

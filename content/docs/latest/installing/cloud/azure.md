@@ -180,56 +180,49 @@ az sig image-version list-community --public-gallery-name flatcar-23485951-527a-
 
 A second gallery `flatcar4capi-742ef0cb-dcaa-4ecb-9cb0-bfd2e43dccc0` exists for prebuilt Kubernetes CAPI images. It has image definitions for each CAPI version, e.g., `flatcar-stable-amd64-capi-v1.26.3` which provides recent Flatcar Stable versions.
 
-## Uploading your own Image
+## Uploading your own image
 
-To automatically download the Flatcar image for Azure from the release page and upload it to your Azure account, run the following command:
+To automatically download the Flatcar image for Azure from the release page and upload it to your Azure account, run the following command, where `<resource group>` is a valid [Resource Group][resource-group] name.
 
 ```shell
-docker run -it --rm quay.io/kinvolk/azure-flatcar-image-upload \
-  --resource-group <resource group> \
-  --storage-account-name <storage account name>
+docker run -it --rm \
+  ghcr.io/flatcar/azure-flatcar-image-upload \
+  --resource-group <resource group>
 ```
 
-Where:
+During execution, the script will ask you to log into your Azure account and create the resource group if necessary. It will then download the requested Flatcar Container Linux image and upload it to Azure. The command is idempotent and therefore safe to re-run it in case of failure.
 
-- `<resource group>` should be a valid [Resource Group][resource-group] name.
-- `<storage account name>` should be a valid [Storage Account][storage-account] name.
+If you already have the Azure CLI configured in your local environment, you can avoid logging in by passing your `~/.azure` directory through to the container. This may be necessary when a stricter security configuration prevents the usual authentication flow.
 
-During execution, the script will ask you to log into your Azure account and then create all necessary resources for
-uploading an image. It will then download the requested Flatcar Container Linux image and upload it to Azure.
-
-If uploading fails with one of the following errors, it usually indicates a problem on Azure's side:
-
-```text
-Put https://mystorage.blob.core.windows.net/vhds?restype=container: dial tcp: lookup iago-dev.blob.core.windows.net on 80.58.61.250:53: no such host
+```shell
+docker run -it --rm \
+  --user "$(id -u):$(id -g)" --env HOME=/tmp --volume "${HOME}/.azure:/tmp/.azure" \
+  ghcr.io/flatcar/azure-flatcar-image-upload \
+  …
 ```
-
-```text
-storage: service returned error: StatusCode=403, ErrorCode=AuthenticationFailed, ErrorMessage=Server failed to authenticate the request. Make sure the value of Authorization header is formed correctly including the signature. RequestId:a3ed1ebc-701e-010c-5258-0a2e84000000 Time:2019-05-14T13:26:00.1253383Z, RequestId=a3ed1ebc-701e-010c-5258-0a2e84000000, QueryParameterName=, QueryParameterValue=
-```
-
-The command is idempotent and it is therefore safe to re-run it in case of failure.
 
 To see all available options, run:
 
 ```shell
-docker run -it --rm quay.io/kinvolk/azure-flatcar-image-upload --help
+docker run -it --rm ghcr.io/flatcar/azure-flatcar-image-upload --help
 
 Usage: /usr/local/bin/upload_images.sh [OPTION...]
 
  Required arguments:
   -g, --resource-group        Azure resource group.
-  -s, --storage-account-name  Azure storage account name. Must be between 3 and 24 characters and unique within Azure.
 
  Optional arguments:
-  -c, --channel              Flatcar Container Linux release channel. Defaults to 'stable'.
-  -v, --version              Flatcar Container Linux version. Defaults to 'current'.
+  -c, --channel              Flatcar Linux release channel. Defaults to 'stable'.
+  -v, --version              Flatcar Linux version. Defaults to 'current'.
   -i, --image-name           Image name, which will be used later in Lokomotive configuration. Defaults to 'flatcar-<channel>'.
-  -l, --location             Azure location to storage image. To list available locations run with '--locations'. Defaults to 'westeurope'.
+  -l, --location             Azure image storage location. To list available locations run with '--locations'. Defaults to 'westeurope'.
   -S, --storage-account-type Type of storage account. Defaults to 'Standard_LRS'.
+  -G, --hyper-v-generation   Hyper-V Generation to set against the image. Defaults to 'V2'.
+  --subscription             Azure subscription name or id.
+  --skip-resource-group      Skip creation of resource group.
 ```
 
-The Dockerfile for the `quay.io/kinvolk/azure-flatcar-image-upload` image is managed [here][azure-flatcar-image-upload].
+The Dockerfile for the `ghcr.io/flatcar/azure-flatcar-image-upload` image is managed [here][azure-flatcar-image-upload].
 
 ## SSH User Setup
 
