@@ -666,7 +666,6 @@
   padding-bottom: 0 !important;
 
   $gray-text: #717171;
-  $border-color: #dee2e6;
   $dark-text: #474747;
 
   .article {
@@ -697,7 +696,7 @@
       }
 
       code {
-        background: rgba(8, 162, 175, 0.08);
+        background: rgba($flatcar-blue, 0.08);
         padding: 2px 6px;
         border-radius: 3px;
         font-size: 0.9em;
@@ -765,7 +764,7 @@
       }
 
       &:not(.active):hover {
-        background-color: rgba(8, 162, 175, 0.08);
+        background-color: rgba($flatcar-blue, 0.08);
         border-color: $flatcar-bg-blue;
       }
 
@@ -832,7 +831,7 @@
       }
 
       &:not(.active):hover {
-        background-color: rgba(8, 162, 175, 0.08);
+        background-color: rgba($flatcar-blue, 0.08);
         border-color: $flatcar-bg-blue;
         z-index: 1;
       }
@@ -878,7 +877,7 @@
 
     &:hover {
       border-color: $flatcar-blue;
-      box-shadow: 0 2px 8px rgba(8, 162, 175, 0.15);
+      box-shadow: 0 2px 8px rgba($flatcar-blue, 0.15);
     }
 
     &__download {
@@ -922,7 +921,7 @@
         color 0.15s ease;
 
       &:hover {
-        background-color: rgba(8, 162, 175, 0.15);
+        background-color: rgba($flatcar-blue, 0.15);
         color: $flatcar-darker-blue;
       }
 
@@ -953,7 +952,7 @@
       text-transform: uppercase;
       letter-spacing: 0.04em;
       color: $flatcar-darker-blue;
-      background: rgba(8, 162, 175, 0.08);
+      background: rgba($flatcar-blue, 0.08);
       border-bottom-right-radius: 6px;
       border-top-left-radius: 7px;
       padding: 3px 7px;
@@ -1152,7 +1151,7 @@
         transition: background-color 0.1s ease;
 
         &:hover {
-          background-color: rgba(8, 162, 175, 0.04);
+          background-color: rgba($flatcar-blue, 0.04);
         }
 
         &[aria-expanded="true"],
