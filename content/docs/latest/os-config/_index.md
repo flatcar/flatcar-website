@@ -14,8 +14,11 @@ aliases:
 
 Flatcar provides configuration capabilities in the following areas:
 
-[Host](./host-config/_index.md)
-[Network](./network/_index.md)
-[Storage](./storage/_index.md)
-[systemd](./systemd/_index.md)
+| Area | Configurations |
+| --- | --- |
+|[Host](./host-config/_index.md)| Users, environment variables, kernel modules, and other host settings.|
+|[Network](./network/_index.md)| Network configuration, DNS, and remote access.|
+|[Storage](./storage/_index.md)| Adding, Extending and Configuring Storage. |
+|[systemd](./systemd/_index.md)| Starting, stopping, and managing processes.|
+
 

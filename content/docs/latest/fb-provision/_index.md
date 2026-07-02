@@ -12,9 +12,7 @@ aliases:
 
 # Flatcar First Boot & Provisioning
 
-Flatcar is configured at **first boot only** via declarative config. The primary toolchain is: **Butane YAML → Ignition JSON → applied by Ignition in initramfs**.
-
-This section describes the following provisioning tools and configuration tasks:
+Flatcar is configured at first boot only using declarative configurations. This section describes the following provisioning tools and configuration tasks:
 
 | Tool or Task | Description |
 | --- | --- |
