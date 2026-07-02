@@ -14,10 +14,10 @@ aliases:
 
 Flatcar is configured at first boot only using declarative configurations. This section describes the following provisioning tools and configuration tasks:
 
-| Tool or Task | Description |
+| Topics | Description |
 | --- | --- |
 | [Butane](./butane/_index.md) | Butane transforms a user-provided Butane Configuration into an Ignition configuration. |
-| [cl-config] | (DEPRICATED) YAML configuration format used to generate Ignition configs.|
+| [cl-config](./cl-config/_index.md) | (DEPRECATED) YAML configuration format used to generate Ignition configs.|
 | [Customize image](./customize-image/_index.md) | Describes mounting a partition for customization. |
 | [Ignition](./ignition/_index.md) | Provisioning utility specially designed for Container OSs. |
 
@@ -252,7 +252,8 @@ See the [QEMU documentation](https://www.qemu.org/docs/master/system/qemu-manpag
 
 Butane and Ignition are the recommended tools to provision Flatcar Container Linux at first boot. First write a YAML configuration file for the Butane transpiler. Next run Butane to transpile the file into a JSON config file. Then use the JSON file to run Ignition to provision your container.
 
-**Note:** The standalone Container Linux Config tool is a legacy utility inherited from the original CoreOS project and is no longer supported. While historical documentation is still available, it should not be used for new deployments. Please use Butane instead. However, the poseidon/ct Terraform provider is fully supported and recommended. Despite retaining the legacy "ct" name for backward compatibility, the provider was updated to use the modern Butane engine under the hood. We use this exact provider in our official [Terraform provisioning tutorial](https://www.flatcar.org/docs/latest/provisioning/terraform/).
+> [!NOTE]
+> The standalone Container Linux Config tool is a legacy utility inherited from the original CoreOS project and is no longer supported. While historical documentation is still available, it should not be used for new deployments. Please use Butane instead. However, the poseidon/ct Terraform provider is fully supported and recommended. Despite retaining the legacy "ct" name for backward compatibility, the provider was updated to use the modern Butane engine under the hood. We use this exact provider in our official [Terraform provisioning tutorial](https://www.flatcar.org/docs/latest/provisioning/terraform/).
 
 
 
