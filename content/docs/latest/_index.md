@@ -7,7 +7,13 @@ weight: 40
 
 # Flatcar Container Linux
 
-Flatcar Container Linux is a minimal, immutable, container-optimized Linux OS and the active successor to CoreOS Container Linux. Gentoo Linux is the underlying technology of Flatcar. It was chosen because it's an extremely flexible and modular OS. With modifications from ChromeOS and CoreOS, the Flatcar team used Gentoo to create a minimal, immutable OS that is just a container host and nothing else. 
+Flatcar Container Linux is a minimal, immutable, container-optimized Linux OS and the active successor to CoreOS Container Linux. Flatcar can securely host many different container deployment and orchestration options, ranging from Docker to Kubernetes and more. It uses an automated provisioning process that provides consistent installations for every machine.
+
+## How Flatcar works
+
+Gentoo Linux is the underlying technology of Flatcar. It was chosen because it's an extremely flexible and modular OS. With modifications from ChromeOS and CoreOS, the Flatcar team used Gentoo to create a minimal, immutable OS that is just a container host and nothing else. 
+
+As a result, the Flatcar OS is lightweight, secure, and scales easily because it provides only components for containerization. It also has automatic updates that make it more convenient to use and ensures that instances are always up to date. 
 
 Flatcar is a Cloud Native Computing Foundation (CNCF) project. The name comes from the flat railcar used to transport shipping containers. Flatcar runs on most cloud providers, virtualization platforms and bare metal servers.
 

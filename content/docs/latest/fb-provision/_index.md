@@ -20,6 +20,7 @@ Flatcar is configured at first boot only using declarative configurations. This 
 | [cl-config](./cl-config/_index.md) | (DEPRECATED) YAML configuration format used to generate Ignition configs.|
 | [Customize image](./customize-image/_index.md) | Describes mounting a partition for customization. |
 | [Ignition](./ignition/_index.md) | Provisioning utility specially designed for Container OSs. |
+| [Infrastructure](./infrastructure/_index.md) | Describes using Terraform with Flatcar. |
 
 ## How Provisioning Works
 
@@ -255,5 +256,17 @@ Butane and Ignition are the recommended tools to provision Flatcar Container Lin
 > [!NOTE]
 > The standalone Container Linux Config tool is a legacy utility inherited from the original CoreOS project and is no longer supported. While historical documentation is still available, it should not be used for new deployments. Please use Butane instead. However, the poseidon/ct Terraform provider is fully supported and recommended. Despite retaining the legacy "ct" name for backward compatibility, the provider was updated to use the modern Butane engine under the hood. We use this exact provider in our official [Terraform provisioning tutorial](https://www.flatcar.org/docs/latest/provisioning/terraform/).
 
+## Provisioning Concept Links
 
+Ignition is the recommended way to provision Flatcar Container Linux at first boot. Ignition uses a JSON configuration file, and it is recommended to generate it from the Container Linux Config YAML format, which has additional features. The Container Linux Config Transpiler converts a Container Linux Config to an Ignition config.
+
+This section provides the following guidance topics for provisioning:
+
+[Understanding the Boot Process](./ignition/boot-process.md)
+[Configuring the Network with Ignition](./ignition/network-configuration.md)
+[Using metadata during provisioning](./ignition/dynamic-data.md)
+[Getting started with Butane](./butane/getting-started.md)
+[Examples of using Butane](./butane/examples.md)
+[Using Terraform to provision Flatcar Container Linux](./infrastructure/)
+[Extending the base OS with systemd-sysext images](../sys-ext/_index.md)
 
