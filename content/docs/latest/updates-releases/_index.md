@@ -16,5 +16,12 @@ This describes managing updates and releases.
 
 - [Nebraska Update Manager](./nebraska/_index.md) - The update manager for Flatcar Container Linux. It offers an easy way to monitor and manage the rollout of updates to applications that use the Omaha protocol, with special functionality for Flatcar Container Linux updates.
 
-- [Releases](./releases/_index.md) - Lean about managing release schedules and channel.
+- [Releases](./releases/_index.md) - Guidance for managing release schedules and channels.
 
+## Common tasks
+
+ - [Switching release channels](./releases/switching-channels.mdrelease-channels)
+ - [Configuring the update strategy](./releases/update-strategies.md)
+ - [Flatcar update configuration specification](./releases/update-conf.md) 
+ - [Verifying Flatcar Images with GPG](./releases/verify-images.md)
+ 

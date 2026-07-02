@@ -1,5 +1,5 @@
 ---
-title: Virtualization Options
+title: FlatcarVirtualization Options
 weight: 40
 aliases:
     - /docs/latest/installing/community-platforms/
@@ -7,36 +7,15 @@ aliases:
     - ../community-platforms
 ---
 
+Flatcar Virtualization Options
+
 The Flatcar Container Linux community has provided support for Flatcar Container Linux on a number of platforms beyond those [officially supported][official-support] (i.e, fully covered in the automated tests) by Kinvolk.
 
-
-
-The platforms and providers listed below each provide support and documentation for running Flatcar Container Linux:
-
-## Cloud providers
-
-* [Exoscale][exoscale]
-* [OVHcloud][ovhcloud]
-* [OracleCloud][oraclecloud]
-* [Scaleway][scaleway]
-* [VMWare][vmware]
-* [Vultr VPS][vultr]
+In addition to supported [Cloud Providers](../cloud/_index.md), Flatcar works the the community to support these other virtualization options:
 
 ## Other providers
 
-* [Eucalyptus][eucalyptus]
-* [Proxmox VE][proxmoxve]
-* [Vagrant][vagrant]
-* [VirtualBox][virtualbox]
+- [Eucalyptus](./eucalyptus.md)
+- [Vagrant](./vagrant.md)
+- [VirtualBox](./virtualbox.md)
 
-[exoscale]: exoscale
-[vultr]: vultr
-[eucalyptus]: eucalyptus
-[scaleway]: scaleway
-[vagrant]: ../vms/vagrant
-[virtualbox]: ../vms/virtualbox
-[official-support]: ../../
-[ovhcloud]: ovhcloud
-[oraclecloud]: oraclecloud
-[proxmoxve]: proxmoxve
-[vmware]: vmware

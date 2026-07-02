@@ -1,13 +1,13 @@
 ---
-title: Security
+title: Flatcar Container Linux Security
 weight: 90
 description: >
   Security hardening, encryption, and authentication for Flatcar Container Linux.
 ---
 
-# Flatcar Security
+# Flatcar Container Linux Security
 
-Flatcar security comprises the following areas:
+Flatcar security covers the following areas:
 
 - [Certificates and SSSD](./cert-auth/_index.md)
 - [Encryption](./encryption/_index.md)
