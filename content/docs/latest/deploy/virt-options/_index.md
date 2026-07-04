@@ -33,8 +33,8 @@ The platforms and providers listed below each provide support and documentation 
 [vultr]: vultr
 [eucalyptus]: eucalyptus
 [scaleway]: scaleway
-[vagrant]: ../vms/vagrant
-[virtualbox]: ../vms/virtualbox
+[vagrant]: vagrant
+[virtualbox]: virtualbox
 [official-support]: ../../
 [ovhcloud]: ovhcloud
 [oraclecloud]: oraclecloud
