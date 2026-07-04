@@ -808,4 +808,4 @@ Take a look at the [SDK bootstrap process](sdk-bootstrapping) to learn how to bu
 [mantle]: https://github.com/flatcar/mantle
 [prodimages]: sdk-building-production-images
 [sdktips]: sdk-tips-and-tricks
-[booting-qemu]: ../fb-provision/vms/qemu#ssh-keys
+[booting-qemu]: ../deploy/virt-options/qemu#ssh-keys

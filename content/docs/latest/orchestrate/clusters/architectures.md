@@ -219,7 +219,7 @@ storage:
 [butane-download]: https://github.com/coreos/butane/releases
 [ignition-getting-started]: https://github.com/coreos/ignition/blob/main/docs/getting-started.md
 [ignition-supported]: https://github.com/coreos/ignition/blob/main/docs/supported-platforms.md
-[flatcar-qemu]: ../../fb-provision/vms/qemu
+[flatcar-qemu]: ../../deploy/virt-options/qemu
 [minikube]: https://github.com/kubernetes/minikube
 [nebraska-update]: https://github.com/kinvolk/nebraska
 [flatcar-channels]: https://www.flatcar-linux.org/releases/
