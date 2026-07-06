@@ -230,7 +230,7 @@ Now that you have a machine booted it is time to play around. Check out the [Fla
 ## Terraform
 
 The [`libvirt` Terraform Provider](https://github.com/dmacvicar/terraform-provider-libvirt/) lets you describe Flatcar machines declaratively, powering automation that can be reused across bare metal, virtualization, and cloud environments.
-Read more about using Terraform and Flatcar [here](../infrastructure/).
+Read more about using Terraform and Flatcar [here](../../fb-provision/infrastructure/).
 
 The following snippet shows the simplest working configuration: it downloads the Stable channel image, keeps it immutable, creates a CoW layer for the writable system disk, renders Ignition, and feeds it to the guest via fw_cfg so you can provision a single VM in just a few commands.
 

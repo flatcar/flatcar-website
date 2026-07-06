@@ -231,7 +231,7 @@ The root partition encryption key will be inaccessible at second boot; the VM wi
 While that's fine for demonstration purposes, it's not recommended for production environments.
 For large-scale deployments you would want to store the key someplace safe where it can be retrieved automatically, e.g. in a TPM.
 After working through the section below to understand encryption basics,
-check out our documentation on [setting up a TPM backed encrypted root FS](./../setup/security/luks) for a TPM deep dive.
+check out our documentation on [setting up a TPM backed encrypted root FS](../../security/encryption/luks) for a TPM deep dive.
 
 </td></tr></table>
 

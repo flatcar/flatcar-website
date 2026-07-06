@@ -158,7 +158,7 @@ For more examples using systemd customization, check out these documents:
 
 - [Customizing Docker](../../orchestrate/containers/customizing-docker#using-a-dockercfg-file-for-authentication)
 - [Customizing the SSH Daemon](../../security/cert-auth/customizing-sshd#changing-the-sshd-port)
-- [Using Environment Variables in systemd Units](../environment-variables)
+- [Using Environment Variables in systemd Units](./environment-variables)
 
 ## More Information
 

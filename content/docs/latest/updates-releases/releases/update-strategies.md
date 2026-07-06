@@ -14,7 +14,7 @@ We realize that each Flatcar Container Linux cluster has a unique tolerance for 
 
 This document is about the update client and how it consumes the updates when they get available.
 The public update server makes the new releases available as soon as they get published.
-To control this part of the update rollout, look at the different [public update channels and how you can run your own update server](../switching-channels/).
+To control this part of the update rollout, look at the different [public update channels and how you can run your own update server](./switching-channels/).
 
 It's important to note that updates are always downloaded to the passive partition when they become available (see further below for disabling automatic updates). A reboot is the last step of the update, where the active and passive partitions are swapped ([rollback instructions][rollback]).
 
