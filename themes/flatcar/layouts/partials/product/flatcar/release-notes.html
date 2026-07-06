@@ -1,20 +1,20 @@
-{{ $ctx := .ctx }}
 {{ range $i, $release := sort .chan "version" "desc" }}
 {{ if not (hasPrefix $release.release "current") }}
-<div class="row">
-  <div class="col-12 col-md-auto">
-    <a class="btn btn-black" id="release-{{ $release.version }}" href="#release-{{ $release.version }}">{{ $release.version }}</a>
-  </div>
-  <div class="col-12 col-md mt-3">
-    <p class="date small">Release Date: {{ dateFormat "Jan 2, 2006" $release.github_release.published_at }}&nbsp;
-      <span class="ms-1">
-        {{ range $j, $arch := $release.architectures }}
-          <a class="arch fw-light" href="https://{{ $release.channel }}.release.flatcar-linux.net/{{ $arch }}-usr/{{ $release.version }}/">{{ $arch }}</a>
+<div class="release-entry" id="release-{{ $release.version }}">
+  <div class="release-entry__header{{ if ne $i 0 }} collapsed{{ end }}" data-bs-toggle="collapse" data-bs-target="#release-body-{{ $release.channel }}-{{ $release.version | replaceRE "\\." "-" }}" aria-expanded="{{ if eq $i 0 }}true{{ else }}false{{ end }}">
+    <div class="release-entry__summary">
+      <span class="release-entry__toggle-icon fa-solid fa-chevron-right"></span>
+      <a class="release-entry__version" href="#release-{{ $release.version }}" onclick="event.stopPropagation();">{{ $release.version }}</a>
+      <span class="release-entry__date">{{ dateFormat "Jan 2, 2006" $release.github_release.published_at }}</span>
+      <span class="release-entry__archs">
+        {{ range $release.architectures }}
+          <a class="arch fw-light" href="https://{{ $release.channel }}.release.flatcar-linux.net/{{ . }}-usr/{{ $release.version }}/" onclick="event.stopPropagation();">{{ . }}</a>
         {{ end }}
       </span>
-    </p>
+    </div>
   </div>
-  <div class="col-12 mt-3">
+  <div class="collapse {{ if eq $i 0 }}show{{ end }}" id="release-body-{{ $release.channel }}-{{ $release.version | replaceRE "\\." "-" }}">
+    <div class="release-entry__body">
       <div class="small packages mb-3">
         {{ range $pkg, $ver := $release.image_packages }}
         <span class="fw-bold">{{ $pkg }}</span> - {{ $ver }}<br/>
@@ -23,11 +23,8 @@
       <div class="release-notes">
           {{ $release.github_release.body | markdownify }}
       </div>
-      <div class="release-separator">
-        <hr/>
-      </div>
+    </div>
   </div>
 </div>
 {{ end }}
 {{ end }}
-
