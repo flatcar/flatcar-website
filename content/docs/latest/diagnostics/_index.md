@@ -7,3 +7,11 @@ weight: 70
 aliases:
   - /docs/latest/setup/debug/
 ---
+
+Use this section to inspect logs, install debugging tools, troubleshoot filesystem problems, and recover from failed updates or boots.
+
+- [Install debugging tools](./install-debugging-tools.md)
+- [Read the system log](./reading-the-system-log.md)
+- [Collect crash logs](./collecting-crash-logs.md)
+- [Troubleshoot btrfs](./btrfs-troubleshooting.md)
+- [Manual rollbacks](./manual-rollbacks.md)

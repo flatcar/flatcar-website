@@ -7,3 +7,7 @@ weight: 35
 aliases:
     - /docs/latest/installing/customizing-the-image/
 ---
+
+Use image customization when you need to prepare a Flatcar image before first boot.
+
+- [Customize the image](./customize-the-image.md)
