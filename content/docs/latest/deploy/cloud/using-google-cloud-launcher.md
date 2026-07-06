@@ -1,5 +1,5 @@
 ---
-title: Deploying Flatcar Container Linux using Google Cloud Launcher
+title: Using Google Cloud Launcher
 linktitle: Using Google Cloud Launcher
 description: >
   How to use the Google Cloud Launcher Marketplace feature to launch

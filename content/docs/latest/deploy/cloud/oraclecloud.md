@@ -1,10 +1,10 @@
 ---
-title: Running Flatcar on OracleCloud
-linktitle: Running on OracleCloud
+title: OracleCloud (community support)
+linktitle: OracleCloud (community support)
 weight: 25
 ---
 
-These instructions will walk you through using Flatcar on [OracleCloud][oraclecloud], importing an image, and running your first server using the command line interface. Please note that OracleCloud is a community supported platform at the moment which means that the CI does not run on OracleCloud images.
+These instructions will walk you through using Flatcar on [OracleCloud][oraclecloud], importing an image, and running your first server using the command line interface.
 
 ## Import the image
 

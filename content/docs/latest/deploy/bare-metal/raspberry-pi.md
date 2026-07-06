@@ -1,6 +1,6 @@
 ---
-title: Running Flatcar Container Linux on Raspberry Pi 4
-linktitle: Running on Raspberry Pi 4
+title: Raspberry Pi 4
+linktitle: Raspberry Pi 4
 weight: 50
 aliases:
     - /docs/latest/installing/bare-metal/raspberry-pi/

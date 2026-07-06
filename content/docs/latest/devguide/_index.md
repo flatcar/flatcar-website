@@ -7,7 +7,7 @@ aliases:
   - ../os/developer-guides
 ---
 
-This section is for developers who want to build Flatcar Container Linux from source, modify the OS, or produce customized images and integrations.
+This section is for developers who want to build Flatcar Container Linux from source, modify the OS, or produce customized images. Flatcar provides a containerized SDK for extending the OS and building custom images, together with OEM tooling for adapting Flatcar to run in specific environments.
 
 ## SDK
 

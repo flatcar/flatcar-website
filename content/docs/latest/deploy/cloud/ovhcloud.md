@@ -1,12 +1,12 @@
 ---
-title: Running Flatcar on OVHcloud
-linktitle: Running on OVHcloud
+title: OVHcloud (community support)
+linktitle: OVHcloud (community support)
 weight: 15
 aliases:
     - /docs/latest/installing/community-platforms/ovhcloud/
 ---
 
-These instructions will walk you through using Flatcar on [OVHcloud][ovhcloud], importing an image, and running your first server using the OpenStack command line interface. Please note that OVHcloud is a community supported platform at the moment which means that the CI does not run on OpenStack images in OVHcloud environment.
+These instructions will walk you through using Flatcar on [OVHcloud][ovhcloud], importing an image, and running your first server using the OpenStack command line interface.
 
 Additional note: OVHcloud is compatible with OpenStack: it is not a mistake if we refer to OpenStack images and specific variables.
 

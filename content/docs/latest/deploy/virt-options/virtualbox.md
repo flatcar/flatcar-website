@@ -1,5 +1,6 @@
 ---
-title: Running on VirtualBox
+title: VirtualBox (community support)
+linktitle: VirtualBox (community support)
 weight: 30
 aliases:
     - /docs/latest/installing/vms/virtualbox/
@@ -7,7 +8,7 @@ aliases:
     - ../../cloud-providers/booting-on-virtualbox
 ---
 
-_While we always welcome community contributions and fixes, please note that VirtualBox is not an officially supported platform at this time. (See the [platform overview](/#installing-flatcar).)_
+_While we always welcome community contributions and fixes, please note that VirtualBox is not an officially supported platform at this time._
 
 These instructions will walk you through running Flatcar Container Linux on Oracle VM VirtualBox.
 

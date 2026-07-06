@@ -1,6 +1,6 @@
 ---
-title: Running Flatcar Container Linux on Microsoft Azure
-linktitle: Running on Microsoft Azure
+title: Microsoft Azure
+linktitle: Microsoft Azure
 weight: 15
 aliases:
     - /docs/latest/installing/cloud/azure/

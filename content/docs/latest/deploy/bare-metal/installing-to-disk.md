@@ -1,6 +1,6 @@
 ---
-title: Installing Flatcar Container Linux to disk
-linktitle: Using flatcar-install script
+title: Installing to disk
+linktitle: Installing to disk
 description: >
   How to use the flatcar-install script to install Flatcar from
   a running system.

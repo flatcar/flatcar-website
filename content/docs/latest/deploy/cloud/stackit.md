@@ -1,6 +1,6 @@
 ---
-title: Running Flatcar on STACKIT
-linktitle: Running on STACKIT
+title: STACKIT
+linktitle: STACKIT
 weight: 55
 aliases:
     - /docs/latest/installing/cloud/stackit/

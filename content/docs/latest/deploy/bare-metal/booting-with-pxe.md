@@ -1,5 +1,5 @@
 ---
-title: Booting Flatcar Container Linux via PXE
+title: Booting via PXE
 linktitle: Booting via PXE
 weight: 20
 aliases:

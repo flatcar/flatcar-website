@@ -1,6 +1,6 @@
 ---
-title: Running Flatcar on Akamai Connected Cloud (Linode)
-linktitle: Running on Akamai
+title: Akamai Connected Cloud (Linode)
+linktitle: Akamai Connected Cloud (Linode)
 weight: 50
 aliases:
     - /docs/latest/installing/cloud/akamai/
