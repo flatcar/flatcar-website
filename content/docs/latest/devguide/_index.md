@@ -7,24 +7,20 @@ aliases:
   - ../os/developer-guides
 ---
 
-This section is aimed at curious developers interested in building Flatcar Container Linux from source and/or in modifying the OS.
-We provide a containerised SDK that allows you to extend Flatcar and to build your own OS images.
-We also provide OEM functionality for cloud providers and similar use cases to customize Flatcar Container Linux to run within their environment.
+This section is for developers who want to build Flatcar Container Linux from source, modify the OS, or produce customized images and integrations.
 
-- [Guide to building custom Flatcar images from source][mod-cl]
-- [Vending production images / CI integration][production-images]
-- [Building custom kernel modules][kernel-modules]
-- [SDK tips and tricks][sdk-tips]
-- [SDK build process][sdk-bootstrapping]
-- [Disk layout][disk-layout]
-- [Kola integration testing framework][mantle-utils]
-- [Release guide][release-guide]
+## SDK
 
-[sdk-tips]: sdk-tips-and-tricks
-[disk-layout]: sdk-disk-partitions
-[production-images]: sdk-building-production-images
-[mod-cl]: sdk-modifying-flatcar
-[kernel-modules]: kernel-modules
-[sdk-bootstrapping]: sdk-bootstrapping
-[mantle-utils]: https://github.com/flatcar/mantle/blob/flatcar-master/README.md#kola
-[release-guide]: release-guide
+- [SDK tips and tricks](./sdk-tips-and-tricks.md)
+- [SDK build process](./sdk-bootstrapping.md)
+- [Disk layout](./sdk-disk-partitions.md)
+- [Guide to building custom Flatcar images from source](./sdk-modifying-flatcar.md)
+- [Vending production images / CI integration](./sdk-building-production-images.md)
+- [Building custom kernel modules](./kernel-modules.md)
+- [Release guide](./release-guide.md)
+
+## Guides
+
+- [Integrations](./integrations.md)
+- [Kola integration testing framework](https://github.com/flatcar/mantle/blob/flatcar-master/README.md#kola)
+- [Supply chain security mechanisms](../security/supply-chain.md)
