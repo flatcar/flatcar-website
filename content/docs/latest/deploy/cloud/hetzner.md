@@ -1,6 +1,6 @@
 ---
-title: Running Flatcar Container Linux on Hetzner
-linktitle: Running on Hetzner
+title: Hetzner
+linktitle: Hetzner
 weight: 35
 aliases:
     - /docs/latest/installing/cloud/hetzner/

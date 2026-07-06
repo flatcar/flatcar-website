@@ -1,12 +1,12 @@
 ---
-title: Running Flatcar Container Linux on KubeVirt
-linktitle: Running on KubeVirt
+title: KubeVirt (community support)
+linktitle: KubeVirt (community support)
 weight: 60
 aliases:
     - /docs/latest/installing/vms/kubevirt/
 ---
 
-_While we always welcome community contributions and fixes, please note that KubeVirt is not an officially supported platform at this time because the release tests don't run for it. (See the [platform overview](/#installing-flatcar).)_
+_While we always welcome community contributions and fixes, please note that KubeVirt is not an officially supported platform at this time because the release tests don't run for it._
 
 These instructions will walk you through running Flatcar Container Linux on KubeVirt.
 

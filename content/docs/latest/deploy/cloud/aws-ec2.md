@@ -1,6 +1,6 @@
 ---
-title: Running Flatcar Container Linux on AWS EC2
-linktitle: Running on AWS EC2
+title: AWS EC2
+linktitle: AWS EC2
 weight: 10
 aliases:
     - /docs/latest/installing/cloud/aws-ec2/

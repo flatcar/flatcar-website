@@ -1,5 +1,5 @@
 ---
-title: Booting Flatcar Container Linux from an ISO
+title: Booting from an ISO
 linktitle: Booting from an ISO
 weight: 10
 aliases:

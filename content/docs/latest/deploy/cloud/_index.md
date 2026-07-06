@@ -9,19 +9,6 @@ aliases:
     - ../cloud-providers
 ---
 
-Flatcar provides deployment guidance for the following cloud platforms.
+Cloud providers run and manage the VM lifecycle on your behalf. You select a Flatcar image published to the provider and pass an Ignition config via `user-data`; the platform handles hardware, network, storage, and instance boot. This is the lowest-effort path to running Flatcar in production.
 
-- [Akamai/Linode](./akamai.md)
-- [Amazon EC2](./aws-ec2.md)
-- [Brightbox](./brightbox.md)
-- [DigitalOcean](./digitalocean.md)
-- [Exoscale](./exoscale.md)
-- [Google Compute Engine](./gcp.md)
-- [Hetzner](./hetzner.md)
-- [Microsoft Azure](./azure.md)
-- [STACKIT](./stackit.md)
-- [VMware](./vmware.md)
-- [Oracle Cloud](./oraclecloud.md) *(community support)*
-- [OVHcloud](./ovhcloud.md) *(community support)*
-- [Scaleway](./scaleway.md) *(community support)*
-- [Vultr VPS](./vultr.md) *(community support)*
+Officially supported providers are covered by the Flatcar test suite. Community-supported providers are maintained by contributors on a best-effort basis and are marked *(community support)* in the sidebar and on their individual pages.

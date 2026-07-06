@@ -1,6 +1,6 @@
 ---
-title: Running Flatcar Container Linux on OpenStack
-linktitle: Running on OpenStack
+title: OpenStack
+linktitle: OpenStack
 weight: 40
 aliases:
     - /docs/latest/installing/cloud/openstack/

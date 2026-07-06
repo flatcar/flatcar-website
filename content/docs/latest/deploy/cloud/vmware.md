@@ -1,6 +1,6 @@
 ---
-title: Running Flatcar Container Linux on VMware
-linktitle: Running on VMware
+title: VMware
+linktitle: VMware
 weight: 25
 aliases:
     - /docs/latest/installing/community-platforms/vmware/

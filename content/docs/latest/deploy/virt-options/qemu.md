@@ -1,5 +1,6 @@
 ---
-title: Running on QEMU
+title: QEMU
+linktitle: QEMU
 weight: 10
 aliases:
     - /docs/latest/installing/vms/qemu/

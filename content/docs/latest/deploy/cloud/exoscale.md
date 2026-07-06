@@ -1,6 +1,6 @@
 ---
-title: Running Flatcar Container Linux on Exoscale
-linktitle: Running on Exoscale
+title: Exoscale
+linktitle: Exoscale
 weight: 10
 aliases:
     - /docs/latest/installing/community-platforms/exoscale/

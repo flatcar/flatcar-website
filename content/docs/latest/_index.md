@@ -28,6 +28,6 @@ Flatcar uses automated provisioning, read-only system images, and atomic updates
 
 ## Community
 
-- Slack: `#flatcar` in Kubernetes Slack
-- Discord: https://discord.gg/PMYjFUsJyq
-- GitHub: https://github.com/flatcar
+- Discord: [Flatcar Discord server](https://discord.gg/PMYjFUsJyq)
+- GitHub: [github.com/flatcar](https://github.com/flatcar)
+- Contributing: [CONTRIBUTING.md](https://github.com/flatcar/Flatcar/blob/main/CONTRIBUTING.md)

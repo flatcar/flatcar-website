@@ -1,6 +1,6 @@
 ---
-title: Running Flatcar Container Linux on libvirt
-linktitle: Running on libvirt
+title: libvirt
+linktitle: libvirt
 weight: 20
 aliases:
     - /docs/latest/installing/vms/libvirt/

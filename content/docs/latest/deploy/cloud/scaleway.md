@@ -1,12 +1,12 @@
 ---
-title: Running Flatcar on Scaleway
-linktitle: Running on Scaleway
+title: Scaleway (community support)
+linktitle: Scaleway (community support)
 weight: 25
 aliases:
     - /docs/latest/installing/community-platforms/scaleway/
 ---
 
-These instructions will walk you through using Flatcar on [Scaleway][scaleway], importing an image, and running your first server using the command line interface. Please note that Scaleway is a community supported platform at the moment which means that the CI does not run on Scaleway images.
+These instructions will walk you through using Flatcar on [Scaleway][scaleway], importing an image, and running your first server using the command line interface.
 
 ## Import the image
 

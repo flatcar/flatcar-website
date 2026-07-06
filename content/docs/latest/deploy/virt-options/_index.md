@@ -1,5 +1,5 @@
 ---
-title: Flatcar Container Linux Virtualization Options
+title: Virtualization Options
 weight: 40
 aliases:
     - /docs/latest/installing/community-platforms/
@@ -7,20 +7,6 @@ aliases:
     - ../community-platforms
 ---
 
-# Flatcar Virtualization Options
+Virtualization options let you run Flatcar as a VM on a hypervisor you manage, rather than delegating the VM lifecycle to a [cloud provider](../cloud/). You are responsible for booting the image, attaching storage and networking, and delivering the Ignition config to the guest (for example via QEMU `fw_cfg`, a config-drive, or the hypervisor's guest-info channel).
 
-The Flatcar Container Linux community has provided support for Flatcar Container Linux on a number of platforms beyond those [officially supported](/#installing-flatcar) (i.e, fully covered in the automated tests) by Kinvolk.
-
-In addition to supported [Cloud Providers](../cloud/_index.md), Flatcar works with the community to support these other virtualization options:
-
-## Other providers
-
-- [QEMU](./qemu.md)
-- [libvirt](./libvirt.md)
-- [Hyper-V](./hyper-v.md)
-- [KubeVirt](./kubevirt.md)
-- [OpenStack](./openstack.md)
-- [Proxmox VE](./proxmoxve.md)
-- [Eucalyptus](./eucalyptus.md)
-- [Vagrant](./vagrant.md)
-- [VirtualBox](./virtualbox.md)
+Some hypervisors are officially covered by the Flatcar test suite (QEMU, libvirt); others are maintained by community contributors and marked *(community support)* in the sidebar.

@@ -1,6 +1,6 @@
 ---
-title: Running Flatcar on Brightbox
-linktitle: Running on Brightbox
+title: Brightbox
+linktitle: Brightbox
 weight: 45
 aliases:
     - /docs/latest/installing/cloud/brightbox/
