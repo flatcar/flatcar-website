@@ -4,7 +4,7 @@ linktitle: Running on OracleCloud
 weight: 25
 ---
 
-These instructions will walk you through using Flatcar on [OracleCloud][oraclecloud], importing an image, and running your first server using the command line interface. Please note that OracleCloud is a community supported platform at the moment which means that the CI does not run on OracleCloud images.
+These instructions will walk you through using Flatcar on [OracleCloud][oraclecloud], importing an image, and running your first server using the command line interface.
 
 ## Import the image
 
@@ -27,9 +27,7 @@ export BUCKET_NAME="flatcar-${CHANNEL}"
 # Create the bucket
 oci os bucket create --name "${BUCKET_NAME}" --compartment-id "${COMPARTMENT_ID}"
 # Download Flatcar image
-curl --fail --silent --show-error --location --remote-name "https://${CHANNEL}.release.flatcar-linux.net/${ARCH}-usr/${VERSION}/flatcar_production_oraclecloud_image.img.bz2"
-# Decompress Flatcar image
-bzip2 --decompress ./flatcar_production_oraclecloud_image.img.bz2
+curl --fail --silent --show-error --location --remote-name "https://${CHANNEL}.release.flatcar-linux.net/${ARCH}-usr/${VERSION}/flatcar_production_oraclecloud_image.img"
 # Upload Flatcar image to the bucket
 oci os object put --bucket-name "${BUCKET_NAME}" --file ./flatcar_production_oraclecloud_image.img
 
