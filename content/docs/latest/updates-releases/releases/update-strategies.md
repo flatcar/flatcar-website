@@ -1,6 +1,6 @@
 ---
 title: Update and reboot strategies
-description: How to configure when you Flatcar instances should reboot.
+description: How to configure when your Flatcar instances should reboot.
 weight: 30
 aliases:
   - /docs/latest/setup/releases/update-strategies/

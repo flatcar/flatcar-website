@@ -6,7 +6,7 @@ aliases:
     - /docs/latest/installing/cloud/akamai/
 ---
 
-These instructions will walk you throug running Flatcar on [Akamai Connected
+These instructions will walk you through running Flatcar on [Akamai Connected
 Cloud][akamai-connected-cloud] (Linode).
 
 ## Choosing a region

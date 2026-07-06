@@ -630,7 +630,7 @@ Users can then make their critical services depend on this unit, so all these ne
 Consider this service definition:
 
 ```yaml
-- name: first-boot-healtcheck.service
+- name: first-boot-healthcheck.service
   enabled: true
   contents: |
     [Unit]
@@ -652,7 +652,7 @@ Users could now use
 ```yaml
 systemd:
   units:
-    - name: first-boot-healtcheck.service
+    - name: first-boot-healthcheck.service
       dropins:
         - name: nginx-essential-service.conf
           contents: |
@@ -828,7 +828,7 @@ systemd:
         [Install]
         WantedBy=multi-user.target
 
-    - name: first-boot-healtcheck.service
+    - name: first-boot-healthcheck.service
       enabled: true
       contents: |
         [Unit]
@@ -903,7 +903,7 @@ After boot, become root (`sudo -i`).
 Check the NGINX web server from your local browser, and check the status of the various services we defined:
 
 ```sh
-systemctl status nginx.service update-engine.service is-first-boot-after-upgrade.service first-boot-healtcheck.service reboot-after-unhealthy-upgrade.service -l --no-pager
+systemctl status nginx.service update-engine.service is-first-boot-after-upgrade.service first-boot-healthcheck.service reboot-after-unhealthy-upgrade.service -l --no-pager
 ```
 
 Among other things, we can see that `reboot-after-unhealthy-upgrade.service` tried to start 60 seconds after boot, but fortunately did not trigger a reboot as its precondition was not met (the non-existence of `/run/first-boot-healthy`).
