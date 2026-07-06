@@ -1,6 +1,6 @@
 ---
-title: Running Flatcar Container Linux on Proxmox VE
-linktitle: Running on Proxmox VE
+title: Proxmox VE (community support)
+linktitle: Proxmox VE (community support)
 weight: 40
 aliases:
     - /docs/latest/installing/community-platforms/proxmoxve/

@@ -1,5 +1,5 @@
 ---
-title: Booting Flatcar Container Linux via iPXE
+title: Booting via iPXE
 linktitle: Booting via iPXE
 weight: 30
 aliases:

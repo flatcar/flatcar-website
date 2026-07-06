@@ -10,11 +10,7 @@ aliases:
   - /docs/latest/nebraska/
 ---
 
-This section covers Nebraska, Flatcar release channels, and common update-management tasks.
+Nebraska is an update manager for Flatcar Container Linux. It uses the Omaha protocol to monitor and orchestrate the rollout of updates across a fleet. This section covers Nebraska together with Flatcar release channels and common update-management tasks.
 
 - [Nebraska Update Manager](./nebraska/_index.md)
 - [Releases](./releases/_index.md)
-- [Switching release channels](./releases/switching-channels.md)
-- [Configuring the update strategy](./releases/update-strategies.md)
-- [Flatcar update configuration specification](./releases/update-conf.md)
-- [Verifying Flatcar images with GPG](./releases/verify-images.md)

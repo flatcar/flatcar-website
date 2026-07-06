@@ -1,6 +1,6 @@
 ---
-title: Running Flatcar Container Linux on Google Compute Engine
-linktitle: Running on Google Compute Engine
+title: Google Compute Engine
+linktitle: Google Compute Engine
 weight: 20
 aliases:
     - /docs/latest/installing/cloud/gcp/

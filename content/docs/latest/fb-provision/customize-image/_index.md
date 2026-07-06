@@ -8,6 +8,6 @@ aliases:
     - /docs/latest/installing/customizing-the-image/
 ---
 
-Use image customization when you need to prepare a Flatcar image before first boot.
+Image customization prepares a Flatcar image before it boots for the first time. Use this workflow when configuration needs to live on the image itself, for example when embedding an Ignition config, staging files on the root or OEM filesystem, or distributing a pre-configured image. For most first-boot configuration, delivering a Butane or Ignition config to a stock image is the recommended path.
 
 - [Customize the image](./customize-the-image.md)

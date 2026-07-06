@@ -1,6 +1,6 @@
 ---
-title: Running Flatcar Container Linux on DigitalOcean
-linktitle: Running on DigitalOcean
+title: DigitalOcean
+linktitle: DigitalOcean
 weight: 30
 aliases:
     - /docs/latest/installing/cloud/digitalocean/

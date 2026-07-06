@@ -1,13 +1,13 @@
 ---
-title: Running Flatcar Container Linux on Vagrant
-linktitle: Running on Vagrant
+title: Vagrant (community support)
+linktitle: Vagrant (community support)
 weight: 40
 aliases:
     - ../../os/booting-on-vagrant
     - ../../cloud-providers/booting-on-vagrant
 ---
 
-_While we always welcome community contributions and fixes, please note that Vagrant is not an officially supported platform at this time. (See the [platform overview](/#installing-flatcar).)_
+_While we always welcome community contributions and fixes, please note that Vagrant is not an officially supported platform at this time._
 
 Running Flatcar Container Linux with Vagrant is one way to bring up a single machine or virtualize an entire cluster on your laptop.
 

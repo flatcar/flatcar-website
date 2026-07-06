@@ -1,6 +1,6 @@
 ---
-title: Running Flatcar on OracleCloud
-linktitle: Running on OracleCloud
+title: OracleCloud
+linktitle: OracleCloud
 weight: 25
 ---
 
