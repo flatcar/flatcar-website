@@ -8,7 +8,7 @@ aliases:
 
 While Flatcar proposes Containerd and Docker by default, [Incus][incus] can be used to run containers. The goal of this guide is not to re-write the Incus documentation but to give key aspects of Incus usage on Flatcar.
 
-# Installing Incus
+## Installing Incus
 
 Incus is provided as an [official][official-sysext] Systemd sysext Flatcar extension. To install it automatically at boot:
 ```yaml
@@ -55,7 +55,7 @@ core wheel
 8 memberships listed.
 ```
 
-# Initialize Incus
+## Initialize Incus
 
 Before using Incus, it must be initialized using one of those two ways:
 * Via CLI - Ideal for testing and quick setups.
@@ -133,7 +133,7 @@ systemd:
         WantedBy=multi-user.target
 ```
 
-# Using Incus
+## Using Incus
 
 Once Incus is installed and initialized, Incus [documentation][documentation] can be consulted to learn how to operate containers.
 
@@ -161,7 +161,7 @@ PRIVACY_POLICY_URL="https://www.ubuntu.com/legal/terms-and-policies/privacy-poli
 UBUNTU_CODENAME=jammy
 ```
 
-# Using Incus and ZFS
+## Using Incus and ZFS
 
 [ZFS][zfs] is provided as a Systemd sysext Flatcar extension as well, it fits perfectly with Incus as a storage driver. This configuration can be used to deactivate Docker and Containerd and enable Incus runtime using ZFS storage.
 

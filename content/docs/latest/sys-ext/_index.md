@@ -8,7 +8,7 @@ aliases:
 
 Flatcar Container Linux bundles various software components with fixed versions together into one release.
 For users that require a particular version of a software component this means that the software needs to be supplied out of band and overwrite the built-in software copy.
-Another approach we recommended was to [store binaries in `/opt/bin`](../orchestrate/containers/use-a-custom-docker-or-containerd-version/) and prefer them in the `PATH`.
+Another approach we recommended was to store binaries in `/opt/bin` and prefer them in the `PATH`.
 
 For long time already, the systemd project provided the portable services feature to address deploying custom services.
 However, since it only covered the service itself without making the client binaries available on the user, it didn't really fit the use case fully.

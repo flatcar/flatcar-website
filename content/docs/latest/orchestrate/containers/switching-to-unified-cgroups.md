@@ -21,7 +21,7 @@ Flatcar version, a post update script does two things:
 * creates a systemd drop-in unit at `/etc/systemd/system/containerd.service.d/10-use-cgroupfs.conf` that
   configures `containerd` to keep using cgroupfs for cgroups.
 
-# Migrating old nodes to unified cgroups
+## Migrating old nodes to unified cgroups
 
 To undo the changes performed by the post update script, execute the following commands as root (or using `sudo`):
 
@@ -32,7 +32,7 @@ sed -i -e '/systemd.legacy_systemd_cgroup_controller/d' /usr/share/oem/grub.cfg
 reboot
 ```
 
-# Starting new nodes with legacy cgroups
+## Starting new nodes with legacy cgroups
 
 Nodes deployed with the release incorporating the described changes use cgroups v2 by default. To revert to cgroups v1 on new
 nodes during provisioning, use the following Ignition snippet (here as Butane YAML to be transpiled to Ignition JSON):
@@ -92,16 +92,16 @@ Beware that over time it is expected that upstream projects will drop support fo
 
 **Known issues:** Unprivileged containers with user namespaces may lack permissions to access the bind mount ([Flatcar#722](https://github.com/flatcar/Flatcar/issues/722)) and unmounting the bind mount before starting the container is needed.
 
-## Generate AWS EC2 cgroups v1 AMIs
+### Generate AWS EC2 cgroups v1 AMIs
 
 The [`create_cgroupv1_ami.sh` script](https://raw.githubusercontent.com/flatcar/flatcar-docs/main/create_cgroupv1_ami.sh) performs the image modification as outlined above for you to upload your own Flatcar AMI that directly boots into cgroup v1 without needing an additonal reboot.
 
-# Kubernetes
+## Kubernetes
 
 The unified cgroup hierarchy is supported starting with Docker v20.10 and
 Kubernetes v1.19. Users that need to run older version will need to revert to
 cgroups v1, but are urged to find a migration path. Flatcar now ships with Docker
-v20.10, older versions can be deployed following the instructions on [running custom docker versions](use-a-custom-docker-or-containerd-version).
+v20.10.
 
 Flatcar nodes that had Kubernetes deployed on them before the introduction of
 cgroups v2 should be careful when migrating. Depending on the deployment method,
@@ -120,7 +120,7 @@ or adding a `docker.service` drop-in at `/etc/systemd/system/docker.service.d/10
 Environment="DOCKER_CGROUPS=--exec-opt native.cgroupdriver=systemd"
 ```
 
-## Container Runtimes
+### Container Runtimes
 
 When deploying Kubernetes through `kubeadm`, the default container runtime on Flatcar is currently `dockershim`. In this setup, `kubelet` talks to `dockershim`, which talks to `docker`, which interfaces with `containerd`. The `SystemdCgroup` setting in `containerd`'s `config.toml` is ignored. `docker`'s cgroup driver and `kubelet` cgroup driver settings must match. Starting with Kubernetes v1.22, `kubeadm` will default to the `systemd` `cgroupDriver` setting if no setting is provided explicitly. Out of the box, Flatcar defaults are compatible with Docker and Kubernetes defaults - everything will use `systemd` cgroup driver.
 
@@ -133,7 +133,7 @@ apiVersion: kubelet.config.k8s.io/v1beta1
 cgroupDriver: systemd
 ```
 
-## Containerd
+### Containerd
 
 If users choose the `containerd` runtime, they must ensure that `containerd`'s setting for `SystemdCgroup` is consistent with `kubelet` and `docker` settings. Flatcar enables `SystemdCgroup` by default for `containerd`. Users may change the setting to suit their deployment.
 If you maintain your own containerd configuration or did follow the instructions on

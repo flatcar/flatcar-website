@@ -1,7 +1,7 @@
 ---
 title: Exoscale
 linktitle: Exoscale
-weight: 10
+weight: 50
 aliases:
     - /docs/latest/installing/community-platforms/exoscale/
     - ../../os/booting-on-exoscale
@@ -147,5 +147,5 @@ Unlike other Exoscale images where the root password is randomly set at startup,
 
 Now that you have a machine booted it is time to play around. Check out the [Flatcar Container Linux Quickstart][quickstart] guide or dig into [more specific topics][doc-index].
 
-[quickstart]: ../
+[quickstart]: ../../getting-started/quickstart
 [doc-index]: ../../

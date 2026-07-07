@@ -1,7 +1,7 @@
 ---
 title: AWS EC2
 linktitle: AWS EC2
-weight: 10
+weight: 20
 aliases:
     - /docs/latest/installing/cloud/aws-ec2/
     - ../../os/booting-on-ec2
@@ -453,7 +453,7 @@ machines               = ["mynode"]
 ssh_keys               = ["ssh-rsa AA... me@mail.net"]
 ```
 
-The machine name listed in the `machines` variable is used to retrieve the corresponding [Container Linux Config](https://www.flatcar.org/docs/latest/provisioning/cl-config/).
+The machine name listed in the `machines` variable is used to retrieve the corresponding [Container Linux Config](../../fb-provision/cl-config/).
 For each machine in the list, you should have a `machine-NAME.yaml.tmpl` file with a corresponding name.
 
 For example, create the configuration for `mynode` in the file `machine-mynode.yaml.tmpl` (The SSH key used there is not really necessary since we already set it as VM attribute):
@@ -494,7 +494,7 @@ When you make a change to `machine-mynode.yaml.tmpl` and run `terraform apply` a
 
 You can find this Terraform module in the repository for [Flatcar Terraform examples](https://github.com/flatcar/flatcar-terraform/tree/main/aws).
 
-[quickstart]: ../
+[quickstart]: ../../getting-started/quickstart
 [doc-index]: ../../
 [flatcar-user]: https://groups.google.com/forum/#!forum/flatcar-linux-user
 [docker-docs]: https://docs.docker.io

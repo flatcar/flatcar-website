@@ -1,7 +1,7 @@
 ---
 title: QEMU
 linktitle: QEMU
-weight: 10
+weight: 50
 aliases:
     - /docs/latest/installing/vms/qemu/
     - ../../os/booting-with-qemu
@@ -180,8 +180,8 @@ Now that you have a machine booted it is time to play around. Check out the [Fla
 
 [update-strategies]: ../../updates-releases/releases/update-strategies
 [release-notes]: https://flatcar-linux.org/releases
-[quickstart]: ../
+[quickstart]: ../../getting-started/quickstart
 [doc-index]: ../../
 [flatcar-dev]: https://groups.google.com/forum/#!forum/flatcar-linux-dev
 [discord]: https://discord.gg/PMYjFUsJyq
-[butane-configs]: ../butane
+[butane-configs]: ../../fb-provision/butane

@@ -172,7 +172,7 @@ Now that you have a machine booted it is time to play around. Check out the [Fla
 [release-notes]: https://flatcar-linux.org/releases
 [pxe-installation]: booting-with-pxe#installation
 [pxe-custom-oem]: booting-with-pxe#adding-a-custom-oem
-[quickstart]: ../
+[quickstart]: ../../getting-started/quickstart
 [doc-index]: ../../
 
 

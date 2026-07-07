@@ -1,7 +1,7 @@
 ---
 title: Vagrant (community support)
 linktitle: Vagrant (community support)
-weight: 40
+weight: 240
 aliases:
     - ../../os/booting-on-vagrant
     - ../../cloud-providers/booting-on-vagrant
@@ -140,6 +140,6 @@ Now that you have a machine booted it is time to play around. Check out the [Fla
 
 [flatcar-dev]: https://groups.google.com/forum/#!forum/flatcar-linux-dev
 [discord]: https://discord.gg/PMYjFUsJyq
-[butane-configs]: ../../provisioning/config-transpiler
-[quickstart]: ../
+[butane-configs]: ../../fb-provision/butane
+[quickstart]: ../../getting-started/quickstart
 [doc-index]: ../../

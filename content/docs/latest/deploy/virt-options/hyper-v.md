@@ -1,7 +1,7 @@
 ---
 title: Hyper-V (community support)
 linktitle: Hyper-V (community support)
-weight: 50
+weight: 210
 aliases:
     - /docs/latest/installing/vms/hyper-v/
 ---
@@ -161,5 +161,5 @@ Now that you have a machine booted it is time to play around. Check out the [Fla
 [update-strategies]: ../../updates-releases/releases/update-strategies
 [security-luks]: ../../security/encryption/luks
 [release-notes]: https://flatcar-linux.org/releases
-[quickstart]: ../
+[quickstart]: ../../getting-started/quickstart
 [doc-index]: ../../

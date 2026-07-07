@@ -9,7 +9,7 @@ aliases:
 
 ## Overview
 
-Sometimes it can be useful to refer to data in an Ignition config that isn't known until a machine boots, like its network address. This can be accomplished with [afterburn][afterburn] (previously called `coreos-metadata`). Afterburn is a very basic utility that fetches information about the current machine and makes it available for consumption. By making it a dependency of services which requires this information, systemd will ensure that coreos-metadata has successfully completed before starting these services. These services can then simply source the fetched information and let systemd perform the environment variable expansions.
+Sometimes it can be useful to refer to data in an Ignition config that isn't known until a machine boots, like its network address. This can be accomplished with [afterburn][afterburndocs] (previously called `coreos-metadata`). Afterburn is a very basic utility that fetches information about the current machine and makes it available for consumption. By making it a dependency of services which requires this information, systemd will ensure that coreos-metadata has successfully completed before starting these services. These services can then simply source the fetched information and let systemd perform the environment variable expansions.
 
 While the `coreos-metadata.service` runs afterburn, it will not set the hostname. The hostname is set either through an OEM agent or for particular platforms through afterburn in the initramfs. If afterburn supports your platform and is not invoked in the initramfs by default, you can run it later to set the hostname (`--hostname=/etc/hostname`).
 

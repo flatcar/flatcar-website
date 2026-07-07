@@ -1,7 +1,7 @@
 ---
 title: KubeVirt (community support)
 linktitle: KubeVirt (community support)
-weight: 60
+weight: 220
 aliases:
     - /docs/latest/installing/vms/kubevirt/
 ---
@@ -189,5 +189,5 @@ Now that you have a KubeVirt machine booted it is time to play around. Check out
 
 [update-strategies]: ../../updates-releases/releases/update-strategies
 [release-notes]: https://flatcar-linux.org/releases
-[quickstart]: ../
+[quickstart]: ../../getting-started/quickstart
 [doc-index]: ../../

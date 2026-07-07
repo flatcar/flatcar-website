@@ -9,12 +9,12 @@ aliases:
 
 Building on the first session, we’ll dive into Butane configuration and deploy a more elaborate webpage.
 
-## A note for infrastructure developers
+### A note for infrastructure developers
 
 All configuration included in this course can also be generated programmatically.
 [Ignition](https://github.com/coreos/ignition) provides Go bindings for all Butane options used.
 
-# Goals
+## Goals
 
 In this session, you'll learn:
 
@@ -24,7 +24,7 @@ In this session, you'll learn:
 - Securing services by running as unprivileged users.
 - Splitting your Butane configuration into multiple files for readability and maintainability.
 
-## Prerequisites
+### Prerequisites
 
 The session builds on the first session, [Basic Operation and Local Testing](basics-and-testing).
 It assumes you
@@ -35,7 +35,7 @@ It assumes you
 - pass Ignition JSON configuration to a VM at launch.
 - redirect host ports to the VM.
 
-# A slightly more useful basic web server
+## A slightly more useful basic web server
 
 In the previous session, we set up an NGINX web server.
 However, that server was unable to serve any actual content (apart from the default index page).
@@ -110,7 +110,7 @@ When you're done testing, shut down the VM
 sudo poweroff
 ```
 
-## Different ways to provision files to Flatcar VMs
+### Different ways to provision files to Flatcar VMs
 
 There are a number of ways to add files to your VM at provisioning time.
 
@@ -123,7 +123,7 @@ There are a number of ways to add files to your VM at provisioning time.
    This file will be downloaded **at provisioning time**; the file will not be included in the JSON config.
    Recommended for large files since the JSON config is passed as user data / custom data, which has size limits on most vendors / clouds.
 
-### Inline
+#### Inline
 
 We already use inline - it's the simplest and most straightforward way to include content, by embedding it straight into the YAML file.
 Suitable for small text files like our HTML index page.
@@ -137,7 +137,7 @@ Suitable for small text files like our HTML index page.
           </body></html>
 ```
 
-### Local
+#### Local
 
 Embeds a local file into the JSON configuration at transpile time.
 Suitable for small binary or text files, e.g. configuration files under source control.
@@ -149,7 +149,7 @@ We'll use this in our next example to embed an SVG logo into our deployment.
         local: logo.svg
 ```
 
-### Source
+#### Source
 
 Instructs Ignition to download a file at provisioning time, on early first boot.
 Useful for fetching larger files.
@@ -161,7 +161,7 @@ We'll use it to provision a video to our website.
         source: https://github.com/flatcar/flatcar-website/raw/refs/heads/main/static/videos/hero-video.mp4
 ```
 
-## Putting it all together
+### Putting it all together
 
 Let's add a few more files!
 First, download the Flatcar logo to the same local directory the Butane config resides in,so we can include it via `local`:
@@ -266,7 +266,7 @@ Let's fire it up!
 ./flatcar_production_qemu_uefi.sh -i webserver.json -f 12345:80 -- -snapshot -nographic
 ```
 
-# Securing our service: Users and Groups
+## Securing our service: Users and Groups
 
 Our web server container runs as `root`, so any container escape will automatically gain superuser privileges.
 That's not healthy.
@@ -449,7 +449,7 @@ When you're done, shut down the VM:
 sudo poweroff
 ```
 
-# Splitting the configuration file
+## Splitting the configuration file
 
 Over time, a single Butane config file can grow quite large.
 Looking at ours, we might be at that point already!
@@ -586,7 +586,7 @@ And then of course start Flatcar with `main.json` instead of our earlier `webser
 ./flatcar_production_qemu_uefi.sh -i main.json -f 12345:80 -- -snapshot -nographic
 ```
 
-# Done!
+## Done!
 
 In this session, you learned to:
 - Customise your service and to provision arbitrary files from various sources.

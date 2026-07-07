@@ -35,7 +35,7 @@ wget https://alpha.release.flatcar-linux.net/arm64-usr/current/flatcar_productio
 wget https://alpha.release.flatcar-linux.net/arm64-usr/current/flatcar_production_qemu_uefi_efi_code.qcow2
 ```
 
-For Ignition configurations to be recognized we have to make sure that we always boot an unmodified fresh image because Ignition only runs on first boot. Therefore, before trying to use an Ignition config we will always discard the image modifications by using a fresh copy. You can already boot the image with `./flatcar_production_qemu.sh` and have a look around in the OS through the QEMU VGA console - you can close the QEMU window or stop the script with `Ctrl-C`.
+For Ignition configurations to be recognized, we have to make sure that we always boot an unmodified fresh image because Ignition only runs on first boot. Therefore, before trying to use an Ignition config, we will always discard the image modifications by using a fresh copy. You can already boot the image with `./flatcar_production_qemu.sh` and have a look around in the OS through the QEMU VGA console - you can close the QEMU window or stop the script with `Ctrl-C`.
 
 ```bash
 mv flatcar_production_qemu_image.img flatcar_production_qemu_image.img.fresh
@@ -47,7 +47,7 @@ cp -i --reflink=auto flatcar_production_qemu_image.img.fresh flatcar_production_
 
 ## Provision with Butane and Ignition
 
-Now we will provision the VM on first boot through Ignition. Instead of writing the JSON config we use Butane YAML and transpile it. Save the following Butane YAML file as `cl.yaml` (or another name). It contains directives for setting up a systemd service that runs an NGINX Docker container:
+Now we will provision the VM on first boot through Ignition. Instead of writing the JSON config, we use Butane YAML and transpile it. Save the following Butane YAML file as `cl.yaml` (or another name). It contains directives for setting up a systemd service that runs an NGINX Docker container:
 
 ```yaml
 variant: flatcar
@@ -72,7 +72,7 @@ systemd:
         WantedBy=multi-user.target
 ```
 
-Before we can use it we have to transpile the Butane YAML to Ignition JSON:
+Before we can use it, we have to transpile the Butane YAML to Ignition JSON:
 
 ```bash
 cat cl.yaml | docker run --rm -i quay.io/coreos/butane:latest > ignition.json
@@ -124,11 +124,11 @@ curl http://localhost/
 For SSH access, you can also use the `~/.ssh/config` provided in the QEMU section then simply `ssh flatcar` or `scp my-file flatcar:/home/core` to send a file on the instance over SSH.
 {{< /note >}}
 
-If you have trouble SSHing into the VM, `./flatcar_production_qemu.sh` might have failed to auto-detect your ssh key. If that happens try with a user-supplied SSH key using the yaml snippet below. Alternatively, you can interact with the VM via the VGA console - the console has auto-login enabled and drops right into a shell.
+If you have trouble SSHing into the VM, `./flatcar_production_qemu.sh` might have failed to auto-detect your ssh key. If that happens, try with a user-supplied SSH key using the yaml snippet below. Alternatively, you can interact with the VM via the VGA console - the console has auto-login enabled and drops right into a shell.
 
-You can reboot and stop the VM if you like - when you start it later with a plain `./flatcar_production_qemu.sh` then our systemd unit will take care of starting NGINX on each boot. Note that the ignition config will only be processed on the very first boot - that’s why we made a copy, so now we can restore our OS image from the pristine copy for successive experiments with Butane.
+You can reboot and stop the VM if you like - when you start it later with a plain `./flatcar_production_qemu.sh`, our systemd unit will take care of starting NGINX on each boot. Note that the ignition config will only be processed on the very first boot - that’s why we made a copy, so now we can restore our OS image from the pristine copy for successive experiments with Butane.
 
-As listed in the introduction above there are numerous options available for configuring Flatcar just the way you need it. For instance, you can specify a custom SSH key instead of your default one from your ssh-agent or from ~/.ssh/ in the Butane config, by adding this section to your YAML file:
+As listed in the introduction above, there are numerous options available for configuring Flatcar just the way you need it. For instance, you can specify a custom SSH key instead of your default one from your ssh-agent or from ~/.ssh/ in the Butane config by adding this section to your YAML file:
 
 ```yaml
 variant: flatcar

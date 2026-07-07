@@ -11,7 +11,7 @@ aliases:
 
 The Docker systemd unit can be customized by overriding the unit that ships with the default Flatcar Container Linux settings or through a drop-in unit. Common use-cases for doing this are covered below.
 
-For switching to using containerd with Kubernetes, there is an [extra guide](../switching-from-docker-to-containerd-for-kubernetes/).
+For switching to using containerd with Kubernetes, there is an [extra guide](../kubernetes/getting-started-with-kubernetes/).
 
 ## Use a custom containerd configuration
 

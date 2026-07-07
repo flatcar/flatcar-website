@@ -1,7 +1,7 @@
 ---
 title: VMware
 linktitle: VMware
-weight: 25
+weight: 120
 aliases:
     - /docs/latest/installing/community-platforms/vmware/
     - ../../os/booting-on-vmware
@@ -361,7 +361,7 @@ Now that you have a machine booted, it's time to explore. Check out the [Flatcar
 [cl-configs]: ../../fb-provision/cl-config
 [update-strategies]: ../../updates-releases/releases/update-strategies
 [release-notes]: https://flatcar-linux.org/releases
-[quickstart]: ../
+[quickstart]: ../../getting-started/quickstart
 [docs]: ../../
 [PXE]: ../bare-metal/booting-with-pxe
 [ISO]: ../bare-metal/booting-with-iso

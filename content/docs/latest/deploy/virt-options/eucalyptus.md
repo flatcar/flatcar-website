@@ -1,7 +1,7 @@
 ---
 title: Eucalyptus 3.4
 linktitle: Eucalyptus 3.4
-weight: 35
+weight: 10
 aliases:
     - /docs/latest/installing/community-platforms/eucalyptus/
     - ../../os/booting-on-eucalyptus
@@ -107,6 +107,6 @@ Now that you have a machine booted it is time to play around. Check out the [Fla
 
 [update-strategies]: ../../updates-releases/releases/update-strategies
 [release-notes]: https://flatcar-linux.org/releases
-[quickstart]: ../
+[quickstart]: ../../getting-started/quickstart
 [doc-index]: ../../
 

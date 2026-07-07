@@ -470,8 +470,8 @@ Run `terraform init && terraform plan` followed by `terraform apply` to create (
 
 [flatcar-dev]: https://groups.google.com/forum/#!forum/flatcar-linux-dev
 [discord]: https://discord.gg/PMYjFUsJyq
-[config-transpiler]: ../butane
+[config-transpiler]: ../../fb-provision/butane
 [update-strategies]: ../../updates-releases/releases/update-strategies
 [release-notes]: https://flatcar-linux.org/releases
-[quickstart]: ../
+[quickstart]: ../../getting-started/quickstart
 [doc-index]: ../../

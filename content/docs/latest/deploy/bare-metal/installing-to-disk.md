@@ -170,7 +170,7 @@ cat cl.yaml | docker run --rm -i quay.io/coreos/butane:latest > ignition.json
 
 Now that you have a machine booted it is time to play around. Check out the [Flatcar Container Linux Quickstart][quickstart] guide or dig into [more specific topics][docs-root].
 
-[quickstart]: ../
+[quickstart]: ../../getting-started/quickstart
 [docs-root]: ../../
 [update-strategies]: ../../updates-releases/releases/update-strategies
 [release-notes]: https://flatcar-linux.org/releases

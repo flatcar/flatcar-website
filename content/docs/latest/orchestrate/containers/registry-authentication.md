@@ -176,5 +176,5 @@ For details, check out the [Butane Config examples][butane-examples].
 [quay-site]: https://quay.io/
 [rfc-2397]: https://tools.ietf.org/html/rfc2397
 [rkt-config]: registry-authentication/#rkt
-[butane-configs]: ../provisioning/config-transpiler
-[butane-examples]: ../provisioning/config-transpiler/examples
+[butane-configs]: ../../fb-provision/butane
+[butane-examples]: ../../fb-provision/butane/examples

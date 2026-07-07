@@ -1,7 +1,7 @@
 ---
 title: STACKIT
 linktitle: STACKIT
-weight: 55
+weight: 100
 aliases:
     - /docs/latest/installing/cloud/stackit/
     - ../../os/booting-on-stackit

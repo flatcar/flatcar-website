@@ -10,7 +10,7 @@ aliases:
 On Flatcar Container Linux `audit-rules.service` loads the audit rules to set up the logging filters for the kernel messages.
 The `auditd.service` daemon to collect these logs does not run by default.
 
-# Enabling the standard rules or custom rules
+## Enabling the standard rules or custom rules
 
 There is an ignore rule by default that suppresses the standard rules, which means that certain PAM audit messages are not shown.
 It is also important to remove this default ignore rule when setting up own rules, or otherwise they will be ignored, too.
@@ -28,7 +28,7 @@ storage:
           # custom rules may go here, can be empty to use only the standard rules
 ```
 
-# Enabling auditd
+## Enabling auditd
 
 In addition to the above, it may make sense to enable `auditd.service`, here a Butane Config snippet for that:
 

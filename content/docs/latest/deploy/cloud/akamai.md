@@ -1,7 +1,7 @@
 ---
 title: Akamai Connected Cloud (Linode)
 linktitle: Akamai Connected Cloud (Linode)
-weight: 50
+weight: 10
 aliases:
     - /docs/latest/installing/cloud/akamai/
 ---
@@ -223,4 +223,4 @@ into [more specific topics][doc-index].
 [linode-cloud-manager]: https://cloud.linode.com/
 [linode-metadata-service]: https://www.linode.com/docs/products/compute/compute-instances/guides/metadata-api/
 [linode-region-availability]: https://www.linode.com/global-infrastructure/availability/
-[quickstart]: ../
+[quickstart]: ../../getting-started/quickstart

@@ -12,7 +12,7 @@ recommended way to work on it, is to run the backend with the `noop`
 authentication backend, and the frontend in a "watch" mode (where it
 auto-refreshes when there are changes to the frontend).
 
-# Preparing the Database
+## Preparing the Database
 
 Nebraska uses the `PostgreSQL` database, and expects the used
 database to be set to the UTC timezone.
@@ -41,7 +41,7 @@ psql postgres://postgres:nebraska@localhost:5432/postgres -c 'create database ne
 psql postgres://postgres:nebraska@localhost:5432/nebraska_tests -c 'set timezone = "utc";'
 ```
 
-# Development Quickstart
+## Development Quickstart
 
 - Go to the Nebraska project directory and run `make`
 
@@ -53,7 +53,7 @@ Any changes to the backend means that the `make run-backend` command should be
 run again. Changes to the frontend should be automatically re-built and the
 opened browser page should automatically refresh.
 
-## Docker compose V2
+### Docker compose V2
 
 You may be missing `docker-compose`, which is required to run some tests.
 
@@ -66,13 +66,13 @@ make check-backend-with-container
 
 If so, see https://docs.docker.com/compose/install/other/ or https://github.com/containers/podman-compose (with setting up a `docker-compose` symlink)
 
-# Development Concepts
+## Development Concepts
 
-## Frontend
+### Frontend
 
 The [frontend](https://github.com/flatcar/nebraska/tree/main/frontend) side of Nebraska is a web application built using `React` and `Material-UI`.
 
-## Backend
+### Backend
 
 The Nebraska backend is written in Go. The backend source code is structured as follows:
 
@@ -87,13 +87,13 @@ The Nebraska backend is written in Go. The backend source code is structured as 
 - **`cmd/initdb`**: is just a helper to reset your database, and causing the migrations to be re-run. `nebraska` will apply all database migrations automatically, so this process should only be used to wipe out all your data and start from a clean state (you should probably never need it).
 
 
-### Backend Testing
+#### Backend Testing
 
 Most unit tests like beside the code for example inside `backend/pkg/`.
 Tests which depend on a database mostly live in `backend/pkg/api`.
 Some "server" binary integration tests are separate, and live in `backend/test/api/`.
 
-#### Environment variables
+##### Environment variables
 
 Here are some test related environment variables.
 
@@ -102,38 +102,38 @@ Here are some test related environment variables.
 - NEBRASKA_DB_URL, database connection URL.
 - NEBRASKA_TEST_SERVER_URL, where the test server is running "http://localhost:8000"
 
-#### Test make targets.
+##### Test make targets.
 
 There are a number of make targets setup to run different tests.
 
-##### make ci
+###### make ci
 
 Run all the tests that are run on CI with github actions.
 
-##### make code-checks
+###### make code-checks
 
 Just build it, run quick tests, and lint it.
 
 Does not run tests that require a testing db, or a test server.
 
-##### make check
+###### make check
 
 Run tests except for the integration tests by default. Requires a test database to be running.
 
 You can use `NEBRASKA_RUN_SERVER_TESTS=1 make check` to also test the server integration tests, 
 but you need to be running a server (with `make run-backend`).
 
-##### make check-backend-with-container
+###### make check-backend-with-container
 
 Run tests inside a container, including the integration tests.
 
 It starts it's own test server and test database.
 
-##### make check-code-coverage
+###### make check-code-coverage
 
 Like make check, but it outputs test coverage information.
 
-# Releasing
+## Releasing
 
 To release a new version of Nebraska, first create a new `staging` git tag and push it:
 

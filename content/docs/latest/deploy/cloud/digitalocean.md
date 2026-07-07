@@ -1,7 +1,7 @@
 ---
 title: DigitalOcean
 linktitle: DigitalOcean
-weight: 30
+weight: 40
 aliases:
     - /docs/latest/installing/cloud/digitalocean/
     - ../../os/booting-on-digitalocean

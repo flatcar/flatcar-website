@@ -1,7 +1,7 @@
 ---
 title: Proxmox VE (community support)
 linktitle: Proxmox VE (community support)
-weight: 40
+weight: 230
 aliases:
     - /docs/latest/installing/community-platforms/proxmoxve/
 ---
@@ -122,5 +122,5 @@ Now that you have a machine booted it is time to play around. Check out the [Fla
 
 [update-strategies]: ../../updates-releases/releases/update-strategies
 [release-notes]: https://flatcar-linux.org/releases
-[quickstart]: ../
+[quickstart]: ../../getting-started/quickstart
 [doc-index]: ../../

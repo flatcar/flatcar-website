@@ -1,7 +1,7 @@
 ---
 title: Hetzner
 linktitle: Hetzner
-weight: 35
+weight: 70
 aliases:
     - /docs/latest/installing/cloud/hetzner/
     - ../../os/booting-on-hetzner

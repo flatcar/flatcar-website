@@ -1,7 +1,7 @@
 ---
 title: Scaleway (community support)
 linktitle: Scaleway (community support)
-weight: 25
+weight: 220
 aliases:
     - /docs/latest/installing/community-platforms/scaleway/
 ---
@@ -116,5 +116,5 @@ At this moment, the Scaleway Node Agent used to join the existing cluster is not
 [butane-configs]: ../../fb-provision/butane
 [cli]: https://github.com/scaleway/scaleway-cli
 [doc-index]: ../../
-[quickstart]: ../
+[quickstart]: ../../getting-started/quickstart
 [scaleway]: https://www.scaleway.com/

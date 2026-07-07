@@ -4,7 +4,7 @@ linktitle: Using Google Cloud Launcher
 description: >
   How to use the Google Cloud Launcher Marketplace feature to launch
   Flatcar Container Linux on GCP
-weight: 21
+weight: 110
 aliases:
     - /docs/latest/installing/cloud/using-google-cloud-launcher/
     - ../../os/using-google-cloud-launcher
@@ -110,5 +110,5 @@ When disabling OS Login functionality on the instance, it is also recommended to
 
 Now that you have a machine booted it is time to play around. Check out the [Flatcar Container Linux Quickstart][quickstart] guide or dig into [more specific topics][doc-index].
 
-[quickstart]: ../
+[quickstart]: ../../getting-started/quickstart
 [doc-index]: ../../

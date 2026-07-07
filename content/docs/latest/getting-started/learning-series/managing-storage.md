@@ -10,12 +10,12 @@ aliases:
 This session discusses handling additional storage, and customising the file system type used for the root filesystem.
 We will also provision encrypted storage to tighten security.
 
-## A note for infrastructure developers
+### A note for infrastructure developers
 
 All configuration included in this course can also be generated programmatically.
 [Ignition](https://github.com/coreos/ignition) provides Go bindings for all Butane options used.
 
-# Goals
+## Goals
 
 In this session, you'll learn:
 - Adding additional storage to your local QEmu set-up.
@@ -23,14 +23,14 @@ In this session, you'll learn:
 - Encrypting data storage with LUKS.
 - Encrypting the root FS.
 
-## Prerequisites
+### Prerequisites
 
 The session builds on the session "Advanced Service Configuration".
 We will re-use and extend on the Butane configuration from that session.
 
-# MOAR space: Storage devices and file systems
+## MOAR space: Storage devices and file systems
 
-## Adding a file-backed storage device
+### Adding a file-backed storage device
 
 What about services that need lots of storage?
 That data shouldn't reside on the OS disk.
@@ -82,7 +82,7 @@ A brief glance on `/proc/partitions` should list (among others) a `vdb` disk w/o
 cat /proc/partitions
 ```
 
-## Configuring and using the storage device
+### Configuring and using the storage device
 
 Now we want to express in our Butane config what to do with the additional storage.
 Since we'll be using qemu's `virtio` driver for both the OS disk as well as our additional storage, and we know the OS disk is `/dev/vda`, we can predict the second disk to be `/dev/vdb`.
@@ -151,7 +151,7 @@ df -h /srv
 
 should show `vdb1` (the first partition of the second `virtio` disk) mounted on `/srv` using the `btrfs` filesystem, with roughly 1GB of total space.
 
-# Encrypting storage
+## Encrypting storage
 
 We can further secure our workload by transparently encrypting its data.
 Storage encryption using LUKS (**L**inux **U**nified **K**ey **S**etup) is a straightforward way to do this.
@@ -222,7 +222,7 @@ sudo cryptsetup luksDump /dev/disk/by-partlabel/mydata
 
 Nice work! Our data is safe now.
 
-## Encrypting the root filesystem
+### Encrypting the root filesystem
 
 <table style="background-color:#fef;"><tr><td><span style="font-size:xxx-large;">⚠️</span></td><td>
 <h3>The Below is for Learning Purposes ONLY.</h3>
@@ -339,7 +339,7 @@ sudo reboot
 The VM will stop booting at the initrd stage and prompt for your passphrase.
 
 
-### Done!
+#### Done!
 
 In this session, you learned to:
 

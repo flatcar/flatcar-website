@@ -12,7 +12,7 @@ One of the Flatcar purposes is to run container workloads, this term is quite ge
 
 This documentation will cover preliminary aspects of operating Kubernetes cluster based on Flatcar.
 
-# Supported Kubernetes version
+## Supported Kubernetes version
 
 A Kubernetes basic scenario (deploy a simple Nginx) is being tested on Flatcar accross the channels and various CNIs, it mainly ensures that Kubernetes can be correctly installed and can operate in a simple way.
 
@@ -36,13 +36,13 @@ Tested CNIs:
 _Known issues_:
 * Flannel > 0.17.0 does not work with enforced SELinux ([flatcar#779][flatcar-779])
 
-# Deploy a Kubernetes cluster with Flatcar
+## Deploy a Kubernetes cluster with Flatcar
 
-## Using Kubeadm
+### Using Kubeadm
 
 `kubeadm` remains one standard way to quickly deploy and operate a Kubernetes cluster. It's possible to install the tools (`kubeadm`, `kubelet`, etc.) using Ignition or directly with the Kubernetes sysext image distributed from the [flatcar/sysext-bakery][sysext-bakery] release page.
 
-### Setup the control plane
+#### Setup the control plane
 
 Here are two examples to setup a control plane with [Butane][butane]. The first example is using the systemd-sysext approach to bring in the binaries and update them through systemd-sysupdate. The second approach fetches the binaries but has no way of updating them in-place.
 
@@ -220,7 +220,7 @@ kubectl apply -f "https://github.com/kubereboot/kured/releases/download/$latest/
 
 We can now prepare the nodes to join the cluster.
 
-### Setup the nodes
+#### Setup the nodes
 
 Here's are two examples for a [butane][butane] configuration to setup the nodes. The first example is using the systemd-sysext approach to bring in the binaries and update them through systemd-sysupdate. The second approach fetches the binaries but has no way of updating them in-place.
 
@@ -345,7 +345,7 @@ systemd:
 
 This method is far from being ideal in terms of infrastructure as code as it requires a two steps manipulation: create the control plane to generate the join configuration then pass that configuration to the nodes. Other solutions exist to make things easier, like Cluster API or [Typhoon][typhoon].
 
-### Switching from Docker to containerd for Kubernetes
+#### Switching from Docker to containerd for Kubernetes
 
 In Kubernetes v1.20, `dockershim` was deprecated and it has been [officially](https://github.com/kubernetes/kubernetes/blob/master/CHANGELOG/CHANGELOG-1.24.md#dockershim-removed-from-kubelet) removed in Kubernetes v1.24.
 
@@ -366,7 +366,7 @@ Finally, tell `kubelet` to use containerd by adding to it the following flags:
 - `--container-runtime=remote`
 - `--container-runtime-endpoint=unix:///run/containerd/containerd.sock`
 
-## Cluster API
+### Cluster API
 
 From the official [documentation][capi-documentation]:
 > Cluster API is a Kubernetes sub-project focused on providing declarative APIs and tooling to simplify provisioning, upgrading, and operating multiple Kubernetes clusters.
@@ -382,7 +382,7 @@ While CAPI is an evolving project and Flatcar support is in-progress regarding t
 * [Proxmox][capi-proxmox]
 * [vSphere][capi-vsphere]
 
-## Kubespray
+### Kubespray
 
 Kubespray is an open-source project used to deploy production ready Kubernetes cluster, learn more about it on the [documentation][kubespray-documentation].
 

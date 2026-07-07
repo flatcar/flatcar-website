@@ -1,7 +1,7 @@
 ---
 title: Brightbox
 linktitle: Brightbox
-weight: 45
+weight: 30
 aliases:
     - /docs/latest/installing/cloud/brightbox/
 ---
@@ -112,4 +112,4 @@ Now that you have a machine booted it is time to play around. Check out the [Fla
 [brightbox]: https://cloud.brightbox.com/
 [cli]: https://www.brightbox.com/docs/reference/cli
 [doc-index]: ../../
-[quickstart]: ../
+[quickstart]: ../../getting-started/quickstart

@@ -7,7 +7,7 @@ aliases:
 
 Nebraska uses either a noop authentication or OIDC to authenticate and authorize users.
 
-# Preparing the database for Nebraska
+## Preparing the database for Nebraska
 
 Nebraska uses the `PostgreSQL` database, and expects the used database to
 be set to the UTC timezone.
@@ -24,7 +24,7 @@ the `postgres` container as follows:
 - Set the timezone to Nebraska's database:
   - `psql postgres://postgres:nebraska@localhost:5432/nebraska -c 'set timezone = "utc";'`
 
-## Tuning PostgreSQL auto-vacuum
+### Tuning PostgreSQL auto-vacuum
 
 Autovacuum and autoanalyze in PostgreSQL are effectively disabled when tables
 are very large. This is because the default is 20% of a table (and 10%
@@ -42,7 +42,7 @@ where we have set up these changes.
 The analyze threshold was chosen at half the autovacuum threshold
 because the defaults are set at half.
 
-# Deploying Nebraska for testing on local computer (noop authentication)
+## Deploying Nebraska for testing on local computer (noop authentication)
 
 - Go to the nebraska project directory and run `make`
 
@@ -53,7 +53,7 @@ because the defaults are set at half.
 
 - In the browser, access `http://localhost:8000`
 
-# Deploying Nebraska with OIDC authentication mode
+## Deploying Nebraska with OIDC authentication mode
 
 > **⚠️ OIDC Implementation Updated ⚠️**
 >
@@ -62,7 +62,7 @@ because the defaults are set at half.
 > - **New in v2.13**: Frontend handles OIDC flow directly, no client secrets required
 > - **Upgrading?** See the [OIDC Migration Guide](https://github.com/flatcar/nebraska/blob/main/docs/oidc-migration-guide.md)
 
-## Preparing Keycloak as an OIDC provider for Nebraska
+### Preparing Keycloak as an OIDC provider for Nebraska
 
 - Run `Keycloak` locally in dev mode using docker:
 
@@ -80,7 +80,7 @@ because the defaults are set at half.
 
 - Open `http://localhost:8080` in your browser to access keycloak UI and login with the username `admin` and password `admin`.
 
-## Creating a client
+### Creating a client
 
 1. Click on `Clients` menu option and inside the `Clients list` tab click `Create client`.
 2. Set the `Client ID` as `nebraska` and click `Save`.
@@ -93,15 +93,15 @@ because the defaults are set at half.
 
 {{< presentation "keycloak-create-client" >}}
 
-## Creating Roles
+### Creating Roles
 
-### Member Role
+#### Member Role
 
 1. In `nebraska` client details screen, find `Roles` tab and click `Create role`.
 2. Provide a name for the member role, here we will use `nebraska_member`.
 3. Click `Save`.
 
-### Admin Role
+#### Admin Role
 
 1. In `nebraska` client details screen, find `Roles` tab and click `Create role`.
 2. Provide a name for the admin role, here we will use `nebraska_admin`.
@@ -112,7 +112,7 @@ Now the member and admin roles are created, the admin role is a composite role w
 
 {{< presentation "keycloak-create-roles" >}}
 
-## Adding roles scope to token
+### Adding roles scope to token
 
 1. In `nebraska` client details screen, find `Client Scopes` tab and select `nebraska-dedicated`.
 2. Click on `Configure a new mapper`.
@@ -122,14 +122,14 @@ Now the member and admin roles are created, the admin role is a composite role w
 
 {{< presentation "keycloak-scope-token" >}}
 
-## Attaching Roles to User
+### Attaching Roles to User
 
 1. Click on `Users` menu option and click `admin`.
 2. Go to `Role Mapping` tab, click `Assign role`, select `Client role` and pick both `nebraska_admin` and `nebraska_member` roles and click on `Assign`. If you want to provide only member access, select the `nebraska_member` role only.
 
 {{< presentation "keycloak-assign-roles" >}}
 
-## Nebraska
+### Nebraska
 
 - Go to the nebraska project directory and run `make`.
 
@@ -157,9 +157,9 @@ Now the member and admin roles are created, the admin role is a composite role w
 
 - In the browser, access `http://localhost:8000`.
 
-# Preparing Auth0 as an OIDC provider for Nebraska
+## Preparing Auth0 as an OIDC provider for Nebraska
 
-## Create and configure new application
+### Create and configure new application
 
 1. Click on `Create Application`.
 2. Provide the name as `nebraska`, select `Single Page Application` (SPA).
@@ -174,7 +174,7 @@ Now the member and admin roles are created, the admin role is a composite role w
    - Ensure `Implicit` is **unchecked**.
 7. Click on `Save Changes`.
 
-## Create an API for audience parameter
+### Create an API for audience parameter
 
 1. Navigate to `Applications > APIs` in the Auth0 dashboard using the main menu.
 2. Click `Create API`.
@@ -196,7 +196,7 @@ Now the member and admin roles are created, the admin role is a composite role w
 
 {{< presentation "auth0-setup" >}}
 
-## Adding roles scope to token
+### Adding roles scope to token
 
 1. Go to `Actions > Library` using the main menu and find the `Create Action` menu from top right.
 2. Click on `Build from scratch` option.
@@ -232,9 +232,9 @@ Note: The `oidc-roles-path` argument accepts a JSONPath to fetch roles from the 
 
 {{< presentation "auth0-roles-setup" >}}
 
-# Preparing Dex with github connector as an OIDC provider for Nebraska
+## Preparing Dex with github connector as an OIDC provider for Nebraska
 
-## Setting up a Github App to be used as a connector for Dex
+### Setting up a Github App to be used as a connector for Dex
 
 - Create a new organization in Github.
 - Now you need to create an OAuth App, go to `https://github.com/organizations/<your-organization>/settings/applications` (Your Organization Settings > Developer Settings > OAuth Apps) and fill the following fields:
@@ -247,14 +247,14 @@ Note: The `oidc-roles-path` argument accepts a JSONPath to fetch roles from the 
   `Client secret`.
 - The OAuth app should already be installed to your org.
 
-## Creating Github Teams
+### Creating Github Teams
 
 - In your organization, go to teams.
 - Create two teams in your organization with names `admin` and `viewer`.
 - Add the admin users to both `admin` and `viewer` teams. Add the non-admin users to
   the `viewer` team.
 
-## Configuring and Running Dex IDP
+### Configuring and Running Dex IDP
 
 - Create a configuration for Dex based on the example. Save it to `example.yaml`:
 
@@ -294,7 +294,7 @@ connectors:
 docker run -p 5556:5556 -v ${PWD}/example.yaml:/etc/dex/example.yaml ghcr.io/dexidp/dex:v2.44.0 dex serve /etc/dex/example.yaml
 ```
 
-## Running nebraska
+### Running nebraska
 
 ```sh
 backend/bin/nebraska --debug --auth-mode oidc \
@@ -307,9 +307,9 @@ backend/bin/nebraska --debug --auth-mode oidc \
   --http-static-dir frontend/dist
 ```
 
-# Preparing Okta as an OIDC provider for Nebraska
+## Preparing Okta as an OIDC provider for Nebraska
 
-## Create and configure new application
+### Create and configure new application
 
 1. Log in to your Okta Admin Dashboard.
 2. Navigate to `Applications > Applications`.
@@ -326,7 +326,7 @@ backend/bin/nebraska --debug --auth-mode oidc \
    - Go to `App → Assignments → Assign` and find `Assign to People` or `Assign to Groups` and pick users/groups who should access the app.
 7. Note your `Client ID` from the application's General tab.
 
-## Configure groups/roles claims
+### Configure groups/roles claims
 
 1. Navigate to `Security > API > Authorization Servers`.
 2. Select your authorization server (or use `default`).
@@ -337,7 +337,7 @@ backend/bin/nebraska --debug --auth-mode oidc \
    - **Filter**: Select the groups you want to include
 4. Use the Issuer URI from the authorization server settings.
 
-## Start Nebraska with Okta
+### Start Nebraska with Okta
 
 ```bash
 backend/bin/nebraska --debug --auth-mode oidc \
@@ -348,9 +348,9 @@ backend/bin/nebraska --debug --auth-mode oidc \
   --http-static-dir frontend/dist
 ```
 
-# Preparing Azure AD (Microsoft Entra ID) as an OIDC provider for Nebraska
+## Preparing Azure AD (Microsoft Entra ID) as an OIDC provider for Nebraska
 
-## Register a new application
+### Register a new application
 
 1. Sign in to the [Azure Portal](https://portal.azure.com).
 2. Navigate to `Azure Active Directory > App registrations`.
@@ -362,7 +362,7 @@ backend/bin/nebraska --debug --auth-mode oidc \
      - URI: `http://localhost:8000/auth/callback`
 4. After creation, note the `Application (client) ID` and `Directory (tenant) ID`.
 
-## Configure the application
+### Configure the application
 
 1. In your app registration, go to `Authentication`:
    - Ensure the redirect URI is set correctly.
@@ -374,14 +374,14 @@ backend/bin/nebraska --debug --auth-mode oidc \
 3. For {{< glossary_tooltip term_id="cors" text="CORS" >}}, go to `Expose an API`:
    - Add your application's URL to allowed origins if needed.
 
-## Configure group claims (optional)
+### Configure group claims (optional)
 
 1. Go to `Token configuration`.
 2. Click `Add groups claim`.
 3. Select the appropriate group types for your setup.
 4. The groups will appear in the `groups` claim in the token.
 
-## Start Nebraska with Azure AD
+### Start Nebraska with Azure AD
 
 ```bash
 backend/bin/nebraska --debug --auth-mode oidc \
@@ -395,7 +395,7 @@ backend/bin/nebraska --debug --auth-mode oidc \
 
 Note: Azure AD returns group IDs (GUIDs) rather than group names in the token. You'll need to use the group IDs in your role configuration.
 
-# Deploying on Kubernetes using the Helm Chart
+## Deploying on Kubernetes using the Helm Chart
 
 We maintain a Helm Chart for deploying a Nebraska instance to Kubernetes. The
 Helm Chart offers flexible configuration options such as:
@@ -461,9 +461,9 @@ Then execute:
 $ helm install my-nebraska nebraska/nebraska --values nebraska-values.yaml
 ```
 
-# Troubleshooting
+## Troubleshooting
 
-## Common OIDC Issues
+### Common OIDC Issues
 
 - **{{< glossary_tooltip term_id="cors" text="CORS" >}} errors in browser console**
   - Ensure your OIDC provider has the Nebraska URL in allowed origins/{{< glossary_tooltip term_id="cors" text="CORS" >}} settings.
@@ -489,23 +489,23 @@ $ helm install my-nebraska nebraska/nebraska --values nebraska-values.yaml
   - Verify audience parameter is set correctly.
   - Check that you created an API in Auth0 and using its identifier.
 
-# Legacy OIDC Configuration
+## Legacy OIDC Configuration
 
 <details>
 <summary>Click to expand legacy configuration (for Nebraska versions before v2.x).</summary>
 
-## Legacy Setup (Confidential Client)
+### Legacy Setup (Confidential Client)
 
 Older versions of Nebraska used a confidential client setup with the backend handling the OAuth flow.
 
-### Key Differences:
+#### Key Differences:
 
 - Required `--oidc-client-secret` flag.
 - Used redirect URI: `/login/cb` instead of `/auth/callback`.
 - Client configured as "Confidential" instead of "Public".
 - Backend handled token storage with session management.
 
-### Migration Steps:
+#### Migration Steps:
 
 If upgrading from an older version:
 

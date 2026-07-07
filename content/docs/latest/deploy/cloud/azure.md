@@ -1,7 +1,7 @@
 ---
 title: Microsoft Azure
 linktitle: Microsoft Azure
-weight: 15
+weight: 80
 aliases:
     - /docs/latest/installing/cloud/azure/
     - ../../os/booting-on-azure
@@ -747,7 +747,7 @@ storage:
 
 [flatcar-user]: https://groups.google.com/forum/#!forum/flatcar-linux-user
 [etcd-docs]: https://etcd.io/docs
-[quickstart]: ../
+[quickstart]: ../../getting-started/quickstart
 [reboot-docs]: ../../updates-releases/releases/update-strategies
 [azure-cli]: https://docs.microsoft.com/en-us/cli/azure/overview
 [butane-configs]: ../../fb-provision/butane

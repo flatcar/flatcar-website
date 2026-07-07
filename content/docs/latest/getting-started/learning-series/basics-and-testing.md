@@ -15,12 +15,12 @@ Don't worry, we'll use a Flatcar VM - your host is safe.
 Goal of this session is to create a foundation for all succeeding sessions in the series, and to provide a lightweight workflow to experiment and test configurations locally.
 You do not need to have any experience with Flatcar, and you'll need only very little Linux experience.
 
-## A note for infrastructure developers
+### A note for infrastructure developers
 
 All configuration included in this course can also be generated programmatically.
 [Ignition](https://github.com/coreos/ignition) provides Go bindings for all Butane options used.
 
-# Goals
+## Goals
 
 In this first session, you will learn:
 
@@ -28,9 +28,9 @@ In this first session, you will learn:
 2. How to start a Flatcar VM locally, in “no regrets” mode.
 3. How to configure a basic service on Flatcar and connect to the service from your host.
 
-# Flatcar Basic Operation and Local Testing
+## Flatcar Basic Operation and Local Testing
 
-## Prerequisites
+### Prerequisites
 
 We will need a number of tools installed on your local laptop or workstation for this session.
 
@@ -65,7 +65,7 @@ Lastly:
   You can of course also use IDEs or your favourite code editor as long as it doesn't break YAML files, or classic unix editors like `vim` or `ed`.
   [CodeEdit](https://www.codeedit.app) works nicely for Mac; plain Notepad will do on Windows.
 
-## Create a work directory for this session
+### Create a work directory for this session
 
 It is recommended you create an empty working directory to contain all downloads, scripts, and configuration concerning this and future sessions.
 As a first step, we'll create a directory `flatcar` and change into that directory.
@@ -75,7 +75,7 @@ mkdir flatcar
 cd flatcar
 ```
 
-## Download the latest OS image
+### Download the latest OS image
 
 Before we can use Flatcar locally we will need to download an OS image.
 You can find a list of all releases here: https://www.flatcar.org/releases/
@@ -105,7 +105,7 @@ chmod 755 flatcar_production_qemu_uefi.sh
 
 The download is about ~500MB so it might take some time.
 
-## Start a local Flatcar VM
+### Start a local Flatcar VM
 
 Now we’ll start the Flatcar VM for the first time.
 We’ll use 2 important `qemu` command line options:
@@ -175,7 +175,7 @@ cat /home/core/test.txt
 cat: /home/core/test.txt: No such file or directory
 ```
 
-# Define a service to run on Flatcar
+## Define a service to run on Flatcar
 
 Flatcar nodes are configured declaratively in YAML (Butane [semantics](https://www.flatcar.org/docs/latest/provisioning/config-transpiler/configuration/)), transpiled to JSON, then passed to the VM at first start.
 And since we’re using `-snapshot`, every start is the first start 😊
@@ -229,7 +229,7 @@ cat nginx.yaml | docker run --rm -i quay.io/coreos/butane:latest > nginx.json
 
 We have now created `nginx.json`, which we can feed to the VM starter script.
 
-## Start Flatcar with the service configuration and test the service
+### Start Flatcar with the service configuration and test the service
 
 Now we start the VM again, with 2 new changes:
 
@@ -262,7 +262,7 @@ You can iterate, experiment, and even make drastic changes to the node without s
 
 Don't forget to transpile before starting the VM so your changes apply!
 
-# Connecting to the local VM using SSH
+## Connecting to the local VM using SSH
 
 You might have noticed that sometimes, the Flatcar command line forces weird line breaks at 80 characters.
 Also, some escape characters may break your typing flow sometimes.
@@ -315,7 +315,7 @@ You can now connect comfortably by typing
 ssh flatcar-vm
 ```
 
-# Done!
+## Done!
 
 In this session, you:
 

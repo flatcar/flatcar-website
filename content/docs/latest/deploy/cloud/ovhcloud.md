@@ -1,7 +1,7 @@
 ---
 title: OVHcloud (community support)
 linktitle: OVHcloud (community support)
-weight: 15
+weight: 210
 aliases:
     - /docs/latest/installing/community-platforms/ovhcloud/
 ---
@@ -145,4 +145,4 @@ Now that you have a machine booted it is time to play around. Check out the [Fla
 [ovhcloud]: https://www.ovhcloud.com/en/
 [ovhcloud-documentation-create]: https://help.ovhcloud.com/csm/en-public-cloud-compute-getting-started?id=kb_article_view&sysparm_article=KB0051009
 [ovhcloud-documentation-import]: https://help.ovhcloud.com/csm/en-public-cloud-compute-upload-own-image?id=kb_article_view&sysparm_article=KB0051325
-[quickstart]: ../
+[quickstart]: ../../getting-started/quickstart

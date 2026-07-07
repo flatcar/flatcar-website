@@ -1,7 +1,7 @@
 ---
 title: OracleCloud
 linktitle: OracleCloud
-weight: 25
+weight: 90
 ---
 
 These instructions will walk you through using Flatcar on [OracleCloud][oraclecloud], importing an image, and running your first server using the command line interface.
@@ -143,8 +143,8 @@ Hello from instance20260609133043
 
 Now that you have a machine booted it is time to play around. Check out the [Flatcar Container Linux Quickstart][quickstart] guide or dig into [more specific topics][doc-index].
 
-[butane-configs]: ../../provisioning/config-transpiler
+[butane-configs]: ../../fb-provision/butane
 [cli]: https://github.com/oracle/oci-cli
 [doc-index]: ../../
-[quickstart]: ../
+[quickstart]: ../../getting-started/quickstart
 [oraclecloud]: https://www.cloud.oracle.com/

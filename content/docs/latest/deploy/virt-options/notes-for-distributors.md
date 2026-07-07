@@ -1,6 +1,6 @@
 ---
 title: Notes for distributors
-weight: 50
+weight: 300
 aliases:
     - /docs/latest/installing/community-platforms/notes-for-distributors/
     - ../../os/notes-for-distributors

@@ -1,7 +1,7 @@
 ---
 title: VirtualBox (community support)
 linktitle: VirtualBox (community support)
-weight: 30
+weight: 250
 aliases:
     - /docs/latest/installing/vms/virtualbox/
     - ../../os/booting-on-virtualbox
@@ -159,6 +159,6 @@ Now that you have a machine booted it is time to play around. Check out the [Fla
 
 [update-strategies]: ../../updates-releases/releases/update-strategies
 [release-notes]: https://flatcar-linux.org/releases
-[butane-configs]: ../../provisioning/config-transpiler
-[quickstart]: ../
+[butane-configs]: ../../fb-provision/butane
+[quickstart]: ../../getting-started/quickstart
 [doc-index]: ../../

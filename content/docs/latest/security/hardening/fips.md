@@ -11,7 +11,7 @@ FIPS stands for Federal Information Processing Standards, a set of standards iss
 * [FIPS 200][fips-200]
 * [FIPS 140-2][fips-140-2]
 
-# Enabling FIPS
+## Enabling FIPS
 
 Booting the instance with the kernel parameter `fips=1` allows the instance to operate in a FIPS 200 mode. This means the kernel will use FIPS-compliant algorithms and will enforce some security practices like RSA key [size][rsa-key-size]. It's also recommended to create the empty file `/etc/system-fips` for other software (like cryptsetup).
 
@@ -28,7 +28,7 @@ $ journalctl --boot | grep -i "kernel: fips"
 Jun 27 18:07:22 localhost kernel: fips mode: enabled
 ```
 
-# Enabling OpenSSL FIPS provider
+## Enabling OpenSSL FIPS provider
 
 [OpenSSL][openssl] is an open-source library used for ciphering and hashing. As a library, it is widely used by programming software and third-party programs to ensure security. OpenSSL 3.0 FIPS provider is FIPS [validated][certificate] since Aug. 2022.
 
@@ -79,7 +79,7 @@ Command successful.
 
 _NOTE_: Formatting a LUKS device with `cryptsetup` on a non-FIPS instance will use `argon2id` as key derivation function. This algorithm is not FIPS-compliant, so it will be impossible to open the LUKS device on a FIPS instance. It is possible to have a FIPS-compatible LUKS device if it is formatted using `cryptsetup luksFormat --pbkdf=pbkdf2 ./my-volume` which is the default behavior on a Flatcar FIPS instance even if `--pbkdf=pbkdf2` is not specified.
 
-# Ignition provisioning
+## Ignition provisioning
 
 The two sections above can be combined into one Ignition configuration, as follows.
 
@@ -114,9 +114,9 @@ storage:
           activate = 1
 ```
 
-# Troubleshooting
+## Troubleshooting
 
-## SSH login does not work with OpenSSL FIPS provider
+### SSH login does not work with OpenSSL FIPS provider
 
 It's possible to have a SSH connection refused when OpenSSL FIPS provider is enabled. Inspecting the SSHd logs:
 ```bash
