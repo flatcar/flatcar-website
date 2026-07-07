@@ -2,6 +2,8 @@
 title: OracleCloud
 linktitle: OracleCloud
 weight: 90
+aliases:
+    - /docs/latest/installing/cloud/oraclecloud/
 ---
 
 These instructions will walk you through using Flatcar on [OracleCloud][oraclecloud], importing an image, and running your first server using the command line interface.

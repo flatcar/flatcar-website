@@ -5,6 +5,7 @@ weight: 20
 aliases:
   - ../../container-linux-config-transpiler/doc/examples
   - ../../container-linux-config-transpiler/examples
+  - /docs/latest/provisioning/cl-config/examples/
 ---
 
 Here you can find a bunch of simple examples for using Container Linux configs, with some explanations about what they do. The examples here are in no way comprehensive, for a full list of all the available fields check out the [config-transpiler specification][spec].

@@ -227,5 +227,5 @@ systemd:
 - [Reading the System Log](../../diagnostics/reading-the-system-log)
 
 [butane-configs]: ../../fb-provision/butane
-[drop-ins]: ../systemd/drop-in-units
+[drop-ins]: ../host-config/drop-in-units
 [notes-for-distributors]: ../../deploy/virt-options/notes-for-distributors

@@ -5,6 +5,7 @@ weight: 240
 aliases:
     - ../../os/booting-on-vagrant
     - ../../cloud-providers/booting-on-vagrant
+    - /docs/latest/installing/vms/vagrant/
 ---
 
 _While we always welcome community contributions and fixes, please note that Vagrant is not an officially supported platform at this time._

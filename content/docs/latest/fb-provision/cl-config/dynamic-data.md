@@ -4,6 +4,7 @@ weight: 40
 aliases:
     - ../../container-linux-config-transpiler/doc/dynamic-data
     - ../../container-linux-config-transpiler/dynamic-data
+    - /docs/latest/provisioning/cl-config/dynamic-data/
 ---
 
 ## Overview

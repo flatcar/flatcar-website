@@ -4,6 +4,7 @@ weight: 70
 aliases:
     - ../../container-linux-config-transpiler/doc/operators-notes
     - ../../container-linux-config-transpiler/operators-notes
+    - /docs/latest/provisioning/cl-config/operators-notes/
 ---
 
 ## Type GUID aliases

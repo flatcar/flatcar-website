@@ -14,7 +14,7 @@ Flatcar provides configuration guidance for the host system, networking, storage
 
 | Area | Description |
 | --- | --- |
-| [Host Configuration](./host-config/_index.md) | Users, environment variables, kernel modules, timers, and other host settings. |
-| [Network](./network/_index.md) | DNS, remote access, and network configuration. |
-| [Storage](./storage/_index.md) | Storage provisioning, mounts, RAID, and related topics. |
-| [systemd](./systemd/_index.md) | Service management, unit files, and udev integration. |
+| [Host Configuration](./host-config/) | Users, environment variables, kernel modules, timers, and other host settings. |
+| [Network](./network/) | DNS, remote access, and network configuration. |
+| [Storage](./storage/) | Storage provisioning, mounts, RAID, and related topics. |
+| [systemd](./systemd/) | Service management, unit files, and udev integration. |

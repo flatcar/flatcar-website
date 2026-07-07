@@ -3,6 +3,7 @@ title: Integrations
 weight: 20
 aliases:
     - ../os/integrations
+    - /docs/latest/reference/integrations/
 ---
 
 Flatcar Container Linux users can be found here: https://github.com/flatcar/Flatcar/blob/main/ADOPTERS.md#who-is-using-flatcar.

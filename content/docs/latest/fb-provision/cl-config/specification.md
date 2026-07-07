@@ -4,6 +4,7 @@ weight: 80
 aliases:
     - ../../container-linux-config-transpiler/doc/configuration
     - ../../container-linux-config-transpiler/configuration
+    - /docs/latest/provisioning/cl-config/specification/
 ---
 
 A Container Linux Configuration, to be processed by `ct`, is a YAML document conforming to the following specification:

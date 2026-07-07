@@ -375,9 +375,9 @@ systemd:
 A json file `.dockercfg` can be created in your home directory that holds authentication information for a public or private Docker registry.
 
 [docker-socket-systemd]: https://github.com/docker/docker/pull/17211
-[drop-in]: ../setup/systemd/drop-in-units
-[mounting-storage]: ../setup/storage/mounting-storage
-[self-signed-certs]: ../setup/security/generate-self-signed-certificates
+[drop-in]: ../../os-config/host-config/drop-in-units
+[mounting-storage]: ../../os-config/storage/mounting-storage
+[self-signed-certs]: ../../security/cert-auth/generate-self-signed-certificates
 [systemd-socket]: https://www.freedesktop.org/software/systemd/man/systemd.socket.html
-[systemd-env-vars]: ../setup/systemd/environment-variables/#system-wide-environment-variables
+[systemd-env-vars]: ../../os-config/host-config/environment-variables/#system-wide-environment-variables
 [butane-configs]: ../../fb-provision/butane

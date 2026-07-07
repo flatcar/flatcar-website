@@ -216,4 +216,4 @@ update_engine_client -update
 ```
 
 
-[relchans]: ../releases/switching-channels
+[relchans]: ../updates-releases/releases/switching-channels

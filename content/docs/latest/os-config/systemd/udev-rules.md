@@ -79,7 +79,7 @@ For more systemd examples, check out these documents:
 - [Customizing the SSH Daemon][customizing-sshd]
 - [Using systemd Drop-In Units][drop-in]
 
-[drop-in]: drop-in-units
+[drop-in]: ../host-config/drop-in-units
 [customizing-sshd]: ../../security/cert-auth/customizing-sshd#changing-the-sshd-port
 [customizing-docker]: ../../orchestrate/containers/customizing-docker#using-a-dockercfg-file-for-authentication
 

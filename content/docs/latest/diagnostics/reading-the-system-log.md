@@ -131,10 +131,10 @@ systemd:
             Environment=SYSTEMD_LOG_LEVEL=debug
 ```
 
-[drop-ins]: ../systemd/drop-in-units
+[drop-ins]: ../os-config/host-config/drop-in-units
 [butane-configs]: ../fb-provision/butane
 
 ## More information
 
-<a class="btn btn-default" href="../os-config/systemd/getting-started">Getting Started with systemd</a>
-<a class="btn btn-default" href="../os-config/network/network-config-with-networkd">Network Configuration with networkd</a>
+<a class="btn btn-default" href="../../os-config/systemd/getting-started">Getting Started with systemd</a>
+<a class="btn btn-default" href="../../os-config/network/network-config-with-networkd">Network Configuration with networkd</a>

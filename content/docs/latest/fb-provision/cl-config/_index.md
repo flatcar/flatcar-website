@@ -5,6 +5,7 @@ weight: 45
 aliases:
   - ../os/provisioning
   - ../reference/migrating-to-clcs/provisioning
+  - /docs/latest/provisioning/cl-config/
 ---
 
 :warning: TL; DR: Use [Butane](../butane). While Flatcar does support both Ignition spec version (2.x and 3.x), we encourage folks to use [Butane](../butane) first but we still maintain / document backward compatibility for users who still rely on Ignition 2.x. :warning:

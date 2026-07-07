@@ -3,6 +3,7 @@ title: Release guide
 weight: 60
 aliases:
     - ../../os/release-guide
+    - /docs/latest/reference/developer-guides/release-guide/
 ---
 
 This guide covers the complete Flatcar Container Linux release process from preparation through publication.

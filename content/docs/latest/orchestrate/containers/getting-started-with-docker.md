@@ -169,8 +169,8 @@ docker run -d -p 80:80 registry.example.com:5000/myname/myapache /usr/sbin/apach
  * [Docker Website](http://www.docker.com/)
  * [docker's Getting Started Guide](https://docs.docker.com/mac/started/)
 
-[aws-ec2]: ../installing/cloud/aws-ec2
-[QEMU]: ../installing/vms/qemu
+[aws-ec2]: ../../deploy/cloud/aws-ec2
+[QEMU]: ../../deploy/virt-options/qemu
 [docker-cli]: https://docs.docker.com/engine/reference/commandline/cli/
 [docker-signup]: https://hub.docker.com/account/signup/
-[systemd-getting-started]: ../setup/systemd/getting-started
+[systemd-getting-started]: ../../os-config/systemd/getting-started

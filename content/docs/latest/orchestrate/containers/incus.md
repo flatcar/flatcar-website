@@ -262,4 +262,4 @@ default  4.50G   592K  4.50G        -         -     1%     0%  1.00x    ONLINE  
 [incus]: https://linuxcontainers.org/incus/
 [documentation]: https://linuxcontainers.org/incus/docs/main/
 [official-sysext]: https://www.flatcar.org/docs/latest/provisioning/sysext/#flatcar-release-extensions-official
-[zfs]: ../setup/storage/zfs
+[zfs]: ../../os-config/storage/zfs

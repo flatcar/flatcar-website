@@ -123,7 +123,7 @@
           {{ $baremetal := slice
             (dict "name" "PXE / iPXE" "icon" "fa-solid fa-network-wired" "file" "flatcar_production_pxe.vmlinuz" "arch" "amd64 arm64" "docs" "/docs/latest/installing/bare-metal/booting-with-pxe/")
             (dict "name" "ISO Install" "icon" "fa-solid fa-compact-disc" "file" "flatcar_production_iso_image.iso" "arch" "amd64" "docs" "/docs/latest/installing/bare-metal/installing-to-disk/")
-            (dict "name" "Vagrant" "icon" "fa-solid fa-terminal" "file" "" "arch" "amd64" "docs" "/docs/latest/installing/vms/vagrant/")
+            (dict "name" "Vagrant" "icon" "fa-solid fa-terminal" "file" "" "arch" "amd64" "docs" "/docs/latest/deploy/virt-options/vagrant/")
             (dict "name" "Container" "icon" "fa-brands fa-docker" "file" "flatcar-container.tar.gz" "arch" "amd64 arm64" "docs" "/docs/latest/installing/")
           }}
           {{ range $baremetal }}

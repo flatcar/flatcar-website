@@ -178,8 +178,8 @@ systemctl restart sshd.service
 
 For more information about configuring Flatcar Container Linux hosts with `systemd`, see [Getting Started with systemd][systemd-getting-started].
 
-[drop-ins]: ../systemd/drop-in-units
-[systemd-getting-started]: ../systemd/getting-started
+[drop-ins]: ../../os-config/host-config/drop-in-units
+[systemd-getting-started]: ../../os-config/systemd/getting-started
 [openssh-manual]: http://www.openssh.com/cgi-bin/man.cgi?query=sshd_config
 [mozilla-ssh-rec]: https://wiki.mozilla.org/Security/Guidelines/OpenSSH#Modern_.28OpenSSH_6.7.2B.29
 [butane-configs]: ../../fb-provision/butane

@@ -166,7 +166,7 @@ Now that you have a machine booted it is time to play around. Check out the [Fla
 [butane-configs]: ../../fb-provision/butane
 [ignition]: ../../fb-provision/ignition
 [ignition-kargs-ip]: ../../fb-provision/ignition/network-configuration#using-static-ip-addresses-with-ignition
-[oem]: ../community-platforms/notes-for-distributors#image-customization
+[oem]: ../virt-options/notes-for-distributors#image-customization
 [installing-to-disk]: installing-to-disk
 [update-strategies]: ../../updates-releases/releases/update-strategies
 [release-notes]: https://flatcar-linux.org/releases

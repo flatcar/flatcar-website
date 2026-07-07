@@ -7,8 +7,8 @@ description: >
 
 This section covers authentication, encryption, hardening, security reference material, and supply-chain topics.
 
-- [Certificates and SSSD](./cert-auth/_index.md)
-- [Encryption](./encryption/_index.md)
-- [Hardening](./hardening/_index.md)
+- [Certificates and SSSD](./cert-auth/)
+- [Encryption](./encryption/)
+- [Hardening](./hardening/)
 - [Constants and IDs](./constants-and-ids.md)
 - [Supply chain security](./supply-chain.md)
