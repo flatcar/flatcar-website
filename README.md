@@ -28,8 +28,41 @@ in order to install it.
 ## Prerequisites
 
 - Hugo Extended (see version in [`.env`](./.env) file)
-- Python 3 with PyYAML (required for docs generation - installed via `make getdeps`)
+- Python 3 (required for docs generation; dependencies listed in [`requirements.txt`](./requirements.txt))
 - Docker (required for building presentations with Marp) (a `docker` symlink to `podman` works too)
+
+Run `make help` for the list of available targets.
+
+### Python dependencies
+
+The Makefile auto-detects your Python setup. In most cases you just run:
+
+```bash
+make getdeps
+```
+
+Detection order:
+- **Interpreter (`PYTHON`)**: `python3` if present, otherwise `python`.
+- **Installer (`PIP`)**: `uv pip` if `uv` is on your `PATH`, otherwise `$(PYTHON) -m pip`.
+
+Run `make help` to see what got detected on your machine.
+
+You can override either variable when your setup differs:
+
+```bash
+make PIP=pip getdeps                       # plain pip
+make PIP="uv pip" getdeps                  # force uv
+make PIP="poetry run pip" getdeps          # use whatever poetry env is active
+make PYTHON=.venv/bin/python PIP=.venv/bin/pip getdeps
+```
+
+If you prefer a project-local venv (recommended on distros that enforce PEP 668):
+
+```bash
+make venv                                  # creates .venv and installs deps
+source .venv/bin/activate                  # or point make at it explicitly:
+make PYTHON=.venv/bin/python PIP=.venv/bin/pip getdeps
+```
 
 ## Adding content
 
