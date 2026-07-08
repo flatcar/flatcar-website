@@ -14,7 +14,7 @@ The Flatcar docs at [www.flatcar.org/docs/latest](https://www.flatcar.org/docs/l
 
 ## Why we did it
 
-The old structure had grown organically over years. Content was split across `installing/`, `setup/`, `provisioning/`, `container-runtimes/`, `reference/`, and a handful of other historical buckets, and the boundaries between them had blurred. New users landing on the docs had to guess where to look, and existing users leaned on the search box or muscle memory to get around.
+The old structure had grown organically over the years. Content was split across `installing/`, `setup/`, `provisioning/`, `container-runtimes/`, `reference/`, and a handful of other historical buckets, and the boundaries between them had blurred. New users landing on the docs had to guess where to look, and even experienced users were leaning on the search box or muscle memory to get around.
 
 We stepped back and asked a simple question: **what is the reader actually trying to do?** The new information architecture is organized around answers to that question, not around the internal history of the project.
 
@@ -35,7 +35,7 @@ We stepped back and asked a simple question: **what is the reader actually tryin
 
 ## Releases page rebuild
 
-The [releases page](https://www.flatcar.org/releases) got its own dedicated rewrite in parallel. The page is now easier to scan, the data pipeline behind it is cleaner, and it should be a much better starting point when you want to know what's shipping on Alpha, Beta, Stable, or LTS. Huge thanks to [Uchechukwu Obasi](https://github.com/thisisobate) for driving that end of the work.
+The [releases page](https://www.flatcar.org/releases) got its own dedicated rewrite in parallel. The page is now easier to scan, the data pipeline behind it is cleaner, and it should be a much better starting point when you want to know what's shipping on Alpha, Beta, Stable, or LTS. Huge thanks to [Uchechukwu Obasi](https://github.com/thisisobate) for driving that part of the work.
 
 ## Please tell us what's broken
 
@@ -47,6 +47,12 @@ If you find something wrong:
 - Or come talk to us on [Discord](https://discord.gg/PMYjFUsJyq). The [`#docs-work`](https://discord.com/channels/1483917970110414988/1509227715167916083) channel is a great place to flag things
 
 Small nits and big structural feedback are equally welcome. If a section is in the wrong place for the way *you* work, we would rather hear that now than have people quietly bounce off the docs.
+
+## This is just the start: want to help?
+
+This restructure is the foundation, not the finish line. There's plenty more documentation work ahead, including filling in gaps, writing new guides, and continuing to refine the sections above, and we'd love more hands on it.
+
+If you're interested in contributing to Flatcar's documentation, reach out to us on [Discord](https://discord.gg/PMYjFUsJyq) in [`#docs-work`](https://discord.com/channels/1483917970110414988/1509227715167916083).
 
 ## Thank you
 
