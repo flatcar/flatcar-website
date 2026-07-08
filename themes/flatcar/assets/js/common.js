@@ -54,11 +54,11 @@ document.querySelectorAll(".nav-item.dropdown .nav-link").forEach(function(item)
 
 // Close menu on link clicks
 [".nav-link", ".dropdown-item"].forEach(className =>
-  document.querySelectorAll(className).forEach(function(item) {
-    item.addEventListener("click", function(e) {
-      closeMenu(this);
-    });
-  })
+    document.querySelectorAll(className).forEach(function(item) {
+      item.addEventListener("click", function(e) {
+        closeMenu(this);
+      });
+    })
 );
 
 
@@ -81,9 +81,29 @@ function getCookie(cname) {
 }
 
 document.querySelectorAll(".contact-cookies-consent-notice").forEach(
-  function (item) {
-    if (getCookie("cookieconsent_status") !== "allow") {
-      item.classList.remove("d-none");
+    function (item) {
+      if (getCookie("cookieconsent_status") !== "allow") {
+        item.classList.remove("d-none");
+      }
     }
-  }
 );
+document.addEventListener("DOMContentLoaded", () => {
+  document.querySelectorAll("pre code").forEach(block => {
+    const wrapper = block.parentNode;
+    wrapper.classList.add("code-block");
+
+    const button = document.createElement("button");
+    button.className = "copy-btn";
+    button.setAttribute("aria-label", "Copy to clipboard");
+    button.innerHTML = `
+      <i class="fa-regular fa-copy"></i>`;
+    wrapper.appendChild(button);
+
+    button.addEventListener("click", () => {
+      navigator.clipboard.writeText(block.innerText.trim()).then(() => {
+        button.classList.add("copied");
+        setTimeout(() => button.classList.remove("copied"), 1200);
+      });
+    });
+  });
+});
