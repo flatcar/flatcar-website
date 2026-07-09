@@ -37,6 +37,10 @@ jobs:
         with:
           hugo-version: "${{ steps.hugo-version.outputs.HUGO_VERSION }}"
           extended: true
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20"
       - name: Build website
         run: |
           make

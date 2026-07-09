@@ -59,17 +59,23 @@ Flatcar Container Linux is designed to be [updated automatically][update-strateg
     <div class="tab-pane" id="alpha-create">
       <p>The Alpha channel closely tracks master and is released frequently. The newest versions of system libraries and utilities will be available for testing. The current version is Flatcar Container Linux {{< param alpha_channel >}}.</p>
       <p>If you want to ensure you are installing the latest alpha version, use the <code>-C</code> option:</p>
-      <pre>flatcar-install -d /dev/sda -C alpha</pre>
+      {{< highlight bash >}}
+flatcar-install -d /dev/sda -C alpha
+{{< /highlight >}}
     </div>
     <div class="tab-pane" id="beta-create">
       <p>The Beta channel consists of promoted Alpha releases. The current version is Flatcar Container Linux {{< param beta_channel >}}.</p>
       <p>If you want to ensure you are installing the latest beta version, use the <code>-C</code> option:</p>
-      <pre>flatcar-install -d /dev/sda -C beta</pre>
+      {{< highlight bash >}}
+flatcar-install -d /dev/sda -C beta
+{{< /highlight >}}
     </div>
     <div class="tab-pane active" id="stable-create">
       <p>The Stable channel should be used by production clusters. Versions of Flatcar Container Linux are battle-tested within the Beta and Alpha channels before being promoted. The current version is Flatcar Container Linux {{< param stable_channel >}}.</p>
       <p>If you want to ensure you are installing the latest stable version, use the <code>-C</code> option:</p>
-      <pre>flatcar-install -d /dev/sda -C stable</pre>
+      {{< highlight bash >}}
+flatcar-install -d /dev/sda -C stable
+{{< /highlight >}}
     </div>
   </div>
 </div>

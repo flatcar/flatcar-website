@@ -15,11 +15,6 @@
           </div>
           <div class="col-12 col-md-9 col-xl-8 ps-md-5 docs-reader" role="main">
             <div class="row mt-2">
-              <div class="col-12">
-                {{ partial "search" . }}
-              </div>
-            </div>
-            <div class="row">
               {{ $currentVersion := partial "docs/getcurrentversion" . }}
               {{ $latestVersion := partial "docs/getlatestversion" . }}
               {{ if and (not $currentVersion | eq "") (not ($currentVersion | eq $latestVersion))}}
@@ -95,13 +90,13 @@
       </div>
     </main>
 
+    {{ partial "search-modal" . }}
     {{ partial "footer.html" . }}
     {{ block "scripts" . }}
-    {{- $jsFiles := slice -}}
-    {{- range (slice "js/fastsearch.js" "js/lunr.js" "js/anchor.js") -}}
-    {{- $jsFile := resources.GetMatch . | resources.Minify -}}
-    <script src="{{ $jsFile.Permalink }}"></script>
-    {{ end }}
+    {{- $searchJs := resources.GetMatch "js/fastsearch.js" | resources.Minify -}}
+    <script type="module" src="{{ $searchJs.Permalink }}"></script>
+    {{- $anchorJs := resources.GetMatch "js/anchor.js" | resources.Minify -}}
+    <script src="{{ $anchorJs.Permalink }}"></script>
     {{ end }}
     {{ if .Store.Get "hasMermaid" }}
     <script type="module">

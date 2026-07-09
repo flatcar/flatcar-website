@@ -16,6 +16,7 @@
                     <h1>{{ .Params.hero.title }}</h1>
                     <div class="search mb-4">
                       {{ partial "search" . }}
+                      {{ partial "search-modal" . }}
                     </div>
                   </div>
                 </div>
@@ -84,5 +85,7 @@
         </main>
 
         {{ partial "footer.html" . }}
+        {{- $searchJs := resources.GetMatch "js/fastsearch.js" | resources.Minify -}}
+        <script type="module" src="{{ $searchJs.Permalink }}"></script>
     </body>
 </html>
