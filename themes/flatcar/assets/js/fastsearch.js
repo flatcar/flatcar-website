@@ -56,9 +56,11 @@
     }
 
     await initPagefind();
+    if (currentQuery !== query) return;
 
     var filters = version ? { version: [version] } : {};
     var search = await pagefind.search(query, { filters: filters });
+    if (currentQuery !== query) return;
 
     if (search.results.length === 0) {
       searchResultsHeader.textContent = 'No results found.';
@@ -71,6 +73,7 @@
 
     // Load first 20 results
     var results = await Promise.all(search.results.slice(0, 20).map(function(r) { return r.data(); }));
+    if (currentQuery !== query) return;
     var html = '';
     for (var i = 0; i < results.length; i++) {
       var result = results[i];
