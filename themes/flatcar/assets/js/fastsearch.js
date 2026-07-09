@@ -36,6 +36,7 @@
     searchResultsHeader.textContent = '';
     document.body.style.overflow = '';
     currentQuery = '';
+    searchToggle.focus();
   }
 
   async function initPagefind() {
