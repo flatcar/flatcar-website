@@ -45,10 +45,10 @@ resource "packet_device" "machine" {
 }
 
 data "ct_config" "machine-ignition" {
-  content = data.template_file.machine-cl-config.rendered
+  content = data.template_file.machine-config.rendered
 }
 
-data "template_file" "machine-cl-config" {
+data "template_file" "machine-config" {
   template = file("${path.module}/machine.yaml.tmpl")
   vars = { something = var.something }
 }
@@ -73,7 +73,7 @@ Persistent data should be stored on another partition which should be set to be 
 
 We can also preserve the machine ID by setting it as kernel cmdline parameter (it must not be kept as file on the root filesystem because that prevents the systemd first-boot semantics to enable units through the preset Ignition creates).
 
-This Container Linux Config snippet takes care of reformating the root filesystem and places a reprovisioning helper script on the OEM partition:
+This Butane config snippet takes care of reformating the root filesystem and places a reprovisioning helper script on the OEM partition:
 
 ```yaml
 storage:

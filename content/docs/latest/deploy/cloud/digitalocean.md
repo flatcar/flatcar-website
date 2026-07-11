@@ -326,7 +326,7 @@ output "ip-addresses" {
 }
 ```
 
-Now you can use the module by declaring the variables and a Container Linux Configuration for a machine.
+Now you can use the module by declaring the variables and a Butane Configuration for a machine.
 First create a `terraform.tfvars` file with your settings:
 
 ```
@@ -364,7 +364,7 @@ storage:
         inline: |
           #!/bin/bash
           set -euo pipefail
-           # This script demonstrates how templating and variable substitution works when using Terraform templates for Container Linux Configs.
+           # This script demonstrates how templating and variable substitution works when using Terraform templates for Butane Configs.
           hostname="$(hostname)"
           echo My name is ${name} and the hostname is $${hostname}
 ```

@@ -18,4 +18,3 @@ Flatcar is configured declaratively at first boot. This section introduces the p
 | [Ignition](./ignition/) | Apply first-boot configuration to a new Flatcar instance. |
 | [Infrastructure](./infrastructure/) | Use infrastructure tooling such as Terraform with Flatcar. |
 | [Image Customization](./customize-image/) | Customize images before first boot when needed. |
-| [cl-config](./cl-config/) | Legacy configuration tooling retained for historical reference. |

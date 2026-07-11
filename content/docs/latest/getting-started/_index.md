@@ -20,7 +20,7 @@ We'll cover
 Flatcar Container Linux is configured at _provisioning time_.
 There are two configuration languages to set up Flatcar, aimed at different use cases:
 
-- [Butane Config][butane-configs] Butane is human-readable / writable YAML and must be converted (transpiled) into Ignition V3 config before Flatcar can use it. It's the successor of [Container Linux Config][cl-configs] which is also still supported (Butane is not supported for LTS-2022).
+- [Butane Config][butane-configs] Butane is human-readable / writable YAML and must be converted (transpiled) into Ignition V3 config before Flatcar can use it (Butane is not supported for LTS-2022).
 - [Ignition config][ignition] is machine-readable JSON fed to Flatcar's ignition service.
   Ignition is Flatcars "installation service" which configures a Flatcar instance during provisioning.
   The config file is passed via the "custom data" or "user data" option of cloud providers, and can be supplied by various mechanisms to private cloud VMs and bare metal.
@@ -224,7 +224,6 @@ With any of these guides you will have machines up and running in a few minutes.
 [iso-docs]: ../deploy/bare-metal/booting-with-iso
 [install-docs]: ../deploy/bare-metal/installing-to-disk
 [ignition]: ../fb-provision/ignition/
-[cl-configs]: ../fb-provision/cl-config
 [butane-configs]: ../fb-provision/butane
 [butane-examples]: ../fb-provision/butane/examples
 [butane-spec]: ../fb-provision/butane/configuration

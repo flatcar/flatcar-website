@@ -50,7 +50,7 @@ The latest Flatcar Container Linux ISOs can be downloaded from the image storage
 ## Known limitations
 
 1. UEFI boot is not currently supported. Boot the system in BIOS compatibility mode.
-2. There is no straightforward way to provide an [Ignition config][cl-configs].
+2. There is no straightforward way to provide an [Ignition config][ignition-docs].
    As a workaround though, it is possible to leverage the vga console to assign a password to the core user (sudo passwd core).
    Once a password is set, it would be possible to provide a Butane or an Ignition file via SSH/SCP.
 3. A minimum of 2 GB of RAM is required to boot Flatcar Container Linux via ISO.
@@ -63,5 +63,5 @@ The most common use-case for this ISO is to install Flatcar Container Linux to d
 
 The ISO is configured to start a shell on the console without prompting for a password. This is convenient for installation and troubleshooting, but use caution.
 
-[cl-configs]: ../../fb-provision/cl-config
+[ignition-docs]: ../../fb-provision/ignition/
 [installing-to-disk]: installing-to-disk
