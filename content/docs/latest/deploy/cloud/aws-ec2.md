@@ -444,7 +444,7 @@ output "ip-addresses" {
 }
 ```
 
-Now you can use the module by declaring the variables and a Container Linux Configuration for a machine.
+Now you can use the module by declaring the variables and a Butane Configuration for a machine.
 First create a `terraform.tfvars` file with your settings:
 
 ```
@@ -453,7 +453,7 @@ machines               = ["mynode"]
 ssh_keys               = ["ssh-rsa AA... me@mail.net"]
 ```
 
-The machine name listed in the `machines` variable is used to retrieve the corresponding [Container Linux Config](../../fb-provision/cl-config/).
+The machine name listed in the `machines` variable is used to retrieve the corresponding [Butane Config](../../fb-provision/butane/).
 For each machine in the list, you should have a `machine-NAME.yaml.tmpl` file with a corresponding name.
 
 For example, create the configuration for `mynode` in the file `machine-mynode.yaml.tmpl` (The SSH key used there is not really necessary since we already set it as VM attribute):
@@ -474,7 +474,7 @@ storage:
         inline: |
           #!/bin/bash
           set -euo pipefail
-           # This script demonstrates how templating and variable substitution works when using Terraform templates for Container Linux Configs.
+           # This script demonstrates how templating and variable substitution works when using Terraform templates for Butane Configs.
           hostname="$(hostname)"
           echo My name is ${name} and the hostname is $${hostname}
 ```

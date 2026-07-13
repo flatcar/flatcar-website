@@ -209,7 +209,7 @@ podman run -i --rm quay.io/coreos/butane:release --pretty --strict < config.yml 
 
 ## Ignition v2
 
-Ignition v2 is not developed anymore but still supported (specification 2.3.0), the high-level [Container Linux Config YAML format][ct-config] can be used to emit Ignition v2 configs:
+Ignition v2 is not developed anymore but still supported (specification 2.3.0), the high-level [Butane YAML format][ct-config] can be used to emit Ignition v2 configs:
 
 - **ignition** (object): metadata about the configuration itself.
   - **version** (string): the semantic version number of the spec. The spec version must be compatible with the latest version (`2.3.0`). Compatibility requires the major versions to match and the spec version be less than or equal to the latest version. `-experimental` versions compare less than the final version with the same number, and previous experimental versions are not accepted.

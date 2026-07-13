@@ -183,5 +183,4 @@ Now that you have a machine booted it is time to play around. Check out the [Fla
 [flatcar-iso]: booting-with-iso
 [butane-section]: #butane-configs
 [flatcar-install]: https://raw.githubusercontent.com/flatcar/init/flatcar-master/bin/flatcar-install
-[cl-configs]: ../../fb-provision/cl-config
 [butane]: ../../fb-provision/butane

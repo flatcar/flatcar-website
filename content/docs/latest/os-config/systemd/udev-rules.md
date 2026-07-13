@@ -47,7 +47,7 @@ That rule means that udev will trigger `device-attach.service` systemd unit on a
 
 ## Butane Config example
 
-To use the unit and udev rule with a Container Linux Config, modify this example as needed:
+To use the unit and udev rule with a Butane Config, modify this example as needed:
 
 ```yaml
 variant: flatcar

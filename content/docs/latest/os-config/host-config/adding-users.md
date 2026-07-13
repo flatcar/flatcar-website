@@ -99,6 +99,5 @@ user1 ALL=(ALL) NOPASSWD: ALL
 ```
 
 [butane-configs]: ../../fb-provision/butane
-[cl-config]: ../../fb-provision/butane
 [config-spec]: ../../fb-provision/butane/configuration
 [systemd-userdb]: https://www.freedesktop.org/software/systemd/man/systemd-userdbd.service.html

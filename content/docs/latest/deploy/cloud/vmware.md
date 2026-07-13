@@ -172,7 +172,7 @@ IP configuration specified via `guestinfo.interface.*` and `guestinfo.dns.*` var
 
 ### Templating with Butane Configs and setting up metadata
 
-On many cloud providers Ignition will run the [`coreos-metadata.service`](../../fb-provision/ignition/dynamic-data) (which runs `afterburn`) to set up [node metadata](../../fb-provision/cl-config/dynamic-data). This is not the case with VMware because the network setup is defined by you and nothing generic that `afterburn` would know about.
+On many cloud providers Ignition will run the [`coreos-metadata.service`](../../fb-provision/ignition/dynamic-data) (which runs `afterburn`) to set up [node metadata](../../fb-provision/ignition/dynamic-data). This is not the case with VMware because the network setup is defined by you and nothing generic that `afterburn` would know about.
 
 Here's a Butane configuration example to setup an `etcd` instance with a custom `coreos-metadata.service`:
 
@@ -326,7 +326,7 @@ With `should_exist` instead of `should_not_exist` the argument would be added if
 
 Read more about setting kernel command line parameters this way [here](../../os-config/host-config/other-settings#adding-custom-kernel-boot-options).
 
-In case you want to disable the autologin on the console with Ignition v2 where no `kernelArguments` directive exists, you can use the following directive in your Container Linux Config YAML.
+In case you want to disable the autologin on the console with Ignition v2 where no `kernelArguments` directive exists, you can use the following directive in your Butane Config YAML.
 To take effect it requires an additional reboot.
 
 ```yaml
@@ -347,7 +347,7 @@ storage:
           set linux_append=""
 ```
 
-To take effect directly on first boot, the alternative is to create a `getty@.service` drop-in, here a CLC snippet:
+To take effect directly on first boot, the alternative is to create a `getty@.service` drop-in, here a Butane snippet:
 
 ```
 systemd:
@@ -366,7 +366,6 @@ systemd:
 
 Now that you have a machine booted, it's time to explore. Check out the [Flatcar Container Linux Quickstart][quickstart] guide, or dig into [more specific topics][docs].
 
-[cl-configs]: ../../fb-provision/cl-config
 [update-strategies]: ../../updates-releases/releases/update-strategies
 [release-notes]: https://flatcar-linux.org/releases
 [quickstart]: ../../getting-started/quickstart

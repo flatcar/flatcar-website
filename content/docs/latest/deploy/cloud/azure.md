@@ -609,7 +609,7 @@ output "ip-addresses" {
 }
 ```
 
-Now you can use the module by declaring the variables and a Container Linux Configuration for a machine.
+Now you can use the module by declaring the variables and a Butane Configuration for a machine.
 First create a `terraform.tfvars` file with your settings:
 
 ```
@@ -626,7 +626,7 @@ You can resolve the latest Flatcar Stable version with this shell command:
 curl -sSfL https://stable.release.flatcar-linux.net/amd64-usr/current/version.txt | grep -m 1 FLATCAR_VERSION_ID= | cut -d = -f 2
 ```
 
-The machine name listed in the `machines` variable is used to retrieve the corresponding [Container Linux Config](../../fb-provision/butane/configuration) template from the `cl/` subfolder.
+The machine name listed in the `machines` variable is used to retrieve the corresponding [Butane Config](../../fb-provision/butane/configuration) template from the `cl/` subfolder.
 For each machine in the list, you should have a `machine-NAME.yaml.tmpl` file with a corresponding name.
 
 Create the configuration for `mynode` in the file `cl/machine-mynode.yaml.tmpl`:
@@ -646,7 +646,7 @@ storage:
         inline: |
           #!/bin/bash
           set -euo pipefail
-          # This script demonstrates how templating and variable substitution works when using Terraform templates for Container Linux Configs.
+          # This script demonstrates how templating and variable substitution works when using Terraform templates for Butane Configs.
           hostname="$(hostname)"
           echo My name is ${name} and the hostname is $${hostname}
 ```

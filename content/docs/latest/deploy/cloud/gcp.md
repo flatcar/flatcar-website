@@ -127,7 +127,7 @@ You can also [upgrade from an existing CoreOS Container Linux system](../../core
 
 ## Butane Config
 
-Flatcar Container Linux allows you to configure machine parameters, configure networking, launch systemd units on startup, and more via Butane Configs. These configs are then transpiled into Ignition configs and given to booting machines. Head over to the [docs to learn about the supported features][cl-configs].
+Flatcar Container Linux allows you to configure machine parameters, configure networking, launch systemd units on startup, and more via Butane Configs. These configs are then transpiled into Ignition configs and given to booting machines. Head over to the [docs to learn about the supported features][butane-docs].
 
 You can provide a raw Ignition JSON config to Flatcar Container Linux via the Google Cloud console's metadata field `user-data` or via a flag using `gcloud`.
 
@@ -328,4 +328,4 @@ Now that you have a machine booted it is time to play around. Check out the [Fla
 [quickstart]: ../../getting-started/quickstart
 [doc-index]: ../../
 [update-strategies]: ../../updates-releases/releases/update-strategies
-[cl-configs]: ../../fb-provision/butane
+[butane-docs]: ../../fb-provision/butane

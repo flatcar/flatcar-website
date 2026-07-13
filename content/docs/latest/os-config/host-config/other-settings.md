@@ -124,10 +124,9 @@ kernel_arguments:
 ```
 
 Instead of using `kernelArguments` you can also use the plain file directive in Ignition to write to `/usr/share/oem/grub.cfg`.
-However, because Ignition runs after GRUB, the GRUB configuration won't take effect until the next reboot of the node. This is particularly
-useful if you are bound to use Ignition V2 (which requires the use of `ct` instead of `butane`).
+However, because Ignition runs after GRUB, the GRUB configuration won't take effect until the next reboot of the node.
 
-Here's an example Container Linux Configuration for using the plain file directive (this YAML content has to be transpiled to Ignition JSON with `ct`):
+Here's an example Butane Config for using the plain file directive:
 
 ```yaml
 storage:
@@ -146,7 +145,7 @@ storage:
           set linux_append="$linux_append flatcar.autologin=tty1"
 ```
 
-To take effect directly on first boot, the alternative is to create a `getty@.service` drop-in, here a snippet that will work with `ct` and `butane`:
+To take effect directly on first boot, the alternative is to create a `getty@.service` drop-in, here a snippet that will work with `butane`:
 
 ```
 systemd:

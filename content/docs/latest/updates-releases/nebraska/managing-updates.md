@@ -12,7 +12,7 @@ manage their updates. The process for doing so is slightly different depending o
 
 ## New machines
 
-For new machines, you can set up the updates server in their Container Linux Configuration. Here is a small example of how to do it:
+For new machines, you can set up the updates server in their Butane Configuration. Here is a small example of how to do it:
 
 
 ```yaml
@@ -48,7 +48,7 @@ storage:
 
 **Note**: The sample Nebraska containers provided use the `port 8000` by default (**plain HTTP, no SSL**). Please adjust the update URL setup in your servers to match your Nebraska deployment.
 
-**Note**: You must not combine the special `locksmith:` CLC section with the above CLC `files:` section (or a similar one with `/etc/coreos/update.conf`) because it results in a conflict where only one entry wins.
+**Note**: You must not combine setting the update server via the legacy `locksmith` mechanism with the above `files:` section (or a similar one with `/etc/coreos/update.conf`) because it results in a conflict where only one entry wins.
 
 More documentation for the `update.conf` file is [on the Flatcar website](https://www.flatcar.org/docs/latest/setup/releases/update-conf/).
 
@@ -68,7 +68,7 @@ The machine alias is an additional name an instance can use when registering in 
 Since the field is supplied by the instance itself, it's not necessarily unique and can contain arbitrary data.
 In the instance list it is shown instead of the instance ID, while on the instance page it is shown in addition to the instance ID.
 
-To add a machine alias to your Flatcar Container Linux instance, you can edit the `/etc/flatcar/update.conf` file or create it on deployment through a Container Linux Configuration:
+To add a machine alias to your Flatcar Container Linux instance, you can edit the `/etc/flatcar/update.conf` file or create it on deployment through a Butane Configuration:
 
 ```yaml
 variant: flatcar
