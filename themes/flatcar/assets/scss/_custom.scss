@@ -33,21 +33,49 @@ $headings-margin-bottom:  0.31em;
 $headings-font-weight:   $font-weight-bold;
 
 // Colors
-$blue:    #09bac8;
-$pink:    #de1040;
-$red:     #eb1a45;
-$green:   #198806;
-$darkergreen: #168203;
-$yellow:  #fff200;
+//
+// ---- Flatcar brand palette -------------------------------------
+// Canonical brand colors. Reference these (or the Bootstrap-facing
+// aliases below) instead of hardcoding hex values in other partials —
+// several one-off hex duplicates/near-duplicates of these colors used
+// to be scattered around the theme (e.g. #000022, #12172c, #1a2d3e
+// all meant "dark navy"; #fff200, #ffe000, #ecd31f all meant "brand
+// yellow"). They've been consolidated to these named values.
+//
+// Kept in sync with the Marp slide theme
+// (cookiecutter-marp-flatcar/themes/flatcar/base.css) and the VS
+// Code / Vim editor themes so code + slides + docs share one identity.
+$flatcar-navy:       #12172b; // primary dark navy (site backgrounds, headers)
+$flatcar-navy-light: #1a2d3e; // lighter navy — gradients / secondary accents only
+$flatcar-cyan:       #09bac8; // decorative brand accent (icons, borders, fills — NOT body text on white, fails WCAG AA)
+$flatcar-link-blue:  #0066b8; // text-safe blue for links / active nav / code keywords on a white background
+$flatcar-yellow:     #fff200; // brand yellow accent
+$flatcar-red:        #eb1a45;
+$flatcar-red-a11y:   #ce163c; // darkened ~12% — $flatcar-red fails AA for small text on light backgrounds (3.9:1); this passes (4.9:1)
+$flatcar-pink:       #de1040;
+$flatcar-green:      #198806;
+$flatcar-green-dark: #168203;
+$flatcar-gold:       #be8900;
+$flatcar-amber:      #9a3f00; // text-safe derivative of $flatcar-gold, which fails AA on light backgrounds (2.8:1); used for code numerics
+
+// ---- Bootstrap-facing aliases -----------------------------------
+// Existing variable names used throughout the theme's partials
+// (150+ call sites) — left in place for backward compatibility,
+// just pointed at the canonical palette above.
+$blue:    $flatcar-cyan;
+$pink:    $flatcar-pink;
+$red:     $flatcar-red;
+$green:   $flatcar-green;
+$darkergreen: $flatcar-green-dark;
+$yellow:  $flatcar-yellow;
 $cyan:    #23ecfa;
 $black:   #000000;
 $white:   #ffffff;
 $gray:    #c4c4c4;
-$gold:   #BE8900;
-
+$gold:    $flatcar-gold;
 
 $flatcar-darker-blue: #007d88;
-$flatcar-dark-blue: #12172c;
+$flatcar-dark-blue: $flatcar-navy;
 $flatcar-bg-blue: $flatcar-dark-blue;
 $flatcar-blue: #08a2af;
 

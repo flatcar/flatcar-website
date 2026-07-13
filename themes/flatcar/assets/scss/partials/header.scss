@@ -12,7 +12,7 @@
   transition: all 0.3s ease;
 
   .news_stripe {
-    background-color: #ffe000;
+    background-color: $yellow;
     color: $black;
     font-size: .8em;
     padding: .5em 0;
@@ -128,7 +128,7 @@ main > *.header-bg-flatcar-2:first-child {
 
 
 $color-primary: $flatcar-bg-blue;
-$color-secondary: #1a2d3e;
+$color-secondary: $flatcar-navy-light;
 
 main > *.header-bg-flatcar:first-child {
   background:
@@ -148,7 +148,7 @@ main > *.header-bg-lokomotive:first-child {
     url(/images/lokomotive-hero-left.svg) calc(100% / 2 - 650px) calc(100% / 2 + 20px) no-repeat,
     url(/images/lokomotive-hero-right.svg) calc(100% / 2 + 650px) calc(100% / 2 + 36px)  no-repeat,
     url(/images/lokomotive-hero-bg.svg) center bottom no-repeat,
-    #ecd31f;
+    $yellow;
   // We need to have it begin at height-of-screen above the beginning because
   // of the mobile version's menu, which will scroll it all the way down.
   // i.e. if we don't have it above the screen for the length of its height,

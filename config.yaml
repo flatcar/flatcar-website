@@ -57,10 +57,16 @@ markup:
     renderer:
       unsafe: true
   highlight:
+    # NOTE: this style name is unused for visual coloring since
+    # noClasses is false — Hugo/Chroma only emits semantic CSS classes
+    # (.chroma .k, .s, .c, ...) and the actual colors come from the
+    # hand-written Flatcar light theme in
+    # themes/flatcar/assets/scss/_syntax.scss. A dark variant is
+    # parked in _syntax-dark.scss.parked for future dark-mode work.
     style: rose-pine-moon
     guessSyntax: true
     noClasses: false
-    lineNos: true
+    lineNos: false
 
 assetDir: static
 
