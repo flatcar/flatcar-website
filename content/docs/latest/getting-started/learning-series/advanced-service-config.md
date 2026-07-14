@@ -86,19 +86,19 @@ systemd:
 </details>
 
 Copy and paste it into a local file `webserver.yaml`, then run
-```sh
+```bash
 cat webserver.yaml | docker run --rm -i quay.io/coreos/butane:latest > webserver.json
 ```
 
 Now start the VM with this configuration, and redirect host port 12345 to VM port 80:
-```sh
+```bash
 ./flatcar_production_qemu_uefi.sh -i webserver.json -f 12345:80 -- -snapshot -nographic
 ```
 
 After a few seconds you should be able to connect to [http://localhost:12345](http://localhost:12345) on your local machine and marvel at the web page you've deployed.
 
 Since we activated access logging in Caddy, you should be able to see your web browser requests in the Caddy log:
-```sh
+```bash
 journalctl -f --no-pager -l -u web
 ```
 
@@ -106,7 +106,7 @@ Then reload the `localhost` page in your browser to generate log entries.
 To exit the log view, press `Ctrl+C`.
 
 When you're done testing, shut down the VM
-```sh
+```bash
 sudo poweroff
 ```
 
@@ -165,7 +165,7 @@ We'll use it to provision a video to our website.
 
 Let's add a few more files!
 First, download the Flatcar logo to the same local directory the Butane config resides in,so we can include it via `local`:
-```sh
+```bash
 wget https://www.flatcar.org/media/brand-logo.svg -O logo.svg
 ```
 
@@ -231,7 +231,7 @@ systemd:
 <br />
 
 Let's transpile!
-```sh
+```bash
 cat webserver.yaml | docker run --rm -i quay.io/coreos/butane:latest > webserver.json
 ```
 
@@ -252,7 +252,7 @@ So we need to
    `-v "$(pwd):/files"`.
 2. Tell Butane where it finds that directory inside the container so it can access all files referenced by `source: local` lines: `--files-dir /files`
 
-```sh
+```bash
 cat webserver.yaml | docker run --rm -v "$(pwd):/files" -i quay.io/coreos/butane:latest --files-dir /files > webserver.json
 ```
 
@@ -262,7 +262,7 @@ cat webserver.yaml | docker run --rm -v "$(pwd):/files" -i quay.io/coreos/butane
 
 Did you fix it?
 Let's fire it up!
-```sh
+```bash
 ./flatcar_production_qemu_uefi.sh -i webserver.json -f 12345:80 -- -snapshot -nographic
 ```
 
@@ -273,23 +273,23 @@ That's not healthy.
 But we can use Linux user account isolation to mitigate this issue.
 
 In the VM, verify that everything indeed runs as root:
-```sh
+```bash
 ls -la /srv/www/html/
 ```
 
 Also check the container:
-```sh
+```bash
 docker exec -ti caddy ps
 ```
 
 And lastly, check that the container can happily create new files in the bind-mounted volume:
-```sh
+```bash
 docker exec -ti caddy sh -c 'echo "write test" > /usr/share/caddy/test'
 ls -la /srv/www/html/
 ```
 
 When you're done testing, shut down the VM:
-```sh
+```bash
 sudo poweroff
 ```
 
@@ -326,7 +326,7 @@ Lastly, we want systemd to start the docker container as that user, and docker t
         User=webby
 ```
 in the `[Service]` section of the web service unit definition and
-```
+```bash
 ...
                   --user 1234 \
 ```
@@ -411,17 +411,17 @@ systemd:
 <br />
 
 Don't forget to transpile!
-```sh
+```bash
 cat webserver.yaml | docker run --rm -v "$(pwd):/files" -i quay.io/coreos/butane:latest --files-dir /files > webserver.json
 ```
 
 Let's run it:
-```sh
+```bash
 ./flatcar_production_qemu_uefi.sh -i webserver.json -f 12345:80 -- -snapshot -nographic
 ```
 
 In the VM, verify that the user exists, and check access rights to the files we ship:
-```sh
+```bash
 id webby
 ls -la /srv/www/html/
 ```
@@ -431,13 +431,13 @@ So the caddy will not be able to create new files on the host.
 
 We can also check the user ID caddy has been started with inside the container:
 
-```sh
+```bash
 docker exec -ti caddy ps
 ```
 
 And lastly, can we create files from the container?
 Let's try to create a file in `/usr/share/caddy/` by writing to it from inside the running container. `/usr/share/caddy/` in the container is volume-mounted from the host's `/srv/www/html`:
-```sh
+```bash
 docker exec -ti caddy sh -c 'echo "write test" > /usr/share/caddy/test'
 ```
 
@@ -445,7 +445,7 @@ If you see a **"Permission denied"** error, then everything worked - the web ser
 This works because the container is running as user `1234` which we created earlier, and that user doesn’t have the same privileges as `root` in the host's `/srv/www/html`.
 
 When you're done, shut down the VM:
-```sh
+```bash
 sudo poweroff
 ```
 
@@ -574,7 +574,7 @@ It's done by Ignition, not by Butane.
 So we have to transpile ALL the yaml.
 The order is important - we need to transpile the snippets first, and the main YAML last - otherwise the JSON files referenced in `main.yaml` do not exist (or worse, are outdated!).
 
-```sh
+```bash
 for f in files systemd main; do 
   cat $f.yaml | docker run --rm -v "$(pwd):/files" -i quay.io/coreos/butane:latest --files-dir /files > $f.json
 done
@@ -582,7 +582,7 @@ done
 
 And then of course start Flatcar with `main.json` instead of our earlier `webserver.json`
 
-```sh
+```bash
 ./flatcar_production_qemu_uefi.sh -i main.json -f 12345:80 -- -snapshot -nographic
 ```
 

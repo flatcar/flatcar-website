@@ -290,13 +290,13 @@ connectors:
 
 - Run Dex using docker with the example configuration:
 
-```sh
+```bash
 docker run -p 5556:5556 -v ${PWD}/example.yaml:/etc/dex/example.yaml ghcr.io/dexidp/dex:v2.44.0 dex serve /etc/dex/example.yaml
 ```
 
 ### Running nebraska
 
-```sh
+```bash
 backend/bin/nebraska --debug --auth-mode oidc \
   --oidc-roles-path groups \
   --oidc-admin-roles admin \

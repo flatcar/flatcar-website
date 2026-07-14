@@ -15,7 +15,7 @@ Trusted Computing requires support in both system hardware and firmware. This do
 
 Trusted Computing depends on the presence of a Trusted Platform Module (TPM). The TPM is a motherboard component responsible for storing the state of the system boot process, and providing a secure communication channel over which this state can be verified. To check for the presence of a TPM, install the latest Alpha version of Flatcar Container Linux and try to list the TPM device file in the `/sys` system control filesystem:
 
-```shell
+```bash
 ls /sys/class/tpm/tpm0
 ```
 
@@ -25,7 +25,7 @@ If this returns an error, the system either does not have a TPM, or it is not en
 
 Version 1.2 TPMs are currently supported. Read the TPM device ID file to discover the TPM version:
 
-```shell
+```bash
 cat /sys/class/tpm/tpm0/device/id
 ```
 
@@ -37,14 +37,14 @@ Support for version 2.0 TPMs identified with the `MSFT0101` string will be added
 
 The TPM device provides control files in the `/sys` filesystem, as seen above. Read the `enabled` and `active` files to check TPM status:
 
-```shell
+```bash
 cat /sys/class/tpm/tpm0/device/enabled
 cat /sys/class/tpm/tpm0/device/active
 ```
 
 If either of these commands prints "0", reconfigure the TPM by writing a code for TPM activation at the next system boot to the PPI `request` file:
 
-```shell
+```bash
 echo 6 > /sys/class/tpm/tpm0/device/ppi/request
 ```
 
@@ -54,7 +54,7 @@ Reboot the system and check TPM status again, as in Step 3.
 
 The Flatcar Container Linux bootloader will record the state of boot components during the boot process &mdash; *measuring* each part, in TPM parlance, and storing the result in its Platform Configuration Registers (PCR). Verify that this measurement has been successful by reading the TPM device's `pcrs` file, a textual representation of the contents of all PCRs:
 
-```shell
+```bash
 cat /sys/class/tpm/tpm0/device/pcrs
 ```
 

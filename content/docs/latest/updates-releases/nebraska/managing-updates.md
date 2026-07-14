@@ -86,7 +86,7 @@ storage:
 The `MACHINE_ALIAS` value can be used without quotes when it contains no whitespace.
 For dynamic contents like the IP address, you may write the value through a script:
 
-```
+```bash
 sudo sed -i "/MACHINE_ALIAS=.*/d" /etc/flatcar/update.conf
 echo "MACHINE_ALIAS=\"$(hostname) ${MY_IP_ADDR}\"" | sudo tee -a /etc/flatcar/update.conf
 ```

@@ -18,7 +18,7 @@ CloudFlare's distributes [cfssl][cfssl] source code on github page and binaries 
 
 Our documentation assumes that you will run [cfssl][cfssl] on your local x86_64 Linux host.
 
-```shell
+```bash
 mkdir ~/bin
 curl -s -L -o ~/bin/cfssl https://pkg.cfssl.org/R1.2/cfssl_linux-amd64
 curl -s -L -o ~/bin/cfssljson https://pkg.cfssl.org/R1.2/cfssljson_linux-amd64
@@ -30,7 +30,7 @@ export PATH=$PATH:~/bin
 
 First of all we have to save default `cfssl` options for future substitutions:
 
-```shell
+```bash
 mkdir ~/cfssl
 cd ~/cfssl
 cfssl print-defaults config > ca-config.json
@@ -113,7 +113,7 @@ You can also modify `ca-csr.json` Certificate Signing Request (CSR):
 
 And generate CA with defined options:
 
-```shell
+```bash
 cfssl gencert -initca ca-csr.json | cfssljson -bare ca -
 ```
 
@@ -130,7 +130,7 @@ ca.pem
 
 ### Generate server certificate
 
-```shell
+```bash
 cfssl print-defaults csr > server.json
 ```
 
@@ -150,13 +150,13 @@ Most important values for server certificate are **Common Name (CN)** and **host
 
 Now we are ready to generate server certificate and private key:
 
-```shell
+```bash
 cfssl gencert -ca=ca.pem -ca-key=ca-key.pem -config=ca-config.json -profile=server server.json | cfssljson -bare server
 ```
 
 Or without CSR json file:
 
-```shell
+```bash
 echo '{"CN":"coreos1","hosts":[""],"key":{"algo":"rsa","size":2048}}' | cfssl gencert -ca=ca.pem -ca-key=ca-key.pem -config=ca-config.json -profile=server -hostname="192.168.122.68,ext.example.com,coreos1.local,coreos1" - | cfssljson -bare server
 ```
 
@@ -170,7 +170,7 @@ server.pem
 
 ### Generate peer certificate
 
-```shell
+```bash
 cfssl print-defaults csr > member1.json
 ```
 
@@ -190,13 +190,13 @@ Substitute CN and hosts values, for example:
 
 Now we are ready to generate member1 certificate and private key:
 
-```shell
+```bash
 cfssl gencert -ca=ca.pem -ca-key=ca-key.pem -config=ca-config.json -profile=peer member1.json | cfssljson -bare member1
 ```
 
 Or without CSR json file:
 
-```shell
+```bash
 echo '{"CN":"member1","hosts":[""],"key":{"algo":"rsa","size":2048}}' | cfssl gencert -ca=ca.pem -ca-key=ca-key.pem -config=ca-config.json -profile=peer -hostname="192.168.122.101,ext.example.com,member1.local,member1" - | cfssljson -bare member1
 ```
 
@@ -212,7 +212,7 @@ Repeat these steps for each `etcd` member hostname.
 
 ### Generate client certificate
 
-```shell
+```bash
 cfssl print-defaults csr > client.json
 ```
 
@@ -227,13 +227,13 @@ For client certificate we can ignore **hosts** values and set only **Common Name
 
 Generate client certificate:
 
-```shell
+```bash
 cfssl gencert -ca=ca.pem -ca-key=ca-key.pem -config=ca-config.json -profile=client client.json | cfssljson -bare client
 ```
 
 Or without CSR json file:
 
-```shell
+```bash
 echo '{"CN":"client","hosts":[""],"key":{"algo":"rsa","size":2048}}' | cfssl gencert -ca=ca.pem -ca-key=ca-key.pem -config=ca-config.json -profile=client - | cfssljson -bare client
 ```
 
@@ -249,7 +249,7 @@ client.pem
 
 ### Download binaries
 
-```shell
+```bash
 mkdir ~/bin
 curl -s -L -o ~/bin/cfssl https://pkg.cfssl.org/R1.2/cfssl_linux-amd64
 curl -s -L -o ~/bin/cfssljson https://pkg.cfssl.org/R1.2/cfssljson_linux-amd64
@@ -259,14 +259,14 @@ export PATH=$PATH:~/bin
 
 ### Create directory to store certificates
 
-```shell
+```bash
 mkdir ~/cfssl
 cd ~/cfssl
 ```
 
 ### Generate CA and certificates
 
-```shell
+```bash
 echo '{"CN":"CA","key":{"algo":"rsa","size":2048}}' | cfssl gencert -initca - | cfssljson -bare ca -
 echo '{"signing":{"default":{"expiry":"43800h","usages":["signing","key encipherment","server auth","client auth"]}}}' > ca-config.json
 export ADDRESS=192.168.122.68,ext1.example.com,coreos1.local,coreos1
@@ -279,7 +279,7 @@ echo '{"CN":"'$NAME'","hosts":[""],"key":{"algo":"rsa","size":2048}}' | cfssl ge
 
 ### Verify data
 
-```shell
+```bash
 openssl x509 -in ca.pem -text -noout
 openssl x509 -in server.pem -text -noout
 openssl x509 -in client.pem -text -noout

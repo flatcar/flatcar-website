@@ -16,7 +16,7 @@ If you already have CoreOS Container Linux clusters and can't or don't want to f
 
 The [update-to-flatcar.sh](https://raw.githubusercontent.com/flatcar/flatcar-docs/main/update-to-flatcar.sh) script does all required steps for you:
 
-```shell
+```bash
 # To be run on the node via SSH
 core@host ~ $ wget https://raw.githubusercontent.com/flatcar/flatcar-docs/main/update-to-flatcar.sh
 core@host ~ $ less update-to-flatcar.sh # Double check the content of the script
@@ -29,7 +29,7 @@ core@host ~ $ sudo systemctl reboot
 
 If it fails due to SSL connection issues from outdated certificates, you can also download the update payload of the latest Stable release through plain HTTP and use the `flatcar-update` script instead:
 
-```shell
+```bash
 $ VER=$(curl -fsSL --insecure --ssl-no-revoke http://stable.release.flatcar-linux.net/amd64-usr/current/version.txt | grep FLATCAR_VERSION= | cut -d = -f 2)
 $ wget --no-check-certificate "http://update.release.flatcar-linux.net/amd64-usr/$VER/flatcar_production_update.gz"
 $ wget --no-check-certificate http://raw.githubusercontent.com/flatcar/init/flatcar-master/bin/flatcar-update
@@ -50,7 +50,7 @@ If you just updated to Flatcar (and haven't done any additional updates), CoreOS
 
 To do that, just use this command composition:
 
-```shell
+```bash
 sudo cgpt prioritize "$(sudo cgpt find -t flatcar-usr | grep --invert-match "$(rootdev -s /usr)")"
 ```
 
@@ -66,46 +66,46 @@ You need to get CoreOS Container Linux's public key, point update_engine to Core
 
 Get CoreOS Container Linux's public key:
 
-```shell
+```bash
 curl -L -o /tmp/key https://raw.githubusercontent.com/coreos/coreos-overlay/master/coreos-base/coreos-au-key/files/official-v2.pub.pem
 ```
 
 Bind-mount it:
 
-```shell
+```bash
 sudo mount --bind /tmp/key /usr/share/update_engine/update-payload-key.pub.pem
 ```
 
 Create an `/etc/flatcar` directory and copy the current update configuration:
 
-```shell
+```bash
 sudo mkdir -p /etc/flatcar
 sudo cp /etc/coreos/update.conf /etc/flatcar/
 ```
 
 Change the `SERVER` field in `/etc/flatcar/update.conf`:
 
-```shell
+```bash
 SERVER=https://public.update.core-os.net/v1/update/
 ```
 
 Bind-mount the release file:
 
-```shell
+```bash
 cp /usr/share/flatcar/release /tmp
 sudo mount --bind /tmp/release /usr/share/flatcar/release
 ```
 
 Edit `FLATCAR_RELEASE_VERSION` to force an update:
 
-```shell
+```bash
 FLATCAR_RELEASE_VERSION=0.0.0
 ```
 
 After that, restart the update service so it rescans the edited configuration and initiates an update.
 The system will reboot into CoreOS Container Linux:
 
-```shell
+```bash
 sudo update_engine_client -update
 ```
 

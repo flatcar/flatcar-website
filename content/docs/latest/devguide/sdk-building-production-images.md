@@ -27,7 +27,7 @@ A notable exception is the "3033" major release used in the example below; this 
 This allows for swift iterations in the "Alpha" channel while keeping Stable major releases … well … stable, and ensuring new major Stable releases introduce meaningful sets of updates and new features.
 
 A good way to look at releases and stabilisation through channels is to consider major releases as branches from "main", while Alpha, Beta and Stable releases are distinct points in the lifecycle of a release branch:
-```
+```text
   main
   ...
    +-- Alpha-2983.0.0
@@ -58,7 +58,7 @@ Versioning is controlled by the [`version.txt` file in the scripts repo](https:/
 `version.txt` contains version strings for both the SDK version as well as the OS image version.
 
 Core idea is that a simple
-```shell
+```bash
 git checkout 3033.2.0
 ```
 will set up the scripts repo for development on top of Flatcar release `3033.2.0`.

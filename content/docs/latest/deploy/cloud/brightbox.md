@@ -76,13 +76,13 @@ The `coreos-metadata.service` saves metadata variables to `/run/metadata/flatcar
 
 Boot the machines with the CLI, referencing the image ID from the import step above or using an official image ID (`brightbox images list --type=official`) and your [Ignition file from Butane][butane-configs]:
 
-```shell
+```bash
 $ brightbox servers create --cloud-ip=true --user-data-file=./ignition.json img-xoufd
 ```
 
 Your first Flatcar instance should now be running. The only thing left to do is find the IP address and SSH in.
 
-```shell
+```bash
 $ brightbox servers show $THE_INSTANCE_ID
 ...
        cloud_ipv4s: 109.107.37.145
@@ -91,7 +91,7 @@ $ brightbox servers show $THE_INSTANCE_ID
 
 Finally SSH into an instance, note that the user is `core`:
 
-```shell
+```bash
 $ curl 109.107.37.145
 Hello from srv-f0lo3.gb1.brightbox.com
 $ ssh core@109.107.37.145

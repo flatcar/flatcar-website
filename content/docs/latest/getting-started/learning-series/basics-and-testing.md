@@ -58,7 +58,7 @@ Lastly:
   * Then run `sudo systemctl enable --now docker`
 * You can test your set-up by running
 
-  ```
+  ```bash
   docker run --rm -ti alpine sh -c 'echo "Hello, World!"'
   ```
 * You will need a pure text editor (i.e. not a document editor like word) to edit YAML files.
@@ -95,7 +95,7 @@ We need to download the following files:
 * `flatcar_production_qemu_uefi_efi_vars.qcow2`
 * `flatcar_production_qemu_uefi_image.img`
 
-```sh
+```bash
 # change this to 'amd64' for intel and AMD systems
 arch="arm64"
 wget https://alpha.release.flatcar-linux.net/"${arch}"-usr/current/{flatcar_production_qemu_uefi.sh,flatcar_production_qemu_uefi_efi_code.qcow2,flatcar_production_qemu_uefi_efi_vars.qcow2,flatcar_production_qemu_uefi_image.img}
@@ -119,12 +119,12 @@ We’ll use 2 important `qemu` command line options:
   This helps us a lot with experimenting with Flatcar, as Flatcar configuration is only applied **at first boot**.
 
 Start the VM with
-```
+```bash
 ./flatcar_production_qemu_uefi.sh -nographic -snapshot 
 ```
 
 You'll see the VM boot, and after a short while you'll end up on a command prompt.
-```
+```console
 [   17.396816] mousedev: PS/2 mouse device common for all mice
 [   17.405146] input: Power Button as /devices/LNXSYSTM:00/LNXPWRBN:00/input/input4
 [   17.449715] ACPI: button: Power Button [PWRF]
@@ -141,36 +141,36 @@ core@localhost ~ $
 Note that you are automatically logged in as user `core`.
 `core` is an unprivileged user, but has password-less `sudo` access.
 You can switch to the `root` account at any time via
-```
+```bash
 sudo -i
 ```
 
 You can now interactively explore Flatcar and look around a bit.
 E.g. create a file via
-```
+```bash
 echo "hello" > /home/core/test.txt
 ```
 
 The file will survive reboot
-```
+```bash
 sudo reboot
 ```
 ...
-```
+```console
 cat /home/core/test.txt
 hello
 ```
 
 but not shutdown
-```
+```bash
 sudo poweroff
 ```
 ...
-```
+```bash
 ./flatcar_production_qemu_uefi.sh -nographic -snapshot 
 ```
 ...
-```
+```console
 cat /home/core/test.txt
 cat: /home/core/test.txt: No such file or directory
 ```
@@ -223,7 +223,7 @@ Before we can use the configuration, we need to transpile the human-readable YAM
 For this we'll run the Butane docker image on your local machine.
 On a command line in the `flatcar` working directory where you created `nginx.yaml`, run
 
-```
+```bash
 cat nginx.yaml | docker run --rm -i quay.io/coreos/butane:latest > nginx.json 
 ```
 
@@ -236,7 +236,7 @@ Now we start the VM again, with 2 new changes:
 - We’ll pass along `nginx.json` we just created to be used as the instance’s configuration
 - We’ll forward the local machine’s port 12345 to the VM’s port 80, so we can connect to the VM’s NGINX from your machine.
 
-```
+```bash
 ./flatcar_production_qemu_uefi.sh -i nginx.json -f 12345:80 -- -nographic -snapshot
 ```
 Did you note that an additional `--` snuck into our command line?
@@ -272,14 +272,14 @@ We can overcome this by connecting to the VM via SSH _in a separate terminal win
 Your SSH (public) keys from your `~/.ssh/`directory are automatically provisioned to the VM by our `flatcar_production_qemu_uefi.sh` wrapper script.
 If you don't yet have SSH keys on your host, we'll generate these.
 Check with
-```
+```bash
 ls -la ~/.ssh/
 ```
 
 if you see files like `id_rsa.pub`, `id_ecdsa.pub`, or `id_ed25519.pub`, you're all set.
 
 If none of these are present, we'll generate an ED25519 key for you, no big deal:
-```sh
+```bash
 ssh-keygen -t ed25519
 ```
 
@@ -292,7 +292,7 @@ Now we can connect to the Flatcar VM via SSH.
 If you generated keys above, restart the VM to make sure the new SSH keys are injected.
 The wrapper script also helpfully creates a port-froward from the VM's (SSH) port 22 to host port 2222.
 
-```sh
+```bash
 ssh -o "UserKnownHostsFile=/dev/null" -o "StrictHostKeyChecking=no" core@localhost -p 2222
 ```
 
@@ -311,7 +311,7 @@ host flatcar-vm
 ```
 
 You can now connect comfortably by typing
-```sh
+```bash
 ssh flatcar-vm
 ```
 

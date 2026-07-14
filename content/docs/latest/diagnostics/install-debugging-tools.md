@@ -15,7 +15,7 @@ You can use common debugging tools like tcpdump or strace with Toolbox. Using th
 
 By default, Toolbox uses the stock Fedora Docker container. To start using it, simply run:
 
-```shell
+```bash
 /usr/bin/toolbox
 ```
 
@@ -23,7 +23,7 @@ _NOTE_: For Fedora, it's recommended to use at least 2048 MB RAM to avoid the fo
 
 You're now in the namespace of Fedora and can install any software you'd like via `dnf`. For example, if you'd like to use `tcpdump`:
 
-```shell
+```bash
 [root@srv-3qy0p ~]# dnf -y install tcpdump
 [root@srv-3qy0p ~]# tcpdump -i ens3
 tcpdump: verbose output suppressed, use -v or -vv for full protocol decode
@@ -34,7 +34,7 @@ listening on ens3, link-type EN10MB (Ethernet), capture size 65535 bytes
 
 Create a `.toolboxrc` in the user's home folder to use a specific Docker image:
 
-```shell
+```bash
 $ cat .toolboxrc
 TOOLBOX_DOCKER_IMAGE=index.example.com/debug
 TOOLBOX_USER=root
@@ -88,7 +88,7 @@ The following command line will ensure `tmux`, `strace` and `pidof` are installe
 in the container, then create a new `tmux` session to which you can later attach,
 and keep the service active by waiting with `strace` until the `tmux` process exits.
 
-```shell
+```bash
 systemd-run --user toolbox sh -c 'dnf install -y tmux strace procps-ng; TERM=tmux tmux new-session -d -s sharedsession; strace -p "$(pidof tmux)"'
 ```
 
@@ -99,7 +99,7 @@ to use `strace` to have a foreground process running that prevents `toolbox` fro
 
 Once this is running you can can attach to the `tmux` session as often as you want from any SSH connection.
 
-```shell
+```bash
 sudo nsenter -t "$(pidof tmux | cut -d ' ' -f 1)" -a tmux a
 ```
 
@@ -111,13 +111,13 @@ started with `systemd-run` will terminate and you'll have to start the service a
 
 Advanced users can SSH directly into a toolbox by setting up an `/etc/passwd` entry:
 
-```shell
+```bash
 useradd bob -m -p '*' -s /usr/bin/toolbox -U -G sudo,docker,rkt
 ```
 
 To test, SSH as bob:
 
-```shell
+```bash
 ssh bob@hostname.example.com
 Flatcar Container Linux by Kinvolk alpha (2671.0.0)
 Downloading sha256:ee7e8933710 [=============================] 63.4 MB / 63.4 MB

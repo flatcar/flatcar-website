@@ -50,13 +50,13 @@ To delete the contents of a directory but keep the directory itself, specify it 
 
 The used regular expression language is that of `egrep`. Assuming you specified `/etc/mypath`, you can test which paths will be deleted with the following command (note the `-not`):
 
-```sh
+```bash
 find / /etc -xdev -regextype egrep -not -regex '(/etc/mypath|/etc/mypath/.*)'
 ```
 
 You can test which path will be kept with the following command (note the absence of `-not`):
 
-```sh
+```bash
 find / /etc -xdev -regextype egrep -regex '(/etc/mypath|/etc/mypath/.*)'
 ```
 
@@ -70,7 +70,7 @@ Meaningful examples are:
 
 An example for selectively resetting the OS with retriggering Ignition while keeping SSH host keys, logs, and machine ID:
 
-```sh
+```bash
 sudo flatcar-reset --keep-machine-id --keep-paths '/etc/ssh/ssh_host_.*' /var/log
 sudo systemctl reboot
 ```
@@ -86,7 +86,7 @@ To ensure that the systemd service presets are reevaluated you should invalidate
 If you can't do this, you have to create the symlinks for the service target through Ignition `links` entries.
 Here is an example config with an additional `links` entry that ensures that the new service unit is enabled if this config is used for reprovisioning:
 
-```
+```json
 {
   "ignition": {
     "version": "2.2.0"

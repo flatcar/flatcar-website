@@ -47,7 +47,7 @@ follow the next steps. You can also get a running instance on any of the various
 cloud providers that Flatcar supports.
 
 
-```
+```bash
 $ wget https://stable.release.flatcar-linux.net/amd64-usr/current/flatcar_production_qemu_image.img.bz2
 $ bzip2 -d flatcar_production_qemu_image.img.bz2
 $ wget https://stable.release.flatcar-linux.net/amd64-usr/current/flatcar_production_qemu.sh
@@ -57,7 +57,7 @@ $ ./flatcar_production_qemu.sh
 
 Now, you can login in the VM with
 
-```
+```console
 $ ssh -o "UserKnownHostsFile=/dev/null" -o "StrictHostKeyChecking=no" -p 2222 core@localhost
 Warning: Permanently added '[localhost]:2222' (ECDSA) to the list of known hosts.
 Last login: Mon Apr 19 13:59:55 UTC 2021 from 10.0.2.2 on pts/1
@@ -67,7 +67,7 @@ core@localhost ~ $
 
 Let’s check that the `IKHEADERS` config is actually set
 
-```
+```console
 core@localhost ~ $ zgrep CONFIG_IKHEADERS /proc/config.gz
 CONFIG_IKHEADERS=m
 ```
@@ -78,7 +78,7 @@ modules into the toolbox environment we create below. If we mount the kernel
 modules folder then this step is not needed and the BCC tool will load the
 module automatically for us.
 
-```
+```console
 core@localhost ~ $ sudo modprobe kheaders
 core@localhost ~ $ lsmod | grep -i kheaders
 kheaders         	3674112  0
@@ -89,13 +89,13 @@ Now that we have the module loaded, we can create the toolbox environment. The
 BCC to register and unregister kprobes. Please note that we aren’t sharing any
 volume related to the kernel headers.
 
-```
+```console
 core@localhost ~ $ toolbox --bind=/sys/kernel/debug:/sys/kernel/debug
 ```
 
 Install the bcc-tools package:
 
-```
+```console
 [root@localhost ~]# dnf install bcc-tools xz -y
 ```
 
@@ -104,7 +104,7 @@ tool that monitors the exec syscall, i.e. creation of new processes. Execute
 some commands in another terminal on the Flatcar host to see how they are traced
 by the execsnoop tool.
 
-```
+```console
 [root@localhost ~]# /usr/share/bcc/tools/execsnoop
 PCOMM        	PID	PPID   RET ARGS
 ping         	2259   1233 	0 /usr/bin/ping 8.8.8.8
@@ -133,7 +133,7 @@ and it’s not required to compile them in the target machine.
 This feature is also present in the Flatcar Container Linux Stable release. We
 can follow the same steps as above to get an instance running:
 
-```
+```bash
 $ wget https://stable.release.flatcar-linux.net/amd64-usr/current/flatcar_production_qemu_image.img.bz2
 $ bzip2 -d flatcar_production_qemu_image.img.bz2
 $ wget https://stable.release.flatcar-linux.net/amd64-usr/current/flatcar_production_qemu.sh
@@ -156,7 +156,7 @@ image we have prepared.
 
 Let’s start by creating the container image with the libbpf-tools inside.
 
-```
+```bash
 $ IMAGE=<repo/username/image:tag>
 $ mkdir libbpf-tools-container && cd libbpf-tools-container
 $ cat <<EOF > Dockerfile
@@ -190,7 +190,7 @@ and execute the execsnoop tool. While the execsnoop tool is running, open a
 different ssh session to the Flatcar host and run some commands there, you’ll
 see how they are traced.
 
-```
+```console
 $ docker run -it --privileged -v /sys/kernel/debug:/sys/kernel/debug $IMAGE
 root@1d624982f6c9:/# execsnoop
 PCOMM        	PID	PPID   RET ARGS

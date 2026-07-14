@@ -39,7 +39,7 @@ Load these with `source flatcar.env`
 ## Step 1: Upload the Flatcar image
 First, upload your desired Flatcar image to your STACKIT project.
 
-```shell
+```bash
 IMAGE_ID=$(
   stackit image create --name "${IMAGE_NAME}" \
     --os-version "${FLATCAR_VERSION}" \
@@ -55,7 +55,7 @@ IMAGE_ID=$(
 ```
 
 You can verify the upload by listing all available images in your project:
-```shell
+```bash
 stackit image list --project-id "${PROJECT_ID}"
 ```
 
@@ -65,13 +65,13 @@ Before creating the server, you need to prepare several components: an SSH key f
 
 ### 1. Create an SSH key
 If you don't have one already, upload your public SSH key to STACKIT. This allows you to securely access your server later.
-```shell
+```bash
 stackit key-pair create --name "${KEY_NAME}" --public-key "${PUBLIC_KEY_PATH}"
 ```
 
 ### 2. Create a network
 Your server needs to be attached to a network.
-```shell
+```bash
 NETWORK_ID=$(
   stackit network create --name "${NETWORK_NAME}" \
     --project-id "${PROJECT_ID}" \
@@ -82,7 +82,7 @@ NETWORK_ID=$(
 
 ### 3. Create a security group and rule
 First, create the security group that will contain the firewall rules.
-```shell
+```bash
 SECURITY_GROUP_ID=$(
   stackit security-group create --name "${SECURITY_GROUP_NAME}"  \
     --project-id "${PROJECT_ID}" \
@@ -92,7 +92,7 @@ SECURITY_GROUP_ID=$(
 ```
 
 Next, add a rule to it to allow incoming SSH traffic on port 22.
-```shell
+```bash
 stackit security-group rule create --security-group-id "${SECURITY_GROUP_ID}" \
   --direction ingress \
   --protocol-name tcp \
@@ -105,14 +105,14 @@ stackit security-group rule create --security-group-id "${SECURITY_GROUP_ID}" \
 
 ### 4. Create a public IP address
 Create a public IP address that you will later attach to the server.
-```shell
+```bash
 PUBLIC_IP_ID=$(
   stackit public-ip create --project-id "${PROJECT_ID}" -o json -y | jq  -r ".id"
 )
 ```
 
 Get the IP address you created.
-```shell
+```bash
 PUBLIC_IP=$(
   stackit public-ip describe "${PUBLIC_IP_ID}" --project-id "${PROJECT_ID}" -o json -y | jq -r ".ip"
 )
@@ -156,7 +156,7 @@ systemd:
 
 #### 5.2 Convert Butane to Ignition
 This Butane file must be converted into an Ignition file (`ignition.json`) before use:
-```shell
+```bash
 cat butane.yaml | docker run --rm -i quay.io/coreos/butane:release > ignition.json
 ```
 
@@ -164,7 +164,7 @@ cat butane.yaml | docker run --rm -i quay.io/coreos/butane:release > ignition.js
 Now you have all the necessary components to create your Flatcar server.
 ### 1. Create the server
 Create your server with all resources you created above.
-```shell
+```bash
 SERVER_ID=$(
   stackit server create --name "${SERVER_NAME}" \
     --project-id "${PROJECT_ID}" \
@@ -186,14 +186,14 @@ Make sure to use the `@` prefix, which tells the CLI to load the contents of you
 
 ### 2. Attach a public IP
 Then, attach the IP to your server:
-```shell
+```bash
 stackit server public-ip attach "${PUBLIC_IP_ID}" --server-id "${SERVER_ID}" --project-id "${PROJECT_ID}" -y
 ```
 
 ### 3. Connect to your server
 Your Flatcar server is running and your public IP address is attached.  
 You can now connect to it via SSH using the user core and your private SSH key.
-```shell
+```bash
 ssh core@"${PUBLIC_IP}" -i "${PRIVATE_KEY_PATH}"
 ```
 
@@ -201,11 +201,11 @@ ssh core@"${PUBLIC_IP}" -i "${PRIVATE_KEY_PATH}"
 If you configured the server with the example Butane file to run an Nginx container, you can verify that it's working after you have connected via SSH.
 
 Run the `curl` command to check the local web server:
-```shell
+```bash
 curl localhost
 ```
 
 This confirms your User Data script was executed successfully. You should see a "Hello" message from the container, which includes the server's unique hostname:
-```shell
+```bash
 Hello from <HOSTNAME>
 ```

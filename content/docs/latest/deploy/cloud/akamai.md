@@ -114,7 +114,7 @@ The `coreos-metadata.service` unit saves metadata variables to
 `/run/metadata/flatcar`.
 systemd units can use them with
 
-```
+```ini
 EnvironmentFile=/run/metadata/flatcar
 ```
 

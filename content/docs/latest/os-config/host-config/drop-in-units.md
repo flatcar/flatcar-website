@@ -58,14 +58,14 @@ RestartSec=60s
 
 Then reload systemd, scanning for new or changed units:
 
-```shell
+```bash
 systemctl daemon-reload
 
 ```
 
 And restart modified service if necessary (in our example we have changed only `RestartSec` option, but if you want to change environment variables, `ExecStart` or other run options you have to restart service):
 
-```shell
+```bash
 systemctl restart locksmithd.service
 ```
 
@@ -148,7 +148,7 @@ systemd:
 
 To see all runtime drop-in changes for system units run the command below:
 
-```shell
+```bash
 systemd-delta --type=extended
 ```
 

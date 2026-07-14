@@ -39,7 +39,7 @@ For handling storage devices, Butane offers disk customisation options for parti
 To emulate an additional disk in our local QEmu test environment, we'll create a "disk" file on the host.
 We'll later pass this to qemu which will present it as an actual disk to the Flatcar VM guest OS.
 
-```sh
+```bash
 qemu-img create -f qcow2 mydisk 1G
 ```
 
@@ -50,7 +50,7 @@ Which we'll never do since we run in `-snapshot` mode.
 Lastly, we want to tell qemu about the file-backed new storage device when we start the VM.
 We can pass plain qemu options in our VM start wrapper script (and we already did, with `-snapshot` and `-nographic`); we'll add
 
-```sh
+```bash
 -drive file=mydisk,driver=qcow2,snapshot=on,media=disk,if=virtio
 ```
 
@@ -73,12 +73,12 @@ to the command line.
 <br />
 
 To briefly verify we can launch Flatcar without any configuration:
-```sh
+```bash
 ./flatcar_production_qemu_uefi.sh -snapshot -nographic -drive file=mydisk,driver=qcow2,snapshot=on,media=disk,if=virtio
 ```
 
 A brief glance on `/proc/partitions` should list (among others) a `vdb` disk w/o any partitions:
-```sh
+```bash
 cat /proc/partitions
 ```
 
@@ -132,19 +132,19 @@ storage:
 
 Let's transpile.
 We need to add the new `disks` YAML file to our transpile loop:
-```sh
+```bash
 for f in disks files systemd main; do
   cat $f.yaml | docker run --rm -v "$(pwd):/files" -i quay.io/coreos/butane:latest --files-dir /files > $f.json
 done
 ```
 
 Let's run it!
-```sh
+```bash
 ./flatcar_production_qemu_uefi.sh -i disks.json -f 12345:80 -- -snapshot -nographic -drive file=mydisk,driver=qcow2,snapshot=on,media=disk,if=virtio
 ```
 
 Check out if it worked:
-```sh
+```bash
 mount | grep srv
 df -h /srv
 ```
@@ -206,7 +206,7 @@ Don't forget to transpile!
 As previously, we need to pass the additional file-backed disk when running the deployment.
 Since we use snapshot mode for the disk, the partition and file system we generated at the previous boot will be gone.
 
-```sh
+```bash
 ./flatcar_production_qemu_uefi.sh -i disks.json -f 12345:80 -- -snapshot -nographic -drive file=mydisk,driver=qcow2,snapshot=on,media=disk,if=virtio
 ```
 
@@ -214,7 +214,7 @@ You'll note a considerably longer boot time; this is when the LUKS device is set
 It should take between 10 and 20 seconds, depending on your host system.
 
 After we've booted, check out the new set-up:
-```sh
+```bash
 mount | grep srv
 sudo dmsetup table mydata-encrypted
 sudo cryptsetup luksDump /dev/disk/by-partlabel/mydata
@@ -252,7 +252,7 @@ Apart from defining and customising services to run at step #6, we can also make
 Like, re-formatting and encrypting it.
 
 Consider the following snippet:
-```
+```yaml
 storage:
   ...
   luks:
@@ -306,7 +306,7 @@ Don't forget to transpile!
 
 After we've booted, check `/dev/vda9`, our root partition:
 
-```sh
+```bash
 mount | grep srv
 sudo dmsetup table rootencrypted
 sudo cryptsetup luksDump /dev/vda9
@@ -318,7 +318,7 @@ The VM will stop booting and prompt for the passphrase.
 Since we only set a key so far, we should set a passphrase immediately after first boot.
 The key is stored in LUKS slot 0; we'll use slot 1 for our passphrase:
 
-```sh
+```bash
 sudo cryptsetup --key-slot 1 -d /etc/luks/rootencrypted luksAddKey /dev/vda9
 ```
 
@@ -326,13 +326,13 @@ The command will prompt for a passphrase, then prompt again to verify.
 Type in a passphrase and remember it well!
 You can then use `luksDump` again to check if a new key is now in slot 1.
 
-```sh
+```bash
 sudo cryptsetup luksDump /dev/vda9
 ```
 
 Reboot the VM to verify the passphrase works:
 
-```
+```bash
 sudo reboot
 ```
 

@@ -14,7 +14,7 @@ Follow the [installation and configuration guides][azure-cli] for the Microsoft 
 
 Instances on Microsoft Azure must be created within a resource group. Create a new resource group with the following command:
 
-```shell
+```bash
 az group create --name group-1 --location <location>
 ```
 
@@ -121,20 +121,20 @@ Note: _`az vm image list -s` flag matches parts of the SKU, which means that `-s
 
 Before being able to use the offers, you may need to accept the legal terms once, here done for `flatcar-container-linux-free` and `stable-gen2`:
 
-```shell
+```bash
 az vm image terms show --publish kinvolk --offer flatcar-container-linux-free --plan stable-gen2
 az vm image terms accept --publish kinvolk --offer flatcar-container-linux-free --plan stable-gen2
 ```
 
 For quick tests the official Azure CLI also supports an alias for the latest Flatcar stable image:
-```shell
+```bash
 az vm create --name node-1 --resource-group group-1 --admin-username core --user-data config.ign --image FlatcarLinuxFreeGen2
 ```
 
 ### CoreVM
 
 Flatcar images are also published under an offer called `flatcar-container-linux-corevm-amd64`. This offer does not require accepting image terms and does not require specifying plan information when creating instances or building derived images. The content of the images matches the other offers.
-```shell
+```bash
 $ az vm image list --all -p kinvolk -f flatcar-container-linux-corevm-amd64 -s stable-gen2 --query '[-1]'
 {
   "architecture": "x64",
@@ -148,7 +148,7 @@ $ az vm image list --all -p kinvolk -f flatcar-container-linux-corevm-amd64 -s s
 
 ### ARM64
 Arm64 images are published under the offer called `flatcar-container-linux-corevm`. These are Generation 2 images, the only supported option on Azure for Arm64 instances, so the SKU contains only the release channel name without the `-gen2` suffix: `alpha`, `beta`, `stable`. This offer has the same properties as the `CoreVM` offer described above.
-```shell
+```bash
 $ az vm image list --all --architecture arm64 -p kinvolk -f flatcar -s stable --query '[-1]'
 {
   "architecture": "Arm64",
@@ -174,7 +174,7 @@ While the Marketplace images are recommended, it sometimes might be easier or re
 
 A public Shared Image Gallery hosts recent Flatcar Stable images for amd64. Here is how to show the image definitions (for now you will only find `flatcar-stable-amd64`) and the image versions they provide:
 
-```shell
+```bash
 az sig image-definition list-community --public-gallery-name flatcar-23485951-527a-48d6-9d11-6931ff0afc2e --location westeurope
 az sig image-version list-community --public-gallery-name flatcar-23485951-527a-48d6-9d11-6931ff0afc2e --gallery-image-definition flatcar-stable-amd64 --location westeurope
 ```
@@ -185,7 +185,7 @@ A second gallery `flatcar4capi-742ef0cb-dcaa-4ecb-9cb0-bfd2e43dccc0` exists for 
 
 To automatically download the Flatcar image for Azure from the release page and upload it to your Azure account, run the following command, where `<resource group>` is a valid [Resource Group][resource-group] name.
 
-```shell
+```bash
 docker run -it --rm \
   ghcr.io/flatcar/azure-flatcar-image-upload \
   --resource-group <resource group>
@@ -195,7 +195,7 @@ During execution, the script will ask you to log into your Azure account and cre
 
 If you already have the Azure CLI configured in your local environment, you can avoid logging in by passing your `~/.azure` directory through to the container. This may be necessary when a stricter security configuration prevents the usual authentication flow.
 
-```shell
+```bash
 docker run -it --rm \
   --user "$(id -u):$(id -g)" --env HOME=/tmp --volume "${HOME}/.azure:/tmp/.azure" \
   ghcr.io/flatcar/azure-flatcar-image-upload \
@@ -204,7 +204,7 @@ docker run -it --rm \
 
 To see all available options, run:
 
-```shell
+```bash
 docker run -it --rm ghcr.io/flatcar/azure-flatcar-image-upload --help
 
 Usage: /usr/local/bin/upload_images.sh [OPTION...]
@@ -232,7 +232,7 @@ In the web UI you can enter a user name for a new user and provide an SSH pub ke
 
 On the CLI you can pass the user and the SSH key as follows:
 
-```shell
+```bash
 az vm create ... --admin-username myuser --ssh-key-values ~/.ssh/id_rsa.pub
 ```
 
@@ -276,13 +276,13 @@ systemd:
 
 Transpile it to Ignition JSON:
 
-```shell
+```bash
 cat cl.yaml | docker run --rm -i quay.io/coreos/butane:latest > ignition.json
 ```
 
 Spawn a VM by passing the Ignition JSON in, and because the Ignition config didn't include the SSH keys, they are passed as VM metadata:
 
-```
+```bash
 az vm create --name node-1 --resource-group group-1 --admin-username core --ssh-key-values ~/.ssh/id_rsa.pub --user-data ./ignition.json --image kinvolk:flatcar-container-linux:stable:3760.2.0
 # Alternatively, instead of '--user-data ./ignition.json' you can use: --custom-data "$(cat ./ignition.json)"
 ```
@@ -428,7 +428,7 @@ The following Terraform v0.13 module may serve as a base for your own setup.
 
 You can clone the setup from the [Flatcar Terraform examples repository](https://github.com/flatcar/flatcar-terraform/tree/main/azure) or create the files manually as we go through them and explain each one.
 
-```
+```bash
 git clone https://github.com/flatcar/flatcar-terraform.git
 # From here on you could directly run it, TLDR:
 cd azure
@@ -443,7 +443,7 @@ terraform apply
 
 Start with a `azure-vms.tf` file that contains the main declarations:
 
-```
+```hcl
 terraform {
   required_version = ">= 0.13"
   required_providers {
@@ -565,7 +565,7 @@ data "template_file" "machine-configs" {
 
 Create a `variables.tf` file that declares the variables used above:
 
-```
+```hcl
 variable "resource_group_location" {
   default     = "eastus"
   description = "Location of the resource group."
@@ -600,7 +600,7 @@ variable "flatcar_stable_version" {
 
 An `outputs.tf` file shows the resulting IP addresses:
 
-```
+```hcl
 output "ip-addresses" {
   value = {
     for key in var.machines :
@@ -612,7 +612,7 @@ output "ip-addresses" {
 Now you can use the module by declaring the variables and a Container Linux Configuration for a machine.
 First create a `terraform.tfvars` file with your settings:
 
-```
+```hcl
 cluster_name            = "mycluster"
 machines                = ["mynode"]
 ssh_keys                = ["ssh-rsa AA... me@mail.net"]
@@ -622,7 +622,7 @@ resource_group_location = "westeurope"
 
 You can resolve the latest Flatcar Stable version with this shell command:
 
-```
+```bash
 curl -sSfL https://stable.release.flatcar-linux.net/amd64-usr/current/version.txt | grep -m 1 FLATCAR_VERSION_ID= | cut -d = -f 2
 ```
 
@@ -653,7 +653,7 @@ storage:
 
 First find your subscription ID, then create a service account for Terraform and note the tenant ID, client (app) ID, client (password) secret:
 
-```
+```console
 az login
 az account set --subscription <azure_subscription_id>
 az ad sp create-for-rbac --name <service_principal_name> --role Contributor
@@ -670,13 +670,13 @@ AZ CLI installation docs are [here](https://docs.microsoft.com/en-us/cli/azure/i
 
 Before you run Terraform, accept the image terms:
 
-```
+```bash
 az vm image terms accept --urn kinvolk:flatcar-container-linux:stable:<flatcar_stable_version>
 ```
 
 Finally, run Terraform v0.13 as follows to create the machine:
 
-```
+```bash
 export ARM_SUBSCRIPTION_ID="<azure_subscription_id>"
 export ARM_TENANT_ID="<azure_subscription_tenant_id>"
 export ARM_CLIENT_ID="<service_principal_appid>"
@@ -698,7 +698,7 @@ With Terraform version 3.x it [is currently not possible to partition and format
 for a `azurerm_linux_virtual_machine` with ignition's storage configuration. It might be possible to use the deprecated `azurerm_virtual_machine` module.
 Another workaround is to use a systemd unit to run a script that does partitioning and formatting for you. Here is an example on how to create a
 single partition with an ext4 filesystem:
-```
+```yaml
 systemd:
   units:
     - name: partition-drive.service

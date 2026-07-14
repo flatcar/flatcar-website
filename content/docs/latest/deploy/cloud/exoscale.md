@@ -65,7 +65,7 @@ To add more instances to the cluster, just launch more with the same cloud-confi
 
 It is possible to modify the cloud-config contents during the lifetime of an instance. In order to modify the contents, you need to use the API command `updateVirtualMachine` with the machine in a stopped state.
 
-```sh
+```bash
 cs stopVirtualMachine id=<UUID of instance>
 cs updateVirtualMachine id=<UUID of instance> userData=<base64 encoded value of your cloud-config>
 cs startVirtualMachine id=<UUID of instance>
@@ -81,7 +81,7 @@ Flatcar Container Linux does not allow root connection to the instance. By defau
 
 To log in to a Flatcar Container Linux instance after it's created click on its IP address or run:
 
-```sh
+```bash
 ssh core@<ip address>
 ```
 
@@ -91,7 +91,7 @@ ssh core@<ip address>
 
 Install and configure the command line client (Python required) with your [API details](https://portal.exoscale.ch/account/profile/api).
 
-```sh
+```bash
 pip install cs
 vi $HOME/.cloudstack.ini
 [cloudstack]
@@ -104,7 +104,7 @@ To launch a Small 2GB instance with the current Stable Flatcar Container Linux i
 
 note: template ids are available on the [Exoscale website](https://www.exoscale.ch/open-cloud/templates/).
 
-```sh
+```bash
 cs deployVirtualMachine templateId=2a196b89-0c50-4400-9d42-ef43bcc0fa99 serviceOfferingId=21624abb-764e-4def-81d7-9fc54b5957fb zoneId=1128bd56-b4d9-4ac6-a7b9-c715b187ce11 keyPair=[keypair name]
 ```
 

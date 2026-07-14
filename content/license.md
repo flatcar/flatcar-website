@@ -7,7 +7,7 @@ Flatcar Container Linux is developed by Flatcar Container Linux Maintainers & Co
 
 #### License
 
-```
+```text
    Copyright 2025 The Flatcar Container Linux Maintainers
 
    Licensed under the Apache License, Version 2.0 (the "License");

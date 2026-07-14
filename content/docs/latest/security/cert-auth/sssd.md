@@ -31,12 +31,12 @@ ldap_uri = ldap://ipa.example.com
 
 ## Start SSSD
 
-```shell
+```bash
 sudo systemctl start sssd
 ```
 
 ## Make SSSD available on future reboots
 
-```shell
+```bash
 sudo systemctl enable sssd
 ```

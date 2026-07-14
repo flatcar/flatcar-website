@@ -41,7 +41,7 @@ As before, download
 Or use the bash automation below.
 Adjust `release` and `arch` to your needs.
 
-```sh
+```bash
 # replace with second-latest Alpha release number (or just use as-is, as this release should be "old enough")
 release='4230.0.0'
 # amd64 or arm64
@@ -50,7 +50,7 @@ arch='amd64'
 
 Then run
 
-```sh
+```bash
 wget https://alpha.release.flatcar-linux.net/"${arch}"-usr/"${release}"/{flatcar_production_qemu_uefi.sh,flatcar_production_qemu_uefi_efi_code.qcow2,flatcar_production_qemu_uefi_efi_vars.qcow2,flatcar_production_qemu_uefi_image.img}
 
 chmod 755 flatcar_production_qemu_uefi.sh
@@ -113,7 +113,7 @@ systemd:
 
 Then transpile and start.
 
-```sh
+```bash
 cat nginx.yaml | docker run --rm -i quay.io/coreos/butane:latest > nginx.json
 ./flatcar_production_qemu_uefi.sh -i nginx.json -f 12345:80 -- -nographic -snapshot
 ```
@@ -121,7 +121,7 @@ cat nginx.yaml | docker run --rm -i quay.io/coreos/butane:latest > nginx.json
 **NOTE** We'll require `root` access for most of what we do in this session, as we're introspecting sensitive areas of the system.
 Once the VM finished booting, use
 
-```sh
+```bash
 sudo -i
 ```
 
@@ -138,19 +138,19 @@ Or it is generated at first boot (see the tmpfiles step below).
 
 Check it out!
 
-```sh
+```bash
 ls -la /
 ```
 
 Try creating a file in `/usr`:
 
-```sh
+```bash
 echo 'test' > /usr/testfile
 ```
 
 Let's check out how the OS disk is used. Which partitions of the OS disk are mounted?
 
-```sh
+```bash
 mount | grep vda
 ```
 
@@ -159,7 +159,7 @@ Well, this needs a bit of detective work.
 
 First, we can verify `/usr` _is_, in fact, based on a partition on `/dev/vda`:
 
-```sh
+```bash
 rootdev -s /usr
 ```
 
@@ -167,20 +167,20 @@ returns `vda3`. But why doesn't it show up in our mounts?
 
 Let's check what is actually mounted on `/usr`:
 
-```sh
+```bash
 mount | grep -w /usr
 ```
 
 Let's ignore the `systemd-sysext` line for now; we'll elaborate on this in a later session.
 So `/usr` is handled by devicemapper, more specifically
 
-```sh
+```bash
 ls -la /dev/mapper/usr
 ```
 
 it's `dm-0`. Let's ask the device mapper about it, then:
 
-```sh
+```bash
 dmsetup status /dev/dm-0
 ```
 
@@ -191,7 +191,7 @@ OOOoohh, it's a [dm-verity](https://docs.kernel.org/admin-guide/device-mapper/ve
 
 So let's see which partition `dm-0` is actually using:
 
-```sh
+```bash
 veritysetup status usr
 ```
 
@@ -253,7 +253,7 @@ Let's explore ourselves!
 Since we're using qemu (which uses `virtio` devices), the OS disk is `vda`.
 Let's list the partitions first.
 
-```sh
+```bash
 gdisk -l /dev/vda
 ```
 
@@ -263,7 +263,7 @@ These partitions contain the whole of the user space.
 The corresponding kernel and initrd are stored in the EFI partition mounted on `/boot`.
 Let's take a look.
 
-```sh
+```bash
 ls -la /boot/flatcar/
 ```
 
@@ -276,13 +276,13 @@ We need to decide which kernel to boot!
 For this, we can check which `USR` partition is the currently active one.
 From Flatcar user space we can use the `cgpt` tool:
 
-```sh
+```bash
 cgpt show /dev/vda
 ```
 
 and looking for the `Attr` lines in for both partitions the output. The active one should show
 
-```
+```ini
 Attr: priority=1 tries=0 successful=1
 ```
 
@@ -338,7 +338,7 @@ In a second stage, and also from the initrd, a service called `systemd-tmpfiles`
 
 If you like to check out for yourself how Flatcar uses `systemd-tmpfiles`, just list the tempfiles configuration we ship with each release:
 
-```sh
+```bash
 ls /usr/lib/tmpfiles.d/
 ```
 
@@ -346,7 +346,7 @@ and check them out individually.
 
 For instance, if you'd like to see who's creating the symlinks from `/bin` and `/sbin` into `/usr`, consult `baselayout-usr.conf`.
 
-```sh
+```bash
 cat /usr/lib/tmpfiles.d/baselayout-usr.conf
 ```
 
@@ -384,7 +384,7 @@ Now, on Flatcar, unmask and enable the update client `update_engine`.
 Note that while binaries and commands use underscores `_`, the systemd unit uses a dash `-`.
 Use systemctl to start the client:
 
-```sh
+```bash
 systemctl unmask update-engine
 systemctl enable --now update-engine
 ```
@@ -392,20 +392,20 @@ systemctl enable --now update-engine
 The service now runs in the background and will regularly (default: hourly) check for updates.
 We can query its status via
 
-```sh
+```bash
 update_engine_client -status
 ```
 
 It's most likely idle right now. We can ask it to check for an update:
 
-```
+```bash
 update_engine_client -check-for-update
 ```
 
 It is expected to find an update since we downloaded an old version.
 We can run
 
-```sh
+```bash
 update_engine_client -status
 ```
 
@@ -416,13 +416,13 @@ This means the update has been verified and stored in the spare partition.
 
 We can even see the new kernel+initrd stored in the `EFI-SYSTEM` partition:
 
-```sh
+```bash
 ls -la /boot/flatcar/
 ```
 
 Let's check partition attributes while we're at it:
 
-```sh
+```bash
 cgpt show /dev/vda
 ```
 
@@ -432,20 +432,20 @@ It will be decremented by the bootloader before starting the kernel.
 
 Before we reboot, let's note down the OS version and the kernel version we're on:
 
-```
+```bash
 cat /etc/os-release
 uname -a
 ```
 
 Now let's activate the update:
 
-```
+```bash
 reboot
 ```
 
 Make sure you're root, then run
 
-```
+```bash
 cat /etc/os-release
 uname -a
 ```
@@ -456,7 +456,7 @@ And check if our service is running on [http://localhost:12345](http://localhost
 
 Lastly, let's consult partition table attributes:
 
-```sh
+```bash
 cgpt show /dev/vda
 ```
 
@@ -553,7 +553,7 @@ We can use a script around `cgpt` to check if we:
 <details>
 <summary>Helper script for detecting first boot after upgrade</summary>
 
-```sh
+```bash
 #!/bin/bash
 
 healthy_flag_file="${1:-/run/first-boot-healthy}"
@@ -895,14 +895,14 @@ And don't forget to transpile 😉
 
 Start a fresh Flatcar VM from our second-to-last Alpha release image.
 
-```sh
+```bash
 ./flatcar_production_qemu_uefi.sh -i nginx.json -f 12345:80 -- -nographic -snapshot
 ```
 
 After boot, become root (`sudo -i`).
 Check the NGINX web server from your local browser, and check the status of the various services we defined:
 
-```sh
+```bash
 systemctl status nginx.service update-engine.service is-first-boot-after-upgrade.service first-boot-healthcheck.service reboot-after-unhealthy-upgrade.service -l --no-pager
 ```
 
@@ -910,14 +910,14 @@ Among other things, we can see that `reboot-after-unhealthy-upgrade.service` tri
 
 Let's see if we can make NGINX fail:
 
-```sh
+```bash
 touch /nginx-fail
 systemctl restart nginx
 ```
 
 With our NGINX failure staged, we can once again upgrade the node:
 
-```
+```bash
 update_engine_client -check_for_update
 update_engine_client -status
 ```
@@ -926,7 +926,7 @@ and, after the update was staged, reboot.
 
 You can check the Flatcar OS release on the login prompt:
 
-```
+```text
 Flatcar Container Linux by Kinvolk alpha XXXX for QEMU
 ```
 
@@ -935,7 +935,7 @@ Flatcar Container Linux by Kinvolk alpha XXXX for QEMU
 Then we just wait - the VM will auto-reboot within 60 seconds after it started.
 After a short while you'll see
 
-```
+```text
 Flatcar Container Linux by Kinvolk alpha YYY for QEMU
 ```
 

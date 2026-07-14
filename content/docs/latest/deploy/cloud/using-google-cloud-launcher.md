@@ -74,7 +74,7 @@ and on the instance. **It is enabled by default on instances provisioned with
 Flatcar Container Linux**. Once enabled, you can log into your Container Linux
 instances using:
 
-```shell
+```bash
 gcloud compute ssh --zone us-central1-a <instance-name>
 ```
 
@@ -85,7 +85,7 @@ This will use your GCE user to log in.
 You can log in your Flatcar Container Linux instances from the command
 line, using the `gcloud` command.
 
-```shell
+```bash
 gcloud compute ssh --zone <instance-zone> core@<instance-name>
 ```
 

@@ -53,14 +53,14 @@ The `Description` shows up in the systemd log and a few other places. Write some
 
 To start a new unit, we need to tell systemd to create the symlink and then start the file:
 
-```shell
+```bash
 sudo systemctl enable /etc/systemd/system/hello.service
 sudo systemctl start hello.service
 ```
 
 To verify the unit started, you can see the list of containers running with `docker ps` and read the unit's output with `journalctl`:
 
-```shell
+```bash
 $ journalctl -f -u hello.service
 -- Logs begin at Fri 2014-02-07 00:05:55 UTC. --
 Feb 11 17:46:26 localhost docker[23470]: Hello World

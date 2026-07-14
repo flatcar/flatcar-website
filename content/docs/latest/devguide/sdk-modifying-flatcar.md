@@ -42,7 +42,7 @@ Missing branches and/or tags can cause the SDK container setup (`./run_sdk_conta
 <table><tr><td>
 
 **tl;dr** Check out a release branch and start the SDK (this uses the current Alpha release branch).
-```shell
+```bash
 $ git clone https://github.com/flatcar/scripts.git
 $ cd scripts
 $ branch="$(git branch -r -l | awk -F'/' '/origin\/flatcar-[0-9]+$/ {print $2}' | sort | tail -n1)"
@@ -56,7 +56,7 @@ Flatcar Container Linux uses a containerised SDK; pre-built container images are
 The SDK itself is containerised, but it requires version information and package build instructions to build an OS image.
 Version information and build instructions for all packages (`ebuilds`) are contained in the scripts repository:
 
-```
+```text
 scripts
    +--sdk_container
           +---------src
@@ -83,7 +83,7 @@ The [scripts repository][scripts] - among other things - contains SDK wrapper sc
 
 The name "scripts" has historic reasons - a better way to think of the scripts repo is it being Flatcar's "SDK repo".
 
-```shell
+```bash
 $ git clone https://github.com/flatcar/scripts.git
 $ cd scripts
 ```
@@ -106,27 +106,27 @@ At the same time, Alpha is not too far away from `main` so the risk of merge-tim
 
 Find the latest Alpha release branch:
 
-```shell
+```bash
 $ git branch -r -l | awk -F'/' '/origin\/flatcar-[0-9]+$/ {print $2}' | sort | tail -n1
 ```
 
 If the goal is to reproduce and to fix a bug of a release other than Alpha, it is recommended to base the work on the latest point release of the respective major version instead of Alpha. All currrently "active" major versions can be found at the top of the [releases][flatcar-releases] web page.
 
 For quick reference, to get the latest stable release tag, use:
-```shell
+```bash
 $ git tag -l | grep -E 'stable-[0-9.]+$' | sort | tail -n 1
 ```
 (replace `stable` with `beta` or `alpha` in accordance with your needs).
 
 
-```shell
+```bash
 $ git checkout [branch-or-tag-from-above]
 ```
 
 Lastly, to verify the version in use, consult the version file.
 This file is updated on each release and reflects the SDK and OS versions corresponding to the the current commit.
 
-```shell
+```bash
 $ cat sdk_container/.repo/manifests/version.txt
 FLATCAR_VERSION=3066.1.0
 FLATCAR_VERSION_ID=3066.1.0
@@ -145,7 +145,7 @@ This file is under revision control because it pins the latest official OS relea
 We are now set to run the SDK container.
 This will download the container image of the respective version if not present locally, and then start the container with the local directory bind-mounted.
 
-```shell
+```bash
 $ ./run_sdk_container -t
 sdk@flatcar-sdk-all-3066_0_0_os-beta-3066_1_0-gcf4ff44a  ~/trunk/src/scripts $ cat sdk_container/.repo/manifests/version.txt
 ```
@@ -157,7 +157,7 @@ After entering you're put right into the (host) script repository's bind mount r
 By default, the name of the container contains SDK and OS image version.
 If there are changes on top of the latest release (either your own, or upstream changes slated for the next patch release), the version file will have been updated:
 
-```shell
+```bash
 sdk@flatcar-sdk-all-3066_0_0_os-beta-3066_1_0-gcf4ff44a ~/trunk/src/scripts $ cat sdk_container/.repo/manifests/version.txt
 FLATCAR_VERSION=3066.1.0+5-gcf4ff44a
 FLATCAR_VERSION_ID=3066.0.1
@@ -185,7 +185,7 @@ It can be explicitly overridden by using the `-n <name>` argument to `run_sdk_co
 **tl;dr** Build packages, base image, and vendor (qemu launchable) image.
 This builds for the default architecture, `amd64-usr`.
 Use `--board=arm64-usr` with packages / image script to build for ARM64.
-```shell
+```bash
 sdk@flatcar-sdk $ ./build_packages
 sdk@flatcar-sdk $ ./build_image
 sdk@flatcar-sdk $ ./image_to_vm.sh <path-to-image--see-output-of-build_image>
@@ -201,7 +201,7 @@ Before we discuss any modifications to the image, we'll do a full image build fi
 Some packages compile and execute intermediate commands during their build process - this can break cross-compiling since the commands are built for the target architecture.
 The qemu binary on the host needs to be a static binary since it will be called from within the container context.
 Check if your distro has a `qemu-user-static` package that you can install or whether it has support for aarch64 in `binfmt-misc` already; on e.g. Fedora there's an `qemu-aarch64` entry in `/proc` for that (the name of the proc file may vary across distributions though):
-```shell
+```bash
 $ cat /proc/sys/fs/binfmt_misc/qemu-aarch64
 enabled
 interpreter /usr/bin/qemu-aarch64-static
@@ -213,7 +213,7 @@ mask ffffffffffffff00fffffffffffffffffeffffff
 Note the [**F flag**](https://www.kernel.org/doc/html/latest/admin-guide/binfmt-misc.html) to tell the kernel to preload ("fix") the binary instead of loading it lazily when emulation is required (since the latter leads to issues in namespaced environments).
 
 Should emulation via `binfmt-misc` *not* be set up it can be added e.g. via the host's `systemd-binfmt` service like this:
-```shell
+```bash
 $ cat /usr/lib/binfmt.d/qemu-aarch64-static.conf
 :qemu-aarch64:M::\x7fELF\x02\x01\x01\x00\x00\x00\x00\x00\x00\x00\x00\x00\x02\x00\xb7\x00:\xff\xff\xff\xff\xff\xff\xff\x00\xff\xff\xff\xff\xff\xff\xff\xff\xfe\xff\xff\xff:/usr/bin/qemu-aarch64-static:F
 $ sudo systemctl restart systemd-binfmt.service
@@ -233,7 +233,7 @@ If no architecture is specified then AMD64 will be used by default.
 Beware, it's likely this won't *actually* build the packages but rather download pre-built packages from the Flatcar binary package cache (see below on how to force-rebuild a package that you modified).
 The package cache is updated on every release.
 
-```shell
+```bash
 $ ./build_packages [--board=...]
 ```
 
@@ -248,7 +248,7 @@ In the case of changing the initramfs (mainly for Dracut and Ignition related wo
 
 Now that we have all packages for the OS image either built or downloaded from the binary cache, we'll build a production base image:
 
-```shell
+```bash
 $ ./build_image [--board=...]
 ```
 
@@ -256,7 +256,7 @@ This will create a temporary directory into which all of the binary packages bui
 After `build_image` completes, it prints commands for converting the raw bin into a bootable virtual machine, by means of the `image_to_vm.sh` command.
 
 To create a qemu image for local testing, run
-```shell
+```bash
 $ ./image_to_vm.sh --from=../build/images/arm64-usr/developer-latest [--board=...]
 ```
 
@@ -269,12 +269,12 @@ This directory is also bind-mounted into the container by `run_sdk_container`.
 ### Booting
 
 `image_to_vm.sh` will also generate a wrapper script to launch a Flatcar VM with qemu. In a new terminal, without entering the SDK, you can boot the VM with:
-```shell
+```bash
 $ src/build/images/arm64-usr/developer-latest/flatcar_production_qemu.sh
 ```
 
 After the VM is running you should be able to SSH into Flatcar (using port 2222):
-```shell
+```bash
 $ ssh core@localhost -p 2222
 ```
 
@@ -345,14 +345,14 @@ Both board chroot and SDK use Gentoo's portage to manage its respective packages
 ## Add (or update) a package
 
 All of the following is done inside the SDK container, i.e. after running
-```shell
+```bash
 $ ./run_sdk_container -t
 ```
 
 <table><tr><td>
 
 **tl;dr** In the SDK container, introduce a new upstream package from Gentoo.
-```shell
+```bash
 ~/trunk/src/scripts $ git clone --depth 5 https://github.com/gentoo/gentoo.git
 ~/trunk/src/scripts $ mkdir -p ../third_party/portage-stable/<group>/
 ~/trunk/src/scripts $ cp -R gentoo/<group>/<package> ../third_party/portage-stable/<group>/
@@ -390,7 +390,7 @@ We’ll copy the ebuild file of the package we want to add from upstream gentoo 
 
 Let’s start by checking out the Gentoo upstream ebuilds to some place outside the SDK.
 We’ll only do a shallow clone to limit the amount of data we need to download:
-```shell
+```bash
 ~/trunk/src/scripts $ git clone --depth 5 https://github.com/gentoo/gentoo.git
 ```
 
@@ -403,7 +403,7 @@ Then copy the whole package directory (including all upstream ebuilds and supple
 In the case of a package update, copy the new version's ebuild file to either `coreos-overlay` or `portage-stable`, depending on where the package to be upgraded resides.
 Then add the newer version’s tarball checksum from the Gentoo package's `Manifest` file to the one in `portage-stable`.
 
-```shell
+```bash
 ~/trunk/src/scripts $ mkdir -p <flatcar-SDK>/src/third_party/portage-stable/<group>/
 ~/trunk/src/scripts $ cp -R <gentoo-repo-dir>/<group>/<package> <flatcar-SDK>/src/third_party/portage-stable/<group>/
 ```
@@ -414,20 +414,20 @@ We will try to build the new / upgraded package, chase down all of the dependenc
 Depending on the gentoo classes inherited by the new package’s ebuild file, we might need to copy .eclass files, too.
 
 So let’s enter the SDK chroot and try to build and install:
-```shell
+```bash
 ~/trunk/src/scripts $ emerge-amd64-usr --newuse <group>/<package>
 ```
 
 If you see walls of error output that contain lines like `[XXXXX].eclass could not be found by inherit()` then we need to copy the respective `.eclass` file.
 It means that the ebuild of the package we are trying to add contains in its `inherit` line an eclass which is not present in our SDK’s portage-stable.
 So let's copy the missing eclass:
-```shell
+```bash
 ~/trunk/src/scripts $ cp <gentoo-repo-dir>/eclass/[XXXXX].eclass <flatcar-SDK>/src/third_party/portage-stable/eclass/
 ```
 and re-run emerge. Repeat with other missing classes until the errors go away.
 
 Lastly, the SDK might lack unmasks if the respective architecture is masked in the upstream ebuild of the package(s) added (i.e. the `KEYWORDS` variable contains `"... ~amd64 ~arm64 ... "`). Gentoo upstream uses these masks to mark a package as experimental. If that’s the case then emerge will fail with an error like
-```shell
+```bash
   The following keyword changes are necessary to proceed:
   [ ... ]
   # required by =<group>/package> (argument)
@@ -440,7 +440,7 @@ Flatcar follows its own stabilisation process (through the Alpha - Beta - Stable
 If you want to use optional build flags (USE flags in Gentoo lingo) e.g. for compiling optional library support into the application, add the new package and the respective USE flag(s) to `src/third_party/portage-stable/profiles/base/package.use`.
 
 After the above issues have been addressed and emerge is not reporting errors anymore, we might need to add dependencies of our new package. If `emerge` fails, look for errors like:
-```
+```yaml
 emerge: there are no ebuilds to satisfy "<group>/<package>:=" for /build/amd64-usr/.
 ```
 
@@ -460,20 +460,20 @@ We’ll first generate an image from our workspace (where we built a "stock" ima
 First, we add the new package to the base image packages list.
 The list of packages for the base image is an ebuild file itself - and the packages list is just a list of dependencies in that ebuild.
 Let’s add the package: 
-```shell
+```bash
 ~/trunk/src/scripts $ vim ../third_party/coreos-overlay/coreos-base/coreos/coreos-0.0.1.ebuild
 ```
 In Vim, add `<group>/<package>` to list of packages in `RDEPENDS="..."`.
 
 Then, apply the change:
 
-```shell
+```bash
 ~/trunk/src/scripts $ emerge-amd64-usr coreos-base/coreos
 ```
 
 Now we’ll rebuild the OS image from the updated list of packages, then run it in qemu.
 This will allow us to validate whether the software added works to our expectations:
-```shell
+```bash
 ~/trunk/src/scripts $ ./build_image
 ~/trunk/src/scripts $ ./image_to_vm.sh --from=../build/images/amd64-usr/latest --format qemu
 ```
@@ -482,7 +482,7 @@ After building the qemu image, we can now start it and SSH into the new OS image
 Here, we can validate whether our updated / added application works as expected.
 We start the qemu instance *on the host*, i.e. outside the container, so we can better interact with it from the host.
 Then, in a *different terminal*, we ssh into the host:
-```shell
+```bash
 scripts $ ../build/images/amd64-usr/latest/flatcar_production_qemu.sh
 # switch terminals
 scripts $ ssh core@localhost -p 2222
@@ -496,19 +496,19 @@ Then `emerge` the application once more to force re-packaging, and rebuild the i
 ## Change the kernel configuration / add or remove a kernel module
 
 All of the following is done inside the SDK container, i.e. after running
-```shell
+```bash
 $ ./run_sdk_container -t
 ```
 
 You'll want to make sure that you've run `./build_packages` at least once inside your SDK container; this will download the necessary source code in preparation for your modifications.
-```shell
+```bash
 $ ./build_packages
 ```
 
 <table><tr><td>
 
 **tl;dr** In the SDK container, build the kernel package with a custom config, run+test, and persist
-```shell
+```bash
 ~/trunk/src/scripts $ ebuild-amd64-usr ../third_party/coreos-overlay/sys-kernel/coreos-modules/coreos-modules-<version>.ebuild configure
 ~/trunk/src/scripts $ cd /build/amd64-usr/var/tmp/portage/sys-kernel/coreos-modules-<version>/work/coreos-modules-<version>/build
 <build-temp-directory> $ cp .config ~/trunk/src/scripts/kernel-config.orig
@@ -569,7 +569,7 @@ Using Gentoo’s build-temp directories will also allow you to better iterate on
 Only after we’ve tested our changes will we modify the kernel ebuild in `coreos-overlay` to persist the new configuration.
 
 First, we will set up kernel and module sources, and modify those before build. To fetch and to configure the sources and to build a stock kernel, run:
-```shell
+```bash
 ~/trunk/src/scripts $ ebuild-amd64-usr ../third_party/coreos-overlay/sys-kernel/coreos-modules/coreos-modules-<version>.ebuild configure
 ~/trunk/src/scripts $ ebuild-amd64-usr ../third_party/coreos-overlay/sys-kernel/coreos-kernel/coreos-kernel-<version>.ebuild compile
 ```
@@ -579,27 +579,27 @@ It is used by the higher level `emerge` tool for fetching, building, and install
 A single `emerge` call runs `ebuild fetch, unpack, compile, install, merge, package`.
 Using `ebuild` instead of emerge allows us to stop the installation process after the package sources are configured, edit the sources, and then continue with the installation.
 Let’s cd to the configured kernel source tree in Gentoo’s temporary build directory:
-```shell
+```bash
 ~/trunk/src/scripts $ cd /build/amd64-usr/var/tmp/portage/sys-kernel/coreos-kernel-<version>/work/coreos-kernel-<version>/build
 ```
 
 Before we introduce our modifications we’ll make a copy of the original config:
-```shell
+```bash
 <build-temp-directory> $ cp .config ~/trunk/src/scripts/kernel-config.orig
 ```
 
 The kernel’s menuconfig is a nice way to review the configuration as well as to make changes:
-```shell
+```bash
 <build-temp-directory> $ make menuconfig
 ```
 
 Make your changes, save the new configuration, and copy the resulting `.config` to `scripts/`:
-```shell
+```bash
 <build-temp-directory> $ cp .config ~/trunk/src/scripts/kernel-config.mine
 ```
 
 Back in `~/trunk/src/scripts/`, rebuild the kernel image:
-```shell
+```bash
 <build-temp-directory> $ cd ~/trunk/src/scripts/
 ~/trunk/src/scripts $ rm /build/amd64-usr/var/tmp/portage/sys-kernel/coreos-kernel-<version>/.compiled
 ~/trunk/src/scripts $ ebuild-amd64-usr ../third_party/coreos-overlay/sys-kernel/coreos-kernel/coreos-kernel-<version>.ebuild compile
@@ -608,12 +608,12 @@ Back in `~/trunk/src/scripts/`, rebuild the kernel image:
 The kernel configuration will contain an auto-generated INITRAMFS line.
 This line must not be present in a pristine Flatcar kernel config (i.e. in an original ebuild config); there’s a sanity check in the module ebuild that will cause the module build to fail if that line is present.
 So we’ll remove it:
-```shell
+```bash
 ~/trunk/src/scripts $ sed -i 's/^CONFIG_INITRAMFS_SOURCE=.*//' kernel-config.mine
 ```
 
 Then delete the modules build directory - which we only needed above to get to a kernel .config - and fetch it anew, copy the kernel configuration, and rebuild the modules:
-```shell
+```bash
 ~/trunk/src/scripts $ rm -rf /build/amd64-usr/var/tmp/portage/sys-kernel/coreos-modules-<version>
 ~/trunk/src/scripts $ ebuild-amd64-usr ../third_party/coreos-overlay/sys-kernel/coreos-modules/coreos-modules-<version>.ebuild unpack
 ~/trunk/src/scripts $ cp kernel-config.mine /build/amd64-usr/var/tmp/portage/sys-kernel/coreos-modules-<version>/work/coreos-modules-<version>/build/.config
@@ -626,20 +626,20 @@ All binary packages reside in the board chroot at `/build/amd64-usr/var/lib/port
 In the next step, we’ll build `coreos-kernel-<version>.tbz2` and `coreos-modules-<version>.tbz2`, which will land in `/build/amd64-usr/var/lib/portage/pkgs/sys-kernel`.
 
 We package the kernel and kernel modules:
-```shell
+```bash
 ~/trunk/src/scripts $ ebuild-amd64-usr ../third_party/coreos-overlay/sys-kernel/coreos-kernel/coreos-kernel-<version>.ebuild package
 ~/trunk/src/scripts $ ebuild-amd64-usr ../third_party/coreos-overlay/sys-kernel/coreos-modules/coreos-modules-<version>.ebuild package
 ```
 
 These packages can now be picked up by the image builder script. Let’s build a new image and boot it with qemu - this will allow us to validate the changes we made to the kernel config before persisting: 
-```shell
+```bash
 ~/trunk/src/scripts $ ./build_image --board=amd64-usr
 ~/trunk/src/scripts $ ./image_to_vm.sh --from=../build/images/amd64-usr/latest --board=amd64-usr --format qemu
 ```
 
 *On the host*, start the qemu VM.
 Then, *in a different terminal*, ssh into the VM and validate your modifications.
-```shell
+```bash
 scripts $ ../build/images/amd64-usr/latest/flatcar_production_qemu.sh
 scripts $ ssh core@localhost -p 2222
 core@localhost ~ $ ...
@@ -648,7 +648,7 @@ core@localhost ~ $ ...
 After we’ve verified that our modifications work as expected, let’s persist the changes into the ebuild file - in `sys-kernel/coreos-modules` (as previously mentioned).
 First, we’ll generate a diff between the original config and our own config.
 Then, we’ll open an editor and manually transfer the settings we actually changed - remember, the config snippets in `coreos-overlay` only contain Flatcar specifics.
-```shell
+```bash
 ~/trunk/src/scripts $ diff kernel-config.orig kernel-config.mine > ../third_party/coreos-overlay/sys-kernel/coreos-modules/files/my.diff
 ~/trunk/src/scripts $ cd ../third_party/coreos-overlay/sys-kernel/coreos-modules/files/
 ~/trunk/src/third_party/coreos-overlay/sys-kernel/coreos-modules/files/ $ vim -O commonconfig* amd64_defconfig* my.diff
@@ -656,7 +656,7 @@ Then, we’ll open an editor and manually transfer the settings we actually chan
 ```
 
 Finally, we’ll rebuild kernel and modules using the updated ebuild, to make sure the build works:
-```shell
+```bash
 ~/trunk/src/scripts $ emerge-amd64-usr sys-kernel/coreos-kernel
 ~/trunk/src/scripts $ emerge-amd64-usr sys-kernel/coreos-modules
 ~/trunk/src/scripts $ ./build_image --board=amd64-usr
@@ -665,7 +665,7 @@ Finally, we’ll rebuild kernel and modules using the updated ebuild, to make su
 
 *On the host*, start the qemu VM.
 Then, *in a different terminal*, ssh into the VM and validate your modifications.
-```shell
+```bash
 scripts $ ../build/images/amd64-usr/latest/flatcar_production_qemu.sh
 scripts $ ssh core@localhost -p 2222
 core@localhost ~ $ ...
@@ -691,13 +691,13 @@ There is a quality-of-life wrapper script available for running local tests of q
 - Flatcar OS image and qemu uefi code to be tested in `__build__/images/images/amd64-usr/latest/`
 
 This script is intended to be run after building a qemu_uefi image with the SDK container:
-```shell
+```bash
 ./build_packages
 ./build_image
 ./image_to_vm.sh --from=../build/images/amd64-usr/latest/ --format=qemu_uefi --image_compression_formats none
 ```
 Then, EXIT the SDK container (or run this on a different terminal):
-```shell
+```bash
 ./run_local_tests.sh
 ```
 
@@ -735,14 +735,14 @@ For more granular control over testing or when you need to run specific test sui
 You have two options for setting up kola:
 
 1. Build from source:
-```shell
+```bash
 git clone https://github.com/flatcar/mantle/
 cd mantle
 ./build kola kolet
 ```
 
 2. Use the official container image (recommended):
-```shell
+```bash
 sudo docker run --privileged --net host -v /dev:/dev --rm -it ghcr.io/flatcar/mantle:git-$(git rev-parse HEAD)
 ```
 
@@ -750,7 +750,7 @@ sudo docker run --privileged --net host -v /dev:/dev --rm -it ghcr.io/flatcar/ma
 After building your custom Flatcar image, you can run specific test suites using kola. The image should be in the standard location: `__build__/images/amd64-usr/latest/` (or `arm64-usr` for ARM64).
 
 For AMD64:
-```shell
+```bash
 sudo ./bin/kola run --board amd64-usr \
     --key ${HOME}/.ssh/id_rsa.pub \
     -k -b cl -p qemu \
@@ -761,7 +761,7 @@ sudo ./bin/kola run --board amd64-usr \
 ```
 
 For ARM64:
-```shell
+```bash
 sudo ./bin/kola run --board arm64-usr \
     --key ${HOME}/.ssh/id_rsa.pub \
     -k -b cl -p qemu \
@@ -777,14 +777,14 @@ sudo ./bin/kola run --board arm64-usr \
 
 #### Debugging tips
 1. To SSH into a running test instance:
-```shell
+```bash
 ssh -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null \
     -o ProxyCommand="sudo nsenter -n -t <QEMU_PID> nc %h %p" \
     -p 22 core@<QEMU_IP>
 ```
 
 2. To access VNC for graphical debugging:
-```shell
+```bash
 mkfifo reply
 nc -kl 12800 < reply | sudo nsenter -t "${QEMUPID}" -n nc localhost 5900 > reply
 rm reply

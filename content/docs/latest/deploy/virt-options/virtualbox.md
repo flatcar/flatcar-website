@@ -63,14 +63,14 @@ wget https://stable.release.flatcar-linux.net/amd64-usr/current/flatcar_producti
 
 Ensure that what you have downloaded has a good signature:
 
-```shell
+```bash
 gpg --verify flatcar_production_virtualbox.ovf.sig
 gpg --verify flatcar_production_virtualbox_image.vmdk.bz2.sig
 ```
 
 The disk image needs to be decompressed before use:
 
-```shell
+```bash
 bunzip2 flatcar_production_virtualbox_image.vmdk.bz2
 ```
 
@@ -88,7 +88,7 @@ $env:PATH += ";C:\Program Files\Oracle\VirtualBox"
 
 Importing with no additional arguments will clone the disk image and use the default configuration defined in the OVF. You can give the VM a custom name and override certain properties such as the amount of memory and the number of CPUs. When giving any additional arguments, you must start them with `--vsys=0`.
 
-```shell
+```bash
 VBoxManage import flatcar_production_virtualbox.ovf --vsys=0 --vmname=myflatcar --memory=4096 --cpus=4
 ```
 
@@ -98,13 +98,13 @@ If you don't give a custom name, one will be generated for you and shown in the 
 
 By default, the root filesystem will hold roughly 12GB. If this is too small, you can resize the image, and Flatcar will adjust the root filesystem at boot time. Find the disk's UUID within the VM's details:
 
-```shell
+```bash
 VBoxManage showvminfo myflatcar
 ```
 
 Then resize the disk as required:
 
-```shell
+```bash
 VBoxManage modifymedium disk 1f768d59-256f-4fee-96f5-c12624d4f0f0 --resize 20480
 ```
 
@@ -112,7 +112,7 @@ VBoxManage modifymedium disk 1f768d59-256f-4fee-96f5-c12624d4f0f0 --resize 20480
 
 If you were to start the VM now, you would not be able to log in because the automatic console login would be disabled, the SSH port would not be exposed, and no SSH keys would be added. Expose the VM's SSH port via port 2222 on the host:
 
-```shell
+```bash
 VBoxManage modifyvm myflatcar --nat-pf1=ssh,tcp,127.0.0.1,2222,,22
 ```
 
@@ -120,7 +120,7 @@ An SSH key must be inserted into the VM by provisioning it with Ignition. First,
 [butane-configs] containing your public SSH key and transpile it. Then attach the transpiled configuration to the VM as a property:
 
 #### Bash (Linux, macOS)
-```shell
+```bash
 VBoxManage guestproperty set myflatcar /Ignition/Config "$(< config.ign)"
 ```
 
@@ -135,13 +135,13 @@ Unfortunately, a VirtualBox restriction limits the permitted size of such proper
 
 Once configured as necessary, start the VM:
 
-```shell
+```bash
 VBoxManage startvm myflatcar
 ```
 
 This will open a window for the VM's display. You can run the VM headless instead:
 
-```shell
+```bash
 VBoxManage startvm myflatcar --type=headless
 ```
 
@@ -149,7 +149,7 @@ VBoxManage startvm myflatcar --type=headless
 
 Assuming you're using NAT networking and have exposed SSH via host port 2222, log in using your private SSH key like so:
 
-```shell
+```bash
 ssh -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null -l core -p 2222 127.0.0.1
 ```
 

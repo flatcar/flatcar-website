@@ -37,7 +37,7 @@ An alternative is the [`terraform-ignition-provider`][terraform-ignition-provide
 
 The following snippet demonstrates the use of the `terraform-ct-provider` and the `template-provider` to specify the User Data attribute on a Packet (now Equinix Metal) instance:
 
-```
+```hcl
 resource "packet_device" "machine" {
   operating_system = "flatcar_stable"
   user_data = data.ct_config.machine-ignition.rendered
@@ -108,13 +108,13 @@ For some Terraform providers it is directly possible to allow changes but that i
 A good option then could be AWS S3 or other similar cloud storage solutions.
 The real User Data of the node is just an Ignition Config that references the external User Data:
 
-```
+```json
 { "ignition": { "version": "2.1.0", "config": { "replace": { "source": "s3://..." } } } }
 ```
 
 Under these conditions it is possible to run `sudo /usr/share/oem/reprovision` on the node and trigger reboot for the new Ignition Config to take effect (assuming data in S3):
 
-```
+```hcl
 resource "null_resource" "reboot-when-ignition-changes" {
   for_each = toset(var.machines)
   # Triggered when the Ignition Config changes

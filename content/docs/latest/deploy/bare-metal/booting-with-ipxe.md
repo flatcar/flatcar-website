@@ -120,7 +120,7 @@ systemd:
 
 Transpile it to Ignition JSON:
 
-```shell
+```bash
 cat cl.yaml | docker run --rm -i quay.io/coreos/butane:latest > ignition.json
 ```
 ### Booting iPXE
@@ -128,21 +128,21 @@ cat cl.yaml | docker run --rm -i quay.io/coreos/butane:latest > ignition.json
 First, download and boot the iPXE image.
 We will use `qemu-kvm` in this guide but use whatever process you normally use for booting an ISO on your platform.
 
-```shell
+```bash
 wget http://boot.ipxe.org/ipxe.iso
 qemu-kvm -m 1024 ipxe.iso -display curses
 ```
 
 Next press Ctrl+B to get to the iPXE prompt and type in the following commands:
 
-```shell
+```console
 iPXE> dhcp
 iPXE> chain http://${YOUR_BOOT_URL}
 ```
 
 Immediately iPXE should download your boot script URL and start grabbing the images from the Flatcar Container Linux storage site:
 
-```shell
+```console
 ${YOUR_BOOT_URL}... ok
 http://alpha.release.flatcar-linux.net/amd64-usr/current/flatcar_production_pxe.vmlinuz... 98%
 ```

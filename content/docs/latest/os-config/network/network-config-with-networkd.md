@@ -30,7 +30,7 @@ DNS=1.2.3.4
 
 Place the file in `/etc/systemd/network/`. To apply the configuration, run:
 
-```shell
+```bash
 sudo systemctl restart systemd-networkd
 ```
 
@@ -167,7 +167,7 @@ storage:
 
 To verify whether your configuration was successful and view all IP addresses associated with a specific interface, you can use the following syntax: `ip [-4|-6] addr show dev <interface_name>`. Here is an example of the command and its output:
 
-```
+```console
 $ ip -4 addr show dev eth0
 3: eth0: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc fq_codel state UP group default qlen 1000
     inet 10.0.0.101/24 brd 10.0.0.255 scope global eth0
@@ -184,20 +184,20 @@ If you've faced some problems with networkd you can enable debug mode following 
 
 ### Enable debugging manually
 
-```shell
+```bash
 mkdir -p /etc/systemd/system/systemd-networkd.service.d/
 ```
 
 Create a [Drop-In][drop-ins] `/etc/systemd/system/systemd-networkd.service.d/10-debug.conf` with following content:
 
-```shell
+```ini
 [Service]
 Environment=SYSTEMD_LOG_LEVEL=debug
 ```
 
 And restart `systemd-networkd` service:
 
-```shell
+```bash
 systemctl daemon-reload
 systemctl restart systemd-networkd
 journalctl -b -u systemd-networkd

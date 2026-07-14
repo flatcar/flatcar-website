@@ -29,7 +29,7 @@ In this above file, you'll want to set the `ssh-rsa AAAAB3NzaC1yc...` line to be
 
 If we take this file and give it to `butane`:
 
-```
+```console
 $ docker run --rm -i quay.io/coreos/butane:latest < butane_config.yaml
 {"ignition":{"version":"3.3.0"},"passwd":{"users":[{"name":"core","sshAuthorizedKeys":["ssh-rsa AAAAB3NzaC1yc..."]}]}}
 ```

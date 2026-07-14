@@ -51,7 +51,7 @@ $ bunzip2 flatcar_production_openstack_image.img.bz2
 
 Once the download completes, add the Flatcar Container Linux image into Glance:
 
-```shell
+```bash
 $ openstack image create \
   --container-format bare \
   --disk-format qcow2 \
@@ -122,7 +122,7 @@ systemd:
 
 Transpile it to Ignition JSON:
 
-```shell
+```bash
 cat cl.yaml | docker run --rm -i quay.io/coreos/butane:release > ignition.json
 ```
 
@@ -133,7 +133,7 @@ Unfortunately systems relying on config drive are currently unsupported.
 
 Boot the machines with the `openstack` CLI, referencing the image ID from the import step above and your [Ignition file from butane][butane-configs]:
 
-```shell
+```bash
 openstack server create \
 --user-data ./ignition.json \
 --image cdf3874c-c27f-4816-bc8c-046b240e0edd \
@@ -148,13 +148,13 @@ To use config drive you may need to add `--use-config-drive` to command above.
 
 If you have more than one network, you may have to be explicit in the `openstack server create` command.
 
-```shell
+```bash
 --network 5b9c5ef6-28b9-4781-ac18-d7d86765fd38
 ```
 
 You can see the IDs for your configured networks by running
 
-```shell
+```bash
 $ openstack network list
 +--------------------------------------+---------+------+
 | ID                                   | Label   | Cidr |
@@ -166,7 +166,7 @@ $ openstack network list
 
 Your first Flatcar Container Linux cluster should now be running. The only thing left to do is find an IP and SSH in.
 
-```shell
+```bash
 $ openstack server list
 +--------------------------------------+-----------------+--------+------------+-------------+--------------------+
 | ID                                   | Name            | Status | Task State | Power State | Networks           |
@@ -179,7 +179,7 @@ $ openstack server list
 
 Finally SSH into an instance, note that the user is `core`:
 
-```shell
+```bash
 $ chmod 400 core.pem
 $ ssh -i core.pem core@10.0.0.3
 core@10-0-0-3 ~ $
@@ -191,7 +191,7 @@ Adding additional instances to the cluster is as easy as launching more with the
 
 Example:
 
-```shell
+```bash
 openstack server create \
 --user-data ./ignition.json \
 --image cdf3874c-c27f-4816-bc8c-046b240e0edd \

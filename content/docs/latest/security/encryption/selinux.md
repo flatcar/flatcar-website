@@ -17,7 +17,7 @@ Flatcar Container Linux implements SELinux, but currently does not enforce SELin
 
 To verify whether the current SELinux policy would inhibit your containers, enable SELinux logging. In the following set of commands, we delete the rules that suppress this logging by default, and copy the policy store from Flatcar Container Linux's read-only `/usr` to a writable file system location.
 
-```shell
+```bash
 rm /etc/audit/rules.d/80-selinux.rules
 rm /etc/audit/rules.d/99-default.rules
 rm /etc/selinux/mcs

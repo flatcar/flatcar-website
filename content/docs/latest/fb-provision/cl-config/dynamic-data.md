@@ -38,7 +38,7 @@ This is the information available in each provider.
 ### Example
 
 Assume `https://example.com/metadata-script.sh` is a script which communicates with a metadata service and then writes the following file to `/run/metadata/coreos`:
-```
+```ini
 COREOS_CUSTOM_HOSTNAME=foobar
 COREOS_CUSTOM_PRIVATE_IPV4=<The instance's private ipv4 address>
 COREOS_CUSTOM_PUBLIC_IPV4=<The instance's public ipv4 address>
@@ -99,7 +99,7 @@ etcd:
 
 If we give this example to ct with the `--platform=ec2` tag, it produces the following drop-in:
 
-```
+```ini
 [Unit]
 Requires=coreos-metadata.service
 After=coreos-metadata.service

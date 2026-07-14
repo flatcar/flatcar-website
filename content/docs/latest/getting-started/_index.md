@@ -53,7 +53,7 @@ First download the Flatcar QEMU image and the helper script to start it with QEM
 
 AMD64:
 
-```shell
+```bash
 wget https://stable.release.flatcar-linux.net/amd64-usr/current/flatcar_production_qemu.sh
 chmod +x flatcar_production_qemu.sh
 wget https://stable.release.flatcar-linux.net/amd64-usr/current/flatcar_production_qemu_image.img
@@ -61,7 +61,7 @@ wget https://stable.release.flatcar-linux.net/amd64-usr/current/flatcar_producti
 
 ARM64:
 
-```shell
+```bash
 wget https://alpha.release.flatcar-linux.net/arm64-usr/current/flatcar_production_qemu_uefi.sh
 chmod +x flatcar_production_qemu_uefi.sh
 wget https://alpha.release.flatcar-linux.net/arm64-usr/current/flatcar_production_qemu_uefi_image.img
@@ -73,7 +73,7 @@ For Ignition configurations to be recognized we have to make sure that we always
 Therefore, before trying to use an Ignition config we will always discard the image modifications by using a fresh copy.
 You can already boot the image with `./flatcar_production_qemu.sh` and have a look around in the OS through the QEMU VGA console - you can close the QEMU window or stop the script with `Ctrl-C`.
 
-```shell
+```bash
 mv flatcar_production_qemu_image.img flatcar_production_qemu_image.img.fresh
 # If you want to have a first look, boot it and wait for the autologin to give you a prompt:
 cp -i --reflink=auto flatcar_production_qemu_image.img.fresh flatcar_production_qemu_image.img
@@ -109,13 +109,13 @@ systemd:
 
 Before we can use it we have to transpile the Butane YAML to Ignition JSON:
 
-```shell
+```bash
 cat cl.yaml | docker run --rm -i quay.io/coreos/butane:latest > ignition.json
 ```
 
 You can also skip this step and copy the resulting JSON file from here to `ignition.json` (or another name):
 
-```
+```json
 {
   "ignition": {
     "version": "3.3.0"
@@ -136,7 +136,7 @@ The final step is to boot the VM and make the Ignition configuration available t
 As said, the provisioning will only be done on first boot and if you want your (changed) Ignition configuration to be used, you have to boot from a fresh copy.
 You can repeat these combined steps as often as you want to test your Ignition changes.
 
-```shell
+```bash
 # Make sure we boot a fresh copy:
 cp -i --reflink=auto flatcar_production_qemu_image.img.fresh flatcar_production_qemu_image.img
 ./flatcar_production_qemu.sh -i ignition.json

@@ -47,7 +47,7 @@ These capitalization rules are traditional and arcane. They should eventually gi
 
 In this simple command line:
 
-```sh
+```bash
 $ echo -n Example
 Example
 ```
@@ -58,7 +58,7 @@ Example
 
 Some command lines are more complex. Many commands operate through a set of *subcommands*. `rkt` and several other relevant programs follow this pattern.
 
-```sh
+```bash
 $ rkt run --debug example.aci
 [...]
 ```
@@ -69,7 +69,7 @@ In this case the argument to `rkt`, `run`, is a subcommand. `run` in turn accept
 
 Some commands pack many subcommands, arguments, and options on a single line. It is good practice to break such long command lines with newlines, escaped with backslash (`\`), because lines inside code blocks are not soft-wrapped in most presentations. For very long command lines, choose points that break the parameters into logical groups. Lines so wrapped are not indented for vertical alignment.
 
-```sh
+```bash
 $ docker run --name docsbuilder \
 -i -t \
 -p 80:9001 -p 443:9443 \
@@ -143,7 +143,7 @@ The site deployment process inspects a document's headings to derive the thumb i
 
 The abridged skeletal markdown source for this document's headings:
 
-```
+```markdown
 # Documentation style and formatting
 
 ## English style

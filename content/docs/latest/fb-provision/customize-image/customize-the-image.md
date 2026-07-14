@@ -15,7 +15,7 @@ The boot partition can hold an additional EFI boot loader, the OEM partition can
 
 The generic Flatcar Container Linux [image](https://stable.release.flatcar-linux.net/amd64-usr/current/flatcar_production_image.bin.bz2) (`.bin`) can be directly attached as loop device on a Linux host and mounted after decompression with `bunzip2` or `lbunzip2`. The partition to modify needs to be specified by its number:
 
-```shell
+```bash
 # PART can be 1 (boot), 6 (OEM), 9 (ROOT)
 PART=1
 LOOP=$(sudo losetup --partscan --find --show flatcar_production_image.bin)
@@ -30,13 +30,13 @@ sudo losetup -d "${LOOP}"
 
 If you need to modify the QEMU `qcow2` image or an `vmdk` image, you need to either convert it first to a raw image:
 
-```shell
+```bash
 qemu-img convert -f qcow2 -O raw flatcar_production_qemu_image.img flatcar_production_qemu_image.bin
 ```
 
 Or you need to use the `guestmount` utility (from [libguestfs](https://libguestfs.org/)), it can run as regular user:
 
-```
+```bash
 # PART can be 1 (boot), 6 (OEM), 9 (ROOT)
 PART=1
 TARGET=$(mktemp -d -p /tmp --suffix -flatcar)
@@ -84,7 +84,7 @@ A more convenient way is to use [Docker-in-Docker](https://hub.docker.com/_/dock
 
 You start by running a Docker-in-Docker container:
 
-```shell
+```bash
 # Run docker-in-docker in the backgroud.
 # We mount local directory as a location to send /var/lib/docker archive
 # Do NOT try to bind a directory to /var/lib/docker directly as this might
@@ -95,7 +95,7 @@ docker run --name dind --privileged --rm -d -v $(pwd):/build docker:dind
 
 Then you can interact with the docker-in-docker environment and prepare images:
 
-```shell
+```bash
 docker exec -it dind sh
 docker pull nginx
 ```
