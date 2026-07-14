@@ -137,7 +137,7 @@ Like make check, but it outputs test coverage information.
 
 To release a new version of Nebraska, first create a new `staging` git tag and push it:
 
-```
+```bash
 git tag -d staging
 git tag -as staging
 git push origin --force staging

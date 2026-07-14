@@ -56,7 +56,7 @@ Using the Butane Config Transpiler, or `butane` ([download][butane-download]), c
 
 Once the local VM is running, tell your Docker binary on your personal operating system to use the remote port by exporting an environment variable and start running Docker commands. Run these commands in a terminal *on your local operating system (MacOS or Linux), not in the Flatcar Container Linux virtual machine*:
 
-```shell
+```bash
 export DOCKER_HOST=tcp://localhost:2375
 docker ps
 ```

@@ -21,7 +21,7 @@ First, you'll need to make a shell script containing your `cloud-config` availab
 
 `cloud-config-bootstrap.sh`:
 
-```shell
+```bash
 #!/bin/bash
 
 cat > "cloud-config.yaml" <<EOF
@@ -127,7 +127,7 @@ You can now log in to Flatcar Container Linux using the associated private key o
 
 SSH to the IP of your VPS, and specify the "core" user: `ssh core@IP`
 
-```shell
+```bash
 $ ssh core@IP
 The authenticity of host 'IP (2a02:1348:17c:423d:24:19ff:fef1:8f6)' can't be established.
 RSA key fingerprint is 99:a5:13:60:07:5d:ac:eb:4b:f2:cb:c9:b2:ab:d7:21.

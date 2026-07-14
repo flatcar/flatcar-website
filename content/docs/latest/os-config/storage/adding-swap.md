@@ -49,7 +49,7 @@ Allocating a compressed RAM section that can hold an amount up to the size of th
 
 After a reboot you can check the results:
 
-```shell
+```bash
 $ zramctl
 NAME       ALGORITHM DISKSIZE DATA COMPR TOTAL STREAMS MOUNTPOINT
 /dev/zram0 lzo-rle         1G   4K   74B   12K       8 [SWAP]
@@ -66,7 +66,7 @@ The following commands, run as root, will make a 1GiB file suitable for use as s
 > From Flatcar 4186, one can directly use mkswap to create a swap file as follow. For older Flatcar versions, you still need to create a swap file with `dd if=/dev/zero of=/var/vm/swapfile1`, `chmod 600 /var/vm/swapfile1` and `mkswap /var/vm/swapfile1`
 
 
-```shell
+```bash
 mkdir -p /var/vm
 mkswap --size 1024m --file /var/vm/swapfile1
 ```
@@ -90,7 +90,7 @@ WantedBy=multi-user.target
 
 Use `systemctl` to enable the unit once created. The `swappiness` value may be modified if desired.
 
-```shell
+```bash
 $ systemctl enable --now var-vm-swapfile1.swap
 # Optionally
 $ echo 'vm.swappiness=10' | sudo tee /etc/sysctl.d/80-swappiness.conf
@@ -99,7 +99,7 @@ $ systemctl restart systemd-sysctl
 
 Swap has been enabled and will be started automatically on subsequent reboots. We can verify that the swap is activated by running `swapon`:
 
-```shell
+```bash
 $ swapon
 NAME              TYPE       SIZE USED PRIO
 /var/vm/swapfile1 file      1024M   0B   -1
@@ -124,7 +124,7 @@ The swapfile cannot be larger than the partition on which it is stored.
 
 Use the `df(1)` command to verify that a partition has the right format and enough available space:
 
-```shell
+```bash
 $ df -Th
 Filesystem     Type      Size  Used Avail Use% Mounted on
 [...]

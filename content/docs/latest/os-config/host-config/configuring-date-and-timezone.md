@@ -14,7 +14,7 @@ By default, Flatcar Container Linux machines keep time in the Coordinated Univer
 
 The [`timedatectl(1)`][timedatectl] command displays and sets the date, time, and time zone.
 
-```shell
+```bash
 $ timedatectl status
       Local time: Wed 2015-08-26 19:29:12 UTC
   Universal time: Wed 2015-08-26 19:29:12 UTC
@@ -30,7 +30,7 @@ NTP synchronized: yes
 
 To avoid time zone confusion and the complexities of adjusting clocks for daylight saving time (or not) in accordance with regional custom, we recommend that all machines in Flatcar Container Linux clusters use UTC. This is the default time zone. To reset a machine to this default:
 
-```shell
+```bash
 sudo timedatectl set-timezone UTC
 ```
 
@@ -38,7 +38,7 @@ sudo timedatectl set-timezone UTC
 
 If your site or application requires a different system time zone, start by listing the available options:
 
-```shell
+```bash
 $ timedatectl list-timezones
 Africa/Abidjan
 Africa/Accra
@@ -48,13 +48,13 @@ Africa/Addis_Ababa
 
 Pick a time zone from the list and set it:
 
-```shell
+```bash
 sudo timedatectl set-timezone America/New_York
 ```
 
 Check the changes:
 
-```shell
+```bash
 $ timedatectl
       Local time: Wed 2015-08-26 15:44:07 EDT
   Universal time: Wed 2015-08-26 19:44:07 UTC
@@ -76,7 +76,7 @@ NTP synchronized: yes
 
 Flatcar Container Linux clusters use NTP to synchronize the clocks of member nodes, and all machines start an NTP client at boot. The operating system uses [`systemd-timesyncd(8)`][systemd-timesyncd] as the default NTP client. Use `systemctl` to check which service is running:
 
-```shell
+```bash
 $ systemctl status systemd-timesyncd ntpd
 ● systemd-timesyncd.service - Network Time Synchronization
    Loaded: loaded (/usr/lib64/systemd/system/systemd-timesyncd.service; disabled; vendor preset: disabled)
@@ -123,7 +123,7 @@ UseNTP=false
 
 Then restart the network daemon:
 
-```shell
+```bash
 sudo systemctl restart systemd-networkd
 ```
 
@@ -146,7 +146,7 @@ storage:
 
 You can switch from `systemd-timesyncd` to `ntpd` with the following commands:
 
-```shell
+```bash
 sudo systemctl stop systemd-timesyncd
 sudo systemctl mask systemd-timesyncd
 sudo systemctl enable ntpd
@@ -183,7 +183,7 @@ restrict [::1]
 
 Then ask `ntpd` to reload its configuration:
 
-```shell
+```bash
 sudo systemctl reload ntpd
 ```
 

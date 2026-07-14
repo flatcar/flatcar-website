@@ -92,7 +92,7 @@ before it, but not after.  Files named `00_base*` should not depend on any
 other butane config.  The final butane configs for the VMs should only depend
 on these base configs.
 
-```
+```console
 > tree butane/
 butane/
 ├── 00_base-k8s-token.yaml

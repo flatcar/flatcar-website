@@ -12,7 +12,7 @@ aliases:
 ---
 ## Required Dependencies
 If you want to use the `flatcar-install` script on some other environment than Flatcar Container Linux, ensure that the following binaries are present:
-```
+```text
 bash
 lbzip2 or bzip2 
 mount, lsblk  (often found in the util-linux package)
@@ -33,7 +33,7 @@ The script is self-contained and located [on GitHub here][flatcar-install] and c
 
 If you boot Flatcar Container Linux via PXE, the install script is already installed. By default the install script will attempt to install the same version and channel that was PXE-booted:
 
-```shell
+```bash
 flatcar-install -d /dev/sda -i ignition.json
 ```
 
@@ -41,7 +41,7 @@ flatcar-install -d /dev/sda -i ignition.json
 
 If you are installing on VMware, pass `-o vmware_raw` to install the VMware-specific image:
 
-```shell
+```bash
 flatcar-install -d /dev/sda -i ignition.json -o vmware_raw
 ```
 
@@ -82,7 +82,7 @@ flatcar-install -d /dev/sda -C stable
 
 For reference here are the rest of the `flatcar-install` options:
 
-```shell
+```bash
 -d DEVICE   Install Flatcar Container Linux to the given device.
 -s          EXPERIMENTAL: Install Flatcar Container Linux to the smallest unmounted disk found
             (min. size 10GB). It is recommended to use it with -e or -I to filter the
@@ -124,13 +124,13 @@ passwd:
 
 Transpile it to Ignition JSON:
 
-```shell
+```bash
 cat cl.yaml | docker run --rm -i quay.io/coreos/butane:latest > ignition.json
 ```
 
 To start the installation script with a reference to our Ignition config, run:
 
-```shell
+```bash
 flatcar-install -d /dev/sda -C stable -i ~/ignition.json
 ```
 
@@ -168,7 +168,7 @@ systemd:
 
 Transpile it to Ignition JSON:
 
-```shell
+```bash
 cat cl.yaml | docker run --rm -i quay.io/coreos/butane:latest > ignition.json
 ```
 

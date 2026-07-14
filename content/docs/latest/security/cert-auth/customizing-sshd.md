@@ -132,14 +132,14 @@ FreeBind=true
 
 After creating the dropin file, the changes can be activated by doing a daemon-reload and restarting `sshd.socket`
 
-```shell
+```bash
 sudo systemctl daemon-reload
 sudo systemctl restart sshd.socket
 ```
 
 We now see that systemd is listening on the new sockets:
 
-```shell
+```bash
 $ systemctl status sshd.socket
 ● sshd.socket - OpenSSH Server Socket
    Loaded: loaded (/etc/systemd/system/sshd.socket; disabled; vendor preset: disabled)
@@ -152,7 +152,7 @@ $ systemctl status sshd.socket
 
 And if we attempt to connect to port 22 on our public IP, the connection is rejected, but port 222 works:
 
-```shell
+```bash
 $ ssh core@[public IP]
 ssh: connect to host [public IP] port 22: Connection refused
 $ ssh -p 222 core@[public IP]
@@ -164,13 +164,13 @@ core@machine $
 
 Simply mask the systemd.socket unit:
 
-```shell
+```bash
 systemctl mask --now sshd.socket
 ```
 
 Finally, restart the sshd.service unit:
 
-```shell
+```bash
 systemctl restart sshd.service
 ```
 

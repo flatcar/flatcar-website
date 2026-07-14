@@ -20,14 +20,14 @@ During the initial boot, the `nvidia.service` automates hardware detection and t
 
 Since the installation is triggered after boot, the overall installation time is around 5-10 minutes. To check the installation status, use the following command:
 
-```
+```bash
 # journalctl -u nvidia -f
 ```
 
 To customize the version number of the NVIDIA driver, you can override the value in the `/etc/flatcar/nvidia-metadata` file by specifying the desired version in the `NVIDIA_DRIVER_VERSION`. However, it's important to ensure that the chosen driver version is compatible with the GPU hardware present in the instance.
 E.g., for older GPUs the 460 driver series is needed because the latest drivers dropped support for them.
 
-```
+```bash
 echo "NVIDIA_DRIVER_VERSION=460.106.00" | sudo tee /etc/flatcar/nvidia-metadata
 sudo systemctl restart nvidia
 ```

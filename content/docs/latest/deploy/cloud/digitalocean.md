@@ -83,7 +83,7 @@ systemd:
 
 Transpile it to Ignition JSON:
 
-```shell
+```bash
 cat cl.yaml | docker run --rm -i quay.io/coreos/butane:latest > ignition.json
 ```
 ### Adding more machines
@@ -96,7 +96,7 @@ Container Linux is set up to be a little more secure than other DigitalOcean ima
 
 To connect to a droplet after it's created, run:
 
-```shell
+```bash
 ssh core@<ip address>
 ```
 
@@ -106,28 +106,28 @@ ssh core@<ip address>
 
 For starters, generate a [Personal Access Token][do-token-settings] and save it in an environment variable:
 
-```shell
+```bash
 read TOKEN
 # Enter your Personal Access Token
 ```
 
 Upload your SSH key via [DigitalOcean's API][do-keys-docs] or the web console. Retrieve the SSH key ID via the ["list all keys"][do-list-keys-docs] method:
 
-```shell
+```bash
 curl --request GET "https://api.digitalocean.com/v2/account/keys" \
      --header "Authorization: Bearer $TOKEN"
 ```
 
 Save the key ID from the previous command in an environment variable:
 
-```shell
+```bash
 read SSH_KEY_ID
 # Enter your SSH key ID
 ```
 
 If not done yet, [create a custom image](https://developers.digitalocean.com/documentation/v2/#create-a-custom-image) from the current Flatcar Container Linux Stable version:
 
-```shell
+```bash
 VER=$(curl https://stable.release.flatcar-linux.net/amd64-usr/current/version.txt | grep -m 1 FLATCAR_VERSION_ID= | cut -d = -f 2)
 curl --request POST "https://api.digitalocean.com/v2/images" \
      --header "Content-Type: application/json" \
@@ -143,13 +143,13 @@ curl --request POST "https://api.digitalocean.com/v2/images" \
 
 Save the numeric image ID from the previous command in an environment variable:
 
-```shell
+```bash
 read IMAGE_ID
 ```
 
 Create a 512MB droplet with private networking in NYC3 from the image create above and an Ignition JSON configuration file `config.ign` in your current directory:
 
-```shell
+```bash
 curl --request POST "https://api.digitalocean.com/v2/droplets" \
      --header "Content-Type: application/json" \
      --header "Authorization: Bearer $TOKEN" \
@@ -207,7 +207,7 @@ It will also take care of registering your SSH key at Digital Ocean and creating
 
 You can clone the setup from the [Flatcar Terraform examples repository](https://github.com/flatcar/flatcar-terraform/tree/main/digitalocean) or create the files manually as we go through them and explain each one.
 
-```
+```bash
 git clone https://github.com/flatcar/flatcar-terraform.git
 # From here on you could directly run it, TLDR:
 cd digitalocean
@@ -220,7 +220,7 @@ terraform apply
 
 Start with a `digitaloecan-droplets.tf` file that contains the main declarations:
 
-```
+```hcl
 terraform {
   required_version = ">= 0.13"
   required_providers {
@@ -282,7 +282,7 @@ data "template_file" "machine-configs" {
 
 Create a `variables.tf` file that declares the variables used above:
 
-```
+```hcl
 variable "machines" {
   type        = list(string)
   description = "Machine names, corresponding to machine-NAME.yaml.tmpl files"
@@ -317,7 +317,7 @@ variable "flatcar_stable_version" {
 
 An `outputs.tf` file shows the resulting IP addresses:
 
-```
+```hcl
 output "ip-addresses" {
   value = {
     for key in var.machines :
@@ -329,7 +329,7 @@ output "ip-addresses" {
 Now you can use the module by declaring the variables and a Container Linux Configuration for a machine.
 First create a `terraform.tfvars` file with your settings:
 
-```
+```hcl
 cluster_name           = "mycluster"
 machines               = ["mynode"]
 datacenter             = "nyc3"
@@ -339,7 +339,7 @@ flatcar_stable_version = "x.y.z"
 
 You can resolve the latest Flatcar Stable version with this shell command:
 
-```shell
+```bash
 curl -sSfL https://stable.release.flatcar-linux.net/amd64-usr/current/version.txt | grep -m 1 FLATCAR_VERSION_ID= | cut -d = -f 2
 ```
 
@@ -371,7 +371,7 @@ storage:
 
 Finally, run Terraform v0.13 as follows to create the machine:
 
-```
+```bash
 export DIGITALOCEAN_TOKEN=...
 terraform init
 terraform apply

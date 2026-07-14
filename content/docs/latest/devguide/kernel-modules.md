@@ -33,7 +33,7 @@ cd /mnt/work
 
 ## Prepare the node
 
-```shell
+```bash
 modules=/opt/modules  # Adjust this writable storage location as needed.
 sudo mkdir -p "${modules}" "${modules}.wd"
 ```
@@ -59,7 +59,7 @@ UpheldBy=systemd-sysext.service
 
 Enable the unit so this overlay becomes available:
 
-```shell
+```bash
 sudo systemctl enable --now usr-lib-modules.mount
 ```
 
@@ -67,7 +67,7 @@ sudo systemctl enable --now usr-lib-modules.mount
 
 Flatcar release version and group (aka Channel) are stored in info files.
 We source these files to construct the devcontainer URL:
-```shell
+```bash
 . /usr/share/flatcar/release
 . /usr/share/flatcar/update.conf
 url="https://${GROUP:-stable}.release.flatcar-linux.net/${FLATCAR_RELEASE_BOARD}/${FLATCAR_RELEASE_VERSION}/flatcar_developer_container.bin.bz2"
@@ -75,7 +75,7 @@ url="https://${GROUP:-stable}.release.flatcar-linux.net/${FLATCAR_RELEASE_BOARD}
 
 Now download, decompress, and verify the development container image.
 
-```shell
+```bash
 curl -f -L -O https://www.flatcar.org/security/image-signing-key/Flatcar_Image_Signing_Key.asc
 gpg2 --import Flatcar_Image_Signing_Key.asc
 curl -L "${url}" |
@@ -85,7 +85,7 @@ curl -L "${url}" |
 
 Start the development container with the host's writable modules directory mounted into place.
 Since the container requires access to loopback devices, `--capability=CAP_NET_ADMIN` is required.
-```shell
+```bash
 sudo systemd-nspawn \
     --bind=/usr/lib/modules \
     --capability=CAP_NET_ADMIN \
@@ -94,7 +94,7 @@ sudo systemd-nspawn \
 
 Now, inside the container, fetch the Flatcar Container Linux package definitions, then download and prepare the Linux kernel source for building external modules.
 
-```shell
+```bash
 emerge-gitclone
 emerge -gKv coreos-sources
 gzip -cd /proc/config.gz > /usr/src/linux/.config
@@ -107,6 +107,6 @@ At this point, upstream projects' instructions for building their out-of-tree mo
 
 In case the installation step didn't update the module dependency files automatically, running the following command will ensure commands like `modprobe` function correctly with the new modules.
 
-```shell
+```bash
 sudo depmod
 ```

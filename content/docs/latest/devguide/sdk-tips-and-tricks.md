@@ -18,7 +18,7 @@ aliases:
 
 Using `repo grep` you can search across all of the Git repos at once:
 
-```shell
+```bash
 repo grep CONFIG_EXTRA_FIRMWARE
 ```
 
@@ -28,13 +28,13 @@ Note: this could take some time.
 
 Get a view into what the base system will contain and why it will contain those things with the emerge tree view:
 
-```shell
+```bash
 equery-amd64-usr depgraph --depth 1 coreos-base/coreos-dev
 ```
 
 Get a tree view of the SDK dependencies:
 
-```shell
+```bash
 equery depgraph --depth 1 coreos-base/hard-host-depends coreos-devel/sdk-depends
 ```
 
@@ -42,7 +42,7 @@ equery depgraph --depth 1 coreos-base/hard-host-depends coreos-devel/sdk-depends
 
 You can use `scripts/update_ebuilds` to fetch unmodified packages into `src/third_party/portage-stable` and add the files to git. The package argument should be in the format of `category/package-name`, e.g.:
 
-```shell
+```bash
 ~/trunk/src/scripts $ ./update_ebuilds sys-block/open-iscsi
 ```
 
@@ -50,7 +50,7 @@ Modified packages must be moved out of `src/third_party/portage-stable` to `src/
 
 If you know in advance that any files in the upstream package will need to be changed, the package can be fetched from upstream Gentoo directly into `src/third_party/coreos-overlay`. e.g.:
 
-```shell
+```bash
 ~/trunk/src/third_party/coreos-overlay $ mkdir -p sys-block/open-iscsi
 ~/trunk/src/third_party/coreos-overlay $ rsync -av rsync://rsync.gentoo.org/gentoo-portage/sys-block/open-iscsi/ sys-block/open-iscsi/
 ```
@@ -59,7 +59,7 @@ The tailing / prevents rsync from creating the directory for the package so you 
 
 To quickly test your new package(s), use the following commands:
 
-```shell
+```bash
 ~/trunk/src/scripts $ # Manually merge a package in the chroot
 ~/trunk/src/scripts $ emerge-amd64-usr packagename
 ~/trunk/src/scripts $ # Manually unmerge a package in the chroot
@@ -70,7 +70,7 @@ To quickly test your new package(s), use the following commands:
 
 To include the new package as a dependency of Flatcar Container Linux, add the package to the end of the `RDEPEND` environment variable in `coreos-base/coreos/coreos-0.0.1.ebuild` then increment the revision of Flatcar Container Linux by renaming the softlink (e.g.):
 
-```shell
+```bash
 ~/trunk/src/third_party/coreos-overly $ git mv coreos-base/coreos/coreos-0.0.1-r237.ebuild coreos-base/coreos/coreos-0.0.1-r238.ebuild
 ```
 
@@ -99,7 +99,7 @@ Your SSH keys should be detected and added automatically by the image build proc
 
 After entering the SDK container for the first time (or after re-creating it), you can set user `core`'s password:
 
-```shell
+```bash
 $ ./set_shared_user_password.sh
 ```
 
@@ -109,7 +109,7 @@ This is the password you will use to log into the console of images built with t
 
 Turn on the credential helper and git will save your password in memory for some time:
 
-```shell
+```bash
 git config --global credential.helper cache
 ```
 
@@ -133,7 +133,7 @@ Host 127.0.0.1
 
 By default desktop environments will diligently display any mounted devices including loop devices used to construct Flatcar Container Linux disk images. If the daemon responsible for this happens to be ``udisks`` then you can disable this behavior with the following udev rule:
 
-```shell
+```bash
 echo 'SUBSYSTEM=="block", KERNEL=="ram*|loop*", ENV{UDISKS_PRESENTATION_HIDE}="1", ENV{UDISKS_PRESENTATION_NOPOLICY}="1"' > /etc/udev/rules.d/85-hide-loop.rules
 udevadm control --reload
 ```
@@ -142,13 +142,13 @@ udevadm control --reload
 
 Some daemons act differently in "dev mode". For example update_engine refuses to auto-update or connect to HTTPS URLs. If you need to test something out of dev_mode on a vm you can do the following:
 
-```shell
+```bash
 mv /root/.dev_mode{,.old}
 ```
 
 If you want to permanently leave you can run the following:
 
-```shell
+```bash
 crossystem disable_dev_request=1; reboot
 ```
 
@@ -156,7 +156,7 @@ crossystem disable_dev_request=1; reboot
 
 By default, the SDK container is re-used when using the `./run_sdk_container` script; all your changes within the container are preserved.
 To reset the container, list all docker containers:
-```shell
+```bash
 docker ps --all
 …
 00a133b61c55   ghcr.io/flatcar/flatcar-sdk-all:3087.0.0        "/bin/sh -c /home/sd…"   2 weeks ago   Exited (137) 11 days ago             flatcar-sdk-all-3087.0.0_os-alpha-3087.0.0-1-g39d915ae
@@ -164,7 +164,7 @@ docker ps --all
 ```
 and identify the SDK / OS image release version you've been working on.
 Then delete the container:
-```shell
+```bash
 docker container rm 00a133b61c55
 ```
 
@@ -174,13 +174,13 @@ The next run of `./run_sdk_container` will initialise a new container.
 
 If you want to build everything from scratch, but at the same time want to exclude several packages that take much time.
 
-```shell
+```bash
 emerge-amd64-usr --emptytree -1 -v --tree --exclude="dev-lang/rust sys-devel/gcc" coreos-base/coreos-dev
 ```
 
 Or if you want to do the rebuild by running `build_packages`, you should remove the binary package of `coreos` before rebuilding it:
 
-```shell
+```bash
 emerge-amd64-usr --unmerge coreos-base/coreos
 rm -f /build/amd64-usr/var/lib/portage/pkgs/coreos-base/coreos-0.0.1*.tbz2
 ./build_packages
@@ -205,7 +205,7 @@ If files of a package changed their hash sums, use `ebuild packagename.ebuild ma
 
 Here is an example of updating an individual package to a newer version:
 
-```shell
+```bash
 git mv aaa-bbb/package/package-0.0.1-r1.ebuild aaa-bbb/package/package-0.0.1-r2.ebuild
 ebuild aaa-bbb/package/package-0.0.1-r2.ebuild manifest
 emerge-amd64-usr -1 -v aaa-bbb/package
@@ -218,7 +218,7 @@ In some cases such a file can pin an exact version of a specific package, which 
 
 Some packages like `coreos-modules` take a long time to build. Use:
 
-```shell
+```bash
 ./build_packages --getbinpkgver=$(gsutil cat gs://…/boards/amd64-usr/current-master/version.txt |& sed -n 's/^FLATCAR_VERSION=//p')
 ```
 
@@ -228,13 +228,13 @@ to use packages from the another build store.
 
 By default, in every Flatcar image, it is not possible to remount `/usr` partition as read-write. However, sometimes it is needed to mount the partition as read-write mainly for debugging purposes. To make such a debugging image, Use
 
-```shell
+```bash
 ./build_image --noenable_rootfs_verification
 ```
 
 Then it will create an image without dm-verity being enabled. So after booting with the image, you can simply run:
 
-```shell
+```bash
 sudo mount -o remount,rw /usr
 ```
 
@@ -244,7 +244,7 @@ sudo mount -o remount,rw /usr
 
 Sometimes coreos-dev or coreos builds will fail in `build_packages` with a backtrace pointing to `epoll`. This hasn't been tracked down but running `build_packages` again should fix it. The error looks something like this:
 
-```shell
+```bash
 Packages failed:
 coreos-base/coreos-dev-0.1.0-r63
 coreos-base/coreos-0.0.1-r187
@@ -258,13 +258,13 @@ It may be necessary to comment out kernel source checks from the ebuild if the b
 
 Emerging `coreos-kernel` (either manually or through `build_packages`) may fail with the error:
 
-```shell
+```bash
 /usr/lib/gcc/x86_64-pc-linux-gnu/4.9.4/../../../../x86_64-pc-linux-gnu/bin/ld: scripts/kconfig/conf.o: relocation R_X86_64_32 against `.rodata.str1.8' can not be used when making a shared object; recompile with -fPIC scripts/kconfig/conf.o: error adding symbols: Bad value
 ```
 
 This indicates the ccache is corrupt. To clear the ccache, run:
 
-```shell
+```bash
 CCACHE_DIR=/var/tmp/ccache ccache -C
 ```
 

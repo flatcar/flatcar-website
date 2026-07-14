@@ -25,7 +25,7 @@ Several governors are available:
 
 The "conservative" governor can be used instead using the following shell commands:
 
-```shell
+```bash
 modprobe cpufreq_conservative
 echo "conservative" | tee /sys/devices/system/cpu/cpu*/cpufreq/scaling_governor > /dev/null
 ```

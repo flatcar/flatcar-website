@@ -17,7 +17,7 @@ This guide covers the basics of securing a Flatcar Container Linux instance. Fla
 
 To disable sshd from listening you can stop the socket:
 
-```shell
+```bash
 systemctl mask sshd.socket --now
 ```
 
@@ -39,7 +39,7 @@ Flatcar Container Linux has a single default user account called "core". General
 
 A sudo drop-in can be created under `/etc/sudoers.d/core-passwd` with the contents `core	ALL=(ALL) 	ALL` and as long as the core user has no password set it can't use `sudo`. Here is a Butane snippet:
 
-```
+```yaml
 variant: flatcar
 version: 1.0.0
 storage:
@@ -68,7 +68,7 @@ The docker daemon is accessible via a unix domain socket at `/run/docker.sock`. 
 
 You can restrict the Docker socket to root by creating a unit drop-in for `docker.socket` in `/etc/systemd/system/docker.socket.d/10-restrict.conf`, here a Butane snippet:
 
-```
+```yaml
 variant: flatcar
 version: 1.0.0
 systemd:
@@ -93,7 +93,7 @@ The [SMT on Container Linux guide][smt-guide] provides guidance and instructions
 
 If you don't expect to ever use USB, you can disable the kernel module, here a Butane snippet:
 
-```
+```yaml
 variant: flatcar
 version: 1.0.0
 storage:

@@ -77,7 +77,7 @@ etcd:
 
 As suggested earlier, `ct` requires information about the target environment before it can transform configs which use templating. If this config is passed to `ct` without any other arguments, `ct` fails with the following error message:
 
-```shell
+```bash
 $ ct < example.yml
 error: platform must be specified to use templating
 ```
@@ -86,7 +86,7 @@ This message states that because the config takes advantage of templating (in th
 
 CT can be invoked again and given Amazon EC2 as an example:
 
-```shell
+```bash
 $ ct --platform=ec2 < example.yml
 {"ignition":{"version":"2.0.0","config"...
 ```

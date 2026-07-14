@@ -59,7 +59,7 @@ This example creates one user, `user1`, with the password hash `$6$43y3tkl...`, 
 
 If you choose to use a password instead of an SSH key, generating a safe hash is extremely important to the security of your system. Simplified hashes like md5crypt are trivial to crack on modern GPU hardware. Here are a few ways to generate secure hashes:
 
-```
+```bash
 # On Debian/Ubuntu (via the package "whois")
 mkpasswd --method=SHA-512 --rounds=4096
 

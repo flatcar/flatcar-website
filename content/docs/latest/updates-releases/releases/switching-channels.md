@@ -54,7 +54,7 @@ To force an update, use the `flatcar-update` tool (see below) or overwrite your 
 
 If you don't use `flatcar-update`, overwrite your version with these steps to force a downgrade:
 
-```shell
+```bash
 sudo rm -f /tmp/release
 sudo umount /usr/share/coreos/release || true
 cp /usr/share/coreos/release /tmp/release
@@ -75,7 +75,7 @@ Since this can be disruptive depending on the customizations and deployed softwa
 
 The entry in `/etc/flatcar/update.conf` to opt-out of major version updates can be added via Ignition or manually (here for only receiving updates for the LTS 2022 stream, i.e., release major version 3033):
 
-```
+```ini
 GROUP=lts-2022
 ```
 
@@ -85,7 +85,7 @@ An alternative is to manage the update rollout through an own Nebraska update se
 
 With the `flatcar-update` tool you can jump to any release, also from other channels, making you effectively switch the channel. It's worth checking that you didn't hardcode a particular channel as `GROUP` in `/etc/flatcar/update.conf`.
 
-```shell
+```bash
 $ # In case another channel is set as GROUP, first remove it so that in the future the channel from the new release gets used:
 $ sudo sed -i "/GROUP=.*/d" /etc/flatcar/update.conf
 $ # Set the channel you want to jump to:
@@ -112,7 +112,7 @@ For machines with restricted Internet access the Nebraska `-host-flatcar-package
 
 Here is how to configure a machine through `/etc/flatcar/update.conf` to get updates from your personal Nebraska server:
 
-```
+```ini
 SERVER=http://your.nebraska.host:port/v1/update/
 GROUP=myproduction
 ```
@@ -124,19 +124,19 @@ More specifics about Nebraska can be found on its [docs site][nebraska-docs].
 
 The live status of updates checking can queried via:
 
-```shell
+```bash
 update_engine_client --status
 ```
 
 The update engine logs all update attempts, which can inspected in the system journal:
 
-```shell
+```bash
 journalctl -f -u update-engine
 ```
 
 For reference, the OS version and channel for a running system can be determined via:
 
-```shell
+```bash
 cat /usr/share/flatcar/os-release
 cat /usr/share/flatcar/update.conf
 ```

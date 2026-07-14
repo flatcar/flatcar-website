@@ -93,7 +93,7 @@ The `etcd-lock` strategy mandates that each machine acquire and hold a reboot lo
 
 The number of machines allowed to reboot simultaneously is configurable via a command line utility:
 
-```shell
+```bash
 $ locksmithctl set-max 4
 Old: 1
 New: 4
@@ -103,7 +103,7 @@ This setting is stored in etcd so it won't have to be configured for subsequent 
 
 To view the number of available slots and find out which machines in the cluster are holding locks, run:
 
-```shell
+```bash
 $ locksmithctl status
 Available: 0
 Max: 1
@@ -114,7 +114,7 @@ MACHINE ID
 
 If needed, you can manually clear a lock by providing the machine ID:
 
-```shell
+```bash
 locksmithctl unlock 69d27b356a94476da859461d3a3bc6fd
 ```
 
@@ -188,7 +188,7 @@ After update-engine applied the update to the passive partition, you can already
 
 The `flatcar-update` tool automatically removes the `SERVER=disabled` line to apply a manual update and restores it after applying the update (it also has an explicit `--disable-afterwards` switch to set `SERVER=disabled`):
 
-```shell
+```bash
 $ # For example, update to the latest Stable release:
 $ VER=$(curl -fsSL https://stable.release.flatcar-linux.net/amd64-usr/current/version.txt | grep FLATCAR_VERSION= | cut -d = -f 2)
 $ sudo flatcar-update --to-version $VER
@@ -201,7 +201,7 @@ After applying the update, wait for the reboot to happen or invoke it manually.
 
 As alternative you could mask the update-engine and locksmithd services as follows (but read the warning below):
 
-```
+```yaml
 variant: flatcar
 version: 1.0.0
 systemd:
@@ -222,7 +222,7 @@ old partition again because `update-engine` never marked the new partition to be
 To check that you can stop and mask `update-engine` after the reboot, run these commands to see that
 the partition was marked as successful. This will happen after the service ran for about 1 minute:
 
-```shell
+```bash
 $ sudo cgpt show "$(rootdev -s /usr)" | grep successful=1
                                   Attr: priority=1 tries=0 successful=1
 ```
@@ -235,7 +235,7 @@ If the `flatcar-update` tool is missing on your machine, [download](https://raw.
 
 On the non-airgapped machine (here for amd64, use `ARCH=arm64` for arm64):
 
-```shell
+```bash
 ARCH=amd64
 VER=$(curl -fsSL https://stable.release.flatcar-linux.net/${ARCH}-usr/current/version.txt | grep FLATCAR_VERSION= | cut -d = -f 2)
 echo "$VER"
@@ -247,7 +247,7 @@ If you run a Flatcar cloud vendor image that needs OEM tools, also download the 
 
 On the airgapped machine (here with the file `flatcar_production_update.gz` in the current folder):
 
-```shell
+```bash
 VER=... # use the same value as above
 sudo ./flatcar-update --to-version "$VER" --to-payload flatcar_production_update.gz
 # add -E oem-NAME.gz and -E flatcar-Name.gz for cloud tools or Flatcar extensions
@@ -279,7 +279,7 @@ Proxy environment variables can also be set [system-wide][systemd-env-vars].
 
 Each machine should check in about 10 minutes after boot and roughly every hour after that. If you'd like to see it sooner, you can force an update check, which will skip any rate-limiting settings that are configured in CoreUpdate.
 
-```shell
+```bash
 $ update_engine_client -check_for_update
 [0123/220706:INFO:update_engine_client.cc(245)] Initiating update check and install.
 ```
@@ -290,7 +290,7 @@ If you have disabled automatic reboots, and your host has already applied an upd
 ( i.e. Host is in `UPDATE_STATUS_UPDATED_NEED_REBOOT` state).
 To work around this intermediate reboot, one can call:
 
-```shell
+```bash
 update_engine_client -reset_status
 update_engine_client -check_for_update
 ```
@@ -307,13 +307,13 @@ On boot any files in `/etc` that are the same as provided by the booted `/usr/sh
 
 To find out the differences of your machine compared to the OS defaults, run:
 
-```sh
+```bash
 sudo git diff --no-index /usr/share/flatcar/etc /etc
 ```
 
 You can also see what files got created under the real `/etc` with the following commands:
 
-```sh
+```bash
 sudo unshare -m sh -c "umount /etc; ls -lahR /etc"
 ```
 

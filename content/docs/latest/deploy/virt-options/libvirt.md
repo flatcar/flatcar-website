@@ -80,21 +80,21 @@ However the Ignition file is created, it should be placed in a location which qe
 
 Here, for example, we create an empty Ignition config that contains no further declarations besides its specification version:
 
-```shell
+```bash
 mkdir -p /var/lib/libvirt/flatcar-linux/flatcar-linux1/
 echo '{"ignition":{"version":"3.4.0"}}' > /var/lib/libvirt/flatcar-linux/flatcar-linux1/provision.ign
 ```
 
 If the host uses SELinux, allow the VM access to the config:
 
-```shell
+```bash
 semanage fcontext -a -t virt_content_t "/var/lib/libvirt/flatcar-linux/flatcar-linux1"
 restorecon -R "/var/lib/libvirt/flatcar-linux/flatcar-linux1"
 ```
 
 If the host uses AppArmor, allow `qemu` to access the config files:
 
-```shell
+```bash
 echo "  # For ignition files" >> /etc/apparmor.d/abstractions/libvirt-qemu
 echo "  /var/lib/libvirt/flatcar-linux/** r," >> /etc/apparmor.d/abstractions/libvirt-qemu
 ```
@@ -120,7 +120,7 @@ passwd:
 Assuming that you save this as `example.yaml` (and replace the dummy key with public key), you can convert it to an Ignition config with the [config transpiler][config-transpiler].
 Here we run it from a Docker image:
 
-```shell
+```bash
 cat example.yaml | docker run --rm -i quay.io/coreos/butane:release > /var/lib/libvirt/flatcar-linux/flatcar-linux1/provision.ign
 ```
 
@@ -128,7 +128,7 @@ cat example.yaml | docker run --rm -i quay.io/coreos/butane:release > /var/lib/l
 
 Once the Ignition file exists on disk, the machine can be configured and started:
 
-```shell
+```bash
 virt-install --connect qemu:///system \
              --import \
              --name flatcar-linux1 \
@@ -143,7 +143,7 @@ virt-install --connect qemu:///system \
 
 By default, libvirt runs its own DHCP server which will provide an IP address to new instances. You can query it for what IP addresses have been assigned to machines:
 
-```shell
+```bash
 $ virsh net-dhcp-leases default
 Expiry Time          MAC address        Protocol  IP address                Hostname        Client ID or DUID
 -------------------------------------------------------------------------------------------------------------------
@@ -153,7 +153,7 @@ Expiry Time          MAC address        Protocol  IP address                Host
 
 To SSH into:
 
-```
+```bash
 ssh core@192.168.122.184
 ```
 
@@ -197,7 +197,7 @@ An alternative to statically configuring an IP at the host level is to do so at 
 
 This can be done using the `net-update` command. The following assumes you're using the `default` libvirt network and have configured the MAC Address to `52:54:00:fe:b3:c0` through the `--network` flag on `virt-install`:
 
-```shell
+```bash
 ip="192.168.122.2"
 mac="52:54:00:fe:b3:c0"
 
@@ -222,7 +222,7 @@ UserKnownHostsFile /dev/null
 
 Now you can log in to the virtual machine with:
 
-```shell
+```bash
 ssh flatcar-linux1
 ```
 

@@ -19,7 +19,7 @@ Cognizance of the tribal customs described and linked to below will help get you
 
 Commit messages follow a format that makes clear **what** changed and **why** it changed. The first line of each commit message should clearly state what module or file changed, summarize the change very briefly, and should end, without a period, somewhere short of 70 characters. After a blank line, the body of the commit message should then explain why the change was needed, with lines wrapped at 72 characters wide and sentences normally punctuated. Cite related issues or previous revisions as appropriate. For example:
 
-```
+```text
 ignition: Update etcd example to use %m
 
 Make the etcd configuration example use ignition's %m instead of the
@@ -28,7 +28,7 @@ ETCD_NAME environment variable. Fixes #123.
 
 This format can be described somewhat more formally as:
 
-```
+```text
 <module or file name>: <what changed>
 <BLANK LINE>
 <why this change was made>

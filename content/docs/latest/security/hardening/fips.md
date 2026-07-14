@@ -33,7 +33,7 @@ Jun 27 18:07:22 localhost kernel: fips mode: enabled
 [OpenSSL][openssl] is an open-source library used for ciphering and hashing. As a library, it is widely used by programming software and third-party programs to ensure security. OpenSSL 3.0 FIPS provider is FIPS [validated][certificate] since Aug. 2022.
 
 OpenSSL FIPS module is built by default on Flatcar. Overwriting `/etc/ssl/openssl.cnf` with the following section will enable the provider:
-```
+```ini
 config_diagnostics = 1
 openssl_conf = openssl_init
 # it includes the fipsmodule configuration

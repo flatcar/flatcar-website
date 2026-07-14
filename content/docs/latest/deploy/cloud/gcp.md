@@ -65,7 +65,7 @@ If you prefer, you can also run Flatcar Container Linux by uploading a custom im
 
 To do so, run the following command:
 
-```shell
+```bash
 docker run -it --rm \
   ghcr.io/flatcar/google-cloud-flatcar-image-upload \
   --bucket-name <bucket name> \
@@ -82,7 +82,7 @@ uploading an image. It will then download the requested Flatcar Container Linux 
 
 Interactive authentication can be avoided by passing a [JSON credentials file](https://developers.google.com/workspace/guides/create-credentials#create_credentials_for_a_service_account) through to the container:
 
-```shell
+```bash
 docker run -it --rm \
   --env GOOGLE_APPLICATION_CREDENTIALS=/tmp/credentials.json \
   --volume /path/to/credentials.json:/tmp/credentials.json:ro \
@@ -92,7 +92,7 @@ docker run -it --rm \
 
 To see all available options, run:
 
-```shell
+```bash
 docker run -it ghcr.io/flatcar/google-cloud-flatcar-image-upload --help
 
 Usage: /usr/local/bin/upload_images.sh [OPTION...]
@@ -158,7 +158,7 @@ systemd:
 
 Transpile it to Ignition JSON:
 
-```shell
+```bash
 cat cl.yaml | docker run --rm -i quay.io/coreos/butane:latest > ignition.json
 ```
 ### Additional storage
@@ -200,7 +200,7 @@ Users are added to Container Linux on GCE by the user provided configuration (i.
 
 You can log in your Flatcar Container Linux instances using:
 
-```sh
+```bash
 gcloud compute ssh --zone us-central1-a core@<instance-name>
 ```
 
@@ -210,7 +210,7 @@ Users other than `core`, which are set up by the GCE account manager, may not be
 
 You can log in using your Google account on instances with OS Login enabled. OS Login needs to be [enabled in the GCE console](https://cloud.google.com/compute/docs/instances/managing-instance-access#enable_oslogin) and on the instance. It is enabled by default on instances provisioned with Container Linux 1898.0.0 or later. Once enabled, you can log into your Container Linux instances using:
 
-```sh
+```bash
 gcloud compute ssh --zone us-central1-a <instance-name>
 ```
 

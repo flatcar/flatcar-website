@@ -99,7 +99,7 @@ build {
 
 #### Building the snapshots
 
-```shell
+```bash
 export HCLOUD_TOKEN=<your-token>
 packer init .
 
@@ -109,7 +109,7 @@ packer build .
 
 The `packer build .` command takes a few minutes to complete. Afterward you can see the snapshot names and IDs:
 
-```shell
+```bash
 ==> Builds finished. The artifacts of successful builds are:
 --> hcloud.x86: A snapshot was created: 'flatcar-beta-x86' (ID: 157132241)
 --> hcloud.arm: A snapshot was created: 'flatcar-beta-arm' (ID: 157132242)
@@ -117,7 +117,7 @@ The `packer build .` command takes a few minutes to complete. Afterward you can 
 
 You can verify these through the `hcloud` CLI:
 
-```shell
+```bash
 $ hcloud image list --type=snapshot --selector=os=flatcar
 ID          TYPE       NAME   DESCRIPTION        ARCHITECTURE   IMAGE SIZE
 167650172   snapshot   -      flatcar-beta-arm   arm            0.41 GB
@@ -142,7 +142,7 @@ If you do not want to deal with the complexity of Packer templates, there is an 
 
 `hcloud-upload-image` does not know anything about Flatcar. We need to construct the URL for the image ourselves.
 
-```shell
+```bash
 export HCLOUD_TOKEN=<your-token>
 export CHANNEL=beta
 # "current" is the latest version, you can specify alternative version here (e.g 3941.1.0)
@@ -169,13 +169,13 @@ Running `hcloud-upload-image upload` will take a few minutes to complete. If you
 
 After it completes, you should see the following output:
 
-```
+```console
 Successfully uploaded the image! image=167673693
 ```
 
 You can verify this through the `hcloud` CLI:
 
-```shell
+```bash
 $ hcloud image list --type=snapshot --selector=os=flatcar
 ID          TYPE       NAME   DESCRIPTION        ARCHITECTURE   IMAGE SIZE
 167673693   snapshot   -      flatcar-beta-x86   x86            0.47 GB
@@ -193,7 +193,7 @@ ID          TYPE       NAME   DESCRIPTION        ARCHITECTURE   IMAGE SIZE
 
 Make sure that your SSH Key is available in the current Hetzner Cloud project:
 
-```shell
+```bash
 hcloud ssh-key list
 
 # If not, you can upload the public key:
@@ -209,7 +209,7 @@ The `coreos-metadata.service` saves metadata variables to `/run/metadata/flatcar
 
 As an example, this Butane YAML config will start an nginx Docker container and display the instance hostname:
 
-```
+```yaml
 variant: flatcar
 version: 1.0.0
 
@@ -240,7 +240,7 @@ systemd:
 
 Before we can create the server, we need to transpile this Butane configuration to the Ignition format:
 
-```shell
+```bash
 docker run --rm -i quay.io/coreos/butane:latest < nginx-example.yaml > nginx-example.json
 ```
 
@@ -248,7 +248,7 @@ docker run --rm -i quay.io/coreos/butane:latest < nginx-example.yaml > nginx-exa
 
 Now that we have the snapshots, SSH Key and our Ignition config, we can finally create the first server:
 
-```shell
+```bash
 # Get ID of the most recent flatcar snapshot for x86
 SNAPSHOT_ID=$(hcloud image list --type=snapshot --selector=os=flatcar --architecture=x86 -o=columns=id -o noheader --sort=created:desc | head -n1)
 
@@ -262,7 +262,7 @@ hcloud server create \
 
 This will also take a minute or two to load the snapshot. After the process is finished, you will see the following output:
 
-```
+```console
 Server 48081481 created
 IPv4: 37.27.83.94
 IPv6: 2a01:4f9:c012:52f1::1

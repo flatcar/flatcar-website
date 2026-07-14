@@ -64,7 +64,7 @@ set linux_append="$linux_append mitigations=auto,nosmt tsx=auto"
 
 For example, using SSH:
 
-```shell
+```bash
 ssh core@node01 'sudo sh -c "echo \"set linux_append=\\\"\\\$linux_append mitigations=auto,nosmt tsx=auto\\\"\" >> /usr/share/oem/grub.cfg && systemctl reboot"'
 ```
 

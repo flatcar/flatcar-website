@@ -55,14 +55,14 @@ the comments in the Vagrantfile as well as documentation on
 
 You can customise the `Vagrantfile` at this point, but it will support a single machine without any changes. Bring up the VM and connect to it with SSH:
 
-```shell
+```bash
 vagrant up
 vagrant ssh
 ```
 
 It will continue to run in the background. Don't forget to destroy it to free up resources:
 
-```shell
+```bash
 vagrant destroy
 ```
 
@@ -83,7 +83,7 @@ end
 
 `vagrant up` will bring up all of them. To see the status of each:
 
-```shell
+```bash
 $ vagrant status
 Current machine states:
 
@@ -98,7 +98,7 @@ VM, run `vagrant status NAME`.
 
 To connect to one of the machines, specify the name:
 
-```shell
+```bash
 vagrant ssh flatcar-01
 ```
 
@@ -117,7 +117,7 @@ Use `vagrant reload` to apply this to your existing VM. Vagrant needs to modify 
 
 Flatcar Container Linux is a rolling release distribution and versions that are out of date will automatically update. To initially deploy VMs with the most recent version, you must fetch the latest box file. Vagrant remembers where to download this from. This assumes you used a "current" URL when you initially added the box.
 
-```shell
+```bash
 vagrant box update
 ```
 

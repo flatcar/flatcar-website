@@ -96,7 +96,7 @@ To use Ignition, you need to add the content of the Ignition configuration into 
 
 Boot the machine with the CLI, referencing the image ID from the import step above, your [Ignition file from Butane][butane-configs], a flavor of your choice and a network of your choice:
 
-```shell
+```bash
 $ INSTANCE_ID=$(openstack server create \
   --network "${NETWORK_ID}" \
   --flavor "${FLAVOR_ID}" \
@@ -110,7 +110,7 @@ $ INSTANCE_ID=$(openstack server create \
 Your first Flatcar instance should now be running. At this point, the instance should be visible in the OVHcloud portal too. The only thing left to do is find the IP address and SSH in.
 
 Example:
-```shell
+```bash
 $ openstack server show "${INSTANCE_ID}" --format json | jq -r .addresses
 {
   "Ext-Net": [
@@ -125,7 +125,7 @@ Hello from flatcar-01
 Finally SSH into an instance, note that the user is `core`:
 
 Example:
-```shell
+```bash
 $ ssh core@57.128.163.211
 $ systemctl status nginx
 ● nginx.service - NGINX example

@@ -14,7 +14,7 @@ Flatcar Container Linux uses etcd, a service running on each machine, to handle 
 
 A discovery service, [https://discovery.etcd.io](https://discovery.etcd.io), is provided as a free service to help connect etcd instances together by storing a list of peer addresses, metadata and the initial size of the cluster under a unique address, known as the discovery URL. You can generate them very easily:
 
-```shell
+```bash
 $ curl -w "\n" 'https://discovery.etcd.io/new?size=3'
 https://discovery.etcd.io/6a28e078895c5ec737174db2419bb2f3
 ```
@@ -139,7 +139,7 @@ To rule out firewall settings as a source of your issue, ensure that you can cur
 
 If all of the IPs can be reached, the etcd log can provide more clues:
 
-```shell
+```bash
 journalctl -u etcd-member
 ```
 

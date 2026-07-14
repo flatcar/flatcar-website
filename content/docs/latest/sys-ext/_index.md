@@ -101,7 +101,7 @@ In this case you can specify `SYSEXT_LEVEL=1.0` instead of `VERSION_ID`.
 The matching semantics for `SYSEXT_LEVEL` are limited at the moment and the use case for bumping the version are not there yet.
 In summary, this is what you will normally write to the metadata file:
 
-```
+```ini
 ID=flatcar
 SYSEXT_LEVEL=1.0
 ```
@@ -140,7 +140,7 @@ storage:
 
 After boot you can see it loaded in the output of the `systemd-sysext` command:
 
-```
+```text
 HIERARCHY EXTENSIONS SINCE
 /opt      none       -
 /usr      mydocker   Wed 2022-03-23 14:16:37 UTC
@@ -161,7 +161,7 @@ Please reach out if your use case isn't covered and work with us to include it t
 The Docker releases publish static binaries including containerd and the only missing piece are the systemd units.
 To ease the process, the [`create_docker_sysext.sh`](https://raw.githubusercontent.com/flatcar/sysext-bakery/main/create_docker_sysext.sh) helper script takes care of downloading the release binaries and adding the systemd unit files, and creates a combined Docker+containerd sysext image:
 
-```
+```console
 ./create_docker_sysext.sh 20.10.13 mydocker
 [… writes mydocker.raw into current directory …]
 ```
@@ -176,25 +176,25 @@ The [sysext-bakery documentation][sysext-bakery] has examples for Butane configs
 
 The `systemd-dissect` tool gives a quick overview for a systemd-sysext image:
 
-```
+```bash
 sudo systemd-dissect docker-compose.raw
 ```
 
 You can list the contents of a systemd-sysext image with the `--list` flag (or `--mtree` for a detailed view):
 
-```
+```bash
 sudo systemd-dissect --list docker-compose.raw
 ```
 
 A single file can be extracted with:
 
-```
+```bash
 sudo systemd-dissect --with docker-compose.raw cat usr/lib/extension-release.d/extension-release.docker-compose
 ```
 
 To get more information about found incompatibilities during merging, enable the debug output:
 
-```
+```bash
 sudo SYSTEMD_LOG_LEVEL=debug systemd-sysext refresh
 ```
 

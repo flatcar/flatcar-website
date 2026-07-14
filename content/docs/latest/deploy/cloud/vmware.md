@@ -78,7 +78,7 @@ The last step uploads the files to the ESXi datastore and registers the new VM. 
 
 Use the [`ovftool`][ovftool] to deploy from the command line as follows:
 
-```shell
+```bash
 ovftool --name=testvm --skipManifestCheck --noSSLVerify --datastore=datastore1 --powerOn=True --net:"VM Network=VM Network" --X:waitForIp --overwrite --powerOffTarget --X:guest:ignition.config.data=$(cat ignition_config.json | base64 --wrap=0) --X:guest:ignition.config.data.encoding=base64 ./flatcar_production_vmware_ova.ova 'vi:///<YOUR_USER>:<ESXI_PASSWORD>@<ESXI_HOST_IP>'
 ```
 
@@ -157,7 +157,7 @@ systemd:
 
 Transpile it to Ignition JSON:
 
-```shell
+```bash
 cat cl.yaml | docker run --rm -i quay.io/coreos/butane:release > ignition.json
 ```
 
@@ -251,13 +251,13 @@ The VMware guestinfo interface is a mechanism for VM configuration. Guestinfo pr
 
 * Set guestinfo keys and values from the Flatcar Container Linux guest itself, by using a VMware Tools command like:
 
-```shell
+```bash
 /usr/share/oem/bin/vmtoolsd --cmd "info-set guestinfo.<variable> <value>"
 ```
 
 * Guestinfo keys and values can be set from a VMware Service Console, using the `setguestinfo` subcommand:
 
-```shell
+```bash
 vmware-cmd /vmfs/volumes/[...]/<VMNAME>/<VMNAME>.vmx setguestinfo guestinfo.<property> <value>
 ```
 
@@ -305,7 +305,7 @@ Networking can take some time to start under VMware. Once it does, you will see 
 
 You can login to the host at that IP using your SSH key, or the password set in your cloud-config:
 
-```shell
+```bash
 ssh core@YOURIP
 ```
 
@@ -349,7 +349,7 @@ storage:
 
 To take effect directly on first boot, the alternative is to create a `getty@.service` drop-in, here a CLC snippet:
 
-```
+```yaml
 systemd:
   units:
     - name: getty@.service

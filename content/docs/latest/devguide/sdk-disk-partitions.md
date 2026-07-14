@@ -37,7 +37,7 @@ The `USR-A` or `USR-B` partitions are interchangeable, and one of the two is mou
 
 These partitions each include three flags that affect the boot process, `priority`, `tries`, and `successful`. Their behaviour is fully described in the [manual rollback documentation][manual rollback docs]. Their behaviour is implemented in an [add-gpt-partition-scheme GRUB patch][GRUB patches]. After an update, Flatcar Container Linux will re-configure the GPT priority attribute, instructing the bootloader to boot from the passive (newly updated) partition. Here's an example of the priority flags set on an Amazon EC2 machine:
 
-```shell
+```bash
 $ sudo cgpt show /dev/xvda
        start        size    part  contents
       270336     2097152       3  Label: "USR-A"

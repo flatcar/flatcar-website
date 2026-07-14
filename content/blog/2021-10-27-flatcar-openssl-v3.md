@@ -19,7 +19,7 @@ It's the responsibility of the community and the FCL core maintainers to manage 
 
 [OpenSSL][openssl] is an open-source library used for ciphering and hashing. As a library, it is widely used by programming software and third-party programs to ensure security, we can easily see the dependencies to OpenSSL by inspecting the linked shared objects for some famous software:
 
-```shell
+```bash
 $ ldd $(which curl) | grep ssl
 	libssl.so.1.1 => /usr/lib64/libssl.so.1.1 (0x00007f1c07871000)
 $ ldd $(which wget) | grep ssl
@@ -43,7 +43,7 @@ The version 3 of OpenSSL [comes][openssl-released] after more than three years o
 ### Backward compatiblity
 
 Most applications and scripts relying on CLI or libraries should continue to work the same as using previous implementations. Some warnings may be emitted at compilation time about deprecated functions but it's fine, it allows a smooth transition for software maintainers as we can read in this great [blogpost][alpine-openssl] from Alpine folks:
-```
+```text
 Roughly 85% of main builds just fine with OpenSSL 3, and 89% of community builds with it.
 ```
 
@@ -122,7 +122,7 @@ systemd:
 
 Once booted, the instance should run with OpenSSL `FIPS` provider, it's possible to easily check with the following commands (MD5 is not `FIPS` compliant):
 
-```shell
+```bash
 $ echo "Flatcar + FIPS" | openssl sha1 -
 SHA1(stdin)= ee2219bd6a234fa0e4436b475fc3b351e2dc85a0
 $ echo "Flatcar + FIPS" | openssl md5 -

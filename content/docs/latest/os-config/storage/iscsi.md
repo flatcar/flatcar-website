@@ -31,7 +31,7 @@ If the iSCSI target is configured to support mutual authentication (allowing the
 
 ### Start the iSCSI daemon
 
-```shell
+```bash
 systemctl start iscsid
 ```
 
@@ -39,7 +39,7 @@ systemctl start iscsid
 
 To discover targets, run:
 
-```shell
+```bash
 iscsiadm -m discovery -t sendtargets -p target_ip:target_port
 ```
 
@@ -47,7 +47,7 @@ iscsiadm -m discovery -t sendtargets -p target_ip:target_port
 
 For each unique `--targetname`, first enter the username:
 
-```shell
+```bash
 iscsiadm -m node \
   --targetname=custom_target \
   --op update \
@@ -57,7 +57,7 @@ iscsiadm -m node \
 
 And then the password:
 
-```shell
+```bash
 iscsiadm -m node \
   --targetname=custom_target \
   --op update \
@@ -69,13 +69,13 @@ iscsiadm -m node \
 
 The following command will log into all discovered targets.
 
-```shell
+```bash
 iscsiadm -m node --login
 ```
 
 Then, to log into a specific target use:
 
-```shell
+```bash
 iscsiadm -m node --targetname=custom_target --login
 ```
 
@@ -83,7 +83,7 @@ iscsiadm -m node --targetname=custom_target --login
 
 If you want to connect to iSCSI targets automatically at boot you first need to enable the systemd service:
 
-```shell
+```bash
 systemctl enable iscsi
 ```
 

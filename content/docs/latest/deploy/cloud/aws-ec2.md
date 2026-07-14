@@ -93,7 +93,7 @@ systemd:
 
 Transpile it to Ignition JSON:
 
-```shell
+```bash
 cat cl.yaml | docker run --rm -i quay.io/coreos/butane:latest > ignition.json
 ```
 
@@ -136,7 +136,7 @@ Flatcar Container Linux is set up to be a little more secure than other cloud im
 
 To connect to an instance after it's created, run:
 
-```shell
+```bash
 ssh core@<ip address>
 ```
 
@@ -196,7 +196,7 @@ We will be launching three instances, with a few parameters in the User Data, an
 One of the possible ways of installation is to import the generated VMDK Flatcar image as a snapshot. The image file will be in `https://${CHANNEL}.release.flatcar-linux.net/${ARCH}-usr/${VERSION}/flatcar_production_ami_vmdk_image.vmdk.bz2`.
 Make sure you download the signature (it's available in `https://${CHANNEL}.release.flatcar-linux.net/${ARCH}-usr/${VERSION}/flatcar_production_ami_vmdk_image.vmdk.bz2.sig`) and check it before proceeding.
 
-```shell
+```bash
 $ wget https://alpha.release.flatcar-linux.net/amd64-usr/current/flatcar_production_ami_vmdk_image.vmdk.bz2
 $ wget https://alpha.release.flatcar-linux.net/amd64-usr/current/flatcar_production_ami_vmdk_image.vmdk.bz2.sig
 $ gpg --verify flatcar_production_ami_vmdk_image.vmdk.bz2.sig
@@ -225,7 +225,7 @@ It will also take care of registering your SSH key at AWS EC2 and managing the n
 
 You can clone the setup from the [Flatcar Terraform examples repository](https://github.com/flatcar/flatcar-terraform/tree/main/aws) or create the files manually as we go through them and explain each one.
 
-```
+```bash
 git clone https://github.com/flatcar/flatcar-terraform.git
 # From here on you could directly run it, TLDR:
 cd aws
@@ -239,7 +239,7 @@ terraform apply
 
 Start with a `aws-ec2-machines.tf` file that contains the main declarations:
 
-```
+```hcl
 terraform {
   required_version = ">= 0.13"
   required_providers {
@@ -394,7 +394,7 @@ data "template_file" "machine-configs" {
 
 Create a `variables.tf` file that declares the variables used above:
 
-```
+```hcl
 variable "machines" {
   type        = list(string)
   description = "Machine names, corresponding to cl/machine-NAME.yaml.tmpl files"
@@ -435,7 +435,7 @@ variable "subnet_cidr" {
 
 An `outputs.tf` file shows the resulting IP addresses:
 
-```
+```hcl
 output "ip-addresses" {
   value = {
     for key in var.machines :
@@ -447,7 +447,7 @@ output "ip-addresses" {
 Now you can use the module by declaring the variables and a Container Linux Configuration for a machine.
 First create a `terraform.tfvars` file with your settings:
 
-```
+```hcl
 cluster_name           = "mycluster"
 machines               = ["mynode"]
 ssh_keys               = ["ssh-rsa AA... me@mail.net"]
@@ -481,7 +481,7 @@ storage:
 
 Finally, run Terraform v0.13 as follows to create the machine:
 
-```
+```bash
 export AWS_ACCESS_KEY_ID=...
 export AWS_SECRET_ACCESS_KEY=...
 terraform init

@@ -21,7 +21,7 @@ Kubernetes relies on a container runtime to create and run pods and containers. 
 
 Containerd can emit events throughout the lifecycle of a container, as can be seen using `ctr events`:
 
-```
+```json
 moby /containers/create {"id":"efdc0c13a23ed36819af834d41727dabf07052298dc46d0a8243089a6f448a70","runtime":{"name":"io.containerd.runc.v2","options":{"type_url":"containerd.runc.v1.Options","value":"MgRydW5jOhwvdmFyL3J1bi9kb2NrZXIvcnVudGltZS1ydW5jSAE="}}}
 moby /tasks/create {"container_id":"efdc0c13a23ed36819af834d41727dabf07052298dc46d0a8243089a6f448a70","bundle":"/run/containerd/io.containerd.runtime.v2.task/moby/efdc0c13a23ed36819af834d41727dabf07052298dc46d0a8243089a6f448a70","io":{"stdin":"/var/run/docker/containerd/efdc0c13a23ed36819af834d41727dabf07052298dc46d0a8243089a6f448a70/init-stdin","stdout":"/var/run/docker/containerd/efdc0c13a23ed36819af834d41727dabf07052298dc46d0a8243089a6f448a70/init-stdout","terminal":true},"pid":1298}
 moby /tasks/start {"container_id":"efdc0c13a23ed36819af834d41727dabf07052298dc46d0a8243089a6f448a70","pid":1298}
@@ -51,7 +51,7 @@ These solutions ended up being hard to manage for both systemd and container run
 
 The Linux API for filesystem notifications is [inotify](https://www.man7.org/linux/man-pages/man7/inotify.7.html). cgroup2 is  pseudo-filesystem that comes with support for inotify notifications. The pseudo-code to watch for OOM notification now looks like this:
 
-```
+```c
 fd = inotify_init()
 inotify_add_watch(fd, "memory.events")
 while (read(fd)) {
@@ -59,7 +59,7 @@ while (read(fd)) {
 }
 ```
 The `memory.events` file contains counters of times when different thresholds are hit:
-```
+```text
 low 0
 high 0
 max 0 
@@ -69,7 +69,7 @@ oom_kill 0
 containerd can thus monitor `memory.events` when it is notified, and check which event occurred.
 
 Process exit notifications occur on a different file: `cgroup.events` with the following contents:
-```
+```text
 populated 1
 frozen 0
 ```
@@ -147,7 +147,7 @@ cgroup2 does not notify `memory.events` when the last process exits right before
 
 How bad is this? It turns out that orchestrators like Kubernetes like to restart processes when they exit or crash. Restarts are delegated to containerd-shim, which spins up a new container with a new identifier and cgroup. Each such cgroup is a new inotify instance. Yikes. This is compounded by the default limit on number of inotify instances.
 
-```
+```console
 $ sysctl fs.inotify.max_user_instances
 fs.inotify.max_user_instances = 128
 ```

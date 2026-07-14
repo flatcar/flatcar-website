@@ -20,19 +20,19 @@ If it only contains `(null)`, the system has no pstore support and won't store t
 
 On Flatcar Container Linux, the pstore is automatically mounted to `/sys/fs/pstore` but files available there get automatically moved to `/var/lib/systemd/pstore/` through `systemd-pstore.service` after boot. The contents of the store can be explored using standard filesystem tools:
 
-```shell
+```bash
 ls /var/lib/systemd/pstore/
 ```
 
 On this particular machine, there isn't anything in the pstore yet. In order to test the mechanism, a kernel panic can be triggered:
 
-```shell
+```bash
 echo c > /proc/sysrq-trigger
 ```
 
 Once the machine boots, the pstore can again be inspected:
 
-```shell
+```bash
 $ ls /var/lib/systemd/pstore/
 dmesg-erst-6319986351055831041  dmesg-erst-6319986351055831044
 dmesg-erst-6319986351055831042  dmesg-erst-6319986351055831045
@@ -41,7 +41,7 @@ dmesg-erst-6319986351055831043
 
 Now there are a series of dmesg logs, stored in the ACPI ERST. Looking at the first file, the cause of the panic can be discovered:
 
-```shell
+```bash
 $ cat /var/lib/systemd/pstore/dmesg-erst-6319986351055831041
 Oops#1 Part1
 ...
@@ -88,7 +88,7 @@ Oops#1 Part1
 
 The cause of the panic was a system request! The remaining files in the pstore contain more of the logs leading up to the panic as well as more context. Each of the files has a small, descriptive header describing the source of the logs. Looking at each of the headers shows the rough structure of the logs:
 
-```shell
+```bash
 $ head --lines=1 /var/lib/systemd/pstore/dmesg-erst-6319986351055831041
 Oops#1 Part1
 

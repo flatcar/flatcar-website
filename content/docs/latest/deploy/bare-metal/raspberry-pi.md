@@ -150,12 +150,12 @@ The options that we will be using with the scripts are:
 ```
 
 Go ahead with the write on the target device
-```
+```bash
 sudo flatcar-install -d /dev/sda -C stable -B arm64-usr -o '' -i config.json
 ```
 
 If you already have the image downloaded you can use the `-f` param to specify the path of the local image file.
-```
+```bash
 sudo flatcar-install -d /dev/sda -C stable -B arm64-usr -o '' -i config.json -f flatcar_production_image.bin.bz2
 ```
 

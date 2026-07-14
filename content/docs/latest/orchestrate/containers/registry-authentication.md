@@ -31,7 +31,7 @@ If you are using a registry other than Quay (e.g., Docker Hub, Docker Store, etc
 
 The Docker client uses an interactive command to authenticate with a centralized service.
 
-```shell
+```bash
 docker login -u <username> -p <password> https://registry.example.io
 ```
 
@@ -65,14 +65,14 @@ Kubernetes uses [*Secrets*][k8s-secrets] to store registry credentials.
 
 When manually configuring authentication with *any* registry in Kubernetes (including Quay and Docker Hub) the following command is used to generate the Kubernetes registry-auth secret:
 
-```shell
+```bash
 $ kubectl create secret docker-registry my-favorite-registry-secret --docker-username=giffee_lover_93 --docker-password='passphrases are great!' --docker-email='giffee.lover.93@example.com' --docker-server=registry.example.io
 secret "my-favorite-registry-secret" created
 ```
 
 If you prefer you can store this in a YAML file by adding the `--dry-run` and `-o yaml` flag to the end of your command and copying or redirecting the output to a file:
 
-```shell
+```bash
 kubectl create secret docker-registry my-favorite-registry [...] --dry-run -o yaml | tee credentials.yaml
 ```
 
@@ -87,14 +87,14 @@ metadata:
 type: kubernetes.io/dockercfg
 ```
 
-```shell
+```bash
 $ kubectl create -f credentials.yaml
 secret "my-favorite-registry-secret" created
 ```
 
 You can check that this secret is loaded with with the `kubectl get` command:
 
-```shell
+```bash
 $ kubectl get my-favorite-registry-secret
 NAME                            TYPE                      DATA      AGE
 my-favorite-registry-secret     kubernetes.io/dockercfg   1         30m

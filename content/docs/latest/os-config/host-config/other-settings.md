@@ -12,7 +12,7 @@ aliases:
 
 Most Linux kernel modules get automatically loaded as-needed but there are a some situations where this doesn't work. Problems can arise if there is boot-time dependencies are sensitive to exactly when the module gets loaded. Module auto-loading can be broken all-together if the operation requiring the module happens inside of a container. `iptables` and other netfilter features can easily encounter both of these issues. To force a module to be loaded early during boot simply list them in a file under `/etc/modules-load.d`. The file name must end in `.conf`.
 
-```shell
+```bash
 echo nf_conntrack > /etc/modules-load.d/nf.conf
 ```
 
@@ -59,7 +59,7 @@ storage:
 
 The Linux kernel offers a plethora of knobs under `/proc/sys` to control the availability of different features and tune performance parameters. For one-shot changes values can be written directly to the files under `/proc/sys` but persistent settings must be written to `/etc/sysctl.d`:
 
-```shell
+```bash
 echo net.netfilter.nf_conntrack_max=131072 > /etc/sysctl.d/nf.conf
 sysctl --system
 ```
@@ -107,7 +107,7 @@ kernel_arguments:
     - quiet
 ```
 
-```
+```json
 {
   "ignition": {
     "version": "3.3.0"
@@ -148,7 +148,7 @@ storage:
 
 To take effect directly on first boot, the alternative is to create a `getty@.service` drop-in, here a snippet that will work with `ct` and `butane`:
 
-```
+```yaml
 systemd:
   units:
     - name: getty@.service
@@ -192,7 +192,7 @@ set linux_append="$linux_append systemd.mask=systemd-networkd.service"
 
 When logging in interactively, a brief message (the "Message of the Day (MOTD)") reports the Flatcar Container Linux release channel, version, and a list of any services or systemd units that have failed. Additional text can be added by dropping text files into `/etc/motd.d`. The directory may need to be created first, and the drop-in file name must end in `.conf`. Flatcar Container Linux versions 555.0.0 and greater support customization of the MOTD.
 
-```shell
+```bash
 mkdir -p /etc/motd.d
 echo "This machine is dedicated to computing Pi" > /etc/motd.d/pi.conf
 ```
@@ -214,7 +214,7 @@ storage:
 
 The system boot messages that are printed to the console will be cleared when systemd starts a login prompt. In order to preserve these messages, the `getty` services will need to have their `TTYVTDisallocate` setting disabled. This can be achieved with a drop-in for the template unit, `getty@.service`. Note that the console will still scroll so the login prompt is at the top of the screen, but the boot messages will be available by scrolling.
 
-```shell
+```bash
 mkdir -p '/etc/systemd/system/getty@.service.d'
 echo -e '[Service]\nTTYVTDisallocate=no' > '/etc/systemd/system/getty@.service.d/no-disallocate.conf'
 ```
