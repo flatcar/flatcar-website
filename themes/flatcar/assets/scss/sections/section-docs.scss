@@ -196,14 +196,10 @@ $sideBarWidth: 350px;
       margin-bottom: 0;
     }
 
-    pre {
-      padding-bottom: 0;
-    }
-
     .btn-copy {
       background: none;
       border: none !important;
-      color: #908caa;
+      color: #717171;
       line-height: 1;
       padding: 0.25rem 0.5rem;
       z-index: 1;
@@ -211,7 +207,7 @@ $sideBarWidth: 350px;
       cursor: pointer;
 
       &:hover {
-        color: #e0def4;
+        color: $flatcar-link-blue;
       }
     }
   }
@@ -368,15 +364,15 @@ $sideBarWidth: 350px;
         transition: color 0.15s ease, border-color 0.15s ease;
 
         &:hover {
-          color: #0066b8;
+          color: $flatcar-link-blue;
         }
       }
 
       &.active {
-        border-left-color: #0066b8;
+        border-left-color: $flatcar-link-blue;
 
         & > a {
-          color: #0066b8;
+          color: $flatcar-link-blue;
           font-weight: 500;
         }
       }

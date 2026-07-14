@@ -1,77 +1,154 @@
-/* Generated using: hugo gen chromastyles --style=rose-pine-moon */
+/* Flatcar-branded Chroma syntax theme — LIGHT (single, default).
+ *
+ * Hand-written (not `hugo gen chromastyles`, since "flatcar" isn't a
+ * built-in Chroma style). Selector list matches the class names
+ * Chroma itself emits, so this is a drop-in swap for the previous
+ * generic `rose-pine-moon` style.
+ *
+ * The site is light-mode only for now (a dark-mode variant is parked
+ * in `_syntax-dark.scss.parked`, ready to be revived and scoped under
+ * `[data-bs-theme="dark"]` once the site adds a real mode toggle
+ * via Bootstrap's color-mode support (see bootstrap/mixins/_color-mode.scss
+ * and bootstrap/_variables-dark.scss).
+ *
+ * DESIGN NOTE — hue variety, not just "navy + one blue":
+ * A first pass at this theme leaned on `$flatcar-link-blue` for almost
+ * every token role (keywords, tags, attributes, variables...) with
+ * `$flatcar-navy` bold standing in for everything else (types,
+ * functions, builtins). That's flat and hard to scan compared to
+ * well-regarded light themes like GitHub Light, One Light, and
+ * Solarized Light, which all spread roles across several distinct
+ * hues (green for strings, orange/gold for numbers, a dedicated color
+ * for functions, etc.).
+ *
+ * This version follows that same differentiation strategy, but stays
+ * strictly inside Flatcar's own brand palette — no invented purples
+ * or oranges foreign to the brand:
+ *   #12172B  navy        base text, types/classes/builtins (bold)      $flatcar-navy
+ *   #0066B8  link-blue   keywords, tags — the site's own "link" blue   $flatcar-link-blue
+ *   #007D88  darker-blue functions — brand teal-blue, already used     $flatcar-darker-blue
+ *            elsewhere on the site (buttons/accents), reused here so
+ *            functions read as their own category, not bolded navy
+ *   #168203  green-dark  strings — matches the near-universal          $flatcar-green-dark
+ *            "green = string" convention, and IS a brand color
+ *   #9A3F00  amber       numbers/literals — accessible stand-in for    $flatcar-amber
+ *            $flatcar-gold, which fails contrast on light backgrounds
+ *   #DE1040  pink        decorators / namespaces / exceptions —        $flatcar-pink
+ *            a brand color, distinct from the darkened error red
+ *   #CE163C  red-a11y    errors/deletions — accessible stand-in for    $flatcar-red-a11y
+ *            $flatcar-red, darkened ~12% to clear WCAG AA
+ *   #5B6773  muted       comments (italic)
+ *   #7A87A0  muted-light line numbers (if enabled; intentionally low-contrast UI chrome)
+ *   #F1F2F6  paper-grey  code block background (matches the Marp slide <pre>)
+ *
+ * Plain identifiers/variables are left in base ink rather than
+ * colored — most modern light themes do this to avoid every line
+ * turning into a rainbow; only builtins/language-special variables
+ * get a color (pink), everything else is quiet.
+ */
 
-/* Background */ .bg { color:#e0def4;background-color:#232136; }
-/* PreWrapper */ .chroma { color:#e0def4;background-color:#232136;-webkit-text-size-adjust:none; }
-/* Error */ .chroma .err { color:#eb6f92 }
-/* LineLink */ .chroma .lnlinks { outline:none;text-decoration:none;color:inherit }
-/* LineTableTD */ .chroma .lntd { vertical-align:top;padding:0;margin:0;border:0; }
-/* LineTable */ .chroma .lntable { border-spacing:0;padding:0;margin:0;border:0; }
-/* LineHighlight */ .chroma .hl { background-color:#39374a }
-/* LineNumbersTable */ .chroma .lnt { white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f }
-/* LineNumbers */ .chroma .ln { white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f }
-/* Line */ .chroma .line { display:flex; }
-/* Keyword */ .chroma .k { color:#3e8fb0 }
-/* KeywordConstant */ .chroma .kc { color:#3e8fb0 }
-/* KeywordDeclaration */ .chroma .kd { color:#3e8fb0 }
-/* KeywordNamespace */ .chroma .kn { color:#c4a7e7 }
-/* KeywordPseudo */ .chroma .kp { color:#3e8fb0 }
-/* KeywordReserved */ .chroma .kr { color:#3e8fb0 }
-/* KeywordType */ .chroma .kt { color:#3e8fb0 }
-/* Name */ .chroma .n { color:#ea9a97 }
-/* NameAttribute */ .chroma .na { color:#ea9a97 }
-/* NameClass */ .chroma .nc { color:#9ccfd8 }
-/* NameConstant */ .chroma .no { color:#f6c177 }
-/* NameDecorator */ .chroma .nd { color:#908caa }
-/* NameEntity */ .chroma .ni { color:#ea9a97 }
-/* NameException */ .chroma .ne { color:#3e8fb0 }
-/* NameLabel */ .chroma .nl { color:#ea9a97 }
-/* NameNamespace */ .chroma .nn { color:#ea9a97 }
-/* NameProperty */ .chroma .py { color:#ea9a97 }
-/* NameTag */ .chroma .nt { color:#ea9a97 }
-/* NameBuiltin */ .chroma .nb { color:#ea9a97 }
-/* NameBuiltinPseudo */ .chroma .bp { color:#ea9a97 }
-/* NameVariable */ .chroma .nv { color:#ea9a97 }
-/* NameVariableClass */ .chroma .vc { color:#ea9a97 }
-/* NameVariableGlobal */ .chroma .vg { color:#ea9a97 }
-/* NameVariableInstance */ .chroma .vi { color:#ea9a97 }
-/* NameVariableMagic */ .chroma .vm { color:#ea9a97 }
-/* NameFunction */ .chroma .nf { color:#ea9a97 }
-/* NameFunctionMagic */ .chroma .fm { color:#ea9a97 }
-/* Literal */ .chroma .l { color:#f6c177 }
-/* LiteralDate */ .chroma .ld { color:#f6c177 }
-/* LiteralString */ .chroma .s { color:#f6c177 }
-/* LiteralStringAffix */ .chroma .sa { color:#f6c177 }
-/* LiteralStringBacktick */ .chroma .sb { color:#f6c177 }
-/* LiteralStringChar */ .chroma .sc { color:#f6c177 }
-/* LiteralStringDelimiter */ .chroma .dl { color:#f6c177 }
-/* LiteralStringDoc */ .chroma .sd { color:#f6c177 }
-/* LiteralStringDouble */ .chroma .s2 { color:#f6c177 }
-/* LiteralStringEscape */ .chroma .se { color:#3e8fb0 }
-/* LiteralStringHeredoc */ .chroma .sh { color:#f6c177 }
-/* LiteralStringInterpol */ .chroma .si { color:#f6c177 }
-/* LiteralStringOther */ .chroma .sx { color:#f6c177 }
-/* LiteralStringRegex */ .chroma .sr { color:#f6c177 }
-/* LiteralStringSingle */ .chroma .s1 { color:#f6c177 }
-/* LiteralStringSymbol */ .chroma .ss { color:#f6c177 }
-/* LiteralNumber */ .chroma .m { color:#f6c177 }
-/* LiteralNumberBin */ .chroma .mb { color:#f6c177 }
-/* LiteralNumberFloat */ .chroma .mf { color:#f6c177 }
-/* LiteralNumberHex */ .chroma .mh { color:#f6c177 }
-/* LiteralNumberInteger */ .chroma .mi { color:#f6c177 }
-/* LiteralNumberIntegerLong */ .chroma .il { color:#f6c177 }
-/* LiteralNumberOct */ .chroma .mo { color:#f6c177 }
-/* Operator */ .chroma .o { color:#908caa }
-/* OperatorWord */ .chroma .ow { color:#908caa }
-/* Punctuation */ .chroma .p { color:#908caa }
-/* Comment */ .chroma .c { color:#6e6a86 }
-/* CommentHashbang */ .chroma .ch { color:#6e6a86 }
-/* CommentMultiline */ .chroma .cm { color:#6e6a86 }
-/* CommentSingle */ .chroma .c1 { color:#6e6a86 }
-/* CommentSpecial */ .chroma .cs { color:#6e6a86 }
-/* CommentPreproc */ .chroma .cp { color:#6e6a86 }
-/* CommentPreprocFile */ .chroma .cpf { color:#6e6a86 }
-/* GenericDeleted */ .chroma .gd { color:#eb6f92 }
-/* GenericEmph */ .chroma .ge { font-style:italic }
-/* GenericInserted */ .chroma .gi { color:#9ccfd8 }
-/* GenericStrong */ .chroma .gs { font-weight:bold }
-/* GenericSubheading */ .chroma .gu { color:#c4a7e7 }
+.bg { color:$flatcar-navy; background-color:#F1F2F6; }
+.chroma {
+  color: $flatcar-navy;
+  background-color: #F1F2F6;
+  -webkit-text-size-adjust: none;
+  border: 1px solid $flatcar-link-blue;
+  border-radius: 0.375rem;
+}
+.chroma .err { color:$flatcar-red-a11y }
+.chroma .lnlinks { outline:none; text-decoration:none; color:inherit }
+.chroma .lntd { vertical-align:top; padding:0; margin:0; border:0; }
+.chroma .lntable { border-spacing:0; padding:0; margin:0; border:0; }
+.chroma .hl { background-color:#E4E6EE }
+.chroma .lnt { white-space:pre; -webkit-user-select:none; user-select:none; margin-right:0.4em; padding:0 0.4em 0 0.4em; color:#7A87A0 }
+.chroma .ln { white-space:pre; -webkit-user-select:none; user-select:none; margin-right:0.4em; padding:0 0.4em 0 0.4em; color:#7A87A0 }
+.chroma .line { display:flex; }
+
+/* Keywords — the site's accessible link-blue, bold like a UI link */
+.chroma .k  { color:$flatcar-link-blue; font-weight:600 }
+.chroma .kc { color:$flatcar-link-blue; font-weight:600 }
+.chroma .kd { color:$flatcar-link-blue; font-weight:600 }
+.chroma .kp { color:$flatcar-link-blue; font-weight:600 }
+.chroma .kr { color:$flatcar-link-blue; font-weight:600 }
+.chroma .ow { color:$flatcar-link-blue; font-weight:600 }
+.chroma .nt { color:$flatcar-link-blue; font-weight:600 }
+
+/* Namespaces / decorators / exceptions — brand pink, distinct from error red */
+.chroma .kn { color:$flatcar-pink }
+.chroma .nd { color:$flatcar-pink; font-style:italic }
+.chroma .ne { color:$flatcar-pink; font-weight:600 }
+.chroma .nn { color:$flatcar-pink }
+.chroma .vm { color:$flatcar-pink }
+
+/* Types / classes / builtins — navy, bold-for-emphasis rather than a new hue */
+.chroma .kt { color:$flatcar-navy; font-weight:700 }
+.chroma .nc { color:$flatcar-navy; font-weight:700 }
+.chroma .nb { color:$flatcar-navy; font-weight:700 }
+.chroma .bp { color:$flatcar-navy; font-weight:700 }
+
+/* Functions — brand teal-blue, its own category instead of bolded navy */
+.chroma .nf { color:$flatcar-darker-blue; font-weight:600 }
+.chroma .fm { color:$flatcar-darker-blue; font-weight:600 }
+
+/* Names / attributes / labels / tags-in-prose — quiet, muted */
+.chroma .n  { color:$flatcar-navy }
+.chroma .na { color:#5B6773 }
+.chroma .ni { color:#5B6773 }
+.chroma .nl { color:#5B6773 }
+.chroma .py { color:#5B6773 }
+
+/* Variables — plain ink; kept quiet so real accents stand out */
+.chroma .nv { color:$flatcar-navy }
+.chroma .vc { color:$flatcar-navy }
+.chroma .vg { color:$flatcar-navy }
+.chroma .vi { color:$flatcar-navy }
+
+/* Constants — amber (accessible gold), distinct from string green */
+.chroma .no { color:$flatcar-amber }
+
+/* Strings — brand green, the conventional "string" color */
+.chroma .s  { color:$flatcar-green-dark }
+.chroma .sa { color:$flatcar-green-dark }
+.chroma .sb { color:$flatcar-green-dark }
+.chroma .sc { color:$flatcar-green-dark }
+.chroma .dl { color:$flatcar-green-dark }
+.chroma .sd { color:$flatcar-green-dark }
+.chroma .s2 { color:$flatcar-green-dark }
+.chroma .se { color:$flatcar-link-blue } /* escape sequence — pop it in keyword-blue against the green string */
+.chroma .sh { color:$flatcar-green-dark }
+.chroma .si { color:$flatcar-green-dark }
+.chroma .sx { color:$flatcar-green-dark }
+.chroma .sr { color:$flatcar-green-dark }
+.chroma .s1 { color:$flatcar-green-dark }
+.chroma .ss { color:$flatcar-green-dark }
+
+/* Numbers — amber (accessible gold) */
+.chroma .l  { color:$flatcar-amber }
+.chroma .ld { color:$flatcar-amber }
+.chroma .m  { color:$flatcar-amber }
+.chroma .mb { color:$flatcar-amber }
+.chroma .mf { color:$flatcar-amber }
+.chroma .mh { color:$flatcar-amber }
+.chroma .mi { color:$flatcar-amber }
+.chroma .il { color:$flatcar-amber }
+.chroma .mo { color:$flatcar-amber }
+
+/* Operators / punctuation — quiet, doesn't compete with real tokens */
+.chroma .o { color:#5B6773 }
+.chroma .p { color:$flatcar-navy }
+
+/* Comments */
+.chroma .c   { color:#5B6773; font-style:italic }
+.chroma .ch  { color:#5B6773; font-style:italic }
+.chroma .cm  { color:#5B6773; font-style:italic }
+.chroma .c1  { color:#5B6773; font-style:italic }
+.chroma .cs  { color:#5B6773; font-style:italic }
+.chroma .cp  { color:#5B6773 }
+.chroma .cpf { color:#5B6773 }
+
+/* Diff / generic */
+.chroma .gd { color:$flatcar-red-a11y }
+.chroma .ge { font-style:italic }
+.chroma .gi { color:$flatcar-green-dark }
+.chroma .gs { font-weight:bold }
+.chroma .gu { color:$flatcar-pink }
