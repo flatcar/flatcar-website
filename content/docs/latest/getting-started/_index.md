@@ -8,7 +8,7 @@ aliases:
 
 This section helps you get up and running with Flatcar. It introduces essential concepts and points you to hands-on learning resources:
 
-- [Flatcar Quickstart](./quickstart/) - Two provisioning paths: virtualization and bare metal.
+- [Flatcar Quickstart](./quickstart/) - Provision Flatcar locally in a QEMU virtual machine.
 - [Learning Series](./learning-series/) - In-depth guides for core Flatcar topics.
 
 ## Concepts, Configuration, and Provisioning
