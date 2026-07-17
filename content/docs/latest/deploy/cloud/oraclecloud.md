@@ -40,23 +40,6 @@ oci compute image import from-object --compartment-id "${COMPARTMENT_ID}" --buck
 
 # Get the image ID to later use it when launching the instance
 IMAGE_ID=$(oci compute image list --compartment-id "${COMPARTMENT_ID}" --display-name "flatcar-${CHANNEL}-${VERSION}" | jq -r ".data[0].id")
-
-# Update the launch configuration to use BIOS
-cat > bios.json <<EOF
-{
-  "Compute.Firmware": {
-    "default-value": "BIOS",
-    "descriptor-type": "enumstring",
-    "source": "GLOBAL",
-    "values": [
-      "BIOS",
-      "UEFI_64"
-    ]
-  }
-}
-EOF
-IMAGE_CAPABILITY_VERSION_NAME=$(oci compute global-image-capability-schema list | jq -r '.data[0]."current-version-name"')
-oci compute image-capability-schema create --global-image-capability-schema-version-name "${IMAGE_CAPABILITY_VERSION_NAME}" --image-id "${IMAGE_ID}" --schema-data file://bios.json --compartment-id "${COMPARTMENT_ID}"
 ```
 
 ## Butane Configs
