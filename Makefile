@@ -20,6 +20,7 @@ endif
 endif
 
 VENV_DIR ?= .venv
+MARP_CLI_IMAGE ?= docker.io/marpteam/marp-cli:v4.3.1
 
 .DEFAULT_GOAL := all
 
@@ -69,7 +70,7 @@ presentations: ## Build Marp presentations under static/presentations
 				--rm \
 				-v $$(pwd):/home/marp/app \
 				-w /home/marp/app \
-				docker.io/marpteam/marp-cli:latest \
+				$(MARP_CLI_IMAGE) \
 				$$topic/main.md \
 				--html \
 				--allow-local-files \
