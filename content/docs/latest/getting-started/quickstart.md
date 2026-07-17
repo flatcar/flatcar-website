@@ -10,17 +10,17 @@ aliases:
   - /quickstart/
 ---
 
-This quickstart shows how to provision Flatcar Container Linux to run on a local QEMU virtual machine, and does not require a physical target machine or spare disk as needed for a bare metal installation. 
+This quickstart shows how to provision Flatcar Container Linux to run on a local QEMU virtual machine, and does not require a physical target machine or spare disk as needed for a bare metal installation. For bare metal provisioning, see [Installing to disk](../deploy/bare-metal/installing-to-disk/).
 
-The common provisioning tasks for Flatcar usage are to define a Flatcar configuration in Butane YAML, and then to use [Butane](../fb-provision/butane/) to transpile it into a JSON file for use by [Ignition](../fb-provision/ignition/boot-process) in the Flatcar boot process. This quickstart uses a systemd service to start an NGINX container; you can run Butane either as a local binary or via Docker/Podman.
+The common provisioning tasks for Flatcar usage are to define a Flatcar configuration in Butane YAML, and then to use [Butane](../fb-provision/butane/) to transpile it into a JSON file for use by [Ignition](../fb-provision/ignition/boot-process) in the Flatcar boot process. This quickstart uses a `systemd` service to start an NGINX container and uses the local Butane binary for transpilation. Running Butane via Docker or Podman on the host is also possible but is beyond the scope of this quickstart.
 
 ## Prerequisites
 
-### Step 1: Install Butane (optional)
+### Step 1: Install Butane
 
-If you plan to use a local `butane` binary, install it from the [CoreOS Butane Releases](https://github.com/coreos/butane/releases).
+Install Butane from the [CoreOS Butane Releases](https://github.com/coreos/butane/releases). Skip this step if you plan to use Docker or Podman container engines.
 
-Verification (local binary only): Run `butane --version` to confirm installation.
+Verification: Run `butane --version` to confirm installation.
 
 ### Step 2: Configure SSH Keys
 
@@ -34,10 +34,6 @@ cat ~/.ssh/flatcar.pub
 Verification: Run `ls -l ~/.ssh/flatcar ~/.ssh/flatcar.pub` to show the files of the public and private keys.
 
 In [Provisioning Tasks](#provisioning-tasks), you will add the public key returned from `cat ~/.ssh/flatcar.pub` to the `ssh_authorized_keys` collection in the Butane YAML.
-
-### Step 3: Docker or Podman (optional)
-
-If you want to run Butane in a container, install Docker or Podman now.
 
 ## Provisioning Tasks
 
@@ -80,18 +76,11 @@ systemd:
 
 ### Step 2: Transpile YAML to Ignition JSON
 
-Transpile `cl.yaml` into `ignition.json` using one of the options below:
+Transpile `cl.yaml` into `ignition.json`:
 
-- Local `butane` binary:
-    ```bash
-    butane --pretty --strict < cl.yaml > ignition.json
-    ```
-- Containerized Butane (Docker/Podman):
-    ```bash
-    docker run --rm -i quay.io/coreos/butane:latest --pretty --strict < cl.yaml > ignition.json
-    # or:
-    podman run --rm -i quay.io/coreos/butane:latest --pretty --strict < cl.yaml > ignition.json
-    ```
+```bash
+butane --pretty --strict < cl.yaml > ignition.json
+```
 
 Verification: Run `ls ignition.json` to confirm the file exists in the current directory.
 
@@ -180,7 +169,7 @@ mv flatcar_production_qemu_uefi_image.img flatcar_production_qemu_uefi_image.img
 cp flatcar_production_qemu_uefi_image.img.fresh flatcar_production_qemu_uefi_image.img
 ```
 
-### Step 4: Provision with Butane & Ignition
+### Step 4: Create the ignition JSON file
 
 Complete the [Provisioning Tasks](#provisioning-tasks), then return here to apply the Ignition file for this environment.
 
@@ -208,8 +197,9 @@ cp flatcar_production_qemu_uefi_image.img.fresh flatcar_production_qemu_uefi_ima
 
 Verification: UEFI QEMU starts successfully and reaches the Flatcar login prompt.
 
-### Step 6: Log in via SSH in a new terminal
+### Step 6: Log in using SSH
 
+In a new terminal, run the following command:
 
 ```bash
 ssh -i ~/.ssh/flatcar -p 2222 core@127.0.0.1
@@ -232,17 +222,19 @@ ssh -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null -i ~/.ssh/flatca
 
 Verification: SSH login opens a shell as user `core`.
 
-### Step 7: Check that NGINX is running
+### Step 7: Verify NGINX is running
 
 Run these commands in the VM shell (after logging in over SSH):
 
 ```bash
 systemctl status nginx
 
+docker ps --filter name=nginx1
+
 curl http://localhost/
 ```
 
-Verification: `systemctl status nginx` shows `active (running)` and `curl http://localhost/` returns the default NGINX page.
+Verification: `systemctl status nginx` shows `active (running)`, `docker ps` lists the `nginx1` container with status `Up`, and `curl http://localhost/` returns the raw HTML of the default NGINX page.
 
 ### Step 8: Clean up
 
