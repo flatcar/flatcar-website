@@ -1,5 +1,6 @@
 ---
 title: Quickstart
+content_type: how-to
 weight: 5
 description: >
   Get up and running quickly with Flatcar Container Linux.
@@ -18,7 +19,7 @@ The common provisioning tasks for Flatcar usage are to define a Flatcar configur
 
 ### Step 1: Install Butane
 
-Install Butane from the [CoreOS Butane Releases](https://github.com/coreos/butane/releases). Skip this step if you plan to use Docker or Podman container engines.
+Install Butane from the [CoreOS Butane Releases](https://github.com/coreos/butane/releases). 
 
 Verification: Run `butane --version` to confirm installation.
 
@@ -175,7 +176,7 @@ Complete the [Provisioning Tasks](#provisioning-tasks), then return here to appl
 
 ### Step 5: Boot with a fresh copy
 
-The final step is to boot the VM and make the Ignition configuration available to it. Provisioning only runs on first boot, so if you want an updated Ignition configuration to be applied, boot from a fresh copy of the image. You can repeat these combined steps as often as you want to test your Ignition changes.
+The next step is to boot the VM and make the Ignition configuration available to it. Provisioning only runs on first boot, so if you want an updated Ignition configuration to be applied, boot from a fresh copy of the image. You can repeat these combined steps as often as you want to test your Ignition changes.
 
 **AMD64:**
 
