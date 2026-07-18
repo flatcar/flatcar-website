@@ -13,7 +13,7 @@ aliases:
 
 This quickstart shows how to provision Flatcar Container Linux to run on a local QEMU virtual machine, and does not require a physical target machine or spare disk as needed for a bare metal installation. For bare metal provisioning, see [Installing to disk](../deploy/bare-metal/installing-to-disk/).
 
-The common provisioning tasks for Flatcar usage are to define a Flatcar configuration in Butane YAML, and then to use [Butane](../fb-provision/butane/) to transpile it into a JSON file for use by [Ignition](../fb-provision/ignition/boot-process) in the Flatcar boot process. This quickstart uses a `systemd` service to start an NGINX container and uses the local Butane binary for transpilation. Running Butane via Docker or Podman on the host is also possible but is beyond the scope of this quickstart.
+The provisioning in this quickstart defines a Flatcar configuration in Butane YAML, and then runs [Butane](../fb-provision/butane/) to transpile it into a JSON file for use by [Ignition](../fb-provision/ignition/boot-process) in the Flatcar boot process. The YAML defines `a `systemd` service to start an NGINX container and uses the local Butane binary for transpilation. Running Butane via Docker or Podman on the host is also possible but is beyond the scope of this quickstart.
 
 ## Prerequisites
 
@@ -32,7 +32,7 @@ ssh-keygen -t ed25519 -a 100 -f ~/.ssh/flatcar -C "flatcar-quickstart"
 cat ~/.ssh/flatcar.pub
 ```
 
-Verification: Run `ls -l ~/.ssh/flatcar ~/.ssh/flatcar.pub` to show the files of the public and private keys.
+Verification: Run `ls -l ~/.ssh/flatcar ~/.ssh/flatcar.pub` to show the public and private key files.
 
 In [Provisioning Tasks](#provisioning-tasks), you will add the public key returned from `cat ~/.ssh/flatcar.pub` to the `ssh_authorized_keys` collection in the Butane YAML.
 
