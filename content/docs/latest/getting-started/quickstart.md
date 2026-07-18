@@ -102,7 +102,6 @@ If you prefer, you can also use this JSON directly as `ignition.json`:
     "users": [
       {
         "name": "core",
-        // Replace the placeholder below with the full contents of ~/.ssh/flatcar.pub (one line).
         "sshAuthorizedKeys": [
           "<YOUR_SSH_PUBLIC_KEY>"
         ]
