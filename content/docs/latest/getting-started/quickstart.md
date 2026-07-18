@@ -17,13 +17,13 @@ The provisioning in this quickstart defines a Flatcar configuration in Butane YA
 
 ## Prerequisites
 
-### Step 1: Install Butane
+### Install Butane
 
 Install Butane from the [CoreOS Butane Releases](https://github.com/coreos/butane/releases). 
 
 Verification: Run `butane --version` to confirm installation.
 
-### Step 2: Configure SSH Keys
+### Configure SSH Keys
 
 Create an SSH key pair to log in to Flatcar, as the `core` user, for this quickstart:
 
@@ -34,11 +34,17 @@ cat ~/.ssh/flatcar.pub
 
 Verification: Run `ls -l ~/.ssh/flatcar ~/.ssh/flatcar.pub` to show the public and private key files.
 
-In [Provisioning Tasks](#provisioning-tasks), you will add the public key returned from `cat ~/.ssh/flatcar.pub` to the `ssh_authorized_keys` collection in the Butane YAML.
+In [Provisioning Tasks](#provisioning-tasks), you will add the public key returned from `cat ~/.ssh/flatcar.pub` to the `ssh_authorized_keys` collection in the Butane YAML (or directly into the Ignition JSON).
+
+### Install QEMU
+
+Install [QEMU](../deploy/virt-options/qemu), a generic and open-source machine emulator and virtualizer.
+
+Verification: Run `command -v qemu-system-x86_64` (AMD64) or `command -v qemu-system-aarch64` (ARM64) to show any current installation.
 
 ## Provisioning Tasks
 
-The common workflow for Flatcar provisioning is to define your machine configuration in a Butane YAML file and transpile it into Ignition JSON for first boot. You can complete these steps before starting the deployment steps below.
+The common workflow for Flatcar provisioning is to define your machine configuration in a Butane YAML file and transpile it into Ignition JSON for first boot. Complete these steps before starting the deployment steps below.
 
 ### Step 1: Create the Butane YAML
 
@@ -96,8 +102,9 @@ If you prefer, you can also use this JSON directly as `ignition.json`:
     "users": [
       {
         "name": "core",
+        // Replace the placeholder below with the full contents of ~/.ssh/flatcar.pub (one line).
         "sshAuthorizedKeys": [
-          "ssh-ed25519 AAAA...REPLACE-WITH-YOUR-PUBLIC-KEY... flatcar-quickstart"
+          "<YOUR_SSH_PUBLIC_KEY>"
         ]
       }
     ]
@@ -118,13 +125,7 @@ If you prefer, you can also use this JSON directly as `ignition.json`:
 
 This quickstart deploys Flatcar in a QEMU virtual machine. QEMU itself runs on Linux, macOS, and Windows, but the commands below assume a POSIX shell environment (Linux/WSL, or macOS with `wget` installed).
 
-### Step 1: Install QEMU
-
-Install [QEMU](../deploy/virt-options/qemu), a generic and open-source machine emulator and virtualizer.
-
-Verification: Run `command -v qemu-system-x86_64` (AMD64) or `command -v qemu-system-aarch64` (ARM64) to show any current installation.
-
-### Step 2: Download Flatcar image
+### Step 1: Download the Flatcar image
 
 Use the image that matches your architecture. The AMD64 example below uses the Stable channel.
 
@@ -152,7 +153,7 @@ wget https://alpha.release.flatcar-linux.net/arm64-usr/current/flatcar_productio
 
 Verification: `ls -lh flatcar_production_qemu_uefi.sh flatcar_production_qemu_uefi_image.img flatcar_production_qemu_uefi_efi_vars.qcow2 flatcar_production_qemu_uefi_efi_code.qcow2` confirms the ARM64 script, image, and UEFI firmware files.
 
-### Step 3: Create a fresh copy before booting
+### Step 2: Create a fresh copy before booting
 
 Rename the downloaded image file to have a `fresh` extension, and then use copies of that fresh file for every boot.
 
@@ -170,13 +171,9 @@ mv flatcar_production_qemu_uefi_image.img flatcar_production_qemu_uefi_image.img
 cp flatcar_production_qemu_uefi_image.img.fresh flatcar_production_qemu_uefi_image.img
 ```
 
-### Step 4: Create the ignition JSON file
+### Step 3: Boot with a fresh copy
 
-Complete the [Provisioning Tasks](#provisioning-tasks), then return here to apply the Ignition file for this environment.
-
-### Step 5: Boot with a fresh copy
-
-The next step is to boot the VM and make the Ignition configuration available to it. Provisioning only runs on first boot, so if you want an updated Ignition configuration to be applied, boot from a fresh copy of the image. You can repeat these combined steps as often as you want to test your Ignition changes.
+The next step is to boot the VM with the Ignition JSON created in [Provisioning Tasks](#provisioning-tasks). Provisioning only runs on first boot, so if you want an updated Ignition configuration to be applied, boot from a fresh copy of the image. You can repeat these combined steps as often as you want to test your Ignition changes.
 
 **AMD64:**
 
@@ -197,8 +194,7 @@ cp flatcar_production_qemu_uefi_image.img.fresh flatcar_production_qemu_uefi_ima
 ```
 
 Verification: UEFI QEMU starts successfully and reaches the Flatcar login prompt.
-
-### Step 6: Log in using SSH
+### Step 4: Log in using SSH
 
 In a new terminal, run the following command:
 
@@ -223,7 +219,7 @@ ssh -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null -i ~/.ssh/flatca
 
 Verification: SSH login opens a shell as user `core`.
 
-### Step 7: Verify NGINX is running
+### Step 5: Verify NGINX is running
 
 Run these commands in the VM shell (after logging in over SSH):
 
@@ -237,7 +233,7 @@ curl http://localhost/
 
 Verification: `systemctl status nginx` shows `active (running)`, `docker ps` lists the `nginx1` container with status `Up`, and `curl http://localhost/` returns the raw HTML of the default NGINX page.
 
-### Step 8: Clean up
+### Step 6: Clean up
 
 In the terminal that ran SSH, run `exit` to close the connection. Then close the QEMU VM app.
 
