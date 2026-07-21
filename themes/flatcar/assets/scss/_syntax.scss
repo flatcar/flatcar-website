@@ -5,11 +5,10 @@
  * Chroma itself emits, so this is a drop-in swap for the previous
  * generic `rose-pine-moon` style.
  *
- * The site is light-mode only for now (a dark-mode variant is parked
- * in `_syntax-dark.scss.parked`, ready to be revived and scoped under
- * `[data-bs-theme="dark"]` once the site adds a real mode toggle
- * via Bootstrap's color-mode support (see bootstrap/mixins/_color-mode.scss
- * and bootstrap/_variables-dark.scss).
+ * The matching dark-mode variant lives in `_syntax-dark.scss`, scoped
+ * under `[data-bs-theme="dark"]` and imported right after this file in
+ * `main.scss`, using Bootstrap's color-mode support (see
+ * bootstrap/mixins/_color-mode.scss and bootstrap/_variables-dark.scss).
  *
  * DESIGN NOTE — hue variety, not just "navy + one blue":
  * A first pass at this theme leaned on `$flatcar-link-blue` for almost

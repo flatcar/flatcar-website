@@ -2,9 +2,9 @@
 <html lang="{{ .Site.Language.Lang }}">
   <head>
     {{ partial "head.html" . }}
-    <title>{{ if .IsHome }}{{ .Site.Title }}{{ else }}{{ with .Title }}{{ . }} | {{ end }}{{ .Site.Title }}{{ end }}</title>
+    {{ partial "theme-mode.html" (dict "part" "head" "page" .) }}
   </head>
-  <body class="td-{{ .Kind }}">
+  <body class="docs td-{{ .Kind }}">
     {{ partial "header.html" . }}
 
     <main class="main docs-section">
@@ -59,7 +59,6 @@
                   <a
                     href="{{ $editLink }}"
                     class="btn btn-md mt-2"
-                    style="border: 2px solid #afafaf; padding: 4px 2px; font-weight: inherit;"
                   >
                     <i class="fab fa-github"></i> Edit this page
                   </a>
@@ -71,7 +70,6 @@
               <a
                 href="{{ $issuesUrl }}"
                 class="btn btn-md mt-2"
-                style="border: 2px solid #afafaf; padding: 4px 2px; font-weight: inherit;"
               >
                 <i class="fab fa-github"></i> File documentation issue
               </a>
@@ -92,6 +90,7 @@
 
     {{ partial "search-modal" . }}
     {{ partial "footer.html" . }}
+    {{ partial "theme-mode.html" (dict "part" "body" "page" .) }}
     {{ block "scripts" . }}
     {{- $searchJs := resources.GetMatch "js/fastsearch.js" | resources.Minify -}}
     <script type="module" src="{{ $searchJs.Permalink }}"></script>

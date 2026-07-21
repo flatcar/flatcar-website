@@ -145,7 +145,7 @@
   .companies {
     .title {
       width: 100%;
-      color: $black;
+      color: var(--bs-emphasis-color);
       font-size: 2rem;
     }
   }
@@ -331,9 +331,9 @@
   }
 
   .pricing-table {
-    background-color: #f6f6f7;
+    background-color: var(--bs-tertiary-bg);
     padding-bottom: 64px;
-    color: $black;
+    color: var(--bs-body-color);
     font-size: smaller;
     text-align: center;
 
@@ -538,7 +538,7 @@
 
     .resources-description {
       font-size: 1.2rem;
-      color: $gray-700;
+      color: var(--bs-secondary-color);
       margin-left: auto;
       margin-right: auto;
     }
@@ -563,7 +563,7 @@
   }
 
   .card {
-    background: $gray-100;
+    background: var(--bs-tertiary-bg);
     padding: 22px;
     height: 100%;
     text-align: center;
@@ -590,7 +590,7 @@
     }
 
     .card {
-      background-color: $white;
+      background-color: var(--bs-body-bg);
       text-align: left;
     }
 
@@ -605,7 +605,7 @@
 }
 
 .page-menus {
-  background-color: $gray-100;
+  background-color: var(--bs-tertiary-bg);
   margin-top: 0;
   padding: 0.5rem 1rem !important;
 
@@ -613,7 +613,7 @@
     font-size: x-large;
 
     &:hover {
-      color: $gray-700;
+      color: var(--bs-secondary-color);
     }
   }
 
@@ -636,7 +636,7 @@
       }
 
       .nav-link {
-        color: $black;
+        color: var(--bs-body-color);
         text-transform: none;
         font-weight: 700;
       }
@@ -664,13 +664,20 @@
 
 .releases {
   padding-bottom: 0 !important;
+  background-color: var(--bs-body-bg);
 
-  $gray-text: #717171;
-  $dark-text: #474747;
+  // Accent for focus outlines and selected (.active) controls. It must
+  // contrast the surface; in dark mode the brand navy ($flatcar-bg-blue)
+  // equals the body background, so switch to the brighter link blue.
+  --release-accent: #{$flatcar-bg-blue};
+
+  [data-bs-theme="dark"] & {
+    --release-accent: #{$flatcar-link-blue};
+  }
 
   .article {
     a {
-      color: $flatcar-darker-blue;
+      color: var(--flatcar-accent);
     }
   }
 
@@ -689,7 +696,7 @@
       margin: 0 auto;
       font-size: 1rem;
       line-height: 1.7;
-      color: $dark-text;
+      color: var(--bs-body-color);
 
       p {
         margin-bottom: 12px;
@@ -722,14 +729,14 @@
       position: relative;
       display: inline-flex;
       align-items: center;
-      border: 2px solid $border-color;
+      border: 2px solid var(--bs-border-color);
       border-radius: 0;
-      color: $dark-text;
+      color: var(--bs-body-color);
       font-weight: 600;
       font-size: 0.95rem;
       padding: 8px 24px;
       cursor: pointer;
-      background: $white;
+      background: var(--bs-body-bg);
       transition: all 0.15s ease;
       user-select: none;
       margin-left: -2px;
@@ -751,21 +758,21 @@
       }
 
       &:has(input:focus-visible) {
-        outline: 2px solid $flatcar-bg-blue;
+        outline: 2px solid var(--release-accent);
         outline-offset: 2px;
         z-index: 3;
       }
 
       &.active {
-        background-color: $flatcar-bg-blue;
-        border-color: $flatcar-bg-blue;
+        background-color: var(--release-accent);
+        border-color: var(--release-accent);
         color: $white;
         z-index: 1;
       }
 
       &:not(.active):hover {
         background-color: rgba($flatcar-blue, 0.08);
-        border-color: $flatcar-bg-blue;
+        border-color: var(--release-accent);
       }
 
       &__label {
@@ -786,11 +793,11 @@
       display: inline-flex;
       flex-direction: column;
       align-items: center;
-      border: 2px solid $border-color;
+      border: 2px solid var(--bs-border-color);
       border-radius: 0;
       padding: 8px 20px;
       cursor: pointer;
-      background: $white;
+      background: var(--bs-body-bg);
       transition: all 0.15s ease;
       user-select: none;
       margin-left: -2px;
@@ -814,14 +821,14 @@
       }
 
       &:has(input:focus-visible) {
-        outline: 2px solid $flatcar-bg-blue;
+        outline: 2px solid var(--release-accent);
         outline-offset: 2px;
         z-index: 3;
       }
 
       &.active {
-        background-color: $flatcar-bg-blue;
-        border-color: $flatcar-bg-blue;
+        background-color: var(--release-accent);
+        border-color: var(--release-accent);
         color: $white;
         z-index: 2;
 
@@ -832,7 +839,7 @@
 
       &:not(.active):hover {
         background-color: rgba($flatcar-blue, 0.08);
-        border-color: $flatcar-bg-blue;
+        border-color: var(--release-accent);
         z-index: 1;
       }
 
@@ -843,7 +850,7 @@
 
       &__version {
         font-size: 0.7rem;
-        color: $gray-text;
+        color: var(--bs-secondary-color);
         margin-top: 2px;
       }
     }
@@ -854,8 +861,8 @@
     font-weight: 700;
     text-transform: uppercase;
     letter-spacing: 0.04em;
-    color: $gray-text;
-    border-bottom: 1px solid $border-color;
+    color: var(--bs-secondary-color);
+    border-bottom: 1px solid var(--bs-border-color);
     padding-bottom: 8px;
     margin-bottom: 16px;
     margin-top: 8px;
@@ -867,9 +874,9 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    border: 1px solid $border-color;
+    border: 1px solid var(--bs-border-color);
     border-radius: 8px;
-    background: $white;
+    background: var(--bs-body-bg);
     transition: all 0.15s ease;
     height: 100%;
     text-align: center;
@@ -887,7 +894,7 @@
       justify-content: center;
       padding: 20px 8px 16px;
       text-decoration: none;
-      color: $dark-text;
+      color: var(--bs-body-color);
       width: 100%;
       height: 100%;
 
@@ -897,7 +904,7 @@
       }
 
       &:focus-visible {
-        outline: 2px solid $flatcar-bg-blue;
+        outline: 2px solid var(--release-accent);
         outline-offset: -2px;
         border-radius: 8px;
       }
@@ -914,7 +921,7 @@
       height: 24px;
       border-radius: 4px;
       font-size: 0.7rem;
-      color: $gray-text;
+      color: var(--bs-secondary-color);
       text-decoration: none;
       transition:
         background-color 0.15s ease,
@@ -926,7 +933,7 @@
       }
 
       &:focus-visible {
-        outline: 2px solid $flatcar-bg-blue;
+        outline: 2px solid var(--release-accent);
         outline-offset: 1px;
       }
     }
@@ -962,7 +969,7 @@
 
   // ── Channel cards (original style) ──
   .releases-channels {
-    background-color: #f6f6f7;
+    background-color: var(--bs-tertiary-bg);
     padding: 56px 0 48px;
 
     .text-muted {
@@ -973,11 +980,11 @@
   }
 
   .card {
-    border: 1px solid $border-color;
-    background: $white;
+    background-color: var(--bs-body-bg);
+    border: 1px solid var(--bs-border-color);
 
     .card-header {
-      background-color: #f6f6f7;
+      background-color: var(--bs-tertiary-bg);
 
       h5 {
         font-size: 1.5em;
@@ -986,7 +993,7 @@
       .version {
         font-size: 0.9em;
         font-weight: bolder;
-        color: $gray-text;
+        color: var(--bs-secondary-color);
       }
 
       a.arch {
@@ -1001,7 +1008,7 @@
       .release-date {
         font-size: 0.8rem;
         font-weight: bolder;
-        color: $gray-text;
+        color: var(--bs-secondary-color);
       }
     }
 
@@ -1010,12 +1017,12 @@
 
       p {
         font-size: 0.8em;
-        color: #474747;
+        color: var(--bs-body-color);
       }
     }
 
     .card-footer {
-      border-top: 1px solid $border-color;
+      border-top: 1px solid var(--bs-border-color);
       font-size: 0.7em;
     }
   }
@@ -1026,12 +1033,12 @@
 
   // ── Release notes ──
   .notes-area {
-    background-color: #f6f6f7;
+    background-color: var(--bs-tertiary-bg);
     padding-left: auto;
     padding-right: auto;
 
     ul.nav-tabs {
-      border-bottom: 1px solid #dee2e6;
+      border-bottom: 1px solid var(--bs-border-color);
       padding-left: auto;
       padding-right: auto;
       max-width: 1200px;
@@ -1040,7 +1047,7 @@
         margin-right: 50px;
 
         a {
-          color: $dark-text;
+          color: var(--bs-body-color);
 
           &:hover {
             text-decoration: none;
@@ -1056,7 +1063,7 @@
 
           &.active {
             font-weight: bold;
-            color: $flatcar-darker-blue;
+            color: var(--flatcar-accent);
             border-bottom: 2px solid $flatcar-blue;
           }
 
@@ -1098,7 +1105,7 @@
 
     a.arch {
       text-decoration: underline;
-      color: $black;
+      color: var(--bs-body-color);
 
       &:hover {
         color: $flatcar-blue;
@@ -1106,11 +1113,11 @@
     }
 
     p.date {
-      color: $gray-text;
+      color: var(--bs-secondary-color);
     }
 
     .packages {
-      color: $dark-text;
+      color: var(--bs-body-color);
     }
 
     .release-list {
@@ -1119,7 +1126,7 @@
       }
 
       .release-notes {
-        color: $dark-text;
+        color: var(--bs-body-color);
         overflow-wrap: anywhere;
       }
 
@@ -1129,17 +1136,17 @@
 
         hr {
           width: 80%;
-          border-top: 1px solid $gray-400;
+          border-top: 1px solid var(--bs-border-color);
         }
       }
     }
 
     // ── Collapsible release entries ──
     .release-entry {
-      border: 1px solid $border-color;
+      border: 1px solid var(--bs-border-color);
       border-radius: 6px;
       margin-bottom: 8px;
-      background: $white;
+      background: var(--bs-body-bg);
       overflow: hidden;
 
       &__header {
@@ -1172,7 +1179,7 @@
 
       &__toggle-icon {
         font-size: 0.7rem;
-        color: $gray-text;
+        color: var(--bs-secondary-color);
         transition: transform 0.2s ease;
         flex-shrink: 0;
       }
@@ -1180,7 +1187,7 @@
       &__version {
         font-weight: 700;
         font-size: 1.3rem;
-        color: $black;
+        color: var(--bs-body-color);
         text-decoration: none;
 
         &:hover {
@@ -1190,7 +1197,7 @@
 
       &__date {
         font-size: 1rem;
-        color: $gray-text;
+        color: var(--bs-secondary-color);
       }
 
       &__archs {
@@ -1204,7 +1211,7 @@
 
       &__body {
         padding: 0 16px 16px;
-        border-top: 1px solid $border-color;
+        border-top: 1px solid var(--bs-border-color);
         padding-top: 16px;
       }
     }
