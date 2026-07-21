@@ -61,8 +61,8 @@ markup:
     # noClasses is false — Hugo/Chroma only emits semantic CSS classes
     # (.chroma .k, .s, .c, ...) and the actual colors come from the
     # hand-written Flatcar light theme in
-    # themes/flatcar/assets/scss/_syntax.scss. A dark variant is
-    # parked in _syntax-dark.scss.parked for future dark-mode work.
+    # themes/flatcar/assets/scss/_syntax.scss, with the dark variant in
+    # _syntax-dark.scss (scoped under [data-bs-theme="dark"]).
     style: github
     guessSyntax: true
     noClasses: false
@@ -98,7 +98,7 @@ menu:
       identifier: releases
       weight: -400
     - name: Docs
-      url: /docs
+      url: /docs/latest
       identifier: docs
       weight: -200
     - name: GitHub

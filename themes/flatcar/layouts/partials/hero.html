@@ -13,7 +13,10 @@
 {{ if eq $title nil }}
   {{ $title = default .Title $hero.title }}
 {{ end }}
-{{ $description := default .Description $hero.description }}
+{{ $description := index $hero "description" }}
+{{ if eq $description nil }}
+  {{ $description = .Description }}
+{{ end }}
 <section
   class="banner {{ default "header-bg-flatcar" $styles.class }}"
   style="background-color: {{ default "#12172c" $styles.bgcolor }}; color: {{ default "#fff" $styles.fgcolor }}"
