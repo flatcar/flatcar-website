@@ -1,6 +1,9 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Set data-bs-theme before the stylesheets below to prevent a theme flash. -->
+    {{ partial "theme-mode.html" (dict "part" "head" "page" .) }}
     <title>{{ if eq .Kind "term" }}{{ .Data.Singular }} {{ .Title }}{{ else }}{{ .Title }} | {{ $.Site.Title }}{{ end }}</title>
     <meta name="description" content="Flatcar Linux" />
 

@@ -29,6 +29,9 @@
 
   .btn:hover {
     background-color: #fff;
+    // Keep the label readable on the white hover bg (dark mode would otherwise
+    // resolve .btn text to near-white).
+    color: $flatcar-navy;
   }
 
   .card-title {

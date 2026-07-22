@@ -40,3 +40,13 @@
 @import "./pages/blog-page.scss";
 @import "./pages/article.scss";
 
+
+// Respect prefers-reduced-motion (also removes the theme-toggle color cross-fade).
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+}
