@@ -81,6 +81,11 @@ h6 {
   height: 18px;
   outline: none !important;
 
+  &:focus-visible {
+    outline: 2px solid rgba($white, 0.85) !important;
+    outline-offset: 3px;
+  }
+
   > span {
     background: white;
     width: 100%;
@@ -387,6 +392,7 @@ h6 {
 .page-item.active .page-link, .page-link:hover {
   background-color: $flatcar-blue;
   border-color: $flatcar-blue;
+  color: $flatcar-navy;
 }
 
 [data-bs-theme="dark"] .pagination {
