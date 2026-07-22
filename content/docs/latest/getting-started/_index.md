@@ -11,7 +11,7 @@ This section helps you get up and running with Flatcar. It introduces essential 
 - [Flatcar Quickstart](./quickstart/) - Provision Flatcar locally in a QEMU virtual machine.
 - [Learning Series](./learning-series/) - In-depth guides for core Flatcar topics.
 
-## Concepts, Configuration, and Provisioning
+## Configuration and Provisioning
 
 Flatcar is configured at provisioning time, before the first boot, typically using the following provisioning tools:
 
@@ -29,6 +29,11 @@ To disable downloading updates altogether, either disable the `update-engine` se
 
 The Flatcar documentation covers several technical areas. Use the following table to assist in your learning path in addition to this Getting Started section.
 
+<style>.learn-more-table td { vertical-align: top; }</style>
+<div class="learn-more-table">
+
 | Provisioning & Deployment | Orchestration & Capabilities | Maintenance & Development |
 | --- | --- | --- |
-[First Boot & Provisioning](./fb-provision/)<br>[OS Configuration](./os-config/)<br>[System Extensions](./sys-ext/)<br>[Deployments](./deploy/)|[Orchestration & Container Runtimes](./orchestrate/)<br>[Nebraska Update Manager & Releases](./updates-releases/)<br>[Security](./security/) | [Diagnostics and Fixing Issues](./diagnostics/)<br>[CoreOS Migration](./coreos-migration/)<br>[Developer Guides](./devguide/) |
+| [First Boot & Provisioning](./fb-provision/)<br>[OS Configuration](./os-config/)<br>[System Extensions](./sys-ext/)<br>[Deployments](./deploy/) | [Orchestration & Container Runtimes](./orchestrate/)<br>[Nebraska Update Manager & Releases](./updates-releases/)<br>[Security](./security/) | [Diagnostics and Fixing Issues](./diagnostics/)<br>[CoreOS Migration](./coreos-migration/)<br>[Developer Guides](./devguide/) |
+
+</div>
