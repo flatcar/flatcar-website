@@ -53,8 +53,10 @@ $flatcar-yellow:     #fff200; // brand yellow accent
 $flatcar-red:        #eb1a45;
 $flatcar-red-a11y:   #ce163c; // darkened ~12% — $flatcar-red fails AA for small text on light backgrounds (3.9:1); this passes (4.9:1)
 $flatcar-pink:       #de1040;
+$flatcar-pink-a11y:  #c11054; // darkened + more magenta: 4.45:1 on #F1F2F6 -> clears AA, distinct from red-a11y
 $flatcar-green:      #198806;
 $flatcar-green-dark: #168203;
+$flatcar-green-dark-a11y: #157b03; // darkened: 4.37:1 on #F1F2F6 -> clears AA (code strings)
 $flatcar-gold:       #be8900;
 $flatcar-amber:      #9a3f00; // text-safe derivative of $flatcar-gold, which fails AA on light backgrounds (2.8:1); used for code numerics
 
@@ -75,6 +77,7 @@ $gray:    #c4c4c4;
 $gold:    $flatcar-gold;
 
 $flatcar-darker-blue: #007d88;
+$flatcar-darker-blue-a11y: #007680; // darkened: 4.30:1 on #F1F2F6 -> clears AA (code functions)
 $flatcar-dark-blue: $flatcar-navy;
 $flatcar-bg-blue: $flatcar-dark-blue;
 $flatcar-blue: #08a2af;
@@ -91,7 +94,8 @@ $body-color: $black;
 
 // Links
 
-$link-hover-color:  $green;
+$link-color:        $flatcar-link-blue; // was unset -> $black (links looked like body text)
+$link-hover-color:  $flatcar-blue;      // was $green (a now-removed global a:hover forced this)
 $link-hover-decoration: none;
 
 // Paragraphs

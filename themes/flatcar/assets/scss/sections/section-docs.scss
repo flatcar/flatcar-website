@@ -235,7 +235,7 @@ $sideBarWidth: 350px;
       cursor: pointer;
 
       &:hover {
-        color: $flatcar-link-blue;
+        color: var(--bs-link-color);
       }
     }
   }
@@ -397,15 +397,15 @@ $sideBarWidth: 350px;
         transition: color 0.15s ease, border-color 0.15s ease;
 
         &:hover {
-          color: $flatcar-link-blue;
+          color: var(--bs-link-color);
         }
       }
 
       &.active {
-        border-left-color: $flatcar-link-blue;
+        border-left-color: var(--bs-link-color);
 
         & > a {
-          color: $flatcar-link-blue;
+          color: var(--bs-link-color);
           font-weight: 500;
         }
       }
