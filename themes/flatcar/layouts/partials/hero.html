@@ -13,6 +13,9 @@
 {{ if eq $title nil }}
   {{ $title = default .Title $hero.title }}
 {{ end }}
+{{ if and (eq .Kind "term") (eq .Data.Singular "tag") }}
+  {{ $title = printf "Posts Tagged #%s" $title }}
+{{ end }}
 {{ $description := index $hero "description" }}
 {{ if eq $description nil }}
   {{ $description = .Description }}

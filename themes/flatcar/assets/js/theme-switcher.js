@@ -9,10 +9,12 @@
     DARK = "dark";
 
   var ICONS = { auto: "auto-icon", light: "sun-icon", dark: "moon-icon" };
+  var LABELS = { auto: "Auto", light: "Light", dark: "Dark" };
 
   function stored() {
     try {
-      return localStorage.getItem(KEY) || AUTO;
+      var m = localStorage.getItem(KEY);
+      return m === LIGHT || m === DARK ? m : AUTO;
     } catch (e) {
       return AUTO;
     }
@@ -49,29 +51,21 @@
       document.documentElement.setAttribute("data-bs-theme", theme);
     }
 
-    var btn = document.querySelector(".theme-switcher__toggle");
-    if (btn) {
+    var iconRef = "#" + ICONS[mode];
+    document.querySelectorAll(".theme-switcher__toggle").forEach(function (btn) {
       var use = btn.querySelector(".theme-switcher__current-icon use");
       if (use) {
-        var iconRef = "#" + ICONS[mode];
-        use.setAttributeNS(
-          "http://www.w3.org/1999/xlink",
-          "xlink:href",
-          iconRef,
-        );
+        use.setAttributeNS("http://www.w3.org/1999/xlink", "xlink:href", iconRef);
         use.setAttribute("href", iconRef);
       }
-    }
+      btn.setAttribute("aria-label", "Theme: " + LABELS[mode]);
+    });
 
     document.querySelectorAll(".theme-switcher__option").forEach(function (el) {
       var isActive = el.getAttribute("data-theme-mode") === mode;
       var cm = el.querySelector(".theme-switcher__checkmark");
       if (cm) cm.style.visibility = isActive ? "visible" : "hidden";
-      if (isActive) {
-        el.setAttribute("aria-current", "true");
-      } else {
-        el.removeAttribute("aria-current");
-      }
+      el.setAttribute("aria-checked", isActive ? "true" : "false");
     });
   }
 
@@ -80,9 +74,10 @@
     updateUI(mode);
   }
 
-  function select(mode) {
+  function select(mode, opt) {
     apply(mode);
-    var t = document.querySelector(".theme-switcher__toggle");
+    var scope = (opt && opt.closest(".dropdown")) || document;
+    var t = scope.querySelector(".theme-switcher__toggle");
     if (t && window.bootstrap) {
       var d = bootstrap.Dropdown.getInstance(t);
       if (d) d.hide();
@@ -90,33 +85,40 @@
   }
 
   function init() {
-    var menu = document.querySelector(".theme-switcher__menu");
-    if (!menu) return;
-
     updateUI(stored());
 
-    menu.addEventListener("click", function (e) {
+    window
+      .matchMedia("(prefers-color-scheme: dark)")
+      .addEventListener("change", function () {
+        if (stored() === AUTO) updateUI(AUTO);
+      });
+
+    // Delegated so any number of switcher instances (e.g. a footer one) work.
+    document.addEventListener("click", function (e) {
       var opt = e.target.closest(".theme-switcher__option");
       if (opt) {
         e.preventDefault();
-        select(opt.getAttribute("data-theme-mode"));
+        select(opt.getAttribute("data-theme-mode"), opt);
       }
     });
 
-    // Accessibility: on narrow viewports the toggle button is hidden with
-    // display:none while the dropdown is open (see navbar.scss). Hiding the
-    // focused element drops focus to <body>, breaking arrow-key roving and
-    // Escape-to-close. Move focus into the menu when it opens while the
-    // toggle is hidden, and restore it to the toggle once it closes.
-    var toggle = document.querySelector(".theme-switcher__toggle");
-    if (toggle) {
+    // Accessibility: on narrow viewports the toggle is hidden with display:none
+    // while the dropdown is open (see navbar.scss). Hiding the focused element
+    // drops focus to <body>, breaking arrow-key roving and Escape-to-close. Move
+    // focus into the menu on open (while hidden) and restore it on close. Bound
+    // per switcher instance so additional switchers behave the same.
+    document.querySelectorAll(".theme-switcher__toggle").forEach(function (toggle) {
+      var menu = (toggle.closest(".dropdown") || document).querySelector(
+        ".theme-switcher__menu",
+      );
+      if (!menu) return;
       var toggleHidden = function () {
         return getComputedStyle(toggle).display === "none";
       };
       toggle.addEventListener("shown.bs.dropdown", function () {
         if (!toggleHidden()) return;
         var target =
-          menu.querySelector('.theme-switcher__option[aria-current="true"]') ||
+          menu.querySelector('.theme-switcher__option[aria-checked="true"]') ||
           menu.querySelector(".theme-switcher__option");
         if (target) target.focus();
       });
@@ -127,13 +129,7 @@
           toggle.focus();
         }
       });
-    }
-
-    window
-      .matchMedia("(prefers-color-scheme: dark)")
-      .addEventListener("change", function () {
-        if (stored() === AUTO) updateUI(AUTO);
-      });
+    });
   }
 
   if (document.readyState === "loading") {

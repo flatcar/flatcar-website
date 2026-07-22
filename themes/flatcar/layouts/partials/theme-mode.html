@@ -20,7 +20,7 @@
 
 {{ if eq .part "head" }}
 {{ if not .page.IsHome }}
-<script>(function(){try{var m=localStorage.getItem("theme-mode")||"auto"}catch(e){var m="auto"}var t=m==="auto"?window.matchMedia("(prefers-color-scheme:dark)").matches?"dark":"light":m;document.documentElement.setAttribute("data-bs-theme",t)})()</script>
+<script>(function(){var m="auto";try{var s=localStorage.getItem("theme-mode");if(s==="light"||s==="dark")m=s}catch(e){}var t=m==="auto"?window.matchMedia("(prefers-color-scheme:dark)").matches?"dark":"light":m;document.documentElement.setAttribute("data-bs-theme",t)})()</script>
 {{ end }}
 {{ end }}
 

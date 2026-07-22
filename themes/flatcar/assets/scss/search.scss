@@ -212,6 +212,14 @@ mark.search-highlight {
   border-radius: 2px;
 }
 
+// Dark mode: the translucent yellow composites to a dark olive, so inherited
+// light text drops below AA. Use near-solid brand yellow with dark text.
+[data-bs-theme="dark"] .search-result-excerpt mark,
+[data-bs-theme="dark"] mark.search-highlight {
+  background-color: rgba(255, 213, 0, 0.9);
+  color: $flatcar-navy;
+}
+
 // Highlight dismiss bar
 .search-highlight-bar {
   display: flex;
