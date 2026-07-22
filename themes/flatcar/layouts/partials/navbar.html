@@ -70,9 +70,9 @@
             </span>
             <span class="navbar__link-underline"></span>
           </a>
-          <div class="dropdown-menu dropdown-menu-end theme-switcher__menu">
+          <div class="dropdown-menu dropdown-menu-end theme-switcher__menu" role="menu" aria-label="Theme">
             {{- range $themes }}
-            <a href="#" class="dropdown-item theme-switcher__option" data-theme-mode="{{ .mode }}">
+            <button type="button" class="dropdown-item theme-switcher__option" role="menuitemradio" aria-checked="false" data-theme-mode="{{ .mode }}">
               <div class="dropdown-item__icon">
                 <svg width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
                   <use href="#{{ .icon }}" xlink:href="#{{ .icon }}"/>
@@ -87,7 +87,7 @@
                 </div>
                 <p class="dropdown-item__text">{{ .desc }}</p>
               </div>
-            </a>
+            </button>
             {{- end }}
           </div>
       </li>
