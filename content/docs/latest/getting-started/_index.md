@@ -16,7 +16,7 @@ This section helps you get up and running with Flatcar. It introduces essential 
 Flatcar is configured at provisioning time, before the first boot, typically using the following provisioning tools:
 
 - [Butane](../fb-provision/butane/) is human-readable YAML that must be converted (transpiled) into Ignition config before Flatcar can use it. Download from [CoreOS Butane Releases](https://github.com/coreos/butane/releases). For a comprehensive discussion of available options, see the [Butane configuration specification](../fb-provision/butane/configuration).
-- [Ignition](../fb-provision/ignition/boot-process) is machine-readable JSON consumed by Flatcar's first-boot provisioning service. Cloud providers supply the Ignition config as user data or custom data suitable for private cloud and bare-metal installs. Ignition config is rarely written by hand and best practices are to generate it using automation or transpile it from Butane.
+- [Ignition](../fb-provision/ignition/boot-process) is machine-readable JSON consumed by Flatcar's first-boot provisioning service. Cloud providers supply the Ignition config as user data or custom data suitable for private cloud and bare-metal installs. Ignition config is rarely written by hand and best practice is to generate it using automation or transpile it from Butane.
 
 See the [Flatcar Quickstart](./quickstart/) for a detailed procedure on using these tools.
 
