@@ -11,7 +11,7 @@ aliases:
   - /quickstart/
 ---
 
-This quickstart shows how to provision Flatcar Container Linux to run on a local QEMU virtual machine, and does not require a physical target machine or spare disk as needed for a bare metal installation. For bare metal provisioning, see [Installing to disk](../deploy/bare-metal/installing-to-disk/).
+This quickstart shows how to provision Flatcar Container Linux to run on a local QEMU virtual machine, and does not require a physical target machine or spare disk as needed for a bare metal installation. For bare metal provisioning, see [Installing to disk](../deploy/bare-metal/installing-to-disk).
 
 The provisioning in this quickstart defines a Flatcar configuration in Butane YAML, and then runs [Butane](../fb-provision/butane/) to transpile it into a JSON file for use by [Ignition](../fb-provision/ignition/boot-process) in the Flatcar boot process. The YAML defines a `systemd` service to start an NGINX container and uses the local Butane binary for transpilation. Running Butane via Docker or Podman on the host is also possible but is beyond the scope of this quickstart.
 
