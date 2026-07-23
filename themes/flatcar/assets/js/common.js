@@ -21,6 +21,7 @@ document.querySelectorAll(".nav-item.dropdown .nav-link").forEach(function(item)
   item.addEventListener("click", function(e) {
     // Skip theme dropdown - it has its own handling
     if (this.classList.contains('theme-switcher__toggle')) {
+      e.preventDefault();
       return;
     }
     e.preventDefault();
