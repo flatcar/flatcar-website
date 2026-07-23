@@ -1,9 +1,9 @@
 {{ $section := .Site.GetPage "section" .Section }}
-{{ $mergeHero := $section.Params.hero.merge }}
-
 {{ $hero := dict }}
-{{ if $mergeHero }}
-  {{ $hero = default (dict) $section.Params.hero }}
+{{ with $section }}
+  {{ if .Params.hero.merge }}
+    {{ $hero = default (dict) .Params.hero }}
+  {{ end }}
 {{ end }}
 
 {{ $hero = merge $hero (default (dict) .Params.hero) }}

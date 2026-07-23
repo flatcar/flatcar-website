@@ -79,8 +79,7 @@
     var scope = (opt && opt.closest(".dropdown")) || document;
     var t = scope.querySelector(".theme-switcher__toggle");
     if (t && window.bootstrap) {
-      var d = bootstrap.Dropdown.getInstance(t);
-      if (d) d.hide();
+      bootstrap.Dropdown.getOrCreateInstance(t).hide();
     }
   }
 
