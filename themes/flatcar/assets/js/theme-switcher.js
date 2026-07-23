@@ -65,7 +65,7 @@
       var isActive = el.getAttribute("data-theme-mode") === mode;
       var cm = el.querySelector(".theme-switcher__checkmark");
       if (cm) cm.style.visibility = isActive ? "visible" : "hidden";
-      el.setAttribute("aria-checked", isActive ? "true" : "false");
+      el.setAttribute("aria-pressed", isActive ? "true" : "false");
     });
   }
 
@@ -121,7 +121,7 @@
       toggle.addEventListener("shown.bs.dropdown", function () {
         if (!toggleHidden()) return;
         var target =
-          menu.querySelector('.theme-switcher__option[aria-checked="true"]') ||
+          menu.querySelector('.theme-switcher__option[aria-pressed="true"]') ||
           menu.querySelector(".theme-switcher__option");
         if (target) target.focus();
       });

@@ -62,7 +62,7 @@
             (dict "mode" "dark"  "icon" "moon-icon" "label" "Dark"  "desc" "Dark theme")
       -}}
       <li class="nav-item dropdown theme-switcher">
-          <a href="#" class="nav-link dropdown-toggle theme-switcher__toggle" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Theme selector">
+          <a href="#" role="button" class="nav-link dropdown-toggle theme-switcher__toggle" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Theme selector">
             <span class="theme-switcher__current-icon">
               <svg class="theme-switcher__icon" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
                 <use href="#auto-icon" xlink:href="#auto-icon"/>
@@ -70,9 +70,9 @@
             </span>
             <span class="navbar__link-underline"></span>
           </a>
-          <div class="dropdown-menu dropdown-menu-end theme-switcher__menu" role="menu" aria-label="Theme">
+          <div class="dropdown-menu dropdown-menu-end theme-switcher__menu">
             {{- range $themes }}
-            <button type="button" class="dropdown-item theme-switcher__option" role="menuitemradio" aria-checked="false" data-theme-mode="{{ .mode }}">
+            <button type="button" class="dropdown-item theme-switcher__option" aria-pressed="false" data-theme-mode="{{ .mode }}">
               <div class="dropdown-item__icon">
                 <svg width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
                   <use href="#{{ .icon }}" xlink:href="#{{ .icon }}"/>
