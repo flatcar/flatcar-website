@@ -87,11 +87,15 @@
   function init() {
     updateUI(stored());
 
-    window
-      .matchMedia("(prefers-color-scheme: dark)")
-      .addEventListener("change", function () {
-        if (stored() === AUTO) updateUI(AUTO);
-      });
+    var colorScheme = window.matchMedia("(prefers-color-scheme: dark)");
+    var handleColorSchemeChange = function () {
+      if (stored() === AUTO) updateUI(AUTO);
+    };
+    if (colorScheme.addEventListener) {
+      colorScheme.addEventListener("change", handleColorSchemeChange);
+    } else {
+      colorScheme.addListener(handleColorSchemeChange);
+    }
 
     // Delegated so any number of switcher instances (e.g. a footer one) work.
     document.addEventListener("click", function (e) {
@@ -109,7 +113,7 @@
     // per switcher instance so additional switchers behave the same.
     document.querySelectorAll(".theme-switcher__toggle").forEach(function (toggle) {
       var menu = (toggle.closest(".dropdown") || document).querySelector(
-        ".theme-switcher__menu",
+        ".theme-switcher__menu"
       );
       if (!menu) return;
       var toggleHidden = function () {
