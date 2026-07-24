@@ -72,8 +72,6 @@ all: getdeps docs presentations ## Build docs, presentations, and the Hugo site
 	hugo --theme=flatcar
 	npx -y pagefind@1.4.0 --site public
 
-PYTHON ?= python3
-
 getdeps: check-python ## Install Python dependencies from requirements.txt
 	$(PIP) install --upgrade $(PIP_FLAGS) -r requirements.txt
 
@@ -85,6 +83,11 @@ venv: check-python ## Create a local venv (VENV_DIR, default .venv) and install 
 	@echo "Or invoke make: make PYTHON=$(VENV_DIR)/bin/python PIP='$(VENV_DIR)/bin/pip'"
 
 docs: check-python ## Generate content/docs/_index.md from the template
+	@$(PYTHON) -c "import yaml" 2>/dev/null || { \
+		echo "error: PyYAML not found for $(PYTHON)." >&2; \
+		echo "       run: make getdeps (or make venv)" >&2; \
+		exit 1; \
+	}
 	@$(PYTHON) ./tools/fcl-fetch-version-data.py ./content/docs/_index.md.in > ./content/docs/_index.md
 
 # Build all presentations (idempotent)
