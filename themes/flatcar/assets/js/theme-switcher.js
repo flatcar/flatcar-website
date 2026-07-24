@@ -59,6 +59,8 @@
         use.setAttribute("href", iconRef);
       }
       btn.setAttribute("aria-label", "Theme: " + LABELS[mode]);
+      var label = btn.querySelector(".theme-switcher__label");
+      if (label) label.textContent = LABELS[mode];
     });
 
     document.querySelectorAll(".theme-switcher__option").forEach(function (el) {

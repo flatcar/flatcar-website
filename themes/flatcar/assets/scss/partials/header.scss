@@ -189,10 +189,6 @@ main > *.header-bg-triangles:first-child {
     text-align: center;
     margin-top: 60px;
   }
-
-  &.collapsing {
-    background: $black;
-  }
 }
 
 .header__link {
@@ -219,21 +215,25 @@ main > *.header-bg-triangles:first-child {
   }
 }
 @include media-breakpoint-down(md) {
-  body.mobile-menu_open {
-    .header {
-      position: fixed;
-      height: 100%;
-      background: $black;
-      overflow: hidden auto;
-    }
-
-    .header-bg-stripes:after {
-      content: "";
-      background: none;
-    }
+  // Black backdrop for the open mobile menu. Tied to Bootstrap's collapse
+  // state (.show/.collapsing) rather than the JS-toggled mobile-menu_open
+  // class, which could desync from the menu on rapid clicks.
+  .header:has(#navbarToggler.show),
+  .header:has(#navbarToggler.collapsing) {
+    position: fixed;
+    height: 100%;
+    background: $black;
+    overflow: hidden auto;
 
     .dropdown-menu {
       transition: all 0s;
+    }
+  }
+
+  body.mobile-menu_open {
+    .header-bg-stripes:after {
+      content: "";
+      background: none;
     }
 
     .mobile-menu {

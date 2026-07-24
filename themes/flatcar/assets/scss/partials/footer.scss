@@ -40,6 +40,43 @@
   }
 }
 
+.footer__theme-switcher-toggle {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.55rem 0.9rem;
+  border: 1px solid rgba($white, 0.35);
+  border-radius: 2rem;
+  background-color: rgba($white, 0.08);
+  color: $white;
+  font-size: 0.875rem;
+  line-height: 1;
+  transition: background-color 0.2s, border-color 0.2s;
+
+  &:hover,
+  &:focus,
+  &.show {
+    border-color: rgba($white, 0.65);
+    background-color: rgba($white, 0.16);
+    color: $white;
+  }
+
+  &:focus-visible {
+    outline: 2px solid rgba($white, 0.85);
+    outline-offset: 2px;
+  }
+}
+
+.footer__theme-switcher {
+  .theme-switcher__current-icon {
+    padding-bottom: 0;
+  }
+
+  .theme-switcher__menu {
+    margin-bottom: 0.5rem;
+  }
+}
+
 .footer__navigation {
   display: flex;
   justify-content: space-between;
