@@ -75,6 +75,20 @@ storage:
       overwrite: true
 ```
 
+### Downloading from a custom server
+
+By default, "official" system extensions are downloaded (if not already present) at provisioning time from Flatcar's updates servers. To override the URL where the system extensions will be downloaded from, set the `flatcar.release_file_server_url` [kernel argument](../os-config/host-config/other-settings/#adding-custom-kernel-boot-options) in your butane configuration. For example:
+
+```yaml
+variant: flatcar
+version: 1.0.0
+kernel_arguments:
+  should_exist:
+    - flatcar.release_file_server_url=<your server URL, e.g. https://myflatcarassets.example.com>
+```
+
+> Note that the final URL will be formed in the following format: `URL="${YOUR_SERVER_URL}/${FLATCAR_BOARD}/${VERSION}/${name}"` where `${name}` is the extension name.
+
 ## Community supported extensions ("community supported")
 
 A simple way to extend Flatcar is to use the systemd-sysext images from the [sysext-bakery GitHub repo](https://github.com/flatcar/sysext-bakery). It [publishes prebuilt images](https://github.com/flatcar/sysext-bakery/releases) that bundle third-party binaries. The repo README provides a Butane config example for updating the extensions with `systemd-sysupdate`.
