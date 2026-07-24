@@ -22,9 +22,37 @@ endif
 VENV_DIR ?= .venv
 MARP_CLI_IMAGE ?= docker.io/marpteam/marp-cli:v4.3.1
 
+# Whether we're already inside a virtualenv: $(PYTHON) itself is a venv
+# interpreter (sys.prefix != sys.base_prefix), $VIRTUAL_ENV is set, or
+# $(VENV_DIR) looks like a venv (covers uv's own auto-discovery of ./.venv,
+# e.g. after `make venv`). Evaluated lazily (only when PIP_FLAGS is
+# expanded), so it never runs for unrelated targets.
+IN_VENV = $(shell \
+	if [ -n "$$VIRTUAL_ENV" ] || [ -f "$(VENV_DIR)/pyvenv.cfg" ]; then \
+		echo 1; \
+	else \
+		$(PYTHON) -c "import sys; print(1 if sys.prefix != sys.base_prefix else 0)" 2>/dev/null || echo 0; \
+	fi)
+
+# Extra install flags so `make getdeps` works without a virtualenv on systems
+# with PEP 668 "externally managed" environments. Skipped entirely when
+# $(PYTHON) is already a venv, and only auto-applied for plain `pip`/`uv pip`
+# (wrapped invocations like `poetry run pip` manage their own venv and should
+# be left alone). Override directly if you need something else, e.g.
+# `make PIP_FLAGS=--break-system-packages getdeps`.
+ifndef PIP_FLAGS
+ifneq ($(findstring uv,$(PIP)),)
+PIP_FLAGS = $(if $(filter 1,$(IN_VENV)),,--system)
+else ifeq ($(filter-out pip $(PYTHON) -m pip,$(PIP)),)
+PIP_FLAGS = $(if $(filter 1,$(IN_VENV)),,--user)
+else
+PIP_FLAGS :=
+endif
+endif
+
 .DEFAULT_GOAL := all
 
-.PHONY: help all getdeps venv docs presentations run build-preview check-python
+.PHONY: help all getdeps venv docs presentations run serve build-preview check-python
 
 check-python:
 	@if [ -z "$(PYTHON)" ]; then \
@@ -47,7 +75,7 @@ all: getdeps docs presentations ## Build docs, presentations, and the Hugo site
 PYTHON ?= python3
 
 getdeps: check-python ## Install Python dependencies from requirements.txt
-	$(PIP) install --upgrade -r requirements.txt
+	$(PIP) install --upgrade $(PIP_FLAGS) -r requirements.txt
 
 venv: check-python ## Create a local venv (VENV_DIR, default .venv) and install deps
 	$(PYTHON) -m venv $(VENV_DIR)
@@ -79,13 +107,13 @@ presentations: ## Build Marp presentations under static/presentations
 		fi \
 	done
 
-run: ## Run the Hugo development server
+run: presentations ## Run the Hugo development server
 	@echo "Hugo dev server: http://localhost:1313/"
 	hugo server --theme=flatcar --buildFuture --watch --disableFastRender --baseURL http://localhost:1313/ --config ./config.yaml\,./tmp_modules.yaml
 
 # Like 'run' but builds to disk first so pagefind search works locally.
 # Note: no live-reload; re-run after content changes.
-serve: docs
+serve: docs presentations
 	hugo --theme=flatcar --buildFuture
 	npx -y pagefind@1.4.0 --site public
 	@echo "Static server: http://localhost:1313/"
