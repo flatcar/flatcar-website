@@ -102,6 +102,9 @@
       <div class="footer__socials row justify-content-center text-center mt-3 mt-md-0">
       {{ partial "socials.html" . }}
       </div>
+      <div class="footer__theme d-none d-md-flex justify-content-center mt-3">
+        {{ partial "theme-switcher.html" (dict "location" "footer") }}
+      </div>
       <div class="footer__copyright row justify-content-center p-0 pt-4">
         <p>{{ .Site.Copyright | .RenderString }}</p>
       </div>
@@ -133,6 +136,5 @@
   </svg>
 
   <script src="/js/bootstrap.bundle.min.js"></script>
-  {{- $common := resources.Get "js/common.js" -}}
-  {{- $js := slice $common | resources.Concat "js/common.js" -}}
-  <script src="{{ $js.Permalink }}"></script>
+  {{- $common := resources.Get "js/common.js" | fingerprint -}}
+  <script src="{{ $common.Permalink }}"></script>

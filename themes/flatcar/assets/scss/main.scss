@@ -34,7 +34,20 @@
 @import "./sections/section-contact-us.scss";
 @import "./sections/section-docs.scss";
 @import "./syntax";
+@import "./syntax-dark";
 
 @import "./pages/events-page.scss";
 @import "./pages/blog-page.scss";
 @import "./pages/article.scss";
+
+
+// Respect prefers-reduced-motion (also removes the theme-toggle color cross-fade).
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}

@@ -14,6 +14,8 @@
 
 .navbar-brand {
   margin-right: 0;
+  view-transition-name: site-logo;
+  width: fit-content;
 
   img {
     max-height: 85px;
@@ -35,6 +37,11 @@
 }
 
 .navbar-nav {
+  view-transition-name: site-nav;
+
+  @include media-breakpoint-up(md) {
+    width: fit-content;
+  }
 
   > .nav-item {
     position: relative;
@@ -93,7 +100,7 @@
   }
 }
 
-.nav-item.dropdown  {
+.nav-item.dropdown:not(.theme-switcher) {
   &:hover,&.focus {
     @include media-breakpoint-up(md) {
       > .dropdown-menu {
@@ -143,7 +150,8 @@
 
   @include media-breakpoint-down(md) {
     margin-left: 0;
-    margin-top: 26px;
+    margin-top: 0.75em;
+    padding-bottom: 0.25em;
   }
 }
 
@@ -208,5 +216,149 @@ body:not(.mobile-menu_open) {
         }
       }
     }
+  }
+}
+
+// Theme switcher dropdown
+
+// Navbar sits on a dark background in both themes, so the default focus ring
+// ($primary is $black) is invisible; use a light one. Skip nav.dark (light bg).
+.navbar:not(.dark) .nav-link:focus-visible,
+.navbar:not(.dark) .theme-switcher__toggle:focus-visible,
+.theme-switcher__menu .dropdown-item:focus-visible {
+  outline: 2px solid rgba($white, 0.85);
+  outline-offset: 2px;
+  box-shadow: none;
+}
+
+$_theme-switcher-shadow:      0 0.125rem 0.5rem rgba(0, 0, 0, 0.25);
+
+%icon-box {
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  svg { width: 100%; height: 100%; }
+}
+
+.navbar-nav .theme-switcher__toggle {
+  &, &:hover, &:focus, &.show {
+    color: $white;
+  }
+
+  @include media-breakpoint-down(md) {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+}
+
+.theme-switcher__toggle {
+  &::after {
+    display: none;
+  }
+
+  @include media-breakpoint-down(md) {
+    &.show {
+      display: none;
+    }
+  }
+
+  .theme-switcher__current-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    vertical-align: middle;
+    padding-bottom: 0.125rem;
+  }
+
+  .theme-switcher__icon {
+    display: block;
+  }
+}
+
+.theme-switcher__menu {
+  --bs-dropdown-bg: #{$black};
+  --bs-dropdown-color: #{$white};
+  --bs-dropdown-link-color: #{$white};
+  --bs-dropdown-link-hover-bg: #{rgba($white, 0.15)};
+  --bs-dropdown-link-hover-color: #{$white};
+
+  min-width: auto;
+  width: max-content;
+  padding: 0.25rem 0;
+  font-size: 0.875rem;
+  border-radius: 0;
+  border: 1px solid transparent;
+  box-shadow: $_theme-switcher-shadow;
+
+  @include media-breakpoint-down(md) {
+    // No card bg/border/shadow so the options blend into the mobile menu.
+    --bs-dropdown-bg: transparent;
+    border: none;
+    box-shadow: none;
+    width: 100%;
+    padding: 0;
+  }
+
+  [data-bs-theme="dark"] & {
+    --bs-dropdown-bg: #{$flatcar-dark-800};
+    box-shadow: 0 0.25rem 1rem rgba(0, 0, 0, 0.45), 0 0 0 1px rgba(8, 162, 175, 0.06);
+    border-color: #{$flatcar-dark-500};
+
+    @include media-breakpoint-down(md) {
+      --bs-dropdown-bg: transparent;
+      box-shadow: none;
+      border-color: transparent;
+    }
+  }
+
+  .dropdown-item {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.375rem 0.75rem;
+    white-space: nowrap;
+    font-weight: normal;
+    line-height: 1.4;
+    text-align: left;
+
+    @include media-breakpoint-down(md) {
+      justify-content: center;
+      width: 100%;
+      color: #{$white};
+    }
+  }
+
+  .dropdown-item__icon {
+    @extend %icon-box;
+    width: 1rem;
+    height: 1rem;
+  }
+
+  .dropdown-item__description {
+    flex: none;
+  }
+
+  .dropdown-item__title {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.875rem;
+    text-transform: none;
+    margin-bottom: 0;
+    line-height: 1;
+    color: inherit;
+  }
+
+  .theme-switcher__checkmark {
+    @extend %icon-box;
+    width: 0.75rem;
+    height: 0.75rem;
+    visibility: hidden;
+    color: $yellow;
+  }
+
+  .dropdown-item__text {
+    display: none;
   }
 }

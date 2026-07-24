@@ -1,0 +1,51 @@
+{{- $location := default "navbar" .location -}}
+{{- $isNavbar := eq $location "navbar" -}}
+{{- $themes := slice
+      (dict "mode" "auto"  "icon" "auto-icon" "label" "Auto"  "desc" "Follow system")
+      (dict "mode" "light" "icon" "sun-icon"  "label" "Light" "desc" "Light theme")
+      (dict "mode" "dark"  "icon" "moon-icon" "label" "Dark"  "desc" "Dark theme")
+-}}
+{{ if $isNavbar }}
+<li class="nav-item dropdown theme-switcher d-md-none">
+  <a href="#" role="button" class="nav-link dropdown-toggle theme-switcher__toggle" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Theme selector">
+{{ else }}
+<div class="dropdown dropup theme-switcher footer__theme-switcher d-none d-md-block">
+  <button type="button" class="theme-switcher__toggle footer__theme-switcher-toggle" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Theme selector">
+{{ end }}
+    <span class="theme-switcher__current-icon">
+      <svg class="theme-switcher__icon" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+        <use href="#auto-icon" xlink:href="#auto-icon"/>
+      </svg>
+    </span>
+    <span class="theme-switcher__label">Auto</span>
+    {{ if $isNavbar }}<span class="navbar__link-underline"></span>{{ end }}
+{{ if $isNavbar }}
+  </a>
+{{ else }}
+  </button>
+{{ end }}
+  <div class="dropdown-menu{{ if not $isNavbar }} dropdown-menu-end{{ end }} theme-switcher__menu">
+    {{- range $themes }}
+    <button type="button" class="dropdown-item theme-switcher__option" aria-pressed="false" data-theme-mode="{{ .mode }}">
+      <div class="dropdown-item__icon">
+        <svg width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+          <use href="#{{ .icon }}" xlink:href="#{{ .icon }}"/>
+        </svg>
+      </div>
+      <div class="dropdown-item__description">
+        <div class="dropdown-item__title">
+          {{ .label }}
+          <span class="theme-switcher__checkmark">
+            <svg fill="currentColor" viewBox="0 0 16 16"><use href="#check-icon" xlink:href="#check-icon"/></svg>
+          </span>
+        </div>
+        <p class="dropdown-item__text">{{ .desc }}</p>
+      </div>
+    </button>
+    {{- end }}
+  </div>
+{{ if $isNavbar }}
+</li>
+{{ else }}
+</div>
+{{ end }}
