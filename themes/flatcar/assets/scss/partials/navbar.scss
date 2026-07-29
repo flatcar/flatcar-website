@@ -241,14 +241,19 @@ $_theme-switcher-shadow:      0 0.125rem 0.5rem rgba(0, 0, 0, 0.25);
 }
 
 .navbar-nav .theme-switcher__toggle {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+
   &, &:hover, &:focus, &.show {
     color: $white;
   }
+}
 
-  @include media-breakpoint-down(md) {
-    display: inline-flex;
-    align-items: center;
-    gap: 0.5rem;
+// Icon-only on desktop; the label only shows in the stacked mobile menu.
+.navbar-nav .theme-switcher__label {
+  @include media-breakpoint-up(md) {
+    display: none;
   }
 }
 
