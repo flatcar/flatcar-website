@@ -154,38 +154,25 @@
   &:hover {
     opacity: 0.8;
   }
-
-  @include media-breakpoint-up(md) {
-    position: relative;
-    top: -1.5rem;
-  }
 }
 
 .footer__cncf-logo {
   height: 45px;
   width: auto;
-  display: block;
-  position: relative;
-  top: -1rem;
 }
 
-.footer__copyright {
+.footer__copyright-text {
   a {
     color: $white;
   }
-  > p {
-    margin-top: 5px;
-    margin-bottom: 5px;
+  p {
+    margin-top: 0;
+    margin-bottom: 10px;
+    line-height: 1.3;
     color: $white;
-    display: block;
-    width: 100%;
 
-    @include media-breakpoint-up(sm) {
-      text-align: center;
-    }
-
-    @include media-breakpoint-down(sm) {
-      text-align: center;
+    &:last-child {
+      margin-bottom: 0;
     }
   }
 }

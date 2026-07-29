@@ -93,7 +93,7 @@
           {{ end }}
         </div>
     </div>
-    <div class="footer__copy p-0">
+    <div class="footer__copy p-0 pb-4">
       <div class="row justify-content-center">
         <div class="col-auto">
           <div class="logo footer__logo text-center">
@@ -103,7 +103,7 @@
           </div>
         </div>
       </div>
-      <div class="row justify-content-center mt-2">
+      <div class="row justify-content-center mt-4">
         <div class="col-auto">
           <div class="footer__socials text-center">
             {{ partial "socials.html" . }}
@@ -112,12 +112,12 @@
       </div>
       <div class="row justify-content-between align-items-center mt-3 gx-4">
         <div class="col-12 col-md-6 text-center text-md-start">
-          <p class="mb-0">{{ .Site.Copyright | .RenderString }}</p>
+          <div class="footer__copyright-text">{{ .Site.Copyright | markdownify }}</div>
         </div>
         <div class="col-12 col-md-4 d-flex justify-content-center justify-content-md-end">
           <a href="https://www.cncf.io/" target="_blank" rel="noopener noreferrer" class="d-inline-flex flex-column align-items-center align-items-md-end justify-content-center gap-1 text-white text-decoration-none footer__cncf-link">
             <img src="/images/cncf-white.svg" alt="Cloud Native Computing Foundation" class="footer__cncf-logo" />
-            <p class="mb-0">Flatcar is a Cloud Native Computing Foundation project</p>
+            <p class="mb-0 lh-1">Flatcar is a Cloud Native Computing Foundation project</p>
           </a>
         </div>
       </div>
