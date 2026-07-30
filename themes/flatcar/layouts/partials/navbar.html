@@ -1,6 +1,6 @@
     <ul class="navbar-nav align-items-center">
       {{ $currentPage := . }}
-      {{ range .Site.Menus.main }}
+      {{ range where .Site.Menus.main "Identifier" "ne" "github" }}
           {{ if .HasChildren }}
               <li class="nav-item dropdown">
 
@@ -56,5 +56,13 @@
               </li>
           {{ end }}
       {{ end }}
-      {{ partial "theme-switcher.html" . }}
+      {{ partial "theme-switcher.html" $currentPage }}
+      {{ with index (where .Site.Menus.main "Identifier" "eq" "github") 0 }}
+          <li class="nav-item">
+              <a href="{{ .URL }}" {{- if .Pre -}}title="{{ .Name }}"{{- end -}} class="nav-link">
+                {{- if .Pre -}}{{ .Pre }}{{- else -}}{{ .Name }}{{- end -}}
+                <span class="navbar__link-underline"></span>
+              </a>
+          </li>
+      {{ end }}
     </ul>
