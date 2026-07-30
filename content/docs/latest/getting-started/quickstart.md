@@ -11,46 +11,71 @@ aliases:
   - /quickstart/
 ---
 
-This quickstart shows how to provision Flatcar Container Linux to run on a local QEMU virtual machine, and does not require a physical target machine or spare disk as needed for a bare metal installation. For bare metal provisioning, see [Installing to disk](../deploy/bare-metal/installing-to-disk).
+This quickstart shows how to provision Flatcar Container Linux to run on a local
+QEMU virtual machine, and does not require a physical target machine or spare
+disk as needed for a bare metal installation. For bare metal provisioning, see
+[Installing to disk](../deploy/bare-metal/installing-to-disk).
 
-The provisioning in this quickstart defines a Flatcar configuration in Butane YAML, and then runs [Butane](../fb-provision/butane/) to transpile it into a JSON file for use by [Ignition](../fb-provision/ignition/boot-process) in the Flatcar boot process. The YAML defines a `systemd` service to start an NGINX container and uses the local Butane binary for transpilation. Running Butane via Docker or Podman on the host is also possible but is beyond the scope of this quickstart.
+The provisioning in this quickstart defines a Flatcar configuration in Butane
+YAML, and then runs [Butane](../fb-provision/butane/) to transpile it into a
+JSON file for use by [Ignition](../fb-provision/ignition/boot-process) in the
+Flatcar boot process. The YAML defines a `systemd` service to start an NGINX
+container and uses the local Butane binary for transpilation. Running Butane via
+Docker or Podman on the host is also possible but is beyond the scope of this
+quickstart.
 
 ## Prerequisites
 
 ### Install Butane
 
-Install Butane from the [CoreOS Butane Releases](https://github.com/coreos/butane/releases). 
+For information about installing Butane or running it from a Docker or Podman
+container, see
+[Butane - Getting Started](https://coreos.github.io/butane/getting-started/).
+You can also install the binary directly from
+[CoreOS Butane Releases](https://github.com/coreos/butane/releases).
 
 Verification: Run `butane --version` to confirm installation.
 
 ### Configure SSH Keys
 
-Create an SSH key pair to log in to Flatcar, as the `core` user, for this quickstart:
+Create an SSH key pair to log in to Flatcar, as the `core` user, for this
+quickstart:
 
 ```bash
 ssh-keygen -t ed25519 -a 100 -f ~/.ssh/flatcar -C "flatcar-quickstart"
 cat ~/.ssh/flatcar.pub
 ```
 
-Verification: Run `ls -l ~/.ssh/flatcar ~/.ssh/flatcar.pub` to show the public and private key files.
+Verification: Run `ls -l ~/.ssh/flatcar ~/.ssh/flatcar.pub` to show the public
+and private key files.
 
-In [Provisioning Tasks](#provisioning-tasks), you will add the public key returned from `cat ~/.ssh/flatcar.pub` to the `ssh_authorized_keys` collection in the Butane YAML (or directly into the Ignition JSON).
+In [Provisioning Tasks](#provisioning-tasks), you will add the public key
+returned from `cat ~/.ssh/flatcar.pub` to the `ssh_authorized_keys` collection
+in the Butane YAML (or directly into the Ignition JSON).
 
 ### Install QEMU
 
-Install [QEMU](../deploy/virt-options/qemu), a generic and open-source machine emulator and virtualizer.
+Install [QEMU](../deploy/virt-options/qemu), a generic and open-source machine
+emulator and virtualizer.
 
-Verification: Run `command -v qemu-system-x86_64` (AMD64) or `command -v qemu-system-aarch64` (ARM64) to show any current installation.
+Verification: Run `command -v qemu-system-x86_64` (AMD64) or
+`command -v qemu-system-aarch64` (ARM64) to show any current installation.
 
 ## Provisioning Tasks
 
-The common workflow for Flatcar provisioning is to define your machine configuration in a Butane YAML file and transpile it into Ignition JSON for first boot. Complete these steps before starting the deployment steps below.
+The common workflow for Flatcar provisioning is to define your machine
+configuration in a Butane YAML file and transpile it into Ignition JSON for
+first boot. Complete these steps before starting the deployment steps below.
 
 ### Step 1: Create the Butane YAML
 
-Save the following Butane YAML file as `cl.yaml`. If you choose a different filename, replace `cl.yaml` accordingly in the commands below.
+Save the following Butane YAML file as `cl.yaml`. If you choose a different
+filename, replace `cl.yaml` accordingly in the commands below.
 
-Before you save the file, replace `<YOUR_SSH_PUBLIC_KEY>` with the full output of `cat ~/.ssh/flatcar.pub` (single line, including the key type and comment). This setting ensures that you can SSH into the provisioned Flatcar host as `core`.
+Before you save the file, replace `<YOUR_SSH_PUBLIC_KEY>` with the full output
+of `cat ~/.ssh/flatcar.pub` (single line, including the key type and comment).
+This setting ensures that you can SSH into the provisioned Flatcar host as
+`core`.
 
 ```yaml
 variant: flatcar
@@ -89,7 +114,8 @@ Transpile `cl.yaml` into `ignition.json`:
 butane --pretty --strict < cl.yaml > ignition.json
 ```
 
-Verification: Run `ls ignition.json` to confirm the file exists in the current directory.
+Verification: Run `ls ignition.json` to confirm the file exists in the current
+directory.
 
 If you prefer, you can also use this JSON directly as `ignition.json`:
 
@@ -102,9 +128,7 @@ If you prefer, you can also use this JSON directly as `ignition.json`:
     "users": [
       {
         "name": "core",
-        "sshAuthorizedKeys": [
-          "<YOUR_SSH_PUBLIC_KEY>"
-        ]
+        "sshAuthorizedKeys": ["<YOUR_SSH_PUBLIC_KEY>"]
       }
     ]
   },
@@ -122,13 +146,19 @@ If you prefer, you can also use this JSON directly as `ignition.json`:
 
 ## Deployment
 
-This quickstart deploys Flatcar in a QEMU virtual machine. QEMU itself runs on Linux, macOS, and Windows, but the commands below assume a POSIX shell environment (Linux/WSL, or macOS with `wget` installed).
+This quickstart deploys Flatcar in a QEMU virtual machine. QEMU itself runs on
+Linux, macOS, and Windows, but the commands below assume a POSIX shell
+environment (Linux/WSL, or macOS with `wget` installed).
 
 ### Step 1: Download the Flatcar image
 
-Use the image that matches your architecture. The AMD64 example below uses the Stable channel.
+Use the image that matches your architecture. The AMD64 example below uses the
+Stable channel.
 
-ARM64 QEMU artifacts are currently published in the Alpha channel, so if you are using ARM64, replace `flatcar_production_qemu.sh` with `flatcar_production_qemu_uefi.sh` and use the ARM64 image filenames from `alpha.release.flatcar-linux.net`.
+ARM64 QEMU artifacts are currently published in the Alpha channel, so if you are
+using ARM64, replace `flatcar_production_qemu.sh` with
+`flatcar_production_qemu_uefi.sh` and use the ARM64 image filenames from
+`alpha.release.flatcar-linux.net`.
 
 **AMD64 image:**
 
@@ -138,7 +168,9 @@ chmod +x flatcar_production_qemu.sh
 wget https://stable.release.flatcar-linux.net/amd64-usr/current/flatcar_production_qemu_image.img
 ```
 
-Verification: Run `ls -lh flatcar_production_qemu.sh flatcar_production_qemu_image.img` to show both files.
+Verification: Run
+`ls -lh flatcar_production_qemu.sh flatcar_production_qemu_image.img` to show
+both files.
 
 **ARM64 image:**
 
@@ -150,11 +182,14 @@ wget https://alpha.release.flatcar-linux.net/arm64-usr/current/flatcar_productio
 wget https://alpha.release.flatcar-linux.net/arm64-usr/current/flatcar_production_qemu_uefi_efi_code.qcow2
 ```
 
-Verification: `ls -lh flatcar_production_qemu_uefi.sh flatcar_production_qemu_uefi_image.img flatcar_production_qemu_uefi_efi_vars.qcow2 flatcar_production_qemu_uefi_efi_code.qcow2` confirms the ARM64 script, image, and UEFI firmware files.
+Verification:
+`ls -lh flatcar_production_qemu_uefi.sh flatcar_production_qemu_uefi_image.img flatcar_production_qemu_uefi_efi_vars.qcow2 flatcar_production_qemu_uefi_efi_code.qcow2`
+confirms the ARM64 script, image, and UEFI firmware files.
 
 ### Step 2: Create a fresh copy before booting
 
-Rename the downloaded image file to have a `fresh` extension, and then use copies of that fresh file for every boot.
+Rename the downloaded image file to have a `fresh` extension, and then use
+copies of that fresh file for every boot.
 
 **AMD64:**
 
@@ -172,7 +207,11 @@ cp flatcar_production_qemu_uefi_image.img.fresh flatcar_production_qemu_uefi_ima
 
 ### Step 3: Boot with a fresh copy
 
-The next step is to boot the VM with the Ignition JSON created in [Provisioning Tasks](#provisioning-tasks). Provisioning only runs on first boot, so if you want an updated Ignition configuration to be applied, boot from a fresh copy of the image. You can repeat these combined steps as often as you want to test your Ignition changes.
+The next step is to boot the VM with the Ignition JSON created in
+[Provisioning Tasks](#provisioning-tasks). Provisioning only runs on first boot,
+so if you want an updated Ignition configuration to be applied, boot from a
+fresh copy of the image. You can repeat these combined steps as often as you
+want to test your Ignition changes.
 
 **AMD64:**
 
@@ -181,18 +220,22 @@ cp flatcar_production_qemu_image.img.fresh flatcar_production_qemu_image.img
 ./flatcar_production_qemu.sh -i ignition.json
 ```
 
-Verification: QEMU starts and you eventually see the Flatcar login prompt in the VM console.
+Verification: QEMU starts and you eventually see the Flatcar login prompt in the
+VM console.
 
-{{<note>}}
-Hosts other than macOS will see `qemu-system-x86_64: invalid accelerator hvf` followed by a message about falling back to another accelerator. `hvf` is a macOS-only accelerator, and QEMU will accommodate automatically and the VM will boot and run normally.
-{{</note>}}
-**ARM64 (UEFI):**
+{{<note>}} Hosts other than macOS will see
+`qemu-system-x86_64: invalid accelerator hvf` followed by a message about
+falling back to another accelerator. `hvf` is a macOS-only accelerator, and QEMU
+will accommodate automatically and the VM will boot and run normally.
+{{</note>}} **ARM64 (UEFI):**
 
 ```bash
 cp flatcar_production_qemu_uefi_image.img.fresh flatcar_production_qemu_uefi_image.img && ./flatcar_production_qemu_uefi.sh -i ignition.json
 ```
 
-Verification: UEFI QEMU starts successfully and reaches the Flatcar login prompt.
+Verification: UEFI QEMU starts successfully and reaches the Flatcar login
+prompt.
+
 ### Step 4: Log in using SSH
 
 In a new terminal, run the following command:
@@ -203,14 +246,18 @@ ssh -i ~/.ssh/flatcar -p 2222 core@127.0.0.1
 
 #### Subsequent logins
 
-If you are going to use this quickstart multiple times and you see a host key mismatch warning, remove the previous key for this local endpoint and connect again:
+If you are going to use this quickstart multiple times and you see a host key
+mismatch warning, remove the previous key for this local endpoint and connect
+again:
 
 ```bash
 ssh-keygen -R "[127.0.0.1]:2222"
 ssh -i ~/.ssh/flatcar -p 2222 core@127.0.0.1
 ```
 
-If you still need a temporary workaround, you can use the following command; however, it disables SSH host key verification. Use it only for this local ephemeral VM quickstart on `127.0.0.1`, and not for production or remote hosts.
+If you still need a temporary workaround, you can use the following command;
+however, it disables SSH host key verification. Use it only for this local
+ephemeral VM quickstart on `127.0.0.1`, and not for production or remote hosts.
 
 ```bash
 ssh -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null -i ~/.ssh/flatcar -p 2222 core@127.0.0.1
@@ -230,11 +277,14 @@ docker ps --filter name=nginx1
 curl http://localhost/
 ```
 
-Verification: `systemctl status nginx` shows `active (running)`, `docker ps` lists the `nginx1` container with status `Up`, and `curl http://localhost/` returns the raw HTML of the default NGINX page.
+Verification: `systemctl status nginx` shows `active (running)`, `docker ps`
+lists the `nginx1` container with status `Up`, and `curl http://localhost/`
+returns the raw HTML of the default NGINX page.
 
 ### Step 6: Clean up
 
-In the terminal that ran SSH, run `exit` to close the connection. Then close the QEMU VM app.
+In the terminal that ran SSH, run `exit` to close the connection. Then close the
+QEMU VM app.
 
 Optionally, remove the SSH keys and local files created for this quickstart:
 
@@ -243,4 +293,3 @@ Optionally, remove the SSH keys and local files created for this quickstart:
 rm -f ~/.ssh/flatcar ~/.ssh/flatcar.pub
 rm -f cl.yaml ignition.json
 ```
-
