@@ -23,7 +23,7 @@ workflows as depicted in the following diagram:
 ```mermaid
 flowchart LR
     A["Configure
-    OS · Network · Security · Storage
+    Operating System · Components
     Butane (YAML)"] --> B["Deploy
     Cloud · VM · Bare Metal
     Ignition config (JSON)"] --> C["Orchestrate
@@ -49,16 +49,16 @@ these tools.
 ### Automatic updates
 
 Flatcar automatic updates are enabled by default, but you can reconfigure and
-disable. Instances download and stage new OS versions in the background and can
-reboot into the updated OS when an update becomes available. To change this
-default behavior, including defining reboot windows or disabling reboots, see
+disable update settings at any time. Instances download and stage new OS
+versions in the background and can reboot into the updated OS when an update
+becomes available. To change this default behavior, including defining reboot
+windows or disabling reboots, see
 [update strategies](../updates-releases/releases/update-strategies).
 
 ## To Learn More
 
 The Flatcar documentation covers several technical areas. Use the following
-lists of functional areas to assist in your learning path in addition to this
-Getting Started section.
+lists of functional areas to assist in your learning path.
 
 Provisioning and Deployment:
 
