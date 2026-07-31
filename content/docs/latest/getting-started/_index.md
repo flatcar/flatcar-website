@@ -1,5 +1,6 @@
 ---
 title: Getting Started with Flatcar Container Linux
+content-type: explanation
 linktitle: Getting Started
 weight: 10
 aliases:
@@ -16,15 +17,18 @@ concepts and points you to hands-on learning resources:
 
 ## Configuration and Provisioning
 
-Flatcar is configured at provisioning time, before the first boot, typically
-using a provisioning scenario as shown in the following diagram:
+Flatcar is configured at provisioning time, before the first boot, using
+workflows as depicted in the following diagram:
 
 ```mermaid
 flowchart LR
-    A["**Butane YAML**
-    Declarative config"] --> B["Cloud · VM · Bare Metal
-    Provisions"] --> C["**Containers**
-    Your runtime of choice"]
+    A["Configure
+    OS · Network · Security · Storage
+    Butane (YAML)"] --> B["Deploy
+    Cloud · VM · Bare Metal
+    Ignition config (JSON)"] --> C["Orchestrate
+    Containers · Kubernetes
+    Runtime of choice"]
 ```
 
 - [Butane](../fb-provision/butane/) is human-readable YAML that must be
@@ -53,8 +57,8 @@ default behavior, including defining reboot windows or disabling reboots, see
 ## To Learn More
 
 The Flatcar documentation covers several technical areas. Use the following
-table to assist in your learning path in addition to this Getting Started
-section.
+lists of functional areas to assist in your learning path in addition to this
+Getting Started section.
 
 Provisioning and Deployment:
 
