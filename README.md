@@ -28,8 +28,10 @@ in order to install it.
 ## Prerequisites
 
 - Hugo Extended (see version in [`.env`](./.env) file)
-- Python 3 with PyYAML (required for docs generation - installed via `make getdeps`)
+- Python 3 with packages from [`tools/requirements.txt`](./tools/requirements.txt) (docs generation + meeting calendar import — installed via `make getdeps`)
 - Docker (required for building presentations with Marp) (a `docker` symlink to `podman` works too)
+
+`make` / `make run` fetch upcoming meetings from Flatcar’s public Google Calendar into `data/calendar.yaml` and render them on the homepage (`#calendar`).
 
 ## Adding content
 

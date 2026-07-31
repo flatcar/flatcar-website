@@ -1,17 +1,23 @@
-all: getdeps docs presentations
+all: getdeps calendar docs presentations
 	hugo --theme=flatcar
 	npx -y pagefind@1.4.0 --site public
 
 PYTHON ?= python3
+REQUIREMENTS := ./tools/requirements.txt
 
 getdeps:
-	@if $(PYTHON) -c 'import yaml' 2>/dev/null; then \
-		echo "pyyaml already installed for $(PYTHON)"; \
+	@if $(PYTHON) -c 'import yaml, icalendar, recurring_ical_events, pytz, urllib3' 2>/dev/null; then \
+		echo "calendar/docs Python deps already installed for $(PYTHON)"; \
 	elif command -v uv >/dev/null 2>&1; then \
-		uv pip install --system pyyaml; \
+		uv pip install --system -r $(REQUIREMENTS); \
 	else \
-		$(PYTHON) -m pip install --upgrade --user pyyaml; \
+		$(PYTHON) -m pip install --upgrade --user -r $(REQUIREMENTS) || \
+		$(PYTHON) -m pip install --upgrade --break-system-packages -r $(REQUIREMENTS); \
 	fi
+
+.PHONY: calendar
+calendar:
+	@$(PYTHON) ./tools/import-calendar.py
 
 .PHONY: docs
 docs:
@@ -38,18 +44,18 @@ presentations:
 		fi \
 	done
 
-run:
+run: getdeps calendar
 	@echo "Hugo dev server: http://localhost:1313/"
 	hugo server --theme=flatcar --buildFuture --watch --disableFastRender --baseURL http://localhost:1313/ --config ./config.yaml\,./tmp_modules.yaml
 
 # Like 'run' but builds to disk first so pagefind search works locally.
 # Note: no live-reload; re-run after content changes.
-serve: docs
+serve: getdeps calendar docs
 	hugo --theme=flatcar --buildFuture
 	npx -y pagefind@1.4.0 --site public
 	@echo "Static server: http://localhost:1313/"
 	cd public && $(PYTHON) -m http.server 1313
 
-build-preview: getdeps docs
+build-preview: getdeps calendar docs
 	hugo --theme=flatcar -F -b ${DEPLOY_PRIME_URL}
 	npx -y pagefind@1.4.0 --site public
