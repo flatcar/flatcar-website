@@ -8,10 +8,12 @@ description: >
 This quickstart demonstrates provisioning a local QEMU VM with a Butane YAML config transpiled to Ignition. As an example, you create a systemd service that starts an NGINX container on the VM. This is a good starting point to modify the Butane YAML file and reprovision temporary QEMU VMs. This should work on most Linux systems and assumes you have an SSH key set up for ssh-agent.
 
 Begin by downloading the Flatcar QEMU image and the helper script to start it with QEMU, but don’t run it yet.
-
+ 
 ## Download image
 
 ### AMD64
+
+1. On the host, download the QEMU helper script and image:
 
 ```bash
 wget https://stable.release.flatcar-linux.net/amd64-usr/current/flatcar_production_qemu.sh
@@ -21,7 +23,22 @@ chmod +x flatcar_production_qemu.sh
 wget https://stable.release.flatcar-linux.net/amd64-usr/current/flatcar_production_qemu_image.img
 ```
 
+2. On the host, keep a pristine copy of the image. Ignition only runs on first boot, so you will restore from this copy before each provisioning attempt:
+
+```bash
+mv flatcar_production_qemu_image.img flatcar_production_qemu_image.img.fresh
+```
+
+3. (Optional) On the host, make a working copy and boot it for a first look through the QEMU VGA console. Close the QEMU window or stop the script with `Ctrl-C` when finished:
+
+```bash
+cp -i --reflink=auto flatcar_production_qemu_image.img.fresh flatcar_production_qemu_image.img
+./flatcar_production_qemu.sh
+```
+
 ### ARM64 image
+
+1. On the host, download the UEFI QEMU helper script, image, and firmware files:
 
 ```bash
 wget https://alpha.release.flatcar-linux.net/arm64-usr/current/flatcar_production_qemu_uefi.sh
@@ -35,19 +52,13 @@ wget https://alpha.release.flatcar-linux.net/arm64-usr/current/flatcar_productio
 wget https://alpha.release.flatcar-linux.net/arm64-usr/current/flatcar_production_qemu_uefi_efi_code.qcow2
 ```
 
-For Ignition configurations to be recognized, we have to make sure that we always boot an unmodified fresh image because Ignition only runs on first boot. Therefore, before trying to use an Ignition config, we will always discard the image modifications by using a fresh copy. You can already boot the image with `./flatcar_production_qemu.sh` and have a look around in the OS through the QEMU VGA console - you can close the QEMU window or stop the script with `Ctrl-C`.
-
-```bash
-mv flatcar_production_qemu_image.img flatcar_production_qemu_image.img.fresh
-
-# If you want to have a first look, boot it and wait for the autologin to give you a prompt:
-
-cp -i --reflink=auto flatcar_production_qemu_image.img.fresh flatcar_production_qemu_image.img
-```
+2. On the host, keep a pristine copy of the image the same way as in the AMD64 steps above (rename the downloaded `.img` to `.img.fresh`, then copy it back when you want a fresh first boot).
 
 ## Provision with Butane and Ignition
 
-Now we will provision the VM on first boot through Ignition. Instead of writing the JSON config, we use Butane YAML and transpile it. Save the following Butane YAML file as `cl.yaml` (or another name). It contains directives for setting up a systemd service that runs an NGINX Docker container:
+Now we will provision the VM on first boot through Ignition. Instead of writing the JSON config, we use Butane YAML and transpile it.
+
+1. On the host, save the following Butane YAML file as `cl.yaml` (or another name). It contains directives for setting up a systemd service that runs an NGINX Docker container:
 
 ```yaml
 variant: flatcar
@@ -72,7 +83,7 @@ systemd:
         WantedBy=multi-user.target
 ```
 
-Before we can use it, we have to transpile the Butane YAML to Ignition JSON:
+2. On the host, transpile the Butane YAML to Ignition JSON:
 
 ```bash
 cat cl.yaml | docker run --rm -i quay.io/coreos/butane:latest > ignition.json
@@ -101,6 +112,8 @@ The final step is to boot the VM and make the Ignition configuration available t
 
 ## Boot with a fresh copy
 
+- On the host, restore a fresh image and boot the VM with your Ignition config:
+
 ```bash
 cp -i --reflink=auto flatcar_production_qemu_image.img.fresh flatcar_production_qemu_image.img
 ./flatcar_production_qemu.sh -i ignition.json
@@ -108,11 +121,15 @@ cp -i --reflink=auto flatcar_production_qemu_image.img.fresh flatcar_production_
 
 ## Log in via SSH in a new terminal
 
+- On the host, open a new terminal and SSH into the VM:
+
 ```bash
 ssh -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null -p 2222 core@127.0.0.1
 ```
 
 ## Check that NGINX is running
+
+- On the Flatcar instance, confirm the service and HTTP response:
 
 ```bash
 systemctl status nginx
@@ -140,17 +157,16 @@ passwd:
         - ssh-rsa AAAAB......xyz email@host.net
 ```
 
-Afterwards, transpile it again to Ignition JSON, overwrite `flatcar_production_qemu_image.img` with the fresh image file, and pass the ignition config to `./flatcar_production_qemu.sh` once again.
+Afterwards, on the host, transpile it again to Ignition JSON, overwrite `flatcar_production_qemu_image.img` with the fresh image file, and pass the ignition config to `./flatcar_production_qemu.sh` once again.
 
 ## Quick Iterations with QEMU
 
 When you boot the image file and apply the Ignition config, the image is set. You would have to reprovision the image to have a new state. However, you can take advantage of the QEMU -snapshot flag that starts up the image, but it does not save the changes to the image file. This can be useful if you want to quickly reprovision locally, without having to keep swapping the underlying image file to a fresh one.
 
-Here is an example of the syntax needed to use this flag:
+- On the host, use a snapshot boot like this:
 
 ```bash
 ./flatcar_production_qemu_uefi.sh -i config.ign -p 2224 -- -snapshot -m 4096
 ```
 
 See the [QEMU documentation](https://www.qemu.org/docs/master/system/qemu-manpage.html) for more information.
-
