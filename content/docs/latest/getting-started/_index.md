@@ -23,7 +23,7 @@ workflows as depicted in the following diagram:
 ```mermaid
 flowchart LR
     A["Configure
-    Operating System · Components
+    OS · Components
     Butane (YAML)"] --> B["Deploy
     Cloud · VM · Bare Metal
     Ignition config (JSON)"] --> C["Orchestrate
