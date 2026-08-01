@@ -730,6 +730,8 @@ For more granular control over testing or when you need to run specific test sui
 - Firewall configured to allow kola interfaces: `sudo firewall-cmd --zone=nm-shared --add-interface=kola-+`
 - Required packages: `swtmp`, `dnsmasq`, `go`, and `iptables` in `$PATH`
 - QEMU: `qemu-system-x86_64` for AMD64 and/or `qemu-system-aarch64` for ARM64
+- On Fedora, install `seabios-bin`. You can locate the firmware files with `rpm -ql seabios-bin`.
+- Ensure the host `iptables` `FORWARD` policy allows forwarding. Docker may change the default policy to `DROP`, preventing QEMU guests from accessing the network.
 
 #### Setting up kola
 You have two options for setting up kola:
