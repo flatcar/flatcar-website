@@ -72,6 +72,26 @@ NTP synchronized: yes
                   Sun 2015-11-01 01:00:00 EST
 ```
 
+### Setting the time zone via Butane/Ignition
+
+To set the system time zone during provisioning, configure `/etc/localtime` as a
+symlink to the appropriate entry under `/usr/share/zoneinfo/`.
+
+For example, the following [Butane Config][butane-configs] sets the time zone to
+`America/New_York`:
+
+```yaml
+variant: flatcar
+version: 1.1.0
+storage:
+  links:
+    - path: /etc/localtime
+      target: ../usr/share/zoneinfo/America/New_York
+```
+
+After transpiling the Butane Config to Ignition and provisioning a new machine
+with it, `timedatectl` reports the configured time zone.
+
 ## Time synchronization
 
 Flatcar Container Linux clusters use NTP to synchronize the clocks of member nodes, and all machines start an NTP client at boot. The operating system uses [`systemd-timesyncd(8)`][systemd-timesyncd] as the default NTP client. Use `systemctl` to check which service is running:
