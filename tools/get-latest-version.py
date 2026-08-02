@@ -21,7 +21,7 @@ docsfetcher = __import__('docs-fetcher')
 
 def get_latest_version(file_path):
     latest_version = ''
-    external_docs = get_external_docs_config(file_path)
+    external_docs = docsfetcher.get_external_docs_config(file_path)
 
     if not external_docs:
         sys.stderr.write('Warning: No external docs in {}\n'.format(file_path))
