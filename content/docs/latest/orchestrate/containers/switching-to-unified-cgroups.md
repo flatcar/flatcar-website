@@ -29,8 +29,11 @@ To undo the changes performed by the post update script, execute the following c
 rm /etc/systemd/system/containerd.service.d/10-use-cgroupfs.conf
 sed -i -e '/systemd.unified_cgroup_hierarchy=0/d' /usr/share/oem/grub.cfg
 sed -i -e '/systemd.legacy_systemd_cgroup_controller/d' /usr/share/oem/grub.cfg
+rm -f /etc/flatcar-cgroupv1
 reboot
 ```
+
+The `rm -f /etc/flatcar-cgroupv1` step removes the marker file that enables legacy cgroups without a reboot. If your node was provisioned using the [no-reboot Ignition snippet](#starting-new-nodes-with-legacy-cgroups) that creates this file, it must be removed as well to fully complete the migration.
 
 ## Starting new nodes with legacy cgroups
 
