@@ -13,7 +13,9 @@ You can use common debugging tools like tcpdump or strace with Toolbox. Using th
 
 ## Quick debugging
 
-By default, Toolbox uses the stock Fedora Docker container. To start using it, simply run:
+By default, Toolbox uses the stock Fedora Docker container.
+
+1. On the Flatcar instance, start toolbox:
 
 ```bash
 /usr/bin/toolbox
@@ -21,7 +23,7 @@ By default, Toolbox uses the stock Fedora Docker container. To start using it, s
 
 _NOTE_: For Fedora, it's recommended to use at least 2048 MB RAM to avoid the following `dnf` operation being killed by the OOM manager.
 
-You're now in the namespace of Fedora and can install any software you'd like via `dnf`. For example, if you'd like to use `tcpdump`:
+2. Inside the toolbox, install and run the tools you need. For example, to use `tcpdump`:
 
 ```bash
 [root@srv-3qy0p ~]# dnf -y install tcpdump
@@ -32,12 +34,17 @@ listening on ens3, link-type EN10MB (Ethernet), capture size 65535 bytes
 
 ### Specify a custom Docker image
 
-Create a `.toolboxrc` in the user's home folder to use a specific Docker image:
+1. On the Flatcar instance, create a `.toolboxrc` in the user's home folder to use a specific Docker image:
 
 ```bash
 $ cat .toolboxrc
 TOOLBOX_DOCKER_IMAGE=index.example.com/debug
 TOOLBOX_USER=root
+```
+
+2. On the Flatcar instance, start toolbox with that configuration:
+
+```bash
 $ /usr/bin/toolbox
 Pulling repository index.example.com/debug
 ...
@@ -84,9 +91,8 @@ you need to start them via `systemd-run` because _process lingering_ is disabled
 by default in logind and all non-service user processes are killed on logout.
 Spawn a user service to persist the toolbox container with the `tmux` process
 even when you log out with SSH.
-The following command line will ensure `tmux`, `strace` and `pidof` are installed
-in the container, then create a new `tmux` session to which you can later attach,
-and keep the service active by waiting with `strace` until the `tmux` process exits.
+
+1. On the Flatcar instance, run the following command. It installs `tmux`, `strace`, and `pidof` in the container, creates a new `tmux` session you can later attach to, and keeps the service active by waiting with `strace` until the `tmux` process exits:
 
 ```bash
 systemd-run --user toolbox sh -c 'dnf install -y tmux strace procps-ng; TERM=tmux tmux new-session -d -s sharedsession; strace -p "$(pidof tmux)"'
@@ -97,7 +103,7 @@ new session in the background.
 Because `tmux` forks away, we cannot use `wait` in the shell to wait for children but need
 to use `strace` to have a foreground process running that prevents `toolbox` from quitting.
 
-Once this is running you can can attach to the `tmux` session as often as you want from any SSH connection.
+2. On the Flatcar instance, attach to the `tmux` session from any SSH connection:
 
 ```bash
 sudo nsenter -t "$(pidof tmux | cut -d ' ' -f 1)" -a tmux a
@@ -109,13 +115,15 @@ started with `systemd-run` will terminate and you'll have to start the service a
 
 ## SSH directly into a toolbox
 
-Advanced users can SSH directly into a toolbox by setting up an `/etc/passwd` entry:
+Advanced users can SSH directly into a toolbox by setting up an `/etc/passwd` entry.
+
+1. On the Flatcar instance, create a user whose login shell is toolbox:
 
 ```bash
 useradd bob -m -p '*' -s /usr/bin/toolbox -U -G sudo,docker,rkt
 ```
 
-To test, SSH as bob:
+2. From your client host, SSH as that user to confirm toolbox starts:
 
 ```bash
 ssh bob@hostname.example.com

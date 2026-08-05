@@ -14,6 +14,8 @@ By default, Flatcar Container Linux machines keep time in the Coordinated Univer
 
 The [`timedatectl(1)`][timedatectl] command displays and sets the date, time, and time zone.
 
+- On the Flatcar instance, check the current date, time, and time zone:
+
 ```bash
 $ timedatectl status
       Local time: Wed 2015-08-26 19:29:12 UTC
@@ -28,7 +30,9 @@ NTP synchronized: yes
 
 ### Recommended: UTC time
 
-To avoid time zone confusion and the complexities of adjusting clocks for daylight saving time (or not) in accordance with regional custom, we recommend that all machines in Flatcar Container Linux clusters use UTC. This is the default time zone. To reset a machine to this default:
+To avoid time zone confusion and the complexities of adjusting clocks for daylight saving time (or not) in accordance with regional custom, we recommend that all machines in Flatcar Container Linux clusters use UTC. This is the default time zone.
+
+- On the Flatcar instance, reset the machine to UTC:
 
 ```bash
 sudo timedatectl set-timezone UTC
@@ -36,7 +40,9 @@ sudo timedatectl set-timezone UTC
 
 ### Changing the time zone
 
-If your site or application requires a different system time zone, start by listing the available options:
+If your site or application requires a different system time zone:
+
+1. On the Flatcar instance, list the available time zones:
 
 ```bash
 $ timedatectl list-timezones
@@ -46,13 +52,13 @@ Africa/Addis_Ababa
 …
 ```
 
-Pick a time zone from the list and set it:
+2. Pick a time zone from the list and set it:
 
 ```bash
 sudo timedatectl set-timezone America/New_York
 ```
 
-Check the changes:
+3. Check the changes:
 
 ```bash
 $ timedatectl
@@ -74,7 +80,9 @@ NTP synchronized: yes
 
 ## Time synchronization
 
-Flatcar Container Linux clusters use NTP to synchronize the clocks of member nodes, and all machines start an NTP client at boot. The operating system uses [`systemd-timesyncd(8)`][systemd-timesyncd] as the default NTP client. Use `systemctl` to check which service is running:
+Flatcar Container Linux clusters use NTP to synchronize the clocks of member nodes, and all machines start an NTP client at boot. The operating system uses [`systemd-timesyncd(8)`][systemd-timesyncd] as the default NTP client.
+
+- On the Flatcar instance, use `systemctl` to check which service is running:
 
 ```bash
 $ systemctl status systemd-timesyncd ntpd
@@ -108,7 +116,9 @@ Unless you have a highly reliable and precise time server pool, use your cloud p
 
 `Systemd-timesyncd` can discover NTP servers from DHCP, individual [network][systemd.network] configs, the file [`timesyncd.conf`][timesyncd.conf], or the default `*.flatcar.pool.ntp.org` pool.
 
-The default behavior uses NTP servers provided by DHCP. To disable this, write a configuration listing your preferred NTP servers into the file `/etc/systemd/network/50-dhcp-no-ntp.conf`:
+The default behavior uses NTP servers provided by DHCP. To disable this:
+
+1. On the Flatcar instance, write a configuration listing your preferred NTP servers into `/etc/systemd/network/50-dhcp-no-ntp.conf`:
 
 ```ini
 [Network]
@@ -121,7 +131,7 @@ UseDomains=true
 UseNTP=false
 ```
 
-Then restart the network daemon:
+2. Restart the network daemon:
 
 ```bash
 sudo systemctl restart systemd-networkd
@@ -144,7 +154,9 @@ storage:
 
 ## Switching from timesyncd to ntpd
 
-You can switch from `systemd-timesyncd` to `ntpd` with the following commands:
+You can switch from `systemd-timesyncd` to `ntpd` with the following commands on the Flatcar instance:
+
+1. Stop and mask `systemd-timesyncd`, then enable and start `ntpd`:
 
 ```bash
 sudo systemctl stop systemd-timesyncd
@@ -170,7 +182,9 @@ Because `timesyncd` and `ntpd` are mutually exclusive, it's important to `mask` 
 
 ### Configuring ntpd
 
-The `ntpd` service reads all configuration from the file `/etc/ntp.conf`. It does not use DHCP or other configuration sources. To use a different set of NTP servers, replace the `/etc/ntp.conf` symlink with something like the following:
+The `ntpd` service reads all configuration from the file `/etc/ntp.conf`. It does not use DHCP or other configuration sources. To use a different set of NTP servers:
+
+1. On the Flatcar instance, replace the `/etc/ntp.conf` symlink with something like the following:
 
 ```text
 server 0.pool.example.com
@@ -181,7 +195,7 @@ restrict 127.0.0.1
 restrict [::1]
 ```
 
-Then ask `ntpd` to reload its configuration:
+2. Ask `ntpd` to reload its configuration:
 
 ```bash
 sudo systemctl reload ntpd
