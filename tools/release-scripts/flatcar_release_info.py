@@ -188,7 +188,7 @@ def main(args):
                 'architectures': release_info.architectures,
             }
             for target_dir in target_dirs:
-                if stream and target_dir == 'releases/lts/' and (release == 'current' or release == 'current' + stream):
+                if stream and target_dir == 'releases/lts/' and (release == 'current' or release == 'current-' + stream):
                     # Do not write "lts/current..." files when called for "lts-STREAM"
                     continue
                 os.makedirs(target_dir, exist_ok=True)
