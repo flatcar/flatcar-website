@@ -6,6 +6,9 @@ aliases:
   - /docs/latest/provisioning/sysext/
 ---
 
+> **New to sysext?** Start with the [sysext tutorial](./tutorial/) for a hands-on walkthrough from concept to custom extension deployment.
+
+
 Flatcar Container Linux bundles various software components with fixed versions together into one release.
 For users that require a particular version of a software component this means that the software needs to be supplied out of band and overwrite the built-in software copy.
 Another approach we recommended was to store binaries in `/opt/bin` and prefer them in the `PATH`.
