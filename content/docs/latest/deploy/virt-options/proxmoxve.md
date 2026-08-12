@@ -83,7 +83,7 @@ What is supported:
 
 Proxmox VE graphical interface does not support setting a custom user-data file. You'll need to use the command line to achieve this.
 
-First of all we need to write the Ignition config as as snippet. Snippets are located at `/var/lib/vz/snippets` on the hypervisor. Write a file named `user-data` containing your Ignition config. Here is an example :
+First of all we need to write the Ignition config as a snippet. Snippets are located at `/var/lib/vz/snippets` on the hypervisor. Write a file named `user-data` containing your Ignition config. Here is an example :
 
 ```bash
 cat /var/lib/vz/snippets/user-data

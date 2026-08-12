@@ -124,7 +124,7 @@ $ git checkout [branch-or-tag-from-above]
 ```
 
 Lastly, to verify the version in use, consult the version file.
-This file is updated on each release and reflects the SDK and OS versions corresponding to the the current commit.
+This file is updated on each release and reflects the SDK and OS versions corresponding to the current commit.
 
 ```bash
 $ cat sdk_container/.repo/manifests/version.txt
