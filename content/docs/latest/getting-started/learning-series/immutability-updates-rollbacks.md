@@ -325,7 +325,7 @@ This file is removed later, after provisioning finished.
 #### System Provisioning runs from the initrd
 
 If first boot is detected in the initrd, the `ignition` provisioning agent is started.
-Ingition fetches vendor specific configuration - think username / ssh key, network configuration etc. that you can set up e.g. via the Azure Portal when launching a VM - and "user data".
+Ignition fetches vendor specific configuration - think username / ssh key, network configuration etc. that you can set up e.g. via the Azure Portal when launching a VM - and "user data".
 User data is expected to be in Ignition JSON format - exactly what we've been transpiling to for our web service and "don't update" configurations.
 
 Ignition initialises storage devices and file systems - which can be customised and modified from user data configuration, as we'll learn in a later session.

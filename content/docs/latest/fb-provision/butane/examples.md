@@ -67,7 +67,7 @@ If you choose to use a password instead of an SSH key, generating a safe hash is
 # On Debian/Ubuntu (via the package "whois")
 mkpasswd --method=SHA-512 --rounds=4096
 
-# OpenSSL (note: this will only make md5crypt.  While better than plantext it should not be considered fully secure)
+# OpenSSL (note: this will only make md5crypt.  While better than plaintext it should not be considered fully secure)
 openssl passwd -1
 
 # Python

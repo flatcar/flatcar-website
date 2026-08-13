@@ -46,7 +46,7 @@ While quite similar, there are some changes needed to migrate a Container Linux 
 
 - The `variant` and `version` keys are required.
 - The Butane transpiler has no platform feature for templating with dynamic data. The resulting feature is still available by explicitly loading the metadata variables to reference [dynamic data][dynamic].
-- The high-level sections for `etcd`, `flannel`, `docker`, `update`, and `locksmith` are gone and instead the resulting units or files need to be written explicity. For etcd see the [cluster docs][cluster]. Both the `update` and `locksmith` fields go to `/etc/flatcar/update.conf`.
+- The high-level sections for `etcd`, `flannel`, `docker`, `update`, and `locksmith` are gone and instead the resulting units or files need to be written explicitly. For etcd see the [cluster docs][cluster]. Both the `update` and `locksmith` fields go to `/etc/flatcar/update.conf`.
 - The `networkd` section is gone and instead the files need to be written directly to `/etc/systemd/network/` directory.
 - The `overwrite` field for files is not set to `true` by default anymore, so it needs to be explicitly set to `true` for the old behavior.
 - File entries can't specify filesystems anymore as was done with `filesystem: root` or `filesystem: oem`. Instead, they use the full path, and which filesystem this is depends on whether and how the initrd mount path is set for each specified filesystem.
