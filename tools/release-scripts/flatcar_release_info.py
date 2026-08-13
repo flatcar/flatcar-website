@@ -149,7 +149,7 @@ def main(args):
     else:
         channels = ['stable', 'beta', 'alpha', 'edge', 'lts']
         lts_info = requests.get('https://lts.release.flatcar-linux.net/lts-info')
-        lts_info.status_code.raise_for_status()
+        lts_info.raise_for_status()
         for line in io.StringIO(lts_info.text):
             _, year, support = line.strip().split(':')
             if support != 'unsupported':
