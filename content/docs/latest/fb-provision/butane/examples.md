@@ -205,7 +205,7 @@ storage:
 
 This example creates a new systemd user unit called `hello.service`, enables it with an explicit symlink (workaround for Ignition) so it will run on boot, and defines the contents to simply echo `"Hello, World!"`.
 
-_Note_: Adding a regular user like "flatcar" to the `systemd-journal` group can be useful if you want to access the journal logs with `journalctl --user --unit hello.service`. You can already access logs with `journactl --user-unit hello.service` from the default `core` user.
+_Note_: Adding a regular user like "flatcar" to the `systemd-journal` group can be useful if you want to access the journal logs with `journalctl --user --unit hello.service`. You can already access logs with `journalctl --user-unit hello.service` from the default `core` user.
 
 ## networkd units
 
