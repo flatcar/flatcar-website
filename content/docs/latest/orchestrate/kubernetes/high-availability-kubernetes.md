@@ -338,7 +338,7 @@ echo "YAML file '$output_yaml' has been successfully overwritten!"
 </details>
 <br>
 
-Now we we can save this script in `scripts/generate-k8s-certs.sh` run `make
+Now we can save this script in `scripts/generate-k8s-certs.sh` run `make
 butane/00_base-k8s-token.yaml` and check out our SSL goodies.  Treat this file
 like a password.  If it gets made public (for anything other than test
 clusters) make sure you recreate them. It's usually recommended to not provide
