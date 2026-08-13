@@ -19,7 +19,7 @@ Amazon doesn't support directly resizing volumes of live machines through the we
 
 ## QEMU (qemu-img)
 
-Even if you are not using Qemu itself the qemu-img tool is the easiest to use. It will work on raw, qcow2, vmdk, and most other formats. The command accepts either an absolute size or a relative size by by adding `+` prefix. Unit suffixes such as `G` or `M` are also supported.
+Even if you are not using Qemu itself the qemu-img tool is the easiest to use. It will work on raw, qcow2, vmdk, and most other formats. The command accepts either an absolute size or a relative size by adding `+` prefix. Unit suffixes such as `G` or `M` are also supported.
 
 ```bash
 # Increase the disk size by 5GB

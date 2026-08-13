@@ -67,7 +67,7 @@ If you choose to use a password instead of an SSH key, generating a safe hash is
 # On Debian/Ubuntu (via the package "whois")
 mkpasswd --method=SHA-512 --rounds=4096
 
-# OpenSSL (note: this will only make md5crypt.  While better than plantext it should not be considered fully secure)
+# OpenSSL (note: this will only make md5crypt.  While better than plaintext it should not be considered fully secure)
 openssl passwd -1
 
 # Python
@@ -205,7 +205,7 @@ storage:
 
 This example creates a new systemd user unit called `hello.service`, enables it with an explicit symlink (workaround for Ignition) so it will run on boot, and defines the contents to simply echo `"Hello, World!"`.
 
-_Note_: Adding a regular user like "flatcar" to the `systemd-journal` group can be useful if you want to access the journal logs with `journalctl --user --unit hello.service`. You can already access logs with `journactl --user-unit hello.service` from the default `core` user.
+_Note_: Adding a regular user like "flatcar" to the `systemd-journal` group can be useful if you want to access the journal logs with `journalctl --user --unit hello.service`. You can already access logs with `journalctl --user-unit hello.service` from the default `core` user.
 
 ## networkd units
 

@@ -11,11 +11,11 @@ aliases:
 
 The Docker systemd unit can be customized by overriding the unit that ships with the default Flatcar Container Linux settings or through a drop-in unit. Common use-cases for doing this are covered below.
 
-For switching to using containerd with Kubernetes, there is an [extra guide](../kubernetes/getting-started-with-kubernetes/).
+If you want to use containerd with Kubernetes, please refer to this [dedicated guide](../kubernetes/getting-started-with-kubernetes/).
 
 ## Use a custom containerd configuration
 
-The default configuration under `/usr/share/containerd/config.toml` can't be changed but you can copy it to `/etc/containerd/config.toml` and modify it.
+The default configuration file at `/usr/share/containerd/config.toml` is read-only. To customize it, copy the file to `/etc/containerd/config.toml` and make your modifications there.
 
 Create a `/etc/systemd/system/containerd.service.d/10-use-custom-config.conf` unit drop-in file to select the new configuration:
 
@@ -25,7 +25,7 @@ ExecStart=
 ExecStart=/usr/bin/containerd
 ```
 
-On a running system, execute `systemctl daemon-reload ; systemctl restart containerd` for it to take effect.
+On a running system, apply the changes by executing `systemctl daemon-reload && systemctl restart containerd`.
 
 ## Enable the remote API on a new socket
 
@@ -61,7 +61,7 @@ docker -H tcp://127.0.0.1:2375 ps
 
 ### Butane Config
 
-To enable the remote API on every Flatcar Container Linux machine in a cluster, use a [Butane Config][butane-configs]. We need to provide the new socket file and Docker's socket activation support will automatically start using the socket:
+To enable the remote API across all Flatcar Container Linux machines in a cluster, you can use a [Butane Config][butane-configs]. By providing the new socket file, Docker's socket activation support will automatically bind to it:
 
 ```yaml
 variant: flatcar
@@ -92,11 +92,11 @@ To keep access to the port local, replace the `ListenStream` configuration above
 
 ## Enable the remote API with TLS authentication
 
-Docker TLS configuration consists of three parts: keys creation, configuring new [systemd socket][systemd-socket] unit and systemd [drop-in][drop-in] configuration.
+Docker TLS configuration consists of three parts: creating TLS keys, configuring a new [systemd socket][systemd-socket] unit, and adding a systemd [drop-in][drop-in] configuration.
 
 ### TLS keys creation
 
-Please follow the [instruction][self-signed-certs] to know how to create self-signed certificates and private keys. Then copy the following files into `/etc/docker` Flatcar Container Linux's directory and fix their permissions:
+Follow the [instructions][self-signed-certs] to create self-signed certificates and private keys. Then copy the following files into the `/etc/docker` directory on your Flatcar Container Linux machine and set the correct permissions:
 
 ```bash
 scp ~/cfssl/{server.pem,server-key.pem,ca.pem} flatcar.example.com:
@@ -106,7 +106,7 @@ sudo chown root:root /etc/docker/{server-key.pem,server.pem,ca.pem}
 sudo chmod 0600 /etc/docker/server-key.pem
 ```
 
-On your local host copy certificates into `~/.docker`:
+On your local host, copy the certificates into `~/.docker`:
 
 ```bash
 mkdir ~/.docker
@@ -158,7 +158,7 @@ sudo systemctl daemon-reload
 sudo systemctl restart docker.service
 ```
 
-Now you can access your Docker's API through TLS secured connection:
+You can now access the Docker API through a TLS-secured connection:
 
 ```bash
 docker --tlsverify -H tcp://server:2376 images
@@ -166,7 +166,7 @@ docker --tlsverify -H tcp://server:2376 images
 docker --tlsverify -H tcp://server.example.com:2376 images
 ```
 
-If you've experienceed problems connection to remote Docker API using TLS connection, you can debug it with `curl`:
+If you've experienced problems connecting to the remote Docker API using TLS, you can debug it with `curl`:
 
 ```bash
 curl -v --cacert ~/.docker/ca.pem --cert ~/.docker/cert.pem --key ~/.docker/key.pem https://server:2376
@@ -178,7 +178,7 @@ Or on your Flatcar Container Linux host:
 journalctl -f -u docker.service
 ```
 
-In addition you can export environment variables and use docker client without additional options:
+In addition, you can export environment variables and use the Docker client without additional options:
 
 ```bash
 export DOCKER_HOST=tcp://server.example.com:2376 DOCKER_TLS_VERIFY=1
@@ -264,7 +264,7 @@ systemctl daemon-reload
 systemctl restart docker
 ```
 
-To test our debugging stream, run a Docker command and then read the systemd journal, which should contain the output:
+To test the debug output, run a Docker command and then read the systemd journal, which should contain the debug logs:
 
 ```bash
 docker ps
@@ -338,7 +338,7 @@ If you need to increase certain ulimits that are too low for your application by
 mkdir /etc/systemd/system/docker.service.d
 ```
 
-Now, create a file called `/etc/systemd/system/docker.service.d/increase-ulimit.conf` that adds increased limit:
+Now, create a file called `/etc/systemd/system/docker.service.d/increase-ulimit.conf` that sets the increased limit:
 
 ```ini
 [Service]
@@ -372,7 +372,7 @@ systemd:
 
 ## Using a dockercfg file for authentication
 
-A json file `.dockercfg` can be created in your home directory that holds authentication information for a public or private Docker registry.
+A JSON file `.dockercfg` can be created in your home directory to store authentication credentials for a public or private Docker registry.
 
 [docker-socket-systemd]: https://github.com/docker/docker/pull/17211
 [drop-in]: ../../os-config/host-config/drop-in-units

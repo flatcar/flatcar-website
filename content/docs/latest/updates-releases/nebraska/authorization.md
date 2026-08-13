@@ -234,9 +234,9 @@ Note: The `oidc-roles-path` argument accepts a JSONPath to fetch roles from the 
 
 ## Preparing Dex with github connector as an OIDC provider for Nebraska
 
-### Setting up a Github App to be used as a connector for Dex
+### Setting up a GitHub App to be used as a connector for Dex
 
-- Create a new organization in Github.
+- Create a new organization in GitHub.
 - Now you need to create an OAuth App, go to `https://github.com/organizations/<your-organization>/settings/applications` (Your Organization Settings > Developer Settings > OAuth Apps) and fill the following fields:
   - `Application name`: just put some fancy name
   - `Homepage URL`: `http://localhost:8000`
@@ -247,7 +247,7 @@ Note: The `oidc-roles-path` argument accepts a JSONPath to fetch roles from the 
   `Client secret`.
 - The OAuth app should already be installed to your org.
 
-### Creating Github Teams
+### Creating GitHub Teams
 
 - In your organization, go to teams.
 - Create two teams in your organization with names `admin` and `viewer`.

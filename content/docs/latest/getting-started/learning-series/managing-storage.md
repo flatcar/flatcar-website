@@ -140,7 +140,7 @@ done
 
 Let's run it!
 ```bash
-./flatcar_production_qemu_uefi.sh -i disks.json -f 12345:80 -- -snapshot -nographic -drive file=mydisk,driver=qcow2,snapshot=on,media=disk,if=virtio
+./flatcar_production_qemu_uefi.sh -i main.json -f 12345:80 -- -snapshot -nographic -drive file=mydisk,driver=qcow2,snapshot=on,media=disk,if=virtio
 ```
 
 Check out if it worked:
@@ -207,7 +207,7 @@ As previously, we need to pass the additional file-backed disk when running the 
 Since we use snapshot mode for the disk, the partition and file system we generated at the previous boot will be gone.
 
 ```bash
-./flatcar_production_qemu_uefi.sh -i disks.json -f 12345:80 -- -snapshot -nographic -drive file=mydisk,driver=qcow2,snapshot=on,media=disk,if=virtio
+./flatcar_production_qemu_uefi.sh -i main.json -f 12345:80 -- -snapshot -nographic -drive file=mydisk,driver=qcow2,snapshot=on,media=disk,if=virtio
 ```
 
 You'll note a considerably longer boot time; this is when the LUKS device is set up.

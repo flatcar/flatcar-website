@@ -97,7 +97,7 @@ new session in the background.
 Because `tmux` forks away, we cannot use `wait` in the shell to wait for children but need
 to use `strace` to have a foreground process running that prevents `toolbox` from quitting.
 
-Once this is running you can can attach to the `tmux` session as often as you want from any SSH connection.
+Once this is running you can attach to the `tmux` session as often as you want from any SSH connection.
 
 ```bash
 sudo nsenter -t "$(pidof tmux | cut -d ' ' -f 1)" -a tmux a

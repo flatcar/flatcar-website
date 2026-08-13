@@ -131,7 +131,7 @@ Upholds=docker.socket
 
 ## Supplying your sysext image from Ignition
 
-The following Butane Config YAML can be be transpiled to Ignition JSON and will download a custom Docker+containerd sysext image on first boot.
+The following Butane Config YAML can be transpiled to Ignition JSON and will download a custom Docker+containerd sysext image on first boot.
 It also takes care of disabling built-in Docker and containerd sysext images (to revert this, you can find the original target of the symlinks in `/usr/share/flatcar/etc/extensions/`).
 
 ```yaml

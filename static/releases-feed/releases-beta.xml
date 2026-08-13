@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en">
   <id>https://www.flatcar.org/</id>
   <title>Flatcar :: beta</title>
-  <updated>2026-07-13T17:24:11.852147+00:00</updated>
+  <updated>2026-08-13T16:00:44.836203+00:00</updated>
   <author>
     <name>Flatcar Container Linux</name>
     <email>maintainers@flatcar-linux.org</email>
@@ -12,9 +12,61 @@
   <logo>https://www.flatcar.org/media/brand-logo.svg</logo>
   <subtitle>Flatcar Container Linux release feed</subtitle>
   <entry>
+    <id>https://github.com/flatcar/scripts/releases/tag/beta-4757.1.0</id>
+    <title>4757.1.0</title>
+    <updated>2026-08-13T16:00:46.711293+00:00</updated>
+    <content type="html"><![CDATA[<p><em>Changes since <strong>Beta 4722.1.0</strong></em></p>
+<h4>Security fixes:</h4>
+<ul>
+<li>Linux (<a href="https://nvd.nist.gov/vuln/detail/CVE-2026-68480">CVE-2026-68480</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-68450">CVE-2026-68450</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-68449">CVE-2026-68449</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-68437">CVE-2026-68437</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-68434">CVE-2026-68434</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-68433">CVE-2026-68433</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-68432">CVE-2026-68432</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-68446">CVE-2026-68446</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-68445">CVE-2026-68445</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-68444">CVE-2026-68444</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-68443">CVE-2026-68443</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-68442">CVE-2026-68442</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-68439">CVE-2026-68439</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-68429">CVE-2026-68429</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-68430">CVE-2026-68430</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-68394">CVE-2026-68394</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-68403">CVE-2026-68403</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-68402">CVE-2026-68402</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-68398">CVE-2026-68398</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-68428">CVE-2026-68428</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-68427">CVE-2026-68427</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-68425">CVE-2026-68425</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-68397">CVE-2026-68397</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-68422">CVE-2026-68422</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-68419">CVE-2026-68419</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-68417">CVE-2026-68417</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-68416">CVE-2026-68416</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-68414">CVE-2026-68414</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-68396">CVE-2026-68396</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-68413">CVE-2026-68413</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-68411">CVE-2026-68411</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-68410">CVE-2026-68410</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-68408">CVE-2026-68408</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-68407">CVE-2026-68407</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-68406">CVE-2026-68406</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-68405">CVE-2026-68405</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-68395">CVE-2026-68395</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-68354">CVE-2026-68354</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-68363">CVE-2026-68363</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-68362">CVE-2026-68362</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-68361">CVE-2026-68361</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-68360">CVE-2026-68360</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-68359">CVE-2026-68359</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-68358">CVE-2026-68358</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-68392">CVE-2026-68392</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-68391">CVE-2026-68391</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-68389">CVE-2026-68389</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-68388">CVE-2026-68388</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-68386">CVE-2026-68386</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-68385">CVE-2026-68385</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-68357">CVE-2026-68357</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-68381">CVE-2026-68381</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-68377">CVE-2026-68377</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-68376">CVE-2026-68376</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-68374">CVE-2026-68374</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-68373">CVE-2026-68373</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-68372">CVE-2026-68372</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-68371">CVE-2026-68371</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-68370">CVE-2026-68370</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-68369">CVE-2026-68369</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-68368">CVE-2026-68368</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-68366">CVE-2026-68366</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-68365">CVE-2026-68365</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-68355">CVE-2026-68355</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-68313">CVE-2026-68313</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-68321">CVE-2026-68321</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-68320">CVE-2026-68320</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-68319">CVE-2026-68319</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-68318">CVE-2026-68318</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-68353">CVE-2026-68353</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-68317">CVE-2026-68317</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-68352">CVE-2026-68352</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-68351">CVE-2026-68351</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-68350">CVE-2026-68350</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-68349">CVE-2026-68349</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-68348">CVE-2026-68348</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-68346">CVE-2026-68346</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-68344">CVE-2026-68344</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-68343">CVE-2026-68343</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-68340">CVE-2026-68340</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-68339">CVE-2026-68339</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-68338">CVE-2026-68338</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-68336">CVE-2026-68336</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-68335">CVE-2026-68335</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-68333">CVE-2026-68333</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-68315">CVE-2026-68315</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-68331">CVE-2026-68331</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-68329">CVE-2026-68329</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-68328">CVE-2026-68328</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-68327">CVE-2026-68327</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-68326">CVE-2026-68326</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-68325">CVE-2026-68325</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-68324">CVE-2026-68324</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-68314">CVE-2026-68314</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-68272">CVE-2026-68272</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-68281">CVE-2026-68281</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-68280">CVE-2026-68280</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-68279">CVE-2026-68279</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-68278">CVE-2026-68278</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-68277">CVE-2026-68277</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-68311">CVE-2026-68311</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-68310">CVE-2026-68310</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-68309">CVE-2026-68309</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-68308">CVE-2026-68308</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-68307">CVE-2026-68307</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-68306">CVE-2026-68306</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-68304">CVE-2026-68304</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-68302">CVE-2026-68302</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-68301">CVE-2026-68301</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-68300">CVE-2026-68300</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-68299">CVE-2026-68299</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-68297">CVE-2026-68297</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-68296">CVE-2026-68296</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-68294">CVE-2026-68294</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-68293">CVE-2026-68293</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-68290">CVE-2026-68290</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-68284">CVE-2026-68284</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-68227">CVE-2026-68227</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-68236">CVE-2026-68236</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-68235">CVE-2026-68235</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-68234">CVE-2026-68234</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-68271">CVE-2026-68271</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-68269">CVE-2026-68269</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-68231">CVE-2026-68231</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-68263">CVE-2026-68263</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-68262">CVE-2026-68262</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-68261">CVE-2026-68261</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-68260">CVE-2026-68260</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-68259">CVE-2026-68259</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-68257">CVE-2026-68257</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-68256">CVE-2026-68256</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-68255">CVE-2026-68255</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-68252">CVE-2026-68252</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-68251">CVE-2026-68251</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-68250">CVE-2026-68250</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-68249">CVE-2026-68249</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-68248">CVE-2026-68248</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-68247">CVE-2026-68247</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-68229">CVE-2026-68229</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-68246">CVE-2026-68246</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-68245">CVE-2026-68245</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-68244">CVE-2026-68244</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-68243">CVE-2026-68243</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-68228">CVE-2026-68228</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-68185">CVE-2026-68185</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-68194">CVE-2026-68194</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-68193">CVE-2026-68193</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-68192">CVE-2026-68192</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-68190">CVE-2026-68190</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-68226">CVE-2026-68226</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-68225">CVE-2026-68225</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-68189">CVE-2026-68189</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-68223">CVE-2026-68223</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-68222">CVE-2026-68222</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-68221">CVE-2026-68221</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-68220">CVE-2026-68220</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-68219">CVE-2026-68219</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-68218">CVE-2026-68218</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-68217">CVE-2026-68217</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-68216">CVE-2026-68216</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-68215">CVE-2026-68215</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-68188">CVE-2026-68188</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-68214">CVE-2026-68214</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-68213">CVE-2026-68213</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-68212">CVE-2026-68212</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-68210">CVE-2026-68210</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-68209">CVE-2026-68209</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-68207">CVE-2026-68207</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-68206">CVE-2026-68206</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-68205">CVE-2026-68205</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-68187">CVE-2026-68187</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-68204">CVE-2026-68204</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-68203">CVE-2026-68203</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-68202">CVE-2026-68202</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-68201">CVE-2026-68201</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-68200">CVE-2026-68200</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-68199">CVE-2026-68199</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-68197">CVE-2026-68197</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-68196">CVE-2026-68196</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-68195">CVE-2026-68195</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-68186">CVE-2026-68186</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-68143">CVE-2026-68143</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-68152">CVE-2026-68152</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-68151">CVE-2026-68151</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-68149">CVE-2026-68149</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-68148">CVE-2026-68148</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-68184">CVE-2026-68184</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-68183">CVE-2026-68183</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-68147">CVE-2026-68147</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-68182">CVE-2026-68182</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-68181">CVE-2026-68181</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-68180">CVE-2026-68180</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-68179">CVE-2026-68179</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-68178">CVE-2026-68178</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-68176">CVE-2026-68176</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-68175">CVE-2026-68175</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-68146">CVE-2026-68146</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-68171">CVE-2026-68171</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-68165">CVE-2026-68165</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-68164">CVE-2026-68164</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-68145">CVE-2026-68145</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-68091">CVE-2026-68091</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-68090">CVE-2026-68090</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-68088">CVE-2026-68088</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-68084">CVE-2026-68084</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-68085">CVE-2026-68085</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-64597">CVE-2026-64597</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-64593">CVE-2026-64593</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-64592">CVE-2026-64592</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-64604">CVE-2026-64604</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-64603">CVE-2026-64603</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-64602">CVE-2026-64602</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-64599">CVE-2026-64599</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-64598">CVE-2026-64598</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-64590">CVE-2026-64590</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-64589">CVE-2026-64589</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-64556">CVE-2026-64556</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-64536">CVE-2026-64536</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-64514">CVE-2026-64514</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-64480">CVE-2026-64480</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-64479">CVE-2026-64479</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-64478">CVE-2026-64478</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-64477">CVE-2026-64477</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-64512">CVE-2026-64512</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-64476">CVE-2026-64476</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-64511">CVE-2026-64511</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-64505">CVE-2026-64505</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-64504">CVE-2026-64504</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-64503">CVE-2026-64503</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-64475">CVE-2026-64475</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-64500">CVE-2026-64500</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-64499">CVE-2026-64499</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-64497">CVE-2026-64497</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-64496">CVE-2026-64496</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-64495">CVE-2026-64495</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-64494">CVE-2026-64494</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-64474">CVE-2026-64474</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-64490">CVE-2026-64490</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-64489">CVE-2026-64489</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-64487">CVE-2026-64487</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-64486">CVE-2026-64486</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-64484">CVE-2026-64484</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-64483">CVE-2026-64483</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-64482">CVE-2026-64482</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-64473">CVE-2026-64473</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-64432">CVE-2026-64432</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-64440">CVE-2026-64440</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-64437">CVE-2026-64437</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-64436">CVE-2026-64436</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-64471">CVE-2026-64471</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-64470">CVE-2026-64470</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-64469">CVE-2026-64469</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-64468">CVE-2026-64468</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-64465">CVE-2026-64465</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-64463">CVE-2026-64463</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-64435">CVE-2026-64435</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-64458">CVE-2026-64458</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-64457">CVE-2026-64457</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-64456">CVE-2026-64456</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-64455">CVE-2026-64455</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-64454">CVE-2026-64454</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-64452">CVE-2026-64452</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-64450">CVE-2026-64450</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-64449">CVE-2026-64449</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-64448">CVE-2026-64448</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-64446">CVE-2026-64446</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-64445">CVE-2026-64445</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-64444">CVE-2026-64444</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-64443">CVE-2026-64443</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-64442">CVE-2026-64442</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-64433">CVE-2026-64433</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-64392">CVE-2026-64392</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-64399">CVE-2026-64399</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-64398">CVE-2026-64398</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-64397">CVE-2026-64397</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-64396">CVE-2026-64396</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-64430">CVE-2026-64430</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-64429">CVE-2026-64429</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-64425">CVE-2026-64425</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-64424">CVE-2026-64424</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-64423">CVE-2026-64423</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-64422">CVE-2026-64422</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-64395">CVE-2026-64395</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-64420">CVE-2026-64420</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-64419">CVE-2026-64419</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-64418">CVE-2026-64418</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-64417">CVE-2026-64417</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-64415">CVE-2026-64415</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-64414">CVE-2026-64414</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-64412">CVE-2026-64412</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-64394">CVE-2026-64394</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-64411">CVE-2026-64411</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-64409">CVE-2026-64409</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-64408">CVE-2026-64408</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-64407">CVE-2026-64407</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-64406">CVE-2026-64406</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-64404">CVE-2026-64404</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-64403">CVE-2026-64403</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-64402">CVE-2026-64402</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-64393">CVE-2026-64393</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-64351">CVE-2026-64351</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-64360">CVE-2026-64360</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-64359">CVE-2026-64359</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-64358">CVE-2026-64358</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-64357">CVE-2026-64357</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-64391">CVE-2026-64391</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-64355">CVE-2026-64355</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-64387">CVE-2026-64387</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-64386">CVE-2026-64386</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-64385">CVE-2026-64385</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-64384">CVE-2026-64384</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-64383">CVE-2026-64383</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-64382">CVE-2026-64382</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-64381">CVE-2026-64381</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-64354">CVE-2026-64354</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-64380">CVE-2026-64380</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-64379">CVE-2026-64379</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-64378">CVE-2026-64378</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-64377">CVE-2026-64377</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-64376">CVE-2026-64376</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-64374">CVE-2026-64374</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-64373">CVE-2026-64373</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-64372">CVE-2026-64372</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-64370">CVE-2026-64370</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-64368">CVE-2026-64368</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-64367">CVE-2026-64367</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-64365">CVE-2026-64365</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-64362">CVE-2026-64362</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-64313">CVE-2026-64313</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-64322">CVE-2026-64322</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-64321">CVE-2026-64321</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-64320">CVE-2026-64320</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-64319">CVE-2026-64319</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-64318">CVE-2026-64318</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-64317">CVE-2026-64317</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-64350">CVE-2026-64350</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-64348">CVE-2026-64348</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-64347">CVE-2026-64347</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-64346">CVE-2026-64346</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-64345">CVE-2026-64345</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-64344">CVE-2026-64344</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-64343">CVE-2026-64343</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-64316">CVE-2026-64316</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-64342">CVE-2026-64342</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-64340">CVE-2026-64340</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-64338">CVE-2026-64338</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-64337">CVE-2026-64337</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-64336">CVE-2026-64336</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-64335">CVE-2026-64335</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-64334">CVE-2026-64334</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-64333">CVE-2026-64333</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-64315">CVE-2026-64315</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-64332">CVE-2026-64332</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-64331">CVE-2026-64331</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-64330">CVE-2026-64330</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-64329">CVE-2026-64329</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-64328">CVE-2026-64328</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-64327">CVE-2026-64327</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-64326">CVE-2026-64326</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-64324">CVE-2026-64324</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-64323">CVE-2026-64323</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-64289">CVE-2026-64289</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-64284">CVE-2026-64284</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-64312">CVE-2026-64312</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-64310">CVE-2026-64310</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-64309">CVE-2026-64309</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-64308">CVE-2026-64308</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-64306">CVE-2026-64306</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-64305">CVE-2026-64305</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-64304">CVE-2026-64304</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-64303">CVE-2026-64303</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-64301">CVE-2026-64301</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-64299">CVE-2026-64299</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-64298">CVE-2026-64298</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-64297">CVE-2026-64297</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-64296">CVE-2026-64296</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-64294">CVE-2026-64294</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-64256">CVE-2026-64256</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-64265">CVE-2026-64265</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-64279">CVE-2026-64279</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-64277">CVE-2026-64277</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-64276">CVE-2026-64276</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-64275">CVE-2026-64275</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-64274">CVE-2026-64274</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-64273">CVE-2026-64273</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-64272">CVE-2026-64272</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-64271">CVE-2026-64271</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-64270">CVE-2026-64270</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-64269">CVE-2026-64269</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-64268">CVE-2026-64268</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-64266">CVE-2026-64266</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-64241">CVE-2026-64241</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-64600">CVE-2026-64600</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-64187">CVE-2026-64187</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-64189">CVE-2026-64189</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-63818">CVE-2026-63818</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-63816">CVE-2026-63816</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-63815">CVE-2026-63815</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-53392">CVE-2026-53392</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-53402">CVE-2026-53402</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-53399">CVE-2026-53399</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-68092">CVE-2026-68092</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-68083">CVE-2026-68083</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-64594">CVE-2026-64594</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-64585">CVE-2026-64585</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-64582">CVE-2026-64582</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-64558">CVE-2026-64558</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-64559">CVE-2026-64559</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-64557">CVE-2026-64557</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-64546">CVE-2026-64546</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-64545">CVE-2026-64545</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-64544">CVE-2026-64544</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-64543">CVE-2026-64543</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-64542">CVE-2026-64542</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-64541">CVE-2026-64541</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-64540">CVE-2026-64540</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-64539">CVE-2026-64539</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-64555">CVE-2026-64555</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-64554">CVE-2026-64554</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-64553">CVE-2026-64553</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-64552">CVE-2026-64552</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-64551">CVE-2026-64551</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-64550">CVE-2026-64550</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-64549">CVE-2026-64549</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-64548">CVE-2026-64548</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-64547">CVE-2026-64547</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-64537">CVE-2026-64537</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-64538">CVE-2026-64538</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-64535">CVE-2026-64535</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-64534">CVE-2026-64534</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-64533">CVE-2026-64533</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-64531">CVE-2026-64531</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-64532">CVE-2026-64532</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-64530">CVE-2026-64530</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-64472">CVE-2026-64472</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-64481">CVE-2026-64481</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-64510">CVE-2026-64510</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-64509">CVE-2026-64509</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-64508">CVE-2026-64508</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-64507">CVE-2026-64507</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-64493">CVE-2026-64493</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-64488">CVE-2026-64488</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-64441">CVE-2026-64441</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-64438">CVE-2026-64438</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-64462">CVE-2026-64462</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-64461">CVE-2026-64461</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-64434">CVE-2026-64434</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-64401">CVE-2026-64401</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-64428">CVE-2026-64428</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-64421">CVE-2026-64421</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-64416">CVE-2026-64416</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-64413">CVE-2026-64413</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-64405">CVE-2026-64405</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-64390">CVE-2026-64390</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-64375">CVE-2026-64375</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-64371">CVE-2026-64371</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-64369">CVE-2026-64369</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-64364">CVE-2026-64364</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-64363">CVE-2026-64363</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-64361">CVE-2026-64361</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-64352">CVE-2026-64352</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-64341">CVE-2026-64341</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-64287">CVE-2026-64287</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-64286">CVE-2026-64286</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-64307">CVE-2026-64307</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-64227">CVE-2026-64227</a>)</li>
+<li>containerd (<a href="https://www.cve.org/CVERecord?id=CVE-2026-47262">CVE-2026-47262</a>, <a href="https://www.cve.org/CVERecord?id=CVE-2026-50195">CVE-2026-50195</a>, <a href="https://www.cve.org/CVERecord?id=CVE-2026-53488">CVE-2026-53488</a>, <a href="https://www.cve.org/CVERecord?id=CVE-2026-53489">CVE-2026-53489</a>, <a href="https://www.cve.org/CVERecord?id=CVE-2026-53492">CVE-2026-53492</a>)</li>
+<li>openssl (<a href="https://www.cve.org/CVERecord?id=CVE-2026-34180">CVE-2026-34180</a>, <a href="https://www.cve.org/CVERecord?id=CVE-2026-34181">CVE-2026-34181</a>, <a href="https://www.cve.org/CVERecord?id=CVE-2026-34182">CVE-2026-34182</a>, <a href="https://www.cve.org/CVERecord?id=CVE-2026-34183">CVE-2026-34183</a>, <a href="https://www.cve.org/CVERecord?id=CVE-2026-35188">CVE-2026-35188</a>, <a href="https://www.cve.org/CVERecord?id=CVE-2026-42764">CVE-2026-42764</a>, <a href="https://www.cve.org/CVERecord?id=CVE-2026-42765">CVE-2026-42765</a>, <a href="https://www.cve.org/CVERecord?id=CVE-2026-42766">CVE-2026-42766</a>, <a href="https://www.cve.org/CVERecord?id=CVE-2026-42767">CVE-2026-42767</a>, <a href="https://www.cve.org/CVERecord?id=CVE-2026-42768">CVE-2026-42768</a>, <a href="https://www.cve.org/CVERecord?id=CVE-2026-42769">CVE-2026-42769</a>, <a href="https://www.cve.org/CVERecord?id=CVE-2026-42770">CVE-2026-42770</a>, <a href="https://www.cve.org/CVERecord?id=CVE-2026-42771">CVE-2026-42771</a>, <a href="https://www.cve.org/CVERecord?id=CVE-2026-45445">CVE-2026-45445</a>, <a href="https://www.cve.org/CVERecord?id=CVE-2026-45446">CVE-2026-45446</a>, <a href="https://www.cve.org/CVERecord?id=CVE-2026-45447">CVE-2026-45447</a>, <a href="https://www.cve.org/CVERecord?id=CVE-2026-7383">CVE-2026-7383</a>, <a href="https://www.cve.org/CVERecord?id=CVE-2026-9076">CVE-2026-9076</a>)</li>
+<li>runc (<a href="https://www.cve.org/CVERecord?id=CVE-2026-41579">CVE-2026-41579</a>)</li>
+</ul>
+<h4>Updates:</h4>
+<ul>
+<li>Linux (<a href="https://git.kernel.org/pub/scm/linux/kernel/git/stable/linux.git/tag/?h=v6.12.102">6.12.102</a> (includes <a href="https://git.kernel.org/pub/scm/linux/kernel/git/stable/linux.git/tag/?h=v6.12.101">6.12.101</a>, <a href="https://git.kernel.org/pub/scm/linux/kernel/git/stable/linux.git/tag/?h=v6.12.100">6.12.100</a>, <a href="https://git.kernel.org/pub/scm/linux/kernel/git/stable/linux.git/tag/?h=v6.12.99">6.12.99</a>, <a href="https://git.kernel.org/pub/scm/linux/kernel/git/stable/linux.git/tag/?h=v6.12.98">6.12.98</a>, <a href="https://git.kernel.org/pub/scm/linux/kernel/git/stable/linux.git/tag/?h=v6.12.97">6.12.97</a>, <a href="https://git.kernel.org/pub/scm/linux/kernel/git/stable/linux.git/tag/?h=v6.12.96">6.12.96</a>))</li>
+<li>Linux Firmware (<a href="https://git.kernel.org/pub/scm/linux/kernel/git/firmware/linux-firmware.git/tag/?h=20260519">20260519</a>)</li>
+<li>SDK: edk2-bin (<a href="https://github.com/tianocore/edk2/releases/tag/edk2-stable202605">202605</a> (includes <a href="https://github.com/tianocore/edk2/releases/tag/edk2-stable202602">202602</a>, <a href="https://github.com/tianocore/edk2/releases/tag/edk2-stable202511">202511</a>, <a href="https://github.com/tianocore/edk2/releases/tag/edk2-stable202508">202508</a>, <a href="https://github.com/tianocore/edk2/releases/tag/edk2-stable202505">202505</a>, <a href="https://github.com/tianocore/edk2/releases/tag/edk2-stable202502">202502</a>, <a href="https://github.com/tianocore/edk2/releases/tag/edk2-stable202411">202411</a>))</li>
+<li>base, dev: openssl (<a href="https://openssl-library.org/news/openssl-3.5-notes/">3.5.7</a>)</li>
+<li>ca-certificates (<a href="https://firefox-source-docs.mozilla.org/security/nss/releases/nss_3_126.html">3.126</a>)</li>
+<li>dev: portage (<a href="https://codeberg.org/gentoo/portage/raw/tag/portage-3.0.81/NEWS">3.0.81</a> (includes <a href="https://codeberg.org/gentoo/portage/raw/tag/portage-3.0.80/NEWS">3.0.80</a>, <a href="https://codeberg.org/gentoo/portage/raw/tag/portage-3.0.79/NEWS">3.0.79</a>, <a href="https://codeberg.org/gentoo/portage/raw/tag/portage-3.0.78/NEWS">3.0.78</a>))</li>
+<li>grub (2.12-flatcar4, rebased against Fedora 45)</li>
+<li>shim (<a href="https://github.com/rhboot/shim/releases/tag/16.1">16.1</a> (includes <a href="https://github.com/rhboot/shim/releases/tag/16.0">16.0</a>))</li>
+<li>sysext-containerd: containerd (<a href="https://github.com/containerd/containerd/releases/tag/v2.2.5">2.2.5</a> (includes <a href="https://github.com/containerd/containerd/releases/tag/v2.2.4">2.2.4</a>, <a href="https://github.com/containerd/containerd/releases/tag/v2.2.3">2.2.3</a>))</li>
+<li>sysext-containerd: runc (<a href="https://github.com/opencontainers/runc/releases/tag/v1.4.3">1.4.3</a> (includes <a href="https://github.com/opencontainers/runc/releases/tag/v1.4.2">1.4.2</a>, <a href="https://github.com/opencontainers/runc/releases/tag/v1.4.1">1.4.1</a>))</li>
+</ul>
+<p><em>Changes since <strong>Alpha 4757.0.0</strong></em></p>
+<h4>Security fixes:</h4>
+<ul>
+<li>Linux (<a href="https://nvd.nist.gov/vuln/detail/CVE-2026-68480">CVE-2026-68480</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-68450">CVE-2026-68450</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-68449">CVE-2026-68449</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-68437">CVE-2026-68437</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-68434">CVE-2026-68434</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-68433">CVE-2026-68433</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-68432">CVE-2026-68432</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-68446">CVE-2026-68446</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-68445">CVE-2026-68445</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-68444">CVE-2026-68444</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-68443">CVE-2026-68443</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-68442">CVE-2026-68442</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-68439">CVE-2026-68439</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-68429">CVE-2026-68429</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-68430">CVE-2026-68430</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-68394">CVE-2026-68394</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-68403">CVE-2026-68403</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-68402">CVE-2026-68402</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-68398">CVE-2026-68398</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-68428">CVE-2026-68428</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-68427">CVE-2026-68427</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-68425">CVE-2026-68425</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-68397">CVE-2026-68397</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-68422">CVE-2026-68422</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-68419">CVE-2026-68419</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-68417">CVE-2026-68417</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-68416">CVE-2026-68416</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-68414">CVE-2026-68414</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-68396">CVE-2026-68396</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-68413">CVE-2026-68413</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-68411">CVE-2026-68411</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-68410">CVE-2026-68410</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-68408">CVE-2026-68408</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-68407">CVE-2026-68407</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-68406">CVE-2026-68406</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-68405">CVE-2026-68405</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-68395">CVE-2026-68395</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-68354">CVE-2026-68354</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-68363">CVE-2026-68363</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-68362">CVE-2026-68362</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-68361">CVE-2026-68361</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-68360">CVE-2026-68360</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-68359">CVE-2026-68359</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-68358">CVE-2026-68358</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-68392">CVE-2026-68392</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-68391">CVE-2026-68391</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-68389">CVE-2026-68389</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-68388">CVE-2026-68388</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-68386">CVE-2026-68386</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-68385">CVE-2026-68385</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-68357">CVE-2026-68357</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-68381">CVE-2026-68381</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-68377">CVE-2026-68377</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-68376">CVE-2026-68376</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-68374">CVE-2026-68374</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-68373">CVE-2026-68373</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-68372">CVE-2026-68372</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-68371">CVE-2026-68371</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-68370">CVE-2026-68370</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-68369">CVE-2026-68369</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-68368">CVE-2026-68368</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-68366">CVE-2026-68366</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-68365">CVE-2026-68365</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-68355">CVE-2026-68355</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-68313">CVE-2026-68313</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-68321">CVE-2026-68321</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-68320">CVE-2026-68320</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-68319">CVE-2026-68319</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-68318">CVE-2026-68318</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-68353">CVE-2026-68353</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-68317">CVE-2026-68317</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-68352">CVE-2026-68352</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-68351">CVE-2026-68351</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-68350">CVE-2026-68350</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-68349">CVE-2026-68349</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-68348">CVE-2026-68348</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-68346">CVE-2026-68346</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-68344">CVE-2026-68344</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-68343">CVE-2026-68343</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-68340">CVE-2026-68340</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-68339">CVE-2026-68339</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-68338">CVE-2026-68338</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-68336">CVE-2026-68336</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-68335">CVE-2026-68335</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-68333">CVE-2026-68333</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-68315">CVE-2026-68315</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-68331">CVE-2026-68331</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-68329">CVE-2026-68329</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-68328">CVE-2026-68328</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-68327">CVE-2026-68327</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-68326">CVE-2026-68326</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-68325">CVE-2026-68325</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-68324">CVE-2026-68324</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-68314">CVE-2026-68314</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-68272">CVE-2026-68272</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-68281">CVE-2026-68281</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-68280">CVE-2026-68280</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-68279">CVE-2026-68279</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-68278">CVE-2026-68278</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-68277">CVE-2026-68277</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-68311">CVE-2026-68311</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-68310">CVE-2026-68310</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-68309">CVE-2026-68309</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-68308">CVE-2026-68308</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-68307">CVE-2026-68307</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-68306">CVE-2026-68306</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-68304">CVE-2026-68304</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-68302">CVE-2026-68302</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-68301">CVE-2026-68301</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-68300">CVE-2026-68300</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-68299">CVE-2026-68299</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-68297">CVE-2026-68297</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-68296">CVE-2026-68296</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-68294">CVE-2026-68294</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-68293">CVE-2026-68293</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-68290">CVE-2026-68290</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-68284">CVE-2026-68284</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-68227">CVE-2026-68227</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-68236">CVE-2026-68236</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-68235">CVE-2026-68235</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-68234">CVE-2026-68234</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-68271">CVE-2026-68271</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-68269">CVE-2026-68269</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-68231">CVE-2026-68231</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-68263">CVE-2026-68263</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-68262">CVE-2026-68262</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-68261">CVE-2026-68261</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-68260">CVE-2026-68260</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-68259">CVE-2026-68259</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-68257">CVE-2026-68257</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-68256">CVE-2026-68256</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-68255">CVE-2026-68255</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-68252">CVE-2026-68252</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-68251">CVE-2026-68251</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-68250">CVE-2026-68250</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-68249">CVE-2026-68249</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-68248">CVE-2026-68248</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-68247">CVE-2026-68247</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-68229">CVE-2026-68229</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-68246">CVE-2026-68246</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-68245">CVE-2026-68245</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-68244">CVE-2026-68244</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-68243">CVE-2026-68243</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-68228">CVE-2026-68228</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-68185">CVE-2026-68185</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-68194">CVE-2026-68194</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-68193">CVE-2026-68193</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-68192">CVE-2026-68192</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-68190">CVE-2026-68190</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-68226">CVE-2026-68226</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-68225">CVE-2026-68225</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-68189">CVE-2026-68189</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-68223">CVE-2026-68223</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-68222">CVE-2026-68222</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-68221">CVE-2026-68221</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-68220">CVE-2026-68220</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-68219">CVE-2026-68219</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-68218">CVE-2026-68218</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-68217">CVE-2026-68217</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-68216">CVE-2026-68216</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-68215">CVE-2026-68215</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-68188">CVE-2026-68188</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-68214">CVE-2026-68214</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-68213">CVE-2026-68213</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-68212">CVE-2026-68212</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-68210">CVE-2026-68210</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-68209">CVE-2026-68209</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-68207">CVE-2026-68207</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-68206">CVE-2026-68206</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-68205">CVE-2026-68205</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-68187">CVE-2026-68187</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-68204">CVE-2026-68204</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-68203">CVE-2026-68203</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-68202">CVE-2026-68202</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-68201">CVE-2026-68201</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-68200">CVE-2026-68200</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-68199">CVE-2026-68199</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-68197">CVE-2026-68197</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-68196">CVE-2026-68196</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-68195">CVE-2026-68195</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-68186">CVE-2026-68186</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-68143">CVE-2026-68143</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-68152">CVE-2026-68152</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-68151">CVE-2026-68151</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-68149">CVE-2026-68149</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-68148">CVE-2026-68148</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-68184">CVE-2026-68184</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-68183">CVE-2026-68183</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-68147">CVE-2026-68147</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-68182">CVE-2026-68182</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-68181">CVE-2026-68181</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-68180">CVE-2026-68180</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-68179">CVE-2026-68179</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-68178">CVE-2026-68178</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-68176">CVE-2026-68176</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-68175">CVE-2026-68175</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-68146">CVE-2026-68146</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-68171">CVE-2026-68171</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-68165">CVE-2026-68165</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-68164">CVE-2026-68164</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-68145">CVE-2026-68145</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-68091">CVE-2026-68091</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-68090">CVE-2026-68090</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-68088">CVE-2026-68088</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-68084">CVE-2026-68084</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-68085">CVE-2026-68085</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-64597">CVE-2026-64597</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-64593">CVE-2026-64593</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-64592">CVE-2026-64592</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-64604">CVE-2026-64604</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-64603">CVE-2026-64603</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-64602">CVE-2026-64602</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-64599">CVE-2026-64599</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-64598">CVE-2026-64598</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-64590">CVE-2026-64590</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-64589">CVE-2026-64589</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-64556">CVE-2026-64556</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-64536">CVE-2026-64536</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-64514">CVE-2026-64514</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-64480">CVE-2026-64480</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-64479">CVE-2026-64479</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-64478">CVE-2026-64478</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-64477">CVE-2026-64477</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-64512">CVE-2026-64512</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-64476">CVE-2026-64476</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-64511">CVE-2026-64511</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-64505">CVE-2026-64505</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-64504">CVE-2026-64504</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-64503">CVE-2026-64503</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-64475">CVE-2026-64475</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-64500">CVE-2026-64500</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-64499">CVE-2026-64499</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-64497">CVE-2026-64497</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-64496">CVE-2026-64496</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-64495">CVE-2026-64495</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-64494">CVE-2026-64494</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-64474">CVE-2026-64474</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-64490">CVE-2026-64490</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-64489">CVE-2026-64489</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-64487">CVE-2026-64487</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-64486">CVE-2026-64486</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-64484">CVE-2026-64484</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-64483">CVE-2026-64483</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-64482">CVE-2026-64482</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-64473">CVE-2026-64473</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-64432">CVE-2026-64432</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-64440">CVE-2026-64440</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-64437">CVE-2026-64437</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-64436">CVE-2026-64436</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-64471">CVE-2026-64471</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-64470">CVE-2026-64470</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-64469">CVE-2026-64469</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-64468">CVE-2026-64468</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-64465">CVE-2026-64465</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-64463">CVE-2026-64463</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-64435">CVE-2026-64435</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-64458">CVE-2026-64458</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-64457">CVE-2026-64457</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-64456">CVE-2026-64456</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-64455">CVE-2026-64455</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-64454">CVE-2026-64454</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-64452">CVE-2026-64452</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-64450">CVE-2026-64450</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-64449">CVE-2026-64449</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-64448">CVE-2026-64448</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-64446">CVE-2026-64446</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-64445">CVE-2026-64445</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-64444">CVE-2026-64444</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-64443">CVE-2026-64443</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-64442">CVE-2026-64442</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-64433">CVE-2026-64433</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-64392">CVE-2026-64392</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-64399">CVE-2026-64399</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-64398">CVE-2026-64398</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-64397">CVE-2026-64397</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-64396">CVE-2026-64396</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-64430">CVE-2026-64430</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-64429">CVE-2026-64429</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-64425">CVE-2026-64425</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-64424">CVE-2026-64424</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-64423">CVE-2026-64423</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-64422">CVE-2026-64422</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-64395">CVE-2026-64395</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-64420">CVE-2026-64420</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-64419">CVE-2026-64419</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-64418">CVE-2026-64418</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-64417">CVE-2026-64417</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-64415">CVE-2026-64415</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-64414">CVE-2026-64414</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-64412">CVE-2026-64412</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-64394">CVE-2026-64394</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-64411">CVE-2026-64411</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-64409">CVE-2026-64409</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-64408">CVE-2026-64408</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-64407">CVE-2026-64407</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-64406">CVE-2026-64406</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-64404">CVE-2026-64404</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-64403">CVE-2026-64403</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-64402">CVE-2026-64402</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-64393">CVE-2026-64393</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-64351">CVE-2026-64351</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-64360">CVE-2026-64360</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-64359">CVE-2026-64359</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-64358">CVE-2026-64358</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-64357">CVE-2026-64357</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-64391">CVE-2026-64391</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-64355">CVE-2026-64355</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-64387">CVE-2026-64387</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-64386">CVE-2026-64386</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-64385">CVE-2026-64385</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-64384">CVE-2026-64384</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-64383">CVE-2026-64383</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-64382">CVE-2026-64382</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-64381">CVE-2026-64381</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-64354">CVE-2026-64354</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-64380">CVE-2026-64380</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-64379">CVE-2026-64379</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-64378">CVE-2026-64378</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-64377">CVE-2026-64377</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-64376">CVE-2026-64376</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-64374">CVE-2026-64374</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-64373">CVE-2026-64373</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-64372">CVE-2026-64372</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-64370">CVE-2026-64370</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-64368">CVE-2026-64368</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-64367">CVE-2026-64367</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-64365">CVE-2026-64365</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-64362">CVE-2026-64362</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-64313">CVE-2026-64313</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-64322">CVE-2026-64322</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-64321">CVE-2026-64321</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-64320">CVE-2026-64320</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-64319">CVE-2026-64319</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-64318">CVE-2026-64318</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-64317">CVE-2026-64317</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-64350">CVE-2026-64350</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-64348">CVE-2026-64348</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-64347">CVE-2026-64347</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-64346">CVE-2026-64346</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-64345">CVE-2026-64345</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-64344">CVE-2026-64344</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-64343">CVE-2026-64343</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-64316">CVE-2026-64316</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-64342">CVE-2026-64342</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-64340">CVE-2026-64340</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-64338">CVE-2026-64338</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-64337">CVE-2026-64337</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-64336">CVE-2026-64336</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-64335">CVE-2026-64335</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-64334">CVE-2026-64334</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-64333">CVE-2026-64333</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-64315">CVE-2026-64315</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-64332">CVE-2026-64332</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-64331">CVE-2026-64331</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-64330">CVE-2026-64330</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-64329">CVE-2026-64329</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-64328">CVE-2026-64328</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-64327">CVE-2026-64327</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-64326">CVE-2026-64326</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-64324">CVE-2026-64324</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-64323">CVE-2026-64323</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-64289">CVE-2026-64289</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-64284">CVE-2026-64284</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-64312">CVE-2026-64312</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-64310">CVE-2026-64310</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-64309">CVE-2026-64309</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-64308">CVE-2026-64308</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-64306">CVE-2026-64306</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-64305">CVE-2026-64305</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-64304">CVE-2026-64304</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-64303">CVE-2026-64303</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-64301">CVE-2026-64301</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-64299">CVE-2026-64299</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-64298">CVE-2026-64298</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-64297">CVE-2026-64297</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-64296">CVE-2026-64296</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-64294">CVE-2026-64294</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-64256">CVE-2026-64256</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-64265">CVE-2026-64265</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-64279">CVE-2026-64279</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-64277">CVE-2026-64277</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-64276">CVE-2026-64276</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-64275">CVE-2026-64275</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-64274">CVE-2026-64274</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-64273">CVE-2026-64273</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-64272">CVE-2026-64272</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-64271">CVE-2026-64271</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-64270">CVE-2026-64270</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-64269">CVE-2026-64269</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-64268">CVE-2026-64268</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-64266">CVE-2026-64266</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-64241">CVE-2026-64241</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-64600">CVE-2026-64600</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-64187">CVE-2026-64187</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-64189">CVE-2026-64189</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-63818">CVE-2026-63818</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-63816">CVE-2026-63816</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-63815">CVE-2026-63815</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-53392">CVE-2026-53392</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-53402">CVE-2026-53402</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-53399">CVE-2026-53399</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-68092">CVE-2026-68092</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-68083">CVE-2026-68083</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-64594">CVE-2026-64594</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-64585">CVE-2026-64585</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-64582">CVE-2026-64582</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-64558">CVE-2026-64558</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-64559">CVE-2026-64559</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-64557">CVE-2026-64557</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-64546">CVE-2026-64546</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-64545">CVE-2026-64545</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-64544">CVE-2026-64544</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-64543">CVE-2026-64543</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-64542">CVE-2026-64542</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-64541">CVE-2026-64541</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-64540">CVE-2026-64540</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-64539">CVE-2026-64539</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-64555">CVE-2026-64555</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-64554">CVE-2026-64554</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-64553">CVE-2026-64553</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-64552">CVE-2026-64552</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-64551">CVE-2026-64551</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-64550">CVE-2026-64550</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-64549">CVE-2026-64549</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-64548">CVE-2026-64548</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-64547">CVE-2026-64547</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-64537">CVE-2026-64537</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-64538">CVE-2026-64538</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-64535">CVE-2026-64535</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-64534">CVE-2026-64534</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-64533">CVE-2026-64533</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-64531">CVE-2026-64531</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-64532">CVE-2026-64532</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-64530">CVE-2026-64530</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-64472">CVE-2026-64472</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-64481">CVE-2026-64481</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-64510">CVE-2026-64510</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-64509">CVE-2026-64509</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-64508">CVE-2026-64508</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-64507">CVE-2026-64507</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-64493">CVE-2026-64493</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-64488">CVE-2026-64488</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-64441">CVE-2026-64441</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-64438">CVE-2026-64438</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-64462">CVE-2026-64462</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-64461">CVE-2026-64461</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-64434">CVE-2026-64434</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-64401">CVE-2026-64401</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-64428">CVE-2026-64428</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-64421">CVE-2026-64421</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-64416">CVE-2026-64416</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-64413">CVE-2026-64413</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-64405">CVE-2026-64405</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-64390">CVE-2026-64390</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-64375">CVE-2026-64375</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-64371">CVE-2026-64371</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-64369">CVE-2026-64369</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-64364">CVE-2026-64364</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-64363">CVE-2026-64363</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-64361">CVE-2026-64361</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-64352">CVE-2026-64352</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-64341">CVE-2026-64341</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-64287">CVE-2026-64287</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-64286">CVE-2026-64286</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-64307">CVE-2026-64307</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-64227">CVE-2026-64227</a>)</li>
+</ul>
+<h4>Updates:</h4>
+<ul>
+<li>Linux (<a href="https://git.kernel.org/pub/scm/linux/kernel/git/stable/linux.git/tag/?h=v6.12.102">6.12.102</a> (includes <a href="https://git.kernel.org/pub/scm/linux/kernel/git/stable/linux.git/tag/?h=v6.12.101">6.12.101</a>, <a href="https://git.kernel.org/pub/scm/linux/kernel/git/stable/linux.git/tag/?h=v6.12.100">6.12.100</a>, <a href="https://git.kernel.org/pub/scm/linux/kernel/git/stable/linux.git/tag/?h=v6.12.99">6.12.99</a>, <a href="https://git.kernel.org/pub/scm/linux/kernel/git/stable/linux.git/tag/?h=v6.12.98">6.12.98</a>, <a href="https://git.kernel.org/pub/scm/linux/kernel/git/stable/linux.git/tag/?h=v6.12.97">6.12.97</a>, <a href="https://git.kernel.org/pub/scm/linux/kernel/git/stable/linux.git/tag/?h=v6.12.96">6.12.96</a>))</li>
+<li>ca-certificates (<a href="https://firefox-source-docs.mozilla.org/security/nss/releases/nss_3_126.html">3.126</a>)</li>
+</ul>
+<h4>Packages:</h4>
+<ul>
+<li>containerd 2.2.5</li>
+<li>docker 28.2.2</li>
+<li>ignition 2.24.0</li>
+<li>kernel 6.12.102</li>
+<li>systemd 260</li>
+</ul>
+<h4>Architectures:</h4>
+<ul>
+<li>amd64</li>
+<li>arm64</li>
+</ul>
+]]></content>
+    <link href="https://www.flatcar.org/releases/#release-4757.1.0"/>
+    <published>2026-08-13T15:46:44+00:00</published>
+  </entry>
+  <entry>
     <id>https://github.com/flatcar/scripts/releases/tag/beta-4722.1.0</id>
     <title>4722.1.0</title>
-    <updated>2026-07-13T17:24:13.596589+00:00</updated>
+    <updated>2026-08-13T16:00:46.639416+00:00</updated>
     <content type="html"><![CDATA[<p><em>Changes since <strong>Beta 4694.1.0</strong></em></p>
 <h4>Security fixes:</h4>
 <ul>
@@ -196,7 +248,7 @@
   <entry>
     <id>https://github.com/flatcar/scripts/releases/tag/beta-4694.1.0</id>
     <title>4694.1.0</title>
-    <updated>2026-07-13T17:24:13.561707+00:00</updated>
+    <updated>2026-08-13T16:00:46.603296+00:00</updated>
     <content type="html"><![CDATA[<p><em>Changes since <strong>Beta 4628.1.2</strong></em></p>
 <h4>Security fixes:</h4>
 <ul>
@@ -332,7 +384,7 @@
   <entry>
     <id>https://github.com/flatcar/scripts/releases/tag/beta-4628.1.2</id>
     <title>4628.1.2</title>
-    <updated>2026-07-13T17:24:13.548186+00:00</updated>
+    <updated>2026-08-13T16:00:46.589381+00:00</updated>
     <content type="html"><![CDATA[<p><em>Changes since <strong>Beta 4628.1.1</strong></em></p>
 <h4>Security fixes:</h4>
 <ul>
@@ -363,7 +415,7 @@
   <entry>
     <id>https://github.com/flatcar/scripts/releases/tag/beta-4628.1.1</id>
     <title>4628.1.1</title>
-    <updated>2026-07-13T17:24:13.532742+00:00</updated>
+    <updated>2026-08-13T16:00:46.573277+00:00</updated>
     <content type="html"><![CDATA[<p><em>Changes since <strong>Beta 4628.1.0</strong></em></p>
 <h4>Security fixes:</h4>
 <ul>
@@ -394,7 +446,7 @@
   <entry>
     <id>https://github.com/flatcar/scripts/releases/tag/beta-4628.1.0</id>
     <title>4628.1.0</title>
-    <updated>2026-07-13T17:24:13.488962+00:00</updated>
+    <updated>2026-08-13T16:00:46.527434+00:00</updated>
     <content type="html"><![CDATA[<p><em>Changes since <strong>Beta 4593.1.0</strong></em></p>
 <h4>Security fixes:</h4>
 <ul>
@@ -518,7 +570,7 @@
   <entry>
     <id>https://github.com/flatcar/scripts/releases/tag/beta-4593.1.0</id>
     <title>4593.1.0</title>
-    <updated>2026-07-13T17:24:13.454090+00:00</updated>
+    <updated>2026-08-13T16:00:46.491410+00:00</updated>
     <content type="html"><![CDATA[<p><em>Changes since <strong>Beta 4547.1.0</strong></em></p>
 <h4>Security fixes:</h4>
 <ul>
@@ -565,7 +617,7 @@
   <entry>
     <id>https://github.com/flatcar/scripts/releases/tag/beta-4547.1.0</id>
     <title>4547.1.0</title>
-    <updated>2026-07-13T17:24:13.423297+00:00</updated>
+    <updated>2026-08-13T16:00:46.459425+00:00</updated>
     <content type="html"><![CDATA[<p><em>Changes since <strong>Beta 4515.1.0</strong></em></p>
 <h4>Security fixes:</h4>
 <ul>
@@ -644,7 +696,7 @@
   <entry>
     <id>https://github.com/flatcar/scripts/releases/tag/beta-4515.1.0</id>
     <title>4515.1.0</title>
-    <updated>2026-07-13T17:24:13.388456+00:00</updated>
+    <updated>2026-08-13T16:00:46.423427+00:00</updated>
     <content type="html"><![CDATA[<p><em>Changes since <strong>Alpha 4515.0.1</strong></em></p>
 <h4>Security fixes:</h4>
 <ul>
@@ -771,7 +823,7 @@
   <entry>
     <id>https://github.com/flatcar/scripts/releases/tag/beta-4459.1.2</id>
     <title>4459.1.2</title>
-    <updated>2026-07-13T17:24:13.372226+00:00</updated>
+    <updated>2026-08-13T16:00:46.406774+00:00</updated>
     <content type="html"><![CDATA[<p><em>Changes since <strong>Beta 4459.1.1</strong></em></p>
 <h4>Security fixes:</h4>
 <ul>
@@ -809,7 +861,7 @@
   <entry>
     <id>https://github.com/flatcar/scripts/releases/tag/beta-4459.1.1</id>
     <title>4459.1.1</title>
-    <updated>2026-07-13T17:24:13.362658+00:00</updated>
+    <updated>2026-08-13T16:00:46.396904+00:00</updated>
     <content type="html"><![CDATA[<p><em>Changes since <strong>Beta 4459.1.0</strong></em></p>
 <h4>Security fixes:</h4>
 <ul>
@@ -854,7 +906,7 @@
   <entry>
     <id>https://github.com/flatcar/scripts/releases/tag/beta-4459.1.0</id>
     <title>4459.1.0</title>
-    <updated>2026-07-13T17:24:13.327763+00:00</updated>
+    <updated>2026-08-13T16:00:46.360130+00:00</updated>
     <content type="html"><![CDATA[<p><em>Changes since <strong>Beta 4426.1.0</strong></em></p>
 <h4>Security fixes:</h4>
 <ul>
@@ -971,7 +1023,7 @@
   <entry>
     <id>https://github.com/flatcar/scripts/releases/tag/beta-4426.1.0</id>
     <title>4426.1.0</title>
-    <updated>2026-07-13T17:24:13.264195+00:00</updated>
+    <updated>2026-08-13T16:00:46.293963+00:00</updated>
     <content type="html"><![CDATA[<p><em>Changes since <strong>Beta 4372.1.0</strong></em></p>
 <h4>Security fixes:</h4>
 <ul>
@@ -1158,7 +1210,7 @@ The extension includes both <a href="https://github.com/containerd/overlaybd/">o
   <entry>
     <id>https://github.com/flatcar/scripts/releases/tag/beta-4372.1.0</id>
     <title>4372.1.0</title>
-    <updated>2026-07-13T17:24:13.207731+00:00</updated>
+    <updated>2026-08-13T16:00:46.236002+00:00</updated>
     <content type="html"><![CDATA[<p><em>Changes since <strong>Beta 4344.1.1</strong></em></p>
 <h4>Security fixes:</h4>
 <ul>
@@ -1200,7 +1252,7 @@ The extension includes both <a href="https://github.com/containerd/overlaybd/">o
   <entry>
     <id>https://github.com/flatcar/scripts/releases/tag/beta-4344.1.1</id>
     <title>4344.1.1</title>
-    <updated>2026-07-13T17:24:13.189036+00:00</updated>
+    <updated>2026-08-13T16:00:46.217063+00:00</updated>
     <content type="html"><![CDATA[<p><em>Changes since <strong>Beta 4344.1.0</strong></em></p>
 <h4>Security fixes:</h4>
 <ul>
@@ -1238,7 +1290,7 @@ The extension includes both <a href="https://github.com/containerd/overlaybd/">o
   <entry>
     <id>https://github.com/flatcar/scripts/releases/tag/beta-4344.1.0</id>
     <title>4344.1.0</title>
-    <updated>2026-07-13T17:24:13.142527+00:00</updated>
+    <updated>2026-08-13T16:00:46.168663+00:00</updated>
     <content type="html"><![CDATA[<p><em>Changes since <strong>Beta 4230.1.1</strong></em></p>
 <h4>Security fixes:</h4>
 <ul>
@@ -1485,7 +1537,7 @@ The extension includes both <a href="https://github.com/containerd/overlaybd/">o
   <entry>
     <id>https://github.com/flatcar/scripts/releases/tag/beta-4230.1.1</id>
     <title>4230.1.1</title>
-    <updated>2026-07-13T17:24:13.111882+00:00</updated>
+    <updated>2026-08-13T16:00:46.137842+00:00</updated>
     <content type="html"><![CDATA[<p><em>Changes since <strong>Beta 4230.1.0</strong></em></p>
 <h4>Security fixes:</h4>
 <ul>
@@ -1520,7 +1572,7 @@ The extension includes both <a href="https://github.com/containerd/overlaybd/">o
   <entry>
     <id>https://github.com/flatcar/scripts/releases/tag/beta-4230.1.0</id>
     <title>4230.1.0</title>
-    <updated>2026-07-13T17:24:13.088019+00:00</updated>
+    <updated>2026-08-13T16:00:46.112677+00:00</updated>
     <content type="html"><![CDATA[<p><em>Changes since <strong>Beta 4186.1.1</strong></em></p>
 <h4>Security fixes:</h4>
 <ul>
@@ -1636,7 +1688,7 @@ The extension includes both <a href="https://github.com/containerd/overlaybd/">o
   <entry>
     <id>https://github.com/flatcar/scripts/releases/tag/beta-4186.1.1</id>
     <title>4186.1.1</title>
-    <updated>2026-07-13T17:24:13.076141+00:00</updated>
+    <updated>2026-08-13T16:00:46.100725+00:00</updated>
     <content type="html"><![CDATA[<p><em>Changes since <strong>Beta 4186.1.0</strong></em></p>
 <h4>Security fixes:</h4>
 <ul>
@@ -1666,7 +1718,7 @@ The extension includes both <a href="https://github.com/containerd/overlaybd/">o
   <entry>
     <id>https://github.com/flatcar/scripts/releases/tag/beta-4186.1.0</id>
     <title>4186.1.0</title>
-    <updated>2026-07-13T17:24:13.037745+00:00</updated>
+    <updated>2026-08-13T16:00:46.060489+00:00</updated>
     <content type="html"><![CDATA[<p><em>Changes since <strong>Beta 4152.1.0</strong></em></p>
 <h4>Security fixes:</h4>
 <ul>
@@ -1766,7 +1818,7 @@ The extension includes both <a href="https://github.com/containerd/overlaybd/">o
   <entry>
     <id>https://github.com/flatcar/scripts/releases/tag/beta-4152.1.0</id>
     <title>4152.1.0</title>
-    <updated>2026-07-13T17:24:12.996986+00:00</updated>
+    <updated>2026-08-13T16:00:46.017948+00:00</updated>
     <content type="html"><![CDATA[<p><em>Changes since <strong>Beta 4116.1.0</strong></em></p>
 <h4>Security fixes:</h4>
 <ul>
@@ -1910,7 +1962,7 @@ The extension includes both <a href="https://github.com/containerd/overlaybd/">o
   <entry>
     <id>https://github.com/flatcar/scripts/releases/tag/beta-4116.1.0</id>
     <title>4116.1.0</title>
-    <updated>2026-07-13T17:24:12.941816+00:00</updated>
+    <updated>2026-08-13T16:00:45.960466+00:00</updated>
     <content type="html"><![CDATA[<p><em>Changes since <strong>Beta 4081.1.0</strong></em></p>
 <h4>Security fixes:</h4>
 <ul>
@@ -1999,7 +2051,7 @@ The extension includes both <a href="https://github.com/containerd/overlaybd/">o
   <entry>
     <id>https://github.com/flatcar/scripts/releases/tag/beta-4081.1.0</id>
     <title>4081.1.0</title>
-    <updated>2026-07-13T17:24:12.900041+00:00</updated>
+    <updated>2026-08-13T16:00:45.916862+00:00</updated>
     <content type="html"><![CDATA[<p><em>Changes since <strong>Beta 4054.1.0</strong></em></p>
 <h4>Security fixes:</h4>
 <ul>
@@ -2097,7 +2149,7 @@ The extension includes both <a href="https://github.com/containerd/overlaybd/">o
   <entry>
     <id>https://github.com/flatcar/scripts/releases/tag/beta-4054.1.0</id>
     <title>4054.1.0</title>
-    <updated>2026-07-13T17:24:12.855686+00:00</updated>
+    <updated>2026-08-13T16:00:45.871136+00:00</updated>
     <content type="html"><![CDATA[<p><em>Changes since <strong>Beta 4012.1.0</strong></em></p>
 <h4>Security fixes:</h4>
 <ul>
@@ -2243,7 +2295,7 @@ The extension includes both <a href="https://github.com/containerd/overlaybd/">o
   <entry>
     <id>https://github.com/flatcar/scripts/releases/tag/beta-4012.1.0</id>
     <title>4012.1.0</title>
-    <updated>2026-07-13T17:24:12.792709+00:00</updated>
+    <updated>2026-08-13T16:00:45.805963+00:00</updated>
     <content type="html"><![CDATA[<p><em>Changes since <strong>Beta 3975.1.1</strong></em></p>
 <h5>Security fixes:</h5>
 <ul>
@@ -2309,7 +2361,7 @@ The extension includes both <a href="https://github.com/containerd/overlaybd/">o
   <entry>
     <id>https://github.com/flatcar/scripts/releases/tag/beta-3975.1.1</id>
     <title>3975.1.1</title>
-    <updated>2026-07-13T17:24:12.772144+00:00</updated>
+    <updated>2026-08-13T16:00:45.785375+00:00</updated>
     <content type="html"><![CDATA[<p><em>Changes since <strong>Beta 3975.1.0</strong></em></p>
 <h4>Security fixes:</h4>
 <ul>
@@ -2340,7 +2392,7 @@ The extension includes both <a href="https://github.com/containerd/overlaybd/">o
   <entry>
     <id>https://github.com/flatcar/scripts/releases/tag/beta-3975.1.0</id>
     <title>3975.1.0</title>
-    <updated>2026-07-13T17:24:12.764376+00:00</updated>
+    <updated>2026-08-13T16:00:45.777252+00:00</updated>
     <content type="html"><![CDATA[<p><em>Changes since <strong>Beta 3941.1.0</strong></em></p>
 <h4>Security fixes:</h4>
 <ul>
@@ -2410,7 +2462,7 @@ The extension includes both <a href="https://github.com/containerd/overlaybd/">o
   <entry>
     <id>https://github.com/flatcar/scripts/releases/tag/beta-3941.1.0</id>
     <title>3941.1.0</title>
-    <updated>2026-07-13T17:24:12.749942+00:00</updated>
+    <updated>2026-08-13T16:00:45.762051+00:00</updated>
     <content type="html"><![CDATA[<h4>Beta 3941.1.0</h4>
 <p><em>Changes since <strong>Beta 3913.1.0</strong></em></p>
 <h4>Security fixes:</h4>
@@ -2501,7 +2553,7 @@ The extension includes both <a href="https://github.com/containerd/overlaybd/">o
   <entry>
     <id>https://github.com/flatcar/scripts/releases/tag/beta-3913.1.0</id>
     <title>3913.1.0</title>
-    <updated>2026-07-13T17:24:12.732425+00:00</updated>
+    <updated>2026-08-13T16:00:45.743640+00:00</updated>
     <content type="html"><![CDATA[<p><em>Changes since <strong>Beta 3874.1.0</strong></em></p>
 <h4>Security fixes:</h4>
 <ul>
@@ -2629,7 +2681,7 @@ The extension includes both <a href="https://github.com/containerd/overlaybd/">o
   <entry>
     <id>https://github.com/flatcar/scripts/releases/tag/beta-3874.1.0</id>
     <title>3874.1.0</title>
-    <updated>2026-07-13T17:24:12.718852+00:00</updated>
+    <updated>2026-08-13T16:00:45.729622+00:00</updated>
     <content type="html"><![CDATA[<p><em>Changes since <strong>Beta 3850.1.0</strong></em></p>
 <h4>Security fixes:</h4>
 <ul>
@@ -2696,7 +2748,7 @@ The extension includes both <a href="https://github.com/containerd/overlaybd/">o
   <entry>
     <id>https://github.com/flatcar/scripts/releases/tag/beta-3850.1.0</id>
     <title>3850.1.0</title>
-    <updated>2026-07-13T17:24:12.685670+00:00</updated>
+    <updated>2026-08-13T16:00:45.694453+00:00</updated>
     <content type="html"><![CDATA[<p><em>Changes since <strong>Beta 3815.1.0</strong></em></p>
 <h4>Security fixes:</h4>
 <ul>
@@ -2831,7 +2883,7 @@ The extension includes both <a href="https://github.com/containerd/overlaybd/">o
   <entry>
     <id>https://github.com/flatcar/scripts/releases/tag/beta-3815.1.0</id>
     <title>3815.1.0</title>
-    <updated>2026-07-13T17:24:12.660832+00:00</updated>
+    <updated>2026-08-13T16:00:45.668476+00:00</updated>
     <content type="html"><![CDATA[<p><em>Changes since <strong>Beta 3760.1.1</strong></em></p>
 <h4>Security fixes:</h4>
 <ul>
@@ -2958,7 +3010,7 @@ Using the btrfs driver can still be enforced by creating a respective <a href="h
   <entry>
     <id>https://github.com/flatcar/scripts/releases/tag/beta-3760.1.1</id>
     <title>3760.1.1</title>
-    <updated>2026-07-13T17:24:12.650332+00:00</updated>
+    <updated>2026-08-13T16:00:45.657932+00:00</updated>
     <content type="html"><![CDATA[<p><em>Changes since <strong>Beta 3760.1.0</strong></em></p>
 <h4>Security fixes:</h4>
 <ul>
@@ -3000,7 +3052,7 @@ Using the btrfs driver can still be enforced by creating a respective <a href="h
   <entry>
     <id>https://github.com/flatcar/scripts/releases/tag/beta-3760.1.0</id>
     <title>3760.1.0</title>
-    <updated>2026-07-13T17:24:12.641867+00:00</updated>
+    <updated>2026-08-13T16:00:45.649072+00:00</updated>
     <content type="html"><![CDATA[<p>⚠️ From Alpha 3794.0.0 Torcx has been removed - please assert that you don't rely on specific Torcx mechanism but now use systemd-sysext. See <a href="https://www.flatcar.org/docs/latest/provisioning/sysext/">here</a> for more information.</p>
 <p><em>Changes since <strong>Beta 3745.1.0</strong></em></p>
 <h4>Security fixes:</h4>
@@ -3077,7 +3129,7 @@ Using the btrfs driver can still be enforced by creating a respective <a href="h
   <entry>
     <id>https://github.com/flatcar/scripts/releases/tag/beta-3745.1.0</id>
     <title>3745.1.0</title>
-    <updated>2026-07-13T17:24:12.630425+00:00</updated>
+    <updated>2026-08-13T16:00:45.637341+00:00</updated>
     <content type="html"><![CDATA[<p><em>Changes since <strong>Beta 3732.1.0</strong></em></p>
 <h4>Security fixes:</h4>
 <ul>
@@ -3171,7 +3223,7 @@ Using the btrfs driver can still be enforced by creating a respective <a href="h
   <entry>
     <id>https://github.com/flatcar/scripts/releases/tag/beta-3732.1.0</id>
     <title>3732.1.0</title>
-    <updated>2026-07-13T17:24:12.568328+00:00</updated>
+    <updated>2026-08-13T16:00:45.571278+00:00</updated>
     <content type="html"><![CDATA[<p><em>Changes since <strong>Alpha 3732.0.0</strong></em></p>
 <h4>Security fixes:</h4>
 <ul>
@@ -3369,7 +3421,7 @@ Using the btrfs driver can still be enforced by creating a respective <a href="h
   <entry>
     <id>https://github.com/flatcar/scripts/releases/tag/beta-3602.1.6</id>
     <title>3602.1.6</title>
-    <updated>2026-07-13T17:24:12.544797+00:00</updated>
+    <updated>2026-08-13T16:00:45.547984+00:00</updated>
     <content type="html"><![CDATA[<p><em>Changes since <strong>Beta 3602.1.5</strong></em></p>
 <h4>Changes:</h4>
 <ul>
@@ -3400,7 +3452,7 @@ Using the btrfs driver can still be enforced by creating a respective <a href="h
   <entry>
     <id>https://github.com/flatcar/scripts/releases/tag/beta-3602.1.5</id>
     <title>3602.1.5</title>
-    <updated>2026-07-13T17:24:12.540164+00:00</updated>
+    <updated>2026-08-13T16:00:45.543243+00:00</updated>
     <content type="html"><![CDATA[<p><em>Changes since <strong>Beta 3602.1.4</strong></em></p>
 <h4>Security fixes:</h4>
 <ul>
@@ -3434,7 +3486,7 @@ Using the btrfs driver can still be enforced by creating a respective <a href="h
   <entry>
     <id>https://github.com/flatcar/scripts/releases/tag/beta-3602.1.4</id>
     <title>3602.1.4</title>
-    <updated>2026-07-13T17:24:12.534972+00:00</updated>
+    <updated>2026-08-13T16:00:45.537930+00:00</updated>
     <content type="html"><![CDATA[<p><em>Changes since <strong>Beta 3602.1.3</strong></em></p>
 <h4>Security fixes:</h4>
 <ul>
@@ -3468,7 +3520,7 @@ Using the btrfs driver can still be enforced by creating a respective <a href="h
   <entry>
     <id>https://github.com/flatcar/scripts/releases/tag/beta-3602.1.3</id>
     <title>3602.1.3</title>
-    <updated>2026-07-13T17:24:12.530947+00:00</updated>
+    <updated>2026-08-13T16:00:45.533863+00:00</updated>
     <content type="html"><![CDATA[<p><em>Changes since <strong>Beta 3602.1.2</strong></em></p>
 <h4>Updates:</h4>
 <ul>
@@ -3494,7 +3546,7 @@ Using the btrfs driver can still be enforced by creating a respective <a href="h
   <entry>
     <id>https://github.com/flatcar/scripts/releases/tag/beta-3602.1.2</id>
     <title>3602.1.2</title>
-    <updated>2026-07-13T17:24:12.526640+00:00</updated>
+    <updated>2026-08-13T16:00:45.529433+00:00</updated>
     <content type="html"><![CDATA[<p><em>Changes since <strong>Beta 3602.1.1</strong></em></p>
 <h4>Security fixes:</h4>
 <ul>
@@ -3534,7 +3586,7 @@ Using the btrfs driver can still be enforced by creating a respective <a href="h
   <entry>
     <id>https://github.com/flatcar/scripts/releases/tag/beta-3602.1.1</id>
     <title>3602.1.1</title>
-    <updated>2026-07-13T17:24:12.522178+00:00</updated>
+    <updated>2026-08-13T16:00:45.524804+00:00</updated>
     <content type="html"><![CDATA[<p><em>Changes since <strong>Beta 3602.1.0</strong></em></p>
 <h4>Bug fixes:</h4>
 <ul>
@@ -3566,7 +3618,7 @@ Using the btrfs driver can still be enforced by creating a respective <a href="h
   <entry>
     <id>https://github.com/flatcar/scripts/releases/tag/beta-3602.1.0</id>
     <title>3602.1.0</title>
-    <updated>2026-07-13T17:24:12.514353+00:00</updated>
+    <updated>2026-08-13T16:00:45.516568+00:00</updated>
     <content type="html"><![CDATA[<p><em>Changes since <strong>Beta 3572.1.0</strong></em></p>
 <h4>Security fixes:</h4>
 <ul>
@@ -3641,7 +3693,7 @@ Using the btrfs driver can still be enforced by creating a respective <a href="h
   <entry>
     <id>https://github.com/flatcar/scripts/releases/tag/beta-3572.1.0</id>
     <title>3572.1.0</title>
-    <updated>2026-07-13T17:24:12.505540+00:00</updated>
+    <updated>2026-08-13T16:00:45.507648+00:00</updated>
     <content type="html"><![CDATA[<p><em>Changes since <strong>Beta 3549.1.1</strong></em></p>
 <h4>Security fixes:</h4>
 <ul>
@@ -3709,7 +3761,7 @@ Using the btrfs driver can still be enforced by creating a respective <a href="h
   <entry>
     <id>https://github.com/flatcar/scripts/releases/tag/beta-3549.1.1</id>
     <title>3549.1.1</title>
-    <updated>2026-07-13T17:24:12.498188+00:00</updated>
+    <updated>2026-08-13T16:00:45.500065+00:00</updated>
     <content type="html"><![CDATA[<p><em>Changes since <strong>Beta 3549.1.0</strong></em></p>
 <h4>Security fixes:</h4>
 <ul>
@@ -3749,7 +3801,7 @@ Using the btrfs driver can still be enforced by creating a respective <a href="h
   <entry>
     <id>https://github.com/flatcar/scripts/releases/tag/beta-3549.1.0</id>
     <title>3549.1.0</title>
-    <updated>2026-07-13T17:24:12.483089+00:00</updated>
+    <updated>2026-08-13T16:00:45.483997+00:00</updated>
     <content type="html"><![CDATA[<p><em>Changes since <strong>Beta 3510.1.0</strong></em></p>
 <h4>Security fixes:</h4>
 <ul>
@@ -3859,7 +3911,7 @@ Using the btrfs driver can still be enforced by creating a respective <a href="h
   <entry>
     <id>https://github.com/flatcar/scripts/releases/tag/beta-3510.1.0</id>
     <title>3510.1.0</title>
-    <updated>2026-07-13T17:24:12.470246+00:00</updated>
+    <updated>2026-08-13T16:00:45.470891+00:00</updated>
     <content type="html"><![CDATA[<p><em>Changes since <strong>Beta 3493.1.0</strong></em></p>
 <h4>Security fixes:</h4>
 <ul>
@@ -3927,7 +3979,7 @@ Using the btrfs driver can still be enforced by creating a respective <a href="h
   <entry>
     <id>https://github.com/flatcar/scripts/releases/tag/beta-3493.1.0</id>
     <title>3493.1.0</title>
-    <updated>2026-07-13T17:24:12.458338+00:00</updated>
+    <updated>2026-08-13T16:00:45.458386+00:00</updated>
     <content type="html"><![CDATA[<p><em>Changes since <strong>Beta 3446.1.1</strong></em></p>
 <h4>Security fixes:</h4>
 <ul>
@@ -4010,7 +4062,7 @@ Using the btrfs driver can still be enforced by creating a respective <a href="h
   <entry>
     <id>https://github.com/flatcar/scripts/releases/tag/beta-3446.1.1</id>
     <title>3446.1.1</title>
-    <updated>2026-07-13T17:24:12.450887+00:00</updated>
+    <updated>2026-08-13T16:00:45.450935+00:00</updated>
     <content type="html"><![CDATA[<p><em>Changes since <strong>Beta 3446.1.0</strong></em></p>
 <h4>Security fixes:</h4>
 <ul>
@@ -4047,7 +4099,7 @@ Using the btrfs driver can still be enforced by creating a respective <a href="h
   <entry>
     <id>https://github.com/flatcar/scripts/releases/tag/beta-3446.1.0</id>
     <title>3446.1.0</title>
-    <updated>2026-07-13T17:24:12.443461+00:00</updated>
+    <updated>2026-08-13T16:00:45.443307+00:00</updated>
     <content type="html"><![CDATA[<p><em>Changes since <strong>Beta 3432.1.0</strong></em></p>
 <h4>Security fixes:</h4>
 <ul>
@@ -4108,7 +4160,7 @@ Using the btrfs driver can still be enforced by creating a respective <a href="h
   <entry>
     <id>https://github.com/flatcar/scripts/releases/tag/beta-3432.1.0</id>
     <title>3432.1.0</title>
-    <updated>2026-07-13T17:24:12.435213+00:00</updated>
+    <updated>2026-08-13T16:00:45.434832+00:00</updated>
     <content type="html"><![CDATA[<p><em>Changes since <strong>Beta 3417.1.0</strong></em></p>
 <h4>Security fixes:</h4>
 <ul>
@@ -4175,7 +4227,7 @@ Using the btrfs driver can still be enforced by creating a respective <a href="h
   <entry>
     <id>https://github.com/flatcar/scripts/releases/tag/beta-3417.1.0</id>
     <title>3417.1.0</title>
-    <updated>2026-07-13T17:24:12.426811+00:00</updated>
+    <updated>2026-08-13T16:00:45.426158+00:00</updated>
     <content type="html"><![CDATA[<p><em>Changes since <strong>Beta 3402.1.0</strong></em></p>
 <h4>Security fixes:</h4>
 <ul>
@@ -4242,7 +4294,7 @@ Using the btrfs driver can still be enforced by creating a respective <a href="h
   <entry>
     <id>https://github.com/flatcar/scripts/releases/tag/beta-3402.1.0</id>
     <title>3402.1.0</title>
-    <updated>2026-07-13T17:24:12.412444+00:00</updated>
+    <updated>2026-08-13T16:00:45.411219+00:00</updated>
     <content type="html"><![CDATA[<p><em>Changes since <strong>Beta 3374.1.1</strong></em></p>
 <h4>Security fixes:</h4>
 <ul>
@@ -4327,7 +4379,7 @@ Using the btrfs driver can still be enforced by creating a respective <a href="h
   <entry>
     <id>https://github.com/flatcar/scripts/releases/tag/beta-3374.1.1</id>
     <title>3374.1.1</title>
-    <updated>2026-07-13T17:24:12.404942+00:00</updated>
+    <updated>2026-08-13T16:00:45.403605+00:00</updated>
     <content type="html"><![CDATA[<p><em>Changes since <strong>Beta 3374.1.0</strong></em></p>
 <h4>Security fixes:</h4>
 <ul>
@@ -4353,7 +4405,7 @@ Using the btrfs driver can still be enforced by creating a respective <a href="h
   <entry>
     <id>https://github.com/flatcar/scripts/releases/tag/beta-3374.1.0</id>
     <title>3374.1.0</title>
-    <updated>2026-07-13T17:24:12.397138+00:00</updated>
+    <updated>2026-08-13T16:00:45.395428+00:00</updated>
     <content type="html"><![CDATA[<p>New <strong>Beta</strong> Release <strong>3374.1.0</strong></p>
 <p><em>Changes since <strong>Beta 3346.1.0</strong></em></p>
 <h4>Security fixes:</h4>
@@ -4421,7 +4473,7 @@ Using the btrfs driver can still be enforced by creating a respective <a href="h
   <entry>
     <id>https://github.com/flatcar/scripts/releases/tag/beta-3346.1.0</id>
     <title>3346.1.0</title>
-    <updated>2026-07-13T17:24:12.380917+00:00</updated>
+    <updated>2026-08-13T16:00:45.378913+00:00</updated>
     <content type="html"><![CDATA[<p><em>Changes since <strong>Beta 3277.1.2</strong></em></p>
 <h4>Security fixes:</h4>
 <ul>
@@ -4532,7 +4584,7 @@ Using the btrfs driver can still be enforced by creating a respective <a href="h
   <entry>
     <id>https://github.com/kinvolk/manifest/releases/tag/v3277.1.2</id>
     <title>3277.1.2</title>
-    <updated>2026-07-13T17:24:12.371757+00:00</updated>
+    <updated>2026-08-13T16:00:45.369668+00:00</updated>
     <content type="html"><![CDATA[<p><em>Changes since <strong>Beta 3277.1.1</strong></em></p>
 <h4>Security fixes:</h4>
 <ul>
@@ -4573,7 +4625,7 @@ Using the btrfs driver can still be enforced by creating a respective <a href="h
   <entry>
     <id>https://github.com/kinvolk/manifest/releases/tag/v3277.1.1</id>
     <title>3277.1.1</title>
-    <updated>2026-07-13T17:24:12.366299+00:00</updated>
+    <updated>2026-08-13T16:00:45.364083+00:00</updated>
     <content type="html"><![CDATA[<p>New Beta Release 3277.1.1</p>
 <p>Changes since Beta 3277.1.0</p>
 <h2>Security fixes:</h2>
@@ -4614,7 +4666,7 @@ Using the btrfs driver can still be enforced by creating a respective <a href="h
   <entry>
     <id>https://github.com/kinvolk/manifest/releases/tag/v3277.1.0</id>
     <title>3277.1.0</title>
-    <updated>2026-07-13T17:24:12.352439+00:00</updated>
+    <updated>2026-08-13T16:00:45.349533+00:00</updated>
     <content type="html"><![CDATA[<p>New <strong>Beta</strong> Release <strong>3277.1.0</strong></p>
 <p><em>Changes since <strong>Alpha 3277.0.0</strong></em></p>
 <h4>Security fixes:</h4>
@@ -4714,7 +4766,7 @@ Using the btrfs driver can still be enforced by creating a respective <a href="h
   <entry>
     <id>https://github.com/kinvolk/manifest/releases/tag/v3227.1.1</id>
     <title>3227.1.1</title>
-    <updated>2026-07-13T17:24:12.343271+00:00</updated>
+    <updated>2026-08-13T16:00:45.340145+00:00</updated>
     <content type="html"><![CDATA[<p>New <strong>Beta</strong> Release <strong>3227.1.1</strong></p>
 <p>Changes since <strong>Beta 3227.1.0</strong></p>
 <h4>Security fixes:</h4>
@@ -4756,7 +4808,7 @@ Using the btrfs driver can still be enforced by creating a respective <a href="h
   <entry>
     <id>https://github.com/kinvolk/manifest/releases/tag/v3227.1.0</id>
     <title>3227.1.0</title>
-    <updated>2026-07-13T17:24:12.331505+00:00</updated>
+    <updated>2026-08-13T16:00:45.327555+00:00</updated>
     <content type="html"><![CDATA[<p>New <strong>Beta</strong> Release <strong>3227.1.0</strong></p>
 <p><em>Changes since <strong>Beta 3185.1.1</strong></em></p>
 <h4>Security fixes:</h4>
@@ -4856,7 +4908,7 @@ Using the btrfs driver can still be enforced by creating a respective <a href="h
   <entry>
     <id>https://github.com/kinvolk/manifest/releases/tag/v3185.1.1</id>
     <title>3185.1.1</title>
-    <updated>2026-07-13T17:24:12.321962+00:00</updated>
+    <updated>2026-08-13T16:00:45.317730+00:00</updated>
     <content type="html"><![CDATA[<p>New <strong>Beta</strong> Release <strong>3185.1.1</strong></p>
 <p><em>Changes since <strong>Beta 3185.1.0</strong></em></p>
 <h4>Security fixes:</h4>
@@ -4904,7 +4956,7 @@ Using the btrfs driver can still be enforced by creating a respective <a href="h
   <entry>
     <id>https://github.com/kinvolk/manifest/releases/tag/v3185.1.0</id>
     <title>3185.1.0</title>
-    <updated>2026-07-13T17:24:12.305965+00:00</updated>
+    <updated>2026-08-13T16:00:45.300860+00:00</updated>
     <content type="html"><![CDATA[<p>New <strong>Beta</strong> Release <strong>3185.1.0</strong></p>
 <p><em>Changes since <strong>Beta 3139.1.1</strong></em></p>
 <h4>Security fixes:</h4>
@@ -5037,7 +5089,7 @@ Using the btrfs driver can still be enforced by creating a respective <a href="h
   <entry>
     <id>https://github.com/kinvolk/manifest/releases/tag/v3139.1.1</id>
     <title>3139.1.1</title>
-    <updated>2026-07-13T17:24:12.295062+00:00</updated>
+    <updated>2026-08-13T16:00:45.289630+00:00</updated>
     <content type="html"><![CDATA[<p>New <strong>Beta</strong> Release <strong>3139.1.1</strong></p>
 <p><strong>Changes since Beta-3139.1.0</strong></p>
 <h4>Security fixes</h4>
@@ -5085,7 +5137,7 @@ Using the btrfs driver can still be enforced by creating a respective <a href="h
   <entry>
     <id>https://github.com/kinvolk/manifest/releases/tag/v3139.1.0</id>
     <title>3139.1.0</title>
-    <updated>2026-07-13T17:24:12.277683+00:00</updated>
+    <updated>2026-08-13T16:00:45.271401+00:00</updated>
     <content type="html"><![CDATA[<p>New <strong>Beta</strong> Release <strong>3139.1.0</strong></p>
 <p><em>Changes since <strong>Alpha 3139.0.0</strong></em></p>
 <h4>Security fixes</h4>
@@ -5221,7 +5273,7 @@ Using the btrfs driver can still be enforced by creating a respective <a href="h
   <entry>
     <id>https://github.com/kinvolk/manifest/releases/tag/v3066.1.2</id>
     <title>3066.1.2</title>
-    <updated>2026-07-13T17:24:12.266711+00:00</updated>
+    <updated>2026-08-13T16:00:45.260278+00:00</updated>
     <content type="html"><![CDATA[<p>New <strong>Beta</strong> Release <strong>3066.1.2</strong></p>
 <p><em>Changes since <strong>Beta 3066.1.1</strong></em></p>
 <h4>Security fixes</h4>
@@ -5261,7 +5313,7 @@ Using the btrfs driver can still be enforced by creating a respective <a href="h
   <entry>
     <id>https://github.com/kinvolk/manifest/releases/tag/v3066.1.1</id>
     <title>3066.1.1</title>
-    <updated>2026-07-13T17:24:12.259578+00:00</updated>
+    <updated>2026-08-13T16:00:45.252815+00:00</updated>
     <content type="html"><![CDATA[<p>New <strong>Beta</strong> release <strong>3066.1.1</strong></p>
 <p><em>Changes since <strong>Beta 3066.1.0</strong></em></p>
 <h4>Known issues:</h4>
@@ -5313,7 +5365,7 @@ Using the btrfs driver can still be enforced by creating a respective <a href="h
   <entry>
     <id>https://github.com/kinvolk/manifest/releases/tag/v3066.1.0</id>
     <title>3066.1.0</title>
-    <updated>2026-07-13T17:24:12.248965+00:00</updated>
+    <updated>2026-08-13T16:00:45.241901+00:00</updated>
     <content type="html"><![CDATA[<p>New <strong>Beta</strong> release <strong>3066.1.0</strong></p>
 <p><em>Changes since <strong>Alpha 3066.0.0</strong></em></p>
 <p><strong>Security fixes</strong></p>
@@ -5403,7 +5455,7 @@ Using the btrfs driver can still be enforced by creating a respective <a href="h
   <entry>
     <id>https://github.com/kinvolk/manifest/releases/tag/v3033.1.1</id>
     <title>3033.1.1</title>
-    <updated>2026-07-13T17:24:12.242307+00:00</updated>
+    <updated>2026-08-13T16:00:45.235085+00:00</updated>
     <content type="html"><![CDATA[<p>New <strong>Beta</strong> Release <strong>3033.1.1</strong></p>
 <p><em>Changes since <strong>Beta 3033.1.0</strong></em></p>
 <p><strong>Security fixes</strong></p>
@@ -5441,7 +5493,7 @@ Using the btrfs driver can still be enforced by creating a respective <a href="h
   <entry>
     <id>https://github.com/kinvolk/manifest/releases/tag/v3033.1.0</id>
     <title>3033.1.0</title>
-    <updated>2026-07-13T17:24:12.228559+00:00</updated>
+    <updated>2026-08-13T16:00:45.219864+00:00</updated>
     <content type="html"><![CDATA[<p>New <strong>Beta</strong> release <strong>3033.1.0</strong></p>
 <p><em>Changes since <strong>Alpha 3033.0.0</strong></em></p>
 <p><strong>Security fixes</strong></p>
@@ -5557,7 +5609,7 @@ Using the btrfs driver can still be enforced by creating a respective <a href="h
   <entry>
     <id>https://github.com/kinvolk/manifest/releases/tag/v2983.1.2</id>
     <title>2983.1.2</title>
-    <updated>2026-07-13T17:24:12.219842+00:00</updated>
+    <updated>2026-08-13T16:00:45.210962+00:00</updated>
     <content type="html"><![CDATA[<p><strong>Update to CGroupsV2</strong></p>
 <p>As of Alpha version 2969.0.0, Flatcar Container Linux migrates to the unified cgroup hierarchy (aka CGroupsV2)! New nodes will utilize CGroupsV2 by default. Existing nodes remain on CGroupsV1 and need to be manually migrated to CGroupsV2. To learn more about CGroupsV2 on Flatcar Container Linux and the migration guide, please refer to<a href="https://flatcar-linux.org/docs/latest/container-runtimes/switching-to-unified-cgroups/"> https://flatcar-linux.org/docs/latest/container-runtimes/switching-to-unified-cgroups/</a></p>
 <p>New <strong>Beta</strong> release <strong>2983.1.2</strong></p>
@@ -5597,7 +5649,7 @@ Using the btrfs driver can still be enforced by creating a respective <a href="h
   <entry>
     <id>https://github.com/kinvolk/manifest/releases/tag/v2983.1.1</id>
     <title>2983.1.1</title>
-    <updated>2026-07-13T17:24:12.215269+00:00</updated>
+    <updated>2026-08-13T16:00:45.206272+00:00</updated>
     <content type="html"><![CDATA[<p>New <strong>Beta</strong> release <strong>2983.1.1</strong></p>
 <p><em>Changes since <strong>Beta 2983.1.0</strong></em></p>
 <p><strong>Security fixes</strong></p>
@@ -5626,7 +5678,7 @@ Using the btrfs driver can still be enforced by creating a respective <a href="h
   <entry>
     <id>https://github.com/kinvolk/manifest/releases/tag/v2983.1.0</id>
     <title>2983.1.0</title>
-    <updated>2026-07-13T17:24:12.205062+00:00</updated>
+    <updated>2026-08-13T16:00:45.195549+00:00</updated>
     <content type="html"><![CDATA[<p>New <strong>Beta</strong> release <strong>2983.1.0</strong></p>
 <p><em>Changes since <strong>Beta 2942.1.2</strong></em></p>
 <p><strong>Update to CGroupsV2</strong></p>
@@ -5729,7 +5781,7 @@ Using the btrfs driver can still be enforced by creating a respective <a href="h
   <entry>
     <id>https://github.com/kinvolk/manifest/releases/tag/v2942.1.2</id>
     <title>2942.1.2</title>
-    <updated>2026-07-13T17:24:12.197006+00:00</updated>
+    <updated>2026-08-13T16:00:45.187354+00:00</updated>
     <content type="html"><![CDATA[<p>New <strong>Beta</strong> release <strong>2942.1.2</strong></p>
 <p><em>Changes since <strong>Beta 2942.1.1</strong></em></p>
 <p><strong>Security fixes</strong></p>
@@ -5765,7 +5817,7 @@ Using the btrfs driver can still be enforced by creating a respective <a href="h
   <entry>
     <id>https://github.com/kinvolk/manifest/releases/tag/v2942.1.1</id>
     <title>2942.1.1</title>
-    <updated>2026-07-13T17:24:12.191277+00:00</updated>
+    <updated>2026-08-13T16:00:45.181432+00:00</updated>
     <content type="html"><![CDATA[<p><em>Changes since <strong>Beta 2942.1.0</strong></em></p>
 <p><strong>Security fixes</strong></p>
 <ul>
@@ -5811,7 +5863,7 @@ Using the btrfs driver can still be enforced by creating a respective <a href="h
   <entry>
     <id>https://github.com/kinvolk/manifest/releases/tag/v2942.1.0</id>
     <title>2942.1.0</title>
-    <updated>2026-07-13T17:24:12.182944+00:00</updated>
+    <updated>2026-08-13T16:00:45.172852+00:00</updated>
     <content type="html"><![CDATA[<p><em>Changes since <strong>Beta 2920.1.0</strong></em></p>
 <p><strong>Security Fixes</strong></p>
 <ul>
@@ -5889,7 +5941,7 @@ Using the btrfs driver can still be enforced by creating a respective <a href="h
   <entry>
     <id>https://github.com/kinvolk/manifest/releases/tag/v2920.1.0</id>
     <title>2920.1.0</title>
-    <updated>2026-07-13T17:24:12.176243+00:00</updated>
+    <updated>2026-08-13T16:00:45.165988+00:00</updated>
     <content type="html"><![CDATA[<p><em>Changes since <strong>Alpha 2920.0.0</strong></em></p>
 <p><strong>Security Fixes</strong></p>
 <ul>
@@ -5932,7 +5984,7 @@ Using the btrfs driver can still be enforced by creating a respective <a href="h
   <entry>
     <id>https://github.com/kinvolk/manifest/releases/tag/v2905.1.0</id>
     <title>2905.1.0</title>
-    <updated>2026-07-13T17:24:12.168222+00:00</updated>
+    <updated>2026-08-13T16:00:45.157710+00:00</updated>
     <content type="html"><![CDATA[<p><em>Changes since <strong>Alpha</strong> <strong>2905.0.0</strong>:</em>
 <strong>Security fixes</strong></p>
 <ul>
@@ -6002,7 +6054,7 @@ Using the btrfs driver can still be enforced by creating a respective <a href="h
   <entry>
     <id>https://github.com/kinvolk/manifest/releases/tag/v2823.1.3</id>
     <title>2823.1.3</title>
-    <updated>2026-07-13T17:24:12.162047+00:00</updated>
+    <updated>2026-08-13T16:00:45.151446+00:00</updated>
     <content type="html"><![CDATA[<p><strong>Security fixes</strong></p>
 <ul>
 <li>Linux (<a href="https://nvd.nist.gov/vuln/detail/CVE-2020-26558">CVE-2020-26558</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2021-0129">CVE-2021-0129</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2020-24587">CVE-2020-24587</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2020-24586">CVE-2020-24586</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2020-24588">CVE-2020-24588</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2020-26139">CVE-2020-26139</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2020-26145">CVE-2020-26145</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2020-26147">CVE-2020-26147</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2020-26141">CVE-2020-26141</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2021-3564">CVE-2021-3564</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2021-28691">CVE-2021-28691</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2021-3587">CVE-2021-3587</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2021-3573">CVE-2021-3573</a>)</li>
@@ -6037,7 +6089,7 @@ Using the btrfs driver can still be enforced by creating a respective <a href="h
   <entry>
     <id>https://github.com/kinvolk/manifest/releases/tag/v2823.1.2</id>
     <title>2823.1.2</title>
-    <updated>2026-07-13T17:24:12.157946+00:00</updated>
+    <updated>2026-08-13T16:00:45.147317+00:00</updated>
     <content type="html"><![CDATA[<p><strong>Bug fixes</strong></p>
 <ul>
 <li>The Linux kernel IOMMU-related crash introduced in the 5.10.37 update got fixed through the 5.10.38 update (<a href="https://github.com/kinvolk/Flatcar/issues/400">Flatcar#400</a>)</li>
@@ -6064,7 +6116,7 @@ Using the btrfs driver can still be enforced by creating a respective <a href="h
   <entry>
     <id>https://github.com/kinvolk/manifest/releases/tag/v2823.1.1</id>
     <title>2823.1.1</title>
-    <updated>2026-07-13T17:24:12.153592+00:00</updated>
+    <updated>2026-08-13T16:00:45.142810+00:00</updated>
     <content type="html"><![CDATA[<p><strong>Security fixes</strong></p>
 <ul>
 <li>Linux (<a href="https://nvd.nist.gov/vuln/detail/CVE-2021-3491">CVE-2021-3491</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2021-31440">CVE-2021-31440</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2021-31829">CVE-2021-31829</a>)</li>
@@ -6094,7 +6146,7 @@ Using the btrfs driver can still be enforced by creating a respective <a href="h
   <entry>
     <id>https://github.com/kinvolk/manifest/releases/tag/v2823.1.0</id>
     <title>2823.1.0</title>
-    <updated>2026-07-13T17:24:12.145048+00:00</updated>
+    <updated>2026-08-13T16:00:45.134026+00:00</updated>
     <content type="html"><![CDATA[<p><em>Changes since <strong>Alpha</strong> <strong>2823.0.0</strong>:</em></p>
 <p><strong>Security fixes</strong></p>
 <ul>
@@ -6157,7 +6209,7 @@ Using the btrfs driver can still be enforced by creating a respective <a href="h
   <entry>
     <id>https://github.com/kinvolk/manifest/releases/tag/v2801.1.0</id>
     <title>2801.1.0</title>
-    <updated>2026-07-13T17:24:12.137451+00:00</updated>
+    <updated>2026-08-13T16:00:45.126288+00:00</updated>
     <content type="html"><![CDATA[<p><strong>Security fixes</strong></p>
 <ul>
 <li>Linux (<a href="https://nvd.nist.gov/vuln/detail/CVE-2021-27365">CVE-2021-27365</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2021-27364">CVE-2021-27364</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2021-27363">CVE-2021-27363</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2021-28038">CVE-2021-28038</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2021-28039">CVE-2021-28039</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2021-28375">CVE-2021-28375</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2021-28660">CVE-2021-28660</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2021-27218">CVE-2021-27218</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2021-27219">CVE-2021-27219</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2021-3444">CVE-2021-3444</a>)</li>
@@ -6200,7 +6252,7 @@ Using the btrfs driver can still be enforced by creating a respective <a href="h
   <entry>
     <id>https://github.com/kinvolk/manifest/releases/tag/v2765.1.0</id>
     <title>2765.1.0</title>
-    <updated>2026-07-13T17:24:12.131603+00:00</updated>
+    <updated>2026-08-13T16:00:45.120252+00:00</updated>
     <content type="html"><![CDATA[<p><strong>Security fixes</strong></p>
 <ul>
 <li>Linux (<a href="https://nvd.nist.gov/vuln/detail/CVE-2021-3347">CVE-2021-3347</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2021-3348">CVE-2021-3348</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2021-26708">CVE-2021-26708</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2021-20194">CVE-2021-20194</a>)</li>
@@ -6237,7 +6289,7 @@ Using the btrfs driver can still be enforced by creating a respective <a href="h
   <entry>
     <id>https://github.com/kinvolk/manifest/releases/tag/v2705.1.2</id>
     <title>2705.1.2</title>
-    <updated>2026-07-13T17:24:12.126226+00:00</updated>
+    <updated>2026-08-13T16:00:45.114730+00:00</updated>
     <content type="html"><![CDATA[<p><strong>Security fixes</strong></p>
 <ul>
 <li>go - <a href="https://github.com/golang/go/issues/43786">CVE-2021-3114</a></li>
@@ -6280,7 +6332,7 @@ Using the btrfs driver can still be enforced by creating a respective <a href="h
   <entry>
     <id>https://github.com/kinvolk/manifest/releases/tag/v2705.1.1</id>
     <title>2705.1.1</title>
-    <updated>2026-07-13T17:24:12.120408+00:00</updated>
+    <updated>2026-08-13T16:00:45.108793+00:00</updated>
     <content type="html"><![CDATA[<p><strong>Security fixes</strong></p>
 <ul>
 <li>Linux
@@ -6329,7 +6381,7 @@ Using the btrfs driver can still be enforced by creating a respective <a href="h
   <entry>
     <id>https://github.com/kinvolk/manifest/releases/tag/v2705.1.0</id>
     <title>2705.1.0</title>
-    <updated>2026-07-13T17:24:12.116075+00:00</updated>
+    <updated>2026-08-13T16:00:45.104359+00:00</updated>
     <content type="html"><![CDATA[<p>Security fixes:</p>
 <ul>
 <li>No changes since Alpha 2705.0.0</li>
@@ -6364,7 +6416,7 @@ Using the btrfs driver can still be enforced by creating a respective <a href="h
   <entry>
     <id>https://github.com/kinvolk/manifest/releases/tag/v2643.1.1</id>
     <title>2643.1.1</title>
-    <updated>2026-07-13T17:24:12.112008+00:00</updated>
+    <updated>2026-08-13T16:00:45.100223+00:00</updated>
     <content type="html"><![CDATA[<p>Security fixes:</p>
 <ul>
 <li>Linux -  <a href="https://nvd.nist.gov/vuln/detail/CVE-2020-27194">CVE-2020-27194</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2020-27152">CVE-2020-27152</a></li>
@@ -6397,7 +6449,7 @@ Using the btrfs driver can still be enforced by creating a respective <a href="h
   <entry>
     <id>https://github.com/flatcar/manifest/releases/tag/v2643.1.0</id>
     <title>2643.1.0</title>
-    <updated>2026-07-13T17:24:12.107959+00:00</updated>
+    <updated>2026-08-13T16:00:45.096025+00:00</updated>
     <content type="html"><![CDATA[<p>Security fixes:</p>
 <ul>
 <li>Linux - <a href="https://nvd.nist.gov/vuln/detail/CVE-2020-25645">CVE-2020-25645</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2020-25643">CVE-2020-25643</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2020-25211">CVE-2020-25211</a></li>
@@ -6428,7 +6480,7 @@ Using the btrfs driver can still be enforced by creating a respective <a href="h
   <entry>
     <id>https://github.com/flatcar/manifest/releases/tag/v2632.1.0</id>
     <title>2632.1.0</title>
-    <updated>2026-07-13T17:24:12.103200+00:00</updated>
+    <updated>2026-08-13T16:00:45.091095+00:00</updated>
     <content type="html"><![CDATA[<p>Security fixes:</p>
 <ul>
 <li>Linux: <a href="https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2020-25284">CVE-2020-25284</a>, <a href="https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2020-14390">CVE-2020-14390</a></li>
@@ -6470,7 +6522,7 @@ Using the btrfs driver can still be enforced by creating a respective <a href="h
   <entry>
     <id>https://github.com/flatcar/manifest/releases/tag/v2605.4.0</id>
     <title>2605.4.0</title>
-    <updated>2026-07-13T17:24:12.098578+00:00</updated>
+    <updated>2026-08-13T16:00:45.086423+00:00</updated>
     <content type="html"><![CDATA[<p>Bug fixes:</p>
 <ul>
 <li>Fix resetting of DNS nameservers in systemd-networkd units (<a href="https://github.com/flatcar/systemd/pull/12">PR#12</a>)</li>
@@ -6504,7 +6556,7 @@ Using the btrfs driver can still be enforced by creating a respective <a href="h
   <entry>
     <id>https://github.com/flatcar/manifest/releases/tag/v2605.3.0</id>
     <title>2605.3.0</title>
-    <updated>2026-07-13T17:24:12.094547+00:00</updated>
+    <updated>2026-08-13T16:00:45.082361+00:00</updated>
     <content type="html"><![CDATA[<p>Security fixes:</p>
 <ul>
 <li>Linux kernel: Fix AF_PACKET overflow in tpacket_rcv <a href="https://seclists.org/oss-sec/2020/q3/146">CVE-2020-14386</a></li>
@@ -6532,7 +6584,7 @@ Using the btrfs driver can still be enforced by creating a respective <a href="h
   <entry>
     <id>https://github.com/flatcar/manifest/releases/tag/v2605.2.0</id>
     <title>2605.2.0</title>
-    <updated>2026-07-13T17:24:12.090747+00:00</updated>
+    <updated>2026-08-13T16:00:45.078819+00:00</updated>
     <content type="html"><![CDATA[<p>Changes from Alpha release 2605.1.0</p>
 <p>Changes:</p>
 <ul>
@@ -6557,7 +6609,7 @@ Using the btrfs driver can still be enforced by creating a respective <a href="h
   <entry>
     <id>https://github.com/flatcar/manifest/releases/tag/v2513.3.0</id>
     <title>2513.3.0</title>
-    <updated>2026-07-13T17:24:12.086311+00:00</updated>
+    <updated>2026-08-13T16:00:45.074371+00:00</updated>
     <content type="html"><![CDATA[<p>Security fixes:</p>
 <ul>
 <li>Bind: fixes for <a href="https://nvd.nist.gov/vuln/detail/CVE-2020-8616">CVE-2020-8616</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2020-8617">CVE-2020-8617</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2020-8620">CVE-2020-8620</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2020-8621">CVE-2020-8621</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2020-8622">CVE-2020-8622</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2020-8623">CVE-2020-8623</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2020-8624">CVE-2020-8624</a></li>
@@ -6591,7 +6643,7 @@ Using the btrfs driver can still be enforced by creating a respective <a href="h
   <entry>
     <id>https://github.com/flatcar/manifest/releases/tag/v2513.2.0</id>
     <title>2513.2.0</title>
-    <updated>2026-07-13T17:24:12.082342+00:00</updated>
+    <updated>2026-08-13T16:00:45.070393+00:00</updated>
     <content type="html"><![CDATA[<p>Changes since the Alpha release 2513.1.0</p>
 <p>Bug Fixes:</p>
 <ul>
@@ -6620,7 +6672,7 @@ Using the btrfs driver can still be enforced by creating a respective <a href="h
   <entry>
     <id>https://github.com/flatcar/manifest/releases/tag/v2512.1.1</id>
     <title>2512.1.1</title>
-    <updated>2026-07-13T17:24:12.078409+00:00</updated>
+    <updated>2026-08-13T16:00:45.066365+00:00</updated>
     <content type="html"><![CDATA[<h2>Flatcar updates</h2>
 <p>Security fixes:</p>
 <ul>
@@ -6654,7 +6706,7 @@ Using the btrfs driver can still be enforced by creating a respective <a href="h
   <entry>
     <id>https://github.com/flatcar/manifest/releases/tag/v2512.1.0</id>
     <title>2512.1.0</title>
-    <updated>2026-07-13T17:24:12.071464+00:00</updated>
+    <updated>2026-08-13T16:00:45.059152+00:00</updated>
     <content type="html"><![CDATA[<h2>Flatcar updates</h2>
 <p>Security fixes:</p>
 <ul>
@@ -6714,7 +6766,7 @@ Using the btrfs driver can still be enforced by creating a respective <a href="h
   <entry>
     <id>https://github.com/flatcar/manifest/releases/tag/v2411.1.1</id>
     <title>2411.1.1</title>
-    <updated>2026-07-13T17:24:12.065682+00:00</updated>
+    <updated>2026-08-13T16:00:45.053276+00:00</updated>
     <content type="html"><![CDATA[<h2>Flatcar updates</h2>
 <p>Bug fixes:</p>
 <ul>
@@ -6757,7 +6809,7 @@ Using the btrfs driver can still be enforced by creating a respective <a href="h
   <entry>
     <id>https://github.com/flatcar/manifest/releases/tag/v2411.1.0</id>
     <title>2411.1.0</title>
-    <updated>2026-07-13T17:24:12.061472+00:00</updated>
+    <updated>2026-08-13T16:00:45.049028+00:00</updated>
     <content type="html"><![CDATA[<h2>Flatcar updates</h2>
 <p>Bug fixes:</p>
 <ul>
@@ -6788,7 +6840,7 @@ Using the btrfs driver can still be enforced by creating a respective <a href="h
   <entry>
     <id>https://github.com/flatcar/manifest/releases/tag/v2345.2.0</id>
     <title>2345.2.0</title>
-    <updated>2026-07-13T17:24:12.057178+00:00</updated>
+    <updated>2026-08-13T16:00:45.044701+00:00</updated>
     <content type="html"><![CDATA[<h2>Flatcar updates</h2>
 <p>Bug fixes:</p>
 <ul>
@@ -6828,7 +6880,7 @@ Using the btrfs driver can still be enforced by creating a respective <a href="h
   <entry>
     <id>https://github.com/flatcar/manifest/releases/tag/v2345.1.0</id>
     <title>2345.1.0</title>
-    <updated>2026-07-13T17:24:12.052485+00:00</updated>
+    <updated>2026-08-13T16:00:45.039959+00:00</updated>
     <content type="html"><![CDATA[<h2><a href="https://github.com/coreos/manifest/releases/tag/v2345.1.0">Upstream Container Linux updates</a>:</h2>
 <p>Security fixes:</p>
 <ul>
@@ -6858,7 +6910,7 @@ Using the btrfs driver can still be enforced by creating a respective <a href="h
   <entry>
     <id>https://github.com/flatcar/manifest/releases/tag/v2331.1.1</id>
     <title>2331.1.1</title>
-    <updated>2026-07-13T17:24:12.048188+00:00</updated>
+    <updated>2026-08-13T16:00:45.035639+00:00</updated>
     <content type="html"><![CDATA[<h2>Flatcar updates</h2>
 <p>Bug fixes:</p>
 <ul>
@@ -6892,7 +6944,7 @@ Using the btrfs driver can still be enforced by creating a respective <a href="h
   <entry>
     <id>https://github.com/flatcar/manifest/releases/tag/v2331.1.0</id>
     <title>2331.1.0</title>
-    <updated>2026-07-13T17:24:12.044393+00:00</updated>
+    <updated>2026-08-13T16:00:45.031842+00:00</updated>
     <content type="html"><![CDATA[<h2><a href="https://github.com/coreos/manifest/releases/tag/v2331.1.0">Upstream Container Linux updates</a>:</h2>
 <p>Updates:</p>
 <ul>
@@ -6917,7 +6969,7 @@ Using the btrfs driver can still be enforced by creating a respective <a href="h
   <entry>
     <id>https://github.com/flatcar/manifest/releases/tag/v2303.2.0</id>
     <title>2303.2.0</title>
-    <updated>2026-07-13T17:24:12.040187+00:00</updated>
+    <updated>2026-08-13T16:00:45.027561+00:00</updated>
     <content type="html"><![CDATA[<h2><a href="https://github.com/coreos/manifest/releases/tag/v2303.2.0">Upstream Container Linux updates</a>:</h2>
 <p>Security fixes:</p>
 <ul>
@@ -6952,7 +7004,7 @@ Using the btrfs driver can still be enforced by creating a respective <a href="h
   <entry>
     <id>https://github.com/flatcar/manifest/releases/tag/v2303.1.1</id>
     <title>2303.1.1</title>
-    <updated>2026-07-13T17:24:12.036054+00:00</updated>
+    <updated>2026-08-13T16:00:45.023428+00:00</updated>
     <content type="html"><![CDATA[<h2><a href="https://github.com/coreos/manifest/releases/tag/v2303.1.1">Upstream Container Linux updates</a>:</h2>
 <p>Bug fixes:</p>
 <ul>
@@ -6982,7 +7034,7 @@ Using the btrfs driver can still be enforced by creating a respective <a href="h
   <entry>
     <id>https://github.com/flatcar/manifest/releases/tag/v2275.2.0</id>
     <title>2275.2.0</title>
-    <updated>2026-07-13T17:24:12.032407+00:00</updated>
+    <updated>2026-08-13T16:00:45.019796+00:00</updated>
     <content type="html"><![CDATA[<h2><a href="https://github.com/coreos/manifest/releases/tag/v2275.2.0">Upstream Container Linux updates</a>:</h2>
 <p>Updates:</p>
 <ul>
@@ -7007,7 +7059,7 @@ Using the btrfs driver can still be enforced by creating a respective <a href="h
   <entry>
     <id>https://github.com/flatcar/manifest/releases/tag/v2247.4.0</id>
     <title>2247.4.0</title>
-    <updated>2026-07-13T17:24:12.028741+00:00</updated>
+    <updated>2026-08-13T16:00:45.016079+00:00</updated>
     <content type="html"><![CDATA[<h2><a href="https://github.com/coreos/manifest/releases/tag/v2247.4.0">Upstream Container Linux updates</a>:</h2>
 <p>Bug fixes:</p>
 <ul>
@@ -7036,7 +7088,7 @@ Using the btrfs driver can still be enforced by creating a respective <a href="h
   <entry>
     <id>https://github.com/flatcar/manifest/releases/tag/v2247.3.0</id>
     <title>2247.3.0</title>
-    <updated>2026-07-13T17:24:12.024830+00:00</updated>
+    <updated>2026-08-13T16:00:45.012038+00:00</updated>
     <content type="html"><![CDATA[<h2><a href="https://github.com/coreos/manifest/releases/tag/v2247.3.0">Upstream Container Linux updates</a>:</h2>
 <p>Security fixes:</p>
 <ul>
@@ -7067,7 +7119,7 @@ Using the btrfs driver can still be enforced by creating a respective <a href="h
   <entry>
     <id>https://github.com/flatcar/manifest/releases/tag/v2247.2.0</id>
     <title>2247.2.0</title>
-    <updated>2026-07-13T17:24:12.021151+00:00</updated>
+    <updated>2026-08-13T16:00:45.008292+00:00</updated>
     <content type="html"><![CDATA[<h2><a href="https://github.com/coreos/manifest/releases/tag/v2247.2.0">Upstream Container Linux updates</a>:</h2>
 <p>Updates:</p>
 <ul>
@@ -7092,7 +7144,7 @@ Using the btrfs driver can still be enforced by creating a respective <a href="h
   <entry>
     <id>https://github.com/flatcar/manifest/releases/tag/v2219.3.0</id>
     <title>2219.3.0</title>
-    <updated>2026-07-13T17:24:12.017244+00:00</updated>
+    <updated>2026-08-13T16:00:45.004242+00:00</updated>
     <content type="html"><![CDATA[<h2><a href="https://github.com/coreos/manifest/releases/tag/v2219.3.0">Upstream Container Linux updates</a>:</h2>
 <p>Security fixes:</p>
 <ul>
@@ -7126,7 +7178,7 @@ Using the btrfs driver can still be enforced by creating a respective <a href="h
   <entry>
     <id>https://github.com/flatcar/manifest/releases/tag/v2219.2.1</id>
     <title>2219.2.1</title>
-    <updated>2026-07-13T17:24:12.013172+00:00</updated>
+    <updated>2026-08-13T16:00:45.000084+00:00</updated>
     <content type="html"><![CDATA[<h2><a href="https://github.com/coreos/manifest/releases/tag/v2219.2.1">Upstream Container Linux updates</a>:</h2>
 <p>Security fixes:</p>
 <ul>
@@ -7156,7 +7208,7 @@ Using the btrfs driver can still be enforced by creating a respective <a href="h
   <entry>
     <id>https://github.com/flatcar/manifest/releases/tag/v2219.2.0</id>
     <title>2219.2.0</title>
-    <updated>2026-07-13T17:24:12.009046+00:00</updated>
+    <updated>2026-08-13T16:00:44.995951+00:00</updated>
     <content type="html"><![CDATA[<h2><a href="https://github.com/coreos/manifest/releases/tag/v2219.2.0">Upstream Container Linux updates</a>:</h2>
 <p>Security fixes:</p>
 <ul>
@@ -7192,7 +7244,7 @@ Using the btrfs driver can still be enforced by creating a respective <a href="h
   <entry>
     <id>https://github.com/flatcar/manifest/releases/tag/v2191.3.0</id>
     <title>2191.3.0</title>
-    <updated>2026-07-13T17:24:12.004939+00:00</updated>
+    <updated>2026-08-13T16:00:44.991855+00:00</updated>
     <content type="html"><![CDATA[<h2><a href="https://github.com/coreos/manifest/releases/tag/v2191.3.0">Upstream Container Linux updates</a>:</h2>
 <p>Security fixes:</p>
 <ul>
@@ -7226,7 +7278,7 @@ Using the btrfs driver can still be enforced by creating a respective <a href="h
   <entry>
     <id>https://github.com/flatcar/manifest/releases/tag/v2191.2.0</id>
     <title>2191.2.0</title>
-    <updated>2026-07-13T17:24:12.001142+00:00</updated>
+    <updated>2026-08-13T16:00:44.988110+00:00</updated>
     <content type="html"><![CDATA[<h2><a href="https://github.com/coreos/manifest/releases/tag/v2191.2.0">Upstream Container Linux updates</a>:</h2>
 <ul>
 <li>Linux <a href="https://lwn.net/Articles/794807/">4.19.62</a></li>
@@ -7250,7 +7302,7 @@ Using the btrfs driver can still be enforced by creating a respective <a href="h
   <entry>
     <id>https://github.com/flatcar/manifest/releases/tag/v2191.1.0</id>
     <title>2191.1.0</title>
-    <updated>2026-07-13T17:24:11.997743+00:00</updated>
+    <updated>2026-08-13T16:00:44.984694+00:00</updated>
     <content type="html"><![CDATA[<h2><a href="https://github.com/coreos/manifest/releases/tag/v2191.1.0">Upstream Container Linux updates</a>:</h2>
 <p>No changes for beta promotion</p>
 <p>Packages:</p>
@@ -7272,7 +7324,7 @@ Using the btrfs driver can still be enforced by creating a respective <a href="h
   <entry>
     <id>https://github.com/flatcar/manifest/releases/tag/v2163.4.0</id>
     <title>2163.4.0</title>
-    <updated>2026-07-13T17:24:11.994146+00:00</updated>
+    <updated>2026-08-13T16:00:44.981043+00:00</updated>
     <content type="html"><![CDATA[<h2><a href="https://github.com/coreos/manifest/releases/tag/v2163.4.0">Upstream Container Linux updates</a>:</h2>
 <p>Bug fixes:</p>
 <ul>
@@ -7301,7 +7353,7 @@ Using the btrfs driver can still be enforced by creating a respective <a href="h
   <entry>
     <id>https://github.com/flatcar/manifest/releases/tag/v2163.3.0</id>
     <title>2163.3.0</title>
-    <updated>2026-07-13T17:24:11.990537+00:00</updated>
+    <updated>2026-08-13T16:00:44.977400+00:00</updated>
     <content type="html"><![CDATA[<h2><a href="https://github.com/coreos/manifest/releases/tag/v2163.3.0">Upstream Container Linux updates</a>:</h2>
 <p>Updates:</p>
 <ul>
@@ -7326,7 +7378,7 @@ Using the btrfs driver can still be enforced by creating a respective <a href="h
   <entry>
     <id>https://github.com/flatcar/manifest/releases/tag/v2135.3.1</id>
     <title>2135.3.1</title>
-    <updated>2026-07-13T17:24:11.986638+00:00</updated>
+    <updated>2026-08-13T16:00:44.973421+00:00</updated>
     <content type="html"><![CDATA[<h2><a href="https://github.com/coreos/manifest/releases/tag/v2135.3.1">Upstream Container Linux updates</a>:</h2>
 <p>Security fixes:</p>
 <ul>
@@ -7359,7 +7411,7 @@ Using the btrfs driver can still be enforced by creating a respective <a href="h
   <entry>
     <id>https://github.com/flatcar/manifest/releases/tag/v2135.2.0</id>
     <title>2135.2.0</title>
-    <updated>2026-07-13T17:24:11.982877+00:00</updated>
+    <updated>2026-08-13T16:00:44.969632+00:00</updated>
     <content type="html"><![CDATA[<h2><a href="https://github.com/coreos/manifest/releases/tag/v2135.2.0">Upstream Container Linux updates</a>:</h2>
 <p>Updates:</p>
 <ul>
@@ -7384,7 +7436,7 @@ Using the btrfs driver can still be enforced by creating a respective <a href="h
   <entry>
     <id>https://github.com/flatcar/manifest/releases/tag/v2107.3.0</id>
     <title>2107.3.0</title>
-    <updated>2026-07-13T17:24:11.978738+00:00</updated>
+    <updated>2026-08-13T16:00:44.965370+00:00</updated>
     <content type="html"><![CDATA[<h2><a href="https://github.com/coreos/manifest/releases/tag/v2107.3.0">Upstream Container Linux updates</a>:</h2>
 <p>Security fixes:</p>
 <ul>
@@ -7414,7 +7466,7 @@ Using the btrfs driver can still be enforced by creating a respective <a href="h
   <entry>
     <id>https://github.com/flatcar/manifest/releases/tag/v2107.2.0</id>
     <title>2107.2.0</title>
-    <updated>2026-07-13T17:24:11.974768+00:00</updated>
+    <updated>2026-08-13T16:00:44.961383+00:00</updated>
     <content type="html"><![CDATA[<h2><a href="https://github.com/coreos/manifest/releases/tag/v2107.2.0">Upstream Container Linux updates</a>:</h2>
 <p>Bug fixes:</p>
 <ul>
@@ -7443,7 +7495,7 @@ Using the btrfs driver can still be enforced by creating a respective <a href="h
   <entry>
     <id>https://github.com/flatcar/manifest/releases/tag/v2107.1.0</id>
     <title>2107.1.0</title>
-    <updated>2026-07-13T17:24:11.970916+00:00</updated>
+    <updated>2026-08-13T16:00:44.957433+00:00</updated>
     <content type="html"><![CDATA[<h2><a href="https://github.com/coreos/manifest/releases/tag/v2107.1.0">Upstream Container Linux updates</a>:</h2>
 <p>Bug fixes:</p>
 <ul>
@@ -7476,7 +7528,7 @@ Using the btrfs driver can still be enforced by creating a respective <a href="h
   <entry>
     <id>https://github.com/flatcar/manifest/releases/tag/v2079.2.0</id>
     <title>2079.2.0</title>
-    <updated>2026-07-13T17:24:11.967022+00:00</updated>
+    <updated>2026-08-13T16:00:44.953408+00:00</updated>
     <content type="html"><![CDATA[<h2><a href="https://github.com/coreos/manifest/releases/tag/v2079.2.0">Upstream Container Linux updates</a>:</h2>
 <p>Bug fixes:</p>
 <ul>
@@ -7509,7 +7561,7 @@ Using the btrfs driver can still be enforced by creating a respective <a href="h
   <entry>
     <id>https://github.com/flatcar/manifest/releases/tag/v2079.1.0</id>
     <title>2079.1.0</title>
-    <updated>2026-07-13T17:24:11.963243+00:00</updated>
+    <updated>2026-08-13T16:00:44.949480+00:00</updated>
     <content type="html"><![CDATA[<h2><a href="https://github.com/coreos/manifest/releases/tag/v2079.1.0">Upstream Container Linux updates</a>:</h2>
 <p>Bug fixes:</p>
 <ul>
@@ -7538,7 +7590,7 @@ Using the btrfs driver can still be enforced by creating a respective <a href="h
   <entry>
     <id>https://github.com/flatcar/manifest/releases/tag/v2051.2.0</id>
     <title>2051.2.0</title>
-    <updated>2026-07-13T17:24:11.959527+00:00</updated>
+    <updated>2026-08-13T16:00:44.945669+00:00</updated>
     <content type="html"><![CDATA[<h2><a href="https://github.com/coreos/manifest/releases/tag/v2051.2.0">Upstream Container Linux updates</a>:</h2>
 <p>Bug fixes:</p>
 <ul>
@@ -7567,7 +7619,7 @@ Using the btrfs driver can still be enforced by creating a respective <a href="h
   <entry>
     <id>https://github.com/flatcar/manifest/releases/tag/v2051.1.0</id>
     <title>2051.1.0</title>
-    <updated>2026-07-13T17:24:11.955677+00:00</updated>
+    <updated>2026-08-13T16:00:44.941646+00:00</updated>
     <content type="html"><![CDATA[<h2><a href="https://github.com/coreos/manifest/releases/tag/v2051.1.0">Upstream Container Linux updates</a>:</h2>
 <p>Security fixes:</p>
 <ul>
@@ -7597,7 +7649,7 @@ Using the btrfs driver can still be enforced by creating a respective <a href="h
   <entry>
     <id>https://github.com/flatcar/manifest/releases/tag/v2023.3.0</id>
     <title>2023.3.0</title>
-    <updated>2026-07-13T17:24:11.951981+00:00</updated>
+    <updated>2026-08-13T16:00:44.937912+00:00</updated>
     <content type="html"><![CDATA[<h2><a href="https://github.com/coreos/manifest/releases/tag/v2023.3.0">Upstream Container Linux updates</a>:</h2>
 <p>Updates:</p>
 <ul>
@@ -7622,7 +7674,7 @@ Using the btrfs driver can still be enforced by creating a respective <a href="h
   <entry>
     <id>https://github.com/flatcar/manifest/releases/tag/v2023.2.0</id>
     <title>2023.2.0</title>
-    <updated>2026-07-13T17:24:11.947881+00:00</updated>
+    <updated>2026-08-13T16:00:44.933852+00:00</updated>
     <content type="html"><![CDATA[<h2><a href="https://github.com/coreos/manifest/releases/tag/v2023.2.0">Upstream Container Linux updates</a>:</h2>
 <p>Security fixes:</p>
 <ul>
@@ -7657,7 +7709,7 @@ Using the btrfs driver can still be enforced by creating a respective <a href="h
   <entry>
     <id>https://github.com/flatcar/manifest/releases/tag/v2023.1.0</id>
     <title>2023.1.0</title>
-    <updated>2026-07-13T17:24:11.943819+00:00</updated>
+    <updated>2026-08-13T16:00:44.929756+00:00</updated>
     <content type="html"><![CDATA[<h2><a href="https://github.com/coreos/manifest/releases/tag/v2023.1.0">Upstream Container Linux updates</a>:</h2>
 <p>Security fixes:</p>
 <ul>
@@ -7688,7 +7740,7 @@ Using the btrfs driver can still be enforced by creating a respective <a href="h
   <entry>
     <id>https://github.com/flatcar/manifest/releases/tag/v1995.1.0</id>
     <title>1995.1.0</title>
-    <updated>2026-07-13T17:24:11.940110+00:00</updated>
+    <updated>2026-08-13T16:00:44.926062+00:00</updated>
     <content type="html"><![CDATA[<h2><a href="https://github.com/coreos/manifest/releases/tag/v1995.1.0">Upstream Container Linux updates</a>:</h2>
 <p>Updates:</p>
 <ul>
@@ -7713,7 +7765,7 @@ Using the btrfs driver can still be enforced by creating a respective <a href="h
   <entry>
     <id>https://github.com/flatcar/manifest/releases/tag/v1967.2.0</id>
     <title>1967.2.0</title>
-    <updated>2026-07-13T17:24:11.936033+00:00</updated>
+    <updated>2026-08-13T16:00:44.921997+00:00</updated>
     <content type="html"><![CDATA[<h2><a href="https://github.com/coreos/manifest/releases/tag/v1967.2.0">Upstream Container Linux updates</a>:</h2>
 <p>Security fixes:</p>
 <ul>
@@ -7745,7 +7797,7 @@ Using the btrfs driver can still be enforced by creating a respective <a href="h
   <entry>
     <id>https://github.com/flatcar/manifest/releases/tag/v1967.1.0</id>
     <title>1967.1.0</title>
-    <updated>2026-07-13T17:24:11.932279+00:00</updated>
+    <updated>2026-08-13T16:00:44.918101+00:00</updated>
     <content type="html"><![CDATA[<h2><a href="https://github.com/coreos/manifest/releases/tag/v1967.1.0">Upstream Container Linux updates</a>:</h2>
 <p>Changes:</p>
 <ul>
@@ -7770,7 +7822,7 @@ Using the btrfs driver can still be enforced by creating a respective <a href="h
   <entry>
     <id>https://github.com/flatcar/manifest/releases/tag/v1939.2.1</id>
     <title>1939.2.1</title>
-    <updated>2026-07-13T17:24:11.928587+00:00</updated>
+    <updated>2026-08-13T16:00:44.914198+00:00</updated>
     <content type="html"><![CDATA[<h2><a href="https://github.com/coreos/manifest/releases/tag/v1939.2.1">Upstream Container Linux updates</a>:</h2>
 <p>Security fixes:</p>
 <ul>
@@ -7799,7 +7851,7 @@ Using the btrfs driver can still be enforced by creating a respective <a href="h
   <entry>
     <id>https://github.com/flatcar/manifest/releases/tag/v1939.1.0</id>
     <title>1939.1.0</title>
-    <updated>2026-07-13T17:24:11.924612+00:00</updated>
+    <updated>2026-08-13T16:00:44.910100+00:00</updated>
     <content type="html"><![CDATA[<h2><a href="https://github.com/coreos/manifest/releases/tag/v1939.1.0">Upstream Container Linux updates</a>:</h2>
 <p>Security fixes:</p>
 <ul>
@@ -7830,7 +7882,7 @@ Using the btrfs driver can still be enforced by creating a respective <a href="h
   <entry>
     <id>https://github.com/flatcar/manifest/releases/tag/v1911.2.0</id>
     <title>1911.2.0</title>
-    <updated>2026-07-13T17:24:11.920442+00:00</updated>
+    <updated>2026-08-13T16:00:44.905907+00:00</updated>
     <content type="html"><![CDATA[<h2><a href="https://github.com/coreos/manifest/releases/tag/v1911.2.0">Upstream Container Linux updates</a>:</h2>
 <p>Security fixes:</p>
 <ul>
@@ -7864,7 +7916,7 @@ Using the btrfs driver can still be enforced by creating a respective <a href="h
   <entry>
     <id>https://github.com/flatcar/manifest/releases/tag/v1911.1.1</id>
     <title>1911.1.1</title>
-    <updated>2026-07-13T17:24:11.916423+00:00</updated>
+    <updated>2026-08-13T16:00:44.901723+00:00</updated>
     <content type="html"><![CDATA[<h2>Flatcar updates</h2>
 <p>Changes:</p>
 <ul>
@@ -7898,7 +7950,7 @@ Using the btrfs driver can still be enforced by creating a respective <a href="h
   <entry>
     <id>https://github.com/flatcar/manifest/releases/tag/v1883.1.0</id>
     <title>1883.1.0</title>
-    <updated>2026-07-13T17:24:11.912447+00:00</updated>
+    <updated>2026-08-13T16:00:44.897662+00:00</updated>
     <content type="html"><![CDATA[<h2><a href="https://github.com/coreos/manifest/releases/tag/v1883.1.0">Upstream Container Linux updates</a>:</h2>
 <p>Bug fixes:</p>
 <ul>
@@ -7931,7 +7983,7 @@ Using the btrfs driver can still be enforced by creating a respective <a href="h
   <entry>
     <id>https://github.com/flatcar/manifest/releases/tag/v1855.3.0</id>
     <title>1855.3.0</title>
-    <updated>2026-07-13T17:24:11.908443+00:00</updated>
+    <updated>2026-08-13T16:00:44.893617+00:00</updated>
     <content type="html"><![CDATA[<h2><a href="https://github.com/coreos/manifest/releases/tag/v1855.3.0">Upstream Container Linux updates</a>:</h2>
 <p>Changes:</p>
 <ul>
@@ -7963,7 +8015,7 @@ Using the btrfs driver can still be enforced by creating a respective <a href="h
   <entry>
     <id>https://github.com/flatcar/manifest/releases/tag/v1855.2.0</id>
     <title>1855.2.0</title>
-    <updated>2026-07-13T17:24:11.904140+00:00</updated>
+    <updated>2026-08-13T16:00:44.889295+00:00</updated>
     <content type="html"><![CDATA[<h2><a href="https://github.com/coreos/manifest/releases/tag/v1855.2.0">Upstream Container Linux updates</a>:</h2>
 <p>Security fixes:</p>
 <ul>
@@ -7997,7 +8049,7 @@ Using the btrfs driver can still be enforced by creating a respective <a href="h
   <entry>
     <id>https://github.com/flatcar/manifest/releases/tag/v1828.3.0</id>
     <title>1828.3.0</title>
-    <updated>2026-07-13T17:24:11.899872+00:00</updated>
+    <updated>2026-08-13T16:00:44.885137+00:00</updated>
     <content type="html"><![CDATA[<h2><a href="https://github.com/coreos/manifest/releases/tag/v1828.3.0">Upstream Container Linux updates</a>:</h2>
 <p>Security fixes:</p>
 <ul>
@@ -8030,7 +8082,7 @@ Using the btrfs driver can still be enforced by creating a respective <a href="h
   <entry>
     <id>https://github.com/flatcar/manifest/releases/tag/v1828.2.0</id>
     <title>1828.2.0</title>
-    <updated>2026-07-13T17:24:11.896096+00:00</updated>
+    <updated>2026-08-13T16:00:44.881259+00:00</updated>
     <content type="html"><![CDATA[<h2><a href="https://github.com/coreos/manifest/releases/tag/v1828.2.0">Upstream Container Linux updates</a>:</h2>
 <p>Bug fixes:</p>
 <ul>
@@ -8059,7 +8111,7 @@ Using the btrfs driver can still be enforced by creating a respective <a href="h
   <entry>
     <id>https://github.com/flatcar/manifest/releases/tag/v1828.1.0</id>
     <title>1828.1.0</title>
-    <updated>2026-07-13T17:24:11.892416+00:00</updated>
+    <updated>2026-08-13T16:00:44.877503+00:00</updated>
     <content type="html"><![CDATA[<h2><a href="https://github.com/coreos/manifest/releases/tag/v1828.1.0">Upstream Container Linux updates</a>:</h2>
 <p>Changes:</p>
 <ul>
@@ -8085,7 +8137,7 @@ Using the btrfs driver can still be enforced by creating a respective <a href="h
   <entry>
     <id>https://github.com/flatcar/manifest/releases/tag/v1800.3.0</id>
     <title>1800.3.0</title>
-    <updated>2026-07-13T17:24:11.888797+00:00</updated>
+    <updated>2026-08-13T16:00:44.873830+00:00</updated>
     <content type="html"><![CDATA[<h2><a href="https://github.com/coreos/manifest/releases/tag/v1800.3.0">Upstream Container Linux updates</a>:</h2>
 <p>Updates:</p>
 <ul>
@@ -8110,7 +8162,7 @@ Using the btrfs driver can still be enforced by creating a respective <a href="h
   <entry>
     <id>https://github.com/flatcar/manifest/releases/tag/v1800.2.0</id>
     <title>1800.2.0</title>
-    <updated>2026-07-13T17:24:11.885145+00:00</updated>
+    <updated>2026-08-13T16:00:44.870116+00:00</updated>
     <content type="html"><![CDATA[<h2><a href="https://github.com/coreos/manifest/releases/tag/v1800.2.0">Upstream Container Linux updates</a>:</h2>
 <p>Changes:</p>
 <ul>
@@ -8136,7 +8188,7 @@ Using the btrfs driver can still be enforced by creating a respective <a href="h
   <entry>
     <id>https://github.com/flatcar/manifest/releases/tag/v1772.4.0</id>
     <title>1772.4.0</title>
-    <updated>2026-07-13T17:24:11.881360+00:00</updated>
+    <updated>2026-08-13T16:00:44.866295+00:00</updated>
     <content type="html"><![CDATA[<h2><a href="https://github.com/coreos/manifest/releases/tag/v1772.4.0">Upstream Container Linux updates</a>:</h2>
 <p>Bug fixes:</p>
 <ul>
@@ -8165,7 +8217,7 @@ Using the btrfs driver can still be enforced by creating a respective <a href="h
   <entry>
     <id>https://github.com/flatcar/manifest/releases/tag/v1772.3.0</id>
     <title>1772.3.0</title>
-    <updated>2026-07-13T17:24:11.877648+00:00</updated>
+    <updated>2026-08-13T16:00:44.862496+00:00</updated>
     <content type="html"><![CDATA[<h2><a href="https://github.com/coreos/manifest/releases/tag/v1772.3.0">Upstream Container Linux updates</a>:</h2>
 <p>Bug fixes:</p>
 <ul>
@@ -8194,7 +8246,7 @@ Using the btrfs driver can still be enforced by creating a respective <a href="h
   <entry>
     <id>https://github.com/flatcar/manifest/releases/tag/v1772.2.0</id>
     <title>1772.2.0</title>
-    <updated>2026-07-13T17:24:11.873498+00:00</updated>
+    <updated>2026-08-13T16:00:44.858294+00:00</updated>
     <content type="html"><![CDATA[<h2><a href="https://github.com/coreos/manifest/releases/tag/v1772.2.0">Upstream Container Linux updates</a>:</h2>
 <p>Security fixes:</p>
 <ul>
@@ -8229,7 +8281,7 @@ Using the btrfs driver can still be enforced by creating a respective <a href="h
   <entry>
     <id>https://github.com/flatcar/manifest/releases/tag/v1772.1.1</id>
     <title>1772.1.1</title>
-    <updated>2026-07-13T17:24:11.869456+00:00</updated>
+    <updated>2026-08-13T16:00:44.854088+00:00</updated>
     <content type="html"><![CDATA[<h2><a href="https://github.com/coreos/manifest/releases/tag/v1772.1.1">Upstream Container Linux updates</a>:</h2>
 <p>Changes:</p>
 <ul>
@@ -8259,7 +8311,7 @@ Using the btrfs driver can still be enforced by creating a respective <a href="h
   <entry>
     <id>https://github.com/flatcar/manifest/releases/tag/v1745.2.0</id>
     <title>1745.2.0</title>
-    <updated>2026-07-13T17:24:11.864722+00:00</updated>
+    <updated>2026-08-13T16:00:44.849297+00:00</updated>
     <content type="html"><![CDATA[<h2><a href="https://github.com/coreos/manifest/releases/tag/v1745.2.0">Upstream Container Linux updates</a>:</h2>
 <p>Security fixes:</p>
 <ul>
@@ -8294,7 +8346,7 @@ Using the btrfs driver can still be enforced by creating a respective <a href="h
   <entry>
     <id>https://github.com/flatcar/manifest/releases/tag/v1745.1.0</id>
     <title>1745.1.0</title>
-    <updated>2026-07-13T17:24:11.860496+00:00</updated>
+    <updated>2026-08-13T16:00:44.844934+00:00</updated>
     <content type="html"><![CDATA[<h2><a href="https://github.com/coreos/manifest/releases/tag/v1745.1.0">Upstream Container Linux updates</a>:</h2>
 <p>Bug fixes:</p>
 <ul>
@@ -8323,7 +8375,7 @@ Using the btrfs driver can still be enforced by creating a respective <a href="h
   <entry>
     <id>https://github.com/flatcar/manifest/releases/tag/v1722.2.0</id>
     <title>1722.2.0</title>
-    <updated>2026-07-13T17:24:11.855863+00:00</updated>
+    <updated>2026-08-13T16:00:44.839972+00:00</updated>
     <content type="html"><![CDATA[<h2>Flatcar updates</h2>
 <p>Initial Flatcar release.</p>
 <p>Bug fixes:</p>

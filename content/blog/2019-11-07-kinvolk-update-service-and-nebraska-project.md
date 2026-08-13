@@ -40,7 +40,7 @@ Here is a summarized list of capabilities:
 *   Update progress overview
 *   Versions evolution timeline
 *   Detailed history per machine
-*   Authentication through Github
+*   Authentication through GitHub
 *   Distribution of updates payload or redirection
 *   Automatic fetch of new packages’ metadata
 *   … (we’ll keep working on more!)
@@ -149,7 +149,7 @@ There are certainly improvements we can do to the Kinvolk Update Service / Nebra
 *   Performance improvements;
 *   UX improvements.
 
-Finally, and as previously mentioned, Nebraska is 100% Open Source and we welcome contributions. If you have a bug fix you want to add, or a feature you want to implement, it is recommendable to first open an issue about it and discuss it in its Github project before writing the code (especially if it is a complex feature).
+Finally, and as previously mentioned, Nebraska is 100% Open Source and we welcome contributions. If you have a bug fix you want to add, or a feature you want to implement, it is recommendable to first open an issue about it and discuss it in its GitHub project before writing the code (especially if it is a complex feature).
 
 The Kinvolk team hopes you enjoy its new product. We’d love to hear your thoughts and feedback - via email ([hello@kinvolk.io](mailto:hello@kinvolk.io)), or Twitter (@kinvolkio).
 
