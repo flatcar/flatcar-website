@@ -290,7 +290,7 @@ Your ssh public key(s) will be added to the `core` user's `authorized_keys` when
 
 Now we can connect to the Flatcar VM via SSH.
 If you generated keys above, restart the VM to make sure the new SSH keys are injected.
-The wrapper script also helpfully creates a port-froward from the VM's (SSH) port 22 to host port 2222.
+The wrapper script also helpfully creates a port-forward from the VM's (SSH) port 22 to host port 2222.
 
 ```bash
 ssh -o "UserKnownHostsFile=/dev/null" -o "StrictHostKeyChecking=no" core@localhost -p 2222

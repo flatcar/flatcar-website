@@ -30,7 +30,7 @@ It is also advisable to separate the persistent data from the disposable nodes t
 
 ## Generating the Ignition Configuration within Terraform
 
-To convert the Butane Config in YAML to the final Igniton Config in JSON you don't need to run [`butane`][butane-configs] manually. Instead, you can directly do this within Terraform, through the [`terraform-ct-provider`][terraform-ct-provider] (starting from v0.12.0).
+To convert the Butane Config in YAML to the final Ignition Config in JSON you don't need to run [`butane`][butane-configs] manually. Instead, you can directly do this within Terraform, through the [`terraform-ct-provider`][terraform-ct-provider] (starting from v0.12.0).
 Combined with the `template-provider` you can reference Terraform variables in the YAML template.
 
 An alternative is the [`terraform-ignition-provider`][terraform-ignition-provider] that allows to assemble the Ignition Config from Terraform declarations.
@@ -73,7 +73,7 @@ Persistent data should be stored on another partition which should be set to be 
 
 We can also preserve the machine ID by setting it as kernel cmdline parameter (it must not be kept as file on the root filesystem because that prevents the systemd first-boot semantics to enable units through the preset Ignition creates).
 
-This Container Linux Config snippet takes care of reformating the root filesystem and places a reprovisioning helper script on the OEM partition:
+This Container Linux Config snippet takes care of reformatting the root filesystem and places a reprovisioning helper script on the OEM partition:
 
 ```yaml
 storage:
