@@ -14,7 +14,7 @@ This documentation will cover preliminary aspects of operating Kubernetes cluste
 
 ## Supported Kubernetes version
 
-A Kubernetes basic scenario (deploy a simple Nginx) is being tested on Flatcar accross the channels and various CNIs, it mainly ensures that Kubernetes can be correctly installed and can operate in a simple way.
+A Kubernetes basic scenario (deploy a simple Nginx) is being tested on Flatcar across the channels and various CNIs, it mainly ensures that Kubernetes can be correctly installed and can operate in a simple way.
 
 One way to contribute to Flatcar would be to extend the covered CNIs (example: [kubenet][kubenet]) or to provide more complex scenarios (example: [cilium extension][cilium]).
 
@@ -203,7 +203,7 @@ NAME            STATUS     ROLES           AGE     VERSION
 flatcar-node1   NotReady   control-plane   2m10s   v1.33.2
 ```
 
-The control plane will appear has non-ready until a CNI is deployed, here's an example with calico:
+The control plane will appear as non-ready until a CNI is deployed, here's an example with calico:
 ```bash
 kubectl \
   apply -f https://raw.githubusercontent.com/projectcalico/calico/v3.24.1/manifests/calico.yaml
@@ -371,7 +371,7 @@ Finally, tell `kubelet` to use containerd by adding to it the following flags:
 From the official [documentation][capi-documentation]:
 > Cluster API is a Kubernetes sub-project focused on providing declarative APIs and tooling to simplify provisioning, upgrading, and operating multiple Kubernetes clusters.
 
-As it requires to have some tools already installed on the OS to work correcly with CAPI, Flatcar images can be built using the [image-builder][image-builder] project.
+As it requires to have some tools already installed on the OS to work correctly with CAPI, Flatcar images can be built using the [image-builder][image-builder] project.
 
 While CAPI is an evolving project and Flatcar support is in-progress regarding the various providers, here's the current list of supported providers:
 * [AWS][capi-aws]

@@ -32,7 +32,7 @@ properties:
 
 Each control plane node will be responsible for running the regular Kubernetes
 control plane components, as well as HAProxy and Keepalived.  The api-server
-with have a VIP of `192.168.122.30`.  HAProxy and Keepalived can be installed
+will have a VIP of `192.168.122.30`.  HAProxy and Keepalived can be installed
 through various methods, but this article will show you how to install them
 using [Quadlet][Quadlet] through Ignition. 
 
@@ -224,7 +224,7 @@ butane/00_base-k8s-token.yaml:
 	./scripts/generate-k8s-certs.sh
 ```
 
-These lines show us how to to build each ignition file using a container.  We
+These lines show us how to build each ignition file using a container.  We
 also have to specify how to build our token file using a shell script.
 
 ### Token File
@@ -498,7 +498,7 @@ storage:
 <br>
 
 We extend the first config by including it in this config, along with the token
-file.  We also set any environment variales that are shared across hosts, in
+file.  We also set any environment variables that are shared across hosts, in
 this case `K8S_APISERVER_URL`, as well as set up some default podman/crio
 policies.
 
@@ -598,7 +598,7 @@ storage:
               timeout check           10s
 
           #---------------------------------------------------------------------
-          # apiserver frontend which proxys to the control plane nodes
+          # apiserver frontend which proxies to the control plane nodes
           #---------------------------------------------------------------------
           frontend apiserver
               bind 192.168.122.30:6444
@@ -697,7 +697,7 @@ systemd:
 </details>
 <br>
 
-This service defines what to do when intializing the kubernetes cluster.  This
+This service defines what to do when initializing the kubernetes cluster.  This
 only needs to be run on one node.  Essentially we are calling `kubeadm init
 ...` and `cilium install ...`, but its worth pointing out the dependencies
 here. We specify that kubeadm should only start AFTER the haproxy service
@@ -1075,7 +1075,7 @@ Then, running `make new-cluster` should generate our token file and generate
 all the Ignition files from the butane configs.  Finally, running `make ha`
 will create and run each VM.  This involves downloading a base VM image,
 verifying it with GPG, cloning the base image to create a working image, and
-copying the image (and Igntion files) to `/var/lib/libvirt/images/flatcar`.
+copying the image (and Ignition files) to `/var/lib/libvirt/images/flatcar`.
 
 After that, we should have a running kubernetes cluster.  We can shut
 everything down by running `make rm-ha` or connect to a node via `virsh connect
