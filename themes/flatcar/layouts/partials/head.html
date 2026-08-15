@@ -6,7 +6,9 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <title>{{ if eq .Kind "term" }}{{ .Data.Singular }} {{ .Title }}{{ else }}{{ .Title }} | {{ $.Site.Title }}{{ end }}</title>
-    <meta name="description" content="Flatcar Linux" />
+    {{- $description := or .Description .Params.tagline (.Summary | plainify | truncate 160) .Site.Params.Description }}
+    {{- $description = $description | plainify | replaceRE `\s+` " " | strings.TrimSpace }}
+    <meta name="description" content="{{ $description }}" />
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -20,7 +22,7 @@
         <meta name="googlebot" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
         <meta name="bingbot" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
     {{ end }}
-    <link rel="canonical" href="https://flatcar-linux.org/" />
+    <link rel="canonical" href="{{ or .Params.canonical .Permalink }}" />
     {{ hugo.Generator }}
 
     {{ $postImage := .Params.postimage }}
@@ -35,22 +37,13 @@
             {{- if in (slice "image/jpeg" "image/jpg" "image/png") (string $image.MediaType) -}}
                 {{- $imagePath = ($image.Resize "920x png q100").RelPermalink -}}
             {{- end -}}
-            {{- $baseURL := $.Site.BaseURL -}}
-            {{/* Trim last / */}}
-            {{- if eq (substr $baseURL -1 1) "/" -}}
-                {{- $baseURL = substr $baseURL 0 -1  -}}
-            {{- end -}}
-            {{- if eq $baseURL "" -}}
-                {{- $baseURL = "https://flatcar-linux.org"  -}}
-            {{- end -}}
-
-            {{- $postImage = printf "%s%s" $baseURL $imagePath -}}
+            {{- $postImage = $imagePath | absURL -}}
             {{- $ogImageWidth = 0 -}}
             {{- $ogImageHeight = 0 -}}
         {{- end -}}
     {{ end }}
 
-    {{ $ogImage := default "https://www.flatcar-linux.org/images/social-card.png" $postImage }}
+    {{ $ogImage := default ("/images/social-card.png" | absURL) $postImage }}
 
     {{ $title := .Title }}
 
@@ -59,13 +52,12 @@
     {{- end -}}
 
     {{ $ogTitle := default "Flatcar Container Linux" $title }}
-    {{ $ogDescription := default $ogTitle (default .Params.description .Params.tagline) }}
 
     <!-- Open Graph meta tags -->
     <meta property="og:locale" content="en_US" />
     <meta property="og:type" content="website" />
     <meta property="og:title" content="{{ $ogTitle }}" />
-    <meta property="og:description" content="{{ $ogDescription }}" />
+    <meta property="og:description" content="{{ $description }}" />
     <meta property="og:url" content="{{ .Permalink }}" />
     <meta property="og:site_name" content="Flatcar" />
     <meta property="article:modified_time" content="{{ hugo.BuildDate }}" />
