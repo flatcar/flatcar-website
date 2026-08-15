@@ -12,12 +12,12 @@
                     {{- $imagePath = ($image.Resize "500x webp q100").RelPermalink -}}
                 {{- end -}}
                 {{- end -}}
-                <a href="{{ .Permalink }}">
+                <a href="{{ .RelPermalink }}">
                     <img src="{{ $imagePath }}" alt="post image">
                 </a>
             </div>
             <div class="card-body">
-                <a href="{{ .Permalink }}" class="post__title">
+                <a href="{{ .RelPermalink }}" class="post__title">
                     <h4 class="card-title mb-2">{{ .Title }}</h4>
                 </a>
                 <p>
