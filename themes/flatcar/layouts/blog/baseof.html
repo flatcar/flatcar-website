@@ -1,13 +1,13 @@
 <!doctype html>
-<html lang="{{ .Site.Language.Lang }}" {{ if .IsHome }}data-bs-theme="light"{{ end }}>
+<html lang="{{ .Site.Language.Lang }}">
   <head>
     {{ partial "head.html" . }}
   </head>
-  <body class="{{ if .IsHome }} home-page {{ end }}" {{ if .IsHome }}data-theme-force="light"{{ end }}>
+  <body class="{{ .Kind }}">
     <a class="visually-hidden visually-hidden-focusable" href="#content">Skip to content</a>
     {{ partial "header.html" . }}
 
-    <main class="main" id="content" role="main">
+    <main class="main blog" id="content" role="main">
       {{ block "main" . }}{{ .Render "common-page" }}{{ end }}
       {{ block "unique-content" . }}{{ end }}
       {{ block "bottom" . }}{{ end }}

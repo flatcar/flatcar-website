@@ -8,6 +8,10 @@
   flex-direction: column;
   text-align: center;
 
+  [data-bs-theme="dark"] & {
+    border-bottom: 1px solid rgba(148, 180, 214, 0.12);
+  }
+
   .banner-bg {
     overflow: hidden;
     position: absolute;
@@ -45,6 +49,11 @@
     .animated-svg:nth-child(7) { animation-delay: 3s; }
     .animated-svg:nth-child(8) { animation-delay: 3.5s; }
     .animated-svg:nth-child(9) { animation-delay: 4s; }
+  }
+
+  > .container {
+    position: relative;
+    z-index: 1;
   }
 
   h1 {

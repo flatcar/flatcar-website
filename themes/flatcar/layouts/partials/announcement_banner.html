@@ -1,5 +1,5 @@
 {{ if .Page.Param "announcement" }}
-<div lang="en" id="announcement" style="background-color:{{ .Page.Param "announcement_bg" }}">
+<div lang="en" id="announcement" class="announcement-banner" style="--announcement-bg:{{ .Page.Param "announcement_bg" }}">
   <div class="row {{ .Page.Param "announcement_text_class" }}">
   <div class="col-md-1 d-flex align-items-center justify-content-center">
     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-exclamation-circle" viewBox="0 0 16 16">
