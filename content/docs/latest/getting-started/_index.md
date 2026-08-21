@@ -1,6 +1,6 @@
 ---
 title: Getting Started with Flatcar Container Linux
-content-type: explanation
+content_type: explanation
 linktitle: Getting Started
 weight: 10
 aliases:
