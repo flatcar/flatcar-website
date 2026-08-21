@@ -121,10 +121,6 @@ The Dockerfile for the `ghcr.io/flatcar/google-cloud-flatcar-image-upload` image
 [bucket]: https://cloud.google.com/storage/docs/key-terms#bucket-names
 [google-cloud-flatcar-image-upload]: https://github.com/flatcar/flatcar-cloud-image-uploader/blob/master/google-cloud-flatcar-image-upload
 
-## Upgrade from CoreOS Container Linux
-
-You can also [upgrade from an existing CoreOS Container Linux system](../../coreos-migration/update-from-container-linux).
-
 ## Butane Config
 
 Flatcar Container Linux allows you to configure machine parameters, configure networking, launch systemd units on startup, and more via Butane Configs. These configs are then transpiled into Ignition configs and given to booting machines. Head over to the [docs to learn about the supported features][cl-configs].

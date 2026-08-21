@@ -41,13 +41,7 @@ Check out our [release page](https://flatcar-linux.org/releases/) to see the lat
 
 ### How does Flatcar Container Linux differ from CoreOS Container Linux?
 
-The main difference is that Flatcar Container Linux is still maintained, while CoreOS Container Linux has been discontinued. Flatcar Container Linux is a drop-in replacement for CoreOS Container Linux. Any minor changes you may need to consider are documented in the [migration documentation](https://flatcar-linux.org/docs/latest/migrating-from-coreos/).
-
-### What are the plans for Flatcar Container Linux now that CoreOS has reached EOL?
-
-CoreOS Container Linux was [discontinued in 2020](https://coreos.com/os/eol/#timeline). Flatcar Container Linux understands itself as the successor in spirit and will continue following the philosophy pioneered by CoreOS, delivering a fully open source, minimal-footprint, secure by default and always up-to-date Linux distribution for running containers at scale.
-
-We will continue to actively develop and support Flatcar Container Linux; updating key components such as the Linux kernel, systemd and Docker. We will also maintain support for Flatcar Container Linux as a drop-in replacement for CoreOS Container Linux for an extended migration period.
+The main difference is that Flatcar Container Linux is still maintained, while CoreOS Container Linux has been discontinued. Flatcar Container Linux is a drop-in replacement for CoreOS Container Linux.
 
 ### What is the significance of the Flatcar Container Linux name?
 
