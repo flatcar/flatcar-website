@@ -16,7 +16,7 @@
 
             {{ $js := slice $common | resources.Concat "js/bundle.js" }}
 
-            <script src="{{ $js.Permalink }}"></script>
+            <script src="{{ $js.RelPermalink }}"></script>
         {{ end }}
     </body>
 </html>

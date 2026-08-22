@@ -86,6 +86,6 @@
 
         {{ partial "footer.html" . }}
         {{- $searchJs := resources.GetMatch "js/fastsearch.js" | resources.Minify -}}
-        <script type="module" src="{{ $searchJs.Permalink }}"></script>
+        <script type="module" src="{{ $searchJs.RelPermalink }}"></script>
     </body>
 </html>

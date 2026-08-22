@@ -49,7 +49,7 @@
               {{ end }}
               {{ $title := or .title $section.Params.title }}
               <div class="footer-column__title">
-                {{ $link := or .link $section.Permalink}}
+                {{ $link := or .link $section.RelPermalink}}
                 {{ if $link }}
                   <a href="{{ $link }}">{{ $title }}</a>
                 {{ else }}
@@ -63,9 +63,9 @@
                     <li class="footer-menu__item">
                       {{ $url := "" }}
                       {{ if .Content }}
-                        {{ $url = .Permalink }}
+                        {{ $url = .RelPermalink }}
                       {{ else }}
-                        {{ $url = print (ref . $section.Section) "#" (anchorize .Params.title) }}
+                        {{ $url = print (relref . $section.Section) "#" (anchorize .Params.title) }}
                       {{ end }}
                       <a href="{{ $url }}" class="footer-menu__link">{{ or (index $footer_settings "title") .Params.Title }}</a>
                     </li>
@@ -81,7 +81,7 @@
                     {{ end }}
                   {{ end }}
                   {{ if not $hide }}
-                    {{ $link := or .link $page.Permalink }}
+                    {{ $link := or .link $page.RelPermalink }}
                     {{ $title := or .title $page.Title }}
                     <li class="footer-menu__item">
                       <a href="{{ $link }}" class="footer-menu__link">{{ $title }}</a>
@@ -95,7 +95,7 @@
     </div>
     <div class="footer__copy p-0">
       <div class="logo footer__logo row text-center justify-content-center">
-        <a href="{{ .Site.BaseURL }}">
+        <a href="{{ "/" | relURL }}">
             {{ partial "logo.html" . }}
         </a>
       </div>
@@ -135,4 +135,4 @@
   <script src="/js/bootstrap.bundle.min.js"></script>
   {{- $common := resources.Get "js/common.js" -}}
   {{- $js := slice $common | resources.Concat "js/common.js" -}}
-  <script src="{{ $js.Permalink }}"></script>
+  <script src="{{ $js.RelPermalink }}"></script>

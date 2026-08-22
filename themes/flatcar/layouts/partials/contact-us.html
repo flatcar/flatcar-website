@@ -16,7 +16,7 @@
         </div>
       {{ end }}
       <div class="col-12 {{ if $contact.message }}col-md-6{{ end }} text-center">
-        <a class="btn btn-blue" href="{{ ($.Site.GetPage "contact-us").Permalink }}">{{ default "Contact us" $contact.header }}</a>
+        <a class="btn btn-blue" href="{{ ($.Site.GetPage "contact-us").RelPermalink }}">{{ default "Contact us" $contact.header }}</a>
       </div>
     </div>
   </div>
