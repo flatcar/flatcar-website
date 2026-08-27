@@ -8,7 +8,6 @@ description: >
 This quickstart demonstrates provisioning a local QEMU VM with a Butane YAML config transpiled to Ignition. As an example, you create a systemd service that starts an NGINX container on the VM. This is a good starting point to modify the Butane YAML file and reprovision temporary QEMU VMs. This should work on most Linux systems and assumes you have an SSH key set up for ssh-agent.
 
 Begin by downloading the Flatcar QEMU image and the helper script to start it with QEMU, but don’t run it yet.
- 
 ## Download image
 
 ### AMD64
