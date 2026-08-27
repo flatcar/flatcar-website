@@ -56,28 +56,31 @@
         <h5 class="platform-category-heading"><span class="fa-solid fa-cloud me-2"></span>Cloud Providers</h5>
         <div class="row row-cols-2 row-cols-sm-3 row-cols-md-4 row-cols-lg-6 g-3 mb-4">
           {{ $clouds := slice
-            (dict "name" "AWS" "icon" "fa-brands fa-aws" "file" "flatcar_production_ami_image.bin.bz2" "arch" "amd64 arm64" "docs" "/docs/latest/installing/cloud/aws-ec2/")
-            (dict "name" "Azure" "icon" "fa-brands fa-microsoft" "file" "flatcar_production_azure_image.vhd.bz2" "arch" "amd64 arm64" "docs" "/docs/latest/installing/cloud/azure/")
-            (dict "name" "Google Cloud" "icon" "fa-brands fa-google" "file" "flatcar_production_gce.tar.gz" "arch" "amd64" "docs" "/docs/latest/installing/cloud/gcp/")
-            (dict "name" "DigitalOcean" "icon" "fa-brands fa-digital-ocean" "file" "flatcar_production_digitalocean_image.bin.bz2" "arch" "amd64" "docs" "/docs/latest/installing/cloud/digitalocean/")
-            (dict "name" "Hetzner" "icon" "fa-solid fa-server" "file" "flatcar_production_hetzner_image.bin.bz2" "arch" "amd64 arm64" "docs" "/docs/latest/installing/cloud/hetzner/")
-            (dict "name" "Akamai" "icon" "fa-solid fa-globe" "file" "flatcar_production_akamai_image.bin.gz" "arch" "amd64 arm64" "docs" "/docs/latest/installing/cloud/akamai/")
-            (dict "name" "Scaleway" "icon" "fa-solid fa-cloud" "file" "flatcar_production_scaleway_image.qcow2" "arch" "amd64 arm64" "community" "true" "docs" "/docs/latest/installing/community-platforms/scaleway/")
-            (dict "name" "Exoscale" "icon" "fa-solid fa-cloud" "file" "flatcar_production_exoscale_image.img.bz2" "arch" "amd64" "community" "true" "docs" "/docs/latest/installing/community-platforms/exoscale/")
-            (dict "name" "CloudStack" "icon" "fa-solid fa-cloud" "file" "flatcar_production_cloudstack_image.bin.bz2" "arch" "amd64" "community" "true" "docs" "/docs/latest/installing/community-platforms/")
-            (dict "name" "Brightbox" "icon" "fa-solid fa-cloud" "file" "flatcar_production_brightbox_image.img.bz2" "arch" "amd64 arm64" "docs" "/docs/latest/installing/cloud/brightbox/")
-            (dict "name" "Rackspace" "icon" "fa-solid fa-cloud" "file" "flatcar_production_rackspace_image.bin.bz2" "arch" "amd64" "community" "true" "docs" "/docs/latest/installing/community-platforms/")
-            (dict "name" "STACKIT" "icon" "fa-solid fa-cloud" "file" "flatcar_production_stackit_image.img" "arch" "amd64 arm64" "docs" "/docs/latest/installing/cloud/stackit/")
+            (dict "name" "AWS" "image" "/media/companies/aws-logo.svg" "file" "flatcar_production_ami_image.bin.bz2" "arch" "amd64 arm64" "docs" "/docs/latest/installing/cloud/aws-ec2/")
+            (dict "name" "Azure" "image" "/media/companies/azure-icon.svg" "file" "flatcar_production_azure_image.vhd.bz2" "arch" "amd64 arm64" "docs" "/docs/latest/installing/cloud/azure/")
+            (dict "name" "Google Cloud" "image" "/media/companies/googlecloud-icon.svg" "file" "flatcar_production_gce.tar.gz" "arch" "amd64" "docs" "/docs/latest/installing/cloud/gcp/")
+            (dict "name" "Oracle Cloud" "image" "/media/companies/oraclecloud-icon.svg" "file" "flatcar_production_oraclecloud_image.img" "arch" "amd64 arm64" "docs" "/docs/latest/installing/cloud/oraclecloud/")
+            (dict "name" "DigitalOcean" "image" "/media/companies/digitalocean-icon.svg" "file" "flatcar_production_digitalocean_image.bin.bz2" "arch" "amd64" "docs" "/docs/latest/installing/cloud/digitalocean/")
+            (dict "name" "Hetzner" "image" "/media/companies/hetzner-icon.svg" "file" "flatcar_production_hetzner_image.bin.bz2" "arch" "amd64 arm64" "docs" "/docs/latest/installing/cloud/hetzner/")
+            (dict "name" "Akamai" "image" "/media/companies/akamai-icon.svg" "file" "flatcar_production_akamai_image.bin.gz" "arch" "amd64 arm64" "docs" "/docs/latest/installing/cloud/akamai/")
+            (dict "name" "Scaleway" "image" "/media/companies/scaleway.svg" "file" "flatcar_production_scaleway_image.qcow2" "arch" "amd64 arm64" "community" "true" "docs" "/docs/latest/installing/community-platforms/scaleway/")
+            (dict "name" "Exoscale" "image" "/media/companies/exoscale-icon.svg" "file" "flatcar_production_exoscale_image.img.bz2" "arch" "amd64" "community" "true" "docs" "/docs/latest/installing/community-platforms/exoscale/")
+            (dict "name" "CloudStack" "image" "/media/companies/cloudstack-logo.svg" "file" "flatcar_production_cloudstack_image.bin.bz2" "arch" "amd64" "community" "true" "docs" "/docs/latest/installing/community-platforms/")
+            (dict "name" "Brightbox" "image" "/media/companies/brightbox-logo.svg" "file" "flatcar_production_brightbox_image.img.bz2" "arch" "amd64 arm64" "docs" "/docs/latest/installing/cloud/brightbox/")
+            (dict "name" "Rackspace" "image" "/media/companies/rackspace-logo.svg" "file" "flatcar_production_rackspace_image.bin.bz2" "arch" "amd64" "community" "true" "docs" "/docs/latest/installing/community-platforms/")
+            (dict "name" "STACKIT" "image" "/media/companies/stackit-icon.jpeg" "file" "flatcar_production_stackit_image.img" "arch" "amd64 arm64" "docs" "/docs/latest/installing/cloud/stackit/")
           }}
           {{ range $clouds }}
           <div class="col platform-col" data-arch="{{ .arch }}">
             <div class="platform-card{{ if .community }} platform-card--community{{ end }}" title="Download {{ .name }} image">
               <a href="https://stable.release.flatcar-linux.net/amd64-usr/current/{{ .file }}" class="platform-card__download" data-file="{{ .file }}">
-                <span class="{{ .icon }} platform-card__icon"></span>
+                {{ if .image }}
+                <img src="{{ .image }}" alt="" class="platform-card__icon platform-card__icon--image" width="32" height="32">
+                {{ end }}
                 <span class="platform-card__label">{{ .name }}</span>
               </a>
               {{ if .community }}<span class="platform-card__badge">Community</span>{{ end }}
-              <a href="{{ .docs }}" class="platform-card__docs" title="{{ .name }} install guide"><span class="fa-solid fa-book"></span></a>
+              <a href="{{ .docs }}" class="platform-card__docs" title="{{ .name }} install guide" aria-label="{{ .name }} install guide"><span class="fa-solid fa-book"></span></a>
             </div>
           </div>
           {{ end }}
@@ -87,31 +90,31 @@
         <h5 class="platform-category-heading"><span class="fa-solid fa-building me-2"></span>On-Premises &amp; Virtualization</h5>
         <div class="row row-cols-2 row-cols-sm-3 row-cols-md-4 row-cols-lg-6 g-3 mb-4">
           {{ $virt := slice
-            (dict "name" "OpenStack" "icon" "fa-solid fa-cloud" "file" "" "arch" "amd64 arm64" "docs" "/docs/latest/installing/cloud/openstack/")
-            (dict "name" "VMware" "icon" "fa-solid fa-server" "file" "" "arch" "amd64" "community" "true" "docs" "/docs/latest/installing/community-platforms/vmware/")
-            (dict "name" "QEMU / KVM" "icon" "fa-solid fa-desktop" "file" "" "arch" "amd64 arm64" "docs" "/docs/latest/installing/vms/qemu/")
-            (dict "name" "Hyper-V" "icon" "fa-brands fa-microsoft" "file" "" "arch" "amd64" "docs" "/docs/latest/installing/vms/hyper-v/")
-            (dict "name" "VirtualBox" "icon" "fa-solid fa-box" "file" "flatcar_production_virtualbox_image.vmdk.bz2" "arch" "amd64" "docs" "/docs/latest/installing/vms/virtualbox/")
-            (dict "name" "Proxmox VE" "icon" "fa-solid fa-server" "file" "flatcar_production_proxmoxve_image.img" "arch" "amd64 arm64" "community" "true" "docs" "/docs/latest/installing/community-platforms/proxmoxve/")
-            (dict "name" "KubeVirt" "icon" "fa-solid fa-cubes" "file" "flatcar_production_kubevirt_image.qcow2" "arch" "amd64 arm64" "docs" "/docs/latest/installing/vms/kubevirt/")
-            (dict "name" "Nutanix" "icon" "fa-solid fa-server" "file" "flatcar_production_nutanix_image.img.bz2" "arch" "amd64" "community" "true" "docs" "/docs/latest/installing/community-platforms/")
+            (dict "name" "OpenStack" "image" "/media/companies/openstack-icon.svg" "file" "" "arch" "amd64 arm64" "docs" "/docs/latest/installing/cloud/openstack/")
+            (dict "name" "VMware" "image" "/media/companies/vmware-icon.jpeg" "file" "" "arch" "amd64" "community" "true" "docs" "/docs/latest/installing/community-platforms/vmware/")
+            (dict "name" "QEMU / KVM" "image" "/media/companies/qemu-icon.svg" "file" "" "arch" "amd64 arm64" "docs" "/docs/latest/installing/vms/qemu/")
+            (dict "name" "Hyper-V" "image" "/media/companies/microsoft-icon.svg" "file" "" "arch" "amd64" "docs" "/docs/latest/installing/vms/hyper-v/")
+            (dict "name" "VirtualBox" "image" "/media/companies/virtualbox-logo.svg" "file" "flatcar_production_virtualbox_image.vmdk.bz2" "arch" "amd64" "docs" "/docs/latest/installing/vms/virtualbox/")
+            (dict "name" "Proxmox VE" "image" "/media/companies/proxmox-icon.svg" "file" "flatcar_production_proxmoxve_image.img" "arch" "amd64 arm64" "community" "true" "docs" "/docs/latest/installing/community-platforms/proxmoxve/")
+            (dict "name" "KubeVirt" "image" "/media/companies/kubevirt-icon.svg" "file" "flatcar_production_kubevirt_image.qcow2" "arch" "amd64 arm64" "docs" "/docs/latest/installing/vms/kubevirt/")
+            (dict "name" "Nutanix" "image" "/media/companies/nutanix-logo.svg" "file" "flatcar_production_nutanix_image.img.bz2" "arch" "amd64" "community" "true" "docs" "/docs/latest/installing/community-platforms/")
           }}
           {{ range $virt }}
           <div class="col platform-col" data-arch="{{ .arch }}">
             <div class="platform-card{{ if .community }} platform-card--community{{ end }}" title="{{ if .file }}Download {{ .name }} image{{ else }}{{ .name }} install guide{{ end }}">
               {{ if .file }}
               <a href="https://stable.release.flatcar-linux.net/amd64-usr/current/{{ .file }}" class="platform-card__download" data-file="{{ .file }}">
-                <span class="{{ .icon }} platform-card__icon"></span>
+                <img src="{{ .image }}" alt="" class="platform-card__icon platform-card__icon--image" width="32" height="32">
                 <span class="platform-card__label">{{ .name }}</span>
               </a>
               {{ else }}
               <a href="{{ .docs }}" class="platform-card__download platform-card__download--docs">
-                <span class="{{ .icon }} platform-card__icon"></span>
+                <img src="{{ .image }}" alt="" class="platform-card__icon platform-card__icon--image" width="32" height="32">
                 <span class="platform-card__label">{{ .name }}</span>
               </a>
               {{ end }}
               {{ if .community }}<span class="platform-card__badge">Community</span>{{ end }}
-              <a href="{{ .docs }}" class="platform-card__docs" title="{{ .name }} install guide"><span class="fa-solid fa-book"></span></a>
+              <a href="{{ .docs }}" class="platform-card__docs" title="{{ .name }} install guide" aria-label="{{ .name }} install guide"><span class="fa-solid fa-book"></span></a>
             </div>
           </div>
           {{ end }}
@@ -123,24 +126,28 @@
           {{ $baremetal := slice
             (dict "name" "PXE / iPXE" "icon" "fa-solid fa-network-wired" "file" "flatcar_production_pxe.vmlinuz" "arch" "amd64 arm64" "docs" "/docs/latest/installing/bare-metal/booting-with-pxe/")
             (dict "name" "ISO Install" "icon" "fa-solid fa-compact-disc" "file" "flatcar_production_iso_image.iso" "arch" "amd64" "docs" "/docs/latest/installing/bare-metal/installing-to-disk/")
-            (dict "name" "Vagrant" "icon" "fa-solid fa-terminal" "file" "" "arch" "amd64" "docs" "/docs/latest/deploy/virt-options/vagrant/")
-            (dict "name" "Container" "icon" "fa-brands fa-docker" "file" "flatcar-container.tar.gz" "arch" "amd64 arm64" "docs" "/docs/latest/installing/")
+            (dict "name" "Vagrant" "image" "/media/companies/vagrant-icon.svg" "file" "" "arch" "amd64" "docs" "/docs/latest/deploy/virt-options/vagrant/")
+            (dict "name" "Container" "image" "/media/companies/docker-logo.svg" "file" "flatcar-container.tar.gz" "arch" "amd64 arm64" "docs" "/docs/latest/installing/")
           }}
           {{ range $baremetal }}
           <div class="col platform-col" data-arch="{{ .arch }}">
             <div class="platform-card" title="{{ if .file }}Download {{ .name }} image{{ else }}{{ .name }} install guide{{ end }}">
               {{ if .file }}
               <a href="https://stable.release.flatcar-linux.net/amd64-usr/current/{{ .file }}" class="platform-card__download" data-file="{{ .file }}">
+                {{ if .image }}
+                <img src="{{ .image }}" alt="" class="platform-card__icon platform-card__icon--image" width="32" height="32">
+                {{ else }}
                 <span class="{{ .icon }} platform-card__icon"></span>
+                {{ end }}
                 <span class="platform-card__label">{{ .name }}</span>
               </a>
               {{ else }}
               <a href="{{ .docs }}" class="platform-card__download platform-card__download--docs">
-                <span class="{{ .icon }} platform-card__icon"></span>
+                <img src="{{ .image }}" alt="" class="platform-card__icon platform-card__icon--image" width="32" height="32">
                 <span class="platform-card__label">{{ .name }}</span>
               </a>
               {{ end }}
-              <a href="{{ .docs }}" class="platform-card__docs" title="{{ .name }} install guide"><span class="fa-solid fa-book"></span></a>
+              <a href="{{ .docs }}" class="platform-card__docs" title="{{ .name }} install guide" aria-label="{{ .name }} install guide"><span class="fa-solid fa-book"></span></a>
             </div>
           </div>
           {{ end }}
