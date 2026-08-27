@@ -45,45 +45,61 @@ $ wget https://stable.release.flatcar-linux.net/amd64-usr/current/flatcar_produc
 
 ## Creating the VM
 
-Proxmox VE graphical UI only supports ISO images, but the Flatcar image is in qcow2 format.
-In order to create a VM with our image, we'll need to use the command line on the Proxmox host.
+Proxmox VE's graphical UI only supports ISO images, but the Flatcar image is in qcow2 format. In order to create a VM with our image, you'll need to use the command line on the Proxmox host.
 
 ```bash
-export VM_ID=123
+VM_ID=123 # A unique integer starting from 100
+IMAGE="${PWD}/flatcar_production_proxmoxve_image.img" # Must be absolute
+```
 
-# create the vm and import the image to it's disk
-qm create $VM_ID --cores 2 --memory 4096 --net0 "virtio,bridge=vmbr0" --ipconfig0 "ip=dhcp"
-qm disk import $VM_ID flatcar_production_proxmoxve_image.img local-lvm
+For an amd64 VM:
 
-# tell the vm to boot from the imported image
-qm set $VM_ID --scsi0 local-lvm:vm-$VM_ID-disk-0
-qm set $VM_ID --boot order=scsi0
+```bash
+qm create "${VM_ID}" \
+  --bios ovmf --efidisk0 local-lvm:1 \
+  --arch x86_64 --machine q35 --args "-machine sata=off" \
+  --cores 2 --memory 4096 \
+  --net0 "virtio,bridge=vmbr0" --ipconfig0 "ip=dhcp" \
+  --virtio0 "local-lvm:0,import-from=${IMAGE}" --boot order=virtio0 \
+  --scsihw virtio-scsi-pci --scsi0 local-lvm:cloudinit
+```
 
-# Create the cloud-init CD-ROM drive which activates the cloud-init options for the VM.
-# This is required for using ignition config as well.
-qm set $VM_ID --ide2 local-lvm:cloudinit
+Or for an arm64 VM:
+
+```bash
+qm create "${VM_ID}" \
+  --bios ovmf --efidisk0 local-lvm:1 \
+  --arch aarch64 --machine virt \
+  --cores 2 --memory 4096 \
+  --net0 "virtio,bridge=vmbr0" --ipconfig0 "ip=dhcp" \
+  --virtio0 "local-lvm:0,import-from=${IMAGE}" --boot order=virtio0 \
+  --scsihw virtio-scsi-pci --scsi0 local-lvm:cloudinit
 ```
 
 ## Configuring the VM with OpenStack-style cloud-init config
 
-Our VM can be booted as-is, however we might want to add a cloud-init configuration.
+The VM can be booted as-is, however you might want to set some cloud-init configuration. A cloud-init drive has already been added above, so the **Cloud-init** tab will already be visible in the UI. From here, you can set:
 
-Select the VM, then go to Hardware and click Add > CloudInit Drive. You can then edit the config from the Cloud-Init tab.
+- DNS servers
+- SSH public keys
+- IP Config
 
-What is supported:
+Setting the following will be ineffective:
 
-- Setting hostname (hostname is always `$VM_ID`)
-- Writing SSH keys
-- Writing network configuration
+- User
+- Password
+- DNS domain
+- Upgrade packages
 
+For better provisioning capabilities, use Ignition below.
 
 ## Configuring the VM using Ignition
 
 > **Important note**: Ignition configuration uses the same `user-data` file than the cloud-init config. This means that you cannot use both Ignition config and regular cloud-init. When setting up an Ignition config, expect the cloud-init services to fail during boot (this is harmless).
 
-Proxmox VE graphical interface does not support setting a custom user-data file. You'll need to use the command line to achieve this.
+Proxmox VE's graphical interface does not support setting a custom user-data file. You'll need to use the command line to achieve this.
 
-First of all we need to write the Ignition config as a snippet. Snippets are located at `/var/lib/vz/snippets` on the hypervisor. Write a file named `user-data` containing your Ignition config. Here is an example :
+First of all, you need to write the Ignition config as a snippet. Snippets are located at `/var/lib/vz/snippets` on the hypervisor. Write a file named `user-data` containing your Ignition config. Here is an example :
 
 ```bash
 cat /var/lib/vz/snippets/user-data
@@ -113,8 +129,10 @@ cat /var/lib/vz/snippets/user-data
 Finally, tell the VM to use this file as `user-data` :
 
 ```bash
-qm set $VM_ID --cicustom "user=local:snippets/user-data"
+qm set "${VM_ID}" --cicustom "user=local:snippets/user-data"
 ```
+
+You can also pass this `--cicustom` option directly to the `qm create` command above.
 
 ## Using Flatcar Container Linux
 
