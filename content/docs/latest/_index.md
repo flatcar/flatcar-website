@@ -22,7 +22,6 @@ Flatcar uses automated provisioning, read-only system images, and atomic updates
 | [Diagnostics and Fixing Issues](./diagnostics/) | Troubleshooting tools, logs, and rollback guidance. |
 | [Nebraska Update Manager & Releases](./updates-releases/) | Nebraska, release channels, and update management. |
 | [Security](./security/) | Hardening, authentication, encryption, and supply-chain topics. |
-| [CoreOS Migration](./coreos-migration/) | Migration guidance for CoreOS Container Linux users. |
 | [Developer Guides](./devguide/) | SDK and image-building documentation for developers. |
 | [How to Contribute](./contribute/) | Community and contribution information. |
 

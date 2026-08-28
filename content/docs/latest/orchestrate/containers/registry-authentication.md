@@ -92,7 +92,7 @@ $ kubectl create -f credentials.yaml
 secret "my-favorite-registry-secret" created
 ```
 
-You can check that this secret is loaded with with the `kubectl get` command:
+You can check that this secret is loaded with the `kubectl get` command:
 
 ```bash
 $ kubectl get my-favorite-registry-secret

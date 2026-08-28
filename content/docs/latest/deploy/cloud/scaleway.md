@@ -79,7 +79,7 @@ The `coreos-metadata.service` saves metadata variables to `/run/metadata/flatcar
 Boot the machine with the CLI, referencing the snapshot ID from the import step above and your [Ignition file from Butane][butane-configs]:
 
 ```bash
-$ INSTANCE_ID=$(scw instance server create image=none root-volume=l:"${SNAPSHOT_ID}" cloud-init=@./config.json type=DEV1-S --output=json | jq -r .id)
+$ INSTANCE_ID=$(scw instance server create image=none root-volume=l:"${SNAPSHOT_ID}" cloud-init=@./ignition.json type=DEV1-S --output=json | jq -r .id)
 ```
 
 Your first Flatcar instance should now be running. The only thing left to do is find the IP address and SSH in.

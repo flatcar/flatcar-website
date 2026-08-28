@@ -85,7 +85,7 @@ A more convenient way is to use [Docker-in-Docker](https://hub.docker.com/_/dock
 You start by running a Docker-in-Docker container:
 
 ```bash
-# Run docker-in-docker in the backgroud.
+# Run docker-in-docker in the background.
 # We mount local directory as a location to send /var/lib/docker archive
 # Do NOT try to bind a directory to /var/lib/docker directly as this might
 # produce incompatible images (vfs instead of overlay2) depending on your
@@ -120,7 +120,7 @@ You can now unmount `/mnt` and finish preparing your final image.
 
 This section serves as a big warning. If you use a booted image, even if it was only booted by being a chroot or a systemd-nspawn container, you will get a lot of problems.
 Please check the OEM and the root partition section above for a saner way of pre-configuring the image.
-If you try to use Packer to customize the image, or want to use a once booted VMware base VM, or even just accidentially booted the image once for testing, you created an OS state that is hard to get rid off.
+If you try to use Packer to customize the image, or want to use a once booted VMware base VM, or even just accidentally booted the image once for testing, you created an OS state that is hard to get rid of.
 It causes security issues and difficult to debug behavior changes, please use the above mechanisms to modify the image through mounting and copying because this is easier, safer, and faster.
 
 If you still want to continue with customization through booting, here are some common traps, but there can be more depending on the software components that are involved and if you are not an expert on the software components and their respective state files, you should reconsider your choice.

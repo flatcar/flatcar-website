@@ -23,7 +23,7 @@ custom-registry.service - Custom Registry Service
    Active: failed (Result: exit-code) since Sun 2013-12-22 12:40:11 UTC; 35s ago
   Process: 10191 ExecStopPost=/usr/bin/etcdctl delete /registry (code=exited, status=0/SUCCESS)
   Process: 10172 ExecStartPost=/usr/bin/etcdctl set /registry index.domain.com:5000 (code=exited, status=0/SUCCESS)
-  Process: 10171 ExecStart=/usr/bin/docker run -rm -p 5555:5000 54.202.26.87:5000/registry /bin/sh /root/boot.sh (code=exited, status=1/FAILURE)
+  Process: 10171 ExecStart=/usr/bin/docker run --rm -p 5555:5000 54.202.26.87:5000/registry /bin/sh /root/boot.sh (code=exited, status=1/FAILURE)
  Main PID: 10171 (code=exited, status=1/FAILURE)
    CGroup: /system.slice/custom-registry.service
 

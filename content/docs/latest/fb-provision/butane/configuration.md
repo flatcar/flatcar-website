@@ -93,7 +93,7 @@ The Butane Flatcar variant configuration is a YAML document conforming to the fo
         * **_value_** (string): the header contents.
       * **_verification_** (object): options related to the verification of the file contents.
         * **_hash_** (string): the hash of the config, in the form `<type>-<value>` where type is either `sha512` or `sha256`.
-    * **_append_** (list of objects): list of contents to be appended to the file. Follows the same stucture as `contents`
+    * **_append_** (list of objects): list of contents to be appended to the file. Follows the same structure as `contents`
       * **_compression_** (string): the type of compression used on the contents (null or gzip). Compression cannot be used with S3.
       * **_source_** (string): the URL of the contents to append. Supported schemes are `http`, `https`, `tftp`, `s3`, `gs`, and [`data`][rfc2397]. When using `http`, it is advisable to use the verification option to ensure the contents haven't been modified. Mutually exclusive with `inline` and `local`.
       * **_inline_** (string): the contents to append. Mutually exclusive with `source` and `local`.

@@ -111,7 +111,7 @@ podman run -i --rm quay.io/coreos/butane:release --pretty --strict < config.yml 
         - **_value_** (string): the header contents.
       - **_verification_** (object): options related to the verification of the file contents.
         - **_hash_** (string): the hash of the contents, in the form `<type>-<value>` where type is either `sha512` or `sha256`.
-    - **_append_** (list of objects): list of contents to be appended to the file. Follows the same stucture as `contents`
+    - **_append_** (list of objects): list of contents to be appended to the file. Follows the same structure as `contents`
       - **_compression_** (string): the type of compression used on the contents (null or gzip). Compression cannot be used with S3.
       - **_source_** (string): the URL of the contents to append. Supported schemes are `http`, `https`, `tftp`, `s3`, `gs`, and [`data`][rfc2397]. When using `http`, it is advisable to use the verification option to ensure the contents haven't been modified.
       - **_httpHeaders_** (list of objects): a list of HTTP headers to be added to the request. Available for `http` and `https` source schemes only.

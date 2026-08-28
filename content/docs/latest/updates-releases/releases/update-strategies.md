@@ -297,7 +297,8 @@ update_engine_client -check_for_update
 
 ### Updating outdated versions
 
-Even if Flatcar tries to stay compatible with old versions, there are still some cases where it's not possible to update from an old release. The first common problem is that the SSL certificates might be so outdated that contacting the update server and downloading the update payload fails. The section on [updating from CoreOS Container Linux][update-from-container-linux] shows how to use HTTP together with `flatcar-update` to jump to a new Flatcar release. This resembles airgapped updates, which are also covered above.
+Even if Flatcar tries to stay compatible with old versions, there are still some cases where it's not possible to update from an old release. The first common problem is that the SSL certificates might be so outdated that contacting the update server and downloading the update payload fails. In that case, download the update payload over plain HTTP (instead of HTTPS) and apply it with `flatcar-update` as described in the airgapped update steps above.
+
 The second common problem is that old versions can't handle the new compressed btrfs `/usr` partition. A solution is to **first update to the LTS 2023** which are the releases with major version 3510. Afterwards one can switch to the Stable channel again. We hope to improve this in the future by letting the update server detect these situations.
 
 ### Management of config files
@@ -354,4 +355,3 @@ storage:
 [reboot-windows]: https://github.com/flatcar/locksmith#reboot-windows
 [systemd-env-vars]: ../../os-config/host-config/environment-variables/#system-wide-environment-variables
 [transpiler]: ../../fb-provision/butane/
-[update-from-container-linux]: ../../coreos-migration/update-from-container-linux

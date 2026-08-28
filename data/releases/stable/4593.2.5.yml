@@ -1,10 +1,10 @@
 architectures:
 - amd64
 - arm64
-channel: alpha
+channel: stable
 github_release:
   assets: []
-  assets_url: https://api.github.com/repos/flatcar/scripts/releases/370030341/assets
+  assets_url: https://api.github.com/repos/flatcar/scripts/releases/370032437/assets
   author:
     avatar_url: https://avatars.githubusercontent.com/u/500628?v=4
     events_url: https://api.github.com/users/sayanchowdhury/events{/privacy}
@@ -25,8 +25,8 @@ github_release:
     type: User
     url: https://api.github.com/users/sayanchowdhury
     user_view_type: public
-  body: "_Changes since **Alpha 4757.0.0**_\r\n \r\n #### Security fixes:\r\n\r\n\
-    \ - Linux ([CVE-2026-68480](https://nvd.nist.gov/vuln/detail/CVE-2026-68480),\
+  body: " _Changes since **Stable 4593.2.4**_\r\n \r\n #### Security fixes:\r\n \r\
+    \n - Linux ([CVE-2026-68480](https://nvd.nist.gov/vuln/detail/CVE-2026-68480),\
     \ [CVE-2026-68450](https://nvd.nist.gov/vuln/detail/CVE-2026-68450), [CVE-2026-68449](https://nvd.nist.gov/vuln/detail/CVE-2026-68449),\
     \ [CVE-2026-68437](https://nvd.nist.gov/vuln/detail/CVE-2026-68437), [CVE-2026-68434](https://nvd.nist.gov/vuln/detail/CVE-2026-68434),\
     \ [CVE-2026-68433](https://nvd.nist.gov/vuln/detail/CVE-2026-68433), [CVE-2026-68432](https://nvd.nist.gov/vuln/detail/CVE-2026-68432),\
@@ -259,213 +259,41 @@ github_release:
     \ [CVE-2026-64361](https://nvd.nist.gov/vuln/detail/CVE-2026-64361), [CVE-2026-64352](https://nvd.nist.gov/vuln/detail/CVE-2026-64352),\
     \ [CVE-2026-64341](https://nvd.nist.gov/vuln/detail/CVE-2026-64341), [CVE-2026-64287](https://nvd.nist.gov/vuln/detail/CVE-2026-64287),\
     \ [CVE-2026-64286](https://nvd.nist.gov/vuln/detail/CVE-2026-64286), [CVE-2026-64307](https://nvd.nist.gov/vuln/detail/CVE-2026-64307),\
-    \ [CVE-2026-64227](https://nvd.nist.gov/vuln/detail/CVE-2026-64227))\r\n - aardvark-dns\
-    \ ([CVE-2026-35406](https://www.cve.org/CVERecord?id=CVE-2026-35406))\r\n - bind\
-    \ ([CVE-2025-13878](https://www.cve.org/CVERecord?id=CVE-2025-13878), [CVE-2026-1519](https://www.cve.org/CVERecord?id=CVE-2026-1519),\
-    \ [CVE-2026-3039](https://www.cve.org/CVERecord?id=CVE-2026-3039), [CVE-2026-3592](https://www.cve.org/CVERecord?id=CVE-2026-3592),\
-    \ [CVE-2026-3593](https://www.cve.org/CVERecord?id=CVE-2026-3593), [CVE-2026-5946](https://www.cve.org/CVERecord?id=CVE-2026-5946),\
-    \ [CVE-2026-5947](https://www.cve.org/CVERecord?id=CVE-2026-5947), [CVE-2026-5950](https://www.cve.org/CVERecord?id=CVE-2026-5950))\r\
-    \n - cifs-utils ([CVE-2026-12505](https://www.cve.org/CVERecord?id=CVE-2026-12505))\r\
-    \n - crun ([CVE-2026-30892](https://www.cve.org/CVERecord?id=CVE-2026-30892))\r\
-    \n - curl ([CVE-2026-4873](https://www.cve.org/CVERecord?id=CVE-2026-4873), [CVE-2026-5545](https://www.cve.org/CVERecord?id=CVE-2026-5545),\
-    \ [CVE-2026-5773](https://www.cve.org/CVERecord?id=CVE-2026-5773), [CVE-2026-6253](https://www.cve.org/CVERecord?id=CVE-2026-6253),\
-    \ [CVE-2026-6276](https://www.cve.org/CVERecord?id=CVE-2026-6276), [CVE-2026-6429](https://www.cve.org/CVERecord?id=CVE-2026-6429),\
-    \ [CVE-2026-7009](https://www.cve.org/CVERecord?id=CVE-2026-7009), [CVE-2026-7168](https://www.cve.org/CVERecord?id=CVE-2026-7168),\
-    \ [CVE-2026-8286](https://www.cve.org/CVERecord?id=CVE-2026-8286), [CVE-2026-8458](https://www.cve.org/CVERecord?id=CVE-2026-8458),\
-    \ [CVE-2026-8924](https://www.cve.org/CVERecord?id=CVE-2026-8924), [CVE-2026-8925](https://www.cve.org/CVERecord?id=CVE-2026-8925),\
-    \ [CVE-2026-8926](https://www.cve.org/CVERecord?id=CVE-2026-8926), [CVE-2026-8927](https://www.cve.org/CVERecord?id=CVE-2026-8927),\
-    \ [CVE-2026-8932](https://www.cve.org/CVERecord?id=CVE-2026-8932), [CVE-2026-9079](https://www.cve.org/CVERecord?id=CVE-2026-9079),\
-    \ [CVE-2026-9080](https://www.cve.org/CVERecord?id=CVE-2026-9080), [CVE-2026-9545](https://www.cve.org/CVERecord?id=CVE-2026-9545),\
-    \ [CVE-2026-9546](https://www.cve.org/CVERecord?id=CVE-2026-9546), [CVE-2026-9547](https://www.cve.org/CVERecord?id=CVE-2026-9547),\
-    \ [CVE-2026-10536](https://www.cve.org/CVERecord?id=CVE-2026-10536), [CVE-2026-11352](https://www.cve.org/CVERecord?id=CVE-2026-11352),\
-    \ [CVE-2026-11564](https://www.cve.org/CVERecord?id=CVE-2026-11564), [CVE-2026-11586](https://www.cve.org/CVERecord?id=CVE-2026-11586),\
-    \ [CVE-2026-11856](https://www.cve.org/CVERecord?id=CVE-2026-11856), [CVE-2026-12064](https://www.cve.org/CVERecord?id=CVE-2026-12064))\r\
-    \n - docker ([CVE-2024-25621](https://www.cve.org/CVERecord?id=CVE-2024-25621),\
-    \ [CVE-2025-52881](https://www.cve.org/CVERecord?id=CVE-2025-52881))\r\n - expat\
-    \ ([CVE-2026-50219](https://www.cve.org/CVERecord?id=CVE-2026-50219), [CVE-2026-56131](https://www.cve.org/CVERecord?id=CVE-2026-56131),\
-    \ [CVE-2026-56132](https://www.cve.org/CVERecord?id=CVE-2026-56132), [CVE-2026-56403](https://www.cve.org/CVERecord?id=CVE-2026-56403),\
-    \ [CVE-2026-56404](https://www.cve.org/CVERecord?id=CVE-2026-56404), [CVE-2026-56405](https://www.cve.org/CVERecord?id=CVE-2026-56405),\
-    \ [CVE-2026-56406](https://www.cve.org/CVERecord?id=CVE-2026-56406), [CVE-2026-56407](https://www.cve.org/CVERecord?id=CVE-2026-56407),\
-    \ [CVE-2026-56408](https://www.cve.org/CVERecord?id=CVE-2026-56408), [CVE-2026-56409](https://www.cve.org/CVERecord?id=CVE-2026-56409),\
-    \ [CVE-2026-56410](https://www.cve.org/CVERecord?id=CVE-2026-56410), [CVE-2026-56411](https://www.cve.org/CVERecord?id=CVE-2026-56411),\
-    \ [CVE-2026-56412](https://www.cve.org/CVERecord?id=CVE-2026-56412))\r\n - glib\
-    \ ([CVE-2025-14512](https://www.cve.org/CVERecord?id=CVE-2025-14512), [CVE-2026-0988](https://www.cve.org/CVERecord?id=CVE-2026-0988),\
-    \ [CVE-2026-58010](https://www.cve.org/CVERecord?id=CVE-2026-58010), [CVE-2026-58011](https://www.cve.org/CVERecord?id=CVE-2026-58011),\
-    \ [CVE-2026-58012](https://www.cve.org/CVERecord?id=CVE-2026-58012), [CVE-2026-58013](https://www.cve.org/CVERecord?id=CVE-2026-58013),\
-    \ [CVE-2026-58014](https://www.cve.org/CVERecord?id=CVE-2026-58014), [CVE-2026-58015](https://www.cve.org/CVERecord?id=CVE-2026-58015),\
-    \ [CVE-2026-58016](https://www.cve.org/CVERecord?id=CVE-2026-58016))\r\n - gnupg\
-    \ ([gnupg-20260513](https://lists.gnupg.org/pipermail/gnupg-announce/2026q2/000505.html))\r\
-    \n - incus ([CVE-2026-33542](https://www.cve.org/CVERecord?id=CVE-2026-33542),\
-    \ [CVE-2026-33711](https://www.cve.org/CVERecord?id=CVE-2026-33711), [CVE-2026-33743](https://www.cve.org/CVERecord?id=CVE-2026-33743),\
-    \ [CVE-2026-33897](https://www.cve.org/CVERecord?id=CVE-2026-33897), [CVE-2026-33898](https://www.cve.org/CVERecord?id=CVE-2026-33898),\
-    \ [CVE-2026-33945](https://www.cve.org/CVERecord?id=CVE-2026-33945), [CVE-2026-35527](https://www.cve.org/CVERecord?id=CVE-2026-35527),\
-    \ [CVE-2026-40195](https://www.cve.org/CVERecord?id=CVE-2026-40195), [CVE-2026-40197](https://www.cve.org/CVERecord?id=CVE-2026-40197),\
-    \ [CVE-2026-40243](https://www.cve.org/CVERecord?id=CVE-2026-40243), [CVE-2026-40251](https://www.cve.org/CVERecord?id=CVE-2026-40251),\
-    \ [CVE-2026-41647](https://www.cve.org/CVERecord?id=CVE-2026-41647), [CVE-2026-41648](https://www.cve.org/CVERecord?id=CVE-2026-41648),\
-    \ [CVE-2026-41684](https://www.cve.org/CVERecord?id=CVE-2026-41684), [CVE-2026-41685](https://www.cve.org/CVERecord?id=CVE-2026-41685),\
-    \ [CVE-2026-48749](https://www.cve.org/CVERecord?id=CVE-2026-48749), [CVE-2026-48750](https://www.cve.org/CVERecord?id=CVE-2026-48750),\
-    \ [CVE-2026-48751](https://www.cve.org/CVERecord?id=CVE-2026-48751), [CVE-2026-48752](https://www.cve.org/CVERecord?id=CVE-2026-48752),\
-    \ [CVE-2026-48755](https://www.cve.org/CVERecord?id=CVE-2026-48755), [CVE-2026-48769](https://www.cve.org/CVERecord?id=CVE-2026-48769),\
-    \ [CVE-2026-55621](https://www.cve.org/CVERecord?id=CVE-2026-55621), [CVE-2026-55622](https://www.cve.org/CVERecord?id=CVE-2026-55622))\r\
-    \n - libarchive ([CVE-2026-14164](https://www.cve.org/CVERecord?id=CVE-2026-14164))\r\
-    \n - libmicrohttpd ([CVE-2025-59777](https://www.cve.org/CVERecord?id=CVE-2025-59777),\
-    \ [CVE-2025-62689](https://www.cve.org/CVERecord?id=CVE-2025-62689))\r\n - lxc\
-    \ ([CVE-2026-39402](https://www.cve.org/CVERecord?id=CVE-2026-39402))\r\n - nghttp2\
-    \ ([CVE-2026-27135](https://www.cve.org/CVERecord?id=CVE-2026-27135))\r\n - openssh\
+    \ [CVE-2026-64227](https://nvd.nist.gov/vuln/detail/CVE-2026-64227))\r\n - openssh\
     \ ([CVE-2026-59995](https://www.cve.org/CVERecord/?id=CVE-2026-59995), [CVE-2026-59996](https://www.cve.org/CVERecord/?id=CVE-2026-59996),\
     \ [CVE-2026-59997](https://www.cve.org/CVERecord/?id=CVE-2026-59997), [CVE-2026-59998](https://www.cve.org/CVERecord/?id=CVE-2026-59998),\
     \ [CVE-2026-59999](https://www.cve.org/CVERecord/?id=CVE-2026-59999), [CVE-2026-60000](https://www.cve.org/CVERecord/?id=CVE-2026-60000),\
     \ [CVE-2026-60001](https://www.cve.org/CVERecord/?id=CVE-2026-60001), [CVE-2026-60002](https://www.cve.org/CVERecord/?id=CVE-2026-60002))\r\
-    \n - perl ([CVE-2026-4176](https://www.cve.org/CVERecord?id=CVE-2026-4176))\r\n\
-    \ - podman ([CVE-2026-33414](https://www.cve.org/CVERecord?id=CVE-2026-33414),\
-    \ [CVE-2026-44517](https://www.cve.org/CVERecord?id=CVE-2026-44517), [CVE-2026-57231](https://www.cve.org/CVERecord?id=CVE-2026-57231))\r\
-    \n - sed ([CVE-2026-5958](https://www.cve.org/CVERecord?id=CVE-2026-5958))\r\n\
-    \ \r\n #### Bug fixes:\r\n \r\n - Added missing symlinks protocols, services,\
-    \ rpc, networks from /usr/share/baselayout to /etc. ([Flatcar#1852](https://github.com/flatcar/Flatcar/issues/1852))\r\
-    \n \r\n #### Changes:\r\n \r\n - Deleted ACENIC deprecated ethernet drivers from\
-    \ Kernel config to be able to build linux-firmware 20260622 or later. ([Flatcar#2205](https://github.com/flatcar/Flatcar/issues/2205))\r\
-    \n \r\n #### Updates:\r\n \r\n - Linux ([6.12.102](https://git.kernel.org/pub/scm/linux/kernel/git/stable/linux.git/tag/?h=v6.12.102)\
+    \n\r\n #### Updates:\r\n \r\n- Linux ([6.12.102](https://git.kernel.org/pub/scm/linux/kernel/git/stable/linux.git/tag/?h=v6.12.102)\
     \ (includes [6.12.101](https://git.kernel.org/pub/scm/linux/kernel/git/stable/linux.git/tag/?h=v6.12.101),\
     \ [6.12.100](https://git.kernel.org/pub/scm/linux/kernel/git/stable/linux.git/tag/?h=v6.12.100),\
     \ [6.12.99](https://git.kernel.org/pub/scm/linux/kernel/git/stable/linux.git/tag/?h=v6.12.99),\
     \ [6.12.98](https://git.kernel.org/pub/scm/linux/kernel/git/stable/linux.git/tag/?h=v6.12.98),\
     \ [6.12.97](https://git.kernel.org/pub/scm/linux/kernel/git/stable/linux.git/tag/?h=v6.12.97),\
     \ [6.12.96](https://git.kernel.org/pub/scm/linux/kernel/git/stable/linux.git/tag/?h=v6.12.96)))\r\
-    \n- SDK: crossdev ([20260501](https://gitweb.gentoo.org/proj/crossdev.git/log/?h=20260501))\r\
-    \n- SDK: cryptography ([48.0.0](https://raw.githubusercontent.com/pyca/cryptography/refs/tags/48.0.0/CHANGELOG.rst))\r\
-    \n- SDK: docutils ([0.23](https://docutils.sourceforge.io/HISTORY.html#release-0-23-2026-05-27))\r\
-    \n- SDK: editables ([0.6](https://raw.githubusercontent.com/pfmoore/editables/refs/tags/0.6/CHANGELOG.md))\r\
-    \n- SDK: gdbus-codegen ([2.88.2](https://gitlab.gnome.org/GNOME/glib/-/releases/2.88.2))\r\
-    \n- SDK: glib-utils ([2.88.2](https://gitlab.gnome.org/GNOME/glib/-/releases/2.88.2))\r\
-    \n- SDK: gobject-introspection-common ([1.86.0](https://gitlab.gnome.org/GNOME/gobject-introspection/-/releases/1.86.0))\r\
-    \n- SDK: hatchling ([1.30.1](https://github.com/pypa/hatch/releases/tag/hatchling-v1.30.1))\r\
-    \n- SDK: installer ([1.0.1](https://github.com/pypa/installer/releases/tag/1.0.1)\
-    \ (includes [1.0.0](https://github.com/pypa/installer/releases/tag/1.0.0)))\r\n\
-    - SDK: maturin ([1.13.3](https://github.com/PyO3/maturin/releases/tag/v1.13.3))\r\
-    \n- SDK: meson ([1.11.1](https://mesonbuild.com/Release-notes-for-1-11-0.html)\
-    \ (includes [1.10.0](https://mesonbuild.com/Release-notes-for-1-10-0.html)))\r\
-    \n- SDK: nspr ([4.39](https://hg-edge.mozilla.org/projects/nspr/log/54e7c1b0803d151e142e30dc0d05f12e1ec67a13))\r\
-    \n- SDK: patchutils ([0.4.5](https://github.com/twaugh/patchutils/releases/tag/0.4.5)\
-    \ (includes [0.4.4](https://github.com/twaugh/patchutils/releases/tag/0.4.4),\
-    \ [0.4.3](https://github.com/twaugh/patchutils/releases/tag/0.4.3)))\r\n- SDK:\
-    \ pathspec ([1.1.1](https://raw.githubusercontent.com/cpburnz/python-pathspec/refs/tags/v1.1.1/CHANGES.rst))\r\
-    \n- SDK: perf (6.19.12)\r\n- SDK: perl ([5.42.2](https://perldoc.perl.org/perl5422delta))\r\
-    \n- SDK: poetry-core ([2.4.1](https://github.com/python-poetry/poetry-core/releases/tag/2.4.1))\r\
-    \n- SDK: rapidjson (1.1.0_p20250205)\r\n- SDK: rhash ([1.4.6](https://github.com/rhash/RHash/releases/tag/v1.4.6))\r\
-    \n- SDK: rust ([1.95.0](https://blog.rust-lang.org/2026/04/16/Rust-1.95.0/) (includes\
-    \ [1.94.0](https://blog.rust-lang.org/2026/03/05/Rust-1.94.0/)))\r\n- SDK: tcl\
-    \ ([8.6.17](https://sourceforge.net/p/tcl/mailman/message/59221153/))\r\n- azure,\
-    \ dev, gce, sysext-python: ensurepip-pip ([26.1.2](https://raw.githubusercontent.com/pypa/pip/refs/tags/26.1.2/NEWS.rst))\r\
-    \n- base, dev: bind ([9.20.23](https://bind9.readthedocs.io/en/v9.20.23/notes.html#notes-for-bind-9-20-23))\r\
-    \n- base, dev: btrfs-progs ([7.0](https://github.com/kdave/btrfs-progs/releases/tag/v7.0))\r\
-    \n- base, dev: checkpolicy ([3.10](https://github.com/SELinuxProject/selinux/releases/tag/3.10))\r\
-    \n- base, dev: curl ([8.21.0](https://curl.se/ch/8.21.0.html) (includes [8.20.0](https://curl.se/ch/8.20.0.html)))\r\
-    \n- base, dev: dracut ([111](https://github.com/dracut-ng/dracut/releases/tag/111))\r\
-    \n- base, dev: ethtool ([7.0](https://git.kernel.org/pub/scm/network/ethtool/ethtool.git/plain/NEWS?h=v7.0))\r\
-    \n- base, dev: expat ([2.8.2](https://blog.hartwork.org/posts/expat-2-8-2-released/))\r\
-    \n- base, dev: gcc ([15.3.0](https://gcc.gnu.org/gcc-15/changes.html))\r\n- base,\
-    \ dev: gentoo-functions ([1.7.7](https://gitweb.gentoo.org/proj/gentoo-functions.git/log/?h=gentoo-functions-1.7.7))\r\
-    \n- base, dev: git ([2.54.0](https://raw.githubusercontent.com/git/git/refs/tags/v2.54.0/Documentation/RelNotes/2.54.0.adoc))\r\
-    \n- base, dev: glib ([2.88.2](https://gitlab.gnome.org/GNOME/glib/-/releases/2.88.2)\
-    \ (includes [2.88.1](https://gitlab.gnome.org/GNOME/glib/-/releases/2.88.1), [2.88.0](https://gitlab.gnome.org/GNOME/glib/-/releases/2.88.0)))\r\
-    \n- base, dev: glibc ([2.43](https://sourceware.org/pipermail/libc-announce/2026/000052.html))\r\
-    \n- base, dev: gnupg ([2.5.20](https://lists.gnupg.org/pipermail/gnupg-announce/2026q2/000505.html)\
-    \ (includes [2.5.19](https://lists.gnupg.org/pipermail/gnupg-announce/2026q2/000504.html)))\r\
-    \n- base, dev: iproute2 ([7.0.0](https://lwn.net/Articles/1067497/))\r\n- base,\
-    \ dev: kbd ([2.10.0](https://github.com/legionus/kbd/releases/tag/v2.10.0))\r\n\
-    - base, dev: libgpg-error ([1.60](https://dev.gnupg.org/T8112.html))\r\n- base,\
-    \ dev: libksba ([1.8.0](https://dev.gnupg.org/T8253.html))\r\n- base, dev: libmd\
-    \ ([1.2.0](https://git.hadrons.org/cgit/libmd.git/log/?h=1.2.0))\r\n- base, dev:\
-    \ libselinux ([3.10](https://github.com/SELinuxProject/selinux/releases/tag/3.10))\r\
-    \n- base, dev: libsepol ([3.10](https://github.com/SELinuxProject/selinux/releases/tag/3.10))\r\
-    \n- base, dev: libunistring ([1.4.2](https://gitweb.git.savannah.gnu.org/gitweb/?p=libunistring.git;a=blob;f=NEWS;h=e97ee06e03d6fea559665306c82f02e09725893a;hb=7dee51196310a703972a94843ecaf92decce6f82))\r\
-    \n- base, dev: libuv ([1.52.1](https://github.com/libuv/libuv/releases/tag/v1.52.1)\
-    \ (includes [1.52.0](https://github.com/libuv/libuv/releases/tag/v1.52.0)))\r\n\
-    - base, dev: mit-krb5 ([1.22.2](https://web.mit.edu/kerberos/krb5-1.22/krb5-1.22.2.html))\r\
-    \n- base, dev: openldap ([2.6.13](https://www.openldap.org/software/release/changes_lts.html))\r\
-    \n- base, dev: qemu-guest-agent ([10.2.2](https://wiki.qemu.org/ChangeLog/10.2#Guest_agent))\r\
-    \n- base, dev: rsync ([3.4.4](https://github.com/RsyncProject/rsync/releases/tag/v3.4.4))\r\
-    \n- base, dev: sed ([4.10](https://lists.gnu.org/archive/html/info-gnu/2026-04/msg00009.html))\r\
-    \n- base, dev: selinux-base ([2.20260312_p1](https://github.com/SELinuxProject/refpolicy/releases/tag/RELEASE_2_20260312)\
-    \ (includes [2.20250923](https://github.com/SELinuxProject/refpolicy/releases/tag/RELEASE_2_20250923)))\r\
-    \n- base, dev: selinux-base-policy ([2.20260312_p1](https://github.com/SELinuxProject/refpolicy/releases/tag/RELEASE_2_20260312))\r\
-    \n- base, dev: selinux-container ([2.20260312_p1](https://github.com/SELinuxProject/refpolicy/releases/tag/RELEASE_2_20260312)\
-    \ (includes [2.20250923](https://github.com/SELinuxProject/refpolicy/releases/tag/RELEASE_2_20250923)))\r\
-    \n- base, dev: selinux-dbus ([2.20260312_p1](https://github.com/SELinuxProject/refpolicy/releases/tag/RELEASE_2_20260312)\
-    \ (includes [2.20250923](https://github.com/SELinuxProject/refpolicy/releases/tag/RELEASE_2_20250923)))\r\
-    \n- base, dev: selinux-policykit ([2.20260312_p1](https://github.com/SELinuxProject/refpolicy/releases/tag/RELEASE_2_20260312)\
-    \ (includes [2.20250923](https://github.com/SELinuxProject/refpolicy/releases/tag/RELEASE_2_20250923)))\r\
-    \n- base, dev: selinux-sssd ([2.20260312_p1](https://github.com/SELinuxProject/refpolicy/releases/tag/RELEASE_2_20260312)\
-    \ (includes [2.20250923](https://github.com/SELinuxProject/refpolicy/releases/tag/RELEASE_2_20250923)))\r\
-    \n- base, dev: selinux-unconfined ([2.20260312_p1](https://github.com/SELinuxProject/refpolicy/releases/tag/RELEASE_2_20260312)\
-    \ (includes [2.20250923](https://github.com/SELinuxProject/refpolicy/releases/tag/RELEASE_2_20250923)))\r\
-    \n- base, dev: semodule-utils ([3.10](https://github.com/SELinuxProject/selinux/releases/tag/3.10))\r\
-    \n- base, dev: sqlite ([3.53.1](https://sqlite.org/releaselog/3_53_1.html))\r\n\
-    - base, dev: strace ([7.0](https://github.com/strace/strace/releases/tag/v7.0))\r\
-    \n- base, dev: talloc ([2.4.4](https://gitlab.com/samba-team/samba/-/commit/51d05da70e8461834396d361eead807127751b76))\r\
-    \n- base, dev: tdb ([1.4.15](https://gitlab.com/samba-team/samba/-/commit/c05d12c4fefa0272fb06a040ff8ba2b03ab42fb3))\r\
-    \n- base, dev: timezone-data ([2026b](https://lists.iana.org/hyperkitty/list/tz@iana.org/thread/VX2Z3CBO6KHTYZNBBKFFWM7ZCI6TVCXP/))\r\
-    \n- base, dev: xfsprogs ([7.0.1](https://web.git.kernel.org/pub/scm/fs/xfs/xfsprogs-dev.git/plain/doc/CHANGES?h=v7.0.1)\
-    \ (includes [7.0.0](https://web.git.kernel.org/pub/scm/fs/xfs/xfsprogs-dev.git/plain/doc/CHANGES?h=v7.0.0)))\r\
     \n- ca-certificates ([3.126](https://firefox-source-docs.mozilla.org/security/nss/releases/nss_3_126.html))\r\
-    \n- dev: eselect ([1.4.32](https://gitweb.gentoo.org/proj/eselect.git/plain/NEWS?id=1ff2aea90d6cd2bb93019deb40d3c7c7a0b5c36f))\r\
-    \n- dev: gdb ([17.2](https://sourceware.org/pipermail/gdb-announce/2026/000148.html))\r\
-    \n- dev: getuto ([2.0](https://github.com/projg2/getuto/commits/getuto-2.0/))\r\
-    \n- dev: i2c-tools ([4.4](https://git.kernel.org/pub/scm/utils/i2c-tools/i2c-tools.git/tree/CHANGES?h=v4.4))\r\
-    \n- dev: portage ([3.0.81.1](https://gitweb.gentoo.org/proj/portage.git/plain/NEWS?h=portage-3.0.81.1))\r\
-    \n- openssh ([10.4_p1](https://www.openssh.com/txt/release-10.4))\r\n- sysext-docker:\
-    \ docker ([29.1.3](https://github.com/moby/moby/releases/tag/docker-v29.1.3) (includes\
-    \ [29.1.2](https://github.com/moby/moby/releases/tag/docker-v29.1.2), [29.1.1](https://github.com/moby/moby/releases/tag/docker-v29.1.1),\
-    \ [29.1.0](https://github.com/moby/moby/releases/tag/docker-v29.1.0), [29.0.0](https://github.com/moby/moby/releases/tag/docker-v29.0.0)))\r\
-    \n- sysext-incus: incus ([7.2](https://discuss.linuxcontainers.org/t/incus-7-2-has-been-released/26879)\
-    \ (includes [7.0](https://discuss.linuxcontainers.org/t/incus-7-0-lts-has-been-released/26641)))\r\
-    \n- sysext-incus: lxc ([7.0.0](https://discuss.linuxcontainers.org/t/lxc-7-0-lts-has-been-released/26612))\r\
-    \n- sysext-incus: lxcfs ([7.0.0](https://discuss.linuxcontainers.org/t/lxcfs-7-0-lts-has-been-released/26607))\r\
-    \n- sysext-podman: aardvark-dns ([2.0.0](https://github.com/containers/aardvark-dns/releases/tag/v2.0.0)\
-    \ (includes [1.17.1](https://github.com/containers/aardvark-dns/releases/tag/v1.17.1)))\r\
-    \n- sysext-podman: conmon ([2.2.1](https://github.com/containers/conmon/releases/tag/v2.2.1)\
-    \ (includes [2.2.0](https://github.com/containers/conmon/releases/tag/v2.2.0)))\r\
-    \n- sysext-podman: crun ([1.28](https://github.com/containers/crun/releases/tag/1.28))\r\
-    \n- sysext-podman: netavark ([2.0.0](https://github.com/containers/netavark/releases/tag/v2.0.0)\
-    \ (includes [1.17.2](https://github.com/containers/netavark/releases/tag/v1.17.2)))\r\
-    \n- sysext-podman: passt ([2026.05.26](https://archives.passt.top/passt-user/20260527093624.6349111e@elisabeth/T/#u))\r\
-    \n- sysext-podman: podman ([6.0.0](https://github.com/podman-container-tools/podman/releases/tag/v6.0.0)\
-    \ (includes [5.8.0](https://github.com/podman-container-tools/podman/releases/tag/v5.8.0)))\r\
-    \n- sysext-python: distlib ([0.4.1](https://raw.githubusercontent.com/pypa/distlib/refs/tags/0.4.1/CHANGES.rst))\r\
-    \n- sysext-python: idna ([3.18](https://github.com/kjd/idna/releases/tag/v3.18)\
-    \ (includes [3.17](https://github.com/kjd/idna/releases/tag/v3.17), [3.16](https://github.com/kjd/idna/releases/tag/v3.16),\
-    \ [3.15](https://github.com/kjd/idna/releases/tag/v3.15)))\r\n- sysext-python:\
-    \ jaraco-functools ([4.5.0](https://raw.githubusercontent.com/jaraco/jaraco.functools/refs/tags/v4.5.0/NEWS.rst))\r\
-    \n- sysext-python: markdown-it-py ([4.2.0](https://github.com/executablebooks/markdown-it-py/releases/tag/v4.2.0))\r\
-    \n- sysext-python: more-itertools ([11.1.0](https://github.com/more-itertools/more-itertools/releases/tag/v11.1.0))\r\
-    \n- sysext-python: packaging ([26.2](https://github.com/pypa/packaging/releases/tag/26.2))\r\
-    \n- sysext-python: pip ([26.1.2](https://raw.githubusercontent.com/pypa/pip/refs/tags/26.1.2/NEWS.rst))\r\
-    \n- sysext-python: platformdirs ([4.10.0](https://github.com/tox-dev/platformdirs/releases/tag/4.10.0))\r\
-    \n- sysext-python: requests ([2.34.2](https://github.com/psf/requests/releases/tag/v2.34.2)\
-    \ (includes [2.34.1](https://github.com/psf/requests/releases/tag/v2.34.1), [2.34.0](https://github.com/psf/requests/releases/tag/v2.34.0)))\r\
-    \n- sysext-python: trove-classifiers ([2026.6.1.19](https://github.com/pypa/trove-classifiers/releases/tag/2026.6.1.19))\r\
-    \n- vmware: xmlsec ([1.3.11](https://github.com/lsh123/xmlsec/releases/tag/1.3.11))"
-  created_at: '2026-08-11T21:27:21Z'
+    \n- openssh ([10.4_p1](https://www.openssh.com/txt/release-10.4))\r\n"
+  created_at: '2026-08-11T21:27:42Z'
   draft: false
-  html_url: https://github.com/flatcar/scripts/releases/tag/alpha-4790.0.0
-  id: 370030341
+  html_url: https://github.com/flatcar/scripts/releases/tag/stable-4593.2.5
+  id: 370032437
   immutable: false
   name: ''
-  node_id: RE_kwDOB2MTHs4WDjcF
+  node_id: RE_kwDOB2MTHs4WDj81
   prerelease: false
-  published_at: '2026-08-13T15:45:12Z'
-  tag_name: alpha-4790.0.0
-  tarball_url: https://api.github.com/repos/flatcar/scripts/tarball/alpha-4790.0.0
+  published_at: '2026-08-13T15:48:35Z'
+  tag_name: stable-4593.2.5
+  tarball_url: https://api.github.com/repos/flatcar/scripts/tarball/stable-4593.2.5
   target_commitish: main
-  updated_at: '2026-08-13T15:45:12Z'
-  upload_url: https://uploads.github.com/repos/flatcar/scripts/releases/370030341/assets{?name,label}
-  url: https://api.github.com/repos/flatcar/scripts/releases/370030341
-  zipball_url: https://api.github.com/repos/flatcar/scripts/zipball/alpha-4790.0.0
+  updated_at: '2026-08-13T15:48:35Z'
+  upload_url: https://uploads.github.com/repos/flatcar/scripts/releases/370032437/assets{?name,label}
+  url: https://api.github.com/repos/flatcar/scripts/releases/370032437
+  zipball_url: https://api.github.com/repos/flatcar/scripts/zipball/stable-4593.2.5
 image_packages:
-  containerd: 2.2.5
-  docker: 29.1.3
+  containerd: 2.1.5
+  docker: 28.0.4
   ignition: 2.24.0
   kernel: 6.12.102
-  systemd: '260'
-release: current
-version: 4790.0.0
+  systemd: '257'
+release: 4593.2.5
+version: 4593.2.5

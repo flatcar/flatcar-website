@@ -132,7 +132,7 @@ Be sure to specify your SSH key to be able to access the machine. Management of 
   </div>
 </div>
 5. Select your SSH keys.
-6. Add your your optional cloud-config.
+6. Add your optional cloud-config.
 <div class="row">
   <div class="col-lg-8 col-md-10 col-sm-8 col-xs-12">
     <img src="../../img/exoscale-userdata.png" class="screenshot" />

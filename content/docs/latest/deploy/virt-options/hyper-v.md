@@ -122,7 +122,7 @@ curl.exe -sLO "https://github.com/cloudbase/cloudbase-init-test-resources/blob/m
 
 # create an Openstack config drive folder structure
 mkdir config-drive-metadata/openstack/latest
-echo '{"hostname": "my_flatcar_01.local", "name": "my_flatcar_01", "public_keys": {"userkey": "INSERT_HERE_PUBLIC_SSH_KEY"}' > config-drive-metadata/openstack/latest/meta_data.json
+echo '{"hostname": "my_flatcar_01.local", "name": "my_flatcar_01", "public_keys": {"userkey": "INSERT_HERE_PUBLIC_SSH_KEY"}}' > config-drive-metadata/openstack/latest/meta_data.json
 
 # create the config drive
 & "mkisofs.exe" -o "config-drive.iso" -ignore-error -ldots -allow-lowercase -allow-multidot -l -publisher "cbsl" -quiet -J -r -V "config-2" "config-drive-metadata"

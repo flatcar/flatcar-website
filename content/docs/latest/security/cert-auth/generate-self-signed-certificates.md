@@ -14,7 +14,7 @@ If you build Flatcar Container Linux cluster on top of public networks it is rec
 
 ## Download cfssl
 
-CloudFlare's distributes [cfssl][cfssl] source code on github page and binaries on [cfssl website][cfssl-bin].
+CloudFlare distributes [cfssl][cfssl] source code on its GitHub page and binaries on [cfssl website][cfssl-bin].
 
 Our documentation assumes that you will run [cfssl][cfssl] on your local x86_64 Linux host.
 

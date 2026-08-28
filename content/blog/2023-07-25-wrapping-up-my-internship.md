@@ -33,7 +33,7 @@ Along with my work with adding support to building complex programs into sysext 
 - [add information to ease setting up network configuration][network-configuration]
 - [update the architectures documentation to remove a warning stating that a service is enabled but lacks an install section][architectures-doc]
 - [helped push for TPM2 support. added preliminary clevis support, the team now just has to update our tests to add a TPM2 device][clevis-support]
-- pushed for publishing a container image for sysstat to the Flatcar Github organization (already have a repository on my account, have to just create one on the Flatcar organization)
+- pushed for publishing a container image for sysstat to the Flatcar GitHub organization (already have a repository on my account, have to just create one on the Flatcar organization)
 - [added TLS support to the kernel so if someone wants to TLS software offload to the kernel, they can][tls-support]
 - [removed misleading errors in the SDK since we'd transitioned to the SDK container and the SDK packages were no longer published independenly][sdk-errors] 
 - [fixed race conditions that arise from when the containerd service assumed services are ready as soon as they start running rather than when they actually accept socket request][notify]

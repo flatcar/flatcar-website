@@ -93,7 +93,7 @@ sudo reboot
 
 ##### Install `flatcar-install` script
 
-Flatcar provides a simple installer script that helps install Flatcar Container Linux on the target disk. The script is available on [Github](https://raw.githubusercontent.com/flatcar/init/flatcar-master/bin/flatcar-install), and the first step would be to install the script in the host system.
+Flatcar provides a simple installer script that helps install Flatcar Container Linux on the target disk. The script is available on [GitHub](https://raw.githubusercontent.com/flatcar/init/flatcar-master/bin/flatcar-install), and the first step would be to install the script in the host system.
 
 ```bash
 mkdir -p ~/.local/bin

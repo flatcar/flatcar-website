@@ -149,7 +149,7 @@ When you boot the image file and apply the Ignition config, the image is set. Yo
 Here is an example of the syntax needed to use this flag:
 
 ```bash
-./flatcar_production_qemu_uefi.sh -i config.ign -p 2224 -- -snapshot -m 4096
+./flatcar_production_qemu_uefi.sh -i ignition.json -p 2224 -- -snapshot -m 4096
 ```
 
 See the [QEMU documentation](https://www.qemu.org/docs/master/system/qemu-manpage.html) for more information.
