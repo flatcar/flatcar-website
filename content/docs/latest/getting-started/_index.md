@@ -22,13 +22,7 @@ workflows as depicted in the following diagram:
 
 ```mermaid
 flowchart LR
-    A["Configure
-    OS · Components
-    Butane (YAML)"] --> B["Deploy
-    Cloud · VM · Bare Metal
-    Ignition config (JSON)"] --> C["Orchestrate
-    Containers · Kubernetes
-    Runtime of choice"]
+     A["Configure<br/>OS · Components<br/>Butane (YAML)"] --> B["Deploy<br/>Cloud · VM · Bare Metal<br/>Ignition config (JSON)"] --> C["Orchestrate<br/>Containers · Kubernetes<br/>Runtime of choice"]
 ```
 
 - [Butane](../fb-provision/butane/) is human-readable YAML that must be

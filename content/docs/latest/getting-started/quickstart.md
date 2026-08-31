@@ -223,11 +223,12 @@ cp flatcar_production_qemu_image.img.fresh flatcar_production_qemu_image.img
 Verification: QEMU starts and you eventually see the Flatcar login prompt in the
 VM console.
 
-{{<note>}} Hosts other than macOS will see
-`qemu-system-x86_64: invalid accelerator hvf` followed by a message about
-falling back to another accelerator. `hvf` is a macOS-only accelerator, and QEMU
-will accommodate automatically and the VM will boot and run normally.
-{{</note>}} **ARM64 (UEFI):**
+Hosts other than macOS will see `qemu-system-x86_64: invalid accelerator hvf` followed by a message about
+falling back to another accelerator. `hvf` is a macOS-only accelerator.
+
+QEMU will accommodate automatically and the VM will boot and run normally.
+
+**ARM64 (UEFI):**
 
 ```bash
 cp flatcar_production_qemu_uefi_image.img.fresh flatcar_production_qemu_uefi_image.img && ./flatcar_production_qemu_uefi.sh -i ignition.json
