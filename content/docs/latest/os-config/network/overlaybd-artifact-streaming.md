@@ -110,7 +110,7 @@ systemd:
             ExecStart=/usr/bin/containerd --config /etc/containerd/config.toml
 ```
 
-After the instance provisioned successfully, accelerated container images can be started in accordance with [upstream's guilde](https://github.com/containerd/accelerated-container-image/blob/main/docs/QUICKSTART.md#run-overlaybd-images):
+After the instance provisioned successfully, accelerated container images can be started in accordance with [upstream's guide](https://github.com/containerd/accelerated-container-image/blob/main/docs/QUICKSTART.md#run-overlaybd-images):
 ```bash
 sudo /opt/overlaybd/snapshotter/ctr rpull -u {user}:{pass} registry.hub.docker.com/overlaybd/redis:6.2.1_obd
 sudo ctr run --net-host --snapshotter=overlaybd --rm -t registry.hub.docker.com/overlaybd/redis:6.2.1_obd demo

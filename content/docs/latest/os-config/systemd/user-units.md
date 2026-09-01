@@ -9,7 +9,7 @@ aliases:
 
 Flatcar Container Linux supports the use of systemd user units.  These are unit files located in a users home directory, managed by the user, and executed with their permission.
 
-User units are stored in `~/.config/systemd/user/`.  When using Butane to configure these during provisioning you must create this entire path, level by level as demonstrated here.  This is adapated from [documentation for Fedora CoreOS](https://docs.fedoraproject.org/en-US/fedora-coreos/tutorial-user-systemd-unit-on-boot/).
+User units are stored in `~/.config/systemd/user/`.  When using Butane to configure these during provisioning you must create this entire path, level by level as demonstrated here.  This is adapted from [documentation for Fedora CoreOS](https://docs.fedoraproject.org/en-US/fedora-coreos/tutorial-user-systemd-unit-on-boot/).
 
 ```yaml
 variant: flatcar
@@ -55,7 +55,7 @@ storage:
 
 ## Network Access
 
-In some cases the network will not be online when the user units are executed.  This may happen when there is no network requiring component in the boot process.  For example, requiring a network mounted home directory would cause user units to execute after the network was online.  If you have no such requirements or wish to gurantee that the network is online before user units are excuted you can use the following systemd dropin to modify the `systemd-user-sessions.service` to run after the network is online.  This affects all users.
+In some cases the network will not be online when the user units are executed.  This may happen when there is no network requiring component in the boot process.  For example, requiring a network mounted home directory would cause user units to execute after the network was online.  If you have no such requirements or wish to guarantee that the network is online before user units are executed you can use the following systemd dropin to modify the `systemd-user-sessions.service` to run after the network is online.  This affects all users.
 
 ```yaml
 variant: flatcar
