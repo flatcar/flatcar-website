@@ -45,7 +45,7 @@ run:
 # Like 'run' but builds to disk first so pagefind search works locally.
 # Note: no live-reload; re-run after content changes.
 serve: docs
-	hugo --theme=flatcar --buildFuture
+	hugo --theme=flatcar --buildFuture -b http://localhost:1313/
 	npx -y pagefind@1.4.0 --site public
 	@echo "Static server: http://localhost:1313/"
 	cd public && $(PYTHON) -m http.server 1313

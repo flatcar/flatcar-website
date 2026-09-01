@@ -8,7 +8,7 @@
   {{ range $items }}
     {{ $hasContent := (len .Content)|lt 1 }}
     <div class="col-12 col-md-{{ $numCols }}">
-      <h4><a href={{ cond $hasContent .Permalink .Params.link }}>{{ or .Params.name .Params.title }}</a></h4>
+      <h4><a href={{ cond $hasContent .RelPermalink .Params.link }}>{{ or .Params.name .Params.title }}</a></h4>
       {{ if $showDescription }}
         <p>{{ .Params.description }}</p>
       {{ end }}

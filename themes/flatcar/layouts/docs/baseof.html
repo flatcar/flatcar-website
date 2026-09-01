@@ -22,7 +22,7 @@
                 The version of the documentation you are reading is not the latest one!
                 {{ range (partial "docs/getversions" . ) }}
                   {{ if eq (partial "docs/dirversion" .) $latestVersion }}
-                  &nbsp;See the <a href="{{ .Permalink }}">latest version</a>.
+                  &nbsp;See the <a href="{{ .RelPermalink }}">latest version</a>.
                   {{ end }}
                 {{ end }}
               </div>
@@ -94,9 +94,9 @@
     {{ partial "footer.html" . }}
     {{ block "scripts" . }}
     {{- $searchJs := resources.GetMatch "js/fastsearch.js" | resources.Minify -}}
-    <script type="module" src="{{ $searchJs.Permalink }}"></script>
+    <script type="module" src="{{ $searchJs.RelPermalink }}"></script>
     {{- $anchorJs := resources.GetMatch "js/anchor.js" | resources.Minify -}}
-    <script src="{{ $anchorJs.Permalink }}"></script>
+    <script src="{{ $anchorJs.RelPermalink }}"></script>
     {{ end }}
     {{ if .Store.Get "hasMermaid" }}
     <script type="module">

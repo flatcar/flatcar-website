@@ -7,7 +7,7 @@
   {{ range $versions }}
     {{ $version := partial "docs/dirversion" . }}
     <option
-      value={{ .Permalink }}
+      value="{{ .RelPermalink }}"
       {{ if eq $version $current }}selected{{ end }}
     >
       {{ $version }}

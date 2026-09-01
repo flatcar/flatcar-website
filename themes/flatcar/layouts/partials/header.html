@@ -30,7 +30,7 @@
       {{/* Use "navbar_class=dark" in the front-matter for the dark theme menus. */}}
       <nav class="w-100 p-0 navbar navbar-expand-md justify-content-md-between {{ default "" .Params.navbar_class }}">
 
-        <a href="{{ .Site.BaseURL }}" class="navbar-brand">
+        <a href="{{ "/" | relURL }}" class="navbar-brand">
             {{ partial "logo.html" . }}
         </a>
 

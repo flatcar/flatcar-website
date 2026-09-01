@@ -1,6 +1,9 @@
-baseurl: "/"
+baseurl: "https://www.flatcar.org/"
 title: Flatcar Container Linux
-canonifyurls: true
+# Internal links are emitted relative to the site root so that preview and
+# local builds stay self-contained. Absolute URLs are only used where a
+# consumer requires them: canonical tags, Open Graph, the sitemap and feeds.
+canonifyurls: false
 pagination:
   pagerSize: 8
 theme: flatcar
