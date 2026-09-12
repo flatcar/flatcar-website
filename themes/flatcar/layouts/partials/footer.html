@@ -134,5 +134,6 @@
 
   <script src="/js/bootstrap.bundle.min.js"></script>
   {{- $common := resources.Get "js/common.js" -}}
-  {{- $js := slice $common | resources.Concat "js/common.js" -}}
+  {{- $calendar := resources.Get "js/calendar.js" -}}
+  {{- $js := slice $common $calendar | resources.Concat "js/site.js" -}}
   <script src="{{ $js.Permalink }}"></script>
