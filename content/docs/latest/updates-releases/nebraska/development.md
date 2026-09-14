@@ -25,21 +25,20 @@ environment variable `NEBRASKA_DB_URL`.
 For a quick setup of `PostgreSQL` for Nebraska's development, you can use
 the `postgres` container as follows:
 
-- Start `Postgres`:
-    - `docker run --rm -d --name nebraska-postgres-dev -p 5432:5432 -e POSTGRES_PASSWORD=nebraska postgres`
+- Start `Postgres`. This also creates the `nebraska` database and sets the
+  timezone to UTC:
 
-- Create the database for Nebraska (by default it is `nebraska`):
-    - `psql postgres://postgres:nebraska@localhost:5432/postgres -c 'create database nebraska;'`
+  ```bash
+  docker run --rm -d --name nebraska-postgres-dev -p 5432:5432 -e POSTGRES_PASSWORD=nebraska -e POSTGRES_DB=nebraska -e TZ=UTC postgres
+  ```
 
-- Set the timezone to Nebraska's database:
-    - `psql postgres://postgres:nebraska@localhost:5432/nebraska -c 'set timezone = "utc";'`
+  Wait a few seconds for it to start.
 
-- Set up the nebraska_tests database for running unit tests
+- Create the second database, used by the unit tests:
 
-```bash
-psql postgres://postgres:nebraska@localhost:5432/postgres -c 'create database nebraska_tests;'
-psql postgres://postgres:nebraska@localhost:5432/nebraska_tests -c 'set timezone = "utc";'
-```
+  ```bash
+  docker exec nebraska-postgres-dev psql -U postgres -c "create database nebraska_tests;"
+  ```
 
 ## Development Quickstart
 
