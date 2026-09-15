@@ -1,9 +1,38 @@
 $paddingLeft: 1.5rem;
 $topElemsVPadding: 1.4rem;
+$docs-container-max-width: 2048px;
+$sideBarWidth: 350px;
 
 .docs {
   .header {
     background: $black !important;
+
+    // Match the header container width to the docs content container
+    // so the logo aligns flush with the sidebar's left edge.
+    .container {
+      max-width: $docs-container-max-width;
+
+      @include media-breakpoint-down(md) {
+        max-width: 100%;
+        width: 100%;
+      }
+    }
+
+    // Give the logo the same left margin as the sidebar nav items
+    // so it visually aligns with the menu below.
+    .navbar-brand {
+      @include media-breakpoint-up(md) {
+        margin-left: $paddingLeft;
+      }
+    }
+
+    // Keep the last nav item (theme switcher) from hugging the right
+    // edge of the viewport / scrollbar on docs pages.
+    .navbar-nav {
+      @include media-breakpoint-up(md) {
+        margin-right: $paddingLeft;
+      }
+    }
   }
 }
 
@@ -14,7 +43,7 @@ $topElemsVPadding: 1.4rem;
     padding-top: calc(#{$topElemsVPadding} + 0.2rem);
     position: -webkit-sticky; /* Safari */
     position: sticky;
-    top: 0;
+    top: 5rem;
   }
 }
 
@@ -24,11 +53,11 @@ $topElemsVPadding: 1.4rem;
     & > li.td-sidebar-nav__section-title {
       padding-left: $paddingLeft;
       padding-top: 2.5rem;
-      border-bottom: 1px solid #e0dfdf;
+      border-bottom: 1px solid var(--bs-border-color);
 
       a {
         font-weight: bold;
-        color: $black;
+        color: var(--bs-emphasis-color);
         font-size: 1rem;
       }
     }
@@ -60,8 +89,8 @@ $topElemsVPadding: 1.4rem;
     &:after {
       width: 0.5em;
       height: 0.5em;
-      border-right: 2px solid #717171;
-      border-bottom: 2px solid #717171;
+      border-right: 2px solid var(--bs-secondary-color);
+      border-bottom: 2px solid var(--bs-secondary-color);
       border-top: none;
       border-left: none;
       margin-left: 0.83em;
@@ -80,17 +109,17 @@ $topElemsVPadding: 1.4rem;
 
     #docs {
       & > li > ul {
-        border-bottom: 1px solid #e0dfdf;
+        border-bottom: 1px solid var(--bs-border-color);
 
         & > li {
           padding-left: $paddingLeft;
 
           & > a {
-            color: #474747;
+            color: var(--bs-body-color);
             font-size: 1rem;
 
             &.active {
-              color: $flatcar-darker-blue;
+              color: var(--flatcar-accent);
             }
           }
         }
@@ -105,11 +134,11 @@ $topElemsVPadding: 1.4rem;
 
     li {
       a {
-        color: #717171;
+        color: var(--bs-secondary-color);
         font-size: 0.9rem;
 
         &.active {
-          color: $flatcar-darker-blue;
+          color: var(--flatcar-accent);
           font-weight: bold;
         }
 
@@ -127,9 +156,8 @@ $topElemsVPadding: 1.4rem;
   }
 }
 
-$sideBarWidth: 350px;
 .td-sidebar {
-  background: #f9f9f9;
+  background: var(--bs-tertiary-bg);
   padding: 0;
 
   @include media-breakpoint-up(xl) {
@@ -175,12 +203,12 @@ $sideBarWidth: 350px;
   td,
   th {
     height: 45px;
-    border-bottom: 1px solid #e0dfdf;
+    border-bottom: 1px solid var(--bs-border-color);
     padding: 15px 25px 10px 25px;
   }
 
   thead {
-    background-color: #f6f6f7;
+    background-color: var(--bs-tertiary-bg);
   }
 
   pre {
@@ -199,7 +227,7 @@ $sideBarWidth: 350px;
     .btn-copy {
       background: none;
       border: none !important;
-      color: #717171;
+      color: var(--bs-secondary-color);
       line-height: 1;
       padding: 0.25rem 0.5rem;
       z-index: 1;
@@ -207,7 +235,7 @@ $sideBarWidth: 350px;
       cursor: pointer;
 
       &:hover {
-        color: $flatcar-link-blue;
+        color: var(--bs-link-color);
       }
     }
   }
@@ -228,7 +256,7 @@ $sideBarWidth: 350px;
       margin-right: 50px;
 
       a {
-        color: #717171;
+        color: var(--bs-secondary-color);
 
         &:hover {
           text-decoration: none;
@@ -249,7 +277,7 @@ $sideBarWidth: 350px;
   }
 
   .btn {
-    border: 2px solid #717171;
+    border: 2px solid var(--bs-secondary-color);
   }
 
   a.heading-anchor {
@@ -257,7 +285,7 @@ $sideBarWidth: 350px;
 
     &:hover {
       text-decoration: none;
-      color: $black;
+      color: var(--bs-emphasis-color);
     }
   }
 
@@ -284,14 +312,14 @@ $sideBarWidth: 350px;
     .breadcrumb-item {
       font-size: 1rem;
       & > a {
-        color: $gray-600;
+        color: var(--bs-secondary-color);
         text-decoration: none;
       }
     }
   }
 
   .container {
-    max-width: 2048px;
+    max-width: $docs-container-max-width;
 
     @include media-breakpoint-down(md) {
       max-width: 100%;
@@ -311,6 +339,11 @@ $sideBarWidth: 350px;
     padding-bottom: 50px;
   }
 
+  .github-footer .btn {
+    border: 2px solid var(--bs-border-color);
+    padding: 4px 2px;
+    font-weight: inherit;
+  }
 }
 
 .header-with-news-stripe + .docs-section {
@@ -335,14 +368,14 @@ $sideBarWidth: 350px;
   font-size: 0.75rem;
   font-weight: 600;
   letter-spacing: 0.05em;
-  color: #474747;
+  color: var(--bs-secondary-color);
   padding-left: 1rem;
   margin-bottom: 0.5rem;
 }
 
 #TableOfContents {
   font-size: 0.85rem;
-  border-left: 1px solid #e0e0e0;
+  border-left: 1px solid var(--bs-border-color);
 
   ul,
   ol {
@@ -359,20 +392,20 @@ $sideBarWidth: 350px;
       & > a {
         display: block;
         padding: 0.2rem 0 0.2rem 0.875rem;
-        color: #616161;
+        color: var(--bs-secondary-color);
         text-decoration: none;
         transition: color 0.15s ease, border-color 0.15s ease;
 
         &:hover {
-          color: $flatcar-link-blue;
+          color: var(--bs-link-color);
         }
       }
 
       &.active {
-        border-left-color: $flatcar-link-blue;
+        border-left-color: var(--bs-link-color);
 
         & > a {
-          color: $flatcar-link-blue;
+          color: var(--bs-link-color);
           font-weight: 500;
         }
       }
@@ -413,8 +446,8 @@ $sideBarWidth: 350px;
   }
 
   .card {
-    border: 1px solid rgba(0, 0, 0, 0.1);
-    background-color: $white;
+    border: 1px solid var(--bs-border-color-translucent);
+    background-color: var(--bs-body-bg);
     height: 100%;
 
     .card-header {
@@ -477,7 +510,7 @@ $sideBarWidth: 350px;
       text-align: center;
 
       p {
-        color: #717171;
+        color: var(--bs-secondary-color);
         font-size: 0.9rem;
       }
     }
@@ -487,7 +520,7 @@ $sideBarWidth: 350px;
 
 .td-content {
   a {
-    color: $flatcar-blue;
+    color: var(--bs-link-color);
 
     &:hover {
       text-decoration: underline;
@@ -500,7 +533,7 @@ $sideBarWidth: 350px;
   h4,
   h5 {
     & > a {
-      color: $black;
+      color: var(--bs-emphasis-color);
 
       &:hover {
         color: $flatcar-blue;
@@ -510,8 +543,8 @@ $sideBarWidth: 350px;
 }
 
 .note {
-  background-color: $gray-100;
-  border: 1px solid $gray-200;
+  background-color: var(--bs-tertiary-bg);
+  border: 1px solid var(--bs-border-color);
   border-left: 4px solid $flatcar-blue;
   padding: 0.5rem;
 }
