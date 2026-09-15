@@ -23,7 +23,7 @@ for path in sys.argv[1:]:
         obj['release_date'] = d.strftime('%Y-%m-%d %H:%M:%S %z')
         packages = {k: [v] for (k, v) in release['image_packages'].items()}
         obj['major_software'] = packages
-        notes = release['github_release']['body'].replace('\r', '')
+        notes = (release['github_release']['body'] or '').replace('\r', '')
         obj['release_notes'] = notes
         all_releases[release['release']] = obj
 
