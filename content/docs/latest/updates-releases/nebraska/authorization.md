@@ -60,9 +60,39 @@ because the defaults are set at half.
 > Nebraska now uses {{< glossary_tooltip term_id="auth_code_flow" text="Authorization Code Flow" >}} + {{< glossary_tooltip term_id="pkce" text="PKCE" >}} with public clients for enhanced security.
 >
 > - **New in v2.13**: Frontend handles OIDC flow directly, no client secrets required
-> - **Upgrading?** See the [OIDC Migration Guide](https://github.com/flatcar/nebraska/blob/main/docs/oidc-migration-guide.md)
+> - **Breaking in v4.0.0**: `--oidc-audience` is now required. Nebraska refuses
+>   to start without it, and rejects access tokens whose `aud` claim does not
+>   match. This fixes [GHSA-8535-v9q5-f7qp](https://github.com/flatcar/nebraska/security/advisories/GHSA-8535-v9q5-f7qp),
+>   where a token your provider issued for any other application in the same
+>   realm or tenant was accepted.
+> - **Upgrading?** See the [OIDC Migration Guide](https://github.com/flatcar/nebraska/blob/4.0.0/docs/oidc-migration-guide.md)
 
-### Preparing Keycloak as an OIDC provider for Nebraska
+### Nebraska configuration flags
+
+Before starting Nebraska with any provider, go to the nebraska project directory
+and run `make`, then start the database (see the section above for a quick
+setup). Each provider guide below ends with the command to start the backend.
+
+**Required flags:**
+- `--oidc-client-id`: the OIDC client ID
+- `--oidc-issuer-url`: the issuer URL of your provider
+- `--oidc-admin-roles` and `--oidc-viewer-roles`: role names to map
+- `--oidc-audience`: the audience your provider puts in the `aud` claim of
+  **access tokens**. Required since Nebraska 4.0.0, the backend refuses to
+  start without it. Your provider's guide below shows where to find it.
+
+**Optional flags:**
+- `--oidc-roles-path`: Custom JSON path for roles (default: `roles`)
+- `--oidc-scopes`: OIDC scopes (default: `openid,profile,email`)
+- `--oidc-management-url`: URL for user account management
+- `--oidc-logout-url`: Fallback logout URL if not in OIDC discovery
+- `--oidc-use-userinfo`: read roles from the UserInfo endpoint instead of the
+  access token, for providers that do not put roles in the token
+- `--oidc-skip-audience-check`: turns the audience check off. **Insecure**,
+  it re-opens [GHSA-8535-v9q5-f7qp](https://github.com/flatcar/nebraska/security/advisories/GHSA-8535-v9q5-f7qp).
+  Only use it to migrate in steps, and remove it once the provider is configured.
+
+## Preparing Keycloak as an OIDC provider for Nebraska
 
 - Run `Keycloak` locally in dev mode using docker:
 
@@ -122,6 +152,30 @@ Now the member and admin roles are created, the admin role is a composite role w
 
 {{< presentation "keycloak-scope-token" >}}
 
+### Adding the API audience to the access token
+
+Nebraska 4.0.0 and later checks that an access token was issued for the
+Nebraska API, by comparing the token's `aud` claim against `--oidc-audience`.
+Keycloak does not support the `audience` request parameter, so you add a mapper.
+
+1. In `nebraska` client details screen, find `Client Scopes` tab and select `nebraska-dedicated`.
+2. Click on `Configure a new mapper`.
+3. Click on `Audience`.
+4. Set the name as `nebraska-api-audience`, set `Included Custom Audience` to
+   `nebraska-api`, turn `Add to access token` **on** and leave
+   `Add to ID token` **off**.
+5. Click `Save`.
+
+Use that same `nebraska-api` value for `--oidc-audience` below. Confirm a fresh
+token really carries it before you start Nebraska:
+
+```bash
+echo "<access-token>" | cut -d. -f2 | tr '_-' '/+' | jq -R '@base64d | fromjson | .aud'
+```
+
+If you set `--oidc-audience` before the provider actually sends it, login looks
+fine but every API request returns 401.
+
 ### Attaching Roles to User
 
 1. Click on `Users` menu option and click `admin`.
@@ -129,13 +183,7 @@ Now the member and admin roles are created, the admin role is a composite role w
 
 {{< presentation "keycloak-assign-roles" >}}
 
-### Nebraska
-
-- Go to the nebraska project directory and run `make`.
-
-- Start the database (see the section above if you need a quick setup).
-
-- Setup OIDC provider as a **public client** (see provider-specific instructions below).
+### Start Nebraska with Keycloak
 
 - Start the Nebraska backend:
 
@@ -145,21 +193,15 @@ Now the member and admin roles are created, the admin role is a composite role w
     --oidc-admin-roles nebraska_admin \
     --oidc-viewer-roles nebraska_member \
     --oidc-client-id nebraska \
+    --oidc-audience nebraska-api \
     --oidc-issuer-url http://localhost:8080/realms/master
   ```
-
-  **Optional flags:**
-  - `--oidc-roles-path`: Custom JSON path for roles (default: `roles`)
-  - `--oidc-scopes`: OIDC scopes (default: `openid,profile,email`)
-  - `--oidc-audience`: Required for some providers like Auth0
-  - `--oidc-management-url`: URL for user account management
-  - `--oidc-logout-url`: Fallback logout URL if not in OIDC discovery
 
 - In the browser, access `http://localhost:8000`.
 
 ## Preparing Auth0 as an OIDC provider for Nebraska
 
-### Create and configure new application
+### Create and configure the Auth0 application
 
 1. Click on `Create Application`.
 2. Provide the name as `nebraska`, select `Single Page Application` (SPA).
@@ -182,21 +224,26 @@ Now the member and admin roles are created, the admin role is a composite role w
    - Note: The identifier doesn't need to be a real URL, it's just a unique string.
 4. Click `Create`.
 5. Use this identifier as the `--oidc-audience` parameter when starting Nebraska.
-6. Find the `<your-client-id>` and `<your-domain>` in the Auth0 dashboard (in `Applications > nebraska > Settings`) and use them in the invocation below:
-   ```bash
-   backend/bin/nebraska --debug --auth-mode oidc \
-     --oidc-client-id <your-client-id> \
-     --oidc-issuer-url https://<your-domain>.auth0.com/ \
-     --oidc-audience http://localhost \
-     --oidc-roles-path "http://nebraska\.io/roles" \
-     --oidc-admin-roles nebraska_admin \
-     --oidc-viewer-roles nebraska_member \
-     --http-static-dir frontend/dist
-   ```
 
 {{< presentation "auth0-setup" >}}
 
-### Adding roles scope to token
+### Start Nebraska with Auth0
+
+Find the `<your-client-id>` and `<your-domain>` in the Auth0 dashboard, under
+`Applications > nebraska > Settings`.
+
+```bash
+backend/bin/nebraska --debug --auth-mode oidc \
+  --oidc-client-id <your-client-id> \
+  --oidc-issuer-url https://<your-domain>.auth0.com/ \
+  --oidc-audience http://localhost \
+  --oidc-roles-path "http://nebraska\.io/roles" \
+  --oidc-admin-roles nebraska_admin \
+  --oidc-viewer-roles nebraska_member \
+  --http-static-dir frontend/dist
+```
+
+### Adding roles scope to token (Auth0)
 
 1. Go to `Actions > Library` using the main menu and find the `Create Action` menu from top right.
 2. Click on `Build from scratch` option.
@@ -294,7 +341,7 @@ connectors:
 docker run -p 5556:5556 -v ${PWD}/example.yaml:/etc/dex/example.yaml ghcr.io/dexidp/dex:v2.44.0 dex serve /etc/dex/example.yaml
 ```
 
-### Running nebraska
+### Start Nebraska with Dex
 
 ```bash
 backend/bin/nebraska --debug --auth-mode oidc \
@@ -302,6 +349,7 @@ backend/bin/nebraska --debug --auth-mode oidc \
   --oidc-admin-roles admin \
   --oidc-viewer-roles viewer \
   --oidc-client-id nebraska \
+  --oidc-audience nebraska \
   --oidc-issuer-url http://localhost:5556/dex \
   --oidc-scopes groups,openid,profile \
   --http-static-dir frontend/dist
@@ -309,7 +357,7 @@ backend/bin/nebraska --debug --auth-mode oidc \
 
 ## Preparing Okta as an OIDC provider for Nebraska
 
-### Create and configure new application
+### Create and configure the Okta application
 
 1. Log in to your Okta Admin Dashboard.
 2. Navigate to `Applications > Applications`.
@@ -343,6 +391,7 @@ backend/bin/nebraska --debug --auth-mode oidc \
 backend/bin/nebraska --debug --auth-mode oidc \
   --oidc-client-id <your-client-id> \
   --oidc-issuer-url https://<your-domain>.okta.com/oauth2/default \
+  --oidc-audience api://default \
   --oidc-admin-roles nebraska_admin \
   --oidc-viewer-roles nebraska_viewer \
   --http-static-dir frontend/dist
@@ -383,10 +432,14 @@ backend/bin/nebraska --debug --auth-mode oidc \
 
 ### Start Nebraska with Azure AD
 
+`--oidc-audience` must match the Application ID URI you set under
+`Expose an API`, which is `api://<your-application-id>` by default.
+
 ```bash
 backend/bin/nebraska --debug --auth-mode oidc \
   --oidc-client-id <your-application-id> \
   --oidc-issuer-url https://login.microsoftonline.com/<your-tenant-id>/v2.0 \
+  --oidc-audience api://<your-application-id> \
   --oidc-admin-roles <admin-group-id> \
   --oidc-viewer-roles <viewer-group-id> \
   --oidc-roles-path groups \
@@ -465,6 +518,20 @@ $ helm install my-nebraska nebraska/nebraska --values nebraska-values.yaml
 
 ### Common OIDC Issues
 
+- **Nebraska will not start: "no access token audience configured"**
+  - `--oidc-audience` is required from 4.0.0 onwards. Set it to the audience
+    your provider puts in the `aud` claim of access tokens.
+  - See your provider's guide above for where that value comes from.
+
+- **Every API request returns 401 after upgrading to 4.0.0**
+  - `--oidc-audience` is set, but your provider is not putting that value in
+    the token. Login looks fine, because the failure is on the API side.
+  - Decode a fresh access token and compare its `aud` claim with your flag:
+    ```bash
+    echo "<access-token>" | cut -d. -f2 | tr '_-' '/+' | jq -R '@base64d | fromjson | .aud'
+    ```
+  - For Keycloak, check the audience mapper has `Add to access token` on.
+
 - **{{< glossary_tooltip term_id="cors" text="CORS" >}} errors in browser console**
   - Ensure your OIDC provider has the Nebraska URL in allowed origins/{{< glossary_tooltip term_id="cors" text="CORS" >}} settings.
   - For development with frontend on port 3000, add `http://localhost:3000` to allowed origins.
@@ -519,8 +586,10 @@ If upgrading from an older version:
    - Remove `--oidc-client-secret` flag.
    - Remove `--oidc-session-secret` flag (if used).
    - Remove `--oidc-session-crypt-key` flag (if used).
-   - Add `--oidc-audience` for Auth0 (if applicable).
+   - Add `--oidc-audience`. Required from v4.0.0 for every provider, not just
+     Auth0. Your provider has to put that value in the `aud` claim of access
+     tokens first, otherwise every API request returns 401.
 
-3. See the full [OIDC Migration Guide](https://github.com/flatcar/nebraska/blob/main/docs/oidc-migration-guide.md) for detailed instructions.
+3. See the full [OIDC Migration Guide](https://github.com/flatcar/nebraska/blob/4.0.0/docs/oidc-migration-guide.md) for detailed instructions.
 
 </details>
