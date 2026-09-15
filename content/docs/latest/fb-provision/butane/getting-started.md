@@ -55,6 +55,6 @@ While quite similar, there are some changes needed to migrate a Container Linux 
 [1]: ../butane/configuration
 [2]: https://coreos.github.io/ignition/supported-platforms/
 [3]: https://coreos.github.io/butane/examples/
-[4]: https://github.com/coreos/butane/releases
+[4]: https://github.com/coreos/ignition/releases
 [dynamic]: ../ignition/dynamic-data/
 [cluster]: ../../orchestrate/clusters/
