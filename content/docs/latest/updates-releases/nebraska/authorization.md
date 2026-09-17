@@ -397,6 +397,56 @@ backend/bin/nebraska --debug --auth-mode oidc \
   --http-static-dir frontend/dist
 ```
 
+## Preparing Pocket ID as an OIDC provider for Nebraska
+
+[Pocket ID](https://pocket-id.org) is a self-hosted OIDC provider.
+
+### Create and configure the Pocket ID client
+
+1. Log in to your Pocket ID admin panel.
+2. Navigate to `OIDC Clients` and create a new client.
+3. Configure the client with the following:
+   - **Name**: `Nebraska`
+   - **Public Client**: enabled. Nebraska's frontend runs in the browser and holds no client secret.
+     Turning this on also enables PKCE, which Nebraska uses.
+   - **Callback URLs**: `http://localhost:8000/auth/callback`
+   - **Logout Callback URLs**: `http://localhost:8000/`
+4. Note the `Client ID` from the client settings. Pocket ID puts it in the `aud` claim of access
+   tokens, so use the same value for `--oidc-audience`.
+
+### Configure user groups
+
+1. Navigate to `User Groups` in Pocket ID.
+2. Create groups for Nebraska access (e.g., `nebraska-admin`, `nebraska-member`).
+3. Assign users to those groups, and allow them to sign in to the new client.
+
+### Start Nebraska with Pocket ID
+
+Pocket ID returns group membership from the UserInfo endpoint, not in the access token, so
+`--oidc-use-userinfo` is required. Without it Nebraska fails with
+`token does not contain roles at path 'groups'`.
+
+Pocket ID only puts the `groups` claim in a token when the `groups` scope was requested, and that
+scope is not in Nebraska's default set, so `--oidc-scopes` has to list it. Without it Nebraska fails
+with `userinfo does not contain roles at path 'groups'`.
+
+Give `--oidc-issuer-url` without a trailing slash. Pocket ID reports its issuer without one, and
+Nebraska refuses to start on a mismatch (`oidc: issuer did not match the issuer returned by
+provider`).
+
+```bash
+backend/bin/nebraska --debug --auth-mode oidc \
+  --oidc-client-id <your-client-id> \
+  --oidc-issuer-url https://<your-pocket-id-instance> \
+  --oidc-audience <your-client-id> \
+  --oidc-admin-roles nebraska-admin \
+  --oidc-viewer-roles nebraska-member \
+  --oidc-roles-path groups \
+  --oidc-scopes openid,profile,email,groups \
+  --oidc-use-userinfo \
+  --http-static-dir frontend/dist
+```
+
 ## Preparing Azure AD (Microsoft Entra ID) as an OIDC provider for Nebraska
 
 ### Register a new application
