@@ -70,5 +70,4 @@ Orchestration and Capabilities:
 Maintenance and Development:
 
 - [Diagnostics and Fixing Issues](../diagnostics/)
-- [CoreOS Migration](../coreos-migration/)
 - [Developer Guides](../devguide/)
