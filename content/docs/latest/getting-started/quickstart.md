@@ -117,7 +117,7 @@ butane --pretty --strict < cl.yaml > ignition.json
 Verification: Run `ls ignition.json` to confirm the file exists in the current
 directory.
 
-If you prefer, you can also use this JSON directly as `ignition.json`:
+If you prefer, you can also use the following JSON directly as `ignition.json`. Replace the placeholder with your SSH public key as described in Step 1.
 
 ```json
 {
