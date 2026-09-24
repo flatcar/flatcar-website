@@ -155,7 +155,7 @@ The build process entails:
    1. Add builder ID information during CI builds: [tracking issue](https://github.com/flatcar/Flatcar/issues/813)
    2. Generate additional provenance for the whole image: [tracking issue](https://github.com/flatcar/Flatcar/issues/814)
 4. Signing of artifacts to enable validation of authenticity at provisioning time.
-   Signing also ensures SLSA provenance is non-falisfiable.
+   Signing also ensures SLSA provenance is non-falsifiable.
    1. A verity hash of the OS partition is generated and injected into the initrd so Flatcar can verify tamper-free OS partition at boot time.
    2. There is an extra layer of security for the update image.
       Many Flatcar deployments use automated updates so special care is taken to ensure these are not compromised.
