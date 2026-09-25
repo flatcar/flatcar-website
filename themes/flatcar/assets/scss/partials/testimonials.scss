@@ -12,7 +12,7 @@
 
   .section-title {
     font-weight: $font-weight-semi-bold;
-    color: $body-color;
+    color: var(--bs-body-color);
   }
 
   .section-description {
@@ -21,9 +21,9 @@
   }
 
   .testimonial-card {
-    border: $input-border-width solid $input-border-color;
+    border: $input-border-width solid var(--bs-border-color);
     border-radius: $card-border-radius;
-    background-color: $white;
+    background-color: var(--bs-body-bg);
     transition: all 0.3s ease;
     margin-bottom: $spacer * 1.5;
 
@@ -33,8 +33,8 @@
     }
 
     .card-header {
-      background-color: $white;
-      border-bottom: $input-border-width solid $input-border-color;
+      background-color: var(--bs-secondary-bg);
+      border-bottom: $input-border-width solid var(--bs-border-color);
       padding: $spacer * 0.75 $spacer * 1.25;
 
       .company-logo {
@@ -63,7 +63,7 @@
       .testimonial-text {
         font-size: 0.95rem;
         line-height: $headings-line-height;
-        color: $body-color;
+        color: var(--bs-body-color);
         // Limit to 5 lines of text
         overflow: hidden;
         display: -webkit-box;
@@ -85,7 +85,7 @@
     left: 0;
     width: 100%;
     height: 350px;
-    background: linear-gradient(to bottom, rgba($white, 0) 0%, rgba($white, 1) 90%);
+    background: linear-gradient(to bottom, rgba(var(--bs-body-bg-rgb), 0) 0%, var(--bs-body-bg) 90%);
     display: flex;
     justify-content: center;
     align-items: flex-end;
