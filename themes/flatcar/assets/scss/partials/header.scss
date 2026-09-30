@@ -45,6 +45,11 @@
 
   &.scrolled {
     background-color: $flatcar-dark-blue;
+
+    // Black stays distinct from the navy content ($flatcar-dark-900).
+    [data-bs-theme="dark"] & {
+      background-color: $black;
+    }
     .news_stripe {
       max-height: 0;
       padding: 0;
@@ -131,16 +136,23 @@ $color-primary: $flatcar-bg-blue;
 $color-secondary: $flatcar-navy-light;
 
 main > *.header-bg-flatcar:first-child {
+  --hero-primary: #{$color-primary};
+  --hero-secondary: #{$color-secondary};
   background:
     url(/images/flatcar-hero-left.svg) calc(100% / 2 - 650px) calc(100% / 2 + 100px) no-repeat,
     url(/images/flatcar-hero-right.svg) calc(100% / 2 + 700px) calc(100% / 2 + 100px)  no-repeat,
-    radial-gradient(circle at bottom center, $color-primary 0%, $color-primary 58%, $color-secondary 100%);
-    ;
+    radial-gradient(circle at bottom center, var(--hero-primary) 0%, var(--hero-primary) 58%, var(--hero-secondary) 100%);
   // We need to have it begin at height-of-screen above the beginning because
   // of the mobile version's menu, which will scroll it all the way down.
   // i.e. if we don't have it above the screen for the length of its height,
   // it will not look good when sliding the mobile menu.
   left: 0;
+
+  // Lighter navy so the hero reads as a raised band over the darker content.
+  [data-bs-theme="dark"] & {
+    --hero-primary: #{$flatcar-dark-700};
+    --hero-secondary: #{$flatcar-dark-500};
+  }
 }
 
 main > *.header-bg-lokomotive:first-child {
@@ -185,10 +197,6 @@ main > *.header-bg-triangles:first-child {
     text-align: center;
     margin-top: 60px;
   }
-
-  &.collapsing {
-    background: $black;
-  }
 }
 
 .header__link {
@@ -215,21 +223,25 @@ main > *.header-bg-triangles:first-child {
   }
 }
 @include media-breakpoint-down(md) {
-  body.mobile-menu_open {
-    .header {
-      position: fixed;
-      height: 100%;
-      background: $black;
-      overflow: hidden auto;
-    }
-
-    .header-bg-stripes:after {
-      content: "";
-      background: none;
-    }
+  // Black backdrop for the open mobile menu. Tied to Bootstrap's collapse
+  // state (.show/.collapsing) rather than the JS-toggled mobile-menu_open
+  // class, which could desync from the menu on rapid clicks.
+  .header:has(#navbarToggler.show),
+  .header:has(#navbarToggler.collapsing) {
+    position: fixed;
+    height: 100%;
+    background: $black;
+    overflow: hidden auto;
 
     .dropdown-menu {
       transition: all 0s;
+    }
+  }
+
+  body.mobile-menu_open {
+    .header-bg-stripes:after {
+      content: "";
+      background: none;
     }
 
     .mobile-menu {
