@@ -28,8 +28,40 @@ in order to install it.
 ## Prerequisites
 
 - Hugo Extended (see version in [`.env`](./.env) file)
-- Python 3 with PyYAML (required for docs generation - installed via `make getdeps`)
+- Python 3 (required for docs generation; dependencies listed in [`requirements.txt`](./requirements.txt))
 - Docker (required for building presentations with Marp) (a `docker` symlink to `podman` works too)
+
+Run `make help` for the list of available targets.
+
+### Python dependencies
+
+`make getdeps` (and any target that needs it, like `make docs` or `make all`)
+automatically creates a local virtualenv under `.venv` and installs
+[`requirements.txt`](./requirements.txt) into it, so nothing is installed
+system-wide and PEP 668 "externally managed" systems just work:
+
+```bash
+make getdeps
+```
+
+It only re-runs `pip install` when `requirements.txt` changes, so repeat
+builds stay fast and don't need network access.
+
+You can override the interpreter used to bootstrap the venv, or its
+location, if needed:
+
+```bash
+make PYTHON=/path/to/python3 getdeps       # use a specific interpreter
+make VENV_DIR=/tmp/myenv getdeps           # use a custom venv location
+```
+
+Run `make help` to see what got detected on your machine. To activate the
+venv directly (e.g. to run `tools/fcl-fetch-version-data.py` yourself):
+
+```bash
+make venv
+source .venv/bin/activate
+```
 
 ## Adding content
 
