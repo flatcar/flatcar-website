@@ -45,6 +45,27 @@ mv flatcar_production_qemu_image.img flatcar_production_qemu_image.img.fresh
 cp -i --reflink=auto flatcar_production_qemu_image.img.fresh flatcar_production_qemu_image.img
 ```
 
+## Enable hardware-accelerated virtualization
+
+On Linux-based systems, QEMU uses KVM for hardware-accelerated virtualization. The current user needs to be a member of the `kvm` group.
+
+Check whether your user is already in the `kvm` group:
+
+```bash
+id -nG
+```
+If `kvm` is not listed, please proceed with adding your user to the `kvm` group. Note that adding the user to a group is an one-time configuration step; the membership persists across subsequent login sessions and system reboots.
+
+```bash
+sudo usermod -aG kvm "$USER"
+```
+
+The command might prompt you for your user password. To apply the new group membership to the current shell without logging out, run:
+
+```bash
+newgrp kvm
+```
+
 ## Provision with Butane and Ignition
 
 Now we will provision the VM on first boot through Ignition. Instead of writing the JSON config, we use Butane YAML and transpile it. Save the following Butane YAML file as `cl.yaml` (or another name). It contains directives for setting up a systemd service that runs an NGINX Docker container:

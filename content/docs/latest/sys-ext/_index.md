@@ -108,7 +108,7 @@ The image can be a plain ext4 or btrfs filesystem image but squashfs images are 
 
 Inside the image or folder structure there must be a file `usr/lib/extension-release.d/extension-release.NAME` with metadata used for version matching.
 The basic matching that needs to be there is `ID=flatcar` plus one of `VERSION_ID` or `SYSEXT_LEVEL`.
-If your binaries link against Flatcar's binaries under `/usr`, you must couple your sysext image to the Flatcar version by specyfing `VERSION_ID=MAJOR.MINOR.PATCH` in `extension-release.NAME` to match the `VERSION_ID` field from `/etc/os-release`.
+If your binaries link against Flatcar's binaries under `/usr`, you must couple your sysext image to the Flatcar version by specifying `VERSION_ID=MAJOR.MINOR.PATCH` in `extension-release.NAME` to match the `VERSION_ID` field from `/etc/os-release`.
 This means that the sysext image won't be loaded anymore after an OS update.
 Therefore, it is recommended that you try to use static binaries which lifts the requirement of having to couple the versions.
 In this case you can specify `SYSEXT_LEVEL=1.0` instead of `VERSION_ID`.

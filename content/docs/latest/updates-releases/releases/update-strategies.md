@@ -20,7 +20,9 @@ It's important to note that updates are always downloaded to the passive partiti
 
 The reboot is done by the reboot manager, by default this is the `locksmithd.service` included on the image.
 For Kubernetes the recommended reboot manager is [FLUO](https://github.com/flatcar/flatcar-linux-update-operator/) which replaces locksmithd because it knows how to gracefully reboot a Kubernetes node.
+
 The [kured](https://github.com/weaveworks/kured) reboot manager will be supported as well starting from Flatcar versions with a release number greater than `3067.0.0`.
+To let `kured` handle the reboot, you will need to disable `locksmithd.service` by masking it.
 
 The `update-engine.service` responsible for downloading and applying the updates can be in different states which you can query with `update_engine_client -status`:
 

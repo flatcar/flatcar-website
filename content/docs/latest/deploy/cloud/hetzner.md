@@ -9,28 +9,175 @@ aliases:
 ---
 
 [Hetzner Cloud](https://www.hetzner.com/cloud) is a cloud hosting provider.
-Flatcar Container Linux is not installable as one of the default operating system options, but you can deploy it by installing it through the rescue OS.
+Flatcar Container Linux is not installable as one of the default operating system options, but you can deploy it by installing it through the rescue OS relatively easily.
 
-These instructions require Flatcar with version `3941.1.0` or newer.
+## Quickstart
 
-## Creating snapshots
+With Docker installed, run the below [hcloud-upload-image](https://github.com/apricote/hcloud-upload-image/) command with your [Hetzner Cloud API Token](https://docs.hetzner.com/cloud/api/getting-started/generating-api-token/) for the simplest possible Flatcar OS image on Hetzner.
 
-Snapshots in Hetzner Cloud can be used as a base image to create new servers from. While you can manually create the snapshot, this guide will demonstrate two tools to prepare the snapshots for you.
+```bash
+docker run --rm -e HCLOUD_TOKEN="<Hetzner Cloud API Token>" \
+  ghcr.io/apricote/hcloud-upload-image:latest upload \
+  --architecture=x86 \
+  --compression=bz2 \
+  --description flatcar-stable-x86 \
+  --image-url=https://stable.release.flatcar-linux.net/amd64-usr/current/flatcar_production_hetzner_image.bin.bz2
+```
 
-- [Packer](https://www.packer.io/)
-- [hcloud-upload-image](https://github.com/apricote/hcloud-upload-image/)
+If you don't want to use an Ignition file and just use the Hetzner SSH key, go to _Servers > Snapshots > Create Server from snapshot_ in the Hetzner Console, choose the SSH key you want to use and enter the server with `core@<Hetzner Server IP>`. 
 
-### Packer
+- To use a server with an Ignition file, continue to creating [Creating Servers](#creating-servers). 
+- For more options on image creation, see the [Creating snapshots with hcloud-upload-image](#creating-snapshots-with-hcloud-upload-image) and [Creating snapshots with Packer](#creating-snapshots-with-packer).
 
-Building the snapshots with Packer allows you to configure the build process to your liking.
+## Creating servers
 
-#### Requirements
+### Requirements
+
+- [Butane](../../fb-provision/butane/)
+- [Hetzner Cloud CLI](https://github.com/hetznercloud/cli) (`hcloud`)
+- Snapshots from the previous section
+- SSH Key
+
+Make sure that your SSH Key is available in the current Hetzner Cloud project:
+
+```bash
+hcloud ssh-key list
+
+# If not, you can upload the public key:
+hcloud ssh-key create --public-key-from-file ~/.ssh/<your-ssh-key>.pub --name my-ssh-key
+```
+
+### Server configuration
+
+Flatcar allows you to configure machine parameters, launch systemd units on startup and more via [Butane Configs](../../fb-provision/butane/). These configs are then transpiled into Ignition JSON configs and given to booting machines.
+We're going to provide our Butane Config to Hetzner via the user-data flag.
+
+The `coreos-metadata.service` saves metadata variables to `/run/metadata/flatcar`. Systemd units can use them with `EnvironmentFile=/run/metadata/flatcar` in the `[Service]` section when setting `Requires=coreos-metadata.service` and `After=coreos-metadata.service` in the `[Unit]` section.
+
+As an example, this Butane YAML config will start an nginx Docker container and display the instance hostname:
+
+```yaml
+variant: flatcar
+version: 1.0.0
+
+storage:
+  directories:
+    - path: /var/www
+systemd:
+  units:
+    - name: nginx.service
+      enabled: true
+      contents: |
+        [Unit]
+        Description=NGINX example
+        After=docker.service coreos-metadata.service
+        Requires=docker.service coreos-metadata.service
+        [Service]
+        EnvironmentFile=/run/metadata/flatcar
+        TimeoutStartSec=0
+        ExecStartPre=-/usr/bin/docker rm --force nginx1
+        ExecStartPre=-/usr/bin/bash -c "echo \"Hello from ${COREOS_HETZNER_HOSTNAME}\" > /var/www/index.html"
+        ExecStart=/usr/bin/docker run --name nginx1 --volume "/var/www:/usr/share/nginx/html:ro" --pull always --log-driver=journald --net host docker.io/nginx:1
+        ExecStop=/usr/bin/docker stop nginx1
+        Restart=always
+        RestartSec=5s
+        [Install]
+        WantedBy=multi-user.target
+```
+
+Before we can create the server, we need to transpile this Butane configuration to the Ignition format:
+
+```bash
+docker run --rm -i quay.io/coreos/butane:latest < nginx-example.yaml > nginx-example.json
+```
+
+Now that we have the snapshots, SSH Key and our Ignition config, we can finally create the first server:
+
+```bash
+# Get ID of the most recent flatcar snapshot for x86
+SNAPSHOT_ID=$(hcloud image list --type=snapshot --selector=os=flatcar --architecture=x86 -o=columns=id -o noheader --sort=created:desc | head -n1)
+
+hcloud server create \
+  --name flatcar-test \
+  --type cpx11 \
+  --image ${SNAPSHOT_ID} \
+  --ssh-key <your ssh key name or id> \
+  --user-data-from-file nginx-example.json
+```
+
+This will also take a minute or two to load the snapshot. After the process is finished, you will see the following output:
+
+```console
+Server 48081481 created
+IPv4: 37.27.83.94
+IPv6: 2a01:4f9:c012:52f1::1
+IPv6 Network: 2a01:4f9:c012:52f1::/64
+```
+
+To verify that nginx was properly started, run `curl $(hcloud server ip flatcar-test)`.
+
+You can log in via `ssh -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null core@$(hcloud server ip flatcar-test)`.
+
+
+## Creating snapshots with hcloud-upload-image
+
+### Requirements
+
+- [Hetzner Cloud API Token](https://docs.hetzner.com/cloud/api/getting-started/generating-api-token/)
+- [`hcloud-upload-image`](https://github.com/apricote/hcloud-upload-image)
+
+### Building the snapshots
+
+`hcloud-upload-image` does not know anything about Flatcar. We need to construct the URL for the image ourselves.
+
+```bash
+export HCLOUD_TOKEN=<your-token>
+export CHANNEL=beta
+# "current" is the latest version, you can specify alternative version here (e.g 3941.1.0)
+export VERSION=current
+
+# For x86 (cx, cpx & ccx Server Types)
+hcloud-upload-image upload \
+  --architecture=x86 \
+  --compression=bz2 \
+  --image-url=https://${CHANNEL}.release.flatcar-linux.net/amd64-usr/${VERSION}/flatcar_production_hetzner_image.bin.bz2 \
+  --labels os=flatcar,flatcar-channel=${CHANNEL} \
+  --description flatcar-${CHANNEL}-x86
+ 
+# For Arm (cax Server Types)
+hcloud-upload-image upload \
+  --architecture=arm \
+  --compression=bz2 \
+  --image-url=https://${CHANNEL}.release.flatcar-linux.net/arm64-usr/${VERSION}/flatcar_production_hetzner_image.bin.bz2 \
+  --labels os=flatcar,flatcar-channel=${CHANNEL} \
+  --description flatcar-${CHANNEL}-arm
+```
+
+Running `hcloud-upload-image upload` will take a few minutes to complete. If you need x86 and Arm snapshots, you can run both in parallel.
+
+After it completes, you should see the following output:
+
+```console
+Successfully uploaded the image! image=167673693
+```
+
+You can verify this through the `hcloud` CLI:
+
+```bash
+$ hcloud image list --type=snapshot --selector=os=flatcar
+ID          TYPE       NAME   DESCRIPTION        ARCHITECTURE   IMAGE SIZE
+167673693   snapshot   -      flatcar-beta-x86   x86            0.47 GB
+167673694   snapshot   -      flatcar-beta-arm   arm            0.41 GB
+```
+
+## Creating snapshots with Packer
+
+### Requirements
 
 - [Hetzner Cloud API Token](https://docs.hetzner.com/cloud/api/getting-started/generating-api-token/)
 - [Packer](https://developer.hashicorp.com/packer)
-- [Hetzner Cloud CLI](https://github.com/hetznercloud/cli) (`hcloud`)
 
-#### Template
+### Template
 
 Packer requires a template that describes how the snapshots should be built. Create a new file `flatcar.pkr.hcl` and paste in the following content:
 
@@ -97,7 +244,7 @@ build {
 }
 ```
 
-#### Building the snapshots
+### Building the snapshots
 
 ```bash
 export HCLOUD_TOKEN=<your-token>
@@ -124,154 +271,11 @@ ID          TYPE       NAME   DESCRIPTION        ARCHITECTURE   IMAGE SIZE
 167650577   snapshot   -      flatcar-beta-x86   x86            0.47 GB
 ```
 
-#### Extended template
+### Extended template
 
 If you are looking for an extended Packer template that allows some more customization, check out [github.com/apricote/flatcar-packer-hcloud](https://github.com/apricote/flatcar-packer-hcloud).
 
-### hcloud-upload-image
 
-If you do not want to deal with the complexity of Packer templates, there is an alternative CLI `hcloud-upload-image` that does just that.
-
-#### Requirements
-
-- [Hetzner Cloud API Token](https://docs.hetzner.com/cloud/api/getting-started/generating-api-token/)
-- [`hcloud-upload-image`](https://github.com/apricote/hcloud-upload-image)
-- [Hetzner Cloud CLI](https://github.com/hetznercloud/cli) (`hcloud`)
-
-#### Building the snapshots
-
-`hcloud-upload-image` does not know anything about Flatcar. We need to construct the URL for the image ourselves.
-
-```bash
-export HCLOUD_TOKEN=<your-token>
-export CHANNEL=beta
-# "current" is the latest version, you can specify alternative version here (e.g 3941.1.0)
-export VERSION=current
-
-# For x86 (cx, cpx & ccx Server Types)
-hcloud-upload-image upload \
-  --architecture=x86 \
-  --compression=bz2 \
-  --image-url=https://${CHANNEL}.release.flatcar-linux.net/amd64-usr/${VERSION}/flatcar_production_hetzner_image.bin.bz2 \
-  --labels os=flatcar,flatcar-channel=${CHANNEL} \
-  --description flatcar-${CHANNEL}-x86
- 
-# For Arm (cax Server Types)
-hcloud-upload-image upload \
-  --architecture=arm \
-  --compression=bz2 \
-  --image-url=https://${CHANNEL}.release.flatcar-linux.net/arm64-usr/${VERSION}/flatcar_production_hetzner_image.bin.bz2 \
-  --labels os=flatcar,flatcar-channel=${CHANNEL} \
-  --description flatcar-${CHANNEL}-arm
-```
-
-Running `hcloud-upload-image upload` will take a few minutes to complete. If you need x86 and Arm snapshots, you can run both in parallel.
-
-After it completes, you should see the following output:
-
-```console
-Successfully uploaded the image! image=167673693
-```
-
-You can verify this through the `hcloud` CLI:
-
-```bash
-$ hcloud image list --type=snapshot --selector=os=flatcar
-ID          TYPE       NAME   DESCRIPTION        ARCHITECTURE   IMAGE SIZE
-167673693   snapshot   -      flatcar-beta-x86   x86            0.47 GB
-167673694   snapshot   -      flatcar-beta-arm   arm            0.41 GB
-```
-
-## Creating servers
-
-### Requirements
-
-- [Butane](../../fb-provision/butane/)
-- [Hetzner Cloud CLI](https://github.com/hetznercloud/cli) (`hcloud`)
-- Snapshots from the previous section
-- SSH Key
-
-Make sure that your SSH Key is available in the current Hetzner Cloud project:
-
-```bash
-hcloud ssh-key list
-
-# If not, you can upload the public key:
-hcloud ssh-key create --public-key-from-file ~/.ssh/<your-ssh-key>.pub --name my-ssh-key
-```
-
-### Server configuration
-
-Flatcar allows you to configure machine parameters, launch systemd units on startup and more via [Butane Configs](../../fb-provision/butane/). These configs are then transpiled into Ignition JSON configs and given to booting machines.
-We're going to provide our Butane Config to Hetzner via the user-data flag.
-
-The `coreos-metadata.service` saves metadata variables to `/run/metadata/flatcar`. Systemd units can use them with `EnvironmentFile=/run/metadata/flatcar` in the `[Service]` section when setting `Requires=coreos-metadata.service` and `After=coreos-metadata.service` in the `[Unit]` section.
-
-As an example, this Butane YAML config will start an nginx Docker container and display the instance hostname:
-
-```yaml
-variant: flatcar
-version: 1.0.0
-
-storage:
-  directories:
-    - path: /var/www
-systemd:
-  units:
-    - name: nginx.service
-      enabled: true
-      contents: |
-        [Unit]
-        Description=NGINX example
-        After=docker.service coreos-metadata.service
-        Requires=docker.service coreos-metadata.service
-        [Service]
-        EnvironmentFile=/run/metadata/flatcar
-        TimeoutStartSec=0
-        ExecStartPre=-/usr/bin/docker rm --force nginx1
-        ExecStartPre=-/usr/bin/bash -c "echo \"Hello from ${COREOS_HETZNER_HOSTNAME}\" > /var/www/index.html"
-        ExecStart=/usr/bin/docker run --name nginx1 --volume "/var/www:/usr/share/nginx/html:ro" --pull always --log-driver=journald --net host docker.io/nginx:1
-        ExecStop=/usr/bin/docker stop nginx1
-        Restart=always
-        RestartSec=5s
-        [Install]
-        WantedBy=multi-user.target
-```
-
-Before we can create the server, we need to transpile this Butane configuration to the Ignition format:
-
-```bash
-docker run --rm -i quay.io/coreos/butane:latest < nginx-example.yaml > nginx-example.json
-```
-
-### Create the server
-
-Now that we have the snapshots, SSH Key and our Ignition config, we can finally create the first server:
-
-```bash
-# Get ID of the most recent flatcar snapshot for x86
-SNAPSHOT_ID=$(hcloud image list --type=snapshot --selector=os=flatcar --architecture=x86 -o=columns=id -o noheader --sort=created:desc | head -n1)
-
-hcloud server create \
-  --name flatcar-test \
-  --type cpx11 \
-  --image ${SNAPSHOT_ID} \
-  --ssh-key <your ssh key name or id> \
-  --user-data-from-file nginx-example.json
-```
-
-This will also take a minute or two to load the snapshot. After the process is finished, you will see the following output:
-
-```console
-Server 48081481 created
-IPv4: 37.27.83.94
-IPv6: 2a01:4f9:c012:52f1::1
-IPv6 Network: 2a01:4f9:c012:52f1::/64
-```
-
-To verify that nginx was properly started, run `curl $(hcloud server ip flatcar-test)`.
-
-You can log in via `ssh -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null core@$(hcloud server ip flatcar-test)`.
 
 ## Known limitations
 
