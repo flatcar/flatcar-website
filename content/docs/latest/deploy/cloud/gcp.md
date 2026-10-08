@@ -104,7 +104,7 @@ Usage: /usr/local/bin/upload_images.sh [OPTION...]
  Optional arguments:
   -c, --channel     Flatcar Linux release channel. Defaults to 'stable'.
   -v, --version     Flatcar Linux version. Defaults to 'current'.
-  -i, --image-name  Image name, which will be used later in Lokomotive configuration. Defaults to 'flatcar-<channel>'.
+  -i, --image-name  Image name. Defaults to 'flatcar-<channel>'.
 
  Optional flags:
    -f, --force-reupload If used, image will be uploaded even if it already exist in the bucket.
