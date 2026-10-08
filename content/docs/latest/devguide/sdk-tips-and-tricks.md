@@ -71,7 +71,7 @@ To quickly test your new package(s), use the following commands:
 To include the new package as a dependency of Flatcar Container Linux, add the package to the end of the `RDEPEND` environment variable in `coreos-base/coreos/coreos-0.0.1.ebuild` then increment the revision of Flatcar Container Linux by renaming the softlink (e.g.):
 
 ```bash
-~/trunk/src/third_party/coreos-overly $ git mv coreos-base/coreos/coreos-0.0.1-r237.ebuild coreos-base/coreos/coreos-0.0.1-r238.ebuild
+~/trunk/src/third_party/coreos-overlay $ git mv coreos-base/coreos/coreos-0.0.1-r237.ebuild coreos-base/coreos/coreos-0.0.1-r238.ebuild
 ```
 
 The new package will now be built and installed as part of the normal build flow when you run `build_packages` again.
