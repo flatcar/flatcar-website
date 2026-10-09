@@ -110,7 +110,7 @@ Find the latest Alpha release branch:
 $ git branch -r -l | awk -F'/' '/origin\/flatcar-[0-9]+$/ {print $2}' | sort | tail -n1
 ```
 
-If the goal is to reproduce and to fix a bug of a release other than Alpha, it is recommended to base the work on the latest point release of the respective major version instead of Alpha. All currrently "active" major versions can be found at the top of the [releases][flatcar-releases] web page.
+If the goal is to reproduce and to fix a bug of a release other than Alpha, it is recommended to base the work on the latest point release of the respective major version instead of Alpha. All currently "active" major versions can be found at the top of the [releases][flatcar-releases] web page.
 
 For quick reference, to get the latest stable release tag, use:
 ```bash
@@ -224,7 +224,7 @@ You can run `docker run --rm -ti docker.io/arm64v8/alpine` or `docker run --rm -
 At the time of writing the SDK supports two target architectures: AMD64 (x86-64) and ARM64.
 The target architecture can be specified by use of the `--board=` parameter to both `build_packages` and `build_image`:
 * `--board=amd64-usr` will build an x86 image
-* `--board=arm64-usr` will build and ARM64 image
+* `--board=arm64-usr` will build an ARM64 image
 
 If no architecture is specified then AMD64 will be used by default.
 
@@ -728,7 +728,7 @@ For more granular control over testing or when you need to run specific test sui
 #### Requirements
 - IPv4 forwarding enabled: `sudo sysctl -w net.ipv4.ip_forward=1`
 - Firewall configured to allow kola interfaces: `sudo firewall-cmd --zone=nm-shared --add-interface=kola-+`
-- Required packages: `swtmp`, `dnsmasq`, `go`, and `iptables` in `$PATH`
+- Required packages: `swtpm`, `dnsmasq`, `go`, and `iptables` in `$PATH`
 - QEMU: `qemu-system-x86_64` for AMD64 and/or `qemu-system-aarch64` for ARM64
 
 #### Setting up kola
