@@ -1,10 +1,9 @@
-<!DOCTYPE html>
-<html lang="{{ .Site.LanguageCode }}">
-
-<head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Set data-bs-theme before the stylesheets below to prevent a theme flash. -->
+    {{ partial "theme-mode.html" (dict "part" "head" "page" .) }}
     <title>{{ if eq .Kind "term" }}{{ .Data.Singular }} {{ .Title }}{{ else }}{{ .Title }} | {{ $.Site.Title }}{{ end }}</title>
     <meta name="description" content="Flatcar Linux" />
 
@@ -89,8 +88,33 @@
     {{ $style := resources.Get "scss/main.scss" | css.Sass $options | fingerprint}}
     <link rel="stylesheet" href="{{ $style.Permalink }}" integrity="{{ $style.Data.Integrity }}">
 
+    <!-- View Transitions: animate navbar between pages.
+         Raw CSS because Sass strips unknown at-rules.
+         Chrome 126+, Edge 126+, Safari 18+. Ignored elsewhere. -->
+    <style>
+    @view-transition { navigation: auto; }
+    ::view-transition-old(root) { animation: none; }
+    ::view-transition-new(root) { animation: none; }
+    ::view-transition-group(site-logo),
+    ::view-transition-group(site-nav) {
+      animation-duration: 0.3s;
+      animation-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    ::view-transition-old(site-logo),
+    ::view-transition-old(site-nav) {
+      animation: none;
+      opacity: 0;
+    }
+    ::view-transition-new(site-logo),
+    ::view-transition-new(site-nav) {
+      animation: none;
+    }
+    @media (prefers-reduced-motion: reduce) {
+      ::view-transition-group(*),
+      ::view-transition-old(*),
+      ::view-transition-new(*) { animation: none !important; }
+    }
+    </style>
+
     <!-- Favicon -->
     <link rel="shortcut icon" href="{{ $.Site.Params.favicon }}" />
-</head>
-
-<body class="{{ if .IsHome }} home-page {{ end }}{{ .Type }} {{ .Kind }}">
