@@ -32,13 +32,14 @@ def latestVersion(channel = 'stable', board = 'amd64-usr'):
     url = 'https://%s.release.flatcar-linux.net/%s/current/version.txt' % (channel, board)
     try:
         versionTxt = fetch(url)
-        match = re.findall('FLATCAR_VERSION=(.*)', versionTxt)
-        if len(match) > 0:
-            return match[0]
     except HTTPError as e:
         if e.status != 404:
             raise
         return 'unreleased'
+    match = re.findall('FLATCAR_VERSION=(.*)', versionTxt)
+    if len(match) == 0:
+        raise RuntimeError('Could not find FLATCAR_VERSION in %s' % url)
+    return match[0]
 
 def listAMIs(channel = 'stable', board = 'amd64-usr'):
     url = 'https://%s.release.flatcar-linux.net/%s/current/flatcar_production_ami_all.json' % (channel, board)
