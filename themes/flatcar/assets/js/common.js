@@ -19,6 +19,11 @@ function closeMenu(elem) {
 // Dropdown navigation for mobile
 document.querySelectorAll(".nav-item.dropdown .nav-link").forEach(function(item) {
   item.addEventListener("click", function(e) {
+    // Skip theme dropdown - it has its own handling
+    if (this.classList.contains('theme-switcher__toggle')) {
+      e.preventDefault();
+      return;
+    }
     e.preventDefault();
     if(document.body.classList.contains('mobile-menu_open')) {
       if(!this.classList.contains('nav-link_selected')) {
@@ -52,12 +57,13 @@ document.querySelectorAll(".nav-item.dropdown .nav-link").forEach(function(item)
   }
 });
 
-// Close menu on link clicks
+// Close menu on nav/dropdown click
 [".nav-link", ".dropdown-item"].forEach(className =>
   document.querySelectorAll(className).forEach(function(item) {
     item.addEventListener("click", function(e) {
+      if (this.closest('.theme-switcher__menu')) return;
       closeMenu(this);
-    });
+    })
   })
 );
 
@@ -68,7 +74,7 @@ function getCookie(cname) {
   var name = cname + "=";
   var decodedCookie = decodeURIComponent(document.cookie);
   var ca = decodedCookie.split(';');
-  for(var i = 0; i < ca.length; i++) {
+  for(var i = 0; i <ca.length; i++) {
     var c = ca[i];
     while (c.charAt(0) == ' ') {
       c = c.substring(1);
@@ -83,7 +89,10 @@ function getCookie(cname) {
 // Copy button for code blocks
 document.querySelectorAll('.code-block .btn-copy').forEach(function(btn) {
   btn.addEventListener('click', function() {
-    var code = btn.closest('.code-block').querySelector('code');
+    var block = btn.closest('.code-block');
+    // With line numbers, code is in the second td; otherwise just find <code>
+    var codeTd = block.querySelector('.lntd:last-child code');
+    var code = codeTd || block.querySelector('code');
     if (!code) return;
     navigator.clipboard.writeText(code.textContent).then(function() {
       btn.innerHTML = '<i class="fa-solid fa-check"></i>';
@@ -93,6 +102,7 @@ document.querySelectorAll('.code-block .btn-copy').forEach(function(btn) {
     });
   });
 });
+
 
 // TOC scroll tracking - highlight active section in "On This Page"
 (function() {
