@@ -1,9 +1,9 @@
 {{ $section := .Site.GetPage "section" .Section }}
-{{ $mergeHero := $section.Params.hero.merge }}
-
 {{ $hero := dict }}
-{{ if $mergeHero }}
-  {{ $hero = default (dict) $section.Params.hero }}
+{{ with $section }}
+  {{ if .Params.hero.merge }}
+    {{ $hero = default (dict) .Params.hero }}
+  {{ end }}
 {{ end }}
 
 {{ $hero = merge $hero (default (dict) .Params.hero) }}
@@ -13,7 +13,13 @@
 {{ if eq $title nil }}
   {{ $title = default .Title $hero.title }}
 {{ end }}
-{{ $description := default .Description $hero.description }}
+{{ if and (eq .Kind "term") (eq .Data.Singular "tag") }}
+  {{ $title = printf "Posts Tagged #%s" $title }}
+{{ end }}
+{{ $description := index $hero "description" }}
+{{ if eq $description nil }}
+  {{ $description = .Description }}
+{{ end }}
 <section
   class="banner {{ default "header-bg-flatcar" $styles.class }}"
   style="background-color: {{ default "#12172c" $styles.bgcolor }}; color: {{ default "#fff" $styles.fgcolor }}"
