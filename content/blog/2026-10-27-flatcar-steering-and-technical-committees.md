@@ -29,7 +29,7 @@ The **Steering Committee** looks after the non-technical side of the project. Th
 
 The **Technical Committee** looks after Flatcar's technical health and direction. That includes architecture, project-wide technical standards, the process for technical proposals and design reviews, and technical questions that cross more than one repository or subgroup.
 
-Neither committee replaces the Maintainer Council, which remains the main governing body of the project. Day-to-day work stays with the maintainers and their subgroups: reviewing and merging pull requests, running releases, triaging issues, and running CI and tooling all carry on through the normal process, with no committee approval needed. The committees step in only when a matter is project-wide or cross-cutting, or when it's escalated to them.
+The committees now set the project's direction. The Steering Committee owns Flatcar's non-technical vision, its governance structure and our relationship with the CNCF, and the Technical Committee owns technical direction and architecture. Day-to-day work stays with the maintainers and their subgroups: reviewing and merging pull requests, running releases, triaging issues, and running CI and tooling all carry on through the normal process, with no committee approval needed. The committees step in when a matter is project-wide or cross-cutting, or when it's escalated to them.
 
 ## How the first year works
 
