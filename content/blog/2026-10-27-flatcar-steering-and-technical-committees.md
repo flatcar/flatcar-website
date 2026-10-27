@@ -39,7 +39,7 @@ Nobody can sit on both committees at the same time.
 
 ## Get involved
 
-Maintainers can stand for either committee, and so can anyone else who has made multiple meaningful contributions to Flatcar in the last 12 months, technical or not, after a short check by the maintainers. That check looks at what you've contributed, not your job title or employer. Responsibility in Flatcar is earned through participation, and this is one more path into leadership.
+Maintainers and recognised Contributors are automatically eligible to stand for either committee. We're still defining the recognised Contributor role in [#2216](https://github.com/flatcar/Flatcar/issues/2216). Anyone else who has made multiple meaningful contributions to Flatcar in the last 12 months, technical or not, can also stand after a short check by the maintainers. That check looks at what you've contributed, not your job title or employer. Responsibility in Flatcar is earned through participation, and this is one more path into leadership.
 
 If that sounds like you, we'd love for you to take part. And if someone comes to mind who'd do a great job, please encourage them too.
 
