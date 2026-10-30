@@ -385,74 +385,69 @@
     // Initialize on page load
     updateDownloadLinks();
 
-    // Toggle chevron rotation on collapse events
+    // Release entry headers: toggle the notes on click (links inside the header keep working)
     document.querySelectorAll('.release-entry__header').forEach(function(header) {
-      var target = document.querySelector(header.getAttribute('data-bs-target'));
-      if (target) {
-        target.addEventListener('show.bs.collapse', function() {
-          header.querySelector('.release-entry__toggle-icon').style.transform = 'rotate(90deg)';
-        });
-        target.addEventListener('hide.bs.collapse', function() {
-          header.querySelector('.release-entry__toggle-icon').style.transform = 'rotate(0deg)';
-        });
-      }
+      var target = document.querySelector(header.getAttribute('data-target'));
+      if (!target) return;
+      header.addEventListener('click', function(e) {
+        if (e.target.closest('a')) return;
+        bootstrap.Collapse.getOrCreateInstance(target, {toggle: false}).toggle();
+      });
+      target.addEventListener('show.bs.collapse', function() {
+        header.classList.remove('collapsed');
+        header.setAttribute('aria-expanded', 'true');
+      });
+      target.addEventListener('hide.bs.collapse', function() {
+        header.classList.add('collapsed');
+        header.setAttribute('aria-expanded', 'false');
+      });
     });
 
-    // ── Anchor handling ──
-    var anchor = window.location.hash.substring(1);
-    if (!anchor || !/^[\w.\-]+$/.test(anchor)) return;
-
-    var elem = document.getElementById(anchor);
-    if (!elem) return;
-
-    if (elem.offsetParent === null) {
-      if (anchor.startsWith("release-") && !anchor.endsWith("-release")) {
-        var tabPane = elem.closest('.tab-pane');
-        if (tabPane) {
-          var tabId = tabPane.getAttribute('aria-labelledby');
-          var tab = document.getElementById(tabId);
-          if (tab) {
-            var bsTab = new bootstrap.Tab(tab);
-            bsTab.show();
-            setTimeout(function () {
-              var entry = elem.closest('.release-entry');
-              if (entry) {
-                var collapseEl = entry.querySelector('.collapse');
-                if (collapseEl && !collapseEl.classList.contains('show')) {
-                  new bootstrap.Collapse(collapseEl, {show: true});
-                }
-              }
-              elem.scrollIntoView({behavior: 'smooth', block: 'start'});
-            }, 200);
-          }
-        }
-      } else if (anchor.endsWith("-release")) {
-        var tab = document.getElementById(anchor + "-tab");
-        if (tab) {
-          var bsTab = new bootstrap.Tab(tab);
-          bsTab.show();
-          setTimeout(function () {
-            var releaseTabs = document.getElementById("release-tabs");
-            if (releaseTabs) {
-              releaseTabs.scrollIntoView({behavior: 'smooth', block: 'start'});
-            }
-          }, 200);
-        }
+    // ── Anchor handling (deep links to a channel tab or a single release) ──
+    function expandAndScrollTo(entry) {
+      var collapseEl = entry.querySelector('.collapse');
+      if (collapseEl && !collapseEl.classList.contains('show')) {
+        bootstrap.Collapse.getOrCreateInstance(collapseEl).show();
       }
-    } else {
-      if (anchor.startsWith("release-") && !anchor.endsWith("-release")) {
-        var entry = elem.closest('.release-entry');
-        if (entry) {
-          var collapseEl = entry.querySelector('.collapse');
-          if (collapseEl && !collapseEl.classList.contains('show')) {
-            new bootstrap.Collapse(collapseEl, {show: true});
+      entry.scrollIntoView({behavior: 'smooth', block: 'start'});
+    }
+
+    function handleAnchor() {
+      var anchor = window.location.hash.substring(1);
+      if (!anchor || !/^[\w.\-]+$/.test(anchor)) return;
+
+      if (anchor.endsWith("-release")) {
+        var tab = document.getElementById(anchor + "-tab");
+        if (!tab) return;
+        bootstrap.Tab.getOrCreateInstance(tab).show();
+        setTimeout(function () {
+          var releaseTabs = document.getElementById("release-tabs");
+          if (releaseTabs) {
+            releaseTabs.scrollIntoView({behavior: 'smooth', block: 'start'});
           }
-        }
-        setTimeout(function() {
-          elem.scrollIntoView({behavior: 'smooth', block: 'start'});
-        }, 100);
+        }, 200);
+        return;
+      }
+
+      if (!anchor.startsWith("release-")) return;
+
+      var elem = document.getElementById(anchor);
+      var entry = elem && elem.closest('.release-entry');
+      if (!entry) return;
+
+      var tabPane = entry.closest('.tab-pane');
+      if (tabPane && !tabPane.classList.contains('active')) {
+        var tab = document.getElementById(tabPane.getAttribute('aria-labelledby'));
+        if (!tab) return;
+        bootstrap.Tab.getOrCreateInstance(tab).show();
+        setTimeout(function () { expandAndScrollTo(entry); }, 200);
+      } else {
+        setTimeout(function () { expandAndScrollTo(entry); }, 100);
       }
     }
+
+    handleAnchor();
+    window.addEventListener('hashchange', handleAnchor);
   }
 </script>
 
