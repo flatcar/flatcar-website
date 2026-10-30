@@ -390,7 +390,14 @@
       var target = document.querySelector(header.getAttribute('data-target'));
       if (!target) return;
       header.addEventListener('click', function(e) {
-        if (e.target.closest('a')) return;
+        var link = e.target.closest('a');
+        if (link) {
+          // same fragment again fires no hashchange, so re-run the anchor handling manually
+          if (link.classList.contains('release-entry__version') && link.hash === window.location.hash) {
+            handleAnchor();
+          }
+          return;
+        }
         bootstrap.Collapse.getOrCreateInstance(target, {toggle: false}).toggle();
       });
       target.addEventListener('show.bs.collapse', function() {
