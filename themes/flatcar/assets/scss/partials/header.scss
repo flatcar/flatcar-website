@@ -143,20 +143,6 @@ main > *.header-bg-flatcar:first-child {
   left: 0;
 }
 
-main > *.header-bg-lokomotive:first-child {
-  background:
-    url(/images/lokomotive-hero-left.svg) calc(100% / 2 - 650px) calc(100% / 2 + 20px) no-repeat,
-    url(/images/lokomotive-hero-right.svg) calc(100% / 2 + 650px) calc(100% / 2 + 36px)  no-repeat,
-    url(/images/lokomotive-hero-bg.svg) center bottom no-repeat,
-    $yellow;
-  // We need to have it begin at height-of-screen above the beginning because
-  // of the mobile version's menu, which will scroll it all the way down.
-  // i.e. if we don't have it above the screen for the length of its height,
-  // it will not look good when sliding the mobile menu.
-  left: 0;
-  z-index: -1;
-}
-
 main > *.header-bg-docs:first-child {
   background:
     url(/images/docs-hero-left.svg) calc(100% / 2 - 650px) 140px no-repeat,

@@ -215,7 +215,7 @@ Usage: /usr/local/bin/upload_images.sh [OPTION...]
  Optional arguments:
   -c, --channel              Flatcar Linux release channel. Defaults to 'stable'.
   -v, --version              Flatcar Linux version. Defaults to 'current'.
-  -i, --image-name           Image name, which will be used later in Lokomotive configuration. Defaults to 'flatcar-<channel>'.
+  -i, --image-name           Image name. Defaults to 'flatcar-<channel>'.
   -l, --location             Azure image storage location. To list available locations run with '--locations'. Defaults to 'westeurope'.
   -S, --storage-account-type Type of storage account. Defaults to 'Standard_LRS'.
   -G, --hyper-v-generation   Hyper-V Generation to set against the image. Defaults to 'V2'.
