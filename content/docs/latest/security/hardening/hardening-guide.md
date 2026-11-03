@@ -83,6 +83,10 @@ systemd:
 
 ## Additional hardening
 
+### Firewalling with nftables
+
+Flatcar Container Linux ships `nftables` but applies no ruleset by default, so the only listening service, sshd, is otherwise unfiltered. The [nftables configuration guide][nftables-guide] covers writing a ruleset and making it persist across reboots and updates.
+
 ### Disabling Simultaneous Multi-Threading
 
 Recent Intel CPU vulnerabilities cannot be fully mitigated in software without disabling Simultaneous Multi-Threading. This can have a substantial performance impact and is only necessary for certain workloads, so for compatibility reasons, SMT is enabled by default.
@@ -113,5 +117,6 @@ Flatcar Container Linux implements SELinux, but currently does not enforce SELin
 
 [smt-guide]: disabling-smt
 [sshd-guide]: ../cert-auth/customizing-sshd
+[nftables-guide]: configuring-nftables
 [etcd-sec-guide]: https://etcd.io/docs/v3.4.0/op-guide/security/
 [selinux-guide]: ../encryption/selinux
