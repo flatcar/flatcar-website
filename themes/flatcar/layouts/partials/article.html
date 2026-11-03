@@ -1,13 +1,6 @@
-<article class="article header-bg-stripes">
+<article class="article blog">
   <div class="container">
     <div class="article-main mx-auto">
-      <div class="row align-items-center justify-content-center page-header">
-        <div class="col-12 p-0 align-items-center text-center">
-          <h2 id="blogtitle" class="section-title">{{ .Title }}</h2>
-          {{ partial "authors.html" (dict "message" "By" "context" . "with_date" true ) }}
-        </div>
-      </div>
-
       {{- $path := print "**/" .Params.postImage -}}
       {{- $image := resources.GetMatch $path -}}
       {{- $imagePath := path.Join "/media/splash" .Params.postImage -}}
@@ -27,7 +20,7 @@
 
       <div class="row flex-wrap-reverse article__wrap">
         <div class="col-12">
-          <div class="article-content mx-auto" aria-describedby="blogtitle">
+          <div class="article-content mx-auto">
             {{- if .Params.moved_to_flatcar -}}
               {{ .Summary }}
               <p class="mt-3 text-center"><a href="https://flatcar-linux.org{{ .RelPermalink }}">Continue reading »</a></p>
