@@ -8,144 +8,189 @@ aliases:
     - ../../community-platforms/booting-on-exoscale
 ---
 
-## Choosing a channel
+These instructions walk through importing a Flatcar Container Linux image and launching an instance on [Exoscale][exoscale] using either the [Exoscale Console (Web UI)][exo-console] or the [Exoscale CLI][exo-cli].
 
-Flatcar Container Linux is designed to be updated automatically with different schedules per channel. You can [disable this feature][reboot-docs], although we don't recommend it. Read the [release notes][release-notes] for specific features and bug fixes.
+## Exoscale CLI (optional)
 
-The Exoscale Flatcar Container Linux image is built officially and each instance deployment is a unique fresh instance. By default, only the stable channel is deployed on Exoscale, you can easily [switch to Beta or Alpha channel][switching-channels].
+Installing the [Exoscale CLI][exo-cli] (`exo`) is optional; all setup steps can also be completed entirely through the [Exoscale Console (Web UI)][exo-console].
 
-
-[reboot-docs]: ../../updates-releases/releases/update-strategies
-[switching-channels]: ../../updates-releases/releases/switching-channels
-[release-notes]: https://flatcar-linux.org/releases
-[cloud-config-docs]: https://github.com/flatcar/coreos-cloudinit/blob/master/Documentation/cloud-config.md
+To use the CLI, follow the [official installation and configuration guide][exo-cli].
 
 ## Security groups
 
-Unlike other providers, all Exoscale instances are protected by default on inbound traffic. In order to be able to work in a Flatcar Container Linux cluster you should add the following rules in either your default security group or a security group of your choice and tag all Flatcar Container Linux instances with it:
+All Exoscale instances block inbound traffic by default. In this example we configure inbound SSH (TCP port 22) for IPv4 (`0.0.0.0/0`) and IPv6 (`::/0`) on the [security group][exo-sg], though the ports to open depend on your application.
 
-* SSH: TCP port 22
-* etcd: TCP ports 2379 for client communication and 2380 for server-to-server communication
-* etcd (Deprecated): TCP ports 4001 for client communication and 7001 for server-to-server communication
+<div id="exoscale-security-groups">
+<ul class="nav nav-tabs">
+  <li class="active"><a href="#sg-console" class="active" data-bs-toggle="tab">Exoscale Console (Web UI)</a></li>
+  <li><a href="#sg-cli" data-bs-toggle="tab">Exoscale CLI</a></li>
+</ul>
+<div class="tab-content coreos-docs-image-table">
+<div class="tab-pane active" id="sg-console">
 
+In the Exoscale Console, navigate to **Compute > Security Groups**, select the `default` security group, and click **Add Rule > SSH** to allow inbound TCP port 22 for IPv4 (`0.0.0.0/0`) and IPv6 (`::/0`):
 
-## Cloud-config
+![Adding SSH rules to the default security group](../../img/exoscale-security-group.png "Adding SSH rules to the default security group")
 
-Flatcar Container Linux allows you to configure machine parameters, launch systemd units on startup, and more via cloud-config. Jump over to the [docs to learn about the supported features][cloud-config-docs]. Cloud-config is intended to bring up a cluster of machines into a minimal useful state and ideally shouldn't be used to configure anything that isn't standard across many hosts. Once the machine is created, cloud-config cannot be modified.
-
-You can provide raw cloud-config data to Flatcar Container Linux via the Exoscale portal or [via the Exoscale compute API](#via-the-api).
-
-In order to leverage Flatcar Container Linux unique automation attributes, a standard Flatcar Container Linux cloud-config on Exoscale could be configured with:
-
-```cloud-config
-#cloud-config
-
-flatcar:
-  etcd2:
-    # generate a new token for each unique cluster from https://discovery.etcd.io/new?size=3
-    # specify the initial size of your cluster with ?size=X
-    discovery: https://discovery.etcd.io/<token>
-    advertise-client-urls: http://$public_ipv4:2379,http://$private_ipv4:4001
-    initial-advertise-peer-urls: http://$public_ipv4:2380
-    # listen on both the official ports and the legacy ports
-    # legacy ports can be omitted if your application doesn't depend on them
-    listen-client-urls: http://0.0.0.0:2379,http://0.0.0.0:4001
-    listen-peer-urls: http://$public_ipv4:2380
-
-  units:
-    - name: etcd2.service
-      command: start
-```
-
-### Adding more machines
-
-To add more instances to the cluster, just launch more with the same cloud-config adjusting the FQDN or removing the statement. New instances will join the cluster regardless of location provided that security groups are correctly configured.
-
-### Modifying cloud-config
-
-It is possible to modify the cloud-config contents during the lifetime of an instance. In order to modify the contents, you need to use the API command `updateVirtualMachine` with the machine in a stopped state.
-
-```bash
-cs stopVirtualMachine id=<UUID of instance>
-cs updateVirtualMachine id=<UUID of instance> userData=<base64 encoded value of your cloud-config>
-cs startVirtualMachine id=<UUID of instance>
-```
-
-*note:* switch the request type from GET to POST if the userData payload is longer than 2KB.
-
-[API reference for updateVirtualMachine](https://community.exoscale.ch/compute/api/#updatevirtualmachine_GET)
-
-## SSH to your Flatcar Container Linux instances
-
-Flatcar Container Linux does not allow root connection to the instance. By default, it uses the `core` user instead of `root` and doesn't use a password for authentication. You'll need to add an SSH key(s) via the web console or add keys/passwords via your cloud-config in order to log in.
-
-To log in to a Flatcar Container Linux instance after it's created click on its IP address or run:
-
-```bash
-ssh core@<ip address>
-```
-
-## Launching instances
-
-### Via the API
-
-Install and configure the command line client (Python required) with your [API details](https://portal.exoscale.ch/account/profile/api).
-
-```bash
-pip install cs
-vi $HOME/.cloudstack.ini
-[cloudstack]
-endpoint = https://api.exoscale.ch/compute
-key = api key
-secret = secret
-```
-
-To launch a Small 2GB instance with the current Stable Flatcar Container Linux image:
-
-note: template ids are available on the [Exoscale website](https://www.exoscale.ch/open-cloud/templates/).
-
-```bash
-cs deployVirtualMachine templateId=2a196b89-0c50-4400-9d42-ef43bcc0fa99 serviceOfferingId=21624abb-764e-4def-81d7-9fc54b5957fb zoneId=1128bd56-b4d9-4ac6-a7b9-c715b187ce11 keyPair=[keypair name]
-```
-
-Be sure to specify your SSH key to be able to access the machine. Management of SSH keys is detailed on the [SSH key page][exo-keys-docs]. For more details, check out [Exoscale's API documentation][exo-api-docs].
-
-[exo-api-docs]: https://community.exoscale.ch/compute/api/
-[exo-keys-docs]: https://community.exoscale.ch/compute/documentation/#SSH_keypairs
-
-### Via the web console
-
-1. Open the ["add new instance"](https://portal.exoscale.ch/compute/instances/add) page in the Exoscale web portal.
-2. Give the machine a hostname, and choose a zone.
-3. Choose the Flatcar Container Linux template
-<div class="row">
-  <div class="col-lg-8 col-md-10 col-sm-8 col-xs-12">
-    <img src="../../img/exoscale-template.png" class="screenshot" />
-    <div class="caption">Choosing Exoscale template</div>
-  </div>
 </div>
-4. Choose the instance size
-<div class="row">
-  <div class="col-lg-8 col-md-10 col-sm-8 col-xs-12">
-    <img src="../../img/exoscale-size.png" class="screenshot" />
-    <div class="caption">Choosing Exoscale instance size</div>
-  </div>
-</div>
-5. Select your SSH keys.
-6. Add your optional cloud-config.
-<div class="row">
-  <div class="col-lg-8 col-md-10 col-sm-8 col-xs-12">
-    <img src="../../img/exoscale-userdata.png" class="screenshot" />
-    <div class="caption">Exoscale cloud-config</div>
-  </div>
-</div>
-7. Create your instance
+<div class="tab-pane" id="sg-cli">
 
-Unlike other Exoscale images where the root password is randomly set at startup, Flatcar Container Linux does not have password logon activated. You will need to [configure your public key with Exoscale][exo-keys-docs] in order to login to the Flatcar Container Linux instances or to specify external keys using cloud-config.
+Add rules to the `default` security group to allow SSH over IPv4 and IPv6:
+
+```bash
+exo compute security-group rule add default --network 0.0.0.0/0 --port 22
+exo compute security-group rule add default --network ::/0 --port 22
+```
+
+</div>
+</div>
+</div>
+
+## Custom templates
+
+Flatcar Container Linux is not currently one of the official templates provided by Exoscale (tracked in [flatcar/Flatcar#2164][exo-template-issue]), so you must first register the Flatcar Exoscale `.qcow2` image for your desired [release channel][release-notes] (`stable`, `beta`, `alpha`, or `lts`) as an [Exoscale Custom Template][exo-custom-templates].
+
+For the Stable channel, the image URL and MD5 checksum file are:
+
+* Image URL: `https://stable.release.flatcar-linux.net/amd64-usr/current/flatcar_production_exoscale_image.qcow2`
+* Checksums: `https://stable.release.flatcar-linux.net/amd64-usr/current/flatcar_production_exoscale_image.qcow2.DIGESTS`
+
+> **Note:** Custom templates are zone-specific; the template's zone must match the zone where you intend to deploy your compute instances.
+
+> **Note:** It is not necessary to enable SSH on the custom template because SSH keys are configured through Ignition.
+
+> **Important:** Running instances [update automatically][update-strategies], but newly created instances will start from the image version registered in the custom template. If you regularly provision new instances, update your custom template as new releases are published.
+
+<div id="exoscale-custom-templates">
+<ul class="nav nav-tabs">
+  <li class="active"><a href="#template-console" class="active" data-bs-toggle="tab">Exoscale Console (Web UI)</a></li>
+  <li><a href="#template-cli" data-bs-toggle="tab">Exoscale CLI</a></li>
+</ul>
+<div class="tab-content coreos-docs-image-table">
+<div class="tab-pane active" id="template-console">
+
+1. Navigate to **Compute > Templates** and click **Add**.
+2. Select your target **Zone** and enter a **Name** (for example, `Flatcar Stable`).
+3. Enter the **Source URL** and the MD5 **Checksum** from the `.DIGESTS` file.
+4. Leave **Enable SSH** and **Enable Password** disabled, set **Boot mode** to **UEFI**, and click **Add**.
+
+![Registering a Flatcar custom template](../../img/exoscale-custom-template.png "Registering a Flatcar custom template")
+
+</div>
+<div class="tab-pane" id="template-cli">
+
+Fetch the MD5 checksum for the Stable channel image and register the custom template:
+
+```bash
+ZONE=ch-gva-2 # Set to your target Exoscale zone
+IMAGE_URL="https://stable.release.flatcar-linux.net/amd64-usr/current/flatcar_production_exoscale_image.qcow2"
+MD5_SUM=$(curl -sL "${IMAGE_URL}.DIGESTS" | awk '/# MD5 HASH/{getline; print $1}')
+
+exo compute instance-template register \
+  "Flatcar Stable" \
+  "${IMAGE_URL}" \
+  "${MD5_SUM}" \
+  --zone "${ZONE}" \
+  --boot-mode uefi
+```
+
+</div>
+</div>
+</div>
+
+## Butane Config
+
+Flatcar Container Linux is configured on first boot using [Ignition][ignition]. Write a human-readable [Butane Config][butane-configs] and transpile it into an Ignition JSON file to pass as instance user data.
+
+Create a minimal `config.bu` file that authorizes your SSH public key for the default `core` user:
+
+```yaml
+variant: flatcar
+version: 1.0.0
+passwd:
+  users:
+    - name: core
+      ssh_authorized_keys:
+        - ssh-ed25519 AAAAC3...
+```
+
+Transpile `config.bu` to an Ignition configuration (`config.ign`):
+
+```bash
+docker run --interactive --rm quay.io/coreos/butane:release \
+  --pretty --strict < config.bu > config.ign
+```
+
+## Launching an instance
+
+Create a new compute instance from the custom template and provide `config.ign` as the user data. In this example we will launch a `micro` instance with a `10 GiB` disk.
+
+<div id="exoscale-launch">
+<ul class="nav nav-tabs">
+  <li class="active"><a href="#launch-console" class="active" data-bs-toggle="tab">Exoscale Console (Web UI)</a></li>
+  <li><a href="#launch-cli" data-bs-toggle="tab">Exoscale CLI</a></li>
+</ul>
+<div class="tab-content coreos-docs-image-table">
+<div class="tab-pane active" id="launch-console">
+
+1. Navigate to **Compute > Instances** and click **Add**.
+2. Enter a **Name** (for example, `hello-world`), select the **Custom Templates** tab under **Template**, and choose your Flatcar template:
+
+   ![Selecting the Flatcar custom template](../../img/exoscale-instance-template.png "Selecting the Flatcar custom template")
+
+3. Select the **Zone** matching your custom template, choose the **Standard - Micro** instance type, and set **Disk Size** to `10 GiB`.
+4. Paste the contents of `config.ign` into the **User Data** field:
+
+   ![Providing the Ignition configuration as User Data](../../img/exoscale-instance-userdata.png "Providing the Ignition configuration as User Data")
+
+5. Review the instance settings and click **Add**:
+
+   ![Reviewing and launching the instance](../../img/exoscale-instance-summary.png "Reviewing and launching the instance")
+
+</div>
+<div class="tab-pane" id="launch-cli">
+
+Create the instance with the CLI:
+
+```bash
+ZONE=ch-gva-2 # Must match the zone of the custom template
+
+exo compute instance create hello-world \
+  --zone "${ZONE}" \
+  --template "Flatcar Stable" \
+  --template-visibility private \
+  --instance-type standard.micro \
+  --disk-size 10 \
+  --cloud-init config.ign
+```
+
+</div>
+</div>
+</div>
+
+## SSH to your instance
+
+Once the instance is running, connect using the `core` user and the instance's public IP address:
+
+```bash
+ssh core@<ip-address>
+```
+
+![Connecting to the Flatcar instance via SSH](../../img/exoscale-ssh.png "Connecting to the Flatcar instance via SSH")
 
 ## Using Flatcar Container Linux
 
 Now that you have a machine booted it is time to play around. Check out the [Flatcar Container Linux Quickstart][quickstart] guide or dig into [more specific topics][doc-index].
 
-[quickstart]: ../../getting-started/quickstart
+[butane-configs]: ../../fb-provision/butane/
 [doc-index]: ../../
+[exo-cli]: https://community.exoscale.com/tools/command-line-interface/
+[exo-console]: https://portal.exoscale.com/
+[exo-custom-templates]: https://community.exoscale.com/product/compute/instances/how-to/custom-templates/
+[exo-sg]: https://community.exoscale.com/product/networking/security-group/
+[exo-template-issue]: https://github.com/flatcar/Flatcar/issues/2164
+[exoscale]: https://www.exoscale.com/
+[ignition]: ../../fb-provision/ignition/
+[quickstart]: ../../getting-started/quickstart/
+[release-notes]: https://www.flatcar.org/releases/
+[update-strategies]: ../../updates-releases/releases/update-strategies/
