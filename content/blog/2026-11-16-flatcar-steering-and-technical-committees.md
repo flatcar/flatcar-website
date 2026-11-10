@@ -1,7 +1,7 @@
 +++
 tags = ["flatcar", "governance", "community", "cncf"]
 topics = ["Community"]
-authors = ["lexi-nadolski"]
+authors = ["lexi-nadolski", "jan-bronicki"]
 title = "Introducing the Flatcar Steering and Technical Committees"
 draft = false
 description = "Flatcar is forming its first Steering and Technical Committees. Here's what they do, how they're being formed, and what else has changed in how the project is run."
