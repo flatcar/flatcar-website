@@ -1,7 +1,7 @@
 +++
 tags = ["flatcar", "governance", "community", "cncf"]
 topics = ["Community"]
-authors = ["lexi-nadolski"]
+authors = ["lexi-nadolski", "jan-bronicki"]
 title = "Introducing the Flatcar Steering and Technical Committees"
 draft = false
 description = "Flatcar is forming its first Steering and Technical Committees. Here's what they do, how they're being formed, and what else has changed in how the project is run."
@@ -39,7 +39,7 @@ We want Flatcar's governance to be genuinely multi-company, so a few rules are b
 
 * No single company can have more than two members on the Steering Committee, or more than four on the Technical Committee, counting its subsidiaries.
 * Every committee decision needs yes votes from members of at least two different companies, again counting subsidiaries as one company.
-* Once it's seated, the Steering Committee approves changes to our governance, alongside the maintainers.
+* Once it's seated, the Steering Committee approves changes to our governance, so maintainers don't have to vote on every one.
 * Nobody can sit on both committees at once.
 
 
