@@ -14,7 +14,7 @@
             {{ partial "sidebar.html" . }}
           </div>
           <div class="col-12 col-md-9 col-xl-8 ps-md-5 docs-reader" role="main">
-            <div class="row mt-2">
+            <div class="row">
               {{ $currentVersion := partial "docs/getcurrentversion" . }}
               {{ $latestVersion := partial "docs/getlatestversion" . }}
               {{ if and (not $currentVersion | eq "") (not ($currentVersion | eq $latestVersion))}}
