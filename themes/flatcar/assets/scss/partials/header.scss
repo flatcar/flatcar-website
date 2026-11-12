@@ -1,3 +1,10 @@
+$header-scrolled-height: 70px;
+$header-docs-height: 130px;
+$header-docs-height-mobile: 96px;
+$header-docs-news-height: 142px;
+$header-docs-news-height-mobile: 130px;
+$header-content-spacing: 2rem;
+
 .header {
   position: fixed;
   top: 0;
@@ -66,6 +73,28 @@
     display: block;
     content:"";
     background: red;
+  }
+}
+
+// The fixed header is outside normal document flow. Reserve its space here so
+// docs columns share one starting point instead of compensating individually.
+.header ~ .docs-section {
+  padding-top: calc(#{$header-docs-height-mobile} + #{$header-content-spacing});
+
+  @include media-breakpoint-up(md) {
+    padding-top: calc(#{$header-docs-height} + #{$header-content-spacing});
+  }
+
+  > *:first-child {
+    padding-top: 0 !important;
+  }
+}
+
+.header-with-news-stripe ~ .docs-section {
+  padding-top: calc(#{$header-docs-news-height-mobile} + #{$header-content-spacing});
+
+  @include media-breakpoint-up(md) {
+    padding-top: calc(#{$header-docs-news-height} + #{$header-content-spacing});
   }
 }
 
@@ -257,7 +286,7 @@ main > *.header-bg-triangles:first-child {
   }
 }
 
-.header-with-news-stripe + main > *:first-child {
+.header-with-news-stripe + main:not(.docs-section) > *:first-child {
   padding-top: 180px;
 }
 
