@@ -1,0 +1,6 @@
+# Unpinned: version drift against tools/release-scripts/requirements.txt is
+# avoided via the constraint below (both resolve to the same pyyaml version)
+# without hard-pinning a local dev dependency to a release-automation
+# lockfile it has nothing to do with.
+-c tools/release-scripts/requirements.txt
+pyyaml
