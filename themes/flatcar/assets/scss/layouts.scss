@@ -341,8 +341,8 @@ section {
 
   .card {
     padding: 22px;
-    background-color: $gray-100;
-    border: 1px solid $gray-200;
+    background-color: var(--bs-tertiary-bg);
+    border: 1px solid var(--bs-border-color);
     height: 100%;
     margin-left: auto;
     margin-right: auto;
@@ -355,7 +355,7 @@ section {
 
     .card-body {
       font-size: 1rem;
-      color: $gray-800;
+      color: var(--bs-body-color);
       padding-top: 6px;
       line-break: pre;
     }
@@ -493,11 +493,6 @@ main.notfound {
   color: $white;
   text-align: center;
 
-  img.main {
-    max-width: 700px;
-    width: 100%;
-  }
-
   h1 {
     font-size: 2.3rem;
 
@@ -537,7 +532,7 @@ main.notfound {
         margin-right: 50px;
 
         a {
-          color: $gray-700;
+          color: var(--bs-secondary-color);
           padding-bottom: 5px;
           font-size: 1rem;
           text-transform: none;

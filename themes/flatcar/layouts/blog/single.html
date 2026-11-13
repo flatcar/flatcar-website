@@ -1,3 +1,11 @@
 {{ define "main" }}
+    {{ partial "hero" . }}
+    <div class="container">
+      <div class="row justify-content-center">
+        <div class="col-12 p-0 text-center">
+          {{ partial "authors.html" (dict "message" "By" "context" . "with_date" true ) }}
+        </div>
+      </div>
+    </div>
     {{- partial "article.html" . -}}
 {{ end }}
