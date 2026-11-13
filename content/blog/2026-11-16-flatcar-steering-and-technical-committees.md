@@ -37,7 +37,7 @@ Both committees start as bootstrap committees, as Kubernetes did in 2017. Instea
 We want Flatcar's governance to be genuinely multi-company, so a few rules are built in from the start:
 
 
-* No single company can have more than two members on the Steering Committee, or more than four on the Technical Committee, counting its subsidiaries.
+* No single company can hold more than 40% of the seats on the Steering Committee, or more than four on the Technical Committee, counting its subsidiaries.
 * Every committee decision needs yes votes from members of at least two different companies, again counting subsidiaries as one company.
 * Once it's seated, the Steering Committee approves changes to our governance, so maintainers don't have to vote on every one.
 * Nobody can sit on both committees at once.
