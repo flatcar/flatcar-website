@@ -42,6 +42,17 @@ run:
 	@echo "Hugo dev server: http://localhost:1313/"
 	hugo server --theme=flatcar --buildFuture --watch --disableFastRender --baseURL http://localhost:1313/ --config ./config.yaml\,./tmp_modules.yaml
 
+.PHONY: docker-run
+docker-run:
+	@echo "Hugo dev server: http://localhost:1313/"
+	docker run \
+		--rm \
+		--pull=missing \
+		-p 1313:1313 \
+		-v $$(pwd):/project \
+		ghcr.io/gohugoio/hugo:latest \
+		server --bind 0.0.0.0 --theme=flatcar --buildFuture --watch --disableFastRender --baseURL http://localhost:1313/ --config ./config.yaml\,./tmp_modules.yaml
+
 # Like 'run' but builds to disk first so pagefind search works locally.
 # Note: no live-reload; re-run after content changes.
 serve: docs
