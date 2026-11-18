@@ -18,6 +18,10 @@
   img {
     max-height: 85px;
     transition: all 0.3s ease;
+
+    @include media-breakpoint-down(md) {
+      max-height: 50px;
+    }
   }
 }
 
