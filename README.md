@@ -18,16 +18,17 @@ Flatcar's website is built with [Hugo](https://gohugo.io/).
 
 ## Installing Hugo
 
-You should install Hugo Extended instead of the regular Hugo version (**check what Hugo version we are using in the [`.env`](./.env) file**).
+Install the Hugo version specified in [`.env`](./.env). Hugo 0.170.0 removed the Extended edition, so the regular Hugo binary is sufficient.
 
-So download [Hugo Extended](https://github.com/gohugoio/hugo/releases)
+Download [Hugo](https://github.com/gohugoio/hugo/releases)
 from the releases page, and/or follow
 [these instructions](https://gohugo.io/getting-started/installing/)
 in order to install it.
 
 ## Prerequisites
 
-- Hugo Extended (see version in [`.env`](./.env) file)
+- Hugo (see version in [`.env`](./.env) file)
+- Dart Sass CLI (download the release matching `DART_SASS_VERSION` in [`.env`](./.env), extract it outside this repository, and add its `dart-sass` directory to `PATH`)
 - Python 3 with PyYAML (required for docs generation - installed via `make getdeps`)
 - Docker (required for building presentations with Marp) (a `docker` symlink to `podman` works too)
 
