@@ -72,6 +72,26 @@ NTP synchronized: yes
                   Sun 2015-11-01 01:00:00 EST
 ```
 
+### Setting the time zone at first boot
+
+`timedatectl` changes the time zone of an already running machine, but it has no effect on provisioning. To set the time zone declaratively, point the `/etc/localtime` symlink at the desired zone file under `/usr/share/zoneinfo` with a [Butane Config][butane-configs]:
+
+```yaml
+variant: flatcar
+version: 1.0.0
+storage:
+  links:
+    - path: /etc/localtime
+      overwrite: true
+      target: /usr/share/zoneinfo/America/New_York
+```
+
+Use one of the zone names from `timedatectl list-timezones` as the link target. This is the same symlink `timedatectl set-timezone` creates at runtime, so machines provisioned this way behave identically to ones configured after boot.
+
+`overwrite: true` is required because `/etc/localtime` already exists as a symlink to UTC on a stock image, and without it Ignition only updates the owner and group of a link that is already there instead of changing its target. The `filesystem` field used in raw Ignition configs is not needed here: Butane's `flatcar` variant addresses every path directly and has no separate root or oem filesystem to select.
+
+If applying the config fails with a message about `/etc/localtime` not being a symlink, something on the machine, commonly a container runtime creating a host directory for a bind mount that does not exist yet, has replaced it with a directory. Remove the directory before reprovisioning, or run `sudo timedatectl set-timezone <zone>` once by hand to restore the symlink.
+
 ## Time synchronization
 
 Flatcar Container Linux clusters use NTP to synchronize the clocks of member nodes, and all machines start an NTP client at boot. The operating system uses [`systemd-timesyncd(8)`][systemd-timesyncd] as the default NTP client. Use `systemctl` to check which service is running:
