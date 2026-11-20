@@ -53,7 +53,7 @@ jq -n --arg name "${IMAGE_NAME}" --arg file "${IMAGE_NAME}.qcow2.gz" --arg url "
     Type: "machine",
     ProductTypes: ["0001"],
     Public: false,
-    BootModes: ["legacy"],
+    BootModes: ["uefi"],
     Snapshots: [
       {
         Device: "/dev/sda1",
