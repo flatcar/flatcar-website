@@ -27,7 +27,6 @@ jobs:
         uses: peaceiris/actions-hugo@v3
         with:
           hugo-version: '${{ steps.hugo-version.outputs.HUGO_VERSION }}'
-          extended: true
 
       - name: Update modules
         id: update-modules
