@@ -81,7 +81,7 @@ If you trust the user, you can grant administrative privileges using `visudo`. 
 # visudo -f /etc/sudoers.d/user1
 ```
 
-Add a the line:
+Add the line:
 
 ```text
 user1 ALL=(ALL) NOPASSWD: ALL

@@ -1,14 +1,15 @@
 {{ range $i, $release := sort .chan "version" "desc" }}
 {{ if not (hasPrefix $release.release "current") }}
 <div class="release-entry" id="release-{{ $release.version }}">
-  <div class="release-entry__header{{ if ne $i 0 }} collapsed{{ end }}" data-bs-toggle="collapse" data-bs-target="#release-body-{{ $release.channel }}-{{ $release.version | replaceRE "\\." "-" }}" aria-expanded="{{ if eq $i 0 }}true{{ else }}false{{ end }}">
+  {{/* no data-bs-toggle: Bootstrap's data-api preventDefaults clicks on <a> inside the trigger, breaking the version/arch links */}}
+  <div class="release-entry__header{{ if ne $i 0 }} collapsed{{ end }}" data-target="#release-body-{{ $release.channel }}-{{ $release.version | replaceRE "\\." "-" }}" aria-expanded="{{ if eq $i 0 }}true{{ else }}false{{ end }}">
     <div class="release-entry__summary">
       <span class="release-entry__toggle-icon fa-solid fa-chevron-right"></span>
-      <a class="release-entry__version" href="#release-{{ $release.version }}" onclick="event.stopPropagation();">{{ $release.version }}</a>
+      <a class="release-entry__version" href="#release-{{ $release.version }}">{{ $release.version }}</a>
       <span class="release-entry__date">{{ dateFormat "Jan 2, 2006" $release.github_release.published_at }}</span>
       <span class="release-entry__archs">
         {{ range $release.architectures }}
-          <a class="arch fw-light" href="https://{{ $release.channel }}.release.flatcar-linux.net/{{ . }}-usr/{{ $release.version }}/" onclick="event.stopPropagation();">{{ . }}</a>
+          <a class="arch fw-light" href="https://{{ $release.channel }}.release.flatcar-linux.net/{{ . }}-usr/{{ $release.version }}/">{{ . }}</a>
         {{ end }}
       </span>
     </div>
