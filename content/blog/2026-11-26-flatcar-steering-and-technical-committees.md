@@ -38,6 +38,7 @@ To volunteer, leave a short comment on the issue for the committee you'd like to
  
 * [Volunteer for the Steering Committee](https://github.com/flatcar/Flatcar/issues/2514)
 * [Volunteer for the Technical Committee](https://github.com/flatcar/Flatcar/issues/2515)
+
 You can sit on one committee, not both. If you contribute regularly but aren't a Member yet, you can become one through the [contributor ladder](https://github.com/flatcar/Flatcar/blob/main/CONTRIBUTOR_LADDER.md). Member PRs stay open for at least a week, so if you'd like to volunteer this time, open yours by Wednesday 2 December.
  
 Here's what happens next:
@@ -45,6 +46,7 @@ Here's what happens next:
 * **10 December:** we post the list of volunteers on each issue.
 * **10 to 16 December:** veto week. The maintainers confirm adopter listings and can raise any concerns.
 * **17 December:** both committees are seated.
+
 The founding committees serve for one year. Their first job is to set the rules for future terms, including how elections will work, with a public comment period before anything is adopted.
  
 ## No single company in charge
@@ -55,6 +57,7 @@ We want Flatcar's governance to be genuinely multi-company, so a few rules are b
 * Every committee decision needs yes votes from members of at least two different companies, again counting subsidiaries and affiliates as one company.
 * Once it's seated, the Steering Committee approves changes to our governance, so maintainers don't have to vote on every one.
 * Nobody can sit on both committees at once.
+
 ## Meet our first Members
  
 Our governance has always promised "a clear path up the contributor ladder", and now it's written down. The [contributor ladder](https://github.com/flatcar/Flatcar/blob/main/CONTRIBUTOR_LADDER.md) adds a **Member** role between Contributor and Maintainer, for people who take part in Flatcar regularly. Contributions don't have to be code: docs, triage, answering questions, talks, blog posts, events, design and release work all count. New Members are sponsored by two maintainers, at least one of whom works for a different company.
@@ -63,6 +66,7 @@ A warm welcome to our first two [Members](https://github.com/flatcar/Flatcar/blo
  
 * **Logan Blyth** from Hedgehog, one of our adopters, who has been helping with community and graduation work
 * **Daniel Szot** from Microsoft, who has been automating our security triage
+
 If you think you, or someone you know, should be a Member, the [ladder](https://github.com/flatcar/Flatcar/blob/main/CONTRIBUTOR_LADDER.md) explains how to join.
  
 ## A clearer adopters list
