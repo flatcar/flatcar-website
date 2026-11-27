@@ -1,3 +1,27 @@
+// Flatcar custom properties
+
+:root,
+[data-bs-theme="light"] {
+  --flatcar-accent: #{$flatcar-darker-blue};
+  --flatcar-surface-inverse: #{$black};
+  --flatcar-surface-inverse-color: #{$white};
+}
+
+[data-bs-theme="dark"] {
+  --flatcar-accent: #{$flatcar-blue};
+  --flatcar-surface-inverse: #{$flatcar-dark-700};
+  --flatcar-surface-inverse-color: #f1f5f9;
+}
+
+.announcement-banner {
+  background-color: var(--announcement-bg);
+
+  [data-bs-theme="dark"] & {
+    background-color: rgba($yellow, 0.08);
+    border-left: 3px solid $yellow;
+  }
+}
+
 // Headings
 
 h2 {
@@ -56,6 +80,11 @@ h6 {
   width: 20px;
   height: 18px;
   outline: none !important;
+
+  &:focus-visible {
+    outline: 2px solid rgba($white, 0.85) !important;
+    outline-offset: 3px;
+  }
 
   > span {
     background: white;
@@ -350,7 +379,7 @@ h6 {
 .page-item:nth-child(2):not(.disabled):hover,
 .page-item:nth-last-child(2):not(.disabled):hover {
   .page-link {
-    color: $black;
+    color: var(--bs-emphasis-color);
     background: none;
 
     &:before {
@@ -359,11 +388,18 @@ h6 {
   }
 }
 
-a:hover {
-  color: $flatcar-blue;
-}
 
 .page-item.active .page-link, .page-link:hover {
   background-color: $flatcar-blue;
   border-color: $flatcar-blue;
+  color: $flatcar-navy;
+}
+
+[data-bs-theme="dark"] .pagination {
+  --bs-pagination-color: #{$body-color-dark};
+  --bs-pagination-bg: #{$flatcar-dark-800};
+  --bs-pagination-hover-color: #{$body-emphasis-color-dark};
+  --bs-pagination-hover-bg: #{$flatcar-dark-700};
+  --bs-pagination-disabled-bg: #{$flatcar-dark-800};
+  --bs-pagination-disabled-color: #{rgba($body-color-dark, .35)};
 }

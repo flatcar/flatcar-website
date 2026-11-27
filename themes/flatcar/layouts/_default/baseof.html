@@ -1,16 +1,19 @@
-<!DOCTYPE html>
-<html>
-    {{- partial "head.html" . -}}
-    <body>
-        <a class="visually-hidden visually-hidden-focusable" href="#content">Skip to content</a>
-        {{- partial "header.html" . -}}
+<!doctype html>
+<html lang="{{ .Site.Language.Lang }}" {{ if .IsHome }}data-bs-theme="light"{{ end }}>
+  <head>
+    {{ partial "head.html" . }}
+  </head>
+  <body class="{{ if .IsHome }} home-page {{ end }}" {{ if .IsHome }}data-theme-force="light"{{ end }}>
+    <a class="visually-hidden visually-hidden-focusable" href="#content">Skip to content</a>
+    {{ partial "header.html" . }}
 
-        <main class="main" id="content" role="main">
-            {{ block "main" . }}{{ .Render "common-page" }}{{ end }}
-            {{ block "unique-content" . }}{{ end }}
-            {{ block "bottom" . }}{{ end }}
-        </main>
+    <main class="main" id="content" role="main">
+      {{ block "main" . }}{{ .Render "common-page" }}{{ end }}
+      {{ block "unique-content" . }}{{ end }}
+      {{ block "bottom" . }}{{ end }}
+    </main>
 
-        {{ partial "footer.html" . }}
-    </body>
+    {{ partial "footer.html" . }}
+    {{ partial "theme-mode.html" (dict "part" "body" "page" .) }}
+  </body>
 </html>
